@@ -1,5 +1,5 @@
 {
-  "name": "React App",
+  "name": "Pass to Trip",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000/",
