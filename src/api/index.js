@@ -9,12 +9,11 @@ const api = async (method = "get", uri, body) => {
   }
 
   // API Call
-  const url = process.env.BASE_URL + uri;
   return new Promise((resolve, reject) => {
-    axios[method](url, body)
+    axios[method](uri, body)
       .then((res) => resolve(res))
       .catch((err) => {
-        if (err?.response?.status === 403) {
+        if (err?.response?.status === 401) {
           window.location = "/login";
         } else {
           console.log("API Error --------> ", err.response.status);
