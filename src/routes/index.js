@@ -3,12 +3,12 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 // Routes
-import Home from "../containers/Home.js";
+import Construction from "../containers/Construction.js";
 
 const index = () => {
   return (
     <Switch>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" component={Construction} />
     </Switch>
   );
 };
