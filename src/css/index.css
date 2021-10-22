@@ -1,11 +1,15 @@
 /* Importing all CSS files */
 @import url("./Header.css");
+@import url("./Body.css");
+@import url("./TopCourses.css");
+@import url("./LatestCourses.css");
 
 /* Defaults */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Mulish";
 }
 
 /* Primary Variables */

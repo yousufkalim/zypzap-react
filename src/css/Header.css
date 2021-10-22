@@ -1,4 +1,38 @@
-/* Header Component Style */
-h1 {
-  color: red;
+/* for background color of avbar */
+.css-hip9hq-MuiPaper-root-MuiAppBar-root {
+  background-color: #0e0f1e !important;
+}
+/* whole navbar */
+.css-1t29gy6-MuiToolbar-root {
+  padding-left: 40px !important;
+}
+.searchBar {
+  width: 50% !important;
+  border-radius: 60px !important;
+}
+.css-96uuyl {
+  background-color: #202342 !important;
+}
+.iconseperate {
+  padding: 0px 10px 0px 10px;
+  position: relative;
+  top: -3px;
+  opacity: 0.7;
+}
+.downarrow {
+  position: relative;
+  left: 6%;
+  width: 13px;
+}
+
+/* for big screens */
+@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+  .searchBar {
+    width: 55% !important;
+  }
+  .downarrow {
+    position: relative;
+    left: 4%;
+    width: 13px;
+  }
 }

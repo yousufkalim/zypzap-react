@@ -1,0 +1,55 @@
+.Bodycontainer {
+  text-align: center;
+  margin-top: 5px;
+  position: relative;
+  color: white;
+}
+.textonImg {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+}
+.textonImg h1 {
+  font-size: 2.7em;
+}
+.textonImg p {
+  padding: 5px 0px 5px 0px;
+  margin: 8px 0px 8px 0px;
+}
+.textonImg button {
+  padding: 8px;
+  border: none;
+  margin: 8px 0px 8px 0px;
+  background-color: #e7411b;
+  color: white;
+  font-weight: 900;
+  font-family: "Poppins", sans-serif;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.bodyImage {
+  width: 95%;
+}
+.blurImg {
+  width: 95%;
+  position: absolute;
+  left: 32px;
+}
+/* for big screens */
+@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+  .bodyImage {
+    width: 95%;
+  }
+  .blurImg {
+    width: 95%;
+    left: 42px;
+  }
+  .textonImg {
+    left: 20%;
+  }
+  .textonImg h1 {
+    font-size: 3em;
+  }
+}
