@@ -23,12 +23,13 @@ export default function TopCourses() {
   ];
   return (
     <div className="topCoursescontainer">
-      <p className="topcourseheading">Top Course</p>
+      <p className="topcourseheading">Top Courses</p>
       <Carousel
-        autoPlay={true}
+        autoPlay={false}
         //   navButtonsAlwaysVisible={true}
         animation={"fade"}
         activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
+        className="topcoursecarousal"
       >
         {items.map((item, i) => (
           <TopCoursesComponent key={i} item={item} />
@@ -57,7 +58,7 @@ function TopCoursesComponent({ item }) {
             </p>
           </Grid>
           <Grid item xs={4} md={4}>
-            <h3 style={{ textAlign: "right" }}>19.99$</h3>
+            <h3 style={{ textAlign: "right" }}>$19.99</h3>
           </Grid>
         </Grid>
         <Grid container spacing={2} className="topcourseuserGrid">
