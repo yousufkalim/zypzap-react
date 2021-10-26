@@ -6,7 +6,7 @@
 }
 .textonImg {
   position: absolute;
-  top: 25%;
+  top: 15%;
   left: 25%;
   transform: translate(-50%, -50%);
   text-align: left;
@@ -30,21 +30,21 @@
   cursor: pointer;
 }
 .bodyImage {
-  width: 95%;
+  width: 93%;
 }
 .blurImg {
-  width: 95%;
+  width: 93%;
   position: absolute;
-  left: 32px;
+  left: 48px;
 }
 /* for big screens */
 @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
   .bodyImage {
-    width: 95%;
+    width: 94%;
   }
   .blurImg {
-    width: 95%;
-    left: 42px;
+    width: 94%;
+    left: 55px;
   }
   .textonImg {
     left: 20%;

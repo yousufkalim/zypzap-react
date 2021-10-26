@@ -1,19 +1,14 @@
 // Init
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import Course1 from "../assets/img/course1.png";
 import Course2 from "../assets/img/course2.png";
 import Course3 from "../assets/img/course3.png";
 import Course4 from "../assets/img/course4.png";
 import StarIcon from "@material-ui/icons/Star";
-// import Carousel from "react-material-ui-carousel";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import rightarrow from "../assets/icons/rightarrow.svg";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-export default function Construction() {
+export default function LatestCourses() {
   var items = [
     {
       title: "CS-GO Ep 2 Complete Course",
@@ -57,7 +52,7 @@ export default function Construction() {
     },
     {
       title: "6Minicraft Full Course",
-      img: Course4,
+      img: Course3,
       name: "6James Wiik",
       rating: "rating",
       price: "19.99",
@@ -65,7 +60,7 @@ export default function Construction() {
     },
     {
       title: "7Minicraft Full Course",
-      img: Course4,
+      img: Course2,
       name: "7James Wiik",
       rating: "rating",
       price: "19.99",
@@ -73,7 +68,7 @@ export default function Construction() {
     },
     {
       title: "8Minicraft Full Course",
-      img: Course4,
+      img: Course1,
       name: "8James Wiik",
       rating: "rating",
       price: "19.99",
@@ -81,7 +76,7 @@ export default function Construction() {
     },
     {
       title: "9Minicraft Full Course",
-      img: Course4,
+      img: Course1,
       name: "9James Wiik",
       rating: "rating",
       price: "19.99",
@@ -89,7 +84,7 @@ export default function Construction() {
     },
     {
       title: "10Minicraft Full Course",
-      img: Course4,
+      img: Course2,
       name: "10James Wiik",
       rating: "rating",
       price: "19.99",
@@ -97,7 +92,7 @@ export default function Construction() {
     },
     {
       title: "11Minicraft Full Course",
-      img: Course4,
+      img: Course3,
       name: "11James Wiik",
       rating: "rating",
       price: "19.99",
@@ -133,13 +128,6 @@ export default function Construction() {
     },
   };
 
-  const HandleNext = (next, active) => {
-    console.log(`we left ${active},in next  and are now at ${next}`);
-  };
-  const HandlePrev = (prev, active) => {
-    console.log(`we left ${active}, in prev and are now at ${prev}`);
-  };
-
   return (
     <div className="latestCoursescontainer">
       <div className="latestcourseHeadingDiv">
@@ -155,8 +143,8 @@ export default function Construction() {
           {items.map((item, i) => (
             <div className="cardGrid">
               <img src={item.img} className="courseimg" />
-              <h5 className="latestcourseh5">CS-GO Ep 2 Complete Course</h5>
-              <p className="latestcoursep1">b</p>
+              <h5 className="latestcourseh5">{item.title}</h5>
+              <p className="latestcoursep1">{item.name}</p>
               <p className="latestcoursep1">
                 {" "}
                 5.0
@@ -181,142 +169,4 @@ export default function Construction() {
       </div>
     </div>
   );
-}
-
-function LatestCoursesComponent({ item }) {
-  return (
-    <Grid container spacing={5}>
-      {console.log("ietm is ", item)}
-      <Grid item xs={3} md={3}>
-        <div className="cardGrid">
-          <img src={Course1} className="courseimg" />
-          <h5 className="latestcourseh5">CS-GO Ep 2 Complete Course</h5>
-          <p className="latestcoursep1">b</p>
-          <p className="latestcoursep1">
-            {" "}
-            5.0
-            {[1, 2, 3, 4, 5].map((item) => (
-              <StarIcon
-                style={{
-                  width: "15px",
-                  height: "15px",
-                  color: "red",
-                  margintTop: "3px",
-                  position: "relative",
-                  top: "3px",
-                }}
-              />
-            ))}
-            (1809)
-          </p>
-          <h6 className="latestcourseh6">$19.99</h6>
-        </div>
-      </Grid>
-      <Grid item xs={3} md={3}>
-        <div className="cardGrid">
-          <img src={Course1} className="courseimg" />
-          <h5 className="latestcourseh5">CS-GO Ep 2 Complete Course</h5>
-          <p className="latestcoursep1">a</p>
-          <p className="latestcoursep1">
-            {" "}
-            5.0
-            {[1, 2, 3, 4, 5].map((item) => (
-              <StarIcon
-                style={{
-                  width: "15px",
-                  height: "15px",
-                  color: "red",
-                  margintTop: "3px",
-                  position: "relative",
-                  top: "3px",
-                }}
-              />
-            ))}
-            (1809)
-          </p>
-          <h6 className="latestcourseh6">$19.99</h6>
-        </div>
-      </Grid>
-      <Grid item xs={3} md={3}>
-        <div className="cardGrid">
-          <img src={Course1} className="courseimg" />
-          <h5 className="latestcourseh5">CS-GO Ep 2 Complete Course</h5>
-          <p className="latestcoursep1">b</p>
-          <p className="latestcoursep1">
-            {" "}
-            5.0
-            {[1, 2, 3, 4, 5].map((item) => (
-              <StarIcon
-                style={{
-                  width: "15px",
-                  height: "15px",
-                  color: "red",
-                  margintTop: "3px",
-                  position: "relative",
-                  top: "3px",
-                }}
-              />
-            ))}
-            (1809)
-          </p>
-          <h6 className="latestcourseh6">$19.99</h6>
-        </div>
-      </Grid>
-      <Grid item xs={3} md={3}>
-        <div className="cardGrid">
-          <img src={Course1} className="courseimg" />
-          <h5 className="latestcourseh5">CS-GO Ep 2 Complete Course</h5>
-          <p className="latestcoursep1">b</p>
-          <p className="latestcoursep1">
-            {" "}
-            5.0
-            {[1, 2, 3, 4, 5].map((item) => (
-              <StarIcon
-                style={{
-                  width: "15px",
-                  height: "15px",
-                  color: "red",
-                  margintTop: "3px",
-                  position: "relative",
-                  top: "3px",
-                }}
-              />
-            ))}
-            (1809)
-          </p>
-          <h6 className="latestcourseh6">$19.99</h6>
-        </div>
-      </Grid>
-    </Grid>
-  );
-}
-
-{
-  /* <Grid container spacing={5}>
-<Grid item xs={3} md={3}>
-  <div className="cardGrid">
-    <img src={Course1} className="courseimg" />
-    <h5 className="latestcourseh5">CS-GO Ep 2 Complete Course</h5>
-    <p className="latestcoursep1">b</p>
-    <p className="latestcoursep1">
-      {" "}
-      5.0
-      {[1, 2, 3, 4, 5].map((item) => (
-        <StarIcon
-          style={{
-            width: "15px",
-            height: "15px",
-            color: "red",
-            margintTop: "3px",
-            position: "relative",
-            top: "3px",
-          }}
-        />
-      ))}
-      (1809)
-    </p>
-    <h6 className="latestcourseh6">$19.99</h6>
-  </div>
-</Grid>
-</Grid> */
 }

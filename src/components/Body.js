@@ -4,6 +4,7 @@ import Bodyimg from "../assets/img/body.png";
 import BodyBlurimg from "../assets/img/bodyblur.png";
 import TopCourses from "./TopCourses";
 import LatestCourses from "./LatestCourses";
+import TopRatedContent from "./TopRatedContent";
 
 export default function Body() {
   return (
@@ -22,6 +23,7 @@ export default function Body() {
 
         <TopCourses />
         <LatestCourses />
+        <TopRatedContent />
       </div>
     </>
   );

@@ -8,7 +8,7 @@
 .latestcourseHeadingDiv {
   display: flex;
   justify-content: space-between;
-  width: 95%;
+  width: 93%;
   margin: auto;
 }
 .latestcourseheading {
@@ -44,13 +44,13 @@
   opacity: 0.8;
 }
 .carousalOuterDiv {
-  width: 97%;
+  width: 95%;
   margin: auto;
 }
 /* right arrow */
 .react-multiple-carousel__arrow--right {
   background-color: transparent !important;
-  right: -7px !important;
+  right: 4px !important;
 }
 .react-multiple-carousel__arrow::before {
   font-size: 30px !important;
@@ -60,7 +60,7 @@
 }
 /* left arrow */
 .react-multiple-carousel__arrow--left {
-  left: -7px !important;
+  left: 2px !important;
   background-color: transparent !important;
 }
 .react-multi-carousel-list {
