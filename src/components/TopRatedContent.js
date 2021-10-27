@@ -168,26 +168,13 @@ export default function TopRatedContent() {
           {items.map((item, i) => (
             <div className="topRatedcardGrid">
               <img src={item.img} className="topRatedcourseimg" />
-              <h5 className="latestcourseh5">{item.title}</h5>
-              <p className="latestcoursep1">{item.name}</p>
+              <h5 className="latestcourseh5">{item.name}</h5>
+              <p className="latestcoursep1">{item.title}</p>
               <p className="latestcoursep1">
                 {" "}
-                5.0
-                {[1, 2, 3, 4, 5].map((item) => (
-                  <StarIcon
-                    style={{
-                      width: "15px",
-                      height: "15px",
-                      color: "red",
-                      margintTop: "3px",
-                      position: "relative",
-                      top: "3px",
-                    }}
-                  />
-                ))}
-                (1809)
+                Level :<span style={{ color: "red" }}>{item.level}</span>
               </p>
-              <h6 className="latestcourseh6">$19.99</h6>
+              <p className="topRatedContentcourseh6">{item.students}</p>
             </div>
           ))}
         </Carousel>

@@ -4,6 +4,9 @@
 @import url("./TopCourses.css");
 @import url("./LatestCourses.css");
 @import url("./TopratedContent.css");
+@import url("./Request.css");
+@import url("./RankingList.css");
+@import url("./Blog.css");
 
 /* Defaults */
 * {

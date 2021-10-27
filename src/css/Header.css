@@ -36,3 +36,12 @@
     width: 13px;
   }
 }
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .searchBar {
+    width: 70% !important;
+  }
+  .downarrow {
+    left: 17%;
+  }
+}

@@ -1,0 +1,49 @@
+.blogcontainer {
+  margin-top: 5px;
+  position: unset !important;
+  color: white;
+  margin: auto;
+  text-align: left;
+}
+.blogHeadingDiv {
+  display: flex;
+  justify-content: space-between;
+  width: 93%;
+  margin: auto;
+}
+.blogheading {
+  padding: 20px 0px 25px 0px;
+  font-weight: bolder;
+  font-size: 17px;
+}
+.blogGridOuterDiv {
+  width: 95%;
+  margin: auto;
+}
+.blogGrid {
+  background: linear-gradient(
+    90.12deg,
+    #202342 22.77%,
+    rgba(38, 38, 72, 0) 129.88%
+  ) !important;
+  border-radius: 30px !important;
+}
+.blogcourseimg {
+  width: 100%;
+  height: 225px;
+  /* padding: 0px 0px 10px 0px; */
+}
+.blogcourseh5 {
+  padding-left: 20px;
+}
+.blogcoursep1 {
+  padding: 5px 0px 0px 25px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+.blogcourseh6 {
+  font-size: 15px;
+  font-weight: 0px;
+  margin-bottom: 10px;
+  padding: 10px 0px 15px 25px;
+}

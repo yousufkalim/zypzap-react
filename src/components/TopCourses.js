@@ -42,10 +42,10 @@ export default function TopCourses() {
 function TopCoursesComponent({ item }) {
   return (
     <Grid container spacing={2} className="topCourseGrid">
-      <Grid item xs={5} sm={5} className="">
+      <Grid item xs={12} sm={5} className="">
         <img src={TopCourseImg} className="topcourseimg" />
       </Grid>
-      <Grid item xs={7} sm={7} className="topcourseTextGrid">
+      <Grid item xs={12} sm={7} className="topcourseTextGrid">
         <Grid container spacing={2}>
           <Grid item xs={8} md={8}>
             <h3 className="h3heading">{item?.name}</h3>

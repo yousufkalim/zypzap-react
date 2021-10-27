@@ -36,7 +36,7 @@
 .latestcourseh6 {
   font-size: 15px;
   margin-bottom: 10px;
-  padding: 20px 0px 20px 20px;
+  padding: 20px 0px 20px 25px;
 }
 .latestcoursep1 {
   padding: 5px 0px 0px 20px;
@@ -66,4 +66,11 @@
 .react-multi-carousel-list {
   position: unset !important;
   overflow-x: hidden !important;
+}
+
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .cardGrid {
+    text-align: center;
+  }
 }

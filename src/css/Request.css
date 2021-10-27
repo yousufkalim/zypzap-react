@@ -1,0 +1,42 @@
+.requestContainer {
+  background: linear-gradient(
+    90.12deg,
+    #202342 22.77%,
+    rgba(38, 38, 72, 0) 129.88%
+  ) !important;
+  border-radius: 45px !important;
+  width: 95% !important;
+  margin: 4% auto 4% auto !important;
+  padding: 4% 0px 4% 0px;
+}
+.requestHeading {
+  padding: 5px;
+}
+.requestContent {
+  opacity: 0.7;
+  line-height: 1.5;
+}
+.requestButton {
+  padding: 8px;
+  border: none;
+  margin: 10px 0px 10px 0px;
+  background-color: #e7411b;
+  color: white;
+  font-weight: 900;
+  font-family: "Poppins", sans-serif;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .requestHeading {
+    font-size: 20px;
+  }
+  .requestContent {
+    font-size: 14px;
+  }
+  .br {
+    display: none;
+  }
+}

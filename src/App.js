@@ -18,7 +18,6 @@ function App() {
         hideProgressBar={true}
         transition={Flip}
       />
-
       {/* Routes */}
       <Index />
     </div>

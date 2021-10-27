@@ -43,7 +43,7 @@
   margin-left: 5px;
 }
 .topcourseuserGrid {
-  margin-top: 7% !important;
+  margin-top: 8% !important;
 }
 .topcourseuserRightGrid {
   margin-top: 4% !important;
@@ -69,9 +69,23 @@
 /* for big screens */
 @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
   .h3heading {
-    font-size: 25px;
+    font-size: 30px;
   }
   .topcourseuserGrid {
     margin-top: 14% !important;
+  }
+  .topcourseText {
+    padding-top: 10px !important;
+    opacity: 0.7 !important;
+    font-size: 18px;
+  }
+}
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .h3heading {
+    font-size: 17px;
+  }
+  .topcourseText {
+    font-size: 12px;
   }
 }
