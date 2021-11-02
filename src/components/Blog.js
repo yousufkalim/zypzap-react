@@ -4,7 +4,7 @@ import Game1 from "../assets/img/game1.png";
 import Game2 from "../assets/img/game2.png";
 import Game3 from "../assets/img/game3.png";
 import Game4 from "../assets/img/game4.png";
-import Game5 from "../assets/img/game5.png";
+
 import "react-multi-carousel/lib/styles.css";
 import Grid from "@material-ui/core/Grid";
 

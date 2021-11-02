@@ -9,16 +9,15 @@ import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import Logo from "../assets/icons/logo.png";
 import Moon from "../assets/icons/moon.svg";
 import Globe from "../assets/icons/globe.svg";
 import DownArrow from "../assets/icons/downarrow.svg";
+import UserIcon from "../assets/icons/userIcon.svg";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -123,13 +122,17 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
+      <MenuItem onClick={handleProfileMenuOpen}>
+        <IconButton
+          size="large"
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <AccountCircle />
         </IconButton>
-        <p>Messages</p>
+        <p>User</p>
       </MenuItem>
       <MenuItem>
         <IconButton
@@ -141,19 +144,16 @@ export default function PrimarySearchAppBar() {
             <NotificationsIcon />
           </Badge>
         </IconButton>
-        <p>Notifications</p>
+        <p>My Courses</p>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
+
+      <MenuItem>
         <IconButton
           size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
+          aria-label="show 4 new mails"
           color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
+        ></IconButton>
+        <p>Switch to Learner</p>
       </MenuItem>
     </Menu>
   );
@@ -194,10 +194,13 @@ export default function PrimarySearchAppBar() {
               width: { xs: "auto", md: "30%" },
             }}
           >
-            <p>Become a Creator</p>
-            <p>Sign Up</p>
-            <p>Login</p>
+            <p>Switch to Learner</p>
+            <p>My Courses</p>
+            {/* <p>Sign Up</p>
+            <p>Login</p> */}
             <div>
+              <img src={UserIcon} />
+              <span className="iconseperate">|</span>
               <img src={Globe} />
               <span className="iconseperate">|</span>
               <img src={Moon} />

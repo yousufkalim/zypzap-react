@@ -13,7 +13,6 @@ export default function Construction() {
       }}
     >
       <Header />
-      {/* <Carousal /> */}
       <Body />
     </div>
   );

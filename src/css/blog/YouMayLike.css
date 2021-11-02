@@ -1,0 +1,36 @@
+.youMayLikecontainer {
+  margin-top: 5px;
+  position: relative;
+  color: white;
+  width: 93%;
+  margin: auto;
+  text-align: left;
+}
+.youMayLikeheading {
+  padding: 20px 0px 15px 10px;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.blogdiv1 {
+  width: 93%;
+  margin-bottom: 25px;
+  border-radius: 20px;
+  background: linear-gradient(
+    90.12deg,
+    #202342 22.77%,
+    rgba(38, 38, 72, 0) 129.88%
+  );
+}
+.blogdivimg {
+  width: 100%;
+}
+.blogdiv1text {
+  padding: 15px 22px 15px 22px;
+  opacity: 0.7;
+}
+.blogdiv1heading {
+  padding: 10px 0px 10px 0px;
+}
+.bloddiv1detail {
+  padding: 10px 0px 10px 0px;
+}

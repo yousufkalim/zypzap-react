@@ -7,6 +7,10 @@
 @import url("./Request.css");
 @import url("./RankingList.css");
 @import url("./Blog.css");
+@import url("./blog/BlogBody.css");
+@import url("./blog/LatestArticle.css");
+@import url("./blog/YouMayLike.css");
+@import url("./blog/BlogFooter.css");
 
 /* Defaults */
 * {

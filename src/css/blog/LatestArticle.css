@@ -1,0 +1,68 @@
+.LatestArticlecontainer {
+  margin-top: 5px;
+  position: relative;
+  color: white;
+  width: 93%;
+  margin: auto;
+  text-align: left;
+}
+.LatestArticleheading {
+  padding: 15px 0px 0px 10px;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.latestArticleLeft {
+  background: linear-gradient(
+    90.12deg,
+    #202342 22.77%,
+    rgba(38, 38, 72, 0) 129.88%
+  ) !important;
+  border-radius: 20px !important;
+  margin-top: 20px;
+}
+.article1img {
+  width: 100%;
+  padding-top: 5px;
+}
+
+.latestArticleRight {
+  background: linear-gradient(
+    90.12deg,
+    #202342 22.77%,
+    rgba(38, 38, 72, 0) 129.88%
+  ) !important;
+  display: flex;
+  margin-top: 25px;
+  border-radius: 20px !important;
+}
+.articleText {
+  padding: 20px 0px 0px 30px;
+  opacity: 0.7;
+}
+.textdescription {
+  padding: 8px 0px 8px 0px;
+}
+.article2img {
+  width: 40%;
+}
+.commentSpan {
+  margin-left: 20px;
+}
+.articledetail {
+  margin-left: 20px;
+  padding: 20px;
+  opacity: 0.7;
+}
+.articleheading {
+  padding: 15px 0 15px 0;
+}
+.articleBy {
+  padding: 15px 0 15px 0;
+}
+.seemore {
+  color: red;
+}
+.seemore:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
