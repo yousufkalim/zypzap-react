@@ -6,6 +6,7 @@ import { Route, Switch } from "react-router-dom";
 import Construction from "../containers/Construction.js";
 import Home from "../containers/Home";
 import Blog from "../containers/Blog";
+import Article from "../containers/Article";
 
 const index = () => {
   return (
@@ -13,6 +14,7 @@ const index = () => {
       <Route exact path="/" component={Construction} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/blog" component={Blog} />
+      <Route exact path="/article" component={Article} />
     </Switch>
   );
 };

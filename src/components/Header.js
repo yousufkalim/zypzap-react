@@ -174,7 +174,7 @@ export default function PrimarySearchAppBar() {
               paddingLeft: "5px",
             }}
           >
-            Categories
+            {/* Categories */}
           </Typography>
           <Search className="searchBar">
             <SearchIconWrapper>

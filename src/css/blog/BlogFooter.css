@@ -38,6 +38,7 @@
   border: 2px solid white;
   color: white;
   font-weight: bolder;
+  cursor: pointer;
 }
 .languageIcon {
   position: relative;
