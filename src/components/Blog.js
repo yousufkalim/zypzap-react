@@ -1,8 +1,8 @@
 // Init
 import React from "react";
-import Game1 from "../assets/img/game1.png";
-import Game2 from "../assets/img/game2.png";
-import Game3 from "../assets/img/game3.png";
+import Homeblog1 from "../assets/img/Homeblog1.png";
+import Homeblog2 from "../assets/img/Homeblog2.png";
+import Homeblog3 from "../assets/img/Homeblog3.png";
 import Game4 from "../assets/img/game4.png";
 
 import "react-multi-carousel/lib/styles.css";
@@ -11,44 +11,31 @@ import Grid from "@material-ui/core/Grid";
 export default function TopRatedContent() {
   var items = [
     {
-      title: "fighting game player of Tekken",
-      img: Game1,
-      name: "Arslan",
-      level: "Pro",
-      students: "500000+ Students",
-      rating: "rating",
-      price: "19.99",
-      test: "1",
+      title: "Blog Title Here",
+      img: Homeblog1,
+      detail:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
+      btn:"Read more"
     },
     {
-      title: "Undefeated PUBG player",
-      img: Game2,
-      name: "Jennifer Flagg",
-      level: "Pro",
-      students: "500000+ Students",
-      rating: "rating",
-      price: "19.99",
-      test: "2",
+      title: "Blog Title Here",
+      img: Homeblog2,
+      detail:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
+      btn:"Read more"
+      
     },
     {
-      title: "Mincraft Expert",
-      img: Game3,
-      name: "Pewdiepie",
-      level: "Pro",
-      students: "500000+ Students",
-      rating: "rating",
-      price: "19.99",
-      test: "3",
+      title: "Blog Title Here",
+      img: Homeblog3,
+      detail:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
+      btn:"Read more"
+      
     },
     {
-      title: "Pro player of CS:GO",
-      img: Game4,
-      name: "Dupreeh",
-      level: "Pro",
-      students: "500000+ Students",
-      rating: "rating",
-      price: "19.99",
-      test: "4",
+      title: "Blog Title Here",
+      img: Homeblog3,
+      detail:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
+      btn:"Read more"
+      
     },
   ];
 
@@ -64,13 +51,9 @@ export default function TopRatedContent() {
             <Grid item xs={6} md={3}>
               <div className="blogGrid">
                 <img src={item.img} className="blogcourseimg" />
-                <h5 className="blogcourseh5">{item.name}</h5>
-                <p className="blogcoursep1">{item.title}</p>
-                <p className="blogcoursep1">
-                  {" "}
-                  Level :<span style={{ color: "red" }}>{item.level}</span>
-                </p>
-                <p className="blogcourseh6">{item.students}</p>
+                <h5 className="blogcourseh5">{item.title}</h5>
+                <p className="blogcoursep1">{item.detail}</p>
+                <p className="blogcourseh6">{item.btn}</p>
               </div>
             </Grid>
           ))}
