@@ -13,7 +13,7 @@ export default function TopRatedContent() {
     {
       title: "fighting game player of Tekken",
       img: Game1,
-      name: "Arslan Ash",
+      name: "Arslan",
       level: "Pro",
       students: "500000+ Students",
       rating: "rating",

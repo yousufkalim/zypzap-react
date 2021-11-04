@@ -10,10 +10,13 @@ export default function Construction() {
         backgroundColor: "#0e0f1e",
         minHeight: "100vh",
         overflowX: "hidden",
+        overflowY:"hidden"
+        
       }}
     >
       <Header />
       <Body />
+
     </div>
   );
 }

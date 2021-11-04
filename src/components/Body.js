@@ -8,7 +8,7 @@ import TopRatedContent from "./TopRatedContent";
 import Request from "./Request";
 import RankingList from "./RankingList";
 import Blog from "./Blog";
-
+import Blogfooter from "./blog/BlogFooter";
 export default function Body() {
   const scrollToTop = () => {
     window.scrollTo({
@@ -39,6 +39,8 @@ export default function Body() {
         <Request />
         <RankingList />
         <Blog />
+        <Blogfooter/>
+
       </div>
     </>
   );
