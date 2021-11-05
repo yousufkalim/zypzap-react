@@ -2,6 +2,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import WhoWeAreimg from "../../assets/img/ss2.png";
+import VideoImg from "../../assets/img/videoimg.png";
 
 export default function About() {
   return (
@@ -17,11 +18,26 @@ export default function About() {
             </div>
           </Grid>
           <Grid item xs={12} md={6}>
-            <div>
-              <h1 style={{ color: "white" }}>img</h1>
+            <div className="whoweareText">
+              <p className="whoweareP">
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page this is when loovking at its
+                layout game is best. The point of using Lorem Ipsum is that. It
+                is a long established fact that a reader will be distracted by
+                the readable content of a page this is when loovking at its
+                layout game is best. The point of using Lorem Ipsum is that.
+              </p>
+              <p>
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page this is when loovking at its
+                layout game is best. The point of using Lorem Ipsum is that.
+              </p>
             </div>
           </Grid>
         </Grid>
+        <div className="videoImgDiv">
+          <img src={VideoImg} className="videoimg" />
+        </div>
       </div>
     </>
   );

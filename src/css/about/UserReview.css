@@ -1,0 +1,16 @@
+.userReviewContainer {
+  background: url("../../assets/img/userreview.png") no-repeat center;
+
+  color: white;
+  margin-top: 70px;
+}
+.reviewHeadingdiv {
+  text-align: center;
+  padding: 40px 0px 40px 0px;
+}
+.keepgrowingGrid {
+  width: 75% !important;
+  margin: auto !important;
+  text-align: center !important;
+  padding-top: 25px !important;
+}

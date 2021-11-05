@@ -10,3 +10,31 @@
 .whoweareimg {
   width: 100%;
 }
+.videoimg {
+  width: 100%;
+}
+.videoImgDiv {
+  width: 70%;
+  margin: auto;
+  padding-top: 40px;
+}
+.whoweareText {
+  width: 70%;
+  margin: 50px;
+  text-align: left;
+}
+.whoweareP {
+  margin-bottom: 50px;
+}
+/* for big screens */
+@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+  .whoweareText {
+    width: 65%;
+    margin: 14% 70px 70px 70px;
+    text-align: left;
+  }
+  .whoweareP {
+    margin-bottom: 50px;
+    font-size: 20px;
+  }
+}
