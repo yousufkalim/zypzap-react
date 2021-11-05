@@ -12,6 +12,8 @@
 @import url("./blog/YouMayLike.css");
 @import url("./blog/BlogFooter.css");
 @import url("./article/article.css");
+@import url("./about/About.css");
+@import url("./about/WhoWeAre.css");
 
 /* Defaults */
 * {

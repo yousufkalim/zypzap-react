@@ -50,6 +50,16 @@
 .articlesocialicon {
   cursor: pointer;
 }
+.articleyouMayLikecontainer {
+  .youMayLikecontainer {
+    margin-top: 5px;
+    position: relative;
+    color: white;
+
+    margin: auto;
+    text-align: left;
+  }
+}
 
 /* html css */
 .htmlmaindiv {

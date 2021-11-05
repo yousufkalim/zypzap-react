@@ -3,7 +3,7 @@ import React from "react";
 import Header from "../components/Header";
 import BlogBody from "../components/blog/BlogBody";
 
-export default function Construction() {
+export default function Blog() {
   return (
     <div
       style={{

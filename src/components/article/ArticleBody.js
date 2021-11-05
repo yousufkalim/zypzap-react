@@ -8,6 +8,8 @@ import TwitterIcon from "../../assets/icons/twittericon.svg";
 import PintrestIcon from "../../assets/icons/pin2.svg";
 import Dot from "../../assets/icons/dot2.svg";
 import LinkedinIcon from "../../assets/icons/linkedin2.svg";
+import YouMayLike from "./YouMayLike";
+import BlogFoote from "../blog/BlogFooter";
 
 export default function BlogBody() {
   function htmlfile() {
@@ -41,41 +43,45 @@ export default function BlogBody() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div className="articleBodycontainer">
-      <img src={ArticleBodyimg} className="articleimg" />
-      <div style={{ width: "85%" }}>
-        <h1>Download PUBG on PC/Laptop free [Windows 10,8,9.1,7]</h1>
+    <>
+      <div className="articleBodycontainer">
+        <img src={ArticleBodyimg} className="articleimg" />
+        <div style={{ width: "85%" }}>
+          <h1>Download PUBG on PC/Laptop free [Windows 10,8,9.1,7]</h1>
+        </div>
+        <Grid container spacing={2}>
+          <Grid item xs={8} sm={9}>
+            <div className="articleavatardiv">
+              <img src={Avatar2} className="articleavatar" />
+              <div className="articlediv2">
+                <p className="articlep1">Necdet Güner</p>
+                <p className="articlep2">May 15・1 min read</p>
+              </div>
+            </div>
+            <div className="articleavatardiv2">
+              <div className="linediv"></div>
+              <div>
+                <h3 className="a_h3">
+                  Download PUBG On PC/Laptop For Free [WINDOWS 10, 8, 8.1, 7].
+                  You Can Download PUBG In PUBG Windows 10. PUBG Download Free.
+                </h3>
+              </div>
+            </div>
+          </Grid>
+          <Grid item xs={3} sm={3}>
+            <div className="articleSocialicon">
+              <img src={TwitterIcon} className="articlesocialicon" />
+              <img src={LinkedinIcon} className="articlesocialicon" />
+              <img src={FbIcon} className="articlesocialicon" />
+              <img src={PintrestIcon} className="articlesocialicon" />
+              <img src={Dot} className="articlesocialicon" />
+            </div>
+          </Grid>
+        </Grid>
+        <div dangerouslySetInnerHTML={htmlfile()} />
+        <YouMayLike />
       </div>
-      <Grid container spacing={2}>
-        <Grid item xs={8} sm={9}>
-          <div className="articleavatardiv">
-            <img src={Avatar2} className="articleavatar" />
-            <div className="articlediv2">
-              <p className="articlep1">Necdet Güner</p>
-              <p className="articlep2">May 15・1 min read</p>
-            </div>
-          </div>
-          <div className="articleavatardiv2">
-            <div className="linediv"></div>
-            <div>
-              <h3 className="a_h3">
-                Download PUBG On PC/Laptop For Free [WINDOWS 10, 8, 8.1, 7]. You
-                Can Download PUBG In PUBG Windows 10. PUBG Download Free.
-              </h3>
-            </div>
-          </div>
-        </Grid>
-        <Grid item xs={3} sm={3}>
-          <div className="articleSocialicon">
-            <img src={TwitterIcon} className="articlesocialicon" />
-            <img src={LinkedinIcon} className="articlesocialicon" />
-            <img src={FbIcon} className="articlesocialicon" />
-            <img src={PintrestIcon} className="articlesocialicon" />
-            <img src={Dot} className="articlesocialicon" />
-          </div>
-        </Grid>
-      </Grid>
-      <div dangerouslySetInnerHTML={htmlfile()} />
-    </div>
+      <BlogFoote />
+    </>
   );
 }
