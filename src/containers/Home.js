@@ -10,6 +10,7 @@ export default function Home() {
         backgroundColor: "#0e0f1e",
         minHeight: "100vh",
         overflowX: "hidden",
+        overflowY: "hidden",
       }}
     >
       <Header />

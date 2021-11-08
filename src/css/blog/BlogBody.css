@@ -24,3 +24,12 @@
 .BlogbodyImage {
   width: 93%;
 }
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .BlogbodyImage {
+    height: 190px;
+  }
+  .BlogtextimgH1 {
+    font-size: 2em;
+  }
+}

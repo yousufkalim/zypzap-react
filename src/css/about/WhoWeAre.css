@@ -25,6 +25,7 @@
 }
 .whoweareP {
   margin-bottom: 50px;
+  opacity: 0.9;
 }
 /* for big screens */
 @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
@@ -36,5 +37,23 @@
   .whoweareP {
     margin-bottom: 50px;
     font-size: 20px;
+  }
+}
+
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .whoweareimgdiv {
+    margin: auto;
+  }
+  .whoweareText {
+    width: auto;
+    margin: 50px;
+    text-align: left;
+  }
+  .videoImgDiv {
+    width: 90%;
+  }
+  .whoweareP {
+    font-size: 12px;
   }
 }

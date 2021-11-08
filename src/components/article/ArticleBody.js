@@ -47,7 +47,9 @@ export default function BlogBody() {
       <div className="articleBodycontainer">
         <img src={ArticleBodyimg} className="articleimg" />
         <div style={{ width: "85%" }}>
-          <h1>Download PUBG on PC/Laptop free [Windows 10,8,9.1,7]</h1>
+          <h1 className="h1article">
+            Download PUBG on PC/Laptop free [Windows 10,8,9.1,7]
+          </h1>
         </div>
         <Grid container spacing={2}>
           <Grid item xs={8} sm={9}>

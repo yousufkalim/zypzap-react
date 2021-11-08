@@ -7,9 +7,8 @@
 }
 .getStartedHeading {
   padding: 80px 0px 15px 0px;
-
   font-size: 33px;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 .leftdiv1 {
   width: 55%;
@@ -60,7 +59,7 @@
   width: 65%;
   padding: 80px 0px 0 0px;
   right: 90px;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 .rightdiv {
   margin: auto;
@@ -68,6 +67,7 @@
   position: relative;
   right: 120px;
 }
+
 /* for big screens */
 @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
   .leftdiv1 {
@@ -83,5 +83,31 @@
   .Steppertitle1 {
     border-radius: 50%;
     border: 1px solid;
+  }
+}
+
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .getStartedHeading {
+    padding: 80px 0px 15px 32%;
+    font-size: 22px;
+  }
+  .Getstaredgrid2 {
+    display: inherit;
+  }
+  .StepMain {
+    position: inherit;
+    width: 90%;
+    padding: 0px 0px 0 0px;
+    margin: auto;
+  }
+
+  .rightdiv {
+    margin: auto;
+    width: 50%;
+    position: inherit;
+  }
+  .Getstarted3 {
+    width: 100%;
   }
 }

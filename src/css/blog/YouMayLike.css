@@ -34,3 +34,13 @@
 .bloddiv1detail {
   padding: 10px 0px 10px 0px;
 }
+
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .blogdiv1 {
+    margin: auto;
+  }
+  .youMayLikeheading {
+    text-align: center;
+  }
+}

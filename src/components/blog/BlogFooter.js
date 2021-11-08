@@ -7,6 +7,7 @@ import TwitterIcon from "../../assets/icons/twittericon.svg";
 import PintrestIcon from "../../assets/icons/pintresticon.svg";
 import LinkedinIcon from "../../assets/icons/linkedinicon.svg";
 import Globe from "../../assets/icons/globe.svg";
+import { Link } from "react-router-dom";
 
 export default function YouMayLike() {
   return (
@@ -31,9 +32,19 @@ export default function YouMayLike() {
         </Grid>
         <Grid item xs={12} sm={3}>
           <div className="f2div">
-            <p className="phead">Home</p>
-            <p className="pmargin">About Us</p>
-            <p className="pmargin">Blog</p>
+            <Link to="/home" style={{ color: "white", textDecoration: "none" }}>
+              <p className="phead">Home</p>
+            </Link>
+            <Link
+              to="/about"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <p className="pmargin">About Us</p>
+            </Link>
+            <Link to="/blog" style={{ color: "white", textDecoration: "none" }}>
+              <p className="pmargin">Blog</p>
+            </Link>
+
             <p className="pmargin">For Creators</p>
             <p className="pmargin">Partners</p>
             <p className="pmargin">Privacy Policy</p>

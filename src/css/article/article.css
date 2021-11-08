@@ -97,3 +97,17 @@
     width: 50%;
   }
 }
+
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .articleBodycontainer {
+    width: 90%;
+  }
+  .h1article {
+    font-size: 20px;
+  }
+  .articleavatardiv2 {
+    width: 140%;
+    font-size: 11px;
+  }
+}

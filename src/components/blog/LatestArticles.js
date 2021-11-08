@@ -58,7 +58,7 @@ export default function LatestArticle() {
                 <span className="commentSpan">' 2 Comments</span>
               </p>
               <h2 className="articleheading">{data[0].heading}</h2>
-              <p>
+              <p className="textdescription1">
                 {data[0].detail}
                 <span className="seemore"> See more</span>
               </p>

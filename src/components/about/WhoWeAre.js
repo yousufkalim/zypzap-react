@@ -27,7 +27,7 @@ export default function About() {
                 the readable content of a page this is when loovking at its
                 layout game is best. The point of using Lorem Ipsum is that.
               </p>
-              <p>
+              <p className="whoweareP">
                 It is a long established fact that a reader will be distracted
                 by the readable content of a page this is when loovking at its
                 layout game is best. The point of using Lorem Ipsum is that.
