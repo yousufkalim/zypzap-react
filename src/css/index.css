@@ -16,6 +16,8 @@
 @import url("./about/WhoWeAre.css");
 @import url("./about/UserReview.css");
 @import url("./about/GetStarted.css");
+@import url("./ContanctHome/content.css");
+
 
 /* Defaults */
 * {
