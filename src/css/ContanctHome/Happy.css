@@ -1,0 +1,64 @@
+
+  .reviewHeadings{
+    text-align: center;
+    padding: 40px 0px 40px 0px;
+    font-weight: 100;
+    color: #fff;
+    /* border: 2px solid #fff; */
+  }
+  
+  .userReviewavatars {
+    display: flex;
+    /* margin: 50px 0px 20px 7px; */
+    width: 65%;
+    /* margin-left: auto; */
+    margin: auto;
+}
+.userReviewavatars {
+    width: 45px;
+    height: 45px;
+}
+.userReview{
+    margin-left: 14px;
+    margin-top: 5px;
+  }
+  .userReviewp01 {
+    font-size: 14px;
+    color: #fff;
+  }
+  .userReviewp02 {
+    font-size: 12px;
+    padding-top: 3px;
+    opacity: 0.9;
+    color: #fff;
+  }
+  .reviewTexts {
+    width: 82%;
+    margin-bottom: 20px;
+    line-height: 1.7;
+    opacity: 0.9;
+    color: #fff;
+  }
+  .colon {
+    position: relative;
+    top: 22px;
+    right: 40px;
+  }
+  
+  /* for big screens */
+  @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+  }
+  
+  /* for mobile */
+  @media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+    .userReviewavatars {
+      width: 50%;
+      margin: auto;
+    }
+    .reviewTexts {
+      width: 100%;
+      margin: auto;
+      font-size: 12px;
+    }
+  }
+  
