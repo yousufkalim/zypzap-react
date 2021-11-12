@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from "../components/Header";
 import ContentLendingPage from "../components/ContentHome/ContentLendingPage";
+import WhyTechWith from "../components/ContentHome/WhyTechWith";
 
 const Contenthome = () => {
     return (
@@ -14,7 +15,9 @@ const Contenthome = () => {
       }}
     >
              <Header />
-             <ContentLendingPage /></div>
+             <ContentLendingPage />
+             <WhyTechWith />
+             </div>
         </>
     )
 }

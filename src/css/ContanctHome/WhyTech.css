@@ -1,0 +1,59 @@
+.why_container {
+    text-align: center;
+    margin-top: 5px;
+    position: relative;
+    color: white;
+    background: url("../../assets/whytech.png") no-repeat center
+    center/cover;
+    border-radius: 50px;
+  }
+  .why_box{
+      width: 70%;
+      /* border: 2px solid red; */
+      margin: auto;
+      padding: 80px auto 80px auto;
+      display: flex;
+    }
+    .col_1{
+        width: 50%;
+        /* border: 2px solid gold; */
+        text-align: left;
+        padding: 0 100px 60px 0;
+    }
+    .box{
+      float: left;
+      padding-bottom: 50px;
+  }
+ h2{
+        padding: 17px 0;
+     margin-top: 20px;
+  }
+  p{
+        line-height: 1.5;
+  padding-bottom: 20px;
+  }
+    .box2{
+      float: right;
+  }
+  /* img{
+      width: 100%;
+  } */
+  .why_container h1{
+      padding: 30px 0;
+  }
+
+  /* for big screens */
+  @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+    .content_Img {
+      width: 100%;
+    }
+    
+  /* for mobile */
+}
+  @media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+    .why_container {
+      margin-top: 30px;
+    }
+    
+  }
+  
