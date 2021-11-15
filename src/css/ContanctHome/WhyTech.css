@@ -34,6 +34,14 @@
   }
     .box2{
       float: right;
+      padding-bottom: 50px;
+  }
+  .col_3{
+    width: 50%;
+
+  }
+    .box3{
+      float: left;
   }
   /* img{
       width: 100%;
@@ -53,7 +61,61 @@
   @media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
     .why_container {
       margin-top: 30px;
+      flex-direction: column;
     }
-    
+    .why_container h1 {
+      padding: 24px 0 0 0;
+      font-size: 23px;
+  }
+  .why_box{
+    flex-direction: column;
+  }
+  h2{
+    padding: 4px 0 12px 0;
+    width: 275%;
+    font-size: 17px;
+  }
+  p {
+    width: 378%;
+    font-size: 12px;
+}
+.img1{
+  padding-top: 0;
+  margin: -120px;
+}
+.img2{
+  padding-top: 0;
+  margin: 200px auto 0 60px;
+ 
+}
+.img3{
+  padding-top: 0;
+  padding-left: 0;
+  margin-bottom: 90px;
+  margin-left: -60px;
+  margin-top: -24px;
+
+}
+.col_1 {
+  width: 100%;
+  text-align: left;
+  padding-left: 0;
+
+}
+.col_2 {
+  width: 100%;
+  text-align: left;
+  padding-left: 0;
+
+}
+.box2{
+  float: left;
+  margin: 0px 0 0 -160px;
+  width: 125%;
+}
+.box3 h2{
+  padding-top: 50px;
+}
+
   }
   

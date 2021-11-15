@@ -1,6 +1,6 @@
 import React from 'react'
 import WhyData from "./WhyData"
-import Mesa from "../../assets/Mesa.png"
+// import Mesa from "../../assets/Mesa.png"
 // import Rectangle2971 from "../../assets/Rectangle2971.png"
 
 const whyTechWith = () => {

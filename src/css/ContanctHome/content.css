@@ -83,12 +83,16 @@
     .textH1 {
       padding: 20px 0 0 0;
       margin-top: 150px;
-      font-size: 1em;
+      font-size: 0.9em;
+    }
+    .textonP {margin-top: 500px;
+      padding: 0px 0px 5px 0px;
+      margin: 8px 0px 8px 0px;
+      font-size: 13px;
     }
     .textonbutton {
-      padding: 4px;
-      
-      margin: 4px 0px 10px 0px;
+      padding: 3px;
+      margin: 4px 0px 34px 0px;
     }
   }
   

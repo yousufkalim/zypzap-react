@@ -1,17 +1,73 @@
 
-  .reviewHeadings{
+  .happy_container{
+    width: 100%;
+    color: #fff;
+    padding: 50px 50px 20px 0px;
+  }
+  
+  .happy_box{
+    width: 70%;
+    margin: auto;
+    display: flex;
+  }
+  .happy_col1{
+    width: 50%;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .happy_col1 h2{
+    margin-bottom: 10px;
+    
+  }
+  .happy_col1 p{
+    line-height: 0.3;
+  }
+  
+  .happy_col2{
+    width: 50%;
+    flex-basis: 50%;
+    /* border: 2px solid rgb(244, 248, 6); */
+    background: #131328;
+    padding: 20px;
+  }
+  .happy_col2 img{
+   width: 50px;
+   position: relative;
+
+  }
+  .happy_col2 h3{
+    display: inline;
+    padding-top: -200px;
+    position: absolute;
+    padding-top: 10px;
+    padding-left: 15px;
+  }
+  .happy_col2 p{
+    padding-left: 15px;
+    display: inline;
+    position: absolute;
+    padding-top: 35px;
+  }
+  .happy_col2 span{
+    margin-top: 15px;
+    display: block;
+  }
+  .topcoursecarousal{
+padding-bottom: 50px;
+  }
+  
+  /* .reviewHeadings{
     text-align: center;
     padding: 40px 0px 40px 0px;
     font-weight: 100;
     color: #fff;
-    /* border: 2px solid #fff; */
-  }
+  } */
   
-  .userReviewavatars {
+  /* .userReviewavatars {
     display: flex;
-    /* margin: 50px 0px 20px 7px; */
     width: 65%;
-    /* margin-left: auto; */
     margin: auto;
 }
 .userReviewavatars {
@@ -43,7 +99,7 @@
     position: relative;
     top: 22px;
     right: 40px;
-  }
+  } */
   
   /* for big screens */
   @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
