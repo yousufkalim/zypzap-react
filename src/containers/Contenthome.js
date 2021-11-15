@@ -4,6 +4,7 @@ import ContentLendingPage from "../components/ContentHome/ContentLendingPage";
 import WhyTechWith from "../components/ContentHome/WhyTechWith";
 import HappyInstructor from "../components/ContentHome/HappyInstructor";
 import HowToTeach from "../components/ContentHome/HowToTeach";
+import Footer from "../components/blog/BlogFooter";
 
 const Contenthome = () => {
     return (
@@ -21,6 +22,7 @@ const Contenthome = () => {
              <WhyTechWith />
              <HappyInstructor/>
              <HowToTeach/>
+             <Footer />
              </div>
         </>
     )
