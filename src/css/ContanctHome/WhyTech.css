@@ -63,6 +63,7 @@
     .why_container {
       margin-top: 30px;
       flex-direction: column;
+      padding-bottom: 0px;
     }
     .why_container h1 {
       padding: 24px 0 0 0;

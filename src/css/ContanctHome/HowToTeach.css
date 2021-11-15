@@ -15,22 +15,19 @@
     font-size: 33px;
     opacity: 0.9;
   }
-  .leftdiv12 {
+  /* .leftdiv12 {
     width: 55%;
     position: relative;
     bottom: 165px;
     right: 0px;
-  }
-  .leftdiv22 {
+  } */
+  /* .leftdiv22 {
     width: 227%;
     position: relative;
     right: 10px;
     padding-top: 101px;
-  }
-  .Getstaredgrid12 {
-    display: flex;
-    /* padding: 10px 0 0 0; */
-  }
+  } */
+
   .Getstarted12 {
     width: 100%;
   }
@@ -38,7 +35,10 @@
     /* width: 100%; */
     width:388px;
     /* height: 500px; */
-  }
+    /* margin-left: 290px; */
+    margin-top: 163px;
+}
+  
   .Getstaredgrid22 {
     display: flex;
     margin-left: 96px
@@ -54,7 +54,7 @@
     width: 25px;
   }
   .Stepperline2 {
-    height: 177px;
+    height: 201px;
     width: 1px;
     background-color: #fff;
     margin-top: 5px;
@@ -94,10 +94,7 @@
   
   /* for big screens */
   @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
-    .leftdiv12 {
-      bottom: 220px;
-      left: 30px;
-    }
+  
     .getStartedHeading2 {
       font-size: 40px;
     }
@@ -113,11 +110,18 @@
   /* for mobile */
   @media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
     .getStartedHeading2 {
-      padding: 80px 0px 15px 32%;
-      font-size: 22px;
+        font-size: 22px;
+        width: 100%;
     }
     .Getstaredgrid22 {
-      display: inherit;
+        text-align: left;
+        margin-left: 30px;
+    }
+    .Getstarted22 {
+        /* width: 100%; */
+        width: 320px;
+        margin-top: 62px;
+        margin-bottom: 30px;
     }
     .StepMain2 {
       position: inherit;
@@ -134,5 +138,27 @@
     .Getstarted32 {
       width: 100%;
     }
+    .Stepperline2 {
+        height: 137px;
+        width: 1px;
+        background-color: #fff;
+        margin-top: 5px;
+        margin-left: 4px;
+    }
+    .Steppera {
+        text-align: left;
+        padding-left: 50px;
+        margin-top: -23px;
+        margin-bottom: 60px;
+    }
+    .Steppertitle12 {
+        border-radius: 50%;
+        border: 1px solid;
+        height: 25px;
+        width: 100px;
+        padding-left: 8px;
+        padding-top: 1px;
+    }
+  
   }
   

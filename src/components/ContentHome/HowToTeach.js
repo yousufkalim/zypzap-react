@@ -1,8 +1,6 @@
 import React from 'react'
 import Grid from "@material-ui/core/Grid";
-// import getstarted1 from "../../assets/img/getstarted1.png";
 import TeachPlan from "../../assets/TeachPlan.png";
-// import getstarted3 from "../../assets/img/getstarted3.png";
 
 const HowToTeach = () => {
     return (
@@ -12,9 +10,6 @@ const HowToTeach = () => {
                 <Grid container spacing={1}>
                     <Grid item xs={12} sm={7}>
                         <div className="Getstaredgrid12">
-                            <div className="leftdiv1">
-                                {/* <img src={getstarted1} className="Getstarted1" /> */}
-                            </div>
                             <div className="leftdiv22">
                                 <img src={TeachPlan} className="Getstarted22" />
                             </div>
@@ -30,7 +25,7 @@ const HowToTeach = () => {
                                     <p className="Stepperdisc2">Plan Your Course</p>
                                 </div>
                                 <div>
-                                    <p className="Steppera">Many desktop publishing packages edditors now use lorem ipsum and a search for</p>
+                                    <p className="Steppera">Many desktop publishing packages <br /> edditors now use lorem ipsum <br /> and a search for</p>
                                 </div>
                                 <div className="Stepper12">
                                     <div className="Steppertitle12">
@@ -41,7 +36,7 @@ const HowToTeach = () => {
                                     </p>
                                 </div>
                                 <div>
-                                    <p className="Steppera">Many desktop publishing packages edditors now use lorem ipsum and a search for</p>
+                                <p className="Steppera">Many desktop publishing packages <br /> edditors now use lorem ipsum <br /> and a search for</p>
                                 </div>
                                 <div className="Stepper12">
                                     <div className="Steppertitle12">3</div>
@@ -49,11 +44,8 @@ const HowToTeach = () => {
 
                                 </div>
                                 <div>
-                                    <p className="Steppera">Many desktop publishing packages edditors now use lorem ipsum and a search for</p>
+                                <p className="Steppera">Many desktop publishing packages <br /> edditors now use lorem ipsum <br /> and a search for</p>
                                 </div>
-                            </div>
-                            <div className="rightdiv2">
-                                {/* <img src={getstarted3} className="Getstarted3" /> */}
                             </div>
                         </div>
                     </Grid>
