@@ -1,0 +1,138 @@
+.getStartedContainer2 {
+    /* margin-top: 10%; */
+    position: relative;
+    color: white;
+    width: 100%;
+    text-align: center;
+    background: url("../../assets/TeachBg.png") no-repeat center
+    center/cover;
+    /* padding-top: 100px;
+    padding-bottom: 50px; */
+    /* margin-bottom: -50px; */
+  }
+  .getStartedHeading2 {
+    padding: 80px 0px 15px 0px;
+    font-size: 33px;
+    opacity: 0.9;
+  }
+  .leftdiv12 {
+    width: 55%;
+    position: relative;
+    bottom: 165px;
+    right: 0px;
+  }
+  .leftdiv22 {
+    width: 227%;
+    position: relative;
+    right: 10px;
+    padding-top: 101px;
+  }
+  .Getstaredgrid12 {
+    display: flex;
+    /* padding: 10px 0 0 0; */
+  }
+  .Getstarted12 {
+    width: 100%;
+  }
+  .Getstarted22 {
+    /* width: 100%; */
+    width:388px;
+    /* height: 500px; */
+  }
+  .Getstaredgrid22 {
+    display: flex;
+    margin-left: 96px
+  }
+  .Stepper12 {
+    display: flex;
+    margin-bottom: 30px;
+  }
+  .Steppertitle12 {
+    border-radius: 50%;
+    border: 1px solid;
+    height: 25px;
+    width: 25px;
+  }
+  .Stepperline2 {
+    height: 177px;
+    width: 1px;
+    background-color: #fff;
+    margin-top: 5px;
+    margin-left: 11px;
+  }
+  .Stepperdisc2 {
+    padding: 0 0 0 20px;
+}
+.Steppera{
+    text-align: left;
+    /* position: absolute; */
+    /* padding-top: 20px; */
+    padding-left: 50px;
+    margin-top: -23px ;
+    margin-bottom: 100px;
+
+}
+  .StepMain2 {
+    position: relative;
+    width: 65%;
+    padding: 80px 0px 0 0px;
+    right: 90px;
+    opacity: 0.9;
+  }
+  .rightdiv2 {
+    margin: auto;
+    width: 30%;
+    position: relative;
+    right: 120px;
+  }
+  .howTeachBtn{
+      margin: auto;
+      text-align: center;
+      background-color: #0E0F1E;
+      padding-bottom: 50px;
+  }
+  
+  /* for big screens */
+  @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+    .leftdiv12 {
+      bottom: 220px;
+      left: 30px;
+    }
+    .getStartedHeading2 {
+      font-size: 40px;
+    }
+    .Stepperdisc2 {
+      font-size: 20px;
+    }
+    .Steppertitle12 {
+      border-radius: 50%;
+      border: 1px solid;
+    }
+  }
+  
+  /* for mobile */
+  @media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+    .getStartedHeading2 {
+      padding: 80px 0px 15px 32%;
+      font-size: 22px;
+    }
+    .Getstaredgrid22 {
+      display: inherit;
+    }
+    .StepMain2 {
+      position: inherit;
+      width: 90%;
+      padding: 0px 0px 0 0px;
+      margin: auto;
+    }
+  
+    .rightdiv2 {
+      margin: auto;
+      width: 50%;
+      position: inherit;
+    }
+    .Getstarted32 {
+      width: 100%;
+    }
+  }
+  

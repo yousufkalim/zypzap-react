@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import ContentLendingPage from "../components/ContentHome/ContentLendingPage";
 import WhyTechWith from "../components/ContentHome/WhyTechWith";
 import HappyInstructor from "../components/ContentHome/HappyInstructor";
+import HowToTeach from "../components/ContentHome/HowToTeach";
 
 const Contenthome = () => {
     return (
@@ -19,6 +20,7 @@ const Contenthome = () => {
              <ContentLendingPage />
              <WhyTechWith />
              <HappyInstructor/>
+             <HowToTeach/>
              </div>
         </>
     )
