@@ -107,14 +107,36 @@ padding-bottom: 50px;
   
   /* for mobile */
   @media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
-    .userReviewavatars {
-      width: 50%;
-      margin: auto;
+    .happy_box{
+     width: 100%;
+     flex-direction: column;
+     margin-bottom: 50px;
     }
-    .reviewTexts {
-      width: 100%;
-      margin: auto;
-      font-size: 12px;
+    .happy_col1 h2 {
+      margin-bottom: 10px;
+      text-align: center;
+      margin-left: -30px;
+  }
+  .happy_col1 p {
+    line-height: 0.0;
+    text-align: center;
+    margin-left: -110px;
+}
+.happy_col2{
+  margin-top: 50px;
+  width: 116%;
+}
+.happy_col2 span{
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.topcoursecarousal{
+  margin-bottom: -50px;
     }
+    .Carousel-indicatorIcon-4 {
+      font-size: 15px;
+      padding-top: -9px;
+      margin-top: -147px;
+  }
   }
   
