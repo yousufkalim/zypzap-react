@@ -57,6 +57,10 @@
     .content_Img {
       width: 100%;
     }
+      /* for Tablet  */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
+
+      }
     
   /* for mobile */
 }
@@ -79,8 +83,9 @@
     font-size: 17px;
   }
   .why_box p {
-    width: 378%;
+    /* width: 378%; */
     font-size: 12px;
+    width: 305px;
 }
 .img1{
   padding-top: 0;
@@ -121,4 +126,6 @@
 }
 
   }
+
+  
   

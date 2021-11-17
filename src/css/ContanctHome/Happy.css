@@ -58,49 +58,6 @@
 padding-bottom: 50px;
   }
   
-  /* .reviewHeadings{
-    text-align: center;
-    padding: 40px 0px 40px 0px;
-    font-weight: 100;
-    color: #fff;
-  } */
-  
-  /* .userReviewavatars {
-    display: flex;
-    width: 65%;
-    margin: auto;
-}
-.userReviewavatars {
-    width: 45px;
-    height: 45px;
-}
-.userReview{
-    margin-left: 14px;
-    margin-top: 5px;
-  }
-  .userReviewp01 {
-    font-size: 14px;
-    color: #fff;
-  }
-  .userReviewp02 {
-    font-size: 12px;
-    padding-top: 3px;
-    opacity: 0.9;
-    color: #fff;
-  }
-  .reviewTexts {
-    width: 82%;
-    margin-bottom: 20px;
-    line-height: 1.7;
-    opacity: 0.9;
-    color: #fff;
-  }
-  .colon {
-    position: relative;
-    top: 22px;
-    right: 40px;
-  } */
-  
   /* for big screens */
   @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
   }
@@ -113,21 +70,26 @@ padding-bottom: 50px;
      margin-bottom: 50px;
     }
     .happy_col1 h2 {
-      margin-bottom: 10px;
-      text-align: center;
-      margin-left: -30px;
+   width: 100% !important;
   }
-  .happy_col1 p {
-    text-align: center;
-    width: 307px;
+  .happy_col1{
+    margin: auto;
+  }
+  .happy_col1 .hapy_pera {
+    /* text-align: center; */
+    line-height: 1px;
+    width: 100% !important;
 }
 .happy_col2{
   margin-top: 50px;
-  width: 116%;
+  width: 95%;
+  margin-bottom: 20px;
+  
 }
 .happy_col2 span{
-  font-size: 13px;
+  font-size: 14px;
   margin-bottom: 20px;
+  line-height: 1.5;
 }
 .topcoursecarousal{
   margin-bottom: -150px;
@@ -153,6 +115,7 @@ padding-bottom: 50px;
   color: #fff;
   /* padding: 50px 0px 20px 0; */
   margin: auto;
+  padding: 0;
 }
   }
   

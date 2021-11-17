@@ -26,8 +26,8 @@ function Reviews({ item }) {
          <div className="happy_box">
            <div className="happy_col1">
              <h2>Happy Instructor</h2>
-             <p>Lorem ipsum dolor sit, amet consectetur </p>
-             <p>Lorem ipsum dolor consectetur</p>
+             <p className="hapy_pera">Lorem ipsum dolor sit, amet consectetur </p>
+             <p className="hapy_pera">Lorem ipsum dolor consectetur</p>
            </div>
            <div className="happy_col2">
          <img src={happypic} alt="My Pic" />

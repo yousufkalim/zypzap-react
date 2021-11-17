@@ -66,7 +66,7 @@
   }
   
   /* for mobile */
-  @media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
     .content_container {
       margin-top: 30px;
     }
@@ -95,4 +95,19 @@
       margin: 4px 0px 34px 0px;
     }
   }
+       /* for Tablet  */
+       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
+        .textonImg {
+          position: absolute;
+          top: 7%;
+          left: 25%;
+          transform: translate(-50%, -50%);
+          text-align: left;
+      }
+      .textH1 {
+        padding-top: 251px;
+        font-size: 1.7em;
+    }
+    
+      }
   
