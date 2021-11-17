@@ -6,9 +6,6 @@
     text-align: center;
     background: url("../../assets/TeachBg.png") no-repeat center
     center/cover;
-    /* padding-top: 100px;
-    padding-bottom: 50px; */
-    /* margin-bottom: -50px; */
   }
   .getStartedHeading2 {
     padding: 80px 0px 15px 0px;
@@ -20,10 +17,6 @@
     width: 100%;
   }
   .Getstarted22 {
-    /* width: 100%; */
-    width:388px;
-    /* height: 500px; */
-    /* margin-left: 290px; */
     margin-top: 163px;
 }
   
@@ -42,7 +35,7 @@
     width: 25px;
   }
   .Stepperline2 {
-    height: 201px;
+    height: 154px;
     width: 1px;
     background-color: #fff;
     margin-top: 5px;
@@ -57,7 +50,7 @@
     /* padding-top: 20px; */
     padding-left: 50px;
     margin-top: -23px ;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 
 }
   .StepMain2 {

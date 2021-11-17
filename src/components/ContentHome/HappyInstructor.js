@@ -54,7 +54,7 @@ function Reviews({ item }) {
             // navButtonsAlwaysVisible={true}
             animation={"fade"}
             activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
-            className="topcoursecarousal"
+            className="topcoursecarousal2"
           >
             {items.map((item, i) => (
               <Reviews key={i} item={item} />
