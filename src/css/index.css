@@ -16,6 +16,10 @@
 @import url("./about/WhoWeAre.css");
 @import url("./about/UserReview.css");
 @import url("./about/GetStarted.css");
+@import url("./ContentHome/content.css");
+@import url("./ContentHome/WhyTech.css");
+@import url("./ContentHome/Happy.css");
+@import url("./ContentHome/HowToTech.css");
 
 /* Defaults */
 * {

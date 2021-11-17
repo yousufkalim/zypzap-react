@@ -23,6 +23,7 @@
 .article1img {
   width: 100%;
   padding-top: 5px;
+  height: 290px;
 }
 
 .latestArticleRight {
@@ -43,7 +44,7 @@
   padding: 8px 0px 8px 0px;
 }
 .article2img {
-  width: 40%;
+  width: 34%;
 }
 .commentSpan {
   margin-left: 20px;

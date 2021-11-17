@@ -1,0 +1,179 @@
+.getStartedContainer2 {
+  /* margin-top: 10%; */
+  position: relative;
+  color: white;
+  width: 100%;
+  text-align: center;
+  background: url("../../assets/TeachBg.png") no-repeat center center/cover;
+}
+.getStartedHeading2 {
+  padding: 48px 0px 15px 0px;
+  font-size: 33px;
+  opacity: 0.9;
+}
+.Getstarted12 {
+  width: 100%;
+}
+.Getstarted22 {
+  margin-top: 163px;
+}
+.Getstaredgrid22 {
+  display: flex;
+  margin-left: 96px;
+}
+.Stepper12 {
+  display: flex;
+  margin-bottom: 30px;
+}
+.Steppertitle12 {
+  border-radius: 50%;
+  border: 1px solid;
+  height: 25px;
+  width: 25px;
+}
+.Stepperline2 {
+  height: 154px;
+  width: 1px;
+  background-color: #fff;
+  margin-top: 5px;
+  margin-left: 11px;
+}
+.Stepperdisc2 {
+  padding: 0 0 0 20px;
+}
+.Steppera {
+  text-align: left;
+  /* position: absolute; */
+  /* padding-top: 20px; */
+  padding-left: 50px;
+  margin-top: -23px;
+  margin-bottom: 87px;
+}
+.StepMain2 {
+  position: relative;
+  width: 60%;
+  padding: 63px 0px 0 0px;
+  right: 98px;
+  opacity: 0.9;
+}
+.rightdiv2 {
+  margin: auto;
+  width: 30%;
+  position: relative;
+  right: 120px;
+}
+.howTeachBtn {
+  margin: auto;
+  text-align: center;
+  background-color: #0e0f1e;
+  padding-bottom: 12px;
+}
+/* for big screens */
+@media only screen and (min-device-width: 1025px) and (max-device-width: 1400px) {
+  .Stepperline2 {
+    height: 244px;
+  }
+}
+@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+  .getStartedHeading2 {
+    font-size: 40px;
+    padding-bottom: 67px;
+  }
+  .Stepperdisc2 {
+    font-size: 20px;
+  }
+  .Steppertitle12 {
+    border-radius: 50%;
+    border: 1px solid;
+  }
+}
+/* for tablet */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .getStartedHeading2 {
+    font-size: 40px;
+    width: 100%;
+  }
+  .MuiGrid-spacing-xs-1 {
+    width: 100%;
+    margin: auto;
+    margin: -4px;
+    flex-direction: column;
+  }
+  .MuiGrid-spacing-xs-1 > .MuiGrid-item {
+    width: 100%;
+    margin: auto;
+  }
+  .Getstarted22 {
+    margin-top: 50px;
+    /* margin-left: 0 !important; */
+  }
+  .Getstaredgrid22 {
+    display: flex;
+    margin-left: 0px !important;
+  }
+  .StepMain2 {
+    position: relative;
+    width: 100%;
+    right: 90px;
+    padding: 0;
+  }
+  .Steppera {
+    margin-bottom: 38px;
+  }
+  .Stepperline2 {
+    height: 137px;
+  }
+  .footerLogo {
+    margin-right: 0px;
+  }
+  .footerText {
+    margin-left: 20px;
+  }
+}
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+  .getStartedHeading2 {
+    font-size: 22px;
+    width: 100%;
+  }
+  .Getstaredgrid22 {
+    text-align: left;
+    margin-left: 30px;
+  }
+  .Getstarted22 {
+    /* width: 100%; */
+    width: 280px;
+    margin-top: 62px;
+    margin-bottom: 30px;
+  }
+  .StepMain2 {
+    position: inherit;
+    width: 90%;
+    padding: 0px 0px 0 0px;
+    margin: auto;
+  }
+  .Getstarted32 {
+    width: 100%;
+  }
+  .Stepperline2 {
+    height: 157px;
+    width: 1px;
+    background-color: #fff;
+    margin-top: 5px;
+    margin-left: 4px;
+  }
+  .Steppera {
+    text-align: left;
+    padding-left: 50px;
+    margin-top: -23px;
+    margin-bottom: 60px;
+  }
+  .Steppertitle12 {
+    border-radius: 50%;
+    border: 1px solid;
+    height: 25px;
+    width: 30px;
+    padding-left: 8px;
+    padding-top: 1px;
+  }
+}

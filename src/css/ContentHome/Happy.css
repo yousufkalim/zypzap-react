@@ -1,0 +1,116 @@
+.happy_container {
+  width: 100%;
+  color: #fff;
+  width: 92%;
+  margin-bottom: 30px;
+  padding-top: 35px;
+}
+.happy_box {
+  width: 70%;
+  margin: auto;
+  display: flex;
+}
+.happy_col1 {
+  width: 50%;
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.happy_col1 h2 {
+  margin-bottom: 10px;
+}
+.happy_col1 p {
+  line-height: 0.3;
+}
+.happy_col2 {
+  width: 50%;
+  flex-basis: 50%;
+  /* border: 2px solid rgb(244, 248, 6); */
+  background: #131328;
+  padding: 20px;
+  padding-bottom: 60px;
+  border-radius: 12px;
+}
+.happy_col2 img {
+  width: 50px;
+  position: relative;
+}
+.happy_col2 h3 {
+  display: inline;
+  padding-top: -200px;
+  position: absolute;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+.happy_col2 p {
+  padding-left: 15px;
+  display: inline;
+  position: absolute;
+  padding-top: 35px;
+}
+.happy_col2 span {
+  padding-top: 25px;
+  display: block;
+}
+.topcoursecarousal2 {
+  padding-bottom: 20px;
+}
+/* for big screens */
+@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+}
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .happy_box {
+    /* width: 100%; */
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+  .happy_col1 h2 {
+    width: 100% !important;
+  }
+  .happy_col1 {
+    margin: auto;
+  }
+  .happy_col1 .hapy_pera {
+    /* text-align: center; */
+    line-height: 1px;
+    width: 100% !important;
+  }
+  .happy_col2 {
+    margin-top: 50px;
+    width: 95%;
+    margin-bottom: 25px;
+  }
+  .happy_col2 span {
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .topcoursecarousal {
+    margin-bottom: -150px;
+  }
+  .Carousel-indicatorIcon-4 {
+    font-size: 15px;
+    padding-top: -9px;
+    margin-top: -147px;
+  }
+  .Carousel-buttonWrapper-6 {
+    top: 0;
+    height: 0;
+    position: inherit !important;
+    background-color: transparent;
+    margin: auto;
+  }
+  .Carousel-fullHeightHoverWrapper-7 {
+    top: 0 !important;
+    height: 0 !important;
+  }
+  .happy_container {
+    width: 100%;
+    color: #fff;
+    /* padding: 50px 0px 20px 0; */
+    margin: auto;
+    padding: 0;
+  }
+}

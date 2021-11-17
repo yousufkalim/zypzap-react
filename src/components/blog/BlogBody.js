@@ -1,11 +1,31 @@
 // Init
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import BlogBodyimg from "../../assets/img/blogBody.png";
 import LatestArticle from "./LatestArticles";
 import YouMayLike from "./YouMayLike";
 import BlogFooter from "./BlogFooter";
+import api from "../../api";
+import { Store, UpdateStore } from "../../StoreContext";
 
 export default function BlogBody() {
+  const [loading, setLoading] = useState(false);
+  // init
+  const updateStore = UpdateStore();
+  const { blogs } = Store();
+  useEffect(() => {
+    // get blogs
+    getBlogs();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  let getBlogs = async () => {
+    setLoading(true);
+
+    let res = await api("get", "/blogs");
+    if (res) {
+      updateStore({ blogs: res?.data });
+    }
+    setLoading(false);
+  };
   const scrollToTop = () => {
     window.scrollTo({
       top: 1,
@@ -25,7 +45,7 @@ export default function BlogBody() {
           <p className="BlogtextonImgP">Tag Line Here</p>
         </div>
       </div>
-      <LatestArticle />
+      <LatestArticle blogs={blogs} loading={loading} setLoading={setLoading} />
       <YouMayLike />
       <BlogFooter />
     </>
