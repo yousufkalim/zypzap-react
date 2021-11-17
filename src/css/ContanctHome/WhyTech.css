@@ -19,7 +19,12 @@
         width: 50%;
         /* border: 2px solid gold; */
         text-align: left;
-        padding: 0 100px 60px 0;
+        padding: 0 50px 60px 0;
+        padding-right: 0 !important;
+    }
+    .col_1{
+        padding: 0 50px 60px 0;
+        padding-right: 0 !important;
     }
     .box{
       float: left;
@@ -36,10 +41,13 @@
     .box2{
       float: right;
       padding-bottom: 50px;
+      /* padding: 0; */
+      padding-right: 0 !important;
   }
   .col_3{
     width: 50%;
-
+ padding-right: 0 
+ !important;
   }
     .box3{
       float: left;
@@ -96,28 +104,42 @@
       width: 100% !important;
       /* padding-bottom: 100px; */
       padding: 0 !important;
+      font-size: 20px !important;
   }
   .box3{
+    font-size: 20px !important;
     margin-top: 50px;
     padding: 0 !important;
     width: 100% !important;
     margin-bottom: 0px;
   }
-  .box3 h2 , .box3 p{
-    /* width: 500px !important; */
-  }
   .happy_box {
     flex-direction: column;
-    width: 100%;
+    width: 80%;
     text-align: center !important;
     margin: auto;
   }
-
+  .happy_col1{
+    width: 100% !important;
+    line-height: 0.5 !important;
+    margin: auto;
+  }
+  .happy_col1 p{
+    font-size: 26px !important;
+  }
+  .happy_col2 span {
+    font-size: 18px;
+}
   .happy_col2{
     width: 100% !important;
     margin-top: 50px !important;
     text-align: left !important;
   }
+  .happy_container {
+    width: 100%;
+    color: #fff;
+ padding: 0px !important;
+}
   
       }
     

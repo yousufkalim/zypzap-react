@@ -81,6 +81,11 @@
   }
   
   /* for big screens */
+  @media only screen and (min-device-width: 1025px) and (max-device-width: 1400px){
+    .Stepperline2 {
+      height: 244px;
+    }
+  }
   @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
   
     .getStartedHeading2 {
@@ -94,9 +99,51 @@
       border: 1px solid;
     }
   }
-  
+   /* for tablet */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
+    .getStartedHeading2 {
+      font-size: 40px;
+      width: 100%;
+  }
+  .MuiGrid-spacing-xs-1 {
+    width: 100%;
+    margin: auto;
+    margin: -4px;
+    flex-direction: column;
+}
+.MuiGrid-spacing-xs-1 > .MuiGrid-item {
+  width: 100%;
+  margin: auto;
+}
+.Getstarted22 {
+  margin-top: 50px;
+  /* margin-left: 0 !important; */
+  }
+  .Getstaredgrid22 {
+    display: flex;
+    margin-left: 0px !important;
+}
+.StepMain2 {
+  position: relative;
+  width: 100%;
+  right: 90px;
+  padding: 0;
+}
+.Steppera {
+  margin-bottom: 38px;
+}
+.Stepperline2 {
+  height: 137px;
+}
+.footerLogo {
+  margin-right: 0px;
+}
+.footerText {
+  margin-left: 20px;
+}
+}
   /* for mobile */
-  @media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
     .getStartedHeading2 {
         font-size: 22px;
         width: 100%;
