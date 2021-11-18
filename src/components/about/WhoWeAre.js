@@ -14,7 +14,7 @@ export default function About() {
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <div className="whoweareimgdiv">
-              <img src={WhoWeAreimg} className="whoweareimg" />
+              <img src={WhoWeAreimg} className="whoweareimg" alt="img" />
             </div>
           </Grid>
           <Grid item xs={12} md={6}>

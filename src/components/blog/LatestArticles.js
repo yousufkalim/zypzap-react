@@ -8,6 +8,7 @@ import Article3 from "../../assets/img/article3.png";
 import Article4 from "../../assets/img/article4.png";
 
 export default function LatestArticle({ blogs, loading, setLoading }) {
+  let newdata = [];
   let data = [
     {
       heading: "Why Pubg Designed the way it is?",
@@ -42,11 +43,7 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
       By: " Moin Khan",
     },
   ];
-  let newData = () => {
-    blogs.shift();
-    return blogs;
-  };
-  console.log("here are the blogs", blogs);
+
   return (
     <div className="LatestArticlecontainer">
       <p className="LatestArticleheading">Latest Articles</p>
@@ -64,13 +61,15 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
                 />
                 <div className="articledetail">
                   <p>
-                    {moment(blogs[0]?.createdAt).format("dddd MM, YYYY")}
+                    {moment(blogs[0]?.createdAt).format("dddd DD, YYYY")}
                     <span className="commentSpan">' 2 Comments</span>
                     <br />
                   </p>
                   <h2 className="articleheading">{blogs[0]?.blog_title}</h2>
                   <p className="textdescription1">
-                    {blogs[0]?.blog_desc}
+                    {blogs[0]?.blog_desc.length > 150
+                      ? blogs[0]?.blog_desc.substring(0, 180) + "..."
+                      : blogs[0]?.blog_desc}
                     <span className="seemore"> See more</span>
                   </p>
                   <p className="articleBy">
@@ -87,25 +86,32 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
               </div>
             </Grid>
             <Grid item xs={12} sm={6}>
-              {newData()
-                ?.slice(0, 3)
-                .map((item) => (
-                  <>
-                    <div className="latestArticleRight">
-                      <img
-                        src={`http://localhost:5000/${item.blog_images}`}
-                        className="article2img"
-                      />
-                      <div className="articleText">
-                        <h3>{item.blog_title}</h3>
-                        <p className="textdescription">{item.blog_desc}</p>
-                        <p>
-                          By<span style={{ color: "red" }}> Moin Khan</span>
-                        </p>
-                      </div>
+              {blogs.slice(1, 4).map((item) => (
+                <>
+                  {console.log(
+                    "item?.blog_desc.length",
+                    item?.blog_desc.length
+                  )}
+                  <div className="latestArticleRight">
+                    <img
+                      src={process.env.REACT_APP_baseURL + item.blog_images}
+                      className="article2img"
+                    />
+                    <div className="articleText">
+                      <h3>{item.blog_title}</h3>
+                      <p className="textdescription">
+                        {item?.blog_desc.length > 186
+                          ? item?.blog_desc.substring(0, 186) + ".."
+                          : item?.blog_desc}
+                      </p>
+
+                      <p className="author1">
+                        By<span style={{ color: "red" }}> Moin Khan</span>
+                      </p>
                     </div>
-                  </>
-                ))}
+                  </div>
+                </>
+              ))}
             </Grid>
           </Grid>
         </>

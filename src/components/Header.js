@@ -162,7 +162,7 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <img src={Logo} />
+          <img src={Logo} alt="img" />
 
           <Typography
             variant="h6"
@@ -180,7 +180,7 @@ export default function PrimarySearchAppBar() {
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
-            <img src={DownArrow} className="downarrow" />
+            <img src={DownArrow} alt="img" className="downarrow" />
             <StyledInputBase
               placeholder="Search"
               inputProps={{ "aria-label": "search" }}
@@ -199,11 +199,11 @@ export default function PrimarySearchAppBar() {
             {/* <p>Sign Up</p>
             <p>Login</p> */}
             <div>
-              <img src={UserIcon} />
+              <img src={UserIcon} alt="img" />
               <span className="iconseperate">|</span>
-              <img src={Globe} />
+              <img src={Globe} alt="img" />
               <span className="iconseperate">|</span>
-              <img src={Moon} />
+              <img src={Moon} alt="img" />
             </div>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>

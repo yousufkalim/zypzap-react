@@ -35,28 +35,28 @@ export default function UserReview() {
         <Grid container spacing={4} className="keepgrowingGrid">
           <Grid item xs={12} md={3}>
             <div>
-              <img src={Learners} />
+              <img src={Learners} alt="img" />
               <h3 className="reviewh3">44M+</h3>
               <p className="reviewP">Learners</p>
             </div>
           </Grid>
           <Grid item xs={12} md={3}>
             <div>
-              <img src={Instrucors} />
+              <img src={Instrucors} alt="img" />
               <h3 className="reviewh3"> 2.1k</h3>
               <p className="reviewP">Instructors</p>
             </div>
           </Grid>
           <Grid item xs={12} md={3}>
             <div>
-              <img src={Games} />
+              <img src={Games} alt="img" />
               <h3 className="reviewh3">232</h3>
               <p className="reviewP">Games</p>
             </div>
           </Grid>
           <Grid item xs={12} md={3}>
             <div>
-              <img src={Customers} />
+              <img src={Customers} alt="img" />
               <h3 className="reviewh3">2M+</h3>
               <p className="reviewP">Enterprise customers</p>
             </div>
@@ -91,7 +91,7 @@ function Reviews({ item }) {
       <Grid container spacing={2} className="">
         <Grid item xs={12} sm={4} className="">
           <div className="userReviewavatardiv">
-            <img src={Avatar2} className="userReviewavatar" />
+            <img src={Avatar2} className="userReviewavatar" alt="img" />
             <div className="userReviewdiv2">
               <p className="userReviewp1">Jenny Wilson</p>
               <p className="userReviewp2">Vice President</p>
@@ -100,7 +100,7 @@ function Reviews({ item }) {
         </Grid>
         <Grid item xs={12} sm={8} className="">
           <div>
-            <img src={Colon} className="colon" />
+            <img src={Colon} className="colon" alt="img" />
             <p className="reviewText">
               We had an incredible experience working with Landify and were
               impressed they made such a big difference in only three weeks. Our

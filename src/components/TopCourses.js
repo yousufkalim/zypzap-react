@@ -43,7 +43,7 @@ function TopCoursesComponent({ item }) {
   return (
     <Grid container spacing={2} className="topCourseGrid">
       <Grid item xs={12} sm={5} className="">
-        <img src={TopCourseImg} className="topcourseimg" />
+        <img src={TopCourseImg} className="topcourseimg" alt="img" />
       </Grid>
       <Grid item xs={12} sm={7} className="topcourseTextGrid">
         <Grid container spacing={2}>
@@ -64,7 +64,7 @@ function TopCoursesComponent({ item }) {
         <Grid container spacing={2} className="topcourseuserGrid">
           <Grid item xs={6} md={6}>
             <div className="userprofilediv">
-              <img src={avatar} className="avatar" />
+              <img src={avatar} className="avatar" alt="img" />
               <div className="div2">
                 <p className="p1">Emma Johns</p>
                 <p className="p2">PUBG player</p>

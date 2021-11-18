@@ -1,5 +1,5 @@
 // Init
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Bodyimg from "../assets/img/body.png";
 import BodyBlurimg from "../assets/img/bodyblur.png";
 import TopCourses from "./TopCourses";
@@ -23,8 +23,8 @@ export default function Body() {
   return (
     <>
       <div className="Bodycontainer">
-        <img src={Bodyimg} className="bodyImage" />
-        <img src={BodyBlurimg} className="blurImg" />
+        <img src={Bodyimg} alt="img" className="bodyImage" />
+        <img src={BodyBlurimg} alt="img" className="blurImg" />
         <div className="textonImg">
           <h1 className="textimgH1">
             We help you becoming

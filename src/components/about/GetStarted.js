@@ -3,7 +3,6 @@ import Grid from "@material-ui/core/Grid";
 import getstarted1 from "../../assets/img/getstarted1.png";
 import getstarted2 from "../../assets/img/getstarted2.png";
 import getstarted3 from "../../assets/img/getstarted3.png";
-import { color, width } from "@mui/system";
 export default function GetStarted() {
   return (
     <>
@@ -13,10 +12,10 @@ export default function GetStarted() {
           <Grid item xs={12} sm={7}>
             <div className="Getstaredgrid1">
               <div className="leftdiv1">
-                <img src={getstarted1} className="Getstarted1" />
+                <img src={getstarted1} className="Getstarted1" alt="img" />
               </div>
               <div className="leftdiv2">
-                <img src={getstarted2} className="Getstarted2" />
+                <img src={getstarted2} className="Getstarted2" alt="img" />
               </div>
             </div>
           </Grid>
@@ -43,7 +42,7 @@ export default function GetStarted() {
                 </div>
               </div>
               <div className="rightdiv">
-                <img src={getstarted3} className="Getstarted3" />
+                <img src={getstarted3} className="Getstarted3" alt="img" />
               </div>
             </div>
           </Grid>

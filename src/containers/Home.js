@@ -2,6 +2,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Body from "../components/Body";
+import Footer from "../components/blog/BlogFooter";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
     >
       <Header />
       <Body />
+      <Footer />
     </div>
   );
 }

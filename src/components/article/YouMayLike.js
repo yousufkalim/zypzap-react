@@ -1,10 +1,6 @@
 // Init
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import Maylike1 from "../../assets/img/maylike1.png";
-import Maylike2 from "../../assets/img/maylike2.png";
-import Maylike3 from "../../assets/img/maylike3.png";
-import Maylike4 from "../../assets/img/maylike4.png";
 import Maylike5 from "../../assets/img/maylike5.png";
 import Maylike6 from "../../assets/img/maylike6.png";
 import Maylike7 from "../../assets/img/maylike7.png";
@@ -41,12 +37,12 @@ export default function YouMayLike() {
     <div className="articleyouMayLikecontainer">
       <p className="youMayLikeheading">You may Like this:</p>
       <Grid container spacing={1}>
-        {data.map((item) => (
+        {data.map((item, i) => (
           <>
             <Grid item xs={12} sm={4}>
               <>
                 <div className="blogdiv1">
-                  <img src={item.img} className="blogdivimg" />
+                  <img src={item.img} className="blogdivimg" alt="img" />
                   <div className="blogdiv1text">
                     <h3 className="blogdiv1heading">{item.heading}</h3>
                     <p className="bloddiv1detail">{item.detail}</p>

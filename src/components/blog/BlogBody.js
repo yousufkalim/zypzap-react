@@ -32,6 +32,7 @@ export default function BlogBody() {
       behavior: "smooth",
     });
   };
+
   useEffect(() => {
     scrollToTop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -46,7 +47,7 @@ export default function BlogBody() {
         </div>
       </div>
       <LatestArticle blogs={blogs} loading={loading} setLoading={setLoading} />
-      <YouMayLike />
+      <YouMayLike blogs={blogs} loading={loading} setLoading={setLoading} />
       <BlogFooter />
     </>
   );

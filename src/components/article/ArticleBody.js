@@ -45,7 +45,7 @@ export default function BlogBody() {
   return (
     <>
       <div className="articleBodycontainer">
-        <img src={ArticleBodyimg} className="articleimg" />
+        <img src={ArticleBodyimg} className="articleimg" alt="img" />
         <div style={{ width: "85%" }}>
           <h1 className="h1article">
             Download PUBG on PC/Laptop free [Windows 10,8,9.1,7]
@@ -54,7 +54,7 @@ export default function BlogBody() {
         <Grid container spacing={2}>
           <Grid item xs={8} sm={9}>
             <div className="articleavatardiv">
-              <img src={Avatar2} className="articleavatar" />
+              <img src={Avatar2} className="articleavatar" alt="img" />
               <div className="articlediv2">
                 <p className="articlep1">Necdet Güner</p>
                 <p className="articlep2">May 15・1 min read</p>
@@ -72,11 +72,11 @@ export default function BlogBody() {
           </Grid>
           <Grid item xs={3} sm={3}>
             <div className="articleSocialicon">
-              <img src={TwitterIcon} className="articlesocialicon" />
-              <img src={LinkedinIcon} className="articlesocialicon" />
-              <img src={FbIcon} className="articlesocialicon" />
-              <img src={PintrestIcon} className="articlesocialicon" />
-              <img src={Dot} className="articlesocialicon" />
+              <img src={TwitterIcon} className="articlesocialicon" alt="img" />
+              <img src={LinkedinIcon} className="articlesocialicon" alt="img" />
+              <img src={FbIcon} className="articlesocialicon" alt="img" />
+              <img src={PintrestIcon} className="articlesocialicon" alt="img" />
+              <img src={Dot} className="articlesocialicon" alt="img" />
             </div>
           </Grid>
         </Grid>

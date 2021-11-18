@@ -63,7 +63,7 @@ export default function TopRatedContent() {
           {items.map((item, i) => (
             <Grid item xs={6} md={3}>
               <div className="blogGrid">
-                <img src={item.img} className="blogcourseimg" />
+                <img src={item.img} alt="img" className="blogcourseimg" />
                 <h5 className="blogcourseh5">{item.name}</h5>
                 <p className="blogcoursep1">{item.title}</p>
                 <p className="blogcoursep1">

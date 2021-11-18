@@ -142,7 +142,7 @@ export default function LatestCourses() {
         >
           {items.map((item, i) => (
             <div className="cardGrid">
-              <img src={item.img} className="courseimg" />
+              <img src={item.img} className="courseimg" alt="img" />
               <h5 className="latestcourseh5">{item.title}</h5>
               <p className="latestcoursep1">{item.name}</p>
               <p className="latestcoursep1">

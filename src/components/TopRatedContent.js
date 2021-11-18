@@ -5,7 +5,6 @@ import Game2 from "../assets/img/game2.png";
 import Game3 from "../assets/img/game3.png";
 import Game4 from "../assets/img/game4.png";
 import Game5 from "../assets/img/game5.png";
-import StarIcon from "@material-ui/icons/Star";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -167,7 +166,7 @@ export default function TopRatedContent() {
         >
           {items.map((item, i) => (
             <div className="topRatedcardGrid">
-              <img src={item.img} className="topRatedcourseimg" />
+              <img src={item.img} className="topRatedcourseimg" alt="img" />
               <h5 className="latestcourseh5">{item.name}</h5>
               <p className="latestcoursep1">{item.title}</p>
               <p className="latestcoursep1">
