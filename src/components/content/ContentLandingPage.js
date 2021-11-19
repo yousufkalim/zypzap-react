@@ -7,7 +7,7 @@ const ContentLandingPage = () => {
       <div className="content_container">
         <img src={Group9775} className="content_Image" />
         <img src={Rectangle} className="blurIm" />
-        <div className="textonImg">
+        <div className="textonImgcontent">
           <h1 className="textH1">
             Teach what you are
             <br /> good at

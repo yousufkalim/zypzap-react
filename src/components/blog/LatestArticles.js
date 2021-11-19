@@ -6,6 +6,7 @@ import Article1 from "../../assets/img/article1.png";
 import Article2 from "../../assets/img/article2.png";
 import Article3 from "../../assets/img/article3.png";
 import Article4 from "../../assets/img/article4.png";
+import { Link } from "react-router-dom";
 
 export default function LatestArticle({ blogs, loading, setLoading }) {
   let newdata = [];
@@ -70,7 +71,13 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
                     {blogs[0]?.blog_desc.length > 150
                       ? blogs[0]?.blog_desc.substring(0, 180) + "..."
                       : blogs[0]?.blog_desc}
-                    <span className="seemore"> See more</span>
+                    <Link
+                      to={`blog/${blogs[0]?._id}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      {" "}
+                      <span className="seemore"> See more</span>
+                    </Link>
                   </p>
                   <p className="articleBy">
                     By{" "}
@@ -88,28 +95,30 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
             <Grid item xs={12} sm={6}>
               {blogs.slice(1, 4).map((item) => (
                 <>
-                  {console.log(
-                    "item?.blog_desc.length",
-                    item?.blog_desc.length
-                  )}
-                  <div className="latestArticleRight">
-                    <img
-                      src={process.env.REACT_APP_baseURL + item.blog_images}
-                      className="article2img"
-                    />
-                    <div className="articleText">
-                      <h3>{item.blog_title}</h3>
-                      <p className="textdescription">
-                        {item?.blog_desc.length > 186
-                          ? item?.blog_desc.substring(0, 186) + ".."
-                          : item?.blog_desc}
-                      </p>
+                  <Link
+                    to={`blog/${item._id}`}
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    <div className="latestArticleRight">
+                      {" "}
+                      <img
+                        src={process.env.REACT_APP_baseURL + item.blog_images}
+                        className="article2img"
+                      />
+                      <div className="articleText">
+                        <h3>{item.blog_title}</h3>
+                        <p className="textdescription">
+                          {item?.blog_desc.length > 186
+                            ? item?.blog_desc.substring(0, 186) + ".."
+                            : item?.blog_desc}
+                        </p>
 
-                      <p className="author1">
-                        By<span style={{ color: "red" }}> Moin Khan</span>
-                      </p>
+                        <p className="author1">
+                          By<span style={{ color: "red" }}> Moin Khan</span>
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </>
               ))}
             </Grid>

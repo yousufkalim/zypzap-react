@@ -6,11 +6,11 @@ const whyTechWith = () => {
   return (
     <>
       <div className="why_container">
-        <h1>Why Teach With Us</h1>
+        <h1 className="whyh1">Why Teach With Us</h1>
         <WhyData
-          heading="Teach You Why"
-          pera="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, lwords, consectetur, from a Lorem Ipsum passage"
-          pera2="simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and"
+          heading="Teach you way"
+          pera="it is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,"
+          pera2="Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for "
         />
       </div>
     </>

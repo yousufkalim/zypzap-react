@@ -16,7 +16,7 @@ const index = () => {
       <Route exact path="/" component={Home} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/blog" component={Blog} />
-      <Route exact path="/article" component={Article} />
+      <Route exact path="/blog/:id" component={Article} />
       <Route exact path="/about" component={About} />
       <Route exact path="/contenthome" component={Contenthome} />
     </Switch>

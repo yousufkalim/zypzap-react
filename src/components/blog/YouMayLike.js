@@ -9,6 +9,7 @@ import Maylike5 from "../../assets/img/maylike5.png";
 import Maylike6 from "../../assets/img/maylike6.png";
 import Maylike7 from "../../assets/img/maylike7.png";
 import Maylike8 from "../../assets/img/maylike8.png";
+import { Link } from "react-router-dom";
 
 export default function YouMayLike({ blogs, loading, setLoading }) {
   let data = [
@@ -99,17 +100,21 @@ export default function YouMayLike({ blogs, loading, setLoading }) {
                           ? item?.blog_title.substring(0, 22) + "..."
                           : item?.blog_title}
                       </h3>
-                      {console.log(
-                        "item?.blog_desc.length ",
-                        item?.blog_desc.length
-                      )}
+
                       <p className="bloddiv1detail">
                         {item?.blog_desc.length > 147
                           ? item?.blog_desc.substring(0, 146) + ".."
                           : item?.blog_desc}
                       </p>
                       <p>
-                        <span className="seemore"> Read More</span>
+                        <Link
+                          to={`blog/${item._id}`}
+                          params={{ testvalue: "hello" }}
+                          style={{ textDecoration: "none" }}
+                        >
+                          {" "}
+                          <span className="seemore"> Read More</span>
+                        </Link>
                       </p>
                     </div>
                   </div>

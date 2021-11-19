@@ -1,5 +1,5 @@
 // Init
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../components/Header";
 import BlogBody from "../components/blog/BlogBody";
 

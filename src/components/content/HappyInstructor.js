@@ -23,27 +23,24 @@ const HappyInstructor = () => {
         <div className="happy_container">
           <div className="happy_box">
             <div className="happy_col1">
-              <h2>Happy Instructor</h2>
-              <p className="hapy_pera">
-                Lorem ipsum dolor sit, amet consectetur{" "}
+              <h2 className="happy_col1h2">Happy Instructor</h2>
+              <p className="happy_col1p">
+                Feedback from these happy customers <br />
+                helps us in reaching the heights
               </p>
-              <p className="hapy_pera">Lorem ipsum dolor consectetur</p>
             </div>
             <div className="happy_col2">
-              <img src={happypic} alt="My Pic" />
-              <h3>javari williams</h3>
-              {/* <br /> */}
-              <p>Lorem, ipsum.</p>
+              <img className="happy_col2img" src={happypic} alt="MyPic" />
+              <h3 className="happy_col2h3">Jenny Wilson</h3>
+              <p className="happy_col2p">Game Player</p>
               <br />
-              <span>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Voluptatibus doloribus facilis laboriosam maiores ut non? Nemo
-                consequuntur minima vitae, totam corporis molestias aliquid
-                quibusdam sed ipsum optio modi reprehenderit. Minus.Lorem ipsum
-                dolor sit amet consectetur, adipisicing elit. Voluptatibus
-                doloribus facilis laboriosam maiores ut non? Nemo consequuntur
-                minima vitae, totam corporis molestias aliquid quibusdam sed
-                ipsum optio modi reprehenderit. Minus.
+              <span className="happy_col2span">
+                We had an incredible experience working with Landify and were
+                impressed they made such a big difference in only three weeks.
+                Our team is so grateful for the wonderful improvements they made
+                and their ability to get familiar with the product concept so
+                quickly. It acted as a catalyst to take our design to the next
+                level and get more eyes on our product.
               </span>
             </div>
           </div>

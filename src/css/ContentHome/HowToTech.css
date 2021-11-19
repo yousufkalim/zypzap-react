@@ -32,14 +32,15 @@
   width: 25px;
 }
 .Stepperline2 {
-  height: 154px;
+  height: 173px !important;
   width: 1px;
   background-color: #fff;
   margin-top: 5px;
   margin-left: 11px;
 }
 .Stepperdisc2 {
-  padding: 0 0 0 20px;
+  padding: 0 0 0 24px;
+  font-weight: 900;
 }
 .Steppera {
   text-align: left;
@@ -75,6 +76,9 @@
   }
 }
 @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+  .Stepperline2 {
+    height: 155px !important;
+  }
   .getStartedHeading2 {
     font-size: 40px;
     padding-bottom: 67px;

@@ -37,6 +37,7 @@ export default function BlogBody() {
     scrollToTop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <>
       <div className="BlogBodycontainer">

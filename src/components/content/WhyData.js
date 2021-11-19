@@ -15,9 +15,9 @@ const WhyData = (props) => {
           }}
         >
           <div className="box">
-            <h2>{props.heading}</h2>
-            <p>{props.pera}</p>
-            <p>{props.pera2}</p>
+            <h2 className="boxh2">{props.heading}</h2>
+            <p className="boxp">{props.pera}</p>
+            <p className="boxp">{props.pera2}</p>
           </div>
         </div>
         <div className="box1">
@@ -25,7 +25,7 @@ const WhyData = (props) => {
             className="img1"
             src={Mesa}
             alt=""
-            style={{ width: "120%", paddingTop: "50px" }}
+            style={{ paddingTop: "50px" }}
           />
         </div>
       </div>
@@ -36,21 +36,14 @@ const WhyData = (props) => {
               className="img2"
               src={Lcd}
               alt=""
-              style={{ width: "400px", paddingTop: "50px" }}
+              style={{ paddingTop: "50px" }}
             />
           </div>
         </div>
-        <div
-          className="box2"
-          style={{
-            textAlign: "left",
-            paddingLeft: "160px",
-            paddingRight: "100px",
-          }}
-        >
-          <h2>{props.heading}</h2>
-          <p>{props.pera}</p>
-          <p>{props.pera2}</p>
+        <div className="box2">
+          <h2 className="boxh2">Inspire Learners</h2>
+          <p className="boxp">{props.pera}</p>
+          <p className="boxp">{props.pera2}</p>
         </div>
       </div>
       <div className="why_box">
@@ -63,9 +56,9 @@ const WhyData = (props) => {
           }}
         >
           <div className="box3">
-            <h2>{props.heading}</h2>
-            <p>{props.pera}</p>
-            <p>{props.pera2}</p>
+            <h2 className="boxh2">Get Rewarded</h2>
+            <p className="boxp">{props.pera}</p>
+            <p className="boxp">{props.pera2}</p>
           </div>
         </div>
         <div className="box3">

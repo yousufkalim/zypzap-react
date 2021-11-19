@@ -10,8 +10,11 @@ import Dot from "../../assets/icons/dot2.svg";
 import LinkedinIcon from "../../assets/icons/linkedin2.svg";
 import YouMayLike from "./YouMayLike";
 import BlogFoote from "../blog/BlogFooter";
+import { useParams } from "react-router-dom";
 
 export default function BlogBody() {
+  const p = useParams();
+  console.log("params is ", p);
   function htmlfile() {
     return {
       __html: `<div class="htmlmaindiv">
