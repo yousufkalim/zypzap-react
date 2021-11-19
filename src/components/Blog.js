@@ -1,57 +1,49 @@
 // Init
 import React from "react";
-import Game1 from "../assets/img/game1.png";
-import Game2 from "../assets/img/game2.png";
-import Game3 from "../assets/img/game3.png";
-import Game4 from "../assets/img/game4.png";
+
+import Maylike1 from "../assets/img/maylike1.png";
+import Maylike2 from "../assets/img/maylike2.png";
+import Maylike3 from "../assets/img/maylike3.png";
+import Maylike4 from "../assets/img/maylike4.png";
 
 import "react-multi-carousel/lib/styles.css";
 import Grid from "@material-ui/core/Grid";
 
 export default function TopRatedContent() {
-  var items = [
+  let items = [
     {
-      title: "fighting game player of Tekken",
-      img: Game1,
-      name: "Arslan Ash",
-      level: "Pro",
-      students: "500000+ Students",
-      rating: "rating",
-      price: "19.99",
-      test: "1",
+      heading: "Call of Duty || 2021",
+      img: Maylike1,
+      detail:
+        "It is a long established fact that a reader will be distracted by the readable content of a page  this is when loovking at its layout game is best. The point of using Lorem Ipsum is that.",
+      date: "December 17, 2021",
+      By: "Baig Irfan",
     },
     {
-      title: "Undefeated PUBG player",
-      img: Game2,
-      name: "Jennifer Flagg",
-      level: "Pro",
-      students: "500000+ Students",
-      rating: "rating",
-      price: "19.99",
-      test: "2",
+      heading: "Gears of War",
+      img: Maylike2,
+      detail:
+        "It is a long established fact that a reader will be distracted by the readable content of a page  this is when loovking at its layout game is best. The point of using Lorem Ipsum is that.",
+      date: "December 17, 2021",
+      By: " Moin Khan",
     },
     {
-      title: "Mincraft Expert",
-      img: Game3,
-      name: "Pewdiepie",
-      level: "Pro",
-      students: "500000+ Students",
-      rating: "rating",
-      price: "19.99",
-      test: "3",
+      heading: "Uncharted Amoung Thieves",
+      img: Maylike3,
+      detail:
+        "It is a long established fact that a reader will be distracted by the readable content of a page  this is when loovking at its layout game is best. The point of using Lorem Ipsum is that.",
+      date: "December 17, 2021",
+      By: " Moin Khan",
     },
     {
-      title: "Pro player of CS:GO",
-      img: Game4,
-      name: "Dupreeh",
-      level: "Pro",
-      students: "500000+ Students",
-      rating: "rating",
-      price: "19.99",
-      test: "4",
+      heading: "Kill Zone 2",
+      img: Maylike4,
+      detail:
+        "It is a long established fact that a reader will be distracted by the readable content of a page  this is when loovking at its layout game is best. The point of using Lorem Ipsum is that.",
+      date: "December 17, 2021",
+      By: " Moin Khan",
     },
   ];
-
   return (
     <div className="blogcontainer">
       <div className="blogHeadingDiv">
@@ -61,17 +53,29 @@ export default function TopRatedContent() {
       <div className="blogGridOuterDiv">
         <Grid container spacing={4}>
           {items.map((item, i) => (
-            <Grid item xs={6} md={3}>
-              <div className="blogGrid">
-                <img src={item.img} alt="img" className="blogcourseimg" />
-                <h5 className="blogcourseh5">{item.name}</h5>
-                <p className="blogcoursep1">{item.title}</p>
-                <p className="blogcoursep1">
-                  {" "}
-                  Level :<span style={{ color: "red" }}>{item.level}</span>
-                </p>
-                <p className="blogcourseh6">{item.students}</p>
-              </div>
+            <Grid item xs={12} sm={3}>
+              <>
+                <div className="blogdiv1">
+                  <img src={item.img} className="blogdivimg" />
+                  <div className="blogdiv1text">
+                    <h3 className="blogdiv1heading">
+                      {item?.heading.length > 25
+                        ? item?.heading.substring(0, 22) + "..."
+                        : item?.heading}
+                    </h3>
+
+                    <p className="bloddiv1detail">
+                      {item?.detail.length > 147
+                        ? item?.detail.substring(0, 146) + ".."
+                        : item?.detail}
+                    </p>
+                    <p>
+                      {" "}
+                      <span className="seemore"> Read More</span>
+                    </p>
+                  </div>
+                </div>
+              </>
             </Grid>
           ))}
         </Grid>

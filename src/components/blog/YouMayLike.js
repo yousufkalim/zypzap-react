@@ -12,6 +12,7 @@ import Maylike8 from "../../assets/img/maylike8.png";
 import { Link } from "react-router-dom";
 
 export default function YouMayLike({ blogs, loading, setLoading }) {
+  let newblog = [];
   let data = [
     {
       heading: "Call of Duty || 2021",
@@ -78,50 +79,56 @@ export default function YouMayLike({ blogs, loading, setLoading }) {
       By: " Moin Khan",
     },
   ];
+  const getblogs = () => {
+    newblog = [...blogs];
+    return newblog;
+  };
   return (
     <div className="youMayLikecontainer">
       <p className="youMayLikeheading">You may Like this:</p>
       {loading ? (
-        <h1>Loading</h1>
+        <h1>Loading...</h1>
       ) : (
         <Grid container spacing={1}>
-          {blogs.splice(4).map((item) => (
-            <>
-              <Grid item xs={12} sm={3}>
-                <>
-                  <div className="blogdiv1">
-                    <img
-                      src={process.env.REACT_APP_baseURL + item.blog_images}
-                      className="blogdivimg"
-                    />
-                    <div className="blogdiv1text">
-                      <h3 className="blogdiv1heading">
-                        {item?.blog_title.length > 25
-                          ? item?.blog_title.substring(0, 22) + "..."
-                          : item?.blog_title}
-                      </h3>
+          {getblogs()
+            ?.splice(4)
+            .map((item) => (
+              <>
+                <Grid item xs={12} sm={3}>
+                  <>
+                    <div className="blogdiv1">
+                      <img
+                        src={process.env.REACT_APP_baseURL + item.blog_images}
+                        className="blogdivimg"
+                      />
+                      <div className="blogdiv1text">
+                        <h3 className="blogdiv1heading">
+                          {item?.blog_title.length > 25
+                            ? item?.blog_title.substring(0, 22) + "..."
+                            : item?.blog_title}
+                        </h3>
 
-                      <p className="bloddiv1detail">
-                        {item?.blog_desc.length > 147
-                          ? item?.blog_desc.substring(0, 146) + ".."
-                          : item?.blog_desc}
-                      </p>
-                      <p>
-                        <Link
-                          to={`blog/${item._id}`}
-                          params={{ testvalue: "hello" }}
-                          style={{ textDecoration: "none" }}
-                        >
-                          {" "}
-                          <span className="seemore"> Read More</span>
-                        </Link>
-                      </p>
+                        <p className="bloddiv1detail">
+                          {item?.blog_desc.length > 147
+                            ? item?.blog_desc.substring(0, 146) + ".."
+                            : item?.blog_desc}
+                        </p>
+                        <p>
+                          <Link
+                            to={`blog/${item._id}`}
+                            params={{ testvalue: "hello" }}
+                            style={{ textDecoration: "none" }}
+                          >
+                            {" "}
+                            <span className="seemore"> Read More</span>
+                          </Link>
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </>
-              </Grid>
-            </>
-          ))}
+                  </>
+                </Grid>
+              </>
+            ))}
         </Grid>
       )}
     </div>

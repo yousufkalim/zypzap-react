@@ -49,7 +49,7 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
     <div className="LatestArticlecontainer">
       <p className="LatestArticleheading">Latest Articles</p>
       {loading ? (
-        <h1>Loading..</h1>
+        <h1>Loading...</h1>
       ) : blogs ? (
         <>
           {" "}
@@ -72,7 +72,10 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
                       ? blogs[0]?.blog_desc.substring(0, 180) + "..."
                       : blogs[0]?.blog_desc}
                     <Link
-                      to={`blog/${blogs[0]?._id}`}
+                      to={{
+                        pathname: `blog/${blogs[0]?._id}`,
+                        state: { message: "hello, im a passed message!" },
+                      }}
                       style={{ textDecoration: "none" }}
                     >
                       {" "}

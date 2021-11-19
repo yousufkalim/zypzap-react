@@ -21,6 +21,7 @@ export function StoreProvider({ children }) {
     loggedIn: false,
     user: {},
     blogs: [],
+    singleBlog: {},
   });
 
   const updateStore = (data) => {

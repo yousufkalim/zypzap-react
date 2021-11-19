@@ -6,7 +6,7 @@ import Maylike6 from "../../assets/img/maylike6.png";
 import Maylike7 from "../../assets/img/maylike7.png";
 import Maylike8 from "../../assets/img/maylike8.png";
 
-export default function YouMayLike() {
+export default function YouMayLike({ blogs }) {
   let data = [
     {
       heading: "Hitman 3",

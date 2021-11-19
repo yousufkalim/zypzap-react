@@ -18,6 +18,7 @@ import Moon from "../assets/icons/moon.svg";
 import Globe from "../assets/icons/globe.svg";
 import DownArrow from "../assets/icons/downarrow.svg";
 import UserIcon from "../assets/icons/userIcon.svg";
+import { useHistory } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -60,6 +61,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
+  const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -162,7 +164,15 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <img src={Logo} alt="img" />
+          <img
+            src={Logo}
+            alt="img"
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              history.push("/");
+              window.location.reload();
+            }}
+          />
 
           <Typography
             variant="h6"
