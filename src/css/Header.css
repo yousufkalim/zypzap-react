@@ -46,5 +46,6 @@
   }
   .downarrow {
     left: 17%;
+    display: none;
   }
 }
