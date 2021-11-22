@@ -32,7 +32,7 @@ export default function YouMayLike() {
         </Grid>
         <Grid item xs={12} sm={3}>
           <div className="f2div">
-            <Link to="/home" style={{ color: "white", textDecoration: "none" }}>
+            <Link to="/" style={{ color: "white", textDecoration: "none" }}>
               <p className="phead">Home</p>
             </Link>
             <Link

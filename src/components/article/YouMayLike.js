@@ -7,6 +7,7 @@ import Maylike7 from "../../assets/img/maylike7.png";
 import Maylike8 from "../../assets/img/maylike8.png";
 
 export default function YouMayLike({ blogs }) {
+  let newblog = [];
   let data = [
     {
       heading: "Hitman 3",
@@ -33,6 +34,11 @@ export default function YouMayLike({ blogs }) {
       By: " Moin Khan",
     },
   ];
+  const getblogs = () => {
+    newblog = [...blogs];
+    return newblog;
+  };
+  console.log("blogs", blogs);
   return (
     <div className="articleyouMayLikecontainer">
       <p className="youMayLikeheading">You may Like this:</p>

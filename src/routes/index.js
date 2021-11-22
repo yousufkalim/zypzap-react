@@ -13,7 +13,7 @@ import Contenthome from "../containers/ContentHome.js";
 const index = () => {
   return (
     <Switch>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" component={Blog} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/blog" component={Blog} />
       <Route exact path="/blog/:id" component={Article} />
