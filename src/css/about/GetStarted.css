@@ -1,0 +1,113 @@
+.getStartedContainer {
+  margin-top: 10%;
+  position: relative;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+.getStartedHeading {
+  padding: 80px 0px 15px 0px;
+  font-size: 33px;
+  opacity: 0.9;
+}
+.leftdiv1 {
+  width: 55%;
+  position: relative;
+  bottom: 165px;
+  right: 0px;
+}
+.leftdiv2 {
+  width: 82%;
+  position: relative;
+  right: 105px;
+}
+.Getstaredgrid1 {
+  display: flex;
+  /* padding: 10px 0 0 0; */
+}
+.Getstarted1 {
+  width: 100%;
+}
+.Getstarted2 {
+  width: 100%;
+}
+.Getstaredgrid2 {
+  display: flex;
+}
+.Stepper1 {
+  display: flex;
+  margin-bottom: 30px;
+}
+.Steppertitle1 {
+  border-radius: 50%;
+  border: 1px solid;
+  height: 25px;
+  width: 25px;
+}
+.Stepperline {
+  height: 30px;
+  width: 1px;
+  background-color: #fff;
+  margin-top: 5px;
+  margin-left: 11px;
+}
+.Stepperdisc {
+  padding: 0 0 0 20px;
+}
+.StepMain {
+  position: relative;
+  width: 65%;
+  padding: 80px 0px 0 0px;
+  right: 90px;
+  opacity: 0.9;
+}
+.rightdiv {
+  margin: auto;
+  width: 30%;
+  position: relative;
+  right: 120px;
+}
+
+/* for big screens */
+@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+  .leftdiv1 {
+    bottom: 220px;
+    left: 30px;
+  }
+  .getStartedHeading {
+    font-size: 40px;
+  }
+  .Stepperdisc {
+    font-size: 20px;
+  }
+  .Steppertitle1 {
+    border-radius: 50%;
+    border: 1px solid;
+  }
+}
+
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .getStartedHeading {
+    padding: 80px 0px 15px 32%;
+    font-size: 22px;
+  }
+  .Getstaredgrid2 {
+    display: inherit;
+  }
+  .StepMain {
+    position: inherit;
+    width: 90%;
+    padding: 0px 0px 0 0px;
+    margin: auto;
+  }
+
+  .rightdiv {
+    margin: auto;
+    width: 50%;
+    position: inherit;
+  }
+  .Getstarted3 {
+    width: 100%;
+  }
+}

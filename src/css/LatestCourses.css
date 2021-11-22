@@ -1,0 +1,76 @@
+.latestCoursescontainer {
+  margin-top: 5px;
+  position: unset !important;
+  color: white;
+  margin: auto;
+  text-align: left;
+}
+.latestcourseHeadingDiv {
+  display: flex;
+  justify-content: space-between;
+  width: 93%;
+  margin: auto;
+}
+.latestcourseheading {
+  padding: 20px 0px 25px 0px;
+  font-weight: bolder;
+  font-size: 17px;
+}
+.cardGrid {
+  background: linear-gradient(
+    90.12deg,
+    #202342 22.77%,
+    rgba(38, 38, 72, 0) 129.88%
+  ) !important;
+  border-radius: 50px !important;
+  width: 95% !important;
+  margin: auto !important;
+}
+.courseimg {
+  width: 100%;
+  padding: 20px 20px 10px 20px;
+}
+.latestcourseh5 {
+  padding-left: 20px;
+}
+.latestcourseh6 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  padding: 20px 0px 20px 25px;
+}
+.latestcoursep1 {
+  padding: 5px 0px 0px 20px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+.carousalOuterDiv {
+  width: 95%;
+  margin: auto;
+}
+/* right arrow */
+.react-multiple-carousel__arrow--right {
+  background-color: transparent !important;
+  right: 4px !important;
+}
+.react-multiple-carousel__arrow::before {
+  font-size: 30px !important;
+}
+.react-multiple-carousel__arrow:hover {
+  color: green !important;
+}
+/* left arrow */
+.react-multiple-carousel__arrow--left {
+  left: 2px !important;
+  background-color: transparent !important;
+}
+.react-multi-carousel-list {
+  position: unset !important;
+  overflow-x: hidden !important;
+}
+
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .cardGrid {
+    text-align: center;
+  }
+}

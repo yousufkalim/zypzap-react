@@ -1,0 +1,105 @@
+.LatestArticlecontainer {
+  margin-top: 5px;
+  position: relative;
+  color: white;
+  width: 93%;
+  margin: auto;
+  text-align: left;
+}
+.LatestArticleheading {
+  padding: 15px 0px 0px 10px;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.latestArticleLeft {
+  background: linear-gradient(
+    90.12deg,
+    #202342 22.77%,
+    rgba(38, 38, 72, 0) 129.88%
+  ) !important;
+  border-radius: 20px !important;
+  margin-top: 20px;
+}
+.article1img {
+  width: 100%;
+  padding-top: 5px;
+  height: 328px;
+}
+
+.latestArticleRight {
+  background: linear-gradient(
+    90.12deg,
+    #202342 22.77%,
+    rgba(38, 38, 72, 0) 129.88%
+  ) !important;
+  display: flex;
+  margin-top: 25px;
+  border-radius: 20px !important;
+}
+.articleText {
+  padding: 20px 15px 0px 30px;
+  opacity: 0.7;
+}
+.textdescription {
+  padding: 8px 0px 8px 0px;
+}
+.author1 {
+  padding-bottom: 10px;
+}
+.article2img {
+  width: 34%;
+  height: 170px;
+}
+.commentSpan {
+  margin-left: 20px;
+}
+.articledetail {
+  margin-left: 20px;
+  padding: 20px;
+  opacity: 0.7;
+}
+.articleheading {
+  padding: 15px 0 15px 0;
+}
+.articleBy {
+  padding: 15px 0 15px 0;
+}
+.seemore {
+  color: red;
+}
+.seemore:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* for big screens */
+@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+  .article1img {
+    height: 294px;
+  }
+  .article2img {
+    width: 26%;
+    height: 150px;
+  }
+  .articleText {
+    padding: 20px 80px 0px 30px;
+  }
+}
+
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .articledetail {
+    margin-left: 0px;
+    padding: 5px;
+    opacity: 0.7;
+  }
+  .articleText {
+    padding: 10px 0px 12px 12px;
+  }
+  .textdescription {
+    font-size: 13px;
+  }
+  .textdescription1 {
+    font-size: 13px;
+  }
+}

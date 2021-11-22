@@ -1,0 +1,91 @@
+.topCoursescontainer {
+  margin-top: 5px;
+  position: relative;
+  color: white;
+  width: 93%;
+  margin: auto;
+  text-align: left;
+}
+.topcourseheading {
+  padding: 20px 0px 25px 0px;
+  font-weight: bolder;
+  font-size: 17px;
+}
+.topCourseGrid {
+  background: linear-gradient(
+    90.12deg,
+    #202342 22.77%,
+    rgba(38, 38, 72, 0) 129.88%
+  ) !important;
+  border-radius: 50px !important;
+}
+.topcourseimg {
+  width: 100%;
+  padding: 10px;
+}
+.topcourseTextGrid {
+  padding: 30px 20px 30px 20px !important;
+}
+.topcourseText {
+  padding-top: 10px !important;
+  opacity: 0.7 !important;
+  font-size: 15px;
+}
+.p1 {
+  font-size: 14px;
+  font-weight: 900;
+}
+.p2 {
+  font-size: 12px;
+  opacity: 0.8;
+}
+.div2 {
+  margin-left: 5px;
+}
+.topcourseuserGrid {
+  margin-top: 8% !important;
+}
+.topcourseuserRightGrid {
+  margin-top: 4% !important;
+}
+.marginRight {
+  margin-right: 10px;
+}
+.userprofilediv {
+  display: flex;
+  margin-top: 2px;
+}
+.avatar {
+  width: 45px;
+  height: 45px;
+}
+.activeIndicator {
+  color: red !important;
+}
+
+.topcoursecarousal {
+  overflow: inherit !important;
+}
+/* for big screens */
+@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+  .h3heading {
+    font-size: 30px;
+  }
+  .topcourseuserGrid {
+    margin-top: 14% !important;
+  }
+  .topcourseText {
+    padding-top: 10px !important;
+    opacity: 0.7 !important;
+    font-size: 18px;
+  }
+}
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .h3heading {
+    font-size: 17px;
+  }
+  .topcourseText {
+    font-size: 12px;
+  }
+}

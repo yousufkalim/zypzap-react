@@ -1,0 +1,78 @@
+.userReviewContainer {
+  background: url("../../assets/img/userreview.png") no-repeat center
+    center/cover;
+
+  color: white;
+  margin-top: 70px;
+}
+.reviewHeadingdiv {
+  text-align: center;
+  padding: 40px 0px 40px 0px;
+  font-weight: 100;
+}
+
+.keepgrowingGrid {
+  width: 75% !important;
+  margin: auto !important;
+  text-align: center !important;
+  padding-top: 25px !important;
+}
+.reviewP {
+  opacity: 0.9;
+  font-size: 12px;
+}
+.reviewh3 {
+  font-size: 24px;
+  margin-top: 13px;
+  font-weight: 100;
+}
+.userReviewavatardiv {
+  display: flex;
+  margin: 50px 0px 20px 7px;
+  width: 65%;
+  margin-left: auto;
+}
+.userReviewavatar {
+  width: 45px;
+  height: 45px;
+}
+.userReviewdiv2 {
+  margin-left: 14px;
+  margin-top: 5px;
+}
+.userReviewp1 {
+  font-size: 14px;
+}
+.userReviewp2 {
+  font-size: 12px;
+  padding-top: 3px;
+  opacity: 0.9;
+}
+.reviewText {
+  width: 82%;
+  margin-bottom: 20px;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+.colon {
+  position: relative;
+  top: 22px;
+  right: 40px;
+}
+
+/* for big screens */
+@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+}
+
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .userReviewavatardiv {
+    width: 50%;
+    margin: auto;
+  }
+  .reviewText {
+    width: 100%;
+    margin: auto;
+    font-size: 12px;
+  }
+}

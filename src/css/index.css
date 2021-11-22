@@ -1,11 +1,32 @@
 /* Importing all CSS files */
 @import url("./Header.css");
+@import url("./Body.css");
+@import url("./TopCourses.css");
+@import url("./LatestCourses.css");
+@import url("./TopratedContent.css");
+@import url("./Request.css");
+@import url("./RankingList.css");
+@import url("./Blog.css");
+@import url("./blog/BlogBody.css");
+@import url("./blog/LatestArticle.css");
+@import url("./blog/YouMayLike.css");
+@import url("./blog/BlogFooter.css");
+@import url("./article/article.css");
+@import url("./about/About.css");
+@import url("./about/WhoWeAre.css");
+@import url("./about/UserReview.css");
+@import url("./about/GetStarted.css");
+@import url("./ContentHome/content.css");
+@import url("./ContentHome/WhyTech.css");
+@import url("./ContentHome/Happy.css");
+@import url("./ContentHome/HowToTech.css");
 
 /* Defaults */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Mulish";
 }
 
 /* Primary Variables */
