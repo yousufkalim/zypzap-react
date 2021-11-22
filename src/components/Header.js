@@ -161,8 +161,8 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1 }} className="aaaaaaaaaaa">
+      <AppBar position="static" className="headerBackgroundColor">
         <Toolbar>
           <img
             src={Logo}
