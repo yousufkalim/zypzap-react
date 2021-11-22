@@ -2,6 +2,9 @@
 .css-hip9hq-MuiPaper-root-MuiAppBar-root {
   background-color: #0e0f1e !important;
 }
+.headerBackgroundColor {
+  background-color: #0e0f1e !important;
+}
 /* whole navbar */
 .css-1t29gy6-MuiToolbar-root {
   padding-left: 40px !important;
@@ -21,7 +24,7 @@
 }
 .downarrow {
   position: relative;
-  left: 6%;
+  left: 7%;
   width: 13px;
 }
 
@@ -43,5 +46,6 @@
   }
   .downarrow {
     left: 17%;
+    display: none;
   }
 }
