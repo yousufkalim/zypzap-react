@@ -57,7 +57,7 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
             <Grid item xs={12} sm={6}>
               <div className="latestArticleLeft">
                 <img
-                  src={`http://localhost:5000/${blogs[0]?.blog_images}`}
+                  src={process.env.REACT_APP_baseURL + blogs[0]?.blog_images}
                   className="article1img"
                 />
                 <div className="articledetail">
