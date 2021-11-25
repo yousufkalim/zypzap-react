@@ -22,7 +22,7 @@ export default function BlogBody() {
 
     let res = await api("get", "/blogs");
     if (res) {
-      updateStore({ blogs: res?.data });
+      updateStore({ blogs: res?.data }); 
     }
     setLoading(false);
   };
