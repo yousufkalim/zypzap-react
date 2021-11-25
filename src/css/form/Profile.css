@@ -1,0 +1,159 @@
+
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+    background-color: #15162C !important;
+    width: 100% !important;
+    margin: auto !important;
+    border-radius: 15px !important;
+    overflow: hidden !important;
+    max-width: 500px !important;
+}
+.profile_Details{
+    width: 90%;
+    display: flex;
+    background-color: #15162C;
+    color: #fff;
+    margin: auto;
+    flex-direction: column-reverse;
+    padding: 0 15px;
+}
+.profileH1{
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin: 14px 0px 8px 0px;
+    display: inline-block;
+    font-weight: 500;
+}
+.profile_pera{
+    font-size: 20px;
+    margin-bottom: 22px;
+    opacity: 0.7 !important;
+}
+.proP{
+    margin-top: 24px;
+    margin-left: 22px;
+    position: absolute;
+    opacity: 0.7;
+}
+.profile_pic{
+    /* border: 2px solid red; */
+    position: relative;
+    margin-bottom: 20px;
+    width: 80px;
+    z-index: 0;
+}
+
+.img_div{
+    position: absolute;
+    top: 107px;
+    left: 39px;
+    width: 82px;
+    height: 75px;
+    border-radius: 10px;
+    z-index: 1;
+}
+.profile_container label{
+    /* display: block; */
+    padding-bottom: 5px;
+}
+.profile_container .profileInput{
+    padding-left: 10px;
+    width: 100%;
+    height: 50px;
+    background: none;
+    border: 2px solid #6c6464;
+    border-radius: 5px;
+    color: #fff;
+    font: inherit;
+    margin-bottom: 10px;
+    margin-top: 5px;
+ 
+}
+.profileP{  
+    opacity: 0.7;
+}
+.selectformControl{
+    width: 40%;
+    display: block;
+    margin-top: 18px !important;
+    opacity: 0.7 !important;
+   
+}
+
+.selectformControl2{
+    width: 40%;
+    display: inline-block;
+    margin-top: 18px !important;
+    opacity: 0.7 !important;
+    padding-bottom: 4px;
+}
+.target_level{
+    position: absolute;
+    display: inline-block;
+    margin-top: -24px !important;
+    margin-left: 21px;
+}
+.selectforeducation1{
+    background: none;
+    height: 50px !important;
+    color: #fff;
+    width: 200px;
+    border: 1px solid gray;
+    /* margin: 0 0px 0 0; */
+    opacity: 0.8;
+    border-radius: 3px;
+    padding: 0 10px;
+    font-size: 15px;
+}
+
+.selectforeducation2{
+    background: none;
+    height: 50px !important;
+    width: 200px;
+    color: #fff;
+    border: 1px solid #808080;
+    margin: 0px 0px 0 18px;
+    opacity: 0.8;
+    border-radius: 3px;
+    padding: 0 10px;
+    font-size: 15px;
+}
+.learnOpt{
+    padding: 20px 0 0 0 !important;
+    color: #fff;
+    border-radius: 5px;  
+ background-color: #15162C !important;
+
+}
+
+.profileBTN{
+    padding: 8px;
+    border: none;
+    background-color: #e7411b;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 19px;
+    display: block;
+    margin-top: 36px;
+    font-weight: inherit;
+}
+.backBTN2{
+    background: none;
+    padding: 8px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    font-size: 17px;
+    display: block;
+    margin-top: 6px;
+    font-weight: 600;
+    padding-bottom: 20px;
+    opacity: 0.6;
+    font-weight: inherit;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px){
+    
+}
