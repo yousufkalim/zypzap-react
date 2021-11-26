@@ -1,8 +1,10 @@
-.btn{
+/* .btn{
     padding: 5px;
     border-radius: 15%;
     border: 2px solid green;
-}
+} */
+
+/* UserLandingPage navbar css starts here */
 .logo-text{
   color: #e7411b;
   margin-right: 9px;
@@ -13,21 +15,33 @@
 .logo-text-container{
   display: flex;
 }
-.userlandingpageheaderspacing{
-  padding: 20px 0 20px 0 !important;
+.btn-content-creator{
+  padding: 8px;
+  border:1px solid grey;
+  border-radius: 25px;
+  background-color: rgb(14, 15, 30);
+  color: #fff;
+  margin: 0px 10px;
 }
+.btn-content-creator:hover{
+  background-color: #e7411b;;
+}
+
+/* .userlandingpageheaderspacing{
+  padding: 20px 0 20px 0 !important;
+} */
+
+/* User landing page header css starts here */
 .user-landingpage-container{
     margin-top: 5px;
     position: relative;
     color: white;
 }
-
 .user-landing-page-img-container{
     display: flex;
     width: 93%;
     margin: auto;
 }
-
 .user-landing-page-text-on-img{
     position: absolute;
     top: 38%;
@@ -35,7 +49,6 @@
     transform: translate(-50%, -50%);
     width: 47%;
 }
-
 .userLandingPageAboutTextImgH1 h1{
     font-size: 4.2em;
     font-weight: 900;
@@ -56,17 +69,51 @@ position: relative;
   width: 100%;
   right: 40%;
 }
-.btn-content-creator{
-  padding: 8px;
-  border:1px solid grey;
-  border-radius: 25px;
-  background-color: rgb(14, 15, 30);
+a.btn {
   color: #fff;
-  margin: 0px 10px;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,0.5);
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+}  
+.flex-form {
+  display: -webkit-box;
+  display: flex;
+  z-index: 10;
+  position: relative;
+  width: 500px;
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
 }
-.btn-content-creator:hover{
-  background-color: #e7411b;;
+
+.flex-form > * {
+  border: 0;
+  padding: 0 0 0 10px;
+  background: #fff;
+  line-height: 40px;
+  font-size: 1rem;
+  border-radius: 0;
+  outline: 0;
+  -webkit-appearance: none;
 }
+
+input[type="search"] {
+  flex-basis: 500px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: inherit;
+  border: 1px solid gray;
+}
+
+#madeby {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 25px 100px;
+  color: #fff;
+}
+/* UserLandingPage Advantages section css starts here */
+
 .box-user{
   width: 80%;
   margin: 30px auto;
@@ -123,6 +170,7 @@ position: relative;
   border-radius: 10px;
   padding: 20px;
 }
+/* UserLandingPage community section starts here */
 .community{
   margin: 0 auto !important;
   width: 80% !important;
@@ -152,60 +200,12 @@ position: relative;
   display: flex;
   justify-content: space-evenly;
 }
-a.btn {
-    color: #fff;
-    padding: 10px;
-    border: 1px solid rgba(255,255,255,0.5);
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-  }  
-  .flex-form {
-    display: -webkit-box;
-    display: flex;
-    z-index: 10;
-    position: relative;
-    width: 500px;
-    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
-  }
-  
-  .flex-form > * {
-    border: 0;
-    padding: 0 0 0 10px;
-    background: #fff;
-    line-height: 40px;
-    font-size: 1rem;
-    border-radius: 0;
-    outline: 0;
-    -webkit-appearance: none;
-  }
-  
-  input[type="search"] {
-    flex-basis: 500px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    background-color: inherit;
-    border: 1px solid gray;
-  }
-  
-  #madeby {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 25px 100px;
-    color: #fff;
-  }
-  
-  
-  
-  
-
-
-
 .community{
   width: 80% !important;
   margin: 0 auto !important;
 }
+
+/* Trending section starts here */
 .table-block{
   margin: 100px auto !important;
   width: 80% !important;
@@ -233,6 +233,7 @@ a.btn {
   letter-spacing: .1em;
   background-color: #202342;
   padding: 14px;
+  border: 2.5px solid #202342;
 }
 .table-body{
   border-right: 0.5px solid #7788;
@@ -252,6 +253,7 @@ a.btn {
   margin: 0 auto;
 }
 
+/* Media queries */
 @media all and (max-width:800px) {
   .flex-form {
     width: 100%;
@@ -300,8 +302,14 @@ white-space: nowrap;
     border-radius: 25px;
     font-size: 9px;
 }
+.flex-form {
+  width: 210px;
+}
 .flex-form > * {
   line-height: 25px;
+}
+input[type="search"] {
+  width: 50%;
 }
 .UserLandingPageAboutTextImgH1 {
   font-size: calc( 4vw - 1px );
@@ -311,6 +319,8 @@ white-space: nowrap;
 }
 .flex-form input[type="submit"]{
   padding: 0 5px;
+    width: 100px;
+    font-size: 10px;
 }
 }
 @media all and (max-width:375px) {
@@ -335,12 +345,17 @@ white-space: nowrap;
   font-size: 0.9rem;
   line-height: 30px;
 }
-input[type="search"] {
-  flex-basis: 0;
-}
 .trending-table th {
   font-size: 0.6em;
   white-space: nowrap;
+    }
+    .flex-form input[type="submit"]{
+      padding: 0 5px;
+        width: 100px;
+        font-size: 10px;
+    }
+    input[type="search"] {
+      width: 50%;
     }
 }
 
