@@ -1,0 +1,357 @@
+.btn{
+    padding: 5px;
+    border-radius: 15%;
+    border: 2px solid green;
+}
+.logo-text{
+  color: #e7411b;
+  margin-right: 9px;
+}
+.logo-img{
+  height: 30px;
+}
+.logo-text-container{
+  display: flex;
+}
+.UserLandingPageAboutContainer{
+    margin-top: 5px;
+    position: relative;
+    color: white;
+}
+
+.UserLandingPageAboutImgContainer{
+    display: flex;
+    width: 93%;
+    margin: auto;
+}
+
+.UserLandingPageAboutTextOnImg{
+    position: absolute;
+    top: 38%;
+    left: 34%;
+    transform: translate(-50%, -50%);
+    width: 47%;
+}
+
+.UserLandingPageAboutTextImgH1 h1{
+    font-size: 4.2em;
+    font-weight: 900;
+}
+.UserLandingPageAboutTextImgH1{
+  font-size: calc( 4vw - 2px );
+  font-weight: 900;
+}
+
+
+
+.UserLandingPageAboutTextOnImgP{
+    color: #e7411b;
+    padding: 5px 0px 5px 0px;
+    margin: 8px 0px 8px 0px;
+    font-size: 20px;
+}
+.UserLandingPageRightimg{
+position: relative;
+  width: 100%;
+  right: 40%;
+}
+.btn-content-creator{
+  padding: 8px;
+  border:1px solid grey;
+  border-radius: 25px;
+  background-color: rgb(14, 15, 30);
+  color: #fff;
+  margin: 0px 10px;
+}
+.btn-content-creator:hover{
+  background-color: #e7411b;;
+}
+.box-user{
+  width: 80%;
+  margin: 30px auto;
+  color: #fff;
+}
+.advantagesdivider{
+  width:30px;
+  color: #e7411b;
+}
+.advantage-grid-border{
+  border: 2px solid black;
+  background-color: aquamarine;
+}
+.btn-advantages {
+  padding: 10px 40px;
+  background-color: rgb(14, 15, 30);
+  color: #fff;
+  border: 1px solid #202342;
+  border-radius: 6px;
+  margin: 0px 5px;
+}
+.btn-advantages:hover{
+  background-color: #e7411b;
+}
+.carousel-img{
+  width: 100%;
+}
+.userlandingpagediveider{
+  width: 2%;
+  height: 4px;
+  background: #e7411b;
+  margin: 20px auto;
+  border-radius: 20%;
+}
+.list-text{
+  background-color: rgb(14, 15, 30);
+  border-radius: 25px;
+  padding: 20px;
+  font-size: 5px !important;
+}
+.list-text:hover{
+  background: linear-gradient(90.12deg, #202342 22.77%, rgba(38, 38, 72, 0) 129.88%);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+
+.community{
+  margin: 0 auto !important;
+  width: 80% !important;
+  color: #fff;
+}
+.community-block{
+  text-align: center;
+  border-right: 1px solid grey;
+  padding: 0 20px;
+}
+ .community-content-header {
+  font-size: 18px;
+  padding-top: 20px;
+  padding-bottom: 8px;
+  
+}
+
+.community-content-pargraph{
+  padding: 15px 0px;
+  font-size: 13px;
+} 
+
+.community-box{
+  margin: 0 auto !important;
+  width: 80% !important;
+  border: 1px solid gray;
+}
+.community-logo{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+a.btn {
+    color: #fff;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.5);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  
+  
+  
+  
+  .flex-form input[type="submit"] {
+    background: #e7411b;
+    border: 1px solid #ef3f5a;
+    color: #fff;
+    padding: 0 25px;
+    cursor: pointer;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  
+  
+  .flex-form {
+    display: -webkit-box;
+    display: flex;
+    z-index: 10;
+    position: relative;
+    width: 500px;
+    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .flex-form > * {
+    border: 0;
+    padding: 0 0 0 10px;
+    background: #fff;
+    line-height: 50px;
+    font-size: 1rem;
+    border-radius: 0;
+    outline: 0;
+    -webkit-appearance: none;
+  }
+  
+  input[type="search"] {
+    flex-basis: 500px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: inherit;
+    border: 1px solid gray;
+  }
+  
+  #madeby {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 25px 100px;
+    color: #fff;
+  }
+  
+  @media all and (max-width:800px) {
+    body {
+      font-size: 0.9rem;
+    }
+  
+    .flex-form {
+      width: 100%;
+    }
+  
+    input[type="search"] {
+      flex-basis: 100%;
+    }
+  
+    .flex-form > * {
+      font-size: 0.9rem;
+    }
+  
+    header {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      padding: 10px !important;
+    }
+  
+    header h2 {
+      margin-bottom: 15px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .cover {
+      padding: 20px;
+    }
+  
+    #madeby {
+      padding: 30px 20px;
+    }
+  }
+  
+  @media all and (max-width:360px) {
+    header nav li{
+      margin: 0 10px;
+    }
+  
+    .flex-form {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+    }
+  
+    input[type="search"] {
+      flex-basis: 0;
+    }
+  
+    label {
+      display: none;
+    }
+  }
+
+
+
+.community{
+  width: 80% !important;
+  margin: 0 auto !important;
+}
+
+/* table css */
+.table-block{
+  margin: 100px auto !important;
+  width: 80% !important;
+  color: #fff;
+}
+.trending-table {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+ 
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+.trending-table td{
+  padding: .625em;
+  text-align: center;
+  background-color: rgb(14, 15, 30);
+}
+
+/* . th
+ {
+  padding: .625em;
+  text-align: center;
+  background-color: rgb(14, 15, 30);
+} */
+
+.trending-table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  background-color: #202342;
+  padding: 14px;
+}
+
+@media screen and (max-width: 600px) {
+  .trending-table {
+    border: 0;
+  }
+
+  .trending-table caption {
+    font-size: 1.3em;
+  }
+  .table-img-text{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.table-body{
+  border-right: 0.5px solid #7788;
+    border-left: 0.5px solid #7788;
+    border-bottom: 0.5px solid #7788;
+}
+
+.table-img{
+  margin-right: 9px;
+}
+
+
+.table-img-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.UserLandingPageBlogContainer{
+  width: 80%;
+  margin: 0 auto;
+}
+
