@@ -2,7 +2,6 @@ import React from 'react'
 import Maylike1 from "../../assets/img/maylike1.png";
 import Maylike2 from "../../assets/img/maylike1.png";
 import Maylike3 from "../../assets/img/maylike1.png";
-import Maylike4 from "../../assets/img/maylike1.png";
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
 import "react-multi-carousel/lib/styles.css";

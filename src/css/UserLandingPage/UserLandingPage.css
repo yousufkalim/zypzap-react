@@ -56,14 +56,14 @@ position: relative;
   width: 100%;
   right: 40%;
 }
-a.btn {
+/* a.btn {
   color: #fff;
   padding: 10px;
   border: 1px solid rgba(255,255,255,0.5);
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
-}  
+}   */
 .flex-form {
   display: -webkit-box;
   display: flex;

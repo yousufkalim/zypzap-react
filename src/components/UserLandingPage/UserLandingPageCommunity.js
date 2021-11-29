@@ -9,7 +9,6 @@ import communityImgthree from "../../assets/img/communityImgthree.png";
 const UserLandingPageCommunity = () => {
     return (
         <>
-      
       <Box className="box-user">  
       <Box sx={{
         padding:"20px 0 20px 0"
@@ -20,7 +19,6 @@ const UserLandingPageCommunity = () => {
         <div className="userlandingpagediveider"> </div> 
       </Box>
       </Box>
-
      <Grid className="community" container spacing={2}>
   <Grid item xs={12} md={4}>
   <div className="community-block"> 

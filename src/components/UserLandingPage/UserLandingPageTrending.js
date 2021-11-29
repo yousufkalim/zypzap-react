@@ -4,17 +4,9 @@ import icontrendingone from "../../assets/img/icontrendingone.png";
 import icontrendingtwo from "../../assets/img/icontrendingtwo.png";
 import icontrendingthree from "../../assets/img/icontrendingthree.png";
 import icontrendingfour from "../../assets/img/icontrendingfour.png";
-import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 const UserLandingPageTrending = () => {
-  const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
   let items = [
     {
       heading: "FIFA 22",

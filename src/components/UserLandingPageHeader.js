@@ -1,10 +1,8 @@
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
 import logo from '../assets/icons/logo.png'
   
 const HeaderUserLandingPage = () => {
@@ -24,7 +22,6 @@ const HeaderUserLandingPage = () => {
            <img className="logo-img" src={logo}/>
           </div>
           </Typography>
-          
           <Typography sx={{marginRight:"15px"}}>Blog</Typography>
           <button className="btn-content-creator">Become Content Creator</button>
           <button className="btn-content-creator">Get Early Access</button>
