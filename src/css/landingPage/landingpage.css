@@ -1,0 +1,169 @@
+.landingpageimgcontainer {
+  display: flex;
+  width: 93%;
+  margin: auto;
+}
+.landingpageLeftimg {
+  width: 100%;
+}
+.landingpageRightimg {
+  position: relative;
+  width: 100%;
+  right: 44%;
+}
+.landingpagecontainer {
+  text-align: center;
+  margin-top: 5px;
+  position: relative;
+  color: white;
+}
+
+.landingpagetextonImg {
+  position: absolute;
+  top: 45%;
+  left: 26%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+}
+
+.landingpagetextimgH1 {
+  font-size: 2.7em;
+}
+.landingpagetextonImgP {
+  padding: 5px 0px 5px 0px;
+  margin: 8px 0px 8px 0px;
+  color: #e7411b;
+}
+.landingpagetextonImgbutton {
+  padding: 8px;
+  border: none;
+  margin: 13px 13px 8px 0px;
+  background-color: transparent;
+  color: white;
+  font-weight: 900;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #939393;
+}
+.landingpagetextonImgbutton:hover {
+  background-color: #e7411b;
+  border: none;
+}
+
+/* What we offer */
+.whatweoffercontainer {
+  text-align: center;
+  margin-top: 5px;
+  position: relative;
+  color: white;
+}
+.offerh1 {
+  margin: 40px 0 40px 0;
+}
+.offerdashline {
+  background-color: red;
+  width: 20px;
+  height: 5px;
+  margin: auto;
+  border-radius: 5px;
+  margin-top: 13px;
+}
+.offerdivleft {
+  text-align: center;
+  color: white;
+  border: 1px solid #454545;
+  width: 80%;
+  margin-left: auto;
+  margin-right: 10px;
+  padding: 40px;
+  border-radius: 10px;
+  margin-bottom: 10%;
+}
+.offerdivright {
+  margin-bottom: 10%;
+  text-align: center;
+  color: white;
+  border: 1px solid #454545;
+
+  width: 80%;
+  padding-left: 10px;
+  padding: 40px;
+  border-radius: 10px;
+}
+.offerheading {
+  font-size: 30px;
+}
+.offerText {
+  font-size: 13px;
+  color: #d4d4d4;
+}
+.whatweofferButton {
+  padding: 8px;
+  border: none;
+  margin: 13px 13px 8px 0px;
+  background-color: #e7411b;
+  color: white;
+  font-weight: 900;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+/* for big screens */
+@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+  .landingpageLeftimg {
+    height: 525px;
+  }
+  .landingpageRightimg {
+    height: 525px;
+    right: 45%;
+  }
+  .landingpagetextonImg {
+    left: 24%;
+  }
+
+  .landingpagetextimgH1 {
+    font-size: 3em;
+  }
+  .landingpagetextonImgP {
+    font-size: 20px;
+  }
+  .landingpagetextonImgbutton {
+    margin: 30px 13px 8px 0px;
+  }
+}
+/* for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .landingpagetextonImg {
+    position: absolute;
+    top: 53%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+  }
+  .landingBr {
+    display: none;
+  }
+  .landingpagetextimgH1 {
+    font-size: 1em;
+  }
+  .landingpagetextonImgP {
+    padding: 5px 0px 5px 0px;
+    margin: 8px 0px 8px 0px;
+    color: #e7411b;
+    font-size: 8px;
+  }
+  .landingbuttondiv {
+    display: flex;
+  }
+  .landingpagetextonImgbutton {
+    font-size: 6px;
+  }
+  .offerdivleft {
+    margin: auto;
+  }
+  .offerdivright {
+    margin: auto;
+  }
+}
