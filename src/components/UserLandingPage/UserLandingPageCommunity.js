@@ -2,8 +2,10 @@ import React from 'react'
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
-import communityImgone from "../../assets/img/communityImgone.png";
-import communityImgtwo from "../../assets/img/communityImgtwo.png";
+
+import communityImgone from "../../assets/img/communityImgtwo.png";
+import communityImgtwo from "../../assets/img/communityImgtwoo.png";
+import communityImgthree from "../../assets/img/communityImgthree.png";
 const UserLandingPageCommunity = () => {
     return (
         <>
@@ -13,7 +15,7 @@ const UserLandingPageCommunity = () => {
         padding:"20px 0 20px 0"
       }}>  
         <Typography align="center" variant="h5">
-       Be a part of our community
+       Be part of our community
         </Typography>
         <div className="userlandingpagediveider"> </div> 
       </Box>
@@ -31,19 +33,19 @@ const UserLandingPageCommunity = () => {
   </Grid>
   <Grid item xs={12} md={4}>
   <div className="community-block"> 
-  <img src={communityImgone}/>
-      <h5 className="community-content-header">Evaluation of courses</h5>
+  <img src={communityImgtwo}/>
+      <h5 className="community-content-header">Community Development</h5>
       <span className="community-content-pargraph">
-          Evaluate the courses for continous improvement of the creators 
+          Participates in the growth of the community and its economy 
       </span>
    </div>
   </Grid>
   <Grid item xs={12} md={4}>
   <div className="community-block"> 
-  <img src={communityImgone}/>
-      <h5 className="community-content-header">Evaluation of courses</h5>
+  <img src={communityImgthree}/>
+      <h5 className="community-content-header">Collaboration Between Users</h5>
       <span className="community-content-pargraph">
-          Evaluate the courses for continous improvement of the creators 
+          Inform content creators of hot topics to be addressed 
       </span>
    </div>
   </Grid>

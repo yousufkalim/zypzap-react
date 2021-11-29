@@ -1,8 +1,3 @@
-/* .btn{
-    padding: 5px;
-    border-radius: 15%;
-    border: 2px solid green;
-} */
 
 /* UserLandingPage navbar css starts here */
 .logo-text{
@@ -27,13 +22,9 @@
   background-color: #e7411b;;
 }
 
-/* .userlandingpageheaderspacing{
-  padding: 20px 0 20px 0 !important;
-} */
-
 /* User landing page header css starts here */
 .user-landingpage-container{
-    margin-top: 5px;
+    margin: 5px 0px 40px 0px;
     position: relative;
     color: white;
 }
@@ -49,20 +40,16 @@
     transform: translate(-50%, -50%);
     width: 47%;
 }
-.userLandingPageAboutTextImgH1 h1{
-    font-size: 4.2em;
-    font-weight: 900;
-}
 .UserLandingPageAboutTextImgH1{
-  font-size: calc( 4vw - 2px );
+  font-size: calc( 4vw - 5px );
   font-weight: 900;
 }
 .user-landing-page-text-on-imgP{
     color: #e7411b;
     padding: 5px 0px 5px 0px;
     margin: 8px 0px 20px 0px;
-    font-size: 20px;
-    white-space: nowrap;
+    font-size: 14px;
+    
 }
 .user-landing-page-right-img{
 position: relative;
@@ -82,7 +69,7 @@ a.btn {
   display: flex;
   z-index: 10;
   position: relative;
-  width: 500px;
+  width: 350px;
   box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
 }
 
@@ -90,7 +77,7 @@ a.btn {
   border: 0;
   padding: 0 0 0 10px;
   background: #fff;
-  line-height: 40px;
+  line-height: 35px;
   font-size: 1rem;
   border-radius: 0;
   outline: 0;
@@ -102,9 +89,21 @@ input[type="search"] {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   background-color: inherit;
-  border: 1px solid gray;
+  border: 1px solid #5C5C5C
 }
-
+.flex-form input[type="submit"] {
+  background: #e7411b;
+  border: 1px solid #ef3f5a;
+  color: #fff;
+  padding: 0 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 12px;
+}
 #madeby {
   position: absolute;
   bottom: 0;
@@ -116,7 +115,7 @@ input[type="search"] {
 
 .box-user{
   width: 80%;
-  margin: 30px auto;
+  margin: 0px auto;
   color: #fff;
 }
 .advantage-grid-border{
@@ -124,32 +123,27 @@ input[type="search"] {
   background-color: aquamarine;
 }
 .btn-advantages {
-  padding: 10px 30px;
+  padding: 10px 10px;
   background-color: rgb(14, 15, 30);
   color: #fff;
   border: 1px solid #202342;
   border-radius: 6px;
-  margin: 30px 5px;
+  margin: 30px 10px 0px 10px;
 }
 .btn-advantages:hover{
   background-color: #e7411b;
 }
-
-.flex-form input[type="submit"] {
-  background: #e7411b;
-  border: 1px solid #ef3f5a;
-  color: #fff;
-  padding: 0 25px;
-  cursor: pointer;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  transition: all 0.2s;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
+.listText{
+  color: #FFF !important;
+  font-size: 15px !important;
+  font-weight: 100 !important;
 }
+
+
 
 .carousel-img{
   width: 100%;
+  padding-top: 20px;
 }
 .userlandingpagediveider{
   width: 18px;
@@ -161,14 +155,14 @@ input[type="search"] {
 .list-text{
   background-color: rgb(14, 15, 30);
   border-radius: 25px;
-  padding: 20px;
+  padding: 8px 22px;
   font-size: 15px !important;
   line-height: 25px;
 }
 .list-text:hover{
   background: linear-gradient(90.12deg, #202342 22.77%, rgba(38, 38, 72, 0) 129.88%);
   border-radius: 10px;
-  padding: 20px;
+  padding: 8px 22px;
 }
 /* UserLandingPage community section starts here */
 .community{
@@ -182,7 +176,7 @@ input[type="search"] {
   padding: 0 20px;
 }
  .community-content-header {
-  font-size: 18px;
+  font-size: 15px;
   padding-top: 20px;
   padding-bottom: 8px;
   
@@ -190,6 +184,7 @@ input[type="search"] {
 .community-content-pargraph{
   padding: 15px 0px;
   font-size: 13px;
+  opacity: 0.6;
 } 
 .community-box{
   margin: 0 auto !important;
@@ -206,53 +201,62 @@ input[type="search"] {
 }
 
 /* Trending section starts here */
-.table-block{
-  margin: 100px auto !important;
-  width: 80% !important;
-  color: #fff;
-}
-.trending-table {
-  border-collapse: collapse;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  table-layout: fixed;
- 
-}
-.trending-table caption {
-  font-size: 1.5em;
-  margin: .5em 0 .75em;
-}
-.trending-table td{
-  padding: .625em;
-  text-align: center;
-  background-color: rgb(14, 15, 30);
-}
-.trending-table th {
+.trending-heading-container{
   font-size: .85em;
   letter-spacing: .1em;
   background-color: #202342;
   padding: 14px;
-  border: 2.5px solid #202342;
+  border: 2.5px solid #202342 !important;
 }
-.table-body{
-  border-right: 0.5px solid #7788;
-    border-left: 0.5px solid #7788;
-    border-bottom: 0.5px solid #7788;
+.trending-box-border{
+  border-left: 1px solid #333333;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
 }
-.table-img{
-  margin-right: 9px;
+
+.trending-block{
+  margin: 50px auto !important;
+  width: 80% !important;
+  color: #fff;
 }
 .table-img-text{
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 15px 0px;
 }
+.trending-text-width{
+  width: 120px;
+  margin: 0 10px;
+  font-size: .75em;
+}
+.top-games-header{
+  width: 60%;
+}
+.top-trendy-games{
+  width: 85%;
+}
+.nft-games-header{
+  width: 78%;
+}
+/* userlandingpage blog */
 .UserLandingPageBlogContainer{
   width: 80%;
   margin: 0 auto;
 }
 
+.User-landing-page-blog-divone{
+  width: 93%;
+  margin-bottom: 25px;
+  border-radius: 20px;
+  background: linear-gradient( 
+90.12deg, #202342 22.77%, rgba(38, 38, 72, 0) 129.88% );
+color: #fff;
+}
+.blog-view-all{
+  font-size: 15px !important;
+  font-weight: 100;
+}
 /* Media queries */
 @media all and (max-width:800px) {
   .flex-form {
@@ -264,106 +268,93 @@ input[type="search"] {
 
   .flex-form > * {
     font-size: 0.9rem;
+    line-height: 30px;
   }
-  .btn-advantages{
-    margin: 10px 5px;
-  }
-  .user-landing-page-text-on-imgP {
-   font-size: 15px;
-  }
-}
-@media screen and (max-width: 600px) {
-  .trending-table {
-    border: 0;
-  }
-  .user-landing-page-text-on-imgP {
-    font-size: 12px;
-    white-space: normal;
-}
-  .trending-table caption {
-    font-size: 1.3em;
-  }
-  .table-img-text{
-    display: flex;
-    flex-direction: column;
-  }
-  .trending-table th {
-font-size: 0.7em;
-white-space: nowrap;
-  }
-  .table-img{
-    margin-bottom: 5px;
-  }
-  .table-img-text{
-    font-size: 10px;
-  }
-  .btn-content-creator {
-    padding: 8px;
-    border-radius: 25px;
-    font-size: 9px;
-}
-.flex-form {
-  width: 210px;
-}
-.flex-form > * {
-  line-height: 25px;
-}
-input[type="search"] {
-  width: 50%;
-}
-.UserLandingPageAboutTextImgH1 {
-  font-size: calc( 4vw - 1px );
-}
-.userlandingpageheaderspacing{
-  padding-top: 20px !important;
-}
-.flex-form input[type="submit"]{
-  padding: 0 5px;
-    width: 100px;
-    font-size: 10px;
-}
-}
-@media all and (max-width:375px) {
   .btn-advantages{
     margin: 10px 5px;
   }
   .user-landing-page-text-on-imgP {
    font-size: 10px;
+  }
+  .user-landing-page-right-img {
+    position: relative;
+    width: 50%;
+    right: 40%;
 }
-.btn-content-creator {
-  padding: 8px;
-  border-radius: 25px;
-  font-size: 9px;
+.UserLandingPageAboutTextImgH1 {
+  margin-top: 35px;
 }
-.flex-form {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-}
-.flex-form > * {
-  font-size: 0.9rem;
-  line-height: 30px;
-}
-.trending-table th {
-  font-size: 0.6em;
+.top-games-text{
+  font-size: 10px;
   white-space: nowrap;
-    }
-    .flex-form input[type="submit"]{
-      padding: 0 5px;
-        width: 100px;
-        font-size: 10px;
-    }
-    input[type="search"] {
-      width: 50%;
-    }
+}
+.trending-text-width {
+  width: 78px;
+  margin: 0 10px;
+  font-size: .65em;
+}
 }
 
-@media all and (max-width:320px) {
-  input[type="search"] {
-    width: 145px;
+@media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
+  .table-img-text{
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
   }
-  .btn-content-creator {
-    font-size: 7px;
+  .top-games-text{
+    font-size:  8px;
+    white-space: nowrap;
+}
+.trending-text-width {
+  text-align: center;
+  margin: 0 10px;
+  font-size: .65em;
+}
+.nft-games-header {
+  text-align: end;
+  width: 100%;
+}
+  .trending-table {
+    border: 0;
+  }
+  input[type="search"] {
+    width: 50%;
+  }
+  .btn-advantages{
+    margin: 10px 5px;
+  }
+  .user-landing-page-text-on-imgP {
+    font-size: 8px;
+    white-space: normal;
+}
+.UserLandingPageAboutTextImgH1 {
+  font-size: calc( 4vw - 4px );
+    white-space: nowrap;
+    margin-top: 20px;
+}
+.user-landing-page-right-img {
+  width: 50%;
+}   
+.btn-content-creator {
+padding: 8px;
+border-radius: 25px;
+font-size: 9px;
+}
+.flex-form {
+    width: 188px;
+  }
+  .flex-form > * {
+    line-height: 25px;
+  }
+  input[type="search"] {
+    width: 50%;
+  }
+  .userlandingpageheaderspacing{
+    padding-top: 20px !important;
+  }
+  .flex-form input[type="submit"] {
+    padding: 0 2px;
+    width: 70px;
+    font-size: 8px;
 }
 }

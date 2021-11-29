@@ -10,7 +10,7 @@ import Grid from "@material-ui/core/Grid";
 const UserLandingPageBlog = () => {
     let items = [
         {
-          heading: "Call of Duty || 2021",
+          heading: "Blog Title Here",
           img: Maylike1,
           detail:
             "It is a long established fact that a reader will be distracted by the readable content of a page  this is when loovking at its layout game is best. The point of using Lorem Ipsum is that.",
@@ -18,7 +18,7 @@ const UserLandingPageBlog = () => {
           By: "Baig Irfan",
         },
         {
-          heading: "Gears of War",
+          heading: "Blog Title Here",
           img: Maylike2,
           detail:
             "It is a long established fact that a reader will be distracted by the readable content of a page  this is when loovking at its layout game is best. The point of using Lorem Ipsum is that.",
@@ -26,7 +26,7 @@ const UserLandingPageBlog = () => {
           By: " Moin Khan",
         },
         {
-          heading: "Uncharted Amoung Thieves",
+          heading: "Blog Title Here",
           img: Maylike3,
           detail:
             "It is a long established fact that a reader will be distracted by the readable content of a page  this is when loovking at its layout game is best. The point of using Lorem Ipsum is that.",
@@ -53,7 +53,7 @@ const UserLandingPageBlog = () => {
           {items.map((item, i) => (
             <Grid item xs={12} sm={4}>
               <>
-                <div className="blogdiv1">
+                <div className="User-landing-page-blog-divone">
                   <img src={item.img} className="blogdivimg" />
                   <div className="blogdiv1text">
                     <h3 className="blogdiv1heading">
@@ -81,9 +81,9 @@ const UserLandingPageBlog = () => {
     </div>   
     <Box className="box-user">  
       <Box sx={{
-        padding:"20px 0 20px 0"
+        padding:"5px 0 5px 0"
       }}>  
-        <Typography align="center" variant="h6">
+        <Typography className="blog-view-all" align="center" variant="h6">
        View all
         </Typography>
       </Box>

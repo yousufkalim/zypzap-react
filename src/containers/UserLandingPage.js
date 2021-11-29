@@ -1,5 +1,5 @@
 import React from 'react'
-import HeaderUserLandingPage from '../components/HeaderUserLandingPage'
+import UserLandingPageHeader from '../components/UserLandingPageHeader'
 import UserLandingPageBody from '../components/UserLandingPage/UserLandingPageBody'
 import Footer from "../components/blog/BlogFooter";
 const SearchAppBar = ()=> {
@@ -13,7 +13,7 @@ const SearchAppBar = ()=> {
         overflowY: "hidden",
       }}
     > 
-   <HeaderUserLandingPage/>
+   <UserLandingPageHeader/>
    <UserLandingPageBody/>
    <Footer/>
    </div>

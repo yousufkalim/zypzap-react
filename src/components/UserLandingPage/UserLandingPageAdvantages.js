@@ -23,7 +23,7 @@ const UserLandingPageAdvantages = () => {
       <Box className="box-user">
         <Box className="userlandingpageheaderspacing" >
           <Typography align="center" variant="h5">
-            Advantages Passtotrip
+          Remportez vos parties
           </Typography>
           <div className="userlandingpagediveider"> </div>
         </Box>
@@ -32,7 +32,7 @@ const UserLandingPageAdvantages = () => {
             <List>
               {generate(
                 <ListItem>
-                  <ListItemText className="list-text" primary="Single-line item Single-line item Single-line item Single-line item" />
+                  <ListItemText className="list-text" primary={<Typography className="listText"> lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum </Typography>} />
                 </ListItem>,
               )}
             </List>
