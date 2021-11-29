@@ -6,6 +6,21 @@ import Carousel from "react-material-ui-carousel";
 
 
 const Avantages = () => {
+    const items=[
+        {text:"The first gaming online course creation platform  open to all"},
+        {text:"Content Creators are free to cover any game"},
+        {text:"The monetization for each content created is immediate and easy to understand"},
+        {text:"Each user has the opportunity to acquire a real expert status within the community"},
+        {text:"The first gaming online course creation platform  open to all"},
+        {text:"Content Creators are free to cover any game"},
+        {text:"The monetization for each content created is immediate and easy to understand"},
+        {text:"Each user has the opportunity to acquire a real expert status within the community"},
+        {text:"The first gaming online course creation platform  open to all"},
+        {text:"Content Creators are free to cover any game"},
+        {text:"The monetization for each content created is immediate and easy to understand"},
+        {text:"Each user has the opportunity to acquire a real expert status within the community"},
+      
+    ]
     return (
         <>
             <div className="content_Avantages">
@@ -16,24 +31,13 @@ const Avantages = () => {
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         <Grid item xs={6}>
                             <div className="content_pera">
-                                <p className="pera1">The first gaming online course creation platform <br /> open to all</p>
-                                <p className="pera1">Content Creators are free to cover any game</p>
-                                <p className="pera1">The monetization for each content created is immediate and easy to understand</p>
-                                <p className="pera1">Each user has the opportunity to acquire a real expert status within the community</p>
-                                  {/* /// down text ////////// */}
-                                  <p className="pera1">The first gaming online course creation platform <br /> open to all</p>
-                                <p className="pera1">Content Creators are free to cover any game</p>
-                                <p className="pera1">The monetization for each content created is immediate and easy to understand</p>
-                                <p className="pera1">Each user has the opportunity to acquire a real expert status within the community</p>
-                                <p className="pera1">The first gaming online course creation platform <br /> open to all</p>
-                                <p className="pera1">Content Creators are free to cover any game</p>
-                                <p className="pera1">The monetization for each content created is immediate and easy to understand</p>
-                                <p className="pera1">Each user has the opportunity to acquire a real expert status within the community</p>
-                                <p className="pera1">The first gaming online course creation platform <br /> open to all</p>
-                                <p className="pera1">Content Creators are free to cover any game</p>
-                                <p className="pera1">The monetization for each content created is immediate and easy to understand</p>
-                                <p className="pera1">Each user has the opportunity to acquire a real expert status within the community</p>
-                                  
+                             {
+                                 items.map((e)=>(
+                                     <p className="pera1">{e.text}</p>
+                                 )
+                                    )
+                             }
+                                                          
                             </div>
                         </Grid>
 
