@@ -10,7 +10,6 @@ import Article from "../containers/Article";
 import About from "../containers/About.js";
 import Contenthome from "../containers/ContentHome.js";
 import ContentCreatorLandingPage from "../containers/ContentCreatorLandingPage"
-// import UserLandingPage from '../containers/UserLandingPage'
 
 const index = () => {
   return (
@@ -22,7 +21,6 @@ const index = () => {
       <Route exact path="/about" component={About} />
       <Route exact path="/contenthome" component={Contenthome} />
       <Route exact path="/contentcreatorlandingpage" component={ContentCreatorLandingPage} />
-      {/* <Route exact path="/userlandingpage" component={UserLandingPage} /> */}
     </Switch>
   );
 };

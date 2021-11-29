@@ -1,6 +1,4 @@
 import React from 'react'
-// import Group9775 from "../../assets/Group9775.png";
-// import Rectangle from "../../assets/Rectangle.png";
 import Createbg from "../../assets/createbg.png";
 
 const CreateHome = () => {
@@ -8,7 +6,6 @@ const CreateHome = () => {
         <>
             <div className="content_container">
         <img src={Createbg} className="content_Image" />
-        {/* <img src={Createbg} className="blurIm" /> */}
         <div className="textonImgcontent">
           <h1 className="textH1">
             Teach what you are
