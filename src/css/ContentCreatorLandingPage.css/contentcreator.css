@@ -373,7 +373,7 @@ body{
   color: white;
   font-weight: 900;
   font-family: "Poppins", sans-serif;
-  border-radius: 2px;
+  border-radius: 5px;
   cursor: pointer;
 }
 .AvantBTN:hover{
@@ -540,7 +540,7 @@ body{
   color: white;
   font-weight: 900;
   font-family: "Poppins", sans-serif;
-  border-radius: 2px;
+  border-radius: 5px;
   cursor: pointer;
   opacity: 0.8;
 }
