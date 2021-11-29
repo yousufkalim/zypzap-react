@@ -56,14 +56,6 @@ position: relative;
   width: 100%;
   right: 40%;
 }
-/* a.btn {
-  color: #fff;
-  padding: 10px;
-  border: 1px solid rgba(255,255,255,0.5);
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  transition: all 0.2s;
-}   */
 .flex-form {
   display: -webkit-box;
   display: flex;
@@ -166,8 +158,11 @@ input[type="search"] {
 }
 .community-block{
   text-align: center;
-  border-right: 1px solid grey;
+  border-right: 1px solid #383838;
   padding: 0 20px;
+}
+.community-block-border{
+  border:none;
 }
  .community-content-header {
   font-size: 15px;
@@ -225,7 +220,7 @@ input[type="search"] {
   font-size: .75em;
 }
 .top-games-header{
-  width: 60%;
+  width: 70%;
 }
 .top-trendy-games{
   width: 85%;

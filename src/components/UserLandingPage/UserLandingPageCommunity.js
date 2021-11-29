@@ -39,7 +39,7 @@ const UserLandingPageCommunity = () => {
    </div>
   </Grid>
   <Grid item xs={12} md={4}>
-  <div className="community-block"> 
+  <div className="community-block community-block-border"> 
   <img src={communityImgthree}/>
       <h5 className="community-content-header">Collaboration Between Users</h5>
       <span className="community-content-pargraph">
