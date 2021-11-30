@@ -5,6 +5,12 @@ import Avant from "../../assets/icons/Avant.png";
 import Carousel from "react-material-ui-carousel";
 
 const Avantages = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 1,
+      behavior: "smooth",
+    });
+  };
   const items = [
     { text: "The first gaming online course creation platform  open to all" },
     { text: "Content Creators are free to cover any game" },
@@ -34,8 +40,8 @@ const Avantages = () => {
   return (
     <>
       <div className="content_Avantages">
-        <h2 className="Avantages_heading">Advantages Passtotrip</h2>
-        <hr className="hr_line2" />
+        <h2 className="Avantages_heading">Remportez vos parties</h2>
+        <div className="offerdashline"></div>
         <div className="Avantages_container">
           <Grid
             container
@@ -78,7 +84,9 @@ const Avantages = () => {
         </div>
       </div>
       <div className="avantbutton">
-        <button className="AvantBTN">Become Content Creator</button>
+        <button className="AvantBTN" onClick={() => scrollToTop()}>
+          Become Content Creator
+        </button>
       </div>
     </>
   );

@@ -20,9 +20,9 @@
 @import url("./ContentHome/WhyTech.css");
 @import url("./ContentHome/Happy.css");
 @import url("./ContentHome/HowToTech.css");
+@import url("./landingPage/landingpage.css");
 @import url("./UserLandingPage/UserLandingPage.css");
 @import url("./ContentCreatorLandingPage.css/contentcreator.css");
-
 
 /* Defaults */
 * {

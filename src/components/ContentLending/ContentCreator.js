@@ -18,7 +18,8 @@ const ContentCreator = () => {
     <>
       <div className="content_creator">
         <h2 className="creator_heading">Content Creators in our Community</h2>
-        <hr className="hr_line" />
+
+        <div className="offerdashline"></div>
         <div className="creator_container">
           <Grid
             container
