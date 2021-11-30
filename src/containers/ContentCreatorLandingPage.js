@@ -4,7 +4,7 @@ import UserLandingPageHeader from "../components/UserLandingPageHeader";
 import ContentCreator from "../components/ContentLending/ContentCreator";
 import Avantages from "../components/ContentLending/Avantages";
 import Monitization from "../components/ContentLending/Monitization";
-import OurBlog from "../components/ContentLending/OurBlog";
+import UserLandingPageBody from "../components/UserLandingPage/UserLandingPageBody";
 import Footer from "../components/blog/BlogFooter";
 
 const ContentCreatorLandingPage = () => {
@@ -32,7 +32,7 @@ const ContentCreatorLandingPage = () => {
       <ContentCreator />
       <Avantages />
       <Monitization />
-      <OurBlog />
+      <UserLandingPageBody />
       <Footer />
     </div>
   );
