@@ -12,6 +12,7 @@ import Contenthome from "../containers/ContentHome.js";
 import LandingPage from "../containers/Landingpage";
 import UserLandingPage from "../containers/UserLandingPage";
 import ContentCreatorLandingPage from "../containers/ContentCreatorLandingPage";
+import LandingPartner from "../containers/LandingPartner";
 
 const index = () => {
   return (
@@ -22,6 +23,7 @@ const index = () => {
       <Route exact path="/blog/:id" component={Article} />
       <Route exact path="/about" component={About} />
       <Route exact path="/contenthome" component={Contenthome} />
+      <Route exact path="/landingpartner" component={LandingPartner} />
       <Route exact path="/landingpage" component={LandingPage} />
       <Route exact path="/userlanding" component={UserLandingPage} />
       <Route

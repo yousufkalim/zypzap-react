@@ -23,6 +23,7 @@
 @import url("./landingPage/landingpage.css");
 @import url("./UserLandingPage/UserLandingPage.css");
 @import url("./ContentCreatorLandingPage.css/contentcreator.css");
+@import url("./LandingPartner/LandingPartner.css");
 
 /* Defaults */
 * {
