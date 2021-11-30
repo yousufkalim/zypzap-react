@@ -44,8 +44,12 @@ export default function YouMayLike() {
             <Link to="/blog" style={{ color: "white", textDecoration: "none" }}>
               <p className="pmargin">Blog</p>
             </Link>
-
-            <p className="pmargin">For Creators</p>
+            <Link
+              to="/contentcreator"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <p className="pmargin">For Creators</p>
+            </Link>
             <p className="pmargin">Partners</p>
             <p className="pmargin">Privacy Policy</p>
           </div>

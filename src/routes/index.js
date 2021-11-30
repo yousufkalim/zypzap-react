@@ -9,22 +9,28 @@ import Blog from "../containers/Blog";
 import Article from "../containers/Article";
 import About from "../containers/About.js";
 import Contenthome from "../containers/ContentHome.js";
-import UserLandingPage from '../containers/UserLandingPage';
+import LandingPage from "../containers/Landingpage";
+import UserLandingPage from "../containers/UserLandingPage";
 import ContentCreatorLandingPage from "../containers/ContentCreatorLandingPage";
 import LandingPartner from "../containers/LandingPartner";
 
 const index = () => {
   return (
     <Switch>
-      <Route exact path="/" component={Blog} />
+      <Route exact path="/" component={LandingPage} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/blog" component={Blog} />
       <Route exact path="/blog/:id" component={Article} />
       <Route exact path="/about" component={About} />
       <Route exact path="/contenthome" component={Contenthome} />
-      <Route exact path="/userlandingpage" component={UserLandingPage} />
-      <Route exact path="/contentcreatorlandingpage" component={ContentCreatorLandingPage} />
       <Route exact path="/landingpartner" component={LandingPartner} />
+      <Route exact path="/landingpage" component={LandingPage} />
+      <Route exact path="/userlanding" component={UserLandingPage} />
+      <Route
+        exact
+        path="/contentcreator"
+        component={ContentCreatorLandingPage}
+      />
     </Switch>
   );
 };

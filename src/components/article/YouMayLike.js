@@ -39,7 +39,6 @@ export default function YouMayLike({ blogs, loading }) {
     newblog = [...blogs];
     return newblog;
   };
-  console.log("blogs", blogs);
   return (
     <div className="articleyouMayLikecontainer">
       <p className="youMayLikeheading">You may Like this:</p>
