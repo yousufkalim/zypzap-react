@@ -3,7 +3,6 @@ import UserLandingPageHeader from "../components/UserLandingPageHeader";
 import UserLandingPageBody from "../components/UserLandingPage/UserLandingPageBody";
 import Footer from "../components/blog/BlogFooter";
 const SearchAppBar = () => {
-  console.log("bbb");
   const scrollToTop = () => {
     window.scrollTo({
       top: 1,

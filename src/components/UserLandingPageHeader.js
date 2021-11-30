@@ -3,7 +3,7 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import logo from "../assets/icons/logo.png";
+import logo from "../assets/img/headerlogo.png";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -27,11 +27,19 @@ const HeaderUserLandingPage = () => {
                   window.location.reload();
                 }}
               >
-                <span className="logo-text"> pass to trip </span>
                 <img className="logo-img" src={logo} />
               </div>
             </Typography>
-            <Typography sx={{ marginRight: "15px" }}>Blog</Typography>
+            <Link
+              to="/blog"
+              style={{
+                color: "white",
+                textDecoration: "none",
+                cursor: "pointer",
+              }}
+            >
+              <Typography sx={{ marginRight: "15px" }}>Blog</Typography>
+            </Link>
             <Link
               to="/contentcreator"
               style={{ color: "white", textDecoration: "none" }}
@@ -40,7 +48,12 @@ const HeaderUserLandingPage = () => {
                 Become Content Creator
               </button>
             </Link>
-            <button className="btn-content-creator">Get Early Access</button>
+            <Link
+              to="/userlanding"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <button className="btn-content-creator">Get Early Access</button>
+            </Link>
           </Toolbar>
         </AppBar>
       </Box>

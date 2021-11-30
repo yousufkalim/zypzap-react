@@ -91,6 +91,12 @@
   padding: 10px;
   border-radius: 10px;
 }
+.offerimg1 {
+  width: 30%;
+}
+.offerimg2 {
+  width: 32%;
+}
 .offerheading {
   font-size: 25px;
   padding: 10px;

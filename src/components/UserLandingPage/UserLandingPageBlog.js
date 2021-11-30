@@ -28,7 +28,7 @@ const UserLandingPageBlog = () => {
     }
     setLoading(false);
   };
-  console.log("blogs in user landing", blogs);
+
   let newblog = [];
   let items = [
     {

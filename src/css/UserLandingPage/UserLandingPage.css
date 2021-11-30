@@ -1,10 +1,8 @@
 /* UserLandingPage navbar css starts here */
-.logo-text {
-  color: #e7411b;
-  margin-right: 9px;
-}
+
 .logo-img {
   height: 30px;
+  z-index: 1;
 }
 .logo-text-container {
   display: flex;
@@ -75,12 +73,20 @@
   -webkit-appearance: none;
 }
 
-input[type="search"] {
+/* input[type="search"] {
   flex-basis: 500px;
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
   background-color: inherit;
   border: 1px solid #5c5c5c;
+} */
+input[type="email"] {
+  flex-basis: 500px;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  background-color: inherit;
+  border: 1px solid #5c5c5c;
+  color: white;
 }
 .flex-form input[type="submit"] {
   background: #e7411b;

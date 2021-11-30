@@ -8,7 +8,6 @@ import UserLandingPageBlog from "../UserLandingPage/UserLandingPageBlog";
 import Aboutimg from "../../assets/img/kk.png";
 
 const UserLandingPageBody = () => {
-  console.log("aaa");
   return (
     <>
       <div className="user-landingpage-container">
@@ -24,7 +23,7 @@ const UserLandingPageBody = () => {
             Join our Online Courses community and become a pro game
           </p>
           <form class="flex-form">
-            <input type="search" placeholder="Email address" />
+            <input type="email" placeholder="Email address" />
             <input type="submit" value="Get Early Access" />
           </form>
         </div>

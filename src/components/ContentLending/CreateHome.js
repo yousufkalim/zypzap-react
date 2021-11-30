@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Createbg from "../../assets/createbg.png";
 
 const CreateHome = () => {
+  const [email, setEmail] = useState("");
+  const onChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log("email is ", email);
+  };
   return (
     <>
       <div className="content_container">
@@ -17,8 +27,14 @@ const CreateHome = () => {
           >
             Its time to make your hobbie an asset
           </p>
-          <form class="flex-form">
-            <input type="search" placeholder="Email address" />
+          <form class="flex-form" onSubmit={handleSubmit}>
+            <input
+              type="email"
+              placeholder="Email address"
+              name="email"
+              value={email}
+              onChange={onChange}
+            />
             <input type="submit" value="Get Started" />
           </form>
         </div>

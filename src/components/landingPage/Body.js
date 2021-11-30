@@ -22,9 +22,14 @@ export default function Body() {
             Join our Online Courses community and reach your goal
           </p>
           <div className="landingbuttondiv">
-            <button className="landingpagetextonImgbutton">
-              Early access to courses
-            </button>
+            <Link
+              to="/userlanding"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <button className="landingpagetextonImgbutton">
+                Early access to courses
+              </button>
+            </Link>
             <Link
               to="/contentcreator"
               style={{ color: "white", textDecoration: "none" }}
