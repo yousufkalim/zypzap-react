@@ -2,6 +2,7 @@
 import React from "react";
 import AboutLandingPageImg from "../../assets/img/aboutlandingpage.png";
 import Aboutimg from "../../assets/img/about2.png";
+import { Link } from "react-router-dom";
 
 export default function Body() {
   return (
@@ -24,9 +25,14 @@ export default function Body() {
             <button className="landingpagetextonImgbutton">
               Early access to courses
             </button>
-            <button className="landingpagetextonImgbutton">
-              Become content creator
-            </button>
+            <Link
+              to="/contentcreator"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <button className="landingpagetextonImgbutton">
+                Become content creator
+              </button>
+            </Link>
           </div>
         </div>
       </div>

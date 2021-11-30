@@ -16,7 +16,7 @@ import ContentCreatorLandingPage from "../containers/ContentCreatorLandingPage";
 const index = () => {
   return (
     <Switch>
-      <Route exact path="/" component={Blog} />
+      <Route exact path="/" component={LandingPage} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/blog" component={Blog} />
       <Route exact path="/blog/:id" component={Article} />
@@ -26,7 +26,7 @@ const index = () => {
       <Route exact path="/userlandingpage" component={UserLandingPage} />
       <Route
         exact
-        path="/contentcreatorlandingpage"
+        path="/contentcreator"
         component={ContentCreatorLandingPage}
       />
     </Switch>

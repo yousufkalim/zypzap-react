@@ -466,7 +466,7 @@ body {
 .moniBox {
   background-color: #1b1e39;
   width: 92%;
-  /* border-radius: 13px; */
+  border-radius: 13px;
   height: 331px;
   margin-top: 22px auto 0 auto;
   padding: 60px 7px 60px 7px;

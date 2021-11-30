@@ -76,7 +76,7 @@
   width: 80%;
   margin-left: auto;
   margin-right: 10px;
-  padding: 40px;
+  padding: 10px;
   border-radius: 10px;
   margin-bottom: 10%;
 }
@@ -88,20 +88,22 @@
 
   width: 80%;
   padding-left: 10px;
-  padding: 40px;
+  padding: 10px;
   border-radius: 10px;
 }
 .offerheading {
-  font-size: 30px;
+  font-size: 25px;
+  padding: 10px;
 }
 .offerText {
   font-size: 13px;
   color: #d4d4d4;
+  padding: 10px 30px 10px 30px;
 }
 .whatweofferButton {
-  padding: 8px;
+  padding: 10px;
   border: none;
-  margin: 13px 13px 8px 0px;
+  margin: 13px 13px 40px 0px;
   background-color: #e7411b;
   color: white;
   font-weight: 900;
@@ -131,6 +133,16 @@
   }
   .landingpagetextonImgbutton {
     margin: 30px 13px 8px 0px;
+  }
+  .offerheading {
+    font-size: 30px;
+  }
+  .offerText {
+    font-size: 15px;
+    padding: 10px 60px 10px 60px;
+  }
+  .whatweofferButton {
+    padding: 15px;
   }
 }
 /* for mobile */
