@@ -9,6 +9,7 @@ import Blog from "../containers/Blog";
 import Article from "../containers/Article";
 import About from "../containers/About.js";
 import Contenthome from "../containers/ContentHome.js";
+import ContentCreatorLandingPage from "../containers/ContentCreatorLandingPage"
 
 const index = () => {
   return (
@@ -19,6 +20,7 @@ const index = () => {
       <Route exact path="/blog/:id" component={Article} />
       <Route exact path="/about" component={About} />
       <Route exact path="/contenthome" component={Contenthome} />
+      <Route exact path="/contentcreatorlandingpage" component={ContentCreatorLandingPage} />
     </Switch>
   );
 };
