@@ -134,7 +134,7 @@ const UserLandingPageTrending = () => {
         <Grid className="trending-box-border" container>
           {
             items.map((item) => (
-              <Grid  md={4} sm={4}>
+              <Grid md={4} sm={4}>
                 <div class="table-img-text">
                   <img src={item.img} />
                   <div className="trending-text-width">{item.heading} </div>
