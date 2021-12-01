@@ -229,7 +229,7 @@ body {
   padding: 0 15px 0 15px;
   line-height: 1.5;
   opacity: 0.8;
-  font-size: 16px;
+  font-size: 14px;
 }
 .monibutton {
   width: 100%;
@@ -561,6 +561,6 @@ body {
     padding: 10px 0;
   }
   .content_pera {
-    height: 392px !important;
+    height: 405px !important;
   }
 }
