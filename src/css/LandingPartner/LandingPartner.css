@@ -75,4 +75,8 @@
   .landing-partner-pargraph {
     font-size: 10px;
   }
+  .MuiGrid-spacing-xs-6 {
+    width: calc(80% + 48px) !important;
+    margin: -24px;
+  }
 }

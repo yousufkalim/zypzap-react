@@ -353,4 +353,7 @@ input[type="email"] {
     width: 70px;
     font-size: 8px;
   }
+  .MuiGrid-spacing-xs-6 {
+    width: calc(0 + 0) !important;
+  }
 }
