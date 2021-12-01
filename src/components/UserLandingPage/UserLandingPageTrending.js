@@ -119,22 +119,22 @@ const UserLandingPageTrending = () => {
   ];
   return (
     <>
-      <Box className="trending-block" container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <Grid className="trending-heading-container" container>
-          <Grid sx={{ textAlign: "center" }} item xs={4} md={4}>
+     <div className="trending-block" container rowSpacing={1}>
+        <Grid sx={{display:'flex', justifyContent: 'space-around'}} className="trending-heading-container" container>
+          <Grid sx={{ textAlign: "center" }} item  md={4}>
             <div className="top-games-header top-games-text">  <h4 >Top Games </h4>  </div>
           </Grid>
-          <Grid sx={{ textAlign: "center" }} item xs={4} md={4}>
+          <Grid sx={{ textAlign: "center" }} item  md={4}>
             <div className="top-trendy-games top-games-text"><h4>Top Trendy Games </h4>  </div>
           </Grid>
-          <Grid sx={{ textAlign: "center" }} item xs={4} md={4}>
+          <Grid sx={{ textAlign: "center" }} item  md={4}>
             <div className="nft-games-header top-games-text">  <h4 >NFT Games </h4>  </div>
           </Grid>
         </Grid>
         <Grid className="trending-box-border" container>
           {
             items.map((item) => (
-              <Grid item xs={4} md={4}>
+              <Grid  md={4} sm={4}>
                 <div class="table-img-text">
                   <img src={item.img} />
                   <div className="trending-text-width">{item.heading} </div>
@@ -144,7 +144,7 @@ const UserLandingPageTrending = () => {
             )
           }
         </Grid>
-      </Box>
+      </div>
     </>
   )
 }
