@@ -23,8 +23,8 @@ const UserLandingPageBody = () => {
             Join our Online Courses community and become a pro game
           </p>
           <form class="flex-form">
-            <input type="email" placeholder="Email address" />
-            <input type="submit" value="Get Early Access" />
+            <input className="user-landing-page-email-input" type="email" placeholder="Email address" />
+            <input className="user-landing-page-submit-input" type="submit" value="Get Early Access" />
           </form>
         </div>
       </div>
