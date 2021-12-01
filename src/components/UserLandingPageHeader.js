@@ -6,8 +6,10 @@ import Typography from "@mui/material/Typography";
 import logo from "../assets/img/headerlogo.png";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useTranslation, Trans } from "react-i18next";
 
 const HeaderUserLandingPage = () => {
+  const { t, i18n } = useTranslation();
   const history = useHistory();
   return (
     <>
@@ -45,14 +47,16 @@ const HeaderUserLandingPage = () => {
               style={{ color: "white", textDecoration: "none" }}
             >
               <button className="btn-content-creator">
-                Become Content Creator
+                {t("Become Content Creator")}
               </button>
             </Link>
             <Link
               to="/userlanding"
               style={{ color: "white", textDecoration: "none" }}
             >
-              <button className="btn-content-creator">Get Early Access</button>
+              <button className="btn-content-creator">
+                {t("Get Early Access")}
+              </button>
             </Link>
           </Toolbar>
         </AppBar>
