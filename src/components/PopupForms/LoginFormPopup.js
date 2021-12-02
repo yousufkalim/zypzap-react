@@ -24,7 +24,7 @@ export default function LoginFormPopup({ open, setOpen, signup, setSignup }) {
 
   const [opens, setOpens] = useState(false);
   const showPopup = (e) => {
-    setOpens(false);
+    setOpen(false);
     setSignup(true);
   };
 

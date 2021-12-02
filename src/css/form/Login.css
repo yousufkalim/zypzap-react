@@ -142,4 +142,7 @@
     cursor: pointer;
     margin-bottom: 10px;
   }
+  .form_container .or {
+    margin: -8px 3px;
+  }
 }
