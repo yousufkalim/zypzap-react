@@ -3,8 +3,13 @@ import React from "react";
 import AboutLandingPageImg from "../../assets/img/aboutlandingpage.png";
 import Aboutimg from "../../assets/img/about2.png";
 import { Link } from "react-router-dom";
+import { useTranslation, Trans } from "react-i18next";
 
 export default function Body() {
+  const { t, i18n } = useTranslation();
+  const { language } = i18n;
+  console.log("t is ", language);
+
   return (
     <>
       <div className="landingpagecontainer">
@@ -12,14 +17,17 @@ export default function Body() {
           <img src={AboutLandingPageImg} className="landingpageLeftimg" />
           <img src={Aboutimg} className="landingpageRightimg" />
         </div>
-
-        <div className="landingpagetextonImg">
+        <div
+          className={`${
+            language == "en" ? "landingpagetextonImg" : "frlandingpagetextonImg"
+          }`}
+        >
           <h1 className="landingpagetextimgH1">
-            Welcome to the
-            <br className="landingBr" /> Gamer's eLearning 3.0
+            {t("Welcome to the")}
+            <br className="landingBr" /> {t("Gamer's eLearning 3.0")}
           </h1>
           <p className="landingpagetextonImgP">
-            Join our Online Courses community and reach your goal
+            {t("Join our Online Courses community and reach your goal")}
           </p>
           <div className="landingbuttondiv">
             <Link
@@ -27,7 +35,7 @@ export default function Body() {
               style={{ color: "white", textDecoration: "none" }}
             >
               <button className="landingpagetextonImgbutton">
-                Early access to courses
+                {t("Early access to courses")}
               </button>
             </Link>
             <Link
@@ -35,7 +43,7 @@ export default function Body() {
               style={{ color: "white", textDecoration: "none" }}
             >
               <button className="landingpagetextonImgbutton">
-                Become content creator
+                {t("Become content creator")}
               </button>
             </Link>
           </div>

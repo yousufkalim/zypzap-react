@@ -7,8 +7,15 @@ import logo from "../assets/img/headerlogo.png";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import SubscriptionPopup from './PopupForms/SubscriptionPopup'
+
+import { useTranslation, Trans } from "react-i18next";
+
+const HeaderUserLandingPage = () => {
+  const { t, i18n } = useTranslation();
+
 const HeaderUserLandingPage = () => {
   const [open, setOpen] = useState(false)
+
   const history = useHistory();
   const showPopup = ()=>{
     setOpen(true);
@@ -50,14 +57,20 @@ const HeaderUserLandingPage = () => {
               style={{ color: "white", textDecoration: "none" }}
             >
               <button className="btn-content-creator">
-                Become Content Creator
+                {t("Become Content Creator")}
               </button>
             </Link>
             <Link
               to="/userlanding"
               style={{ color: "white", textDecoration: "none" }}
             >
+
+              <button className="btn-content-creator">
+                {t("Get Early Access")}
+              </button>
+
               <button onClick={showPopup} className="btn-content-creator">Get Early Access</button>
+
             </Link>
           </Toolbar>
         </AppBar>

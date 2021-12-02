@@ -1,5 +1,5 @@
 // Init
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import FooterLogo from "../../assets/icons/footerlogo.png";
 import FbIcon from "../../assets/icons/fbicon2.svg";
@@ -8,8 +8,15 @@ import PintrestIcon from "../../assets/icons/pintresticon.svg";
 import LinkedinIcon from "../../assets/icons/linkedinicon.svg";
 import Globe from "../../assets/icons/globe.svg";
 import { Link } from "react-router-dom";
+import { useTranslation, Trans } from "react-i18next";
 
-export default function YouMayLike() {
+export default function Footer() {
+  const { t, i18n } = useTranslation();
+  const { language } = i18n;
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <div className="footerDiv">
       <Grid container spacing={4}>
@@ -50,7 +57,13 @@ export default function YouMayLike() {
             >
               <p className="pmargin">For Creators</p>
             </Link>
-            <p className="pmargin">Partners</p>
+
+            <Link
+              to="/landingpartner"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <p className="pmargin">Partners</p>
+            </Link>
             <p className="pmargin">Privacy Policy</p>
           </div>
         </Grid>
@@ -69,7 +82,14 @@ export default function YouMayLike() {
         <Grid item xs={12} sm={3}>
           <div className="languagebuttondiv">
             <img src={Globe} className="languageIcon" />
-            <button className="languageButton">English</button>
+            <button
+              className="languageButton"
+              onClick={() =>
+                changeLanguage(`${language == "en" ? "fr" : "en"}`)
+              }
+            >
+              {language == "fr" ? "English" : "French"}
+            </button>
           </div>
           <div className="divforsign">
             <p className="sign">©Passtotrip. ALL RIGHTS RESERVED.</p>
