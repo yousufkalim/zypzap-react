@@ -51,7 +51,7 @@ export default function TopRatedContent() {
         <p className="blogheading">View All</p>
       </div>
       <div className="blogGridOuterDiv">
-        <Grid container spacing={4}>
+        <Grid container spacing={4} style={{ width: "auto" }}>
           {items.map((item, i) => (
             <Grid item xs={12} sm={3}>
               <>
