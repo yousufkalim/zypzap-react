@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-
-import UserlandingPagePopup from './UserlandingPagePopup'
 import AboutLandingPageImg from "../../assets/img/aboutlandingpage.png";
 import UserLandingPageAdvantages from "../UserLandingPage/UserLandingPageAdvantages";
 import UserLandingPageCommunity from "../UserLandingPage/UserLandingPageCommunity";
 import UserLandingPageTrending from "../UserLandingPage/UserLandingPageTrending";
 import UserLandingPageBlog from "../UserLandingPage/UserLandingPageBlog";
 import Aboutimg from "../../assets/img/kk.png";
-
+import SubscriptionPopup from '../PopupForms/SubscriptionPopup'
 const UserLandingPageBody = () => {
   const [open, setOpen] = useState(false)
   const [email, setEmail] = useState("")
@@ -24,7 +22,7 @@ const UserLandingPageBody = () => {
     <>
       <div>
         {
-          open && <UserlandingPagePopup Email={email} open={open} setOpen={setOpen}/>
+          open && <SubscriptionPopup Email={email} open={open} setOpen={setOpen}/>
         }
      
       </div>

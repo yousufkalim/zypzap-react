@@ -6,13 +6,13 @@ import Typography from "@mui/material/Typography";
 import logo from "../assets/img/headerlogo.png";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import SubscriptionPopup from './PopupForms/SubscriptionPopup'
 
 import { useTranslation, Trans } from "react-i18next";
 
 const HeaderUserLandingPage = () => {
   const { t, i18n } = useTranslation();
 
-import UserlandingPagePopup from './UserLandingPage/UserlandingPagePopup'
 const HeaderUserLandingPage = () => {
   const [open, setOpen] = useState(false)
 
@@ -23,7 +23,7 @@ const HeaderUserLandingPage = () => {
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-      {open && <UserlandingPagePopup open={open} setOpen={setOpen}/>} 
+      {open && <SubscriptionPopup open={open} setOpen={setOpen}/>} 
         <AppBar position="static" className="headerBackgroundColor">
           <Toolbar>
             <Typography
