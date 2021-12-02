@@ -59,6 +59,10 @@
 }
 
 /* What we offer */
+.offerGrid {
+  width: auto !important;
+}
+
 .whatweoffercontainer {
   text-align: center;
   margin-top: 5px;
@@ -194,6 +198,7 @@
   }
   .landingpagetextonImgbutton {
     font-size: 6px;
+    padding: 5px;
   }
   .offerdivleft {
     margin: auto;

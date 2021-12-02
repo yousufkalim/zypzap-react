@@ -16,7 +16,7 @@ export default function WhatWeOffer() {
           <div className="offerdashline"></div>
         </div>
       </div>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} className="offerGrid">
         <Grid item xs={12} sm={6}>
           <div className="offerdivleft">
             <img src={gamerImg} className="offerimg1" alt="img" />
