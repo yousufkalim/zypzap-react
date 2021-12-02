@@ -40,7 +40,7 @@ const Avantages = () => {
   return (
     <>
       <div className="content_Avantages">
-        <h2 className="Avantages_heading">Remportez vos parties</h2>
+        <h2 className="Avantages_heading">Avantages Passtotrip</h2>
         <div className="offerdashline"></div>
         <div className="Avantages_container">
           <Grid

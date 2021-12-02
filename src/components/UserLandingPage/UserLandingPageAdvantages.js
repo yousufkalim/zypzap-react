@@ -53,7 +53,12 @@ const UserLandingPageAdvantages = () => {
             </List>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Carousel autoPlay={false} animation={"fade"}>
+            <Carousel autoPlay={false}
+                    activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
+
+            animation={"fade"}
+            >
+              <img className="carousel-img" src={carouselimg} />
               <img className="carousel-img" src={carouselimg} />
               <img className="carousel-img" src={carouselimg} />
               <img className="carousel-img" src={carouselimg} />

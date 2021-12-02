@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Createbg from "../../assets/createbg.png";
-
+import SubscriptionPopup from '../PopupForms/SubscriptionPopup'
 const CreateHome = () => {
+  const [open, setOpen] = useState(false)
   const [email, setEmail] = useState("");
   const onChange = (e) => {
     setEmail(e.target.value);
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log("email is ", email);
-  };
+  const showPopup = (e)=>{
+    e.preventDefault()
+    setOpen(true);
+  }
+  
   return (
     <>
       <div className="content_container">
+      {open && <SubscriptionPopup open={open} Email={email} setOpen={setOpen}/>} 
         <img src={Createbg} className="content_Image" />
         <div className="textonImgcontent">
           <h1 className="textH1">
@@ -27,15 +28,17 @@ const CreateHome = () => {
           >
             Its time to make your hobbie an asset
           </p>
-          <form class="flex-form" onSubmit={handleSubmit}>
+          <form onSubmit={showPopup} class="flex-form">
             <input
+            className="user-landing-page-email-input"
               type="email"
               placeholder="Email address"
-              name="email"
+              name="email" 
               value={email}
               onChange={onChange}
+              required
             />
-            <input type="submit" value="Get Started" />
+            <input className="user-landing-page-submit-input" type="submit" value="Get Started" />
           </form>
         </div>
       </div>
