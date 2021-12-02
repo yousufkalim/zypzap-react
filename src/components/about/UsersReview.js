@@ -84,7 +84,7 @@ function Reviews({ item }) {
   return (
     <>
       <div className="reviewHeadingdiv">
-        <h1>
+        <h1 className="userHeadingReview">
           What our <span style={{ color: "red" }}>users</span> say
         </h1>
       </div>

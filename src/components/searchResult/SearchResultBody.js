@@ -1,28 +1,19 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import Categories from './Categories'
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import Divider from '@mui/material/Divider';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import CommentIcon from '@mui/icons-material/Comment';
-import IconButton from '@mui/material/IconButton';
 import Course1 from '../../assets/img/course1.png'
 import Course2 from '../../assets/img/course2.png'
 import Course3 from '../../assets/img/course3.png'
 import Course4 from '../../assets/img/course4.png'
 import StarIcon from "@material-ui/icons/Star";
+import Slider from '@mui/material/Slider';
 
-import {
-    Card,
-    CardContent,
-    Typography,
-    CardHeader
-} from "@material-ui/core/";
 
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 var items = [
   {
@@ -96,154 +87,164 @@ var items = [
     rating: "rating",
     price: "19.99",
     test: "3",
-  },
-  {
-    title: "10Minicraft Full Course",
-    img: Course2,
-    name: "10James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "3",
-  },
-  {
-    title: "11Minicraft Full Course",
-    img: Course3,
-    name: "11James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "3",
-  },
-  {
-    title: "12Minicraft Full Course",
-    img: Course4,
-    name: "12James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "3",
-  },
+  }
 ];
 
-
-
+const categories = [
+  {
+    name: "Action",
+    value: "name"
+  },
+  {
+    name: "Racing",
+    value: "class"
+  },
+  {
+    name: "Sports",
+    value: "age"
+  },
+  {
+    name: "Fighting",
+    value: "subjects"
+  },
+  {
+    name: "Puzzle",
+    value: "school"
+  },
+  {
+    name: "Offline",
+    value: "schooltwo"
+  }
+];
 const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+  ...theme.typography.body2,
+  padding: theme.spacing(2),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
 }));
 const SearchResultBody = () => {
-// export default function CardComprow() {
-//     const data = {
-//         name: [
-//             { quarter: 1, earnings: 13000 },
-//             { quarter: 2, earnings: 16500 },
-//             { quarter: 3, earnings: 14250 },
-//             { quarter: 4, earnings: 19000 }
-//         ],
-//         id: [1, 2, 3, 4]
-//     }
+  const [CategoriesState, setCategoriesState] = useState(false)
+  const [SelectInputState, setSelectInputState] = useState(false)
+  const [sliderState, setSliderState] = useState(false)
+  const [sliderValue, setSliderValue] = useState(0)
+  const [activeButton, setActiveButton] = useState();
+  const onClick = (e) => {
+    const id = e.target.id
+    if (id == 1) {
+      setCategoriesState(!CategoriesState)
+    }
+    if (id == 2) {
+      setSelectInputState(!SelectInputState)
+    }
+    if ( id== 3){
+      setSliderState(!sliderState)
+    }
+  } 
 
-    const text = ["Categories", "Grammer Level", "Price"]
-    return (
-        <Box style={{ margin: "3% 5%", overflowX:"hidden", overflowY:"hidden" }} sx={{ flexGrow: 1, display: 'flex' }}>
-            <Box   sx={{ width: "25%" }}>
-                <Grid >
-                    <Item style={{backgroundColor:"#0E0F1E", color:"#fff"}}>
-                        <Typography align="left" variant="h6" component="h2">
-                            Filter By
-                        </Typography>
-                        <Divider sx/>
-                        <List sx={{ width: '100%', maxWidth: 360  }}>
-                            {text.map((value) => (
-                                <ListItem
-                                    key={value}
-                                    disableGutters
-                                    secondaryAction={
-                                        <IconButton>
-                                            <CommentIcon />
-                                        </IconButton>
-                                    }
-                                >
-                                    <ListItemText primary={` ${value}`} />
-                                </ListItem>
-                            ))}
-                        </List>
-                        <Typography align="left" variant="h6" component="h2">
-                            Didn't found the <br /> course
-                        </Typography>
-                        <Box textAlign='left'>
-                        <Button
-    style={{
-        backgroundColor: "#e7411b",
-        padding: "5px 18px",
-        fontSize: "14px",
-        margin :"10px 0"
-    }}
-    variant="contained"
-    >
-    Request now
-</Button>
-                           </Box>
-                    </Item>
-                </Grid>
+  const onSideBtnClick = e => {
+    const name = e.target.textContent;
+    console.log(name);
+    setActiveButton(name);
+  }
+  const onChangeSliderValue =(e)=>{
+    console.log(e.target.value);
+  }
+  return (
+    <Box className="search-result-container" sx={{ flexGrow: 1, display: 'flex' }}>
+      <Box className="side-bar-filter">
+        <Grid >
+          <Item sx={{ textAlign: "left", backgroundColor:"#0E0F1E", color:"#fff" }}>
+            <h4 >
+              Filter by
+            </h4>
+            <hr className="filterby-divider" />
+            <div id="1" onClick={onClick} className="dropdown-headers">
+              Categories
+              <KeyboardArrowDownIcon  sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} />
+            </div>
+            {
+              CategoriesState ? (<Categories categories={categories} activeButton={activeButton} trigerOnClickEmpSideBtn={onSideBtnClick} />
+              ) : null
+            }
+
+            <div id="2" onClick={onClick}  className="dropdown-headers">
+              Gamer Level
+              <KeyboardArrowDownIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} />
+            </div>
+            {
+              SelectInputState ? (
+                <div>
+                  <form className="radio-inputs"> 
+                    <input type="radio" id="html" name="fav_language" value="HTML" />
+                    <label className="radio-btn-label" for="html">Entry Level</label> <br />
+                    <input type="radio" id="css" name="fav_language" value="CSS" />
+                    <label className="radio-btn-label" for="css">Intermediate Level</label> <br />
+                    <input type="radio" id="javascript" name="fav_language" value="JavaScript" />
+                    <label className="radio-btn-label" for="javascript">Advance Level</label>
+                  </form>
+                </div>
+              ) : null
+            }
+            <div id="3" onClick={onClick} className="dropdown-headers">
+              Price
+              <KeyboardArrowDownIcon  sx={{ color: "#fff", opacity: "0.6", marginTop: "5px", width: "2px", height: "1em !important" }} />
+            </div>
+            {
+              sliderState? (
+                <Box >
+                <Slider onChange={onChangeSliderValue} className="slider-color" defaultValue={sliderValue} aria-label="Default" valueLabelDisplay="auto" />
+              </Box>
+              ):null
+            }
+            <h4 className="didnt-find-text">
+              Didn't found the <br /> course
+            </h4>
+            <Box>
+              <Button sx={{backgroundColor:"#e7411b", padding:"5px 12px", fontSize:"13px", margin:"10px 0"}}
+                variant="contained"
+              >
+                Request now
+              </Button>
             </Box>
-            <Box style={{ border: "1px solid black", backgroundColor:"#212E58"}} sx={{ width: "75%", padding:"10px" }}>
-            <Typography align="left" variant="h6" component="h2">
-                            CS-GO GAME
-                        </Typography>
-                        <Typography align="left" variant="span" component="span">
-                            110 course result
-                        </Typography>
-                <Grid style={{ padding: "0 20px" }} container spacing={{ xs: 1, md: 1 }} columns={{ xs: 2, sm: 8, md: 12 }}>
-                {items.map((item, i) => (
-                        <Grid style={{}} item xs={2} sm={4} md={4}>
-                            
-                             <div className="cardGrid">
-      <img src={item.img} className="courseimg" alt="img" />
-              <h5 className="latestcourseh5">{item.title}</h5>
-              <p className="latestcoursep1">{item.name}</p>
-              <p className="latestcoursep1">
-                {" "}
-                5.0
-                {[1, 2, 3, 4, 5].map((item) => (
-                  <StarIcon
-                    style={{
-                      width: "15px",
-                      height: "15px",
-                      color: "red",
-                      margintTop: "3px",
-                      position: "relative",
-                      top: "3px",
-                    }}
-                  />
-                ))}
-                (1809)
-              </p>
-              <h6 className="latestcourseh6">$19.99</h6>
+          </Item>
+        </Grid>
+      </Box>
+      <Box className="cards-container">
+        <div className="cards-header-text">
+          <h2> CS-GO GAME</h2>
+          <span>110 course result</span>
+        </div>
+
+        <Grid sx={{padding:"0 20px" }} container spacing={{ xs: 1, md: 1 }} columns={{ xs: 2, sm: 8, md: 12 }}>
+          {items.map((item, i) => (
+            <Grid item xs={12} sm={6} md={4}>
+              <div className="cardGrid">
+                <img src={item.img} className="courseimg" alt="img" />
+                <h5 className="latestcourseh5">{item.title}</h5>
+                <p className="latestcoursep1">{item.name}</p>
+                <p className="latestcoursep1">
+                  {" "}
+                  5.0
+                  {[1, 2, 3, 4, 5].map((item) => (
+                    <StarIcon className="star-icon" 
+                    />
+                  ))}
+                  (1809)
+                </p>
+                <h6 className="latestcourseh6">$19.99</h6>
               </div>
-    
-
-                        </Grid>
-                    ))}
-                </Grid>
-                <Box textAlign='center'> 
-                <Button
-    style={{
-        backgroundColor: "#e7411b",
-        padding: "5px 18px",
-        fontSize: "14px",
-        margin :"10px 0"
-    }}
-    variant="contained"
-    >
-    View more
-</Button>
-                
-                
-                </Box>
-            </Box>
+            </Grid>
+          ))}
+        </Grid>
+        <Box textAlign='center'>
+          <button className="btn-search-result"
+          >
+            View more
+          </button>
         </Box>
-    );
+      </Box>
+    </Box>
+  );
 }
 
 export default SearchResultBody

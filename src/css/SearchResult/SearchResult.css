@@ -1,0 +1,108 @@
+.side-bar-filter{
+    width: 25%;
+}
+
+.cards-header-text{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 5%;
+}
+
+.search-result-container{
+    margin: 3% 5%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-radius: 5px;
+}
+
+.cards-container{
+    background-color: #14162C;
+    border-radius: 5px;
+    color: #fff;
+    width: 75%;
+    padding: 10px;
+}
+.star-icon{
+    width: 15px !important; 
+    height: 15px !important; 
+    color:red; 
+    margin-top: 3px; 
+    position: relative; 
+    top: 3px;
+}
+.btn-search-result{
+    background-color: #e7411b;
+    padding: 5px 8px;
+    font-size: 14px;
+    margin: 10px 0;
+    border: none;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.filterby-divider{
+    width: 96%;
+    border: 1px solid #414141;
+    margin: 15px 0px;
+}
+.dropdown-headers{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.dropdown-headers>*{
+ padding: 5px 0px;
+}
+
+.didnt-find-text{
+    margin-top: 30px;
+}
+.categories-text{
+    font-size: 16px;
+    opacity: 0.8;
+    padding: 5px 0px;
+}
+.active{
+background-color: #14162C;
+}
+.radio-btn-label{
+    margin-left: 5px;
+    opacity: 0.8;
+    font-size: 16px;
+}
+.radio-inputs>*{
+    margin: 10px 5px;
+}
+
+.slider-color{
+    color: #fff !important;
+}
+
+@media all and (max-width: 800px){
+    .search-result-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .side-bar-filter{
+        width: 100%;
+    }
+    .cards-container{
+        width: 100%;
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
+
+.search-result-container{
+    display: flex;
+    flex-direction: column;
+}
+.side-bar-filter{
+    width: 100%;
+}
+.cards-container{
+    width: 100%;
+}
+}

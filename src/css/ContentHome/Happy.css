@@ -29,7 +29,6 @@
   flex-basis: 50%;
   /* border: 2px solid rgb(244, 248, 6); */
   background: #202342cc;
-
   padding: 20px;
   padding-bottom: 60px;
   border-radius: 12px;
@@ -93,13 +92,12 @@
     margin-bottom: 20px;
     line-height: 1.5;
   }
-  .topcoursecarousal {
+  .topcoursecarousal2 {
     margin-bottom: -150px;
   }
   .Carousel-indicatorIcon-4 {
     font-size: 15px;
     padding-top: -9px;
-    margin-top: -147px;
   }
   .Carousel-buttonWrapper-6 {
     top: 0;

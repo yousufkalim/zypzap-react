@@ -1,0 +1,82 @@
+/* landing partner header css */
+.landing-partner-img-container {
+  text-align: center;
+  width: 90%;
+  margin: 20px auto;
+  position: relative;
+  color: #fff;
+}
+.landing-partner-header-img {
+  width: 100%;
+}
+.landing-partner-text-container {
+  text-align: center;
+  line-height: 50px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.landing-partner-header {
+  font-size: 50px;
+}
+.landing-partner-pargraph {
+  font-size: 18px;
+  opacity: 0.6;
+}
+.btn-landing-partner {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #202342;
+  border-radius: 6px;
+  margin: 20px 10px 0px 10px;
+}
+.btn-landing-partner:hover {
+  background-color: #e7411b;
+  border: none;
+}
+/* landing partner different company logos css */
+.landing-partner-logo-container {
+  text-align: center;
+  width: 80%;
+  margin: 50px auto;
+  position: relative;
+  color: #fff;
+}
+.landing-partner-fedex-img {
+  margin-top: -9px;
+}
+/* Media Queries */
+@media all and (max-width: 959px) {
+  .landing-partner-text-container {
+    white-space: nowrap;
+  }
+  .landing-creator-logo-spacing {
+    padding: 20px 0px;
+  }
+  .landing-partner-arrow {
+    display: none;
+  }
+  .community-block {
+    border-right: none;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
+  .landing-partner-text-container {
+    line-height: 30px;
+    white-space: nowrap;
+  }
+  .landing-partner-header {
+    font-size: 25px;
+  }
+  .landing-partner-pargraph {
+    font-size: 10px;
+  }
+  .MuiGrid-spacing-xs-6 {
+    width: calc(80% + 48px) !important;
+    margin: -24px;
+  }
+}
