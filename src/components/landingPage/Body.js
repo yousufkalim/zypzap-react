@@ -1,7 +1,7 @@
 // Init
 import React from "react";
-import AboutLandingPageImg from "../../assets/img/aboutlandingpage.png";
-import Aboutimg from "../../assets/img/about2.png";
+import AboutLandingPageImg from "../../assets/img/aboutlandingpage2.png";
+import Aboutimg from "../../assets/img/about02.png";
 import { Link } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
 

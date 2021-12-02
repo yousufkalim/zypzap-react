@@ -71,6 +71,7 @@
 .form_container label {
   display: block;
   padding-bottom: 5px;
+  padding-right: 10px;
 }
 .form_container .inputForm {
   padding-left: 10px;
@@ -145,6 +146,10 @@
 }
 .UserLandingPageAboutTextImgH1 {
   font-size: calc(4vw - 5px);
+  font-weight: 900;
+}
+.frUserLandingPageAboutTextImgH1 {
+  font-size: auto;
   font-weight: 900;
 }
 .user-landing-page-text-on-imgP {
@@ -267,9 +272,19 @@
   padding-top: 20px;
   padding-bottom: 8px;
 }
+.frcommunity-content-header {
+  font-size: 16px;
+  padding-top: 20px;
+  padding-bottom: 8px;
+}
 .community-content-pargraph {
   padding: 15px 0px;
   font-size: 16px;
+  opacity: 0.6;
+}
+.frcommunity-content-pargraph {
+  padding: 15px 0px;
+  font-size: 13px;
   opacity: 0.6;
 }
 .community-box {
@@ -349,6 +364,12 @@
 .blog-view-all:hover {
   text-decoration: underline;
 }
+/* for big screens */
+@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+  .frUserLandingPageAboutTextImgH1 {
+    font-size: 3rem;
+  }
+}
 /* Media queries */
 @media all and (max-width: 800px) {
   .flex-form {
@@ -417,6 +438,11 @@
   }
   .UserLandingPageAboutTextImgH1 {
     font-size: calc(4vw - 4px);
+    white-space: nowrap;
+    margin-top: 20px;
+  }
+  .frUserLandingPageAboutTextImgH1 {
+    font-size: auto;
     white-space: nowrap;
     margin-top: 20px;
   }

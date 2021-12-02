@@ -12,12 +12,17 @@ import Amazon from "../../assets/icons/amazone.png";
 import Fedex from "../../assets/icons/Fedex.png";
 import Micrsoft from "../../assets/icons/Micrsoft.png";
 import Google from "../../assets/icons/Google.png";
+import { useTranslation } from "react-i18next";
 
 const ContentCreator = () => {
+  const { t, i18n } = useTranslation();
+  const { language } = i18n;
   return (
     <>
       <div className="content_creator">
-        <h2 className="creator_heading">Content Creators in our Community</h2>
+        <h2 className="creator_heading">
+          {t("Content Creators in our Community")}
+        </h2>
 
         <div className="offerdashline"></div>
         <div className="creator_container">
@@ -32,7 +37,7 @@ const ContentCreator = () => {
                   <img src={Groups} alt="Groups" className="creator_img_icon" />
                 </div>
                 <p className="creator_P">
-                  Serve The Community By Creating Relevont Video Content
+                  {t("Serve The Community By Creating Relevont Video Content")}
                 </p>
               </div>
             </Grid>
@@ -46,7 +51,7 @@ const ContentCreator = () => {
                   />
                 </div>
                 <p className="creator_P">
-                  Be A Pillor In The Progress Of Gamers At Their Own Pace
+                  {t("Be A Pillor In The Progress Of Gamers At Their Own Pace")}
                 </p>
               </div>
             </Grid>
@@ -56,7 +61,7 @@ const ContentCreator = () => {
                   <img src={Vector} alt="Group" className="creator_img_icon" />
                 </div>
                 <p className="creator_P">
-                  Listening To The Community About Their Needs{" "}
+                  {t("Listening To The Community About Their Needs")}
                 </p>
               </div>
             </Grid>
@@ -66,7 +71,7 @@ const ContentCreator = () => {
                   <img src={Group} alt="Vector" className="creator_img_icon" />
                 </div>
                 <p className="creator_P">
-                  Participate In The Moderation And Validtion Of Content
+                  {t("Participate In The Moderation And Validtion Of Content")}
                 </p>
               </div>
             </Grid>
@@ -77,9 +82,9 @@ const ContentCreator = () => {
       <div className="partner_container">
         <div className=" our_partners" style={{ color: "#fff" }}>
           <div className="heading_container">
-            <h1 className=" partners_hading">Our Partners</h1>
+            <h1 className=" partners_hading">{t("Our Partners")}</h1>
             <p className=" partners_pera">
-              Become our partners biggest ambassador
+              {t("Become our partners biggest ambassador")}
             </p>
           </div>
           {/* 1 */}
