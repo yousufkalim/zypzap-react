@@ -9,8 +9,10 @@ import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import api from "../../api";
 import { Store, UpdateStore } from "../../StoreContext";
+import { useTranslation, Trans } from "react-i18next";
 
 const UserLandingPageBlog = () => {
+  const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState(false);
   const updateStore = UpdateStore();
   const { blogs } = Store();
@@ -69,13 +71,13 @@ const UserLandingPageBlog = () => {
           }}
         >
           <Typography align="center" variant="h5">
-            Our Blog
+            {t("Our Blog")}
           </Typography>
           <div className="offerdashline"> </div>
         </Box>
       </Box>
       {loading ? (
-        <h1 style={{ color: "white" }}>Loading...</h1>
+        <h1 style={{ color: "white" }}>{t("Loading")}...</h1>
       ) : (
         <div>
           <div className="UserLandingPageBlogContainer">
@@ -138,7 +140,7 @@ const UserLandingPageBlog = () => {
                   align="center"
                   variant="h6"
                 >
-                  View all
+                  {t("View all")}
                 </Typography>
               </Link>
             </Box>
