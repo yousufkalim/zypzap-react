@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Grid from "@mui/material/Grid";
 import Moni1 from "../../assets/icons/moni1.png";
 import Moni2 from "../../assets/icons/moni2.png";
@@ -6,11 +6,17 @@ import Moni3 from "../../assets/icons/moni3.png";
 import Moni4 from "../../assets/icons/moni4.png";
 import Reddotline1 from "../../assets/icons/reddotline1.png";
 import Reddotline2 from "../../assets/icons/reddotline2.png";
-
+import SubscriptionPopup from '../PopupForms/SubscriptionPopup'
 const Monitization = () => {
+  const [open, setOpen] = useState(false)
+  const showPopup = (e)=>{
+    e.preventDefault()
+    setOpen(true);
+  }
   return (
     <>
       <div className="monitization">
+      {open && <SubscriptionPopup open={open} setOpen={setOpen}/>} 
         <h2 className="monitization_heading">Monitization Process</h2>
         <hr className="hr_line3" />
         <div className="monitization_container">
@@ -83,7 +89,7 @@ const Monitization = () => {
         </div>
       </div>
       <div className="monibutton">
-        <button className="moniBTN">Monitize Your Skills</button>
+        <button onClick={showPopup} className="moniBTN">Monitize Your Skills</button>
       </div>
     </>
   );

@@ -11,22 +11,22 @@ const LandingPartnerLogos = () => {
     <>
       <div className="landing-partner-logo-container">
         <Grid container spacing={6}>
-          <Grid md={2} sm={6} xs={6}>
+          <Grid md={2} sm={5} xs={5}>
             <img className="landing-creator-logo-spacing landing-partner-fedex-img" src={Fedex} />
           </Grid>
-          <Grid md={2} sm={6} xs={6}>
+          <Grid md={2} sm={5} xs={5}>
             <img className="landing-creator-logo-spacing" src={Google} />
           </Grid>
-          <Grid md={2} sm={6} xs={6}>
+          <Grid md={2} sm={5} xs={5}>
             <img className="landing-creator-logo-spacing" src={Ola} />
           </Grid>
-          <Grid md={2} sm={6} xs={6}>
+          <Grid md={2} sm={5} xs={5}>
             <img className="landing-creator-logo-spacing" src={Walmart} />
           </Grid>
-          <Grid md={2} sm={6} xs={6}>
+          <Grid md={2} sm={5} xs={5}>
             <img className="landing-creator-logo-spacing" src={Oye} />
           </Grid>
-          <Grid md={2} sm={6} xs={6}>
+          <Grid md={2} sm={5} xs={5}>
             <img className="landing-creator-logo-spacing" src={Amazon} />
           </Grid>
         </Grid>

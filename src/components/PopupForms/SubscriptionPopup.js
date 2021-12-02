@@ -2,8 +2,8 @@ import React,{useState} from 'react'
 import Dialog from '@mui/material/Dialog';
 import { toast } from "react-toastify"
 import ClearIcon from '@mui/icons-material/Clear';
-const UserLandingPagePopup = ({open, setOpen, Email}) => {
-    const [email, setEmail] = useState("")
+const SubscriptionPopup = ({open, setOpen, Email}) => {
+    const [email, setEmail] = useState(Email?Email:"")
     const [values, setValues] = useState({
         checkBoxOne:false,
         checkBoxTwo:false
@@ -67,4 +67,4 @@ const UserLandingPagePopup = ({open, setOpen, Email}) => {
     )
 }
 
-export default UserLandingPagePopup
+export default SubscriptionPopup
