@@ -1,0 +1,145 @@
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  background-color: #15162c !important;
+  width: 100% !important;
+  margin: auto !important;
+  border-radius: 15px !important;
+  overflow: hidden !important;
+  max-width: 500px !important;
+}
+.MuiInput-underline:before {
+  border-bottom: none !important;
+}
+.login_form {
+  width: 90%;
+  display: flex;
+  background-color: #15162c;
+  color: #fff;
+  margin: auto;
+  flex-direction: column-reverse;
+}
+.form_container h1 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 8px 0px;
+  display: inline-block;
+  opacity: 0.9;
+}
+.clearIcon {
+  float: right;
+  margin: 15px -20px;
+  cursor: pointer;
+  font-weight: 900 !important;
+  width: 25px !important;
+}
+.login_pera {
+  font-size: 16px;
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+.form_container label {
+  display: block;
+  padding-bottom: 5px;
+}
+.form_container .inputForm {
+  padding-left: 10px;
+  width: 100%;
+  height: 41px;
+  background: none;
+  border: 1px solid #636060;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 13px;
+  color: currentColor;
+  opacity: 0.7;
+}
+.bldText {
+  font-weight: 600 !important;
+}
+.showPass {
+  padding-right: 10px !important;
+  color: #fff !important;
+  margin-right: 10px !important;
+}
+.for_get {
+  color: #fff;
+  cursor: pointer;
+}
+.forget {
+  position: absolute;
+  right: 35px;
+  padding-top: 0px;
+  font-size: 15px;
+}
+.form_container .formbtns {
+  padding: 9px;
+  border: none;
+  background-color: #e7411b;
+  color: white;
+  font-weight: 900;
+  font-family: "Poppins", sans-serif;
+  border-radius: 2px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 19px;
+  display: block;
+  margin-top: 35px;
+  font-weight: 500;
+}
+.form_container .or {
+  display: inline;
+  position: absolute;
+  margin: -8px 9px;
+  color: #fff;
+}
+.lines {
+  margin-top: 27px;
+  color: gray;
+}
+.line1 {
+  width: 46%;
+  float: left;
+  border-color: gray;
+}
+.line2 {
+  width: 46%;
+  float: right;
+  border-color: gray;
+}
+.social {
+  display: flex;
+  justify-content: space-between;
+}
+.social span {
+  display: block;
+  border: 1px solid #636060;
+  padding: 13px 35px 8px 35px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+.signPera {
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+.sgnUpBtn {
+  display: inline;
+  background: none;
+  border: none;
+  color: #e7411b;
+  margin: 0 5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+  .social {
+    flex-wrap: wrap;
+  }
+
+  .social span {
+    display: block;
+    border: 1px solid gray;
+    padding: 12px 28px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+}
