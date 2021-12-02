@@ -1,37 +1,37 @@
-.css-1t1j96h-MuiPaper-root-MuiDialog-paper{
-  background-color: #15162C !important;
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  background-color: #15162c !important;
   width: 100% !important;
   margin: auto !important;
   border-radius: 15px !important;
   overflow: hidden !important;
   max-width: 500px !important;
 }
-.MuiInput-underline:before{
+.MuiInput-underline:before {
   border-bottom: none !important;
 }
-.form_container{
+.form_container {
   padding: 0px 10px;
 }
-.login_form{
-  width: 90%;
+.login_form {
+  padding: 0px 10px 0px 10px;
   display: flex;
-  background-color: #15162C;
+  background-color: #15162c;
   color: #fff;
   margin: auto;
   flex-direction: column-reverse;
 }
-.email-label{
+.email-label {
   font-size: 1.5em;
   margin-bottom: 10px;
   opacity: 0.8;
 }
-.popup-checkbox[type="checkbox"]{
-  background-color: #FD0000;
+.popup-checkbox[type="checkbox"] {
+  background-color: #fd0000;
   width: 20px;
   height: 20px;
   appearance: none;
-  background-color: #15162C;
-  border: 2px solid #fff; 
+  background-color: #15162c;
+  border: 2px solid #fff;
   border-radius: 15%;
   margin-right: 8px;
   display: flex;
@@ -39,55 +39,55 @@
   align-items: center;
 }
 
-.popup-checkbox[type="checkbox"]:after{
+.popup-checkbox[type="checkbox"]:after {
   font-family: "Font Awesome 5 Free";
-content: "\f00c";
-font-weight: 900;
-display: none;
-color: #fff;
-} 
-.popup-checkbox[type="checkbox"]:checked{
-  background-color: #15162C;
+  content: "\f00c";
+  font-weight: 900;
+  display: none;
+  color: #fff;
 }
-.popup-checkbox[type="checkbox"]:checked:after{
- display: block;
+.popup-checkbox[type="checkbox"]:checked {
+  background-color: #15162c;
 }
-.privacy-policy-text{
-  color: #E7411B;
+.popup-checkbox[type="checkbox"]:checked:after {
+  display: block;
 }
-.form_container h1{
+.privacy-policy-text {
+  color: #e7411b;
+}
+.form_container h1 {
   font-size: 2rem;
   font-weight: 400;
   margin: 20px 0px 40px 0px;
   display: inline-block;
 }
-.clearIcon{
+.clearIcon {
   float: right;
   margin: 25px 5px;
   cursor: pointer;
   font-size: 2em !important;
 }
 
-.form_container label{
+.form_container label {
   display: block;
   padding-bottom: 5px;
 }
-.form_container .inputForm{
+.form_container .inputForm {
   padding-left: 10px;
   margin-bottom: 10px;
   width: 100%;
   height: 70px;
   background: none;
-  border: 2px solid #6C6464;
+  border: 2px solid #6c6464;
   border-radius: 5px;
   color: #fff;
   font: inherit;
   color: currentColor;
 }
-.form_container .formbtn{
+.form_container .formbtn {
   padding: 18px;
   border: none;
-  background-color: #E7411B;
+  background-color: #e7411b;
   color: white;
   font-weight: 900;
   font-family: "Poppins", sans-serif;
@@ -122,7 +122,7 @@ color: #fff;
 }
 
 /* User landing page header css starts here */
-.popup-form{
+.popup-form {
   height: 30vh;
   width: 100%;
 }
@@ -354,7 +354,7 @@ color: #fff;
   .flex-form {
     width: 100%;
   }
-  .user-landing-page-email-input{
+  .user-landing-page-email-input {
     flex-basis: 100%;
   }
   .flex-form > * {
@@ -442,10 +442,10 @@ color: #fff;
     width: 70px;
     font-size: 8px;
   }
-  .user-landing-page-email-input{
-   width: 50%;
+  .user-landing-page-email-input {
+    width: 50%;
   }
-  .css-1t1j96h-MuiPaper-root-MuiDialog-paper{
-  width: 80% !important;
+  .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+    width: 80% !important;
   }
 }
