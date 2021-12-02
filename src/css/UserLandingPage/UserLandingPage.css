@@ -1,5 +1,106 @@
-/* UserLandingPage navbar css starts here */
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+  background-color: #15162C !important;
+  width: 100% !important;
+  margin: auto !important;
+  border-radius: 15px !important;
+  overflow: hidden !important;
+  max-width: 500px !important;
+}
+.MuiInput-underline:before{
+  border-bottom: none !important;
+}
+.form_container{
+  padding: 0px 10px;
+}
+.login_form{
+  width: 90%;
+  display: flex;
+  background-color: #15162C;
+  color: #fff;
+  margin: auto;
+  flex-direction: column-reverse;
+}
+.email-label{
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+.popup-checkbox[type="checkbox"]{
+  background-color: #FD0000;
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  background-color: #15162C;
+  border: 2px solid #fff; 
+  border-radius: 15%;
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.popup-checkbox[type="checkbox"]:after{
+  font-family: "Font Awesome 5 Free";
+content: "\f00c";
+font-weight: 900;
+display: none;
+color: #fff;
+} 
+.popup-checkbox[type="checkbox"]:checked{
+  background-color: #15162C;
+}
+.popup-checkbox[type="checkbox"]:checked:after{
+ display: block;
+}
+.privacy-policy-text{
+  color: #E7411B;
+}
+.form_container h1{
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 20px 0px 40px 0px;
+  display: inline-block;
+}
+.clearIcon{
+  float: right;
+  margin: 25px 5px;
+  cursor: pointer;
+  font-size: 2em !important;
+}
+
+.form_container label{
+  display: block;
+  padding-bottom: 5px;
+}
+.form_container .inputForm{
+  padding-left: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 70px;
+  background: none;
+  border: 2px solid #6C6464;
+  border-radius: 5px;
+  color: #fff;
+  font: inherit;
+  color: currentColor;
+}
+.form_container .formbtn{
+  padding: 18px;
+  border: none;
+  background-color: #E7411B;
+  color: white;
+  font-weight: 900;
+  font-family: "Poppins", sans-serif;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+  display: block;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+/* UserLandingPage navbar css starts here */
 .logo-img {
   height: 30px;
   z-index: 1;
@@ -21,6 +122,10 @@
 }
 
 /* User landing page header css starts here */
+.popup-form{
+  height: 30vh;
+  width: 100%;
+}
 .user-landingpage-container {
   margin: 5px 0px 40px 0px;
   position: relative;
@@ -72,15 +177,7 @@
   outline: 0;
   -webkit-appearance: none;
 }
-
-/* input[type="search"] {
-  flex-basis: 500px;
-  border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
-  background-color: inherit;
-  border: 1px solid #5c5c5c;
-} */
-input[type="email"] {
+.user-landing-page-email-input {
   flex-basis: 500px;
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
@@ -88,7 +185,7 @@ input[type="email"] {
   border: 1px solid #5c5c5c;
   color: white;
 }
-.flex-form input[type="submit"] {
+.user-landing-page-submit-input {
   background: #e7411b;
   border: 1px solid #ef3f5a;
   color: #fff;
@@ -188,7 +285,6 @@ input[type="email"] {
   width: 80% !important;
   margin: 0 auto !important;
 }
-
 /* Trending section starts here */
 .trending-heading-container {
   font-size: 0.85em;
@@ -205,7 +301,7 @@ input[type="email"] {
 
 .trending-block {
   margin: 50px auto !important;
-  width: 80% !important;
+  width: 83% !important;
   color: #fff;
 }
 .table-img-text {
@@ -258,10 +354,9 @@ input[type="email"] {
   .flex-form {
     width: 100%;
   }
-  input[type="search"] {
+  .user-landing-page-email-input{
     flex-basis: 100%;
   }
-
   .flex-form > * {
     font-size: 0.9rem;
     line-height: 30px;
@@ -313,9 +408,6 @@ input[type="email"] {
   .trending-table {
     border: 0;
   }
-  input[type="search"] {
-    width: 50%;
-  }
   .btn-advantages {
     margin: 10px 5px;
   }
@@ -342,15 +434,18 @@ input[type="email"] {
   .flex-form > * {
     line-height: 25px;
   }
-  input[type="search"] {
-    width: 50%;
-  }
   .userlandingpageheaderspacing {
     padding-top: 20px !important;
   }
-  .flex-form input[type="submit"] {
+  .user-landing-page-submit-input {
     padding: 0 2px;
     width: 70px;
     font-size: 8px;
+  }
+  .user-landing-page-email-input{
+   width: 50%;
+  }
+  .css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+  width: 80% !important;
   }
 }

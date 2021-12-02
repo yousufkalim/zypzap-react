@@ -29,13 +29,14 @@ const CreateHome = () => {
           </p>
           <form class="flex-form" onSubmit={handleSubmit}>
             <input
+            className="user-landing-page-email-input"
               type="email"
               placeholder="Email address"
-              name="email"
+              name="email" 
               value={email}
               onChange={onChange}
             />
-            <input type="submit" value="Get Started" />
+            <input className="user-landing-page-submit-input" type="submit" value="Get Started" />
           </form>
         </div>
       </div>

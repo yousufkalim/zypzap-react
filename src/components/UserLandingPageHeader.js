@@ -1,4 +1,4 @@
-import * as React from "react";
+import  React,{useState} from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -6,14 +6,24 @@ import Typography from "@mui/material/Typography";
 import logo from "../assets/img/headerlogo.png";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 import { useTranslation, Trans } from "react-i18next";
 
 const HeaderUserLandingPage = () => {
   const { t, i18n } = useTranslation();
+
+import UserlandingPagePopup from './UserLandingPage/UserlandingPagePopup'
+const HeaderUserLandingPage = () => {
+  const [open, setOpen] = useState(false)
+
   const history = useHistory();
+  const showPopup = ()=>{
+    setOpen(true);
+  }
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
+      {open && <UserlandingPagePopup open={open} setOpen={setOpen}/>} 
         <AppBar position="static" className="headerBackgroundColor">
           <Toolbar>
             <Typography
@@ -54,9 +64,13 @@ const HeaderUserLandingPage = () => {
               to="/userlanding"
               style={{ color: "white", textDecoration: "none" }}
             >
+
               <button className="btn-content-creator">
                 {t("Get Early Access")}
               </button>
+
+              <button onClick={showPopup} className="btn-content-creator">Get Early Access</button>
+
             </Link>
           </Toolbar>
         </AppBar>
