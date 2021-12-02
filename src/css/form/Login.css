@@ -131,13 +131,9 @@
   cursor: pointer;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
-  .social {
-    flex-wrap: wrap;
-  }
-
   .social span {
     display: block;
-    border: 1px solid gray;
+    border: 1px solid #636060;
     padding: 12px 28px;
     cursor: pointer;
     margin-bottom: 10px;
