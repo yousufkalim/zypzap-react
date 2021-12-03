@@ -1,11 +1,14 @@
 .side-bar-filter{
     width: 25%;
 }
-
+.cards-box{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 46px;
+}
 .cards-header-text{
     display: flex;
     flex-direction: column;
-    margin: 0px 5%;
 }
 
 .search-result-container{
@@ -17,10 +20,41 @@
 
 .cards-container{
     background-color: #14162C;
-    border-radius: 5px;
+    border-radius: 8px;
     color: #fff;
     width: 75%;
     padding: 10px;
+}
+.favourite-icon-position{
+    position: relative;
+}
+.favourite-icon-container{
+    position: absolute;
+    top: 12%;
+    right: 12%;
+    opacity: 0.6;
+}
+.favourite-icon{
+    color: transparent;  
+    font-size: 25px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+  }
+  .favourite-icon-fill{
+    -webkit-text-fill-color: red;
+    font-size: 25px;
+    -webkit-text-stroke-width: 2px;
+  }
+.btn-sort-by{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    opacity: 0.6;
+}
+.btn-icon-container{
+    display: flex;
+    margin-top: 18px;
+    font-size: 15px;
 }
 .star-icon{
     width: 15px !important; 
@@ -41,7 +75,7 @@
 }
 
 .filterby-divider{
-    width: 96%;
+    width: 98%;
     border: 1px solid #414141;
     margin: 15px 0px;
 }
