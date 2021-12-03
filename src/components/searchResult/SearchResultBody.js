@@ -137,11 +137,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 const SearchResultBody = () => {
   const [CategoriesState, setCategoriesState] = useState(false)
-  const [SelectInputState, setSelectInputState] = useState(false)
-  const [iconStateOne, setIconStateOne] = useState(true)
-  const [iconStateTwo, setIconStateTwo] = useState(true)
-  const [iconStateThree, setIconStateThree] = useState(true) 
-  const [FillColorclass, setFillColorclass] = useState("") 
+  const [SelectInputState, setSelectInputState] = useState(false) 
   const [sliderState, setSliderState] = useState(false)
   const [sliderValue, setSliderValue] = useState(0)
   const [activeButton, setActiveButton] = useState();
@@ -152,15 +148,12 @@ const SearchResultBody = () => {
     const id = e.target.id
     if (id == 1) {
       setCategoriesState(!CategoriesState)
-      setIconStateOne(!iconStateOne)
     }
     if (id == 2) {
       setSelectInputState(!SelectInputState)
-      setIconStateTwo(!iconStateTwo)
     }
     if (id == 3) {
       setSliderState(!sliderState)
-      setIconStateThree(!iconStateThree)
     }
   }
   
@@ -182,10 +175,8 @@ const SearchResultBody = () => {
     console.log(FvrtIconCount);
   }
   const onChangeSliderValue = (e) => {
-    console.log(e.target.value);
+    setSliderValue(e.target.value);
   }
-
-
 
   return (
     <Box className="search-result-container" sx={{ flexGrow: 1, display: 'flex' }}>
@@ -198,17 +189,15 @@ const SearchResultBody = () => {
             <hr className="filterby-divider" />
             <div id="1" onClick={onClick} className="dropdown-headers">
               Categories
-              {iconStateOne ? <KeyboardArrowDownIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} /> : <KeyboardArrowUpIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} />}
+              {CategoriesState ? <KeyboardArrowDownIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} /> : <KeyboardArrowUpIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} />}
             </div>
             {
               CategoriesState ? (<Categories categories={categories} activeButton={activeButton} trigerOnClickEmpSideBtn={onSideBtnClick} />
               ) : null
             }
-
             <div id="2" onClick={onClick} className="dropdown-headers">
               Gamer Level
-              {iconStateTwo ? <KeyboardArrowDownIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} /> : <KeyboardArrowUpIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} />}
-
+              {SelectInputState ? <KeyboardArrowDownIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} /> : <KeyboardArrowUpIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} />}
             </div>
             {
               SelectInputState ? (
@@ -226,7 +215,7 @@ const SearchResultBody = () => {
             }
             <div id="3" onClick={onClick} className="dropdown-headers">
               Price
-              {iconStateThree ? <KeyboardArrowDownIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} /> : <KeyboardArrowUpIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} />}
+              {sliderState ?  <KeyboardArrowDownIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} />:<KeyboardArrowUpIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} />}
             </div>
             {
               sliderState ? (

@@ -100,6 +100,7 @@
 }
 .active{
 background-color: #14162C;
+width: 100%;
 }
 .radio-btn-label{
     margin-left: 5px;

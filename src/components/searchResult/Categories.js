@@ -8,8 +8,8 @@ const Categories = ({categories,activeButton,trigerOnClickEmpSideBtn}) => {
             categories.map((item)=>{
                 const className = activeButton === item.name ? "active" : ""
                 return(
-                <div key={item.value} style={{display:"flex", flexDirection:"column"}}>
-                <span onClick={trigerOnClickEmpSideBtn} value={item.value} name={item.name} key={item.name} className={` categories-text ${className}`} >{item.name}</span>
+                <div onClick={trigerOnClickEmpSideBtn}  key={item.value} className={`categories-text ${className}`} sx={{display: 'flex', flexDirection:"column",}}>
+                <span value={item.value} name={item.name} key={item.name}  >{item.name}</span>
                 </div> 
             )})
         }  
