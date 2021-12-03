@@ -1,7 +1,6 @@
 // Init
 import React, { useEffect } from "react";
-import Bodyimg from "../assets/img/body.png";
-import BodyBlurimg from "../assets/img/bodyblur.png";
+import Bodyimg from "../assets/img/homebody.png";
 import TopCourses from "./TopCourses";
 import LatestCourses from "./LatestCourses";
 import TopRatedContent from "./TopRatedContent";
@@ -24,7 +23,6 @@ export default function Body() {
     <>
       <div className="Bodycontainer">
         <img src={Bodyimg} alt="img" className="bodyImage" />
-        <img src={BodyBlurimg} alt="img" className="blurImg" />
         <div className="textonImg">
           <h1 className="textimgH1">
             We help you becoming

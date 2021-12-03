@@ -1,7 +1,6 @@
 // Init
 import React from "react";
-import AboutLandingPageImg from "../../assets/img/aboutlandingpage2.png";
-import Aboutimg from "../../assets/img/about02.png";
+import AboutLandingPageImg from "../../assets/img/aboutlandingpage02.png";
 import WhoWeAre from "./WhoWeAre";
 
 export default function About() {
@@ -10,7 +9,6 @@ export default function About() {
       <div className="aboutcontainer">
         <div className="aboutimgcontainer">
           <img src={AboutLandingPageImg} className="aboutLeftimg" />
-          <img src={Aboutimg} className="aboutRightimg" />
         </div>
         <div className="AbouttextonImg">
           <h1 className="AbouttextimgH1">About</h1>
