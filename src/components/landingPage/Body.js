@@ -17,7 +17,7 @@ export default function Body() {
         </div>
         <div
           className={`${
-            language == "en" ? "landingpagetextonImg" : "frlandingpagetextonImg"
+            language == "fr" ? "frlandingpagetextonImg" : "landingpagetextonImg"
           }`}
         >
           <h1 className="landingpagetextimgH1">

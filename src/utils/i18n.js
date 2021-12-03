@@ -6,6 +6,7 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    // fallbackLng: ["fr", "en"],
     // we init with resources
     resources: {
       en: {
@@ -95,6 +96,30 @@ i18n
           "and agree to receive upcoming passtotrip updates":
             "and agree to receive upcoming passtotrip updates",
           Subscribe: "Subscribe",
+          // partner landing
+          "Partner with Us": "Partner with Us",
+          "Here what we can create together":
+            "Here what we can create together",
+          "Become a Partner": "Become a Partner",
+          "Many ways to become a partner": "Many ways to become a partner",
+          Integration: "Integration",
+          "Integrate our catalog of partner offers available to subscribers":
+            "Integrate our catalog of partner offers available to subscribers",
+          "Co- Marketing Compaigns": "Co- Marketing Compaigns",
+          "Become an advertiser by placing advertisements in the content":
+            "Become an advertiser by placing advertisements in the content",
+          "Live Events": "Live Events",
+          "Make your future game known to our audience":
+            "Make your future game known to our audience",
+          "Enjoy Gamers Hearing": "Enjoy Gamers Hearing",
+          "Enjoy a gamer’s hearing and communicate with them":
+            "Enjoy a gamer’s hearing and communicate with them",
+          "Acquire New Status": "Acquire New Status",
+          "Acquire the status of an active player in the gaming market":
+            "Acquire the status of an active player in the gaming market",
+          "Test your games": "Test your games",
+          "be able to test your game with a community of experts":
+            "be able to test your game with a community of experts",
         },
       },
       fr: {
@@ -184,10 +209,35 @@ i18n
           "and agree to receive upcoming passtotrip updates":
             "et acceptez de recevoir les prochaines mises à jour de passtotrip",
           Subscribe: "S’inscrire",
+          // partner landing
+          "Partner with Us": "Devenons partenaires",
+          "Here what we can create together":
+            "Voici ce que nous pouvons créer ensemble",
+          "Become a Partner": "Devenir partenaire",
+          "Many ways to become a partner": "Pourquoi devenir partenaire",
+          Integration: "Intégration",
+          "Integrate our catalog of partner offers available to subscribers":
+            "Intégrez notre catalogue d’offres partenaires dédiées à nos abonnés",
+          "Co- Marketing Compaigns": "Campagnes Marketing",
+          "Become an advertiser by placing advertisements in the content":
+            "Devenez un annonceur en positionnant votre produit dans nos contenus",
+          "Live Events": "Partagez vos actualités",
+          "Make your future game known to our audience":
+            "Informez nos utilisateurs de vos prochaines actualités",
+          "Enjoy Gamers Hearing": "Accédez à la communauté",
+          "Enjoy a gamer’s hearing and communicate with them":
+            "Interagissez avec les memebres de notre communauté de gamers",
+          "Acquire New Status": "Renforcez votre notorieté",
+          "Acquire the status of an active player in the gaming market":
+            "Consolidez votre image auprés de la communauté de gamers",
+          "Test your games": "Recrutez des bêta testeurs",
+          "be able to test your game with a community of experts":
+            "Soumettez vos jeux à notre communauté de gamers experts",
         },
       },
     },
-    fallbackLng: "en",
+
+    fallbackLng: "fr",
     debug: true,
 
     // have a common namespace used around the full app
