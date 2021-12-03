@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import AboutLandingPageImg from "../../assets/img/aboutlandingpage2.png";
+import userlangingpage from "../../assets/img/userlandingpage02.png";
 import UserLandingPageAdvantages from "../UserLandingPage/UserLandingPageAdvantages";
 import UserLandingPageCommunity from "../UserLandingPage/UserLandingPageCommunity";
 import UserLandingPageTrending from "../UserLandingPage/UserLandingPageTrending";
 import UserLandingPageBlog from "../UserLandingPage/UserLandingPageBlog";
-import Aboutimg from "../../assets/img/kk.png";
 import SubscriptionPopup from "../PopupForms/SubscriptionPopup";
 import { useTranslation } from "react-i18next";
 const UserLandingPageBody = () => {
@@ -30,8 +29,7 @@ const UserLandingPageBody = () => {
       </div>
       <div className="user-landingpage-container">
         <div className="user-landing-page-img-container">
-          <img src={AboutLandingPageImg} className="aboutLeftimg" />
-          <img src={Aboutimg} className="user-landing-page-right-img" />
+          <img src={userlangingpage} className="aboutLeftimg" />
         </div>
         <div className="user-landing-page-text-on-img">
           <h1
