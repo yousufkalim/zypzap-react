@@ -41,7 +41,12 @@ export default function TopCourses() {
 
 function TopCoursesComponent({ item }) {
   return (
-    <Grid container spacing={2} className="topCourseGrid">
+    <Grid
+      container
+      spacing={2}
+      className="topCourseGrid"
+      style={{ width: "auto" }}
+    >
       <Grid item xs={12} sm={5} className="">
         <img src={TopCourseImg} className="topcourseimg" alt="img" />
       </Grid>

@@ -24,6 +24,8 @@
 @import url("./UserLandingPage/UserLandingPage.css");
 @import url("./ContentCreatorLandingPage.css/contentcreator.css");
 @import url("./LandingPartner/LandingPartner.css");
+@import url("./form/CreateForm.css");
+@import url("./form/Login.css");
 
 /* Defaults */
 * {

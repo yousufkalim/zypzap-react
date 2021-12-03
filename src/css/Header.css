@@ -27,6 +27,9 @@
   left: 7%;
   width: 13px;
 }
+.css-l2l88c {
+  margin-left: 10% !important;
+}
 
 /* for big screens */
 @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
@@ -35,7 +38,7 @@
   }
   .downarrow {
     position: relative;
-    left: 4%;
+    left: 5.7%;
     width: 13px;
   }
 }
@@ -47,5 +50,28 @@
   .downarrow {
     left: 17%;
     display: none;
+  }
+  .css-6hp17o-MuiList-root-MuiMenu-list {
+    background-color: #0e0f1e !important;
+    color: #fff !important;
+  }
+  .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+    width: 100% !important;
+    justify-content: initial !important;
+  }
+  .closeMenu {
+    /* margin: 0 20px; */
+    position: absolute;
+    right: 20px;
+    top: 10px;
+  }
+  .opnPrfil {
+    padding: 2px 0 0 10px !important;
+  }
+  .imgLogo {
+    margin-left: -28px !important;
+  }
+  .searchBar {
+    margin-left: 27px !important;
   }
 }

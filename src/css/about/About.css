@@ -25,14 +25,18 @@
   width: 47%;
 }
 .AbouttextimgH1 {
-  font-size: 2.7em;
-  font-weight: 100;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 8px 0px;
+  display: inline-block;
+  opacity: 0.8;
 }
 .AbouttextonImgP {
-  padding: 5px 0px 5px 0px;
-  margin: 8px 0px 8px 0px;
-  opacity: 0.6;
-  font-size: 20px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 8px 0px;
+  display: inline-block;
+  opacity: 0.8;
 }
 /* for big screens */
 @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
@@ -40,11 +44,11 @@
     height: 525px;
   }
   .aboutRightimg {
-    height: 525px;
-    right: 45%;
+    height: 520px;
+    right: 62%;
   }
   .AbouttextonImg {
-    width: 45%;
+    width: 48%;
   }
   .AbouttextimgH1 {
     font-size: 4em;
