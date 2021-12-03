@@ -62,9 +62,20 @@
   font-size: 13px;
   color: currentColor;
   opacity: 0.7;
+  padding: 0px 0 0 10px !important;
 }
-.MuiInputBase-input {
-  margin-top: 10px !important;
+.inputForm2Password {
+  padding-left: 10px;
+  width: 100%;
+  height: 41px;
+  background: none;
+  border: 1px solid #636060;
+  border-radius: 5px;
+  color: #fff !important;
+  font-size: 13px;
+  color: currentColor;
+  opacity: 0.7;
+  padding: 10px 0 0 10px !important;
 }
 .bldText2 {
   font-weight: 600 !important;
@@ -167,6 +178,14 @@
 .condition {
   font-size: 13px;
   font-weight: 200;
+}
+.searchBar {
+  width: 50% !important;
+  border-radius: 60px !important;
+  margin-left: 27px !important;
+}
+.MuiInput-underline:after {
+  border: none !important;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 820px) {
   .sosocial_accoountcial {

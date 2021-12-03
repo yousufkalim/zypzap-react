@@ -15,15 +15,13 @@ import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
-export default function LoginFormPopup({ open, setOpen, signup, setSignup }) {
+export default function LoginFormPopup({ open, setOpen, setSignup }) {
   const [values, setValues] = React.useState({
     email: "",
     password: "",
     showPassword: false,
   });
-
-  const [opens, setOpens] = useState(false);
-  const showPopup = (e) => {
+  const showSignUpFormPopup = () => {
     setOpen(false);
     setSignup(true);
   };
@@ -59,7 +57,7 @@ export default function LoginFormPopup({ open, setOpen, signup, setSignup }) {
 
   return (
     <div>
-      <Dialog open={open} opens={opens} onClose={handleClose}>
+      <Dialog open={open} onClose={handleClose}>
         <div className="login_form">
           <div className="form_container">
             <h1>Login to your account</h1>
@@ -135,7 +133,7 @@ export default function LoginFormPopup({ open, setOpen, signup, setSignup }) {
             </form>
             <div className="signPera">
               <p>Don't Have An Account?</p>
-              <button className="sgnUpBtn" onClick={showPopup}>
+              <button className="sgnUpBtn" onClick={showSignUpFormPopup}>
                 SIGN UP
               </button>
             </div>

@@ -15,19 +15,17 @@ import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
-import LoginFormPopup from "./LoginFormPopup";
 
-const CreateFormPopup = ({ open, setOpen, login, setLogin }) => {
+const CreateFormPopup = ({ open, setOpen, setLogin }) => {
   const [values, setValues] = React.useState({
     user: "",
     email: "",
     password: "",
     showPassword: false,
   });
-  const showPopup = () => {
+  const showLoginFormPopup = () => {
     setLogin(true);
     setOpen(false);
-    // setLogin(true);
   };
 
   const handleClickShowPassword = () => {
@@ -39,7 +37,6 @@ const CreateFormPopup = ({ open, setOpen, login, setLogin }) => {
   };
   const handleClose = () => {
     setOpen(false);
-    // setLogin(true);
   };
   const submitForm = (event) => {
     event.preventDefault();
@@ -66,7 +63,6 @@ const CreateFormPopup = ({ open, setOpen, login, setLogin }) => {
   return (
     <>
       <div>
-        {login && <LoginFormPopup login={login} setLogin={setLogin} />}
         <Dialog open={open} onClose={handleClose}>
           <div className="create_form">
             <div className="create_container">
@@ -99,7 +95,7 @@ const CreateFormPopup = ({ open, setOpen, login, setLogin }) => {
                   Password
                 </label>
                 <Input
-                  className="inputForm2"
+                  className="inputForm2Password"
                   type={values.showPassword ? "text" : "password"}
                   onChange={onChangeEvent}
                   placeholder="************************"
@@ -152,7 +148,7 @@ const CreateFormPopup = ({ open, setOpen, login, setLogin }) => {
               </form>
               <div className="logPera">
                 <p>Already Have An Account?</p>
-                <button className="logBtn" onClick={showPopup}>
+                <button className="logBtn" onClick={showLoginFormPopup}>
                   LOGIN
                 </button>
                 <br />

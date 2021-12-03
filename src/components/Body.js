@@ -12,12 +12,11 @@ import LoginFormPopup from "./PopupForms/LoginFormPopup";
 import CreateFormPopup from "./PopupForms/CreateFormPopup";
 
 export default function Body() {
-  const [open, setOpen] = useState(false);
-  const showPopup = (e) => {
-    e.preventDefault();
-    setOpen(true);
+  const [openCreateForm, setOpenCreateForm] = useState(false);
+  const showPopup = () => {
+    setOpenCreateForm(true);
   };
-  const [login, setLogin] = useState(false);
+  const [openLoginForm, setOpenLoginForm] = useState(false);
   const scrollToTop = () => {
     window.scrollTo({
       top: 1,
@@ -33,19 +32,17 @@ export default function Body() {
     <>
       <div className="Bodycontainer">
         <CreateFormPopup
-          open={open}
-          setOpen={setOpen}
-          login={login}
-          setLogin={setLogin}
+          open={openCreateForm}
+          setOpen={setOpenCreateForm}
+          login={openLoginForm}
+          setLogin={setOpenLoginForm}
         />
-        {login && (
-          <LoginFormPopup
-            open={login}
-            setOpen={setLogin}
-            signup={open}
-            setSignup={setOpen}
-          />
-        )}
+        <LoginFormPopup
+          open={openLoginForm}
+          setOpen={setOpenLoginForm}
+          signup={openCreateForm}
+          setSignup={setOpenCreateForm}
+        />
         <img src={Bodyimg} alt="img" className="bodyImage" />
         <img src={BodyBlurimg} alt="img" className="blurImg" />
         <div className="textonImg">
