@@ -8,6 +8,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Carousel from "react-material-ui-carousel";
 import carouselimg from "../../assets/img/carouselimg.png";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function generate(element) {
   return [0, 1, 2].map((value) =>
@@ -24,12 +25,13 @@ const scrollToTop = () => {
 };
 
 const UserLandingPageAdvantages = () => {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <Box className="box-user">
         <Box className="userlandingpageheaderspacing">
           <Typography align="center" variant="h5">
-            Remportez vos parties
+            {t("Win your games")}
           </Typography>
           <div className="offerdashline"> </div>
         </Box>
@@ -53,10 +55,10 @@ const UserLandingPageAdvantages = () => {
             </List>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Carousel autoPlay={false}
-                    activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
-
-            animation={"fade"}
+            <Carousel
+              autoPlay={false}
+              activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
+              animation={"fade"}
             >
               <img className="carousel-img" src={carouselimg} />
               <img className="carousel-img" src={carouselimg} />
@@ -67,14 +69,16 @@ const UserLandingPageAdvantages = () => {
         </Grid>
         <Grid container justifyContent="center">
           <button className="btn-advantages" onClick={() => scrollToTop()}>
-            Early access to courses
+            {t("Early access to courses")}
           </button>
           <Link
             to="/contentcreator"
             style={{ color: "white", textDecoration: "none" }}
           >
             {" "}
-            <button className="btn-advantages">Become content creator</button>
+            <button className="btn-advantages">
+              {t("Become content creator")}
+            </button>
           </Link>
         </Grid>
       </Box>

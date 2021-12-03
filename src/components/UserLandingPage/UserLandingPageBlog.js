@@ -84,7 +84,7 @@ const UserLandingPageBlog = () => {
             <div className="blogGridOuterDiv">
               <Grid container spacing={4}>
                 {getblogs()
-                  ?.slice(1, 4)
+                  ?.slice(5, 8)
                   .map((item, i) => (
                     <Grid item xs={12} sm={4}>
                       <>

@@ -44,7 +44,6 @@ export default function Body() {
           setSignup={setOpenCreateForm}
         />
         <img src={Bodyimg} alt="img" className="bodyImage" />
-        <img src={BodyBlurimg} alt="img" className="blurImg" />
         <div className="textonImg">
           <h1 className="textimgH1">
             We help you becoming
