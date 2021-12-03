@@ -62,7 +62,7 @@ export default function RankingList() {
         <p className="rankingListheading">View All</p>
       </div>
       <TableContainer component={Paper}>
-        <Table style={{ width: "150%" }}>
+        <Table className="setTable">
           <TableHead
             sx={{
               [`& .${tableCellClasses.root}`]: {
