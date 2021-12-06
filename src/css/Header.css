@@ -28,7 +28,7 @@
   width: 13px;
 }
 .css-l2l88c {
-  margin-left: 10% !important;
+  margin-left: 74px !important;
 }
 
 /* for big screens */
@@ -46,6 +46,7 @@
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
   .searchBar {
     width: 70% !important;
+    margin-left: 27px !important;
   }
   .downarrow {
     left: 17%;
@@ -70,8 +71,5 @@
   }
   .imgLogo {
     margin-left: -28px !important;
-  }
-  .searchBar {
-    margin-left: 27px !important;
   }
 }
