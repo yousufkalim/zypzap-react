@@ -5,7 +5,7 @@
   margin-top: 60px;
 }
 .footerLogo {
-  margin-right: 20px;
+  margin-right: 60px;
 }
 .footerText {
   margin-left: 78px;
@@ -16,10 +16,24 @@
   padding: 15px 0px 15px 0px;
 }
 .f2div {
-  padding: 20px 0px 15px 0px;
+  padding: 40px 0px 15px 0px;
+}
+.infotable1 {
+  margin: auto;
+  padding-left: 35px;
+}
+.tdDiv {
+  margin: 5px 0px 10px 0px;
+}
+.emailicon {
+  margin-right: 12px;
+  margin-bottom: -3px;
+}
+.infoTd {
+  text-align: left;
 }
 .isocialcondiv {
-  margin-left: 20px;
+  margin-left: -22px;
 }
 .pmargin {
   margin-bottom: 17px;

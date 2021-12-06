@@ -1,10 +1,12 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import Avant from "../../assets/icons/Avant.png";
-
 import Carousel from "react-material-ui-carousel";
+import { useTranslation } from "react-i18next";
 
 const Avantages = () => {
+  const { t, i18n } = useTranslation();
+  const { language } = i18n;
   const scrollToTop = () => {
     window.scrollTo({
       top: 1,
@@ -12,35 +14,53 @@ const Avantages = () => {
     });
   };
   const items = [
-    { text: "The first gaming online course creation platform  open to all" },
-    { text: "Content Creators are free to cover any game" },
     {
-      text: "The monetization for each content created is immediate and easy to understand",
+      text: t("The first gaming online course creation platform  open to all"),
+    },
+    { text: t("Content Creators are free to cover any game") },
+    {
+      text: t(
+        "The monetization for each content created is immediate and easy to understand"
+      ),
     },
     {
-      text: "Each user has the opportunity to acquire a real expert status within the community",
-    },
-    { text: "The first gaming online course creation platform  open to all" },
-    { text: "Content Creators are free to cover any game" },
-    {
-      text: "The monetization for each content created is immediate and easy to understand",
+      text: t(
+        "Each user has the opportunity to acquire a real expert status within the community"
+      ),
     },
     {
-      text: "Each user has the opportunity to acquire a real expert status within the community",
+      text: t("The first gaming online course creation platform  open to all"),
     },
-    { text: "The first gaming online course creation platform  open to all" },
-    { text: "Content Creators are free to cover any game" },
+    { text: t("Content Creators are free to cover any game") },
     {
-      text: "The monetization for each content created is immediate and easy to understand",
+      text: t(
+        "The monetization for each content created is immediate and easy to understand"
+      ),
     },
     {
-      text: "Each user has the opportunity to acquire a real expert status within the community",
+      text: t(
+        "Each user has the opportunity to acquire a real expert status within the community"
+      ),
+    },
+    {
+      text: t("The first gaming online course creation platform  open to all"),
+    },
+    { text: t("Content Creators are free to cover any game") },
+    {
+      text: t(
+        "The monetization for each content created is immediate and easy to understand"
+      ),
+    },
+    {
+      text: t(
+        "Each user has the opportunity to acquire a real expert status within the community"
+      ),
     },
   ];
   return (
     <>
       <div className="content_Avantages">
-        <h2 className="Avantages_heading">Avantages Passtotrip</h2>
+        <h2 className="Avantages_heading">{t("Adantages Passtotrip")}</h2>
         <div className="offerdashline"></div>
         <div className="Avantages_container">
           <Grid
@@ -85,7 +105,7 @@ const Avantages = () => {
       </div>
       <div className="avantbutton">
         <button className="AvantBTN" onClick={() => scrollToTop()}>
-          Become Content Creator
+          {t("Become Content Creator")}
         </button>
       </div>
     </>

@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import Moni1 from "../../assets/icons/moni1.png";
 import Moni2 from "../../assets/icons/moni2.png";
@@ -6,18 +6,21 @@ import Moni3 from "../../assets/icons/moni3.png";
 import Moni4 from "../../assets/icons/moni4.png";
 import Reddotline1 from "../../assets/icons/reddotline1.png";
 import Reddotline2 from "../../assets/icons/reddotline2.png";
-import SubscriptionPopup from '../PopupForms/SubscriptionPopup'
+import SubscriptionPopup from "../PopupForms/SubscriptionPopup";
+import { useTranslation } from "react-i18next";
 const Monitization = () => {
-  const [open, setOpen] = useState(false)
-  const showPopup = (e)=>{
-    e.preventDefault()
+  const { t, i18n } = useTranslation();
+  const { language } = i18n;
+  const [open, setOpen] = useState(false);
+  const showPopup = (e) => {
+    e.preventDefault();
     setOpen(true);
-  }
+  };
   return (
     <>
       <div className="monitization">
-      {open && <SubscriptionPopup open={open} setOpen={setOpen}/>} 
-        <h2 className="monitization_heading">Monitization Process</h2>
+        {open && <SubscriptionPopup open={open} setOpen={setOpen} />}
+        <h2 className="monitization_heading">{t("Monitization Process")}</h2>
         <hr className="hr_line3" />
         <div className="monitization_container">
           <Grid
@@ -31,7 +34,7 @@ const Monitization = () => {
                   <img className="moni_icon" src={Moni1} alt="" />
                 </div>
                 <div className="moni_heading">
-                  <h3 className="moni_h3">Prepare a Course</h3>
+                  <h3 className="moni_h3">{t("Prepare a Course")}</h3>
                   <p className="moni_p">
                     The creator prepares and registers his cours
                   </p>
@@ -47,8 +50,10 @@ const Monitization = () => {
                   <img className="moni_icon" src={Moni2} alt="" />
                 </div>
                 <div className="moni_heading">
-                  <h3 className="moni_h3">Submit Evaluation</h3>
-                  <p className="moni_p">He submits the course for evaluation</p>
+                  <h3 className="moni_h3">{t("Submit Evaluation")}</h3>
+                  <p className="moni_p">
+                    {t("He submits the course for evaluation")}
+                  </p>
                 </div>
               </div>
             </Grid>
@@ -58,9 +63,9 @@ const Monitization = () => {
                   <img className="moni_icon" src={Moni3} alt="" />
                 </div>
                 <div className="moni_heading">
-                  <h3 className="moni_h3">Get Validated</h3>
+                  <h3 className="moni_h3">{t("Get Validated")}</h3>
                   <p className="moni_p">
-                    The course is validated by the evaluator
+                    {t("The course is validated by the evaluator")}
                   </p>
                 </div>
               </div>
@@ -77,7 +82,7 @@ const Monitization = () => {
                   <img className="moni_icon" src={Moni4} alt="" />
                 </div>
                 <div className="moni_heading">
-                  <h3 className="moni_h3">Publish</h3>
+                  <h3 className="moni_h3">{t("Publish")}</h3>
                   <p className="moni_p">
                     He can then follow the performance of the course. as well as
                     the earning generated
@@ -89,7 +94,9 @@ const Monitization = () => {
         </div>
       </div>
       <div className="monibutton">
-        <button onClick={showPopup} className="moniBTN">Monitize Your Skills</button>
+        <button onClick={showPopup} className="moniBTN">
+          Monitize Your Skills
+        </button>
       </div>
     </>
   );
