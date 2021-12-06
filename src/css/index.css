@@ -25,6 +25,7 @@
 @import url("./ContentCreatorLandingPage.css/contentcreator.css");
 @import url("./LandingPartner/LandingPartner.css");
 @import url("./SearchResult/SearchResult.css");
+@import url("./dashboard/dashboard.css");
 
 /* Defaults */
 * {

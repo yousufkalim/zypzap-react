@@ -14,6 +14,7 @@ import LandingPage from "../containers/Landingpage";
 import UserLandingPage from "../containers/UserLandingPage";
 import ContentCreatorLandingPage from "../containers/ContentCreatorLandingPage";
 import LandingPartner from "../containers/LandingPartner";
+import ContentDashboard from "../containers/ContentDashboard";
 
 const index = () => {
   return (
@@ -28,6 +29,7 @@ const index = () => {
       <Route exact path="/landingpartner" component={LandingPartner} />
       <Route exact path="/landingpage" component={LandingPage} />
       <Route exact path="/userlanding" component={UserLandingPage} />
+      <Route exact path="/dashboard" component={ContentDashboard} />
       <Route
         exact
         path="/contentcreator"

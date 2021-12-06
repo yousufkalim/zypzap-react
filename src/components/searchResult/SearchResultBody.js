@@ -10,18 +10,15 @@ import Course2 from '../../assets/img/course2.png'
 import Course3 from '../../assets/img/course3.png'
 import Course4 from '../../assets/img/course4.png'
 import StarIcon from "@material-ui/icons/Star";
-import Slider from '@mui/material/Slider';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import CustomizedMenus from './CustomizedMenus'
 import HeartIcon from './HeartIcon'
+
+
 var items = [
   {
-    id:1,
+    id: 1,
     title: "CS-GO Ep 2 Complete Course",
     img: Course1,
     name: "James Wiik",
@@ -30,7 +27,7 @@ var items = [
     test: "1",
   },
   {
-    id:2,
+    id: 2,
     title: "PUBG GamePlay Course",
     img: Course2,
     name: "Ifaf ghori",
@@ -39,7 +36,7 @@ var items = [
     test: "2",
   },
   {
-    id:3,
+    id: 3,
     title: "Taken 5 Fight Course",
     img: Course3,
     name: "Arslan Ash",
@@ -48,7 +45,7 @@ var items = [
     test: "3",
   },
   {
-    id:4,
+    id: 4,
     title: "Minicraft Full Course",
     img: Course4,
     name: "James Wiik",
@@ -57,7 +54,7 @@ var items = [
     test: "4",
   },
   {
-    id:5,
+    id: 5,
     title: "5Minicraft Full Course",
     img: Course4,
     name: "5James Wiik",
@@ -66,7 +63,7 @@ var items = [
     test: "5",
   },
   {
-    id:6,
+    id: 6,
     title: "6Minicraft Full Course",
     img: Course3,
     name: "6James Wiik",
@@ -75,7 +72,7 @@ var items = [
     test: "6",
   },
   {
-    id:7,
+    id: 7,
     title: "7Minicraft Full Course",
     img: Course2,
     name: "7James Wiik",
@@ -84,7 +81,7 @@ var items = [
     test: "7",
   },
   {
-    id:8,
+    id: 8,
     title: "8Minicraft Full Course",
     img: Course1,
     name: "8James Wiik",
@@ -93,7 +90,7 @@ var items = [
     test: "8",
   },
   {
-    id:9,
+    id: 9,
     title: "9Minicraft Full Course",
     img: Course1,
     name: "9James Wiik",
@@ -137,14 +134,15 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 const SearchResultBody = () => {
   const [CategoriesState, setCategoriesState] = useState(false)
-  const [SelectInputState, setSelectInputState] = useState(false) 
+  const [SelectInputState, setSelectInputState] = useState(false)
   const [sliderState, setSliderState] = useState(false)
   const [sliderValue, setSliderValue] = useState(0)
   const [activeButton, setActiveButton] = useState();
-  const [activeIcon, setActiveIcon] = useState();
-  const [ClassColor, setClassColor] = useState("favourite-icon");
+  const [radioBtnValue, setRadioBtnValue] = useState();
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
-  const onClick = (e) => {
+  console.log(FvrtIconCount);
+  //sidebar list togle
+  const onClickSideBarHeaders = (e) => {
     const id = e.target.id
     if (id == 1) {
       setCategoriesState(!CategoriesState)
@@ -156,28 +154,32 @@ const SearchResultBody = () => {
       setSliderState(!sliderState)
     }
   }
-  
+  // sidebar list togle
+  // making list item active by chnaging background
   const onSideBtnClick = e => {
     const name = e.target.textContent;
     console.log(name);
     setActiveButton(name);
   }
-  const onClickIcon = (e)=>{
-    console.log(e.target.id);
-    setActiveIcon(e.target.id)
-    setClassColor("favourite-icon-fill")
-    const id = e.target.id;
-    if (!FvrtIconCount.includes(id)) {          //checking weather array contain the id
-      FvrtIconCount.push(id);               //adding to array because value doesnt exists
-    } else {
-      FvrtIconCount.splice(FvrtIconCount.indexOf(id), 1);  //deleting
-    }
-    console.log(FvrtIconCount);
+  // making list item active by changing background
+  //get radio values
+  const onChangeRadioBtn = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    console.log(name, value)
+    setRadioBtnValue((preVal) => {
+      return {
+        ...preVal,
+        [name]: value
+      }
+    })
   }
+  //get radio values
+  // To get slider value
   const onChangeSliderValue = (e) => {
     setSliderValue(e.target.value);
   }
-
+  // To get slider value
   return (
     <Box className="search-result-container" sx={{ flexGrow: 1, display: 'flex' }}>
       <Box className="side-bar-filter">
@@ -187,40 +189,134 @@ const SearchResultBody = () => {
               Filter by
             </h4>
             <hr className="filterby-divider" />
-            <div id="1" onClick={onClick} className="dropdown-headers">
+            <div id="1" onClick={onClickSideBarHeaders} className="dropdown-headers">
               Categories
-              {CategoriesState ? <KeyboardArrowDownIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} /> : <KeyboardArrowUpIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} />}
+              {CategoriesState ?
+                <KeyboardArrowDownIcon
+                  sx={{
+                    color: "#fff",
+                    marginTop: "5px",
+                    opacity: "0.6",
+                    width: "2px",
+                    height: "1em !important"
+                  }}
+                />
+                :
+                <KeyboardArrowUpIcon
+                  sx={{
+                    color: "#fff",
+                    marginTop: "5px",
+                    opacity: "0.6",
+                    width: "2px",
+                    height: "1em !important"
+                  }}
+                />
+              }
             </div>
             {
-              CategoriesState ? (<Categories categories={categories} activeButton={activeButton} trigerOnClickEmpSideBtn={onSideBtnClick} />
+              CategoriesState ? (
+                <Categories
+                  categories={categories}
+                  activeButton={activeButton}
+                  trigerOnClickEmpSideBtn={onSideBtnClick}
+                />
               ) : null
             }
-            <div id="2" onClick={onClick} className="dropdown-headers">
+            <div id="2" onClick={onClickSideBarHeaders} className="dropdown-headers">
               Gamer Level
-              {SelectInputState ? <KeyboardArrowDownIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} /> : <KeyboardArrowUpIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} />}
+              {
+                SelectInputState ?
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      color: "#fff",
+                      marginTop: "5px",
+                      opacity: "0.6",
+                      width: "2px",
+                      height: "1em !important"
+                    }}
+                  /> :
+                  <KeyboardArrowUpIcon
+                    sx={{
+                      color: "#fff",
+                      marginTop: "5px",
+                      opacity: "0.6",
+                      width: "2px",
+                      height: "1em !important"
+                    }}
+                  />
+              }
             </div>
             {
               SelectInputState ? (
                 <div>
-                  <form className="radio-inputs">
-                    <input type="radio" id="html" name="fav_language" value="HTML" />
-                    <label className="radio-btn-label" for="html">Entry Level</label> <br />
-                    <input type="radio" id="css" name="fav_language" value="CSS" />
-                    <label className="radio-btn-label" for="css">Intermediate Level</label> <br />
-                    <input type="radio" id="javascript" name="fav_language" value="JavaScript" />
-                    <label className="radio-btn-label" for="javascript">Advance Level</label>
+                  <form>
+                    <div class="radio-item">
+                      <input type="radio" onChange={onChangeRadioBtn} id="entrylevel" name="active" value="entrylevel" />
+                      <label for="entrylevel">Entry level</label>
+                    </div>
+                    <div class="radio-item">
+                      <input type="radio" onChange={onChangeRadioBtn} id="intermediatelevel" name="active" value="intermediatelevel" />
+                      <label for="intermediatelevel">Intermediate level</label>
+                    </div>
+                    <div class="radio-item">
+                      <input type="radio" onChange={onChangeRadioBtn} id="advancelevel" name="active" value="advancelevel" />
+                      <label for="advancelevel">Advance level</label>
+                    </div>
                   </form>
                 </div>
               ) : null
             }
-            <div id="3" onClick={onClick} className="dropdown-headers">
+            <div id="3" onClick={onClickSideBarHeaders} className="dropdown-headers">
               Price
-              {sliderState ?  <KeyboardArrowDownIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} />:<KeyboardArrowUpIcon sx={{ color: "#fff", marginTop: "5px", opacity: "0.6", width: "2px", height: "1em !important" }} />}
+              {
+                sliderState ?
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      color: "#fff",
+                      marginTop: "5px",
+                      opacity: "0.6",
+                      width: "2px",
+                      height: "1em !important"
+                    }}
+                  />
+                  :
+                  <KeyboardArrowUpIcon
+                    sx={{
+                      color: "#fff",
+                      marginTop: "5px",
+                      opacity: "0.6",
+                      width: "2px",
+                      height: "1em !important"
+                    }}
+                  />
+              }
             </div>
             {
               sliderState ? (
-                <Box >
-                  <Slider onChange={onChangeSliderValue} className="slider-color" defaultValue={sliderValue} aria-label="Default" valueLabelDisplay="auto" />
+                <Box
+                  sx={{
+                    position: "relative"
+                  }}>
+                  <div className="slider">
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={sliderValue}
+                      onChange={onChangeSliderValue}
+                      className="slider-input" />
+                    <div>
+                      <span
+                        style={{
+                          position: "absolute",
+                          top: "25px",
+                          left: `${sliderValue * 0.9}%`
+                        }}
+                      >
+                        {sliderValue}$+
+                      </span>
+                    </div>
+                  </div>
                 </Box>
               ) : null
             }
@@ -228,7 +324,13 @@ const SearchResultBody = () => {
               Didn't found the <br /> course
             </h4>
             <Box>
-              <Button sx={{ backgroundColor: "#e7411b", padding: "5px 12px", fontSize: "13px", margin: "10px 0" }}
+              <Button
+                sx={{
+                  backgroundColor: "#e7411b",
+                  padding: "5px 12px",
+                  fontSize: "13px",
+                  margin: "10px 0"
+                }}
                 variant="contained"
               >
                 Request now
@@ -237,19 +339,48 @@ const SearchResultBody = () => {
           </Item>
         </Grid>
       </Box>
+      {/*  */}
       <Box className="cards-container">
         <div className="cards-box">
           <div className="cards-header-text">
             <h2> CS-GO GAME</h2>
             <span>110 course result</span>
           </div>
-          <div>  <CustomizedMenus /> </div>
+          <div> <CustomizedMenus /> </div>
         </div>
+        <Grid
+          sx={{ padding: "0 20px" }}
+          container
+          spacing={{ xs: 1, md: 1 }}
+          columns={{ xs: 2, sm: 8, md: 12 }}>
+          {
+            items.map((item) => (
+              <Grid item xs={12} sm={6} md={4}>
+                <div className="cardGrid">
+                  <div className="favourite-icon-position">
+                    <img src={item.img} className="courseimg" alt="img" />
+                    <HeartIcon
+                      id={item.id}
+                      FvrtIconCount={FvrtIconCount}
 
-        <Grid sx={{ padding: "0 20px" }} container spacing={{ xs: 1, md: 1 }} columns={{ xs: 2, sm: 8, md: 12 }}>
-         
-           <HeartIcon  activeIcon={activeIcon} ClassColor={ClassColor} items={items} trigerOnClickEmpSideBtn={onClickIcon}/>
-          
+                    />
+                  </div>
+                  <h5 className="latestcourseh5">{item.title}</h5>
+                  <p className="latestcoursep1">{item.name}</p>
+                  <p className="latestcoursep1">
+                    {" "}
+                    5.0
+                    {[1, 2, 3, 4, 5].map((item) => (
+                      <StarIcon className="star-icon" />
+                    ))}
+                    (1809)
+                  </p>
+                  <h6 className="latestcourseh6">$19.99</h6>
+                </div>
+              </Grid>
+            ))
+          }
+
         </Grid>
         <Box textAlign='center'>
           <button className="btn-search-result"
