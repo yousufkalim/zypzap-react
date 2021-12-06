@@ -1,6 +1,5 @@
-.side-bar-filter{
-    width: 25%;
-}
+
+/* cards css */
 .cards-box{
     display: flex;
     justify-content: space-between;
@@ -17,8 +16,43 @@
     overflow-y: hidden;
     border-radius: 5px;
 }
-/* fdhjhjfdhjf */
-
+.cards-container{
+    background-color: #14162C;
+    border-radius: 8px;
+    color: #fff;
+    width: 75%;
+    padding: 10px;
+}
+/* cards css */
+/* favourite icon css */
+.favourite-icon-position{
+    position: relative;
+}
+.favourite-icon-container{
+    position: absolute;
+    top: 12%;
+    right: 12%;
+    opacity: 0.6;
+}
+.favourite-icon{
+    color: transparent;  
+    font-size: 25px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #ADADAD;
+  }
+  .favourite-icon-fill{
+    -webkit-text-fill-color: red;
+    font-size: 25px;
+    -webkit-text-stroke-width: 2px;
+  }
+  /* favourite icon css */
+/* slider css */
+.side-bar-filter{
+    width: 25%;
+}
+.slider-color{
+    color: #fff !important;
+}
 .slider {
     width: 97%;
     height: 30px;
@@ -53,34 +87,8 @@
   .slider input[type="range"]::-webkit-slider-thumb:hover {
     background:#fff;
   }
-/* fdjjdhfjfhdfj */
-.cards-container{
-    background-color: #14162C;
-    border-radius: 8px;
-    color: #fff;
-    width: 75%;
-    padding: 10px;
-}
-.favourite-icon-position{
-    position: relative;
-}
-.favourite-icon-container{
-    position: absolute;
-    top: 12%;
-    right: 12%;
-    opacity: 0.6;
-}
-.favourite-icon{
-    color: transparent;  
-    font-size: 25px;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #ADADAD;
-  }
-  .favourite-icon-fill{
-    -webkit-text-fill-color: red;
-    font-size: 25px;
-    -webkit-text-stroke-width: 2px;
-  }
+/* slider css */
+/* sort button css */
 .btn-sort-by{
     background-color: transparent;
     border: none;
@@ -109,7 +117,7 @@
     color: #fff;
     border-radius: 2px;
 }
-
+/* sort button css */
 .filterby-divider{
     width: 98%;
     border: 1px solid #414141;
@@ -138,6 +146,8 @@
 background-color: #14162C;
 width: 100%;
 }
+
+/* radio input css */
 .radio-item {
     position: relative;
     padding: 2px 8px;
@@ -179,11 +189,9 @@ width: 100%;
     display: block;
     background: #fff;
   }
-/* radio input */
-.slider-color{
-    color: #fff !important;
-}
+/* radio input css*/
 
+/* media queries */
 @media all and (max-width: 800px){
     .search-result-container{
         display: flex;
