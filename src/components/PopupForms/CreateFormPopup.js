@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import Button from "@mui/material/Button";
 import { toast } from "react-toastify";
 import Dialog from "@mui/material/Dialog";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import ClearIcon from "@mui/icons-material/Clear";
 import Google from "../../assets/icons/Googli.png";

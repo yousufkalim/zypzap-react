@@ -5,6 +5,8 @@ import Body from "../components/Body";
 import Footer from "../components/blog/BlogFooter";
 
 export default function Home() {
+  const [openlogin, setOpenLogin] = React.useState(false);
+  const [opensignup, setOpenSignup] = React.useState(false);
   return (
     <div
       style={{
@@ -14,8 +16,18 @@ export default function Home() {
         overflowY: "hidden",
       }}
     >
-      <Header />
-      <Body />
+      <Header
+        openlogin={openlogin}
+        setOpenLogin={setOpenLogin}
+        opensignup={opensignup}
+        setOpenSignup={setOpenSignup}
+      />
+      <Body
+        openlogin={openlogin}
+        setOpenLogin={setOpenLogin}
+        opensignup={opensignup}
+        setOpenSignup={setOpenSignup}
+      />
       <Footer />
     </div>
   );

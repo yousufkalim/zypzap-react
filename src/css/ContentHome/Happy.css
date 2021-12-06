@@ -66,8 +66,12 @@
 }
 /* for mobile */
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .happy_container {
+    width: 90%;
+    margin: auto;
+  }
   .happy_box {
-    /* width: 100%; */
+    width: 100%;
     flex-direction: column;
     margin-bottom: 50px;
   }
@@ -75,7 +79,7 @@
     width: 100% !important;
   }
   .happy_col1 {
-    margin: auto;
+    width: 100%;
   }
   .happy_col1 .hapy_pera {
     /* text-align: center; */
@@ -110,11 +114,10 @@
     top: 0 !important;
     height: 0 !important;
   }
-  .happy_container {
-    width: 100%;
-    color: #fff;
-    /* padding: 50px 0px 20px 0; */
-    margin: auto;
-    padding: 0;
+  .Carousel-indicators-2 {
+    margin-top: -60px !important;
+  }
+  .getStartedContainer2 {
+    margin-top: 28%;
   }
 }

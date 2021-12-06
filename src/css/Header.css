@@ -26,9 +26,13 @@
   position: relative;
   left: 7%;
   width: 13px;
+  cursor: pointer;
 }
 .css-l2l88c {
   margin-left: 74px !important;
+}
+.sgnBtn {
+  cursor: pointer;
 }
 
 /* for big screens */

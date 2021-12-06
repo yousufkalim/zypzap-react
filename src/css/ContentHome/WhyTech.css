@@ -75,13 +75,13 @@
 /* for big screens */
 @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
   .box {
-    padding-right: 220px;
+    padding-right: 75px;
   }
   .content_Img {
     width: 100%;
   }
   .box3 {
-    padding-right: 220px;
+    padding-right: 75px;
   }
 }
 /* for Tablet  */
@@ -163,6 +163,21 @@
     flex-direction: column;
     padding-bottom: 0px;
   }
+  .why_box {
+    width: 90%;
+  }
+  .box {
+    float: left;
+    padding-bottom: 30px;
+    padding-right: 0;
+    font-size: 12px;
+  }
+  .box2 {
+    padding-bottom: 0;
+  }
+  .boxp {
+    font-size: 13px;
+  }
   .whyh1 {
     padding: 24px 0 0 0;
     font-size: 23px;
@@ -171,29 +186,31 @@
     flex-direction: column;
   }
   .boxh2 {
-    padding: 4px 0 12px 0;
-    width: 275%;
+    padding: 4px 0 9px 0;
+    width: 100%;
     font-size: 17px;
   }
   .whyboxp {
-    /* width: 378%; */
     font-size: 12px;
     width: 305px;
   }
   .img1 {
-    padding-top: 0;
     margin: -120px;
+    width: 100%;
+  }
+  .box2 {
+    padding-right: 0px;
   }
   .img2 {
-    padding-top: 0;
-    margin: 200px auto 0 60px;
+    margin: 120px auto 0 0px;
+    width: 109%;
+    margin-left: -43px;
   }
   .img3 {
-    padding-top: 0;
-    padding-left: 0;
-    margin-bottom: 90px;
-    margin-left: -60px;
-    margin-top: -24px;
+    padding-left: 0 !important;
+    margin-bottom: 60px;
+    margin-top: -69px;
+    width: 100%;
   }
   .col_1 {
     width: 100%;
@@ -205,10 +222,16 @@
     text-align: left;
     padding-left: 0;
   }
+  .col_3 {
+    width: 100%;
+  }
   .box2 {
-    float: left;
-    margin: 0px 0 0 -160px;
-    width: 125%;
+    margin: 0px 0 0 0px;
+    width: 100%;
+  }
+  .box3 {
+    margin-top: 30px;
+    padding-right: 0;
   }
   .box3h2 {
     padding-top: 50px;
