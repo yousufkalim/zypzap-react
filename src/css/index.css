@@ -27,6 +27,9 @@
 @import url("./SearchResult/SearchResult.css");
 @import url("./dashboard/dashboard.css");
 
+@import url("./form/CreateForm.css");
+@import url("./form/Login.css");
+
 /* Defaults */
 * {
   padding: 0;

@@ -19,6 +19,7 @@ import Globe from "../assets/icons/globe.svg";
 import DownArrow from "../assets/icons/downarrow.svg";
 import UserIcon from "../assets/icons/userIcon.svg";
 import { useHistory } from "react-router-dom";
+import ClearIcon from "@mui/icons-material/Clear";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -102,8 +103,12 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem className="opnPrfil" onClick={handleMenuClose}>
+        Profile
+      </MenuItem>
+      <MenuItem className="opnPrfil" onClick={handleMenuClose}>
+        My account
+      </MenuItem>
     </Menu>
   );
 
@@ -124,6 +129,7 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      {/* <ClearIcon className="closeMenu" /> */}
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -163,7 +169,7 @@ export default function PrimarySearchAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" className="headerBackgroundColor">
-        <Toolbar>
+        <Toolbar className="imgLogo">
           <img
             src={Logo}
             alt="img"
@@ -198,6 +204,7 @@ export default function PrimarySearchAppBar() {
           </Search>
           {/* <Box sx={{ flexGrow: 1 }} /> */}
           <Box
+            style={{ marginLeft: "4.5%" }}
             sx={{
               display: { xs: "none", md: "flex" },
               justifyContent: { xs: "none", md: "space-between" },

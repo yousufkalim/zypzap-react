@@ -32,7 +32,7 @@ body {
 .creator_P {
   font-size: 15px;
   text-align: left;
-  padding: 2px 154px 0 26px;
+  padding: 2px 15px 0 26px;
   opacity: 0.8;
 }
 .creator_contain {
@@ -197,7 +197,7 @@ body {
   background-color: #1b1e39;
   width: 92%;
   border-radius: 13px;
-  height: 331px;
+  height: 300px;
   margin-top: 22px auto 0 auto;
   padding: 60px 7px 60px 7px;
   margin: auto;
@@ -215,20 +215,20 @@ body {
   padding: 18px 0 0 2px;
 }
 .moni_heading {
-  width: 78%;
+  /* width: 78%; */
   margin: auto;
 }
 .moni_h3 {
   margin: 22px 0 13px 0;
   opacity: 0.9;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 15px;
 }
 .moni_p {
-  padding: 0 15px 0 15px;
+  /* padding: 0 15px 0 15px; */
   line-height: 1.5;
   opacity: 0.8;
-  font-size: 14px;
+  font-size: 12px;
 }
 .monibutton {
   width: 100%;
@@ -563,5 +563,24 @@ body {
   }
   .content_pera {
     height: 405px !important;
+  }
+  .moni_h3 {
+    font-size: 19px;
+  }
+  .moni_p {
+    padding: 0 15px 0 15px;
+    line-height: 1.5;
+    opacity: 0.8;
+    font-size: 15px;
+  }
+  .moniBox {
+    background-color: #1b1e39;
+    width: 92%;
+    border-radius: 13px;
+    height: 331px;
+    margin-top: 22px auto 0 auto;
+    padding: 60px 7px 60px 7px;
+    margin: auto;
+    margin-top: 22px;
   }
 }

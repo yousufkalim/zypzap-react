@@ -6,6 +6,7 @@ import Avantages from "../components/ContentLending/Avantages";
 import Monitization from "../components/ContentLending/Monitization";
 import UserLandingPageBlog from "../components/UserLandingPage/UserLandingPageBlog";
 import Footer from "../components/blog/BlogFooter";
+import { useTranslation } from "react-i18next";
 
 const ContentCreatorLandingPage = () => {
   const scrollToTop = () => {
@@ -28,7 +29,6 @@ const ContentCreatorLandingPage = () => {
     >
       <UserLandingPageHeader />
       <CreateHome />
-
       <ContentCreator />
       <Avantages />
       <Monitization />

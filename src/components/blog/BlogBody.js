@@ -1,6 +1,6 @@
 // Init
 import React, { useState, useEffect } from "react";
-import BlogBodyimg from "../../assets/img/blogBody.png";
+import BlogBodyimg from "../../assets/img/blogBody2.png";
 import LatestArticle from "./LatestArticles";
 import YouMayLike from "./YouMayLike";
 import BlogFooter from "./BlogFooter";
