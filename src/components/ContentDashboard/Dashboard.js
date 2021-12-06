@@ -31,7 +31,7 @@ const Dashboard = ({setFooterState}) => {
   const onSideBtnClick = e => {
     const course = e.target.textContent;
     setDefaultCompState(course)
-    setFooterState(course)
+    setFooterState(false)
     console.log(course);
     setActiveButton(course);
   }
