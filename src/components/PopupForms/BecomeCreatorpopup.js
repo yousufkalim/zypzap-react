@@ -5,45 +5,76 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
+import api from "../../api";
+import { Store, UpdateStore } from "../../StoreContext";
 
 const BecomeCreatorpopup = ({ open, setOpen }) => {
+  const updateStore = UpdateStore();
+  const { user, creator } = Store();
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
-    text: "",
-    radio1: "",
-    radio2: "",
-    radio3: "",
+    gameyouaregoodat: "",
+    onlineTeaching: "",
+    gameLevel: "",
+    audience: "",
   });
+  const { gameyouaregoodat, onlineTeaching, gameLevel, audience } = data;
 
   const handleChange = (e) => {
-    console.log("e is ", e.target.value);
     setData({
       ...data,
       [e.target.name]: e.target.value,
     });
   };
-  const backBtn = () => {
-    setOpen(false);
-  };
-  const SubmitEvent = (e) => {
-    e.preventDefault();
-    if (data.text == "") {
-      return toast.error("CS-GO");
-    }
-    if (data.radio1 == "") {
-      return toast.error("Yes : No");
-    }
-    if (data.radio2 == "") {
-      return toast.error("What you gameplay");
-    }
-    if (data.radio3 == "") {
-      return toast.error("Do you have audience");
-    }
 
-    setData({ text: "" });
-  };
   const handleClose = () => {
+    setData({
+      gameyouaregoodat: "",
+      onlineTeaching: "",
+      gameLevel: "",
+      audience: "",
+    });
     setOpen(false);
   };
+  // console.log("in become a creator", user);
+
+  const SubmitEvent = async (e) => {
+    e.preventDefault();
+    if (data.gameyouaregoodat == "") {
+      return toast.error("Enter game you are good at");
+    }
+    if (data.onlineTeaching == "") {
+      return toast.error("select any online teaching option");
+    }
+    if (data.gameLevel == "") {
+      return toast.error("select your game level");
+    }
+    if (data.audience == "") {
+      return toast.error("select audience option");
+    }
+    if (!user) {
+      return toast.error("Please login first");
+    }
+    let formdata = {
+      gameyouaregoodat,
+      onlineTeaching: onlineTeaching == "yes" ? true : false,
+      gameLevel,
+      audience,
+    };
+    // console.log("formdata is ", formdata);
+
+    try {
+      let res = await api("post", `/creators/${user?._id}`, formdata);
+      if (res) {
+        window.location.reload();
+        setOpen(false);
+        setLoading(false);
+      }
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <Dialog open={open} onClose={handleClose} className="login_data">
@@ -59,8 +90,8 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
                 className="detailInput"
                 type="text"
                 placeholder="e.g. CS-GO"
-                name="text"
-                value={data.text}
+                name="gameyouaregoodat"
+                value={data.gameyouaregoodat}
                 onChange={handleChange}
               />
               <FormLabel
@@ -74,8 +105,8 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
                 className="cInput"
                 row
                 aria-label="circle"
-                name="radio1"
-                value={data.radio1}
+                name="onlineTeaching"
+                value={data.onlineTeaching}
                 onChange={handleChange}
               >
                 <FormControlLabel value="yes" control={<Radio />} label="Yes" />
@@ -91,8 +122,8 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
               <RadioGroup
                 aria-label="circle"
                 className="cirleInput"
-                name="radio2"
-                value={data.radio2}
+                name="gameLevel"
+                value={data.gameLevel}
                 onChange={handleChange}
               >
                 <FormControlLabel
@@ -121,8 +152,8 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
               <RadioGroup
                 aria-label="circle"
                 className="cirleInput"
-                name="radio3"
-                value={data.radio3}
+                name="audience"
+                value={data.audience}
                 onChange={handleChange}
               >
                 <FormControlLabel
@@ -145,7 +176,7 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
                 Continue
               </button>
             </form>
-            <button className="backBTN" onClick={backBtn}>
+            <button className="backBTN" onClick={handleClose}>
               Back
             </button>
           </div>

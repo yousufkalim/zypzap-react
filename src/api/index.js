@@ -15,14 +15,17 @@ const api = async (method = "get", uri, body) => {
     axios[method](uri, body)
       .then((res) => resolve(res))
       .catch((err) => {
-        console.log("error is ", err);
-        // if (err?.response?.status === 401) {
-        //   window.location = "/login";
-        // } else {
-        //   console.log("API Error --------> ", err);
-        //   // toast.error(err?.response?.data ? err.response.data : err?.message);
-        //   reject(err);
-        // }
+        if (err?.response?.status === 401) {
+          //  window.location = "/login";
+        } else {
+          console.log("API Error --------> ", err?.response);
+          toast.error(
+            err?.response?.data?.message
+              ? err.response.data.message
+              : err?.message
+          );
+          reject(err);
+        }
       });
   });
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import Dialog from "@mui/material/Dialog";
 import Box from "@mui/material/Box";
@@ -13,14 +13,24 @@ import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
+import api from "../../api";
 
 const CreateFormPopup = ({ open, setOpen, setLogin }) => {
+  useEffect(() => {
+    if (!open) {
+      setValues({ username: "", email: "", password: "" });
+    }
+  }, []);
+  // init
+  const [loading, setLoading] = useState(false);
   const [values, setValues] = React.useState({
-    user: "",
+    username: "",
     email: "",
     password: "",
     showPassword: false,
   });
+
+  const { username, email, password, showPassword } = values;
   const showLoginFormPopup = () => {
     setLogin(true);
     setOpen(false);
@@ -34,28 +44,47 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
     event.preventDefault();
   };
   const handleClose = () => {
+    setValues({ username: "", email: "", password: "" });
     setOpen(false);
   };
-  const submitForm = (event) => {
+
+  const onChangeEvent = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const submitForm = async (event) => {
     event.preventDefault();
-    if (values.user == "") {
+    if (values.username == "") {
       return toast.error("Please enter your username");
     }
     if (values.email == "") {
       return toast.error("Please enter your email");
     }
 
-    if (values.password == "") {
-      return toast.error("Please enter your password");
+    if (values.password == "" || password.length < 8) {
+      return toast.error("Please enter more then eight digit password");
     }
-    console.log(values);
-    setValues({ user: "", email: "", password: "" });
-  };
-  const onChangeEvent = (e) => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-    });
+    setLoading(true);
+    let formdata = {
+      username,
+      email,
+      password,
+      role: "User",
+    };
+    try {
+      let res = await api("post", "/users", formdata);
+
+      if (res) {
+        setOpen(false);
+        setLoading(false);
+        setValues({ username: "", email: "", password: "" });
+        toast.success(res.data.message);
+      }
+    } catch (error) {
+      setLoading(false);
+    }
   };
 
   return (
@@ -67,15 +96,16 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
               <h1 className="createH1">Create an Account</h1>
               <ClearIcon className="clearIcon2" onClick={handleClose} />
               <p className="create_pera">Let's get started</p>
-              <form action="">
+              <form action="" autocomplete="off">
                 <label htmlFor="user">Username</label>
                 <input
+                  autocomplete="false"
                   className="inputForm2 bldText3"
                   type="email"
                   placeholder="e.g.moinheykal"
-                  value={values.user}
+                  value={values.username}
                   onChange={onChangeEvent}
-                  name="user"
+                  name="username"
                   required
                 />
                 <label htmlFor="email">Email</label>
@@ -115,8 +145,13 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
                     </InputAdornment>
                   }
                 />
-                <button className="formbtn2" type="submit" onClick={submitForm}>
-                  Sign Up
+                <button
+                  className="formbtn2"
+                  type="submit"
+                  disabled={loading}
+                  onClick={submitForm}
+                >
+                  {loading ? "loading" : "Sign Up"}
                 </button>
                 <div className="lines-container">
                   <hr className="lines1" />

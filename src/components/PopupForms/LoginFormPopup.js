@@ -15,12 +15,15 @@ import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
+import api from "../../api";
 export default function LoginFormPopup({ open, setOpen, setSignup }) {
+  const [loading, setLoading] = useState(false);
   const [values, setValues] = React.useState({
     email: "",
     password: "",
     showPassword: false,
   });
+  const { email, password, showPassword } = values;
   const showSignUpFormPopup = () => {
     setOpen(false);
     setSignup(true);
@@ -34,9 +37,18 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
     event.preventDefault();
   };
   const handleClose = () => {
+    setValues({ email: "", password: "" });
     setOpen(false);
   };
-  const submitForm = (event) => {
+
+  const onChangeEvent = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const submitForm = async (event) => {
     event.preventDefault();
     if (values.email == "") {
       return toast.error("Please enter your email");
@@ -45,14 +57,22 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
     if (values.password == "") {
       return toast.error("Please enter your password");
     }
-    console.log(values);
-    setValues({ email: "", password: "" });
-  };
-  const onChangeEvent = (e) => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-    });
+    let formdata = {
+      email,
+      password,
+    };
+    try {
+      let res = await api("post", "/users/login", formdata);
+      if (res) {
+        localStorage.setItem("token", res?.data?.token);
+
+        setOpen(false);
+        setLoading(false);
+        window.location.reload();
+      }
+    } catch (error) {
+      setLoading(false);
+    }
   };
 
   return (
