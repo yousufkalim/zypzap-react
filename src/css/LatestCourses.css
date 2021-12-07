@@ -16,16 +16,7 @@
   font-weight: bolder;
   font-size: 17px;
 }
-.cardGrid {
-  background: linear-gradient(
-    90.12deg,
-    #202342 22.77%,
-    rgba(38, 38, 72, 0) 129.88%
-  ) !important;
-  border-radius: 50px !important;
-  width: 95% !important;
-  margin: auto !important;
-}
+
 .courseimg {
   width: 100%;
   padding: 20px 20px 10px 20px;
