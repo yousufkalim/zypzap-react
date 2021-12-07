@@ -1,8 +1,9 @@
 // Init
 import React from "react";
 import Header from "../components/Header";
-import Body from "../components/Body";
 import Footer from "../components/blog/BlogFooter";
+import Body from "../components/Body";
+
 
 export default function Home() {
   const [openlogin, setOpenLogin] = React.useState(false);
