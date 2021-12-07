@@ -187,11 +187,7 @@
   font-size: 13px;
   font-weight: 200;
 }
-.searchBar {
-  width: 50% !important;
-  border-radius: 60px !important;
-  margin-left: 27px !important;
-}
+
 .MuiInput-underline:after {
   border: none !important;
 }

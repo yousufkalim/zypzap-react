@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -20,6 +20,9 @@ import DownArrow from "../assets/icons/downarrow.svg";
 import UserIcon from "../assets/icons/userIcon.svg";
 import { useHistory } from "react-router-dom";
 import ClearIcon from "@mui/icons-material/Clear";
+import CreateFormPopup from "./PopupForms/CreateFormPopup";
+import LoginFormPopup from "./PopupForms/LoginFormPopup";
+import OptionPopup from "./PopupForms/OptionPopup";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -61,10 +64,21 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar({
+  openlogin,
+  setOpenLogin,
+  opensignup,
+  setOpenSignup,
+}) {
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+
+  const [Option, setOption] = useState(false);
+
+  const showBecomePopup = () => {
+    setOption(true);
+  };
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -167,78 +181,98 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" className="headerBackgroundColor">
-        <Toolbar className="imgLogo">
-          <img
-            src={Logo}
-            alt="img"
-            style={{ cursor: "pointer" }}
-            onClick={() => {
-              history.push("/");
-              window.location.reload();
-            }}
-          />
-
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{
-              display: { xs: "none", sm: "block" },
-              fontFamily: "Mulish",
-              paddingLeft: "5px",
-            }}
-          >
-            {/* Categories */}
-          </Typography>
-          <Search className="searchBar">
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <img src={DownArrow} alt="img" className="downarrow" />
-            <StyledInputBase
-              placeholder="Search"
-              inputProps={{ "aria-label": "search" }}
+    <>
+      <CreateFormPopup
+        open={opensignup}
+        setOpen={setOpenSignup}
+        login={openlogin}
+        setLogin={setOpenLogin}
+      />
+      <LoginFormPopup
+        open={openlogin}
+        setOpen={setOpenLogin}
+        signup={opensignup}
+        setSignup={setOpenSignup}
+      />
+      <OptionPopup open={Option} setOpen={setOption} />
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static" className="headerBackgroundColor">
+          <Toolbar className="imgLogo">
+            <img
+              src={Logo}
+              alt="img"
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                history.push("/");
+                window.location.reload();
+              }}
             />
-          </Search>
-          {/* <Box sx={{ flexGrow: 1 }} /> */}
-          <Box
-            style={{ marginLeft: "4.5%" }}
-            sx={{
-              display: { xs: "none", md: "flex" },
-              justifyContent: { xs: "none", md: "space-between" },
-              width: { xs: "auto", md: "30%" },
-            }}
-          >
-            <p>Switch to Learner</p>
-            <p>My Courses</p>
-            {/* <p>Sign Up</p>
-            <p>Login</p> */}
-            <div>
-              <img src={UserIcon} alt="img" />
-              <span className="iconseperate">|</span>
-              <img src={Globe} alt="img" />
-              <span className="iconseperate">|</span>
-              <img src={Moon} alt="img" />
-            </div>
-          </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
+
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{
+                display: { xs: "none", sm: "block" },
+                fontFamily: "Mulish",
+                paddingLeft: "5px",
+              }}
             >
-              <MoreIcon />
-            </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
-    </Box>
+              {/* Categories */}
+            </Typography>
+            <Search className="searchBar">
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <img src={DownArrow} alt="img" className="downarrow" />
+              <StyledInputBase
+                placeholder="Search"
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+            {/* <Box sx={{ flexGrow: 1 }} /> */}
+            <Box
+              style={{ marginLeft: "4.5%" }}
+              sx={{
+                display: { xs: "none", md: "flex" },
+                justifyContent: { xs: "none", md: "space-between" },
+                width: { xs: "auto", md: "30%" },
+              }}
+            >
+              <p className="sgnBtn" onClick={showBecomePopup}>
+                Become a Creater
+              </p>
+              <p className="sgnBtn" onClick={() => setOpenSignup(true)}>
+                Sign Up
+              </p>
+              <p className="sgnBtn" onClick={() => setOpenLogin(true)}>
+                Login
+              </p>
+              <div>
+                <img src={UserIcon} alt="img" />
+                <span className="iconseperate">|</span>
+                <img src={Globe} alt="img" />
+                <span className="iconseperate">|</span>
+                <img src={Moon} alt="img" />
+              </div>
+            </Box>
+            <Box sx={{ display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="show more"
+                aria-controls={mobileMenuId}
+                aria-haspopup="true"
+                onClick={handleMobileMenuOpen}
+                color="inherit"
+              >
+                <MoreIcon />
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        {renderMobileMenu}
+        {renderMenu}
+      </Box>
+    </>
   );
 }

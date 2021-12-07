@@ -11,7 +11,7 @@ const WhyData = (props) => {
           style={{
             textAlign: "left",
             paddingLeft: "0px",
-            paddingRight: "200px",
+            paddingRight: "0px",
           }}
         >
           <div className="box">

@@ -29,6 +29,8 @@
 
 @import url("./form/CreateForm.css");
 @import url("./form/Login.css");
+@import url("./form/LoginDetail.css");
+@import url("./form/OptionPopup.css");
 
 /* Defaults */
 * {

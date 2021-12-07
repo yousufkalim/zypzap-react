@@ -47,8 +47,8 @@
   /* position: absolute; */
   /* padding-top: 20px; */
   padding-left: 50px;
-  margin-top: -23px;
-  margin-bottom: 87px;
+  margin-top: 0;
+  margin-bottom: 53px;
 }
 .StepMain2 {
   position: relative;
@@ -77,7 +77,7 @@
 }
 @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
   .Stepperline2 {
-    height: 155px !important;
+    height: 165px !important;
   }
   .getStartedHeading2 {
     font-size: 40px;
@@ -140,7 +140,7 @@
   }
   .Getstaredgrid22 {
     text-align: left;
-    margin-left: 30px;
+    margin-left: 0px;
   }
   .Getstarted22 {
     /* width: 100%; */
@@ -177,5 +177,8 @@
     width: 30px;
     padding-left: 8px;
     padding-top: 1px;
+  }
+  .Stepperline2 {
+    height: 126px !important;
   }
 }
