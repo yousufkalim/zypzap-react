@@ -6,7 +6,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 
-const LoginDetail = ({ open, setOpen }) => {
+const BecomeCreatorpopup = ({ open, setOpen }) => {
   const [data, setData] = useState({
     text: "",
     radio1: "",
@@ -155,4 +155,5 @@ const LoginDetail = ({ open, setOpen }) => {
   );
 };
 
-export default LoginDetail;
+// export default LoginDetail;
+export default BecomeCreatorpopup;

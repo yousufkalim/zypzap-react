@@ -1,15 +1,12 @@
 import React from "react";
 import Contentimg2 from "../../assets/contentimg2.png";
-import CreateDetail from "../../components/PopupForms/LoginDetail";
 
-const ContentLandingPage = () => {
-  const [open, setOpen] = React.useState(false);
-  const showCreateCoursePopup = () => {
-    setOpen(true);
-  };
+const ContentLandingPage = ({
+  openBecomeCreatorPopup,
+  setOpenBecomeCreatorPopup,
+}) => {
   return (
     <>
-      <CreateDetail open={open} setOpen={setOpen} />
       <div className="content_container">
         <img src={Contentimg2} className="content_Image" />
 
@@ -19,7 +16,10 @@ const ContentLandingPage = () => {
             <br /> good at
           </h1>
           <p className="textonP">For Gamers who want teach how to play</p>
-          <button className="textonbutton" onClick={showCreateCoursePopup}>
+          <button
+            className="textonbutton"
+            onClick={() => setOpenBecomeCreatorPopup(true)}
+          >
             Create a Course
           </button>
         </div>

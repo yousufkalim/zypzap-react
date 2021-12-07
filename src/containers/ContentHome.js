@@ -8,6 +8,8 @@ import Footer from "../components/blog/BlogFooter";
 const ContentHome = () => {
   const [openlogin, setOpenLogin] = React.useState(false);
   const [opensignup, setOpenSignup] = React.useState(false);
+  const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] =
+    React.useState(false);
   return (
     <>
       <div
@@ -23,8 +25,13 @@ const ContentHome = () => {
           setOpenSignup={setOpenSignup}
           openlogin={openlogin}
           opensignup={opensignup}
+          openBecomeCreatorPopup={openBecomeCreatorPopup}
+          setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
         />
-        <ContentLendingPage />
+        <ContentLendingPage
+          openBecomeCreatorPopup={openBecomeCreatorPopup}
+          setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
+        />
         <WhyTechWith />
         <HappyInstructor />
         <HowToTeach />

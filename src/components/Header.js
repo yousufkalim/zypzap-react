@@ -22,6 +22,7 @@ import { useHistory } from "react-router-dom";
 import ClearIcon from "@mui/icons-material/Clear";
 import CreateFormPopup from "./PopupForms/CreateFormPopup";
 import LoginFormPopup from "./PopupForms/LoginFormPopup";
+import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
 import OptionPopup from "./PopupForms/OptionPopup";
 
 const Search = styled("div")(({ theme }) => ({
@@ -69,6 +70,8 @@ export default function PrimarySearchAppBar({
   setOpenLogin,
   opensignup,
   setOpenSignup,
+  openBecomeCreatorPopup,
+  setOpenBecomeCreatorPopup,
 }) {
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -194,6 +197,10 @@ export default function PrimarySearchAppBar({
         signup={opensignup}
         setSignup={setOpenSignup}
       />
+      <BecomeCreatorpopup
+        open={openBecomeCreatorPopup}
+        setOpen={setOpenBecomeCreatorPopup}
+      />
       <OptionPopup open={Option} setOpen={setOption} />
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" className="headerBackgroundColor">
@@ -239,7 +246,10 @@ export default function PrimarySearchAppBar({
                 width: { xs: "auto", md: "30%" },
               }}
             >
-              <p className="sgnBtn" onClick={showBecomePopup}>
+              <p
+                className="sgnBtn"
+                onClick={() => setOpenBecomeCreatorPopup(true)}
+              >
                 Become a Creater
               </p>
               <p className="sgnBtn" onClick={() => setOpenSignup(true)}>
