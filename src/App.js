@@ -36,7 +36,6 @@ function App() {
       if (res) {
         updateStore({ user: res?.data, creator: res?.data?.creator });
       }
-      console.log("res in app.js", res.data);
     } catch (error) {}
   };
   return (

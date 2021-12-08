@@ -25,7 +25,6 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
     setOpen(false);
   };
   const submitForm = (event) => {
-    console.log(values, email);
     event.preventDefault();
     if (values.checkBoxOne === false || values.checkBoxTwo === false) {
       return toast.error("Please fill the checkboxes!");

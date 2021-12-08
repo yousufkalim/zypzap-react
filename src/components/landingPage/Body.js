@@ -7,7 +7,6 @@ import { useTranslation, Trans } from "react-i18next";
 export default function Body() {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
-  console.log("t is ", language);
 
   return (
     <>

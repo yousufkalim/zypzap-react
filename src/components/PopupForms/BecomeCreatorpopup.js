@@ -36,7 +36,6 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
     });
     setOpen(false);
   };
-  // console.log("in become a creator", user);
 
   const SubmitEvent = async (e) => {
     e.preventDefault();
@@ -61,7 +60,6 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
       gameLevel,
       audience,
     };
-    // console.log("formdata is ", formdata);
 
     try {
       let res = await api("post", `/creators/${user?._id}`, formdata);

@@ -81,7 +81,7 @@ export default function PrimarySearchAppBar({
   const { user, creator } = Store();
   const handleLogout = async () => {
     let res = await api("post", "/users/logout/all");
-    console.log("logout res", res);
+
     updateStore({ user: null, creator: null });
     localStorage.removeItem("token");
   };
