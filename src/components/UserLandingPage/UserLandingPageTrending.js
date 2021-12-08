@@ -132,14 +132,14 @@ const UserLandingPageTrending = () => {
                   <div className="trendingLogoText">{item.heading}</div>
                 </div>
               ))}
-              <div class="trendinglogoDiv">
+              {/* <div class="trendinglogoDiv">
                 <img className="iconImg" src={trendinglogo} />
                 <div className="trendingLogoText">FIFA</div>
               </div>
               <div class="trendinglogoDiv">
                 <img className="iconImg" src={trendinglogo} />
                 <div className="trendingLogoText">FIFA</div>
-              </div>
+              </div> */}
             </div>
           </div>
         </Grid>

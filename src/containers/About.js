@@ -7,6 +7,10 @@ import GetStarted from "../components/about/GetStarted";
 import Footer from "../components/blog/BlogFooter";
 
 export default function About() {
+  const [openlogin, setOpenLogin] = React.useState(false);
+  const [opensignup, setOpenSignup] = React.useState(false);
+  const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] =
+    React.useState(false);
   const scrollToTop = () => {
     window.scrollTo({
       top: 1,
@@ -26,7 +30,14 @@ export default function About() {
         overflowY: "hidden",
       }}
     >
-      <Header />
+      <Header
+        setOpenLogin={setOpenLogin}
+        setOpenSignup={setOpenSignup}
+        openlogin={openlogin}
+        opensignup={opensignup}
+        openBecomeCreatorPopup={openBecomeCreatorPopup}
+        setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
+      />
       <AboutLandingPage />
       <UserReview />
       <GetStarted />
