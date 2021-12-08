@@ -25,9 +25,8 @@ export default function TopCourses() {
     <div className="topCoursescontainer">
       <p className="topcourseheading">Top Courses</p>
       <Carousel
-        autoPlay={false}
-        //   navButtonsAlwaysVisible={true}
-        animation={"fade"}
+        autoPlay={true}
+        animation={"slide"}
         activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
         className="topcoursecarousal"
       >

@@ -1,13 +1,12 @@
-import React from 'react'
+import React from "react";
 import trendinglogo from "../../assets/img/trendinglogo.png";
 import icontrendingone from "../../assets/img/icontrendingone.png";
 import icontrendingtwo from "../../assets/img/icontrendingtwo.png";
 import icontrendingthree from "../../assets/img/icontrendingthree.png";
 import icontrendingfour from "../../assets/img/icontrendingfour.png";
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import Grid from "@mui/material/Grid";
 const UserLandingPageTrending = () => {
-  let items = [
+  let trending = [
     {
       heading: "FIFA 22",
       img: trendinglogo,
@@ -28,125 +27,153 @@ const UserLandingPageTrending = () => {
       heading: "FOOTBALL",
       img: icontrendingfour,
     },
-    {
-      heading: "AXIE INFINITY",
-      img: trendinglogo,
-    },
-    {
-      heading: "ROYAK",
-      img: trendinglogo,
-    },
-    {
-      heading: "BRAWL STARS",
-      img: trendinglogo,
-    },
-    {
-      heading: "META INFINITY",
-      img: trendinglogo,
-    },
-    {
-      heading: "FIFA 22",
-      img: trendinglogo,
-    },
-    {
-      heading: "CLASH ROYALE",
-      img: icontrendingone,
-    },
-    {
-      heading: "IDLE CYBER",
-      img: icontrendingtwo,
-    },
-    {
-      heading: "DOTTA 3",
-      img: icontrendingthree,
-    },
-    {
-      heading: "FOOTBALL",
-      img: icontrendingfour,
-    },
-    {
-      heading: "AXIE INFINITY",
-      img: trendinglogo,
-    },
-    {
-      heading: "ROYAK",
-      img: trendinglogo,
-    },
-    {
-      heading: "BRAWL STARS",
-      img: trendinglogo,
-    },
-    {
-      heading: "META INFINITY",
-      img: trendinglogo,
-    },
-    {
-      heading: "ROYAK",
-      img: trendinglogo,
-    },
-    {
-      heading: "BRAWL STARS",
-      img: trendinglogo,
-    },
-    {
-      heading: "META INFINITY",
-      img: trendinglogo,
-    },
-    {
-      heading: "META INFINITY",
-      img: trendinglogo,
-    },
-    {
-      heading: "ROYAK",
-      img: trendinglogo,
-    },
-    {
-      heading: "BRAWL STARS",
-      img: trendinglogo,
-    },
-    {
-      heading: "META INFINITY",
-      img: trendinglogo,
-    },
-    {
-      heading: "ROYAK",
-      img: trendinglogo,
-    },
-    {
-      heading: "BRAWL STARS",
-      img: trendinglogo,
-    },
+    // {
+    //   heading: "AXIE INFINITY",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "ROYAK",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "BRAWL STARS",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "META INFINITY",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "FIFA 22",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "CLASH ROYALE",
+    //   img: icontrendingone,
+    // },
+    // {
+    //   heading: "IDLE CYBER",
+    //   img: icontrendingtwo,
+    // },
+    // {
+    //   heading: "DOTTA 3",
+    //   img: icontrendingthree,
+    // },
+    // {
+    //   heading: "FOOTBALL",
+    //   img: icontrendingfour,
+    // },
+    // {
+    //   heading: "AXIE INFINITY",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "ROYAK",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "BRAWL STARS",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "META INFINITY",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "ROYAK",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "BRAWL STARS",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "META INFINITY",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "META INFINITY",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "ROYAK",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "BRAWL STARS",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "META INFINITY",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "ROYAK",
+    //   img: trendinglogo,
+    // },
+    // {
+    //   heading: "BRAWL STARS",
+    //   img: trendinglogo,
+    // },
   ];
   return (
     <>
-     <div className="trending-block" container rowSpacing={1}>
-        <Grid sx={{display:'flex', justifyContent: 'space-around'}} className="trending-heading-container" container>
-          <Grid sx={{ textAlign: "center" }} item  md={4}>
-            <div className="top-games-header top-games-text">  <h4 >Top Games </h4>  </div>
-          </Grid>
-          <Grid sx={{ textAlign: "center" }} item  md={4}>
-            <div className="top-trendy-games top-games-text"><h4>Top Trendy Games </h4>  </div>
-          </Grid>
-          <Grid sx={{ textAlign: "center" }} item  md={4}>
-            <div className="nft-games-header top-games-text">  <h4 >NFT Games </h4>  </div>
-          </Grid>
-        </Grid>
-        <Grid className="trending-box-border" container>
-          {
-            items.map((item) => (
-              <Grid md={4} sm={4}>
-                <div class="table-img-text">
-                  <img src={item.img} />
-                  <div className="trending-text-width">{item.heading} </div>
+      <Grid container spacing={3} className="trendingGrid">
+        <Grid item xs={12} sm={4}>
+          <div className="trendingDiv">
+            <div className="trendingHeadingDiv">
+              <div className="dashDiv"></div>
+              <h2>Top Games</h2>
+            </div>
+            <div className="optionsDiv">
+              {trending.map((item) => (
+                <div class="trendinglogoDiv">
+                  <img className="iconImg" src={item.img} />
+                  <div className="trendingLogoText">{item.heading}</div>
                 </div>
-              </Grid>
-            )
-            )
-          }
+              ))}
+              <div class="trendinglogoDiv">
+                <img className="iconImg" src={trendinglogo} />
+                <div className="trendingLogoText">FIFA</div>
+              </div>
+              <div class="trendinglogoDiv">
+                <img className="iconImg" src={trendinglogo} />
+                <div className="trendingLogoText">FIFA</div>
+              </div>
+            </div>
+          </div>
         </Grid>
-      </div>
+        <Grid item xs={12} sm={4}>
+          <div className="trendingDiv">
+            <div className="trendingHeadingDiv">
+              <div className="dashDiv"></div>
+              <h2>Trendy Games</h2>
+            </div>
+            {trending.map((item) => (
+              <div class="trendinglogoDiv">
+                <img className="iconImg" src={item.img} />
+                <div className="trendingLogoText">{item.heading}</div>
+              </div>
+            ))}
+          </div>
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <div className="trendingDiv">
+            <div className="trendingHeadingDiv">
+              <div className="dashDiv"></div>
+              <h2>NFT Games</h2>
+            </div>
+            {trending.map((item) => (
+              <div class="trendinglogoDiv">
+                <img className="iconImg" src={item.img} />
+                <div className="trendingLogoText">{item.heading}</div>
+              </div>
+            ))}
+          </div>
+        </Grid>
+      </Grid>
     </>
-  )
-}
+  );
+};
 
-export default UserLandingPageTrending
+export default UserLandingPageTrending;

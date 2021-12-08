@@ -29,7 +29,7 @@ const ProtectedRoutes = () => {
           </Switch>
         </>
       ) : (
-        <>{(window.location = "/contentHome")}</>
+        <>{(window.location = "/")}</>
       )}
     </>
   );

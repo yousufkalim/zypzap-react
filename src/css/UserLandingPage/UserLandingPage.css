@@ -235,6 +235,7 @@
 .carousel-img {
   width: 100%;
   padding-top: 20px;
+  height: 467px;
 }
 
 .list-text {
@@ -301,41 +302,50 @@
   margin: 0 auto !important;
 }
 /* Trending section starts here */
-.trending-heading-container {
-  font-size: 0.85em;
-  letter-spacing: 0.1em;
-  background-color: #202342;
-  padding: 14px;
-  border: 2.5px solid #202342 !important;
+.trendingGrid {
+  width: 85% !important;
+  margin: auto !important;
+  text-align: center !important;
+  color: white;
 }
-.trending-box-border {
-  border-left: 1px solid #333333;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid #333333;
+.dashDiv {
+  width: 5px;
+  height: 30px;
+  border-radius: 20px;
+  margin: 2px 10px;
+  background-color: red;
+}
+.trendingDiv {
+  background: linear-gradient(
+    90.12deg,
+    #202342 22.77%,
+    rgba(38, 38, 72, 0) 129.88%
+  );
+  border-radius: 15px;
+  padding: 10px;
+  width: 96%;
+  margin: auto;
+  margin-top: 15%;
+}
+.trendingHeadingDiv {
+  display: flex;
+  margin: 5px;
+  padding-bottom: 30px;
+}
+.optionsDiv {
+}
+.trendinglogoDiv {
+  display: flex;
+  padding: 0px 20px 20px 20px;
+}
+.iconImg {
+  width: 53.48px;
+  height: 53.48px;
+}
+.trendingLogoText {
+  margin: 15px 2px 2px 15px;
 }
 
-.trending-block {
-  margin: 50px auto !important;
-  width: 83% !important;
-  color: #fff;
-}
-.table-img-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px 0px;
-}
-.trending-text-width {
-  width: 120px;
-  margin: 0 10px;
-  font-size: 0.75em;
-}
-.top-games-header {
-  width: 70%;
-}
-.top-trendy-games {
-  width: 85%;
-}
 .nft-games-header {
   width: 78%;
 }
@@ -366,6 +376,9 @@
 }
 /* for big screens */
 @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+  .trendingDiv {
+    width: 85%;
+  }
   .frUserLandingPageAboutTextImgH1 {
     font-size: 3rem;
   }
@@ -396,36 +409,9 @@
   .UserLandingPageAboutTextImgH1 {
     margin-top: 35px;
   }
-  .top-games-text {
-    font-size: 10px;
-    white-space: nowrap;
-  }
-  .trending-text-width {
-    width: 78px;
-    margin: 0 10px;
-    font-size: 0.65em;
-  }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
-  .table-img-text {
-    display: flex;
-    flex-direction: column;
-    font-size: 10px;
-  }
-  .top-games-text {
-    font-size: 8px;
-    white-space: nowrap;
-  }
-  .trending-text-width {
-    text-align: center;
-    margin: 0 10px;
-    font-size: 0.65em;
-  }
-  .nft-games-header {
-    text-align: end;
-    width: 100%;
-  }
   .trending-table {
     border: 0;
   }

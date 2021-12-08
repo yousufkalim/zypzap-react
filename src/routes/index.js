@@ -30,12 +30,12 @@ const index = () => {
       <Route exact path="/landingpartner" component={LandingPartner} />
       <Route exact path="/landingpage" component={LandingPage} />
       <Route exact path="/userlanding" component={UserLandingPage} />
-      <Route exact path="/*" render={() => <ProtectedRoutes />} />
       <Route
         exact
         path="/contentcreator"
         component={ContentCreatorLandingPage}
       />
+      <Route exact path="/*" render={() => <ProtectedRoutes />} />
     </Switch>
   );
 };
