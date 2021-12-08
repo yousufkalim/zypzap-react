@@ -39,7 +39,7 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
         <div className="login_form">
           <div className="form_container">
             <div className="form-header-block">
-              <h1>{t("Sign up here")}</h1>
+              <h1 className="subH1">{t("Sign up here")}</h1>
               <ClearIcon className="clearIcon" onClick={handleClose} />
             </div>
             <form onSubmit={submitForm}>
@@ -65,7 +65,9 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
                   className="popup-checkbox"
                   type="checkbox"
                 />
-                <label>{t("Register as a beta tester")}</label>
+                <label className="subsLabel">
+                  {t("Register as a beta tester")}
+                </label>
               </div>
               <div
                 style={{ display: "-webkit-inline-box", margin: "10px 0px" }}
@@ -77,7 +79,7 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
                   className="popup-checkbox"
                   type="checkbox"
                 />
-                <label>
+                <label className="subsLabel">
                   {t("I agree passtotrip")}
                   <span className="privacy-policy-text">
                     {t("Privacy Policy")}{" "}
@@ -85,7 +87,7 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
                   {t("and agree to receive upcoming passtotrip updates")}
                 </label>
               </div>
-              <button className="formbtn" type="submit">
+              <button className="subsformbtn" type="submit">
                 {t("Subscribe")}
               </button>
             </form>
