@@ -33,6 +33,7 @@
   border-radius: 6px;
   margin: 20px 10px 0px 10px;
   background-color: #e7411b;
+  cursor: pointer;
 }
 
 /* landing partner different company logos css */
@@ -45,6 +46,26 @@
 }
 .landing-partner-fedex-img {
   margin-top: -9px;
+}
+.landing-partner-arrow {
+  position: relative;
+}
+.myStyle {
+  animation: MoveUpDown 1.5s ease-in-out;
+  /* height: 600px; */
+}
+@keyframes MoveUpDown {
+  from {
+    padding-top: 0px;
+    top: -50px;
+    opacity: 0;
+  }
+  to {
+    /* padding-top: 20px; */
+    opacity: 1;
+    top: 0;
+    font-size: 30px;
+  }
 }
 /* Media Queries */
 @media all and (max-width: 959px) {
