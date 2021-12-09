@@ -22,7 +22,12 @@ import { useHistory } from "react-router-dom";
 import ClearIcon from "@mui/icons-material/Clear";
 import CreateFormPopup from "./PopupForms/CreateFormPopup";
 import LoginFormPopup from "./PopupForms/LoginFormPopup";
+import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
 import OptionPopup from "./PopupForms/OptionPopup";
+import api from "../api";
+import { Link } from "react-router-dom";
+
+import { Store, UpdateStore } from "../StoreContext";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -69,7 +74,18 @@ export default function PrimarySearchAppBar({
   setOpenLogin,
   opensignup,
   setOpenSignup,
+  openBecomeCreatorPopup,
+  setOpenBecomeCreatorPopup,
 }) {
+  const updateStore = UpdateStore();
+  const { user, creator } = Store();
+  const handleLogout = async () => {
+    let res = await api("post", "/users/logout/all");
+
+    updateStore({ user: null, creator: null });
+    localStorage.removeItem("token");
+  };
+
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -194,6 +210,10 @@ export default function PrimarySearchAppBar({
         signup={opensignup}
         setSignup={setOpenSignup}
       />
+      <BecomeCreatorpopup
+        open={openBecomeCreatorPopup}
+        setOpen={setOpenBecomeCreatorPopup}
+      />
       <OptionPopup open={Option} setOpen={setOption} />
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" className="headerBackgroundColor">
@@ -232,22 +252,51 @@ export default function PrimarySearchAppBar({
             </Search>
             {/* <Box sx={{ flexGrow: 1 }} /> */}
             <Box
-              style={{ marginLeft: "4.5%" }}
+              className={`${creator ? "headerLinkbox" : "headerLinkbox2"}`}
               sx={{
                 display: { xs: "none", md: "flex" },
                 justifyContent: { xs: "none", md: "space-between" },
                 width: { xs: "auto", md: "30%" },
               }}
             >
-              <p className="sgnBtn" onClick={showBecomePopup}>
-                Become a Creater
-              </p>
-              <p className="sgnBtn" onClick={() => setOpenSignup(true)}>
-                Sign Up
-              </p>
-              <p className="sgnBtn" onClick={() => setOpenLogin(true)}>
-                Login
-              </p>
+              {creator ? (
+                <>
+                  <Link
+                    to="/contentHome"
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
+                    <p className="sgnBtn">Switch to Learner</p>
+                  </Link>
+                  <Link
+                    to="/dashboard"
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
+                    <p className="sgnBtn">dashboard</p>
+                  </Link>
+                </>
+              ) : (
+                <p
+                  className="sgnBtn"
+                  onClick={() => setOpenBecomeCreatorPopup(true)}
+                >
+                  Become a Creater
+                </p>
+              )}
+              {user ? (
+                <p className="sgnBtn" onClick={handleLogout}>
+                  Logout
+                </p>
+              ) : (
+                <>
+                  <p className="sgnBtn" onClick={() => setOpenSignup(true)}>
+                    Sign Up
+                  </p>
+                  <p className="sgnBtn" onClick={() => setOpenLogin(true)}>
+                    Login
+                  </p>
+                </>
+              )}
+
               <div>
                 <img src={UserIcon} alt="img" />
                 <span className="iconseperate">|</span>

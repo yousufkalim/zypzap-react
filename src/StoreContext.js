@@ -19,9 +19,10 @@ export function StoreProvider({ children }) {
   // Initializing State
   let [store, setStore] = useState({
     loggedIn: false,
-    user: {},
+    user: null,
     blogs: [],
     singleBlog: {},
+    creator: null,
   });
 
   const updateStore = (data) => {

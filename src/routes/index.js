@@ -9,12 +9,13 @@ import Blog from "../containers/Blog";
 import Article from "../containers/Article";
 import About from "../containers/About.js";
 import Contenthome from "../containers/ContentHome.js";
-import SearchResult from '../containers/SearchResult'
+import SearchResult from "../containers/SearchResult";
 import LandingPage from "../containers/Landingpage";
 import UserLandingPage from "../containers/UserLandingPage";
 import ContentCreatorLandingPage from "../containers/ContentCreatorLandingPage";
 import LandingPartner from "../containers/LandingPartner";
-import ContentDashboard from "../containers/ContentDashboard";
+// import ContentDashboard from "../containers/ContentDashboard";
+import ProtectedRoutes from "./ProtectedRoutes.js";
 
 const index = () => {
   return (
@@ -29,12 +30,12 @@ const index = () => {
       <Route exact path="/landingpartner" component={LandingPartner} />
       <Route exact path="/landingpage" component={LandingPage} />
       <Route exact path="/userlanding" component={UserLandingPage} />
-      <Route exact path="/dashboard" component={ContentDashboard} />
       <Route
         exact
         path="/contentcreator"
         component={ContentCreatorLandingPage}
       />
+      <Route exact path="/*" render={() => <ProtectedRoutes />} />
     </Switch>
   );
 };

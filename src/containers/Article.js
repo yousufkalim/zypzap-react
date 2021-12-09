@@ -8,6 +8,10 @@ import { Store, UpdateStore } from "../StoreContext";
 
 export default function Article() {
   const [loading, setLoading] = useState(false);
+  const [openlogin, setOpenLogin] = React.useState(false);
+  const [opensignup, setOpenSignup] = React.useState(false);
+  const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] =
+    React.useState(false);
   // init
   const updateStore = UpdateStore();
   const { singlBlog, blogs } = Store();
@@ -41,7 +45,14 @@ export default function Article() {
         overflowY: "hidden",
       }}
     >
-      <Header />
+      <Header
+        setOpenLogin={setOpenLogin}
+        setOpenSignup={setOpenSignup}
+        openlogin={openlogin}
+        opensignup={opensignup}
+        openBecomeCreatorPopup={openBecomeCreatorPopup}
+        setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
+      />
       <ArticleBody singlBlog={singlBlog} loading={loading} blogs={blogs} />
     </div>
   );

@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import gamerImg from "../../assets/img/gamerimg.png";
 import contentImg from "../../assets/img/contentimg.png";
 import { useTranslation, Trans } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function WhatWeOffer() {
   const { t, i18n } = useTranslation();
@@ -67,6 +68,7 @@ export default function WhatWeOffer() {
                 {t("Early access to courses")}
               </button>
             </div>
+
           </div>
         </Grid>
       </Grid>

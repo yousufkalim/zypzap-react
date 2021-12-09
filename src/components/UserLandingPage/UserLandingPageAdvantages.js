@@ -2,21 +2,17 @@ import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
+
 import Carousel from "react-material-ui-carousel";
-import carouselimg from "../../assets/img/carouselimg.png";
+
+import imgN1 from "../../assets/img/n1.png";
+import imgN2 from "../../assets/img/n2.png";
+import imgN3 from "../../assets/img/n3.png";
+import imgN4 from "../../assets/img/n4.png";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import SubscriptionPopup from "../PopupForms/SubscriptionPopup";
 
-function generate(element) {
-  return [0, 1, 2].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    })
-  );
-}
 const scrollToTop = () => {
   window.scrollTo({
     top: 1,
@@ -24,10 +20,35 @@ const scrollToTop = () => {
   });
 };
 
+const onChange = (a, b) => {
+  console.log(a, b);
+};
+
 const UserLandingPageAdvantages = () => {
+  const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
+
+  var items = [
+    {
+      text: t("Obtenez les meilleurs conseils "),
+      img: imgN1,
+    },
+    {
+      text: "Suivez une Roadmap personnalisée",
+      img: imgN2,
+    },
+    {
+      text: "Suivez une Roadmap personnalisée",
+      img: imgN3,
+    },
+    {
+      text: "Progressez à votre rythme",
+      img: imgN4,
+    },
+  ];
   return (
     <>
+      {open && <SubscriptionPopup open={open} setOpen={setOpen} />}
       <Box className="box-user">
         <Box className="userlandingpageheaderspacing">
           <Typography align="center" variant="h5">
@@ -37,38 +58,41 @@ const UserLandingPageAdvantages = () => {
         </Box>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
-            <List>
-              {generate(
-                <ListItem>
-                  <ListItemText
-                    className="list-text"
-                    primary={
-                      <Typography className="listText">
-                        {" "}
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-                        ipsum lorem ipsum{" "}
-                      </Typography>
-                    }
-                  />
-                </ListItem>
-              )}
-            </List>
+            <Carousel
+              autoPlay={true}
+              interval={3000}
+              activeIndicatorIconButtonProps={{
+                className: "activeIndicator",
+              }}
+              animation={"fade"}
+              duration={9000}
+              indicators={false}
+              stopAutoPlayOnHover={false}
+            >
+              {items.map((item, i) => (
+                <CarousalTextComponent key={i} item={item} />
+              ))}
+            </Carousel>
           </Grid>
           <Grid item xs={12} md={6}>
             <Carousel
-              autoPlay={false}
+              autoPlay={true}
+              interval={3000}
+              navButtonsAlwaysVisible={false}
               activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
               animation={"fade"}
+              duration={900}
+              stopAutoPlayOnHover={false}
+              onChange={(now, prev) => onChange(now, prev)}
             >
-              <img className="carousel-img" src={carouselimg} />
-              <img className="carousel-img" src={carouselimg} />
-              <img className="carousel-img" src={carouselimg} />
-              <img className="carousel-img" src={carouselimg} />
+              {items.map((item, i) => (
+                <CarousalComponent key={i} item={item} />
+              ))}
             </Carousel>
           </Grid>
         </Grid>
         <Grid container justifyContent="center">
-          <button className="btn-advantages" onClick={() => scrollToTop()}>
+          <button className="btn-advantages" onClick={() => setOpen(true)}>
             {t("Early access to courses")}
           </button>
           <Link
@@ -85,5 +109,26 @@ const UserLandingPageAdvantages = () => {
     </>
   );
 };
+
+function CarousalTextComponent({ item }) {
+  return (
+    <div className="textmainDiv">
+      <div>
+        <p className="list-text "> {item.text}</p>
+        <p className="list-text "> {item.text}</p>
+        <p className="list-text "> {item.text}</p>
+        <p className="list-text "> {item.text}</p>
+      </div>
+    </div>
+  );
+}
+
+function CarousalComponent({ item }) {
+  return (
+    <>
+      <img className="carousel-img" src={item.img} />
+    </>
+  );
+}
 
 export default UserLandingPageAdvantages;
