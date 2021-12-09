@@ -13,24 +13,8 @@ export default function Body() {
     document.addEventListener("onload", () => {
       var element = document.getElementsByClassName("landingPage_heading");
       element.classList.add("myStyles");
-      // if (element && element.length > 0) {
-      //   for (let index = 0; index < element.length; index++) {
-      //   }
-      // }
     });
   }, [window.onload]);
-
-  // React.useEffect(() => {
-  //   const reRender = () => {
-  //     const loads = document.getElementById("landingPage_heading");
-  //     loads.classList.add("myStyles");
-  //   };
-  //   window.onload = function () {
-  //     const loads = document.getElementById("landingPage_heading");
-  //     loads.addEventListener("click", reRender);
-  //   };
-  //   // return document.getElementById("myBtn").removeEventListener("click", reRender);
-  // }, []);
 
   return (
     <>
