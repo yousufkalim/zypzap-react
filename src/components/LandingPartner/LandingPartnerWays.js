@@ -15,6 +15,25 @@ import { useTranslation, Trans } from "react-i18next";
 const LandingPartnerWays = () => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
+  React.useEffect(() => {
+    document.addEventListener("scroll", () => {
+      if (window.scrollY > 500 && window.scrollY < 700) {
+        var element = document.getElementsByClassName("landing-partner-arrow");
+        if (element && element.length > 0) {
+          for (let index = 0; index < element.length; index++) {
+            element[index].classList.add("myStyle");
+          }
+        }
+      } else {
+        var element = document.getElementsByClassName("landing-partner-arrow");
+        if (element && element.length > 0) {
+          for (let index = 0; index < element.length; index++) {
+            element[index].classList.remove("myStyle");
+          }
+        }
+      }
+    });
+  }, [window.scrollY]);
   return (
     <>
       <Box className="box-user">
@@ -63,11 +82,14 @@ const LandingPartnerWays = () => {
             </span>
           </div>
         </Grid>
+        {/* arrows */}
         <Grid sx={{ textAlign: "center" }} item xs={12} md={4}>
-          <img
-            className="landing-partner-arrow"
-            src={landingpartnerarrowlogo}
-          />
+          <div className="testArrow">
+            <img
+              className="landing-partner-arrow"
+              src={landingpartnerarrowlogo}
+            />
+          </div>
         </Grid>
         <Grid sx={{ textAlign: "center" }} item xs={12} md={4}>
           <img

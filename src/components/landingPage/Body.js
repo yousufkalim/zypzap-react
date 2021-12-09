@@ -10,6 +10,28 @@ export default function Body() {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
+  console.log("t is ", language);
+  React.useEffect(() => {
+    document.addEventListener("scroll", () => {
+      if (window.scrollY > -5 && window.scrollY < 200) {
+        var element = document.getElementsByClassName("landingPage_heading");
+        if (element && element.length > 0) {
+          for (let index = 0; index < element.length; index++) {
+            element[index].classList.add("myStyles");
+          }
+        }
+      } else {
+        var element = document.getElementsByClassName("landingPage_heading");
+        if (element && element.length > 0) {
+          for (let index = 0; index < element.length; index++) {
+            element[index].classList.remove("myStyles");
+          }
+        }
+      }
+    });
+  }, [window.scrollY]);
+
+
   return (
     <>
       {open && <SubscriptionPopup open={open} setOpen={setOpen} />}
@@ -19,16 +41,20 @@ export default function Body() {
         </div>
         <div
           className={`${
-            language == "fr" ? "frlandingpagetextonImg" : "landingpagetextonImg"
+            language == "fr"
+              ? "frlandingpagetextonImg "
+              : "landingpagetextonImg"
           }`}
         >
-          <h1 className="landingpagetextimgH1">
-            {t("Welcome to the")}
-            <br className="landingBr" /> {t("Gamer's eLearning 3.0")}
-          </h1>
-          <p className="landingpagetextonImgP">
-            {t("Join our Online Courses community and reach your goal")}
-          </p>
+          <div className="landingPage_heading ">
+            <h1 className="landingpagetextimgH1 myStyles ">
+              {t("Welcome to the")}
+              <br className="landingBr" /> {t("Gamer's eLearning 3.0")}
+            </h1>
+            <p className="myStyles ">
+              {t("Join our Online Courses community and reach your goal")}
+            </p>
+          </div>
           <div className="landingbuttondiv">
             <button
               className="landingpagetextonImgbutton"

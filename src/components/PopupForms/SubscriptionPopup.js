@@ -36,17 +36,17 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
     <>
       <Dialog className="form-box" open={open} onClose={handleClose}>
         <div className="login_form">
-          <div className="form_container">
+          <div className="subs_container">
             <div className="form-header-block">
-              <h1>{t("Sign up here")}</h1>
-              <ClearIcon className="clearIcon" onClick={handleClose} />
+              <h1 className="subH1">{t("Sign up here")}</h1>
+              <ClearIcon className="subsclearIcon" onClick={handleClose} />
             </div>
             <form onSubmit={submitForm}>
               <label className="email-label" htmlFor="email">
                 {t("Email")}
               </label>
               <input
-                className="inputForm"
+                className="subsinputForm"
                 type="email"
                 placeholder="e.g.moinheykal@gmail.com"
                 value={email}
@@ -55,7 +55,11 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
                 required
               />
               <div
-                style={{ display: "-webkit-inline-box", margin: "20px 0px" }}
+                style={{
+                  display: "-webkit-inline-box",
+                  margin: "10px 0px 10px 0",
+                  fontSize: "16px",
+                }}
               >
                 <input
                   onChange={getCheckboxValues}
@@ -64,10 +68,17 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
                   className="popup-checkbox"
                   type="checkbox"
                 />
-                <label>{t("Register as a beta tester")}</label>
+                <label className="subsLabel">
+                  {t("Register as a beta tester")}
+                </label>
               </div>
               <div
-                style={{ display: "-webkit-inline-box", margin: "10px 0px" }}
+                style={{
+                  display: "-webkit-inline-box",
+                  margin: "0px 0px 30px 0",
+                  paddingTop: "5px",
+                  fontSize: "16px",
+                }}
               >
                 <input
                   onChange={getCheckboxValues}
@@ -76,15 +87,15 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
                   className="popup-checkbox"
                   type="checkbox"
                 />
-                <label>
-                  {t("I agree passtotrip")}
-                  <span className="privacy-policy-text">
+                <label className="subsLabel">
+                  {t("I agree passtotrip ")}
+                  <span className=" privacy-policy-text">
                     {t("Privacy Policy")}{" "}
                   </span>{" "}
                   {t("and agree to receive upcoming passtotrip updates")}
                 </label>
               </div>
-              <button className="formbtn" type="submit">
+              <button className="subsformbtn" type="submit">
                 {t("Subscribe")}
               </button>
             </form>

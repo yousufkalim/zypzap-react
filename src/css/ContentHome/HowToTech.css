@@ -92,7 +92,7 @@
   }
 }
 /* for tablet */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+@media only screen and (min-device-width: 821px) and (max-device-width: 1024px) {
   .getStartedHeading2 {
     font-size: 40px;
     width: 100%;
@@ -133,7 +133,7 @@
   }
 }
 /* for mobile */
-@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 820px) {
   .getStartedHeading2 {
     font-size: 22px;
     width: 100%;
@@ -143,10 +143,9 @@
     margin-left: 0px;
   }
   .Getstarted22 {
-    /* width: 100%; */
     width: 280px;
-    margin-top: 62px;
-    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 20px;
   }
   .StepMain2 {
     position: inherit;
@@ -158,11 +157,11 @@
     width: 100%;
   }
   .Stepperline2 {
-    height: 157px;
     width: 1px;
     background-color: #fff;
-    margin-top: 5px;
+    margin-top: 4px;
     margin-left: 4px;
+    height: 126px !important;
   }
   .Steppera {
     text-align: left;
@@ -174,11 +173,8 @@
     border-radius: 50%;
     border: 1px solid;
     height: 25px;
-    width: 30px;
+    width: 28px;
     padding-left: 8px;
     padding-top: 1px;
-  }
-  .Stepperline2 {
-    height: 126px !important;
   }
 }

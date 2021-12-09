@@ -46,8 +46,6 @@
   margin-bottom: 17px;
   font-weight: bolder;
 }
-.languagebuttondiv {
-}
 .languageButton {
   margin-top: 25px;
   padding: 10px 15px 10px 35px;
@@ -75,10 +73,24 @@
 
 /* for mobile */
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .footerLogo {
+    margin-right: 0px;
+  }
+
+  .footerDiv {
+    margin-top: 20px;
+  }
+  .infotable1 {
+    padding-left: 0px;
+  }
+  .footer_container {
+    padding: 20px 0 0 0 !important;
+  }
   .sign {
     position: relative;
     top: 60px;
     opacity: 0.7;
+    padding: 0 33px 0 0;
   }
   .footerText {
     margin-left: 0px;
@@ -89,12 +101,28 @@
     font-size: 12px;
   }
   .isocialcondiv {
-    margin-left: 0px;
+    margin-left: -30px;
+  }
+  .footer_menu {
+    padding: 20px 0 0 0 !important;
+  }
+  .footer_m2 {
+    padding: 20px 0 0 0 !important;
+  }
+  .footer_language {
+    padding: 0 0 0 0 !important;
   }
   .f1div {
     padding: 0px 0px 15px 0px;
   }
   .f2div {
-    padding: 0px 0px 15px 0px;
+    padding: 0px 31px 15px 0px;
+  }
+  .languagebuttondiv {
+    margin-left: -46px;
+  }
+  .divforsign {
+    position: relative;
+    min-height: 118px;
   }
 }

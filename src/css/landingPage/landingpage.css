@@ -53,9 +53,38 @@
   cursor: pointer;
   border: 1px solid #939393;
 }
+.myStyleBtn {
+  animation: MovesBtn 1.8s ease-in;
+}
+@keyframes MovesBtn {
+  from {
+    margin-left: -100px;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    bottom: 0;
+  }
+}
 .landingpagetextonImgbutton:hover {
   background-color: #e7411b;
   border: none;
+}
+.landingPage_heading {
+  position: relative;
+}
+.myStyles {
+  animation: MovesLeftToRight 1.8s ease-in;
+}
+@keyframes MovesLeftToRight {
+  from {
+    margin-left: -100px;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    bottom: 0;
+  }
 }
 
 /* What we offer */
@@ -128,6 +157,20 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 12px;
+}
+.myStyleWhat {
+  animation: MovesZoom 0.8s ease-in;
+  position: relative;
+}
+@keyframes MovesZoom {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 /* for big screens */
 @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {

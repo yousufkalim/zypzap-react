@@ -1,127 +1,126 @@
-.dashboard-container{
-    width: 100%;
-    color: #fff;
+.dashboard-container {
+  width: 100%;
+  color: #fff;
 }
 /* sidebar css */
-.dashboard-sidebar{
-    width: 15%;
-    background-color: #131328;
-    padding-top: 27px;
-    display: flex;
-    flex-direction: column;
+.dashboard-sidebar {
+  width: 15%;
+  background-color: #131328;
+  padding-top: 27px;
+  display: flex;
+  flex-direction: column;
 }
 .sidebar-course-opt {
-    display: flex;
-    cursor: pointer;
-    padding: 2px 0px 5px 10px;
+  display: flex;
+  cursor: pointer;
+  padding: 10px 0px 10px 10px;
 }
-.sidebar-course-opt > * { 
-    margin: 0% 2%;
-   }
-.img-text-container{
-    display: flex;
+.sidebar-course-opt > * {
+  margin: 0% 2%;
 }
-.img-text-container img{
-    margin-right: 7px;
-    height: 10px;
-    margin-top: 5px;
-    width: 12px;
+.img-text-container {
+  display: flex;
 }
-.dashboard{
-    border-right: 3px solid #fff;
-    background: #1E1E38;
+.img-text-container img {
+  margin-right: 7px;
+  height: 10px;
+  margin-top: 5px;
+  width: 12px;
+}
+.dashboard {
+  border-right: 3px solid #fff;
+  background: #1e1e38;
 }
 
 /* upload courses css */
-.upload-courses-heading{
-    width: 92%;
-    margin: auto;
-    padding: 6% 0% 2% 0%;
-    font-size: 13px;
-    opacity: 0.8;
+.upload-courses-heading {
+  width: 92%;
+  margin: auto;
+  padding: 6% 0% 2% 0%;
+  font-size: 13px;
+  opacity: 0.8;
 }
-.upload-courses-container{
-width: 80%;
-padding: 35px 20px;
+.upload-courses-container {
+  width: 80%;
+  padding: 35px 20px;
 }
-.create-course-img-text{
-    display: flex;
-    justify-content: space-between;
-    padding: 30px 20px;
-    width: 90%;
-    margin: auto;
+.create-course-img-text {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 20px;
+  width: 90%;
+  margin: auto;
 }
 .cardGrid-container {
-    width: 95% !important;
-    margin: auto;
+  width: 95% !important;
+  margin: auto;
 }
 .cardGrid-dashboard {
-    background: linear-gradient(
-      90.12deg,
-      #202342 22.77%,
-      rgba(38, 38, 72, 0) 129.88%
-    ) !important;
-    border-radius: 50px !important;
-    width: 98% !important;
-    margin: auto !important;
-  }
-.create-course-container{
-    border: 1px solid gray;
-    width: 92%;
-    margin: auto;
-    border-radius: 2px;
+  background: linear-gradient(
+    90.12deg,
+    #202342 22.77%,
+    rgba(38, 38, 72, 0) 129.88%
+  ) !important;
+  border-radius: 50px !important;
+  width: 98% !important;
+  margin: auto !important;
 }
-.create-course-btn-text{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.create-course-container {
+  border: 1px solid gray;
+  width: 92%;
+  margin: auto;
+  border-radius: 2px;
 }
-.create-course-btn-text > *{
-padding: 20px 0px;
+.create-course-btn-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.create-course-btn{
-    padding: 10px 25px;
-     background-color:#e7411b;
-     border: none;
-     color: #fff;
-     font-weight: 900;
-     font-size: 16px;
+.create-course-btn-text > * {
+  padding: 20px 0px;
 }
-.img-create-course{
-    height: 180px;
+.create-course-btn {
+  padding: 10px 25px;
+  background-color: #e7411b;
+  border: none;
+  color: #fff;
+  font-weight: 900;
+  font-size: 16px;
 }
-
+.img-create-course {
+  height: 180px;
+}
 
 @media all and (max-width: 992px) {
-    .dashboard-sidebar{
-        width: 25%;
-    }
-    .upload-courses-container{
-        width: 75%;
-        }
+  .dashboard-sidebar {
+    width: 25%;
+  }
+  .upload-courses-container {
+    width: 75%;
+  }
 }
 
-@media all and (max-width: 600px)  {
-    .create-course-img-text{
-        display: flex;
-        flex-direction: column;
-    }
-    .dashboard-container {
-        width: 100%;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-    }
-    .upload-courses-container {
-        width: 100%;
-    }
-    .create-course-container {
-        width: auto;
-    }
-    .dashboard-sidebar {
-        display: flex;
-        justify-content: start;
-        width: 100%;
-    }
+@media all and (max-width: 600px) {
+  .create-course-img-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .dashboard-container {
+    width: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .upload-courses-container {
+    width: 100%;
+  }
+  .create-course-container {
+    width: auto;
+  }
+  .dashboard-sidebar {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+  }
 }
