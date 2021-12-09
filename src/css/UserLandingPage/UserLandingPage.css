@@ -105,13 +105,13 @@
 .logo-img {
   height: 30px;
   z-index: 1;
+  cursor: pointer;
 }
 .logo-text-container {
   display: flex;
-  cursor: pointer;
 }
 .btn-content-creator {
-  padding: 8px;
+  padding: 8px 18px;
   border: 1px solid grey;
   border-radius: 25px;
   background-color: rgb(14, 15, 30);
@@ -171,6 +171,9 @@
   width: 350px;
   box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
 }
+.flex-form2 {
+  width: 420px;
+}
 
 .flex-form > * {
   border: 0;
@@ -208,7 +211,7 @@
 
 .box-user {
   width: 80%;
-  margin: 0px auto;
+  margin: 30px auto;
   color: #fff;
 }
 .advantage-grid-border {
@@ -216,7 +219,7 @@
   background-color: aquamarine;
 }
 .btn-advantages {
-  padding: 10px 10px;
+  padding: 10px 20px;
   background-color: rgb(14, 15, 30);
   color: #fff;
   border: 1px solid #202342;
@@ -237,13 +240,22 @@
   padding-top: 20px;
   height: 467px;
 }
+.textmainDiv {
+  display: flex;
+  height: 400px;
+  align-items: center;
+}
+.textmainDiv {
+  height: 467px;
+}
 
 .list-text {
   background-color: rgb(14, 15, 30);
   border-radius: 25px;
-  padding: 8px 22px;
-  font-size: 15px !important;
-  line-height: 25px;
+  padding: 20px 20px;
+  font-size: 18px !important;
+  line-height: 20px;
+  font-weight: 900;
 }
 .list-text:hover {
   background: linear-gradient(
@@ -251,8 +263,7 @@
     #202342 22.77%,
     rgba(38, 38, 72, 0) 129.88%
   );
-  border-radius: 10px;
-  padding: 8px 22px;
+  border-radius: 15px;
 }
 /* UserLandingPage community section starts here */
 .community {
@@ -382,6 +393,11 @@
   .frUserLandingPageAboutTextImgH1 {
     font-size: 3rem;
   }
+  .list-text {
+    padding: 30px 30px 30px 30px;
+    font-size: 20px !important;
+    line-height: 20px;
+  }
 }
 /* Media queries */
 @media all and (max-width: 800px) {
@@ -436,7 +452,7 @@
     width: 50%;
   }
   .btn-content-creator {
-    padding: 8px;
+    padding: 8px 12px;
     border-radius: 25px;
     font-size: 9px;
   }
@@ -459,5 +475,35 @@
   }
   .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
     width: 80% !important;
+  }
+}
+
+/* test for scrolling */
+
+.infinite-scroll-loop {
+}
+.infinite-scroll-loop:outer {
+  position: relative;
+}
+.infinite-scroll-loop::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    #fff 0%,
+    rgba(255, 255, 255, 0) calc(15%),
+    rgba(255, 255, 255, 0) calc(85%),
+    #fff 100%
+  );
+  pointer-events: none;
+}
+.infinite-scroll-loop:inner {
+  overflow-y: scroll;
+  scrollbar-width: none;
+  --webkit-scrollbar {
+    display: none;
   }
 }

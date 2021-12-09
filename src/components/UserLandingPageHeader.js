@@ -31,14 +31,15 @@ const HeaderUserLandingPage = () => {
               component="div"
               sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
             >
-              <div
-                className="logo-text-container"
-                onClick={() => {
-                  history.push("/");
-                  window.location.reload();
-                }}
-              >
-                <img className="logo-img" src={logo} />
+              <div className="logo-text-container">
+                <img
+                  className="logo-img"
+                  src={logo}
+                  onClick={() => {
+                    history.push("/");
+                    window.location.reload();
+                  }}
+                />
               </div>
             </Typography>
             <Link

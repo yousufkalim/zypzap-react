@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import gamerImg from "../../assets/img/gamerimg.png";
 import contentImg from "../../assets/img/contentimg.png";
 import { useTranslation, Trans } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function WhatWeOffer() {
   const { t, i18n } = useTranslation();
@@ -26,9 +27,14 @@ export default function WhatWeOffer() {
                 "It is a long established fact that a reader will be distracted by the readable content of a page this is whe"
               )}
             </p>
-            <button className="whatweofferButton">
-              {t("Early access to courses")}
-            </button>
+            <Link
+              to="/userlanding"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <button className="whatweofferButton">
+                {t("Early access to courses")}
+              </button>
+            </Link>
           </div>
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -40,9 +46,14 @@ export default function WhatWeOffer() {
                 "It is a long established fact that a reader will be distracted by the readable content of a page this is whe"
               )}
             </p>
-            <button className="whatweofferButton">
-              {t("Early access to courses")}
-            </button>
+            <Link
+              to="/contentcreator"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <button className="whatweofferButton">
+                {t("Early access to courses")}
+              </button>
+            </Link>
           </div>
         </Grid>
       </Grid>

@@ -18,7 +18,7 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
       [e.target.name]: e.target.checked,
     });
   };
-  const getEmail = (e) => {
+  const onChange = (e) => {
     setEmail(e.target.value);
   };
   const handleClose = () => {
@@ -26,8 +26,8 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
   };
   const submitForm = (event) => {
     event.preventDefault();
-    if (values.checkBoxOne === false || values.checkBoxTwo === false) {
-      return toast.error("Please fill the checkboxes!");
+    if (values.checkBoxTwo === false) {
+      return toast.error("Please checked the checkbox!");
     } else if (values.checkBoxOne === true || values.checkBoxTwo === true)
       setEmail("");
     setOpen(false);
@@ -50,7 +50,7 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
                 type="email"
                 placeholder="e.g.moinheykal@gmail.com"
                 value={email}
-                onChange={getEmail}
+                onChange={onChange}
                 name="email"
                 required
               />

@@ -4,10 +4,11 @@ import Header from "../components/Header";
 import Footer from "../components/blog/BlogFooter";
 import Body from "../components/Body";
 
-
 export default function Home() {
   const [openlogin, setOpenLogin] = React.useState(false);
   const [opensignup, setOpenSignup] = React.useState(false);
+  const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] =
+    React.useState(false);
   return (
     <div
       style={{
@@ -22,6 +23,8 @@ export default function Home() {
         setOpenLogin={setOpenLogin}
         opensignup={opensignup}
         setOpenSignup={setOpenSignup}
+        openBecomeCreatorPopup={openBecomeCreatorPopup}
+        setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
       />
       <Body
         openlogin={openlogin}

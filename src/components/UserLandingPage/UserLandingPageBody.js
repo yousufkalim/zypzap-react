@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 const UserLandingPageBody = () => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
+  console.log("language ", language);
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
 
@@ -44,7 +45,12 @@ const UserLandingPageBody = () => {
           <p className="user-landing-page-text-on-imgP">
             {t("Join our Online Courses community and become a pro game")}
           </p>
-          <form className="flex-form" onSubmit={postEmail}>
+          <form
+            className={`${
+              language == "fr" ? "flex-form" : "flex-form flex-form2"
+            }`}
+            onSubmit={postEmail}
+          >
             <input
               className="user-landing-page-email-input"
               value={email}
