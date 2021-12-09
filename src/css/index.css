@@ -26,11 +26,12 @@
 @import url("./LandingPartner/LandingPartner.css");
 @import url("./SearchResult/SearchResult.css");
 @import url("./dashboard/dashboard.css");
-
 @import url("./form/CreateForm.css");
 @import url("./form/Login.css");
 @import url("./form/LoginDetail.css");
 @import url("./form/OptionPopup.css");
+@import url("./form/SubscriptionPopup.css");
+@import url("./dashboard/earning.css");
 
 /* Defaults */
 * {

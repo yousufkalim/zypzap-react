@@ -8,41 +8,65 @@ import { useTranslation, Trans } from "react-i18next";
 export default function WhatWeOffer() {
   const { t, i18n } = useTranslation();
 
+  React.useEffect(() => {
+    document.addEventListener("scroll", () => {
+      if (window.scrollY > 200 && window.scrollY < 700) {
+        var element = document.getElementsByClassName("offerdzooming ");
+        if (element && element.length > 0) {
+          for (let index = 0; index < element.length; index++) {
+            element[index].classList.add("myStyleWhat");
+          }
+        }
+      } else {
+        var element = document.getElementsByClassName("offerdzooming");
+        if (element && element.length > 0) {
+          for (let index = 0; index < element.length; index++) {
+            element[index].classList.remove("myStyleWhat");
+          }
+        }
+      }
+    });
+  }, [window.scrollY]);
+
   return (
     <>
-      <div className="whatweoffercontainer">
+      <div className="whatweoffercontainer ">
         <div className="offerh1">
           <h1>{t("What we offer")}</h1>
           <div className="offerdashline"></div>
         </div>
       </div>
-      <Grid container spacing={2} className="offerGrid">
+      <Grid container spacing={2} className="offerGrid ">
         <Grid item xs={12} sm={6}>
           <div className="offerdivleft">
-            <img src={gamerImg} className="offerimg1" alt="img" />
-            <h1 className="offerheading">{t("I am Gamer")}</h1>
-            <p className="offerText">
-              {t(
-                "It is a long established fact that a reader will be distracted by the readable content of a page this is whe"
-              )}
-            </p>
-            <button className="whatweofferButton">
-              {t("Early access to courses")}
-            </button>
+            <div className="offerdzooming ">
+              <img src={gamerImg} className="offerimg1 " alt="img" />
+              <h1 className="offerheading">{t("I am Gamer")}</h1>
+              <p className="offerText">
+                {t(
+                  "It is a long established fact that a reader will be distracted by the readable content of a page this is whe"
+                )}
+              </p>
+              <button className="whatweofferButton">
+                {t("Early access to courses")}
+              </button>
+            </div>
           </div>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <div className="offerdivright">
-            <img src={contentImg} className="offerimg2" alt="img" />
-            <h1 className="offerheading">{t("I AM Content Creator")}</h1>
-            <p className="offerText">
-              {t(
-                "It is a long established fact that a reader will be distracted by the readable content of a page this is whe"
-              )}
-            </p>
-            <button className="whatweofferButton">
-              {t("Early access to courses")}
-            </button>
+          <div className="offerdivright  ">
+            <div className="offerdzooming ">
+              <img src={contentImg} className="offerimg2 " alt="img" />
+              <h1 className="offerheading">{t("I AM Content Creator")}</h1>
+              <p className="offerText">
+                {t(
+                  "It is a long established fact that a reader will be distracted by the readable content of a page this is whe"
+                )}
+              </p>
+              <button className="whatweofferButton">
+                {t("Early access to courses")}
+              </button>
+            </div>
           </div>
         </Grid>
       </Grid>

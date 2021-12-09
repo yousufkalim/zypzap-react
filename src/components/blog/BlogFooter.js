@@ -23,7 +23,7 @@ export default function Footer() {
   return (
     <div className="footerDiv">
       <Grid container spacing={4}>
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={3} className="footer_container">
           <div className="f1div">
             <img className="footerLogo " src={FooterLogo} />
             <div>
@@ -62,7 +62,7 @@ export default function Footer() {
             </div>
           </div>
         </Grid>
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={3} className="footer_menu">
           <div className="f2div">
             <Link
               to="/about"
@@ -87,7 +87,7 @@ export default function Footer() {
           </div>
         </Grid>
 
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={3} className="footer_m2">
           <div className="f2div">
             <p className="pmargin"> Help and Support</p>
             <Link to="/blog" style={{ color: "white", textDecoration: "none" }}>
@@ -99,7 +99,7 @@ export default function Footer() {
           </div>
         </Grid>
 
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={3} className="footer_language">
           <div className="languagebuttondiv">
             <img src={Globe} className="languageIcon" />
             <button

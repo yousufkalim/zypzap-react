@@ -79,7 +79,7 @@ const ContentCreator = () => {
         </div>
       </div>
 
-      <div className="partner_container">
+      <div className="partner_container" style={{ display: "none" }}>
         <div className=" our_partners" style={{ color: "#fff" }}>
           <div className="heading_container">
             <h1 className=" partners_hading">{t("Our Partners")}</h1>

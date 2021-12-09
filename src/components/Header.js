@@ -175,7 +175,7 @@ export default function PrimarySearchAppBar({
           aria-label="show 4 new mails"
           color="inherit"
         ></IconButton>
-        <p>Switch to Learner</p>
+        <p onClick={showBecomePopup}>Become a Creater</p>
       </MenuItem>
     </Menu>
   );

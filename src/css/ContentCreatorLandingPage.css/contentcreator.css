@@ -147,10 +147,10 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
-.AvantBTN:hover {
+/* .AvantBTN:hover {
   background: none;
   border: 1px solid #939393;
-}
+} */
 /* ////////////// monitization //////////////// */
 .monitization {
   width: 95%;
@@ -247,10 +247,10 @@ body {
   cursor: pointer;
   opacity: 0.8;
 }
-.moniBTN:hover {
+/* .moniBTN:hover {
   background: none;
   border: 1px solid #939393;
-}
+} */
 /* //////// OurBlog ///////////  */
 .css-g1vybv-MuiPaper-root-MuiCard-root {
   background: none !important;
