@@ -9,12 +9,32 @@ export default function Body() {
   const { language } = i18n;
   console.log("t is ", language);
 
+  // React.useEffect(() => {
+  //   document.addEventListener("onload", () => {
+  //     var element = document.getElementsByClassName("landingPage_heading");
+  //     element.classList.add("myStyles");
+  //   });
+  // }, [window.onload]);
+
   React.useEffect(() => {
-    document.addEventListener("onload", () => {
-      var element = document.getElementsByClassName("landingPage_heading");
-      element.classList.add("myStyles");
+    document.addEventListener("scroll", () => {
+      if (window.scrollY > -5 && window.scrollY < 200) {
+        var element = document.getElementsByClassName("landingPage_heading");
+        if (element && element.length > 0) {
+          for (let index = 0; index < element.length; index++) {
+            element[index].classList.add("myStyles");
+          }
+        }
+      } else {
+        var element = document.getElementsByClassName("landingPage_heading");
+        if (element && element.length > 0) {
+          for (let index = 0; index < element.length; index++) {
+            element[index].classList.remove("myStyles");
+          }
+        }
+      }
     });
-  }, [window.onload]);
+  }, [window.scrollY]);
 
   return (
     <>
