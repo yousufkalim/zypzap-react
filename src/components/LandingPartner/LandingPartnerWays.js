@@ -33,7 +33,7 @@ const LandingPartnerWays = () => {
         }
       }
     });
-  }, []);
+  }, [window.scrollY]);
   return (
     <>
       <Box className="box-user">
