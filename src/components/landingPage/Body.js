@@ -8,14 +8,6 @@ export default function Body() {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
   console.log("t is ", language);
-
-  // React.useEffect(() => {
-  //   document.addEventListener("onload", () => {
-  //     var element = document.getElementsByClassName("landingPage_heading");
-  //     element.classList.add("myStyles");
-  //   });
-  // }, [window.onload]);
-
   React.useEffect(() => {
     document.addEventListener("scroll", () => {
       if (window.scrollY > -5 && window.scrollY < 200) {
