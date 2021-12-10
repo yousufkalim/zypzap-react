@@ -583,4 +583,10 @@ body {
     margin: auto;
     margin-top: 22px;
   }
+  .creator_P {
+    font-size: 15px;
+    text-align: left;
+    padding: 2px 94px 0 26px;
+    opacity: 0.8;
+  }
 }
