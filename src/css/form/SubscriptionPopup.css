@@ -5,7 +5,7 @@
 }
 .subH1 {
   padding: 15px 0 30px 0px;
-  font-size: 24px !important;
+  font-size: 1.4rem !important;
   font-weight: 100;
 }
 .subsclearIcon {
@@ -19,15 +19,16 @@
   right: 46px;
 }
 .email-label {
-  font-size: 16px;
+  font-size: 13px;
   padding: 0px 0 10px 0 !important;
 }
 .subsLabel {
   opacity: 0.8;
   padding-bottom: 0 !important;
+  font-size: 13px;
 }
 .subsformbtn {
-  padding: 8px;
+  padding: 6px;
   border: none;
   background-color: #e7411b;
   color: white;
@@ -35,9 +36,9 @@
   border-radius: 2px;
   cursor: pointer;
   width: 100%;
-  font-size: 19px;
+  font-size: 15px;
   display: block;
-  margin-top: 18px;
+  margin-top: 8px;
   font-weight: inherit;
   margin-bottom: 20px;
 }
@@ -46,13 +47,13 @@
   margin-bottom: 0;
   margin-top: 5px;
   width: 100%;
-  height: 48px;
+  height: 40px;
   background: none;
   border: 2px solid #6c6464;
   border-radius: 3px;
-  color: #fff;
   font: inherit;
   color: currentColor;
+  font-size: 13px;
 }
 .popup-checkbox[type="checkbox"] {
   width: 15px !important;

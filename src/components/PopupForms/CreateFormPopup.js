@@ -97,7 +97,9 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
               <ClearIcon className="clearIcon2" onClick={handleClose} />
               <p className="create_pera">Let's get started</p>
               <form action="" autocomplete="off">
-                <label htmlFor="user">Username</label>
+                <label htmlFor="user" className="createLbl">
+                  Username
+                </label>
                 <input
                   autocomplete="false"
                   className="inputForm2 bldText3"
@@ -108,7 +110,9 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
                   name="username"
                   required
                 />
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email" className="createLbl">
+                  Email
+                </label>
                 <input
                   className="inputForm2 bldText2"
                   type="email"
@@ -119,7 +123,11 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
                   required
                 />
                 <br />
-                <label htmlFor="password" style={{ marginTop: "30px" }}>
+                <label
+                  htmlFor="password"
+                  style={{ marginTop: "30px" }}
+                  className="createLbl"
+                >
                   Password
                 </label>
                 <Input

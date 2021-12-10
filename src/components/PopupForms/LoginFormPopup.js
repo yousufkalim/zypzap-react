@@ -81,11 +81,13 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
       <Dialog open={open} onClose={handleClose}>
         <div className="login_form">
           <div className="form_container">
-            <h1>Login to your account</h1>
+            <h1 className="loginH1">Login to your account</h1>
             <ClearIcon className="clearIcon" onClick={handleClose} />
             <p className="login_pera">Welcome back</p>
             <form action="">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email" className="loginFH1">
+                Email
+              </label>
               <input
                 className="inputForm bldText"
                 type="email"
@@ -96,7 +98,11 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                 required
               />
               <br />
-              <label htmlFor="password" style={{ marginTop: "30px" }}>
+              <label
+                htmlFor="password"
+                style={{ marginTop: "30px" }}
+                className="loginFH1"
+              >
                 Password
               </label>
 
