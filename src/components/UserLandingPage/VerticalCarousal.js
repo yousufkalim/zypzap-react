@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import trendinglogo from "../../assets/img/trendinglogo.png";
-
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import cn from "classnames";
 
 const VerticalCarousel = ({ data }) => {
@@ -111,7 +111,7 @@ const VerticalCarousel = ({ data }) => {
             className="carousel-button next"
             onClick={() => handleClick("next")}
           >
-            Next
+            <KeyboardArrowDownIcon className="carousalDownArrow" />
           </button>
         </div>
       </section>

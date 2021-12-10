@@ -101,6 +101,12 @@ button {
 .trendingLogoText2 {
   margin: 15px 2px 2px 15px;
 }
+.carousalDownArrow {
+  color: white;
+  font-size: 19px;
+  height: 20px;
+  transform: scale(1.8) !important;
+}
 
 .carousel-item.visible {
   opacity: 1;
