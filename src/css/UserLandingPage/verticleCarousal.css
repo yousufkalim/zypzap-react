@@ -1,0 +1,113 @@
+button {
+  cursor: pointer;
+}
+
+.outer-container {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.thisactive {
+  text-align: left;
+  background-color: transparent !important;
+}
+.thisactive:hover {
+  background-color: #1b1e39 !important;
+}
+
+.outer-container > div {
+  flex: 1;
+}
+
+.outer-container .carousel-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.outer-container .carousel-wrapper p,
+.carousel-item {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--white);
+  line-height: 1.3;
+}
+
+.outer-container .content {
+  background: var(--white);
+}
+
+.leading-text {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 6px;
+}
+.carousel {
+  height: 100%;
+  display: flex;
+  flex: 5;
+  align-items: center;
+  color: var(--white);
+  text-align: left;
+}
+.carousel-button {
+  display: flex;
+  align-self: center;
+  padding: 10px;
+  max-width: 50px;
+  border-radius: 30px;
+  background: var(--orange);
+  border: 2px solid var(--white);
+}
+.carousel-button svg {
+  height: 26px;
+  width: 26px;
+}
+.carousel-button path {
+  fill: var(--white);
+}
+.slides {
+  align-self: flex-start;
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+}
+.carousel-inner {
+  position: relative;
+  height: 325px;
+}
+.carousel-item {
+  width: 100%;
+  position: absolute;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  top: 138px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.trendinglogoDiv2 {
+  display: flex;
+}
+.trendinglogoDiv2:hover {
+  background-color: #1b1e39;
+}
+.imglogocarosal {
+  margin-left: 20px;
+}
+.trendingLogoText2 {
+  margin: 15px 2px 2px 15px;
+}
+
+.carousel-item.visible {
+  opacity: 1;
+}
+.trendingLogoText1 {
+  margin-top: 15px;
+  margin-left: 13px;
+  font-size: 16px;
+  font-weight: 100;
+}
