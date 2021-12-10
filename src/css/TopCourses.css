@@ -61,6 +61,7 @@
 }
 .activeIndicator {
   color: red !important;
+  z-index: 1;
 }
 .Carousel-button-11 {
   display: none !important;
