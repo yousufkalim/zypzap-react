@@ -9,9 +9,9 @@
 .MuiInput-underline:before {
   border-bottom: none !important;
 }
-.form_container {
+/* .form_container {
   padding: 0px 10px;
-}
+} */
 .login_form {
   padding: 0px 10px 0px 10px;
   display: flex;
@@ -20,11 +20,11 @@
   margin: auto;
   flex-direction: column-reverse;
 }
-.email-label {
+/* .email-label {
   font-size: 1.5em;
   margin-bottom: 10px;
   opacity: 0.8;
-}
+} */
 .popup-checkbox[type="checkbox"] {
   background-color: #fd0000;
   width: 20px;
@@ -55,12 +55,12 @@
 .privacy-policy-text {
   color: #e7411b;
 }
-.form_container h1 {
+/* .form_container h1 {
   font-size: 2rem;
   font-weight: 400;
   margin: 20px 0px 40px 0px;
   display: inline-block;
-}
+} */
 .clearIcon {
   float: right;
   margin: 25px 5px;
@@ -68,11 +68,11 @@
   font-size: 2em !important;
 }
 
-.form_container label {
+/* .form_container label {
   display: block;
   padding-bottom: 5px;
   padding-right: 10px;
-}
+} */
 .form_container .inputForm {
   padding-left: 10px;
   margin-bottom: 10px;
@@ -353,8 +353,6 @@
   display: flex;
   margin: 5px;
   padding-bottom: 30px;
-}
-.optionsDiv {
 }
 .trendinglogoDiv {
   display: flex;

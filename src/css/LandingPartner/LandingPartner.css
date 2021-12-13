@@ -50,6 +50,10 @@
 .landing-partner-arrow {
   position: relative;
 }
+.myStylep {
+  color: red !important;
+}
+
 .myStyle {
   animation: MoveUpDown 1.5s ease-in-out;
   /* height: 600px; */

@@ -10,15 +10,16 @@
   border-bottom: none !important;
 }
 .login_form {
-  padding: 0px 25px;
+  width: 100%;
+  padding: 0px 30px;
   display: flex;
   background-color: #15162c;
   color: #fff;
   margin: auto;
   flex-direction: column-reverse;
 }
-.form_container h1 {
-  font-size: 1.6rem;
+.loginH1 {
+  font-size: 1.4rem;
   font-weight: 500;
   margin: 8px 0px;
   display: inline-block;
@@ -32,13 +33,14 @@
   width: 25px !important;
 }
 .login_pera {
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 40px;
   opacity: 0.8;
 }
-.form_container label {
+.loginFH1 {
   display: block;
   padding-bottom: 5px;
+  font-size: 13px;
 }
 .form_container .inputForm {
   padding-left: 10px;
@@ -68,19 +70,18 @@
   position: absolute;
   right: 35px;
   padding-top: 0px;
-  font-size: 15px;
+  font-size: 13px;
 }
 .form_container .formbtns {
-  padding: 9px;
+  padding: 7px;
   border: none;
   background-color: #e7411b;
   color: white;
-  font-weight: 900;
   font-family: "Poppins", sans-serif;
   border-radius: 2px;
   cursor: pointer;
   width: 100%;
-  font-size: 19px;
+  font-size: 16px;
   display: block;
   margin-top: 35px;
   font-weight: 500;

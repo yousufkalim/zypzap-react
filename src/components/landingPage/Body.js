@@ -31,7 +31,6 @@ export default function Body() {
     });
   }, [window.scrollY]);
 
-
   return (
     <>
       {open && <SubscriptionPopup open={open} setOpen={setOpen} />}
@@ -51,7 +50,7 @@ export default function Body() {
               {t("Welcome to the")}
               <br className="landingBr" /> {t("Gamer's eLearning 3.0")}
             </h1>
-            <p className="myStyles ">
+            <p className="myStylep ">
               {t("Join our Online Courses community and reach your goal")}
             </p>
           </div>
