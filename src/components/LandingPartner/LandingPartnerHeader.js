@@ -13,7 +13,7 @@ const LandingPartnerHeader = () => {
           className="landing-partner-header-img"
           src={landingpartnerheaderimg}
         />
-        <div class="slider container">
+        <div class=" container">
           <div class="landing-partner-text-container">
             <h1 className="landing-partner-header">{t("Partner with Us")}</h1>
             <p className="landing-partner-pargraph">

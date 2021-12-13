@@ -281,12 +281,12 @@
   margin: 0 auto !important;
   width: 80% !important;
   color: #fff;
+  padding: 45px 0 0 0;
 }
 .community-block {
   text-align: center;
   border-right: 1px solid #383838;
   padding: 0 20px;
-  margin-top: 45px;
 }
 .community-block-border {
   border: none;

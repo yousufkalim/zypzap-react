@@ -32,8 +32,10 @@
   border: 1px solid #202342;
   border-radius: 6px;
   margin: 20px 10px 0px 10px;
-  background-color: #e7411b;
   cursor: pointer;
+}
+.btn-landing-partner:hover {
+  background-color: #e7411b;
 }
 
 /* landing partner different company logos css */
