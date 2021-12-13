@@ -70,6 +70,7 @@ const UserLandingPageBody = () => {
       </div>
       <UserLandingPageAdvantages />
       <UserLandingPageCommunity />
+
       <UserLandingPageTrending />
       <UserLandingPageBlog />
     </>
