@@ -57,29 +57,13 @@ const UserLandingPageAdvantages = () => {
           <div className="offerdashline"> </div>
         </Box>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
-            <Carousel
-              autoPlay={true}
-              interval={3000}
-              activeIndicatorIconButtonProps={{
-                className: "activeIndicator",
-              }}
-              animation={"fade"}
-              duration={9000}
-              indicators={false}
-              stopAutoPlayOnHover={false}
-            >
-              {items.map((item, i) => (
-                <CarousalTextComponent key={i} item={item} />
-              ))}
-            </Carousel>
-          </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={12}>
             <Carousel
               autoPlay={true}
               interval={3000}
               navButtonsAlwaysVisible={false}
               activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
+              indicatorContainerProps={{ className: "carousalforRight" }}
               animation={"fade"}
               duration={900}
               stopAutoPlayOnHover={false}
@@ -110,23 +94,19 @@ const UserLandingPageAdvantages = () => {
   );
 };
 
-function CarousalTextComponent({ item }) {
-  return (
-    <div className="textmainDiv">
-      <div>
-        <p className="list-text "> {item.text}</p>
-        <p className="list-text "> {item.text}</p>
-        <p className="list-text "> {item.text}</p>
-        <p className="list-text "> {item.text}</p>
-      </div>
-    </div>
-  );
-}
-
 function CarousalComponent({ item }) {
   return (
     <>
-      <img className="carousel-img" src={item.img} />
+      <div className="carousalContainer">
+        <div className="carousalText">
+          <p className="list-text "> {item.text}</p>
+          <p className="list-text "> {item.text}</p>
+          <p className="list-text "> {item.text}</p>
+          <p className="list-text "> {item.text}</p>
+        </div>
+
+        <img className="carousel-img" src={item.img} />
+      </div>
     </>
   );
 }

@@ -234,11 +234,15 @@
   font-size: 15px !important;
   font-weight: 100 !important;
 }
+.carousalforRight {
+  width: 50% !important;
+  margin-left: auto !important;
+}
 
 .carousel-img {
-  width: 100%;
+  width: 50%;
   padding-top: 20px;
-  height: 467px;
+  height: 400px;
 }
 .textmainDiv {
   display: flex;
@@ -264,6 +268,13 @@
     rgba(38, 38, 72, 0) 129.88%
   );
   border-radius: 15px;
+}
+.carousalContainer {
+  display: flex;
+  align-items: center;
+}
+.carousalText {
+  width: 100%;
 }
 /* UserLandingPage community section starts here */
 .community {
@@ -385,6 +396,9 @@
 }
 /* for big screens */
 @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+  .carousalText {
+    width: 50%;
+  }
   .trendingDiv {
     width: 85%;
   }
