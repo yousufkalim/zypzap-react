@@ -128,7 +128,7 @@
   width: 100%;
 }
 .user-landingpage-container {
-  margin: 5px 0px 40px 0px;
+  margin: 5px 0px 0px 0px;
   position: relative;
   color: white;
 }
@@ -139,8 +139,8 @@
 }
 .user-landing-page-text-on-img {
   position: absolute;
-  top: 38%;
-  left: 34%;
+  top: 40%;
+  left: 30.7%;
   transform: translate(-50%, -50%);
   width: 47%;
 }
@@ -224,7 +224,7 @@
   color: #fff;
   border: 1px solid #202342;
   border-radius: 6px;
-  margin: 30px 10px 0px 10px;
+  margin: 20px 12px 27px 98px;
 }
 .btn-advantages:hover {
   background-color: #e7411b;
@@ -286,6 +286,7 @@
   text-align: center;
   border-right: 1px solid #383838;
   padding: 0 20px;
+  margin-top: 45px;
 }
 .community-block-border {
   border: none;
@@ -401,9 +402,10 @@
   }
   .trendingDiv {
     width: 85%;
+    margin-bottom: 60px;
   }
   .frUserLandingPageAboutTextImgH1 {
-    font-size: 3rem;
+    font-size: 2.4rem;
   }
   .list-text {
     padding: 30px 30px 30px 30px;
