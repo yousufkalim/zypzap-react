@@ -38,6 +38,10 @@
   display: flex;
   margin-bottom: 30px;
 }
+.Stepper1 {
+  display: flex;
+  margin-bottom: 30px;
+}
 .Steppertitle1 {
   border-radius: 50%;
   border: 1px solid;
@@ -51,6 +55,7 @@
   margin-top: 5px;
   margin-left: 11px;
 }
+
 .Stepperdisc {
   padding: 0 0 0 20px;
   font-size: 14px;
@@ -80,10 +85,18 @@
   }
   .Stepperdisc {
     font-size: 20px;
+    width: 87%;
   }
   .Steppertitle1 {
     border-radius: 50%;
     border: 1px solid;
+  }
+  .Stepperline0 {
+    height: 55px !important;
+    width: 1px;
+    background-color: #fff;
+    margin-top: 5px;
+    margin-left: 11px;
   }
 }
 

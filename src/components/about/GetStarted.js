@@ -30,7 +30,7 @@ export default function GetStarted() {
                 </div>
                 <div className="Stepper1">
                   <div className="Steppertitle1">
-                    2<div className="Stepperline"></div>
+                    2<div className="Stepperline0"></div>
                   </div>
                   <p className="Stepperdisc">
                     Select Account (User & Content Creater)
