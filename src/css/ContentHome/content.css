@@ -53,15 +53,15 @@
   }
   .textonImgcontent {
     position: absolute;
-    top: -4%;
-    padding-left: 7%;
+    top: 0%;
+    padding-left: 13%;
   }
   .textonImgcontent {
     left: 20%;
   }
   .textH1 {
     font-weight: 900;
-    font-size: 3em;
+    font-size: 3.5em;
   }
   .textonP {
     font-size: 18px;

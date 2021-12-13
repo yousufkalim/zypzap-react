@@ -20,7 +20,7 @@ body {
   text-align: center;
 }
 .creator_heading {
-  margin: 16px 0;
+  margin: 30px 0 -1px 0;
   font-weight: 900;
   font-size: 26px;
 }
@@ -102,7 +102,7 @@ body {
 .Avantages_container {
   width: 90%;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .content_pera {
   width: 100%;
