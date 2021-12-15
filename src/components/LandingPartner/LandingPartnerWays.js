@@ -17,7 +17,7 @@ const LandingPartnerWays = () => {
   const { language } = i18n;
   React.useEffect(() => {
     document.addEventListener("scroll", () => {
-      if (window.scrollY > 500 && window.scrollY < 700) {
+      if (window.scrollY > 400 && window.scrollY < 700) {
         var element = document.getElementsByClassName("landing-partner-arrow ");
         if (element && element.length > 0) {
           for (let index = 0; index < element.length; index++) {
@@ -34,10 +34,11 @@ const LandingPartnerWays = () => {
       }
     });
   }, [window.scrollY]);
+
   /////////////////
   React.useEffect(() => {
     document.addEventListener("scroll", () => {
-      if (window.scrollY > 500 && window.scrollY < 700) {
+      if (window.scrollY > 250 && window.scrollY < 700) {
         var elements = document.getElementsByClassName("community-block");
         if (elements && elements.length > 0) {
           for (let index = 0; index < elements.length; index++) {
@@ -56,6 +57,7 @@ const LandingPartnerWays = () => {
       }
     });
   }, [window.scrollY]);
+
   return (
     <>
       <Box className="box-user">

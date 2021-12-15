@@ -289,7 +289,7 @@
   padding: 0 20px;
 }
 .myStyleUserLanding {
-  animation: MovesZooms 0.8s;
+  animation: MovesZooms 2s;
   position: relative;
 }
 @keyframes MovesZooms {

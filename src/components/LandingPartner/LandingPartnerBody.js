@@ -1,16 +1,16 @@
-import React from 'react'
-import LandingPartnerHeader from './LandingPartnerHeader'
-import LandingPartnerLogos from '../LandingPartner/LandingPartnerLogos'
-import LandingPartnerWays from '../LandingPartner/LandingPartnerWays'
+import React from "react";
+import LandingPartnerHeader from "./LandingPartnerHeader";
+import LandingPartnerLogos from "../LandingPartner/LandingPartnerLogos";
+import LandingPartnerWays from "../LandingPartner/LandingPartnerWays";
 
 const LandingPartnerBody = () => {
   return (
     <>
       <LandingPartnerHeader />
-      <LandingPartnerLogos />
+      {/* <LandingPartnerLogos /> */}
       <LandingPartnerWays />
     </>
-  )
-}
+  );
+};
 
-export default LandingPartnerBody
+export default LandingPartnerBody;
