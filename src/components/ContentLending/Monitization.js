@@ -4,8 +4,8 @@ import Moni1 from "../../assets/icons/moni1.png";
 import Moni2 from "../../assets/icons/moni2.png";
 import Moni3 from "../../assets/icons/moni3.png";
 import Moni4 from "../../assets/icons/moni4.png";
-import Reddotline1 from "../../assets/icons/reddotline1.png";
-import Reddotline2 from "../../assets/icons/reddotline2.png";
+// import Reddotline1 from "../../assets/icons/reddotline1.png";
+// import Reddotline2 from "../../assets/icons/reddotline2.png";
 import SubscriptionPopup from "../PopupForms/SubscriptionPopup";
 import { useTranslation } from "react-i18next";
 const Monitization = () => {
@@ -28,7 +28,7 @@ const Monitization = () => {
             rowSpacing={1}
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           >
-            <Grid item xs={3}>
+            <Grid item xs={4}>
               <div className="moniBox">
                 <div className="moniImage">
                   <img className="moni_icon" src={Moni1} alt="" />
@@ -41,9 +41,9 @@ const Monitization = () => {
                 </div>
               </div>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={4}>
               <div className="lineImg">
-                <img src={Reddotline1} alt="" />
+                {/* <img src={Reddotline1} alt="" /> */}
               </div>
               <div className="moniBox">
                 <div className="moniImage">
@@ -57,7 +57,7 @@ const Monitization = () => {
                 </div>
               </div>
             </Grid>
-            <Grid item xs={3}>
+            {/* <Grid item xs={3}>
               <div className="moniBox">
                 <div className="moniImage">
                   <img className="moni_icon" src={Moni3} alt="" />
@@ -72,10 +72,10 @@ const Monitization = () => {
               <div className="lineIm2">
                 <img src={Reddotline2} alt="" />
               </div>
-            </Grid>
-            <Grid item xs={3}>
+            </Grid> */}
+            <Grid item xs={4}>
               <div className="lineImg3">
-                <img src={Reddotline1} alt="" />
+                {/* <img src={Reddotline1} alt="" /> */}
               </div>
               <div className="moniBox">
                 <div className="moniImage">

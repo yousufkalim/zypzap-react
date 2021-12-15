@@ -11,18 +11,11 @@ export default function WhatWeOffer() {
 
   React.useEffect(() => {
     document.addEventListener("scroll", () => {
-      if (window.scrollY > 200 && window.scrollY < 700) {
+      if (window.scrollY > 300 && window.scrollY < 700) {
         var element = document.getElementsByClassName("offerdzooming ");
         if (element && element.length > 0) {
           for (let index = 0; index < element.length; index++) {
             element[index].classList.add("myStyleWhat");
-          }
-        }
-      } else {
-        var element = document.getElementsByClassName("offerdzooming");
-        if (element && element.length > 0) {
-          for (let index = 0; index < element.length; index++) {
-            element[index].classList.remove("myStyleWhat");
           }
         }
       }
@@ -48,9 +41,11 @@ export default function WhatWeOffer() {
                   "It is a long established fact that a reader will be distracted by the readable content of a page this is whe"
                 )}
               </p>
-              <button className="whatweofferButton">
-                {t("Early access to courses")}
-              </button>
+              <Link to="/userlanding">
+                <button className="whatweofferButton">
+                  {t("Early access to courses")}
+                </button>
+              </Link>
             </div>
           </div>
         </Grid>
@@ -64,11 +59,12 @@ export default function WhatWeOffer() {
                   "It is a long established fact that a reader will be distracted by the readable content of a page this is whe"
                 )}
               </p>
-              <button className="whatweofferButton">
-                {t("Early access to courses")}
-              </button>
+              <Link to="/contentcreator">
+                <button className="whatweofferButton">
+                  {t("Early access to courses")}
+                </button>
+              </Link>
             </div>
-
           </div>
         </Grid>
       </Grid>

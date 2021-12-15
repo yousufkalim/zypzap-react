@@ -1,6 +1,7 @@
 // Init
 import React from "react";
-import Header from "../components/Header";
+// import Header from "../components/Header";
+import UserLandingPageHeader from "../components/UserLandingPageHeader";
 import Footer from "../components/blog/BlogFooter";
 import Body from "../components/Body";
 
@@ -18,14 +19,15 @@ export default function Home() {
         overflowY: "hidden",
       }}
     >
-      <Header
+      <UserLandingPageHeader />
+      {/* <Header
         openlogin={openlogin}
         setOpenLogin={setOpenLogin}
         opensignup={opensignup}
         setOpenSignup={setOpenSignup}
         openBecomeCreatorPopup={openBecomeCreatorPopup}
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
-      />
+      /> */}
       <Body
         openlogin={openlogin}
         setOpenLogin={setOpenLogin}

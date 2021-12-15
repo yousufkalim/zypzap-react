@@ -32,8 +32,10 @@
   border: 1px solid #202342;
   border-radius: 6px;
   margin: 20px 10px 0px 10px;
-  background-color: #e7411b;
   cursor: pointer;
+}
+.btn-landing-partner:hover {
+  background-color: #e7411b;
 }
 
 /* landing partner different company logos css */
@@ -87,7 +89,7 @@
   }
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 820px) {
   .landing-partner-text-container {
     line-height: 30px;
     white-space: nowrap;
@@ -101,5 +103,8 @@
   .MuiGrid-spacing-xs-6 {
     width: calc(80% + 48px) !important;
     margin: -24px;
+  }
+  .myStylep {
+    font-size: 13px;
   }
 }

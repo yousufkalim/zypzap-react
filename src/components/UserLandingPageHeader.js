@@ -15,14 +15,14 @@ const HeaderUserLandingPage = () => {
   const { t, i18n } = useTranslation();
 
   const history = useHistory();
-  const showPopup = () => {
-    setOpen(true);
-  };
+  // const showPopup = () => {
+  //   setOpen(true);
+  // };
 
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-        {open && <SubscriptionPopup open={open} setOpen={setOpen} />}
+        {<SubscriptionPopup open={open} setOpen={setOpen} />}
         <AppBar position="static" className="headerBackgroundColor">
           <Toolbar>
             <Typography
@@ -60,14 +60,13 @@ const HeaderUserLandingPage = () => {
                 {t("Become Content Creator")}
               </button>
             </Link>
-            <Link
-              to="/userlanding"
-              style={{ color: "white", textDecoration: "none" }}
+
+            <button
+              className="btn-content-creator"
+              onClick={() => setOpen(true)}
             >
-              <button className="btn-content-creator" onClick={showPopup}>
-                {t("Get Early Access")}
-              </button>
-            </Link>
+              {t("Get Early Access")}
+            </button>
           </Toolbar>
         </AppBar>
       </Box>
