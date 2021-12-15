@@ -13,7 +13,7 @@ export default function Body() {
   console.log("t is ", language);
   React.useEffect(() => {
     document.addEventListener("scroll", () => {
-      if (window.scrollY > -5 && window.scrollY < 200) {
+      if (window.scrollY > 0 && window.scrollY < 1) {
         var element = document.getElementsByClassName("landingPage_heading");
         if (element && element.length > 0) {
           for (let index = 0; index < element.length; index++) {

@@ -1,6 +1,7 @@
 // Init
 import React, { useEffect } from "react";
-import Header from "../components/Header";
+// import Header from "../components/Header";
+import UserLandingPageHeader from "../components/UserLandingPageHeader";
 import AboutLandingPage from "../components/about/AboutLandingPage";
 import UserReview from "../components/about/UsersReview";
 import GetStarted from "../components/about/GetStarted";
@@ -30,14 +31,15 @@ export default function About() {
         overflowY: "hidden",
       }}
     >
-      <Header
+      <UserLandingPageHeader />
+      {/* <Header
         setOpenLogin={setOpenLogin}
         setOpenSignup={setOpenSignup}
         openlogin={openlogin}
         opensignup={opensignup}
         openBecomeCreatorPopup={openBecomeCreatorPopup}
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
-      />
+      /> */}
       <AboutLandingPage />
       <UserReview />
       <GetStarted />

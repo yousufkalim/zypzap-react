@@ -18,7 +18,7 @@ const LandingPartnerWays = () => {
   React.useEffect(() => {
     document.addEventListener("scroll", () => {
       if (window.scrollY > 500 && window.scrollY < 700) {
-        var element = document.getElementsByClassName("landing-partner-arrow");
+        var element = document.getElementsByClassName("landing-partner-arrow ");
         if (element && element.length > 0) {
           for (let index = 0; index < element.length; index++) {
             element[index].classList.add("myStyle");
@@ -32,6 +32,27 @@ const LandingPartnerWays = () => {
           }
         }
       }
+    });
+  }, [window.scrollY]);
+  /////////////////
+  React.useEffect(() => {
+    document.addEventListener("scroll", () => {
+      if (window.scrollY > 400 && window.scrollY < 700) {
+        var elements = document.getElementsByClassName("community-block");
+        if (elements && elements.length > 0) {
+          for (let index = 0; index < elements.length; index++) {
+            elements[index].classList.add("myStyleUserLanding");
+          }
+        }
+      }
+      // else {
+      //   var elements = document.getElementsByClassName("community-block");
+      //   if (elements && elements.length > 0) {
+      //     for (let index = 0; index < elements.length; index++) {
+      //       elements[index].classList.remove("myStyleUserLanding");
+      //     }
+      //   }
+      // }
     });
   }, [window.scrollY]);
   return (
@@ -63,7 +84,7 @@ const LandingPartnerWays = () => {
         <Grid item xs={12} md={4}>
           <div className="community-block">
             <img src={landingpartnericontwo} />
-            <h5 className="community-content-header">
+            <h5 className="community-content-header ">
               {t("Co- Marketing Compaigns")}
             </h5>
             <span className="community-content-pargraph">
