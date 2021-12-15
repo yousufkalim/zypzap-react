@@ -91,7 +91,7 @@ export default function YouMayLike({ blogs, loading, setLoading }) {
       ) : (
         <Grid container spacing={1}>
           {getblogs()
-            ?.splice(4)
+            ?.slice(4, 8)
             .map((item) => (
               <>
                 <Grid item xs={12} sm={3}>

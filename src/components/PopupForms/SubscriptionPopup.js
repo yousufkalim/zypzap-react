@@ -34,7 +34,7 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
   };
   return (
     <>
-      <Dialog className="form-box" open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={handleClose}>
         <div className="login_form">
           <div className="subs_container">
             <div className="form-header-block">
