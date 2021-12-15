@@ -8,6 +8,10 @@
   font-size: 1.4rem !important;
   font-weight: 100;
 }
+.css-uhb5lp {
+  overflow-y: inherit !important;
+  max-height: calc(100% - 0px) !important;
+}
 .subsclearIcon {
   float: right;
   margin: 15px -20px;
