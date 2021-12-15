@@ -86,10 +86,8 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
                     By{" "}
                     <span style={{ color: "red" }}>
                       {" "}
-                      {blogs[0]?.blog_author.user_id.username
-                        .charAt(0)
-                        .toUpperCase() +
-                        blogs[0]?.blog_author.user_id.username.slice(1)}
+                      {blogs[0]?.blog_author?.name.charAt(0).toUpperCase() +
+                        blogs[0]?.blog_author?.name.slice(1)}
                     </span>
                   </p>
                 </div>

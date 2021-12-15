@@ -9,6 +9,9 @@
 .MuiInput-underline:before {
   border-bottom: none !important;
 }
+.dialogforForm {
+  overflow-y: inherit !important;
+}
 .login_form {
   padding: 0px 25px;
   display: flex;
