@@ -194,14 +194,14 @@ body {
   right: 26%;
 }
 .moniBox {
-  background-color: #1b1e39;
+  /* background-color: #1b1e39; */
   width: 92%;
   border-radius: 13px;
-  height: 300px;
-  margin-top: 22px auto 0 auto;
-  padding: 60px 7px 60px 7px;
+  /* height: 300px; */
+  margin-top: 0px auto 0 auto;
+  /* padding: 60px 7px 60px 7px; */
   margin: auto;
-  margin-top: 22px;
+  /* margin-top: 22px; */
 }
 .moni_icon {
   margin: 0 auto 0 auto;
@@ -209,7 +209,7 @@ body {
 .moniImage {
   width: 70px;
   height: 70px;
-  background-color: rgb(14, 15, 30);
+  /* background-color: rgb(14, 15, 30); */
   border-radius: 50%;
   margin: auto;
   padding: 18px 0 0 2px;
@@ -574,14 +574,14 @@ body {
     font-size: 15px;
   }
   .moniBox {
-    background-color: #1b1e39;
+    /* background-color: #1b1e39; */
     width: 92%;
     border-radius: 13px;
-    height: 331px;
-    margin-top: 22px auto 0 auto;
-    padding: 60px 7px 60px 7px;
+    /* height: 331px; */
+    margin-top: 0px auto 0 auto;
+    /* padding: 60px 7px 60px 7px; */
     margin: auto;
-    margin-top: 22px;
+    /* margin-top: 22px; */
   }
   .creator_P {
     font-size: 15px;
