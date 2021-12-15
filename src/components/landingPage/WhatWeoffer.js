@@ -41,9 +41,11 @@ export default function WhatWeOffer() {
                   "It is a long established fact that a reader will be distracted by the readable content of a page this is whe"
                 )}
               </p>
-              <button className="whatweofferButton">
-                {t("Early access to courses")}
-              </button>
+              <Link to="/userlanding">
+                <button className="whatweofferButton">
+                  {t("Early access to courses")}
+                </button>
+              </Link>
             </div>
           </div>
         </Grid>
@@ -57,9 +59,11 @@ export default function WhatWeOffer() {
                   "It is a long established fact that a reader will be distracted by the readable content of a page this is whe"
                 )}
               </p>
-              <button className="whatweofferButton">
-                {t("Early access to courses")}
-              </button>
+              <Link to="/contentcreator">
+                <button className="whatweofferButton">
+                  {t("Early access to courses")}
+                </button>
+              </Link>
             </div>
           </div>
         </Grid>

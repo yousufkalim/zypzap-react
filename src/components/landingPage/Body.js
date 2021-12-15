@@ -20,13 +20,6 @@ export default function Body() {
             element[index].classList.add("myStyles");
           }
         }
-      } else {
-        var element = document.getElementsByClassName("landingPage_heading");
-        if (element && element.length > 0) {
-          for (let index = 0; index < element.length; index++) {
-            element[index].classList.remove("myStyles");
-          }
-        }
       }
     });
   }, [window.scrollY]);
