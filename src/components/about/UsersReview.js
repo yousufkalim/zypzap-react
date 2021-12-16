@@ -1,13 +1,13 @@
 // Init
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import Carousel from "react-material-ui-carousel";
-import Avatar2 from "../../assets/icons/Picture.png";
+// import Carousel from "react-material-ui-carousel";
+// import Avatar2 from "../../assets/icons/Picture.png";
 import Instrucors from "../../assets/icons/instructors.png";
 import Games from "../../assets/icons/games.png";
 import Learners from "../../assets/icons/learners.png";
 import Customers from "../../assets/icons/customers.png";
-import Colon from "../../assets/icons/colon.png";
+// import Colon from "../../assets/icons/colon.png";
 
 export default function UserReview() {
   var items = [
@@ -63,7 +63,7 @@ export default function UserReview() {
           </Grid>
         </Grid>
         <div style={{ padding: "50px" }}>
-          <Carousel
+          {/* <Carousel
             autoPlay={false}
             // navButtonsAlwaysVisible={true}
             animation={"fade"}
@@ -73,7 +73,7 @@ export default function UserReview() {
             {items.map((item, i) => (
               <Reviews key={i} item={item} />
             ))}
-          </Carousel>
+          </Carousel> */}
         </div>
       </div>
     </>
@@ -83,7 +83,7 @@ export default function UserReview() {
 function Reviews({ item }) {
   return (
     <>
-      <div className="reviewHeadingdiv">
+      {/* <div className="reviewHeadingdiv">
         <h1 className="userHeadingReview">
           What our <span style={{ color: "red" }}>users</span> say
         </h1>
@@ -111,7 +111,7 @@ function Reviews({ item }) {
             </p>
           </div>
         </Grid>
-      </Grid>
+      </Grid> */}
     </>
   );
 }
