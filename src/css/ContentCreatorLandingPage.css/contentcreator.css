@@ -30,7 +30,8 @@ body {
   margin-top: 20px;
 }
 .creator_P {
-  font-size: 15px;
+  width: 77%;
+  font-size: 17px;
   text-align: left;
   padding: 2px 15px 0 26px;
   opacity: 0.8;
@@ -204,6 +205,7 @@ body {
   /* margin-top: 22px; */
 }
 .moni_icon {
+  width: 67%;
   margin: 0 auto 0 auto;
 }
 .moniImage {
@@ -222,12 +224,14 @@ body {
   margin: 22px 0 13px 0;
   opacity: 0.9;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 20px;
 }
 .moni_p {
   /* padding: 0 15px 0 15px; */
   line-height: 1.5;
   opacity: 0.8;
+  width: 58%;
+  margin: auto;
   font-size: 12px;
 }
 .monibutton {
@@ -584,7 +588,8 @@ body {
     /* margin-top: 22px; */
   }
   .creator_P {
-    font-size: 15px;
+    font-size: 19px;
+    width: 73%;
     text-align: left;
     padding: 2px 94px 0 26px;
     opacity: 0.8;

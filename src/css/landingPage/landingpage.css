@@ -27,14 +27,15 @@
 }
 .frlandingpagetextonImg {
   position: absolute;
-  top: 45%;
+  top: 40%;
   left: 38%;
   transform: translate(-50%, -50%);
   text-align: left;
 }
 
 .landingpagetextimgH1 {
-  font-size: 2.7em;
+  font-size: 3em;
+  margin-bottom: 10px;
 }
 .landingpagetextonImgP {
   padding: 5px 0px 5px 0px;
@@ -173,21 +174,21 @@
 /* for big screens */
 @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
   .landingpageLeftimg {
-    height: 525px;
+    /* height: 525px; */
   }
   .landingpageRightimg {
     height: 525px;
     right: 45%;
   }
   .landingpagetextonImg {
-    left: 24%;
+    left: 27%;
   }
   .frlandingpagetextonImg {
-    left: 36%;
+    left: 32%;
   }
 
   .landingpagetextimgH1 {
-    font-size: 2.7em;
+    font-size: 4em;
   }
   .landingpagetextonImgP {
     font-size: 17px;

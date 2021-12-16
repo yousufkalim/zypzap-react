@@ -30,19 +30,33 @@ const UserLandingPageAdvantages = () => {
 
   var items = [
     {
-      text: t("Obtenez les meilleurs conseils "),
+      text: t("1 Obtenez les meilleurs conseils "),
+      text2: "2 Obtenez les meilleurs conseils ",
+      text3: "3 Obtenez les meilleurs conseils ",
+      text4: "4 Obtenez les meilleurs conseils ",
+
       img: imgN1,
     },
     {
       text: "Suivez une Roadmap personnalisée",
+      text2: "2 Suivez une Roadmap personnalisée",
+      text3: "3 Suivez une Roadmap personnalisée",
+      text4: "4 Suivez une Roadmap personnalisée",
       img: imgN2,
     },
     {
-      text: "Suivez une Roadmap personnalisée",
+      text: "Tous vos jeux sont abordés",
+      text2: "2 Tous vos jeux sont abordés",
+      text3: "3 Tous vos jeux sont abordés",
+      text4: "4 Tous vos jeux sont abordés",
       img: imgN3,
     },
     {
       text: "Progressez à votre rythme",
+      text2: "2 Progressez à votre rythme",
+      text3: "3 Progressez à votre rythme",
+      text4: "4 Progressez à votre rythme",
+
       img: imgN4,
     },
   ];
@@ -84,7 +98,7 @@ const UserLandingPageAdvantages = () => {
             style={{ color: "white", textDecoration: "none" }}
           >
             {" "}
-            <button className="btn-advantages">
+            <button className="btn-advantages" onClick={scrollToTop}>
               {t("Become content creator")}
             </button>
           </Link>
@@ -100,11 +114,10 @@ function CarousalComponent({ item }) {
       <div className="carousalContainer">
         <div className="carousalText">
           <p className="list-text "> {item.text}</p>
-          <p className="list-text "> {item.text}</p>
-          <p className="list-text "> {item.text}</p>
-          <p className="list-text "> {item.text}</p>
+          <p className="list-text "> {item.text2}</p>
+          <p className="list-text "> {item.text3}</p>
+          <p className="list-text "> {item.text4}</p>
         </div>
-
         <img className="carousel-img" src={item.img} />
       </div>
     </>

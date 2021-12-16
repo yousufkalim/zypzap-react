@@ -103,7 +103,7 @@
 }
 /* UserLandingPage navbar css starts here */
 .logo-img {
-  height: 30px;
+  margin-left: 20px;
   z-index: 1;
   cursor: pointer;
 }
@@ -111,7 +111,7 @@
   display: flex;
 }
 .btn-content-creator {
-  padding: 8px 18px;
+  padding: 8px 25px;
   border: 1px solid grey;
   border-radius: 25px;
   background-color: rgb(14, 15, 30);
@@ -140,23 +140,23 @@
 .user-landing-page-text-on-img {
   position: absolute;
   top: 40%;
-  left: 30.7%;
+  left: 33%;
   transform: translate(-50%, -50%);
-  width: 47%;
+  width: 53%;
 }
 .UserLandingPageAboutTextImgH1 {
   font-size: calc(4vw - 5px);
   font-weight: 900;
 }
 .frUserLandingPageAboutTextImgH1 {
-  font-size: auto;
+  font-size: 3em;
   font-weight: 900;
 }
 .user-landing-page-text-on-imgP {
   color: #e7411b;
   padding: 5px 0px 5px 0px;
   margin: 8px 0px 20px 0px;
-  font-size: 14px;
+  font-size: 18px;
 }
 .user-landing-page-right-img {
   position: relative;
@@ -219,7 +219,7 @@
   background-color: aquamarine;
 }
 .btn-advantages {
-  padding: 10px 20px;
+  padding: 14px 29px;
   background-color: rgb(14, 15, 30);
   color: #fff;
   border: 1px solid #202342;
@@ -411,6 +411,10 @@
 }
 /* for big screens */
 @media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+  .user-landing-page-text-on-img {
+    left: 34%;
+  }
+
   .carousalText {
     width: 50%;
   }
@@ -419,12 +423,15 @@
     margin-bottom: 60px;
   }
   .frUserLandingPageAboutTextImgH1 {
-    font-size: 2.4rem;
+    font-size: 3.6rem;
   }
   .list-text {
     padding: 30px 30px 30px 30px;
     font-size: 20px !important;
     line-height: 20px;
+  }
+  .btn-content-creator {
+    padding: 8px 35px;
   }
 }
 /* Media queries */

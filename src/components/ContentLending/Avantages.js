@@ -60,7 +60,7 @@ const Avantages = () => {
   return (
     <>
       <div className="content_Avantages">
-        <h2 className="Avantages_heading">{t("Adantages Passtotrip")}</h2>
+        <h2 className="Avantages_heading">{t("Advantages Passtotrip")}</h2>
         <div className="offerdashline"></div>
         <div className="Avantages_container">
           <Grid
