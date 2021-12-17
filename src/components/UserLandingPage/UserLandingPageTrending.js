@@ -118,31 +118,21 @@ const UserLandingPageTrending = () => {
       img: trendinglogo,
     },
   ];
+  // let gamesHeading = ["Top Games", "Trendy Games", "NFT Games"];
+  let gamesHeading = [
+    { heading: "Top Games", classIs: "top1", class2Is: "top2" },
+    { heading: "Trendy Games", classIs: "trendy1", class2Is: "trendy2" },
+    { heading: "NFT Games", classIs: "NFT1", class2Is: "NFT2" },
+  ];
 
   return (
     <>
       <Grid container spacing={3} className="trendingGrid">
-        <Grid item xs={12} sm={4}>
-          <VerticalCarousel data={trending} />
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <VerticalCarousel data={trending} />
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <VerticalCarousel data={trending} />
-          {/* <div className="trendingDiv">
-            <div className="trendingHeadingDiv">
-              <div className="dashDiv"></div>
-              <h2>NFT Games</h2>
-            </div>
-            {trending.map((item) => (
-              <div class="trendinglogoDiv">
-                <img className="iconImg" src={item.img} />
-                <div className="trendingLogoText">{item.heading}</div>
-              </div>
-            ))}
-          </div> */}
-        </Grid>
+        {gamesHeading.map((item) => (
+          <Grid item xs={12} sm={4}>
+            <VerticalCarousel data={trending} item={item} />
+          </Grid>
+        ))}
       </Grid>
     </>
   );

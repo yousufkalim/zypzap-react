@@ -36,7 +36,7 @@ const Monitization = () => {
                 <div className="moni_heading">
                   <h3 className="moni_h3">{t("Prepare a Course")}</h3>
                   <p className="moni_p">
-                    The creator prepares and registers his cours
+                    {t("The creator prepares and registers his cours")}
                   </p>
                 </div>
               </div>
@@ -82,10 +82,11 @@ const Monitization = () => {
                   <img className="moni_icon" src={Moni4} alt="" />
                 </div>
                 <div className="moni_heading">
-                  <h3 className="moni_h3">{t("Publish")}</h3>
+                  <h3 className="moni_h3">{t("on-line")}</h3>
                   <p className="moni_p">
-                    He can then follow the performance of the course. as well as
-                    the earning generated
+                    {t(
+                      "He can then follow the performance of the course. as well as the earning generated"
+                    )}
                   </p>
                 </div>
               </div>

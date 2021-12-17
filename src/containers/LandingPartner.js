@@ -6,7 +6,7 @@ const LandingPartner = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 1,
-      behavior: "smooth",
+      // behavior: "smooth",
     });
   };
   useEffect(() => {

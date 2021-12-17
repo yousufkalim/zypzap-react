@@ -6,18 +6,17 @@
 }
 .textonImgcontent {
   position: absolute;
-  top: -10%;
+  top: 46%;
   left: 27%;
   transform: translate(-50%, -50%);
   text-align: left;
 }
 .textH1 {
-  padding-top: 500px;
-  font-size: 3em;
+  font-size: 3.7em;
 }
 .textonP {
   opacity: 0.7;
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 500px;
   padding: 5px 0px 5px 0px;
   margin: 8px 0px 28px 0px;
@@ -53,18 +52,17 @@
   }
   .textonImgcontent {
     position: absolute;
-    top: 0%;
+    top: 42%;
     padding-left: 13%;
+    left: 19%;
   }
-  .textonImgcontent {
-    left: 20%;
-  }
+
   .textH1 {
     font-weight: 900;
-    font-size: 3.5em;
+    font-size: 4.5em;
   }
   .textonP {
-    font-size: 18px;
+    font-size: 23px;
   }
   .textonbutton {
     padding: 12px 25px 12px 25px;

@@ -17,7 +17,7 @@ const LandingPartnerWays = () => {
   const { language } = i18n;
   React.useEffect(() => {
     document.addEventListener("scroll", () => {
-      if (window.scrollY > 500 && window.scrollY < 700) {
+      if (window.scrollY > 400 && window.scrollY < 700) {
         var element = document.getElementsByClassName("landing-partner-arrow ");
         if (element && element.length > 0) {
           for (let index = 0; index < element.length; index++) {
@@ -34,10 +34,11 @@ const LandingPartnerWays = () => {
       }
     });
   }, [window.scrollY]);
+
   /////////////////
   React.useEffect(() => {
     document.addEventListener("scroll", () => {
-      if (window.scrollY > 500 && window.scrollY < 700) {
+      if (window.scrollY > 250 && window.scrollY < 700) {
         var elements = document.getElementsByClassName("community-block");
         if (elements && elements.length > 0) {
           for (let index = 0; index < elements.length; index++) {
@@ -56,6 +57,7 @@ const LandingPartnerWays = () => {
       }
     });
   }, [window.scrollY]);
+
   return (
     <>
       <Box className="box-user">
@@ -74,7 +76,7 @@ const LandingPartnerWays = () => {
         <Grid item xs={12} md={4}>
           <div className="community-block">
             <img src={landingpartnericonone} />
-            <h5 className="community-content-header">{t("Integration")}</h5>
+            <h5 className=" partnerTextHeading">{t("Integration")}</h5>
             <span className="community-content-pargraph">
               {t(
                 "Integrate our catalog of partner offers available to subscribers"
@@ -85,7 +87,7 @@ const LandingPartnerWays = () => {
         <Grid item xs={12} md={4}>
           <div className="community-block">
             <img src={landingpartnericontwo} />
-            <h5 className="community-content-header ">
+            <h5 className=" partnerTextHeading">
               {t("Co- Marketing Compaigns")}
             </h5>
             <span className="community-content-pargraph">
@@ -98,7 +100,7 @@ const LandingPartnerWays = () => {
         <Grid item xs={12} md={4}>
           <div className="community-block community-block-border">
             <img src={landingpartnericonthree} />
-            <h5 className="community-content-header">{t("Live Events")}</h5>
+            <h5 className=" partnerTextHeading">{t("Live Events")}</h5>
             <span className="community-content-pargraph">
               {t("Make your future game known to our audience")}
             </span>
@@ -128,9 +130,7 @@ const LandingPartnerWays = () => {
         <Grid item xs={12} md={4}>
           <div className="community-block">
             <img src={landingpartnericonfour} />
-            <h5 className="community-content-header">
-              {t("Enjoy Gamers Hearing")}
-            </h5>
+            <h5 className=" partnerTextHeading">{t("Enjoy Gamers Hearing")}</h5>
             <span className="community-content-pargraph">
               {t("Enjoy a gamer’s hearing and communicate with them")}
             </span>
@@ -139,9 +139,7 @@ const LandingPartnerWays = () => {
         <Grid item xs={12} md={4}>
           <div className="community-block">
             <img src={landingpartnericonfive} />
-            <h5 className="community-content-header">
-              {t("Acquire New Status")}
-            </h5>
+            <h5 className=" partnerTextHeading">{t("Acquire New Status")}</h5>
             <span className="community-content-pargraph">
               {t("Acquire the status of an active player in the gaming market")}
             </span>
@@ -150,7 +148,7 @@ const LandingPartnerWays = () => {
         <Grid item xs={12} md={4}>
           <div className="community-block community-block-border">
             <img src={landingpartnericonsix} />
-            <h5 className="community-content-header">{t("Test your games")}</h5>
+            <h5 className=" partnerTextHeading">{t("Test your games")}</h5>
             <span className="community-content-pargraph">
               {t("be able to test your game with a community of experts")}
             </span>

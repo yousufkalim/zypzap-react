@@ -1,11 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import trendinglogo from "../../assets/img/trendinglogo.png";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import cn from "classnames";
 
-const VerticalCarousel = ({ data }) => {
-  console.log("data is", data.length);
+const VerticalCarousel = ({ data, item }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    console.log("useeffect");
+    let xoxo = document.getElementById(item.class2Is);
+    let interval;
+    // it start interval when reload window
+    interval = setInterval(() => {
+      setActiveIndex((prevIndex) => {
+        if (prevIndex + 1 > data.length - 1) {
+          return 0;
+        }
+        return prevIndex + 1;
+      });
+    }, 2000);
+    console.log("uper then mouseout");
+    xoxo.addEventListener("mouseout", () => {
+      console.log("mouseout");
+      // on mouse out upper interval will clear
+      clearInterval(interval);
+      // and new interval start
+      interval = setInterval(() => {
+        setActiveIndex((prevIndex) => {
+          if (prevIndex + 1 > data.length - 1) {
+            return 0;
+          }
+          return prevIndex + 1;
+        });
+      }, 3000);
+    });
+    xoxo.addEventListener("mouseover", () => {
+      // on mouse hover interval will clear
+      clearInterval(interval);
+    });
+  }, []);
 
   // Used to determine which items appear above the active item
   const halfwayIndex = Math.ceil(data.length / 2);
@@ -46,6 +79,8 @@ const VerticalCarousel = ({ data }) => {
   const handleClick = (direction) => {
     setActiveIndex((prevIndex) => {
       if (direction === "next") {
+        console.log("previndex", prevIndex);
+        console.log("data.length ", data.length);
         if (prevIndex + 1 > data.length - 1) {
           return 0;
         }
@@ -66,11 +101,11 @@ const VerticalCarousel = ({ data }) => {
 
   return (
     <div className="trendingDiv">
-      <section className="outer-container">
+      <section className={` outer-container`} id={item?.class2Is}>
         <div className="carousel-wrapper">
           <div className="trendingHeadingDiv">
             <div className="dashDiv"></div>
-            <h2>NFT Games</h2>
+            <h2>{item?.heading}</h2>
           </div>
           {/* <button
             type="button"
@@ -81,7 +116,7 @@ const VerticalCarousel = ({ data }) => {
           </button> */}
 
           <div className="carousel">
-            <div className="slides">
+            <div className={`${item.classIs} slides`}>
               <div className="carousel-inner">
                 {data.map((item, i) => (
                   <div

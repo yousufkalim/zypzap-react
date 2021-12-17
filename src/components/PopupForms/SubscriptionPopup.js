@@ -27,7 +27,7 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
   const submitForm = (event) => {
     event.preventDefault();
     if (values.checkBoxTwo === false) {
-      return toast.error("Please checked the checkbox!");
+      return toast.error("Veuillez cocher la case !");
     } else if (values.checkBoxOne === true || values.checkBoxTwo === true)
       setEmail("");
     setOpen(false);
@@ -88,11 +88,15 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
                   type="checkbox"
                 />
                 <label className="subsLabel">
-                  {t("I agree passtotrip ")}
+                  {t(
+                    `I agree passtotrip Privacy Policy and agree to receive upcoming passtotrip updates`
+                  )}
+
+                  {/* {t("I agree passtotrip ")}
                   <span className=" privacy-policy-text">
                     {t("Privacy Policy")}{" "}
                   </span>{" "}
-                  {t("and agree to receive upcoming passtotrip updates")}
+                  {t("and agree to receive upcoming passtotrip updates")} */}
                 </label>
               </div>
               <button className="subsformbtn" type="submit">

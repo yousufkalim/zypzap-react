@@ -68,7 +68,7 @@ i18n
           "Our Partners": "Our Partners",
           "Become our partners biggest ambassador":
             "Become our partners biggest ambassador",
-          "Adantages Passtotrip": "Adantages Passtotrip",
+          "Advantages Passtotrip": "Advantages Passtotrip",
           "The first gaming online course creation platform  open to all":
             "The first gaming online course creation platform  open to all",
           "Content Creators are free to cover any game":
@@ -82,6 +82,8 @@ i18n
           "The creator prepares and registers his cours":
             "The creator prepares and registers his cours",
           "Submit Evaluation": "Submit Evaluation",
+          "He can then follow the performance of the course. as well as the earning generated":
+            "He can then follow the performance of the course. as well as the earning generated",
           "He submits the course for evaluation":
             "He submits the course for evaluation",
           "Get Validated": "Get Validated",
@@ -89,6 +91,7 @@ i18n
             "The course is validated by the evaluator",
           Publish: "Publish",
           "Sign up here": "Sign up here",
+          "on-line": "on-line",
           Email: "Email",
           "Register as a beta tester": "Register as a beta tester",
           "I agree passtotrip": "I agree passtotrip",
@@ -120,6 +123,9 @@ i18n
           "Test your games": "Test your games",
           "be able to test your game with a community of experts":
             "be able to test your game with a community of experts",
+          // subscription form
+          "I agree passtotrip Privacy Policy and agree to receive upcoming passtotrip updates":
+            "I agree passtotrip Privacy Policy and agree to receive upcoming passtotrip updates",
         },
       },
       fr: {
@@ -181,7 +187,7 @@ i18n
           "Our Partners": "Nos Partenaires",
           "Become our partners biggest ambassador":
             "Devenez le meilleur ambassadeur de nos partenaires !",
-          "Adantages Passtotrip": "Remportez vos parties",
+          "Advantages Passtotrip": "Remportez vos parties",
           "The first gaming online course creation platform  open to all":
             "Creation de cours en ligne ouverte à tous",
           "Content Creators are free to cover any game":
@@ -190,10 +196,12 @@ i18n
             "Monetisation immediate et transparente",
           "Each user has the opportunity to acquire a real expert status within the community":
             "Acquisition d'un statut d'expert ",
-          "Monitization Process": "Acquisition d'un statut d'expert ",
+          "Monitization Process": "Processus de monétisation",
           "Prepare a Course": "Préparation du cours",
           "The creator prepares and registers his cours":
             "Le créateur est libre de traiter le sujet qu’il souhaite",
+          "He can then follow the performance of the course. as well as the earning generated":
+            "Le créateur de contenu suit les performances de son activité",
           "Submit Evaluation": "Evaluation puis validation",
           "He submits the course for evaluation":
             "Le contenu est moderé et validé par nos experts",
@@ -202,6 +210,7 @@ i18n
             "Le créateur de contenu suit les performances de son activité",
           Publish: "Publier",
           "Sign up here": "Lancez-vous !",
+          "on-line": "Mise en ligne",
           Email: "Adresse email",
           "Register as a beta tester": "S'inscrire comme bêta testeur",
           "I agree passtotrip": "je suis d'accord passtotrip",
@@ -233,6 +242,9 @@ i18n
           "Test your games": "Recrutez des bêta testeurs",
           "be able to test your game with a community of experts":
             "Soumettez vos jeux à notre communauté de gamers experts",
+          // subscription form
+          "I agree passtotrip Privacy Policy and agree to receive upcoming passtotrip updates":
+            "J'accepte la politique de confidentialité de passtotrip et j'accepte de recevoir les prochaines mises à jour de passtotrip",
         },
       },
     },

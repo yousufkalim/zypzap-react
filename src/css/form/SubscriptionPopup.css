@@ -11,6 +11,8 @@
 .css-uhb5lp {
   overflow-y: inherit !important;
   max-height: calc(100% - 0px) !important;
+  max-width: inherit !important;
+  width: 500px !important;
 }
 .subsclearIcon {
   float: right;
@@ -32,7 +34,7 @@
   font-size: 13px;
 }
 .subsformbtn {
-  padding: 6px;
+  padding: 11px 6px;
   border: none;
   background-color: #e7411b;
   color: white;

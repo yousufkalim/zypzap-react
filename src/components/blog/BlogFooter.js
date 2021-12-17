@@ -74,7 +74,7 @@ export default function Footer() {
               to="/contentcreator"
               style={{ color: "white", textDecoration: "none" }}
             >
-              <p className="pmargin">Become a Creators</p>
+              <p className="pmargin">Become a Creator</p>
             </Link>
             <p className="pmargin"> Become a Evaluator</p>
             <Link

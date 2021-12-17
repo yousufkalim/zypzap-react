@@ -21,6 +21,12 @@
 .landing-partner-header {
   font-size: 50px;
 }
+.partnerTextHeading {
+  font-weight: 100 !important;
+  font-size: 22px;
+  padding-top: 20px;
+  padding-bottom: 8px;
+}
 .landing-partner-pargraph {
   font-size: 18px;
   opacity: 0.6;
@@ -86,6 +92,18 @@
   }
   .community-block {
     border-right: none;
+  }
+}
+
+/* for big screens */
+@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+  .landing-partner-header {
+    font-size: 66px;
+  }
+  .landing-partner-pargraph {
+    font-size: 25px;
+    margin-top: 15px;
+    opacity: 0.6;
   }
 }
 
