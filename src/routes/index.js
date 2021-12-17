@@ -14,7 +14,7 @@ import LandingPage from "../containers/Landingpage";
 import UserLandingPage from "../containers/UserLandingPage";
 import ContentCreatorLandingPage from "../containers/ContentCreatorLandingPage";
 import LandingPartner from "../containers/LandingPartner";
-// import ContentDashboard from "../containers/ContentDashboard";
+import ContentDashboard from "../containers/ContentDashboard";
 import ProtectedRoutes from "./ProtectedRoutes.js";
 
 const index = () => {
@@ -22,11 +22,11 @@ const index = () => {
     <Switch>
       <Route exact path="/" component={LandingPage} />
       <Route exact path="/home" component={Home} />
+      {/* blogs */}
       <Route exact path="/blog" component={Blog} />
       <Route exact path="/blog/:id" component={Article} />
       <Route exact path="/about" component={About} />
-      <Route exact path="/contenthome" component={Contenthome} />
-      <Route exact path="/searchresult" component={SearchResult} />
+      {/* landing pages */}
       <Route exact path="/landingpartner" component={LandingPartner} />
       <Route exact path="/landingpage" component={LandingPage} />
       <Route exact path="/userlanding" component={UserLandingPage} />
@@ -35,7 +35,11 @@ const index = () => {
         path="/contentcreator"
         component={ContentCreatorLandingPage}
       />
-      <Route exact path="/*" render={() => <ProtectedRoutes />} />
+      {/* content creator */}
+      <Route exact path="/contenthome" component={Contenthome} />
+      <Route exact path="/searchresult" component={SearchResult} />
+      <Route exact path="/dashboard" component={ContentDashboard} />
+      {/* <Route exact path="/*" render={() => <ProtectedRoutes />} /> */}
     </Switch>
   );
 };

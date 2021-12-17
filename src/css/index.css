@@ -33,6 +33,7 @@
 @import url("./form/OptionPopup.css");
 @import url("./form/SubscriptionPopup.css");
 @import url("./dashboard/earning.css");
+@import url("./dashboard/createCourse.css");
 
 /* Defaults */
 * {

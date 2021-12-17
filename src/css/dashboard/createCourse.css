@@ -1,0 +1,37 @@
+.createCourseDiv {
+  width: 75%;
+  margin: 35px auto;
+}
+
+.formStepOneDiv {
+  background: #1e1e38;
+  margin: 25px 0px;
+  padding: 15px 20px;
+}
+.coursedetail1 {
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+.hrLine1 {
+  width: 100%;
+  height: 2px;
+  background: #6e7190;
+}
+.uploadBtnDiv {
+  display: flex;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.uploadCoursebtn {
+  margin: 0 20px 0 0;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.RecordButton {
+  opacity: 0.5;
+}
+.ActiveLine {
+  border-bottom: 3px solid red;
+  padding-bottom: 12px;
+  opacity: 1 !important;
+}
