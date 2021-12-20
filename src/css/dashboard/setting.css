@@ -3,19 +3,15 @@
   margin: auto;
   margin-top: 40px;
 }
-.hr_password {
-  margin: -13px 0 20px 0;
-  background-color: #fff;
-  opacity: 0.4;
-  height: 1px;
-}
+
 .dashboard_container {
   width: 80%;
   margin: auto;
   display: flex;
 }
 .dash_col1 {
-  width: 40%;
+  width: 35%;
+  margin-left: 50px;
 }
 .dash_col2 {
   height: 551px;
@@ -28,15 +24,16 @@
 }
 .deshH2 {
   font-weight: 500;
-  font-size: 25px;
+  font-size: 22px;
   margin-bottom: 6px;
-  padding: 0 0px 0 10px;
+  padding: 0 0px 0 7px;
 }
 .deshLi {
   list-style: none;
-  padding: 7px 0px 7px 10px;
-  width: 55%;
+  padding: 7px 0 7px 4px;
+  width: 70%;
   cursor: pointer;
+  font-size: 17px;
 }
 .actvieClassOne {
   background-color: #e7411b;
@@ -47,8 +44,8 @@
   margin-bottom: 20px;
 }
 .desh_profilePic {
-  width: 70px;
-  height: 70px;
+  width: 85px;
+  height: 85px;
   border-radius: 45%;
   margin-bottom: 12px;
 }
@@ -56,8 +53,8 @@
   width: 100%;
   background: none;
   border: 1px solid white;
-  height: 30px;
-  margin-bottom: 17px;
+  height: 38px;
+  margin-bottom: 19px;
   opacity: 0.6;
   padding: 0 10px;
   color: #fff;
@@ -68,7 +65,7 @@
 .dashBtn {
   padding: 7px 11px;
   border: none;
-  margin: 37px 13px 30px 0px;
+  margin: 10px 13px 30px 0px;
   background-color: #e7411b;
   color: white;
   font-weight: 500;
@@ -76,6 +73,25 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 12px;
+}
+/* Password */
+.dashBtn2 {
+  padding: 7px 11px;
+  border: none;
+  margin: 55px 13px 30px 0px;
+  background-color: #e7411b;
+  color: white;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.hr_password {
+  margin: -13px 0 25px 0;
+  background-color: #fff;
+  opacity: 0.4;
+  height: 1px;
 }
 /* notification */
 .notificatinP {
@@ -89,9 +105,9 @@
   margin-top: 61px;
 }
 .patmentImg {
-  width: 80px;
+  width: 100px;
 }
 .patment_pera {
-  margin-top: 14px;
-  font-size: 13px;
+  margin-top: 18px;
+  font-size: 14px;
 }
