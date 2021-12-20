@@ -52,14 +52,19 @@
   cursor: pointer;
 }
 .articleyouMayLikecontainer {
-  .youMayLikecontainer {
-    margin-top: 5px;
-    position: relative;
-    color: white;
+  margin-top: 5px;
+  position: relative;
+  color: white;
+  margin: auto;
+  text-align: left;
+}
 
-    margin: auto;
-    text-align: left;
-  }
+.youMayLikecontainer {
+  margin-top: 5px;
+  position: relative;
+  color: white;
+  margin: auto;
+  text-align: left;
 }
 
 /* html css */
