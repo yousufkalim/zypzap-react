@@ -114,7 +114,7 @@ export default function ArticleBody({ singlBlog, loading, blogs }) {
           <YouMayLike blogs={blogs} loading={loading} />
         </div>
       )}
-      <BlogFoote />
+      {/* <BlogFoote /> */}
     </>
   );
 }
