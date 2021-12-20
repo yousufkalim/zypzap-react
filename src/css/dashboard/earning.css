@@ -16,7 +16,7 @@
 }
 .earning_content {
   border: 2px solid gray;
-  height: 100vh;
+  height: 90vh;
 }
 .earning_box {
   display: flex;
@@ -54,4 +54,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+/* performance responsive */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .erHding_content {
+    padding-bottom: 20px;
+  }
+  .earning_box_container {
+    padding: 8px 17px;
+    width: 28%;
+  }
+  .earning_content {
+    height: 55vh;
+  }
+  .dataP {
+    height: 64%;
+  }
+  .earning_conting {
+    font-size: 17px;
+  }
 }

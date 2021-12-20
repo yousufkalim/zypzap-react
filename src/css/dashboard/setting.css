@@ -111,3 +111,10 @@
   margin-top: 18px;
   font-size: 14px;
 }
+
+/* performance responsive */
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+  .erHding_content {
+    padding-bottom: 20px;
+  }
+}
