@@ -111,10 +111,28 @@
   margin-top: 18px;
   font-size: 14px;
 }
-
-/* performance responsive */
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
-  .erHding_content {
-    padding-bottom: 20px;
+  .dashboard_container {
+    width: 100%;
+    flex-direction: column;
+  }
+  .dash_col1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 16px;
+    margin-top: -23px;
+    margin-left: 0;
+  }
+  .deshLi {
+    padding: 10px 0 10px 1px;
+    width: 100%;
+    font-size: 16px;
+  }
+  .dash_col2 {
+    height: 480px;
+    width: 100%;
+  }
+  .hr_password {
+    margin: -5px 0 25px 0;
   }
 }

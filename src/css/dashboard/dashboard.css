@@ -37,8 +37,9 @@
   width: 92%;
   margin: auto;
   padding: 6% 0% 2% 0%;
-  font-size: 13px;
+  font-size: 20px;
   opacity: 0.8;
+  font-weight: 100;
 }
 .upload-courses-container {
   width: 80%;
@@ -122,5 +123,9 @@
     display: flex;
     justify-content: start;
     width: 100%;
+    padding-bottom: 23px;
+  }
+  .card_grids {
+    padding: 0 !important;
   }
 }
