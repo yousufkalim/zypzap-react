@@ -5,6 +5,7 @@ import ArticleBody from "../components/article/ArticleBody";
 import { useParams } from "react-router-dom";
 import api from "../api";
 import { Store, UpdateStore } from "../StoreContext";
+import UserLandingPageHeader from "../components/UserLandingPageHeader";
 
 export default function Article() {
   const [loading, setLoading] = useState(false);
@@ -45,14 +46,15 @@ export default function Article() {
         overflowY: "hidden",
       }}
     >
-      <Header
+      <UserLandingPageHeader />
+      {/* <Header
         setOpenLogin={setOpenLogin}
         setOpenSignup={setOpenSignup}
         openlogin={openlogin}
         opensignup={opensignup}
         openBecomeCreatorPopup={openBecomeCreatorPopup}
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
-      />
+      /> */}
       <ArticleBody singlBlog={singlBlog} loading={loading} blogs={blogs} />
     </div>
   );
