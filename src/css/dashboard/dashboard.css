@@ -36,7 +36,7 @@
 .upload-courses-heading {
   width: 92%;
   margin: auto;
-  padding: 6% 0% 2% 0%;
+  padding: 3% 0% 3% 0%;
   font-size: 20px;
   opacity: 0.8;
   font-weight: 100;
@@ -48,7 +48,7 @@
 .create-course-img-text {
   display: flex;
   justify-content: space-between;
-  padding: 30px 20px;
+  padding: 11px 0;
   width: 90%;
   margin: auto;
 }
@@ -62,7 +62,7 @@
     #202342 22.77%,
     rgba(38, 38, 72, 0) 129.88%
   ) !important;
-  border-radius: 50px !important;
+  border-radius: 30px !important;
   width: 98% !important;
   margin: auto !important;
 }
@@ -79,18 +79,19 @@
   align-items: center;
 }
 .create-course-btn-text > * {
-  padding: 20px 0px;
+  padding: 16px 0px;
+  font-size: 15px;
 }
 .create-course-btn {
-  padding: 10px 25px;
+  padding: 8px 17px;
   background-color: #e7411b;
   border: none;
   color: #fff;
-  font-weight: 900;
+  font-weight: 500;
   font-size: 16px;
 }
 .img-create-course {
-  height: 180px;
+  height: 143px;
 }
 
 @media all and (max-width: 992px) {
