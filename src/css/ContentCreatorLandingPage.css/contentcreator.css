@@ -336,7 +336,7 @@ body {
   font-size: 20px;
 }
 /* For Mobile*/
-@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+@media only screen and (min-width: 320px) and (max-width: 812px) {
   /* Content_creater */
   .content_creator {
     padding: 11px 0;
@@ -477,7 +477,7 @@ body {
   }
 }
 /* For Tablet */
-@media only screen and (min-device-width: 813px) and (max-device-width: 1212px) {
+@media only screen and (min-width: 813px) and (max-width: 1212px) {
   .creator_img {
     padding: 17px 8px 5px 9px;
     border-radius: 50%;
@@ -552,7 +552,7 @@ body {
   }
 }
 /* for Pc */
-@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+@media only screen and (min-width: 1500px) and (max-width: 1900px) {
   .partners_hading {
     font-size: 36px;
   }
