@@ -21,7 +21,7 @@
 .landingpagetextonImg {
   position: absolute;
   top: 45%;
-  left: 26%;
+  left: 30%;
   transform: translate(-50%, -50%);
   text-align: left;
 }
@@ -127,26 +127,26 @@
   width: 80%;
   padding-left: 10px;
   border-radius: 10px;
-
   margin-left: 10px;
 }
 .offerimg1 {
   width: 30%;
 }
 .offerimg2 {
-  width: 32%;
+  width: 28%;
+  margin-top: 10px;
 }
 .offerheading {
   font-size: 25px;
   padding: 10px;
 }
 .offerText {
-  font-size: 13px;
+  font-size: 12px;
   color: #d4d4d4;
   padding: 10px 30px 10px 30px;
 }
 .whatweofferButton {
-  padding: 10px 25px;
+  padding: 9px 25px;
   border: none;
   margin: 13px 13px 30px 0px;
   background-color: #e7411b;
@@ -168,14 +168,12 @@
   }
   to {
     transform: scale(1);
+
     opacity: 1;
   }
 }
 /* for big screens */
-@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
-  .landingpageLeftimg {
-    /* height: 525px; */
-  }
+@media only screen and (min-width: 1500px) and (max-width: 1900px) {
   .landingpageRightimg {
     height: 525px;
     right: 45%;
@@ -188,7 +186,7 @@
   }
 
   .landingpagetextimgH1 {
-    font-size: 4em;
+    font-size: 60px;
   }
   .landingpagetextonImgP {
     font-size: 17px;
@@ -207,12 +205,70 @@
     padding: 10px 35px;
   }
 }
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .landingpageRightimg {
+    height: 525px;
+    right: 45%;
+  }
+  .landingpagetextonImg {
+    left: 32%;
+  }
+  .frlandingpagetextonImg {
+    left: 32%;
+  }
+
+  .landingpagetextimgH1 {
+    font-size: 29px;
+  }
+  .landingpagetextonImgP {
+    font-size: 8px;
+  }
+  .landingpagetextonImgbutton {
+    margin: 30px 13px 8px 0px;
+  }
+  .offerheading {
+    font-size: 25px;
+  }
+  .offerText {
+    font-size: 14px;
+    padding: 10px 20px 10px 20px;
+  }
+  .whatweofferButton {
+    padding: 10px 35px;
+  }
+  .landingpagetextonImgbutton {
+    padding: 8px 10px 8px 8px;
+    font-weight: 500;
+  }
+  .offerdivleft {
+    height: 350px;
+  }
+  .offerdivright {
+    height: 350px;
+  }
+  .offerimg1 {
+    width: 46%;
+  }
+  .offerimg2 {
+    width: 44%;
+    margin-top: 10px;
+  }
+  .offerh1 {
+    margin: 40px 0 40px 0;
+    font-size: 0.8rem;
+  }
+  .myStylep {
+    font-size: 11px;
+  }
+}
+
 /* for mobile */
-@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+@media only screen and (min-width: 320px) and (max-width: 768px) {
   .landingpagetextonImg {
     position: absolute;
     top: 53%;
-    left: 40%;
+    left: 38%;
     transform: translate(-50%, -50%);
     text-align: left;
   }
@@ -228,7 +284,7 @@
   }
 
   .landingpagetextimgH1 {
-    font-size: 1em;
+    font-size: 1.3rem;
   }
   .landingpagetextonImgP {
     padding: 5px 0px 5px 0px;
@@ -248,5 +304,13 @@
   }
   .offerdivright {
     margin: auto;
+  }
+  .offerh1 {
+    margin: 25px 0 20px 0;
+    font-size: 0.6rem;
+  }
+  .offerheading {
+    font-size: 20px;
+    padding: 7px;
   }
 }
