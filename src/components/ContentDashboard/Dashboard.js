@@ -8,12 +8,11 @@ import dollar from "../../assets/img/dollar.png";
 import performance from "../../assets/img/performance.png";
 import youtube from "../../assets/img/youtube.png";
 
-const Dashboard = ({ setFooterState }) => {
-  const [activeButton, setActiveButton] = useState();
+const Dashboard = () => {
+  const [activeButton, setActiveButton] = useState("Course");
   const [defaultCompState, setDefaultCompState] = useState("Course");
-  useEffect(() => {
-    setFooterState(false);
-  }, []);
+  const [createCourse, setcreateCourse] = useState(false);
+  useEffect(() => {}, []);
   const items = [
     { name: "Course", img: youtube },
     { name: "Performance", img: performance },
@@ -23,8 +22,7 @@ const Dashboard = ({ setFooterState }) => {
   const onSideBtnClick = (e) => {
     const course = e.target.textContent;
     setDefaultCompState(course);
-    setFooterState(course);
-
+    setcreateCourse(false);
     setActiveButton(course);
   };
   return (
@@ -33,6 +31,7 @@ const Dashboard = ({ setFooterState }) => {
         className="dashboard-container"
         sx={{ flexGrow: 1, display: "flex" }}
       >
+        {/* dashboard SideBar */}
         <Box className="dashboard-sidebar">
           <Grid>
             <DashboardLeftSideBar
@@ -42,7 +41,13 @@ const Dashboard = ({ setFooterState }) => {
             />
           </Grid>
         </Box>
-        <DashboardRightSideBar defaultCompState={defaultCompState} />
+        {/* dashboardBody */}
+        <DashboardRightSideBar
+          defaultCompState={defaultCompState}
+          setDefaultCompState={setDefaultCompState}
+          setcreateCourse={setcreateCourse}
+          createCourse={createCourse}
+        />
       </Box>
     </>
   );

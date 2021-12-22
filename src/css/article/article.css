@@ -55,7 +55,14 @@
   margin-top: 5px;
   position: relative;
   color: white;
+  margin: auto;
+  text-align: left;
+}
 
+.youMayLikecontainer {
+  margin-top: 5px;
+  position: relative;
+  color: white;
   margin: auto;
   text-align: left;
 }
