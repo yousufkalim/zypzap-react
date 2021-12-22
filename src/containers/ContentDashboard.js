@@ -15,8 +15,8 @@ const ContentDashboard = () => {
         }}
       >
         <Header />
-        <Dashboard setFooterState={setFooterState} />
-        {footerState && <Footer />}
+        <Dashboard />
+        {/* {!footerState && <Footer />} */}
       </div>
     </>
   );

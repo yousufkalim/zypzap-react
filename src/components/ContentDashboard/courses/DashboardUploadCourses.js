@@ -88,6 +88,7 @@ var items = [
     price: "19.99",
     test: "3",
   },
+
 ];
 const DashboardUploadCourses = () => {
   return (
@@ -99,10 +100,10 @@ const DashboardUploadCourses = () => {
         columns={{ xs: 12, sm: 12, md: 12, lg: 12 }}
       >
         {items.map((item) => (
-          <Grid item xs={12} sm={12} md={4} lg={3} className="card_grids">
+          <Grid item xs={12} sm={12} md={4} lg={3} className="card_grids"> 
             <div className="cardGrid-dashboard">
               <div className="favourite-icon-position">
-                <img src={item.img} className="courseimg" alt="img" />
+                <img src={item.img} className="dashboardcourseimg" alt="img" />
               </div>
               <h5 className="latestcourseh5">{item.title}</h5>
               <p className="latestcoursep1">{item.name}</p>
@@ -114,7 +115,7 @@ const DashboardUploadCourses = () => {
                 ))}
                 (1809)
               </p>
-              <h6 className="latestcourseh6">$19.99</h6>
+              <h6 className="dashboardlatestcourseh6">$19.99</h6>
             </div>
           </Grid>
         ))}
