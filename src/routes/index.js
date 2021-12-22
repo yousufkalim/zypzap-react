@@ -30,6 +30,7 @@ const index = () => {
       <Route exact path="/landingpartner" component={LandingPartner} />
       <Route exact path="/landingpage" component={LandingPage} />
       <Route exact path="/userlanding" component={UserLandingPage} />
+      <Route exact path="/dashboard" component={ContentDashboard} />
       <Route
         exact
         path="/contentcreator"

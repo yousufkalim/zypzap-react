@@ -65,11 +65,11 @@
 }
 
 /* for big screens */
-@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+@media only screen and (min-width: 1500px) and (max-width: 1900px) {
 }
 
 /* for mobile */
-@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+@media only screen and (min-width: 320px) and (max-width: 812px) {
   .userReviewavatardiv {
     width: 50%;
     margin: auto;

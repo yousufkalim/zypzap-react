@@ -79,6 +79,16 @@ var items = [
     price: "19.99",
     test: "8",
   },
+  {
+    id: 9,
+    title: "9Minicraft Full Course",
+    img: Course1,
+    name: "9James Wiik",
+    rating: "rating",
+    price: "19.99",
+    test: "3",
+  },
+
 ];
 const DashboardUploadCourses = () => {
   return (
@@ -90,7 +100,7 @@ const DashboardUploadCourses = () => {
         columns={{ xs: 12, sm: 12, md: 12, lg: 12 }}
       >
         {items.map((item) => (
-          <Grid item xs={12} sm={12} md={4} lg={3}>
+          <Grid item xs={12} sm={12} md={4} lg={3} className="card_grids"> 
             <div className="cardGrid-dashboard">
               <div className="favourite-icon-position">
                 <img src={item.img} className="dashboardcourseimg" alt="img" />

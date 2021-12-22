@@ -20,11 +20,9 @@ const DashboardRightSideBar = ({
             setcreateCourse={setcreateCourse}
             setDefaultCompState={setDefaultCompState}
           />
-          <Box>
-            <div className="upload-courses-heading">
-              {" "}
-              <h2> My Uploaded Courses</h2>{" "}
-            </div>
+         <Box>
+            <h1 className="upload-courses-heading"> My Uploaded Courses</h1>
+
             <DashboardUploadCourses />
           </Box>
         </Box>
