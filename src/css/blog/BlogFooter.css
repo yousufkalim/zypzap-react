@@ -16,11 +16,13 @@
   padding: 15px 0px 15px 0px;
 }
 .f2div {
-  padding: 40px 0px 15px 0px;
+  padding: 40px 30px 15px 115px;
+  text-align: left;
 }
 .infotable1 {
   margin: auto;
   padding-left: 35px;
+  opacity: 0.7;
 }
 .tdDiv {
   margin: 5px 0px 10px 0px;
@@ -34,6 +36,7 @@
 }
 .isocialcondiv {
   margin-left: -22px;
+  opacity: 0.7;
 }
 .pmargin {
   margin-bottom: 17px;
@@ -54,6 +57,7 @@
   color: white;
   font-weight: bolder;
   cursor: pointer;
+  opacity: 0.7;
 }
 .languageIcon {
   position: relative;
@@ -117,6 +121,7 @@
   }
   .f2div {
     padding: 0px 31px 15px 0px;
+    text-align: center;
   }
   .languagebuttondiv {
     margin-left: -46px;
@@ -124,5 +129,26 @@
   .divforsign {
     position: relative;
     min-height: 118px;
+  }
+}
+@media only screen and (min-width: 813px) and (max-width: 1212px) {
+  .footerLogo {
+    margin-right: 0px;
+  }
+  .f2div {
+    padding: 40px 0px 0px 48px;
+    font-size: 14px;
+  }
+  .isocialcondiv {
+    margin-left: 21px !important;
+  }
+  .imgIcon {
+    height: 40px !important;
+  }
+  .sign {
+    right: 22px;
+  }
+  .infoTd {
+    font-size: 15px;
   }
 }

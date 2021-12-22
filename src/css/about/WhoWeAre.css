@@ -4,7 +4,7 @@
   padding-top: 40px;
 }
 .whoweareimgdiv {
-  width: 66%;
+  width: 80%;
   margin-left: auto;
 }
 .whoweareimg {
@@ -14,21 +14,21 @@
   width: 100%;
 }
 .videoImgDiv {
-  width: 70%;
+  width: 80%;
   margin: auto;
-  padding-top: 40px;
+  padding-top: 66px;
 }
 .whoweareText {
   width: 70%;
-  margin: 50px;
+  margin: 90px 0 0 40px;
   text-align: left;
 }
 .whoweareP {
   margin-bottom: 50px;
   opacity: 0.9;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 23px;
-  width: 74%;
+  width: 100%;
 }
 /* for big screens */
 @media only screen and (min-width: 1500px) and (max-width: 1900px) {
@@ -48,17 +48,40 @@
 @media only screen and (min-width: 320px) and (max-width: 812px) {
   .whoweareimgdiv {
     margin: auto;
+    width: 85%;
   }
   .whoweareText {
     width: auto;
-    margin: 50px;
+    margin: 30px;
     text-align: left;
   }
   .videoImgDiv {
     width: 90%;
+    padding-top: 0;
   }
   .whoweareP {
     font-size: 12px;
     width: 100%;
+    margin-bottom: 30px;
+    padding-right: 10px;
+  }
+}
+@media only screen and (min-width: 813px) and (max-width: 1212px) {
+  .whoweareP {
+    margin-bottom: 24px;
+    font-size: 13px;
+    line-height: 20px;
+    width: 100%;
+  }
+  .whoweareimgdiv {
+    width: 83%;
+  }
+  .videoImgDiv {
+    width: 83%;
+    padding-top: 63px;
+  }
+  .whoweareText {
+    width: 80%;
+    margin: 70px 0 0 0;
   }
 }

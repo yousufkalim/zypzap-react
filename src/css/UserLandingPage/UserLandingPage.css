@@ -511,4 +511,24 @@
   .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
     width: 80% !important;
   }
+  .carousalContainer {
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+  }
+  .carousalText {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  .list-text {
+    font-weight: 500;
+  }
+  .carousel-img {
+    width: 100%;
+  }
+  .carousalforRight {
+    width: 100% !important;
+    margin-top: 10px !important;
+  }
 }
