@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { ToastContainer, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useTranslation, Trans } from "react-i18next";
+import Cookies from "./utils/Cookies";
 import api from "./api";
 
 // Files
@@ -49,6 +50,7 @@ function App() {
       />
       {/* Routes */}
       <Index />
+      <Cookies />
     </div>
   );
 }
