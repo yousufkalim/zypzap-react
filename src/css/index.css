@@ -36,6 +36,8 @@
 @import url("./dashboard/createCourse.css");
 @import url("./dashboard/setting.css");
 @import url("./dashboard/FormStepone.css");
+@import url("./dashboard/FormStepTwo.css");
+@import url("./dashboard/FormStepThree.css");
 
 /* Defaults */
 * {
