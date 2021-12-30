@@ -68,8 +68,14 @@
   }
 }
 .landingpagetextonImgbutton:hover {
-  background-color: #e7411b;
   border: none;
+  animation: mymove 1s ease-in-out;
+  opacity: 1;
+}
+@keyframes mymove {
+  to {
+    background-color: #e7411b;
+  }
 }
 .landingPage_heading {
   position: relative;

@@ -29,6 +29,21 @@ body {
   margin: auto;
   margin-top: 20px;
 }
+.myStyleWhats {
+  position: relative;
+  animation: MovesZoom 0.8s ease-in;
+}
+@keyframes MovesZoom {
+  from {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+
+    opacity: 1;
+  }
+}
 .creator_P {
   width: 77%;
   font-size: 17px;
@@ -590,7 +605,7 @@ body {
     font-size: 19px;
     width: 73%;
     text-align: left;
-    padding: 2px 94px 0 26px;
+    padding: 2px 0px 0 26px;
     opacity: 0.8;
   }
 }

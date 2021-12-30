@@ -71,13 +71,23 @@ const UserLandingPageAdvantages = () => {
           <div className="offerdashline"> </div>
         </Box>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={12}>
+          <Grid item xs={12} md={6}>
+            <div className="carousalContainer">
+              <div className="carousalText">
+                <p className="list-text ">Tous vos jeux sont abordés </p>
+                <p className="list-text "> Tous vos jeux sont abordés</p>
+                <p className="list-text "> Tous vos jeux sont abordés</p>
+                <p className="list-text ">Tous vos jeux sont abordés</p>
+              </div>
+            </div>
+          </Grid>
+          <Grid item xs={12} md={6}>
             <Carousel
               autoPlay={true}
               interval={3000}
               navButtonsAlwaysVisible={false}
               activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
-              indicatorContainerProps={{ className: "carousalforRight" }}
+              // indicatorContainerProps={{ className: "carousalforRight" }}
               animation={"fade"}
               duration={900}
               stopAutoPlayOnHover={false}
@@ -112,12 +122,6 @@ function CarousalComponent({ item }) {
   return (
     <>
       <div className="carousalContainer">
-        <div className="carousalText">
-          <p className="list-text "> {item.text}</p>
-          <p className="list-text "> {item.text2}</p>
-          <p className="list-text "> {item.text3}</p>
-          <p className="list-text "> {item.text4}</p>
-        </div>
         <img className="carousel-img" src={item.img} />
       </div>
     </>

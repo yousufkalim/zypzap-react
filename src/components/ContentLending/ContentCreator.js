@@ -17,6 +17,20 @@ import { useTranslation } from "react-i18next";
 const ContentCreator = () => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
+
+  React.useEffect(() => {
+    document.addEventListener("scroll", () => {
+      if (window.scrollY > 100 && window.scrollY < 400) {
+        var element = document.getElementsByClassName("content_creator");
+        if (element && element.length > 0) {
+          for (let index = 0; index < element.length; index++) {
+            element[index].classList.add("myStyles");
+          }
+        }
+      }
+    });
+  }, [window.scrollY]);
+
   return (
     <>
       <div className="content_creator">
