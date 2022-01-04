@@ -23,6 +23,7 @@ i18n
           "Email address": "Email address",
           "Become content creator": "Become content creator",
           "What we offer": "What we offer",
+          "Join us": "Join us",
           "I am Gamer": "I am Gamer",
           "It is a long established fact that a reader will be distracted by the readable content of a page this is whe":
             "It is a long established fact that a reader will be distracted by the readable content of a page this is whe",
@@ -139,6 +140,7 @@ i18n
           "Join our Online Courses community and reach your goal":
             "Inscrivez vous dés maintenant et beneficiez gratuitement de toutes les fonctionnalités Passtotrip pendant un mois !",
           "Early access to courses": "S'inscrire",
+          "Join us": "Nous rejoindre",
           "Email address": "Adresse email",
           "Become content creator": "Devenir un créateur de contenu",
           "What we offer": "Découvrez nos offres",

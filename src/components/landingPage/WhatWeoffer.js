@@ -42,9 +42,7 @@ export default function WhatWeOffer() {
                 )}
               </p>
               <Link to="/userlanding">
-                <button className="whatweofferButton">
-                  {t("Early access to courses")}
-                </button>
+                <button className="whatweofferButton">{t("Join us")}</button>
               </Link>
             </div>
           </div>
@@ -60,9 +58,7 @@ export default function WhatWeOffer() {
                 )}
               </p>
               <Link to="/contentcreator">
-                <button className="whatweofferButton">
-                  {t("Early access to courses")}
-                </button>
+                <button className="whatweofferButton">{t("Join us")}</button>
               </Link>
             </div>
           </div>
