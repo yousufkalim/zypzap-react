@@ -46,13 +46,12 @@
   padding: 8px 22px 8px 22px;
   border: none;
   margin: 13px 13px 8px 0px;
-  background-color: transparent;
+  background-color: #e7411b;
   color: white;
   font-weight: 900;
   font-family: "Poppins", sans-serif;
   border-radius: 5px;
   cursor: pointer;
-  border: 1px solid #939393;
 }
 .myStyleBtn {
   animation: MovesBtn 1.8s ease-in;
@@ -68,13 +67,12 @@
   }
 }
 .landingpagetextonImgbutton:hover {
-  border: none;
-  animation: mymove 1s ease-in-out;
-  opacity: 1;
+  background-color: transparent;
+  border: 1px solid #939393;
 }
 @keyframes mymove {
   to {
-    background-color: #e7411b;
+    background-color: transparent;
   }
 }
 .landingPage_heading {

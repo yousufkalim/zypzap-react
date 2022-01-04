@@ -112,14 +112,16 @@
 }
 .btn-content-creator {
   padding: 8px 25px;
-  border: 1px solid grey;
+  border: none;
   border-radius: 25px;
-  background-color: rgb(14, 15, 30);
+  /* background-color: rgb(14, 15, 30); */
+  background-color: #e7411b;
   color: #fff;
   margin: 0px 10px;
 }
 .btn-content-creator:hover {
-  background-color: #e7411b;
+  background-color: transparent;
+  border: 1px solid grey;
 }
 
 /* User landing page header css starts here */
@@ -220,6 +222,7 @@
 }
 .btn-advantages {
   padding: 14px 29px;
+  background-color: rgb(14, 15, 30);
   background-color: rgb(14, 15, 30);
   color: #fff;
   border: 1px solid #202342;
