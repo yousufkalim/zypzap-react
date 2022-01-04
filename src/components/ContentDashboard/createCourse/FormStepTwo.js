@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
+import VideoInput from "../../../utils/VideoInput";
 
 const FormStepTwo = ({ step, setStep, setformDataOne }) => {
   const [activeUploadButton, setActiveUploadButton] = useState(1);
@@ -34,24 +35,29 @@ const FormStepTwo = ({ step, setStep, setformDataOne }) => {
 
         {activeUploadButton == 1 ? (
           <Grid container spacing={2}>
-            <Grid xs={12} sm={6}>
-              <div>
-                <p>Upload Full Course</p>
+            <div className="step_container">
+              <div className="step1">
+                <p className="stapPr">Upload Full Course</p>
+                <VideoInput text="Select Video" />
               </div>
-            </Grid>
-            <Grid xs={12} sm={6}>
-              <div>
-                <p>Upload Chapters</p>
+              <div className="step_or">or</div>
+              <div className="step1">
+                <p className="stapPr2">Upload chapters</p>
+                <VideoInput text="Select Chapter" />
               </div>
-            </Grid>
+            </div>
           </Grid>
         ) : (
           <div>
             <h1>Record Course</h1>
           </div>
         )}
-
-        <button onClick={() => setStep(3)}>Continue</button>
+        <div className="coursDetailBtn">
+          <button className="drafBtn">Draft</button>
+          <button onClick={() => setStep(3)} className="continueBtn">
+            Continue
+          </button>
+        </div>
       </div>
     </>
   );

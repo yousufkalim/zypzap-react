@@ -3,15 +3,15 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 const Password = () => {
-  const [password, setPsassword] = useState({
-    crntpassword: "",
-    newpassword: "",
-    cnfrmpassword: "",
+  const [password, setPaassword] = useState({
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: "",
   });
-  const { crntpassword, newpassword, cnfrmpassword } = password;
+  const { currentPassword, newPassword, confirmPassword } = password;
 
   const handleChange = (e) => {
-    setPsassword({
+    setPaassword({
       ...password,
       [e.target.name]: e.target.value,
     });
@@ -19,19 +19,19 @@ const Password = () => {
   const handleClick = (e) => {
     e.preventDefault();
 
-    if (crntpassword == "") {
+    if (currentPassword == "") {
       return toast.error("Enter your current password");
     }
-    if (newpassword == "") {
+    if (newPassword == "") {
       return toast.error("Enter your new password");
     }
-    if (cnfrmpassword == "") {
+    if (confirmPassword == "") {
       return toast.error("Enter your confirm new password");
     }
-    setPsassword({
-      crntpassword: "",
-      newpassword: "",
-      cnfrmpassword: "",
+    setPaassword({
+      currentPassword: "",
+      newPassword: "",
+      confirmPassword: "",
     });
   };
   return (
@@ -45,24 +45,24 @@ const Password = () => {
               type="password"
               className="dashInput"
               placeholder="Current password"
-              name="crntpassword"
-              value={crntpassword}
+              name="currentPassword "
+              value={currentPassword}
               onChange={handleChange}
             />
             <input
               type="password"
               className="dashInput"
               placeholder="New password"
-              name="newpassword"
-              value={newpassword}
+              name="newPassword"
+              value={newPassword}
               onChange={handleChange}
             />
             <input
               type="password"
               className="dashInput"
               placeholder="Confirm new password"
-              name="cnfrmpassword"
-              value={cnfrmpassword}
+              name="confirmPassword"
+              value={confirmPassword}
               onChange={handleChange}
             />
           </form>

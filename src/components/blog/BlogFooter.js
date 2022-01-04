@@ -54,10 +54,10 @@ export default function Footer() {
                 </tr>
               </table>
               <div className="isocialcondiv">
-                <img src={FbIcon} height={60} />
-                <img src={TwitterIcon} height={60} />
-                <img src={LinkedinIcon} height={60} />
-                <img src={PintrestIcon} height={60} />
+                <img src={FbIcon} height={60} className="imgIcon" />
+                <img src={TwitterIcon} height={60} className="imgIcon" />
+                <img src={LinkedinIcon} height={60} className="imgIcon" />
+                <img src={PintrestIcon} height={60} className="imgIcon" />
               </div>
             </div>
           </div>

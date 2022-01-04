@@ -21,13 +21,28 @@ body {
 }
 .creator_heading {
   margin: 30px 0 -1px 0;
-  font-weight: 900;
+  font-weight: 500;
   font-size: 26px;
 }
 .creator_container {
   width: 80%;
   margin: auto;
   margin-top: 20px;
+}
+.myStyleWhats {
+  position: relative;
+  animation: MovesZoom 0.8s ease-in;
+}
+@keyframes MovesZoom {
+  from {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+
+    opacity: 1;
+  }
 }
 .creator_P {
   width: 77%;
@@ -161,7 +176,7 @@ body {
 }
 .monitization_heading {
   margin: 20px 0;
-  font-weight: 900;
+  font-weight: 500;
   font-size: 26px;
   padding-left: 20px;
 }
@@ -400,7 +415,6 @@ body {
   }
   /* monitization */
   .moniBox {
-    height: 301px;
     margin: 0 auto 48px auto;
   }
   .moni_icon {
@@ -591,7 +605,7 @@ body {
     font-size: 19px;
     width: 73%;
     text-align: left;
-    padding: 2px 94px 0 26px;
+    padding: 2px 0px 0 26px;
     opacity: 0.8;
   }
 }

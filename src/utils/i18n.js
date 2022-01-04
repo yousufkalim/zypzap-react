@@ -135,7 +135,7 @@ i18n
           "Get Early Access": "S'inscrire",
           // landing page
           "Welcome to the": "Bienvenue dans le",
-          "Gamer's eLearning 3.0": "eLearning3.0 dédié au gaming",
+          "Gamer's eLearning 3.0": "eLearning 3.0 dédié au gaming",
           "Join our Online Courses community and reach your goal":
             "Inscrivez vous dés maintenant et beneficiez gratuitement de toutes les fonctionnalités Passtotrip pendant un mois !",
           "Early access to courses": "S'inscrire",
@@ -154,7 +154,7 @@ i18n
           "View all": "Voir plus",
           // User Landing Page
           "Welcome to the Gamer's eLearning 3.0":
-            "Bienvenue dans le eLearning3.0 dédié au gaming",
+            "Bienvenue dans le eLearning 3.0 dédié au gaming",
           "Join our Online Courses community and become a pro game":
             "Rejoignez notre communauté de cours en ligne et devenez un joueur pro !",
           "Win your games": "Remportez vos parties",

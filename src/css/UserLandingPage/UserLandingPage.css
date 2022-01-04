@@ -240,7 +240,7 @@
 }
 
 .carousel-img {
-  width: 50%;
+  width: 100%;
   padding-top: 20px;
   height: 400px;
 }
@@ -272,6 +272,8 @@
 .carousalContainer {
   display: flex;
   align-items: center;
+  justify-content: center;
+  height: 400px;
 }
 .carousalText {
   width: 100%;
@@ -416,14 +418,15 @@
   }
 
   .carousalText {
-    width: 50%;
+    width: 100%;
   }
   .trendingDiv {
     width: 85%;
     margin-bottom: 60px;
   }
   .frUserLandingPageAboutTextImgH1 {
-    font-size: 3.6rem;
+    font-size: 3.2rem;
+    margin-top: 35px;
   }
   .list-text {
     padding: 30px 30px 30px 30px;
@@ -510,5 +513,25 @@
   }
   .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
     width: 80% !important;
+  }
+  .carousalContainer {
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+  }
+  .carousalText {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  .list-text {
+    font-weight: 500;
+  }
+  .carousel-img {
+    width: 100%;
+  }
+  .carousalforRight {
+    width: 100% !important;
+    margin-top: 10px !important;
   }
 }
