@@ -4,7 +4,6 @@ body {
   padding: 0;
   margin: 0;
 }
-
 /* //// content_creator ////// */
 .MuiGrid-container {
   width: 100%;
@@ -266,10 +265,11 @@ body {
   cursor: pointer;
   opacity: 0.8;
 }
-/* .moniBTN:hover {
+.moniBTN:hover {
   background: none;
-  border: 1px solid #939393;
-} */
+  border: 1px solid gray;
+}
+
 /* //////// OurBlog ///////////  */
 .css-g1vybv-MuiPaper-root-MuiCard-root {
   background: none !important;

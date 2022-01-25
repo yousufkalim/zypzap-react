@@ -76,7 +76,7 @@ export default function ArticleBody({ singlBlog, loading, blogs }) {
                   </p>
                 </div>
               </div>
-              <div className="articleavatardiv2">
+              {/* <div className="articleavatardiv2">
                 <div className="linediv"></div>
                 <div>
                   <h3 className="a_h3">
@@ -86,7 +86,7 @@ export default function ArticleBody({ singlBlog, loading, blogs }) {
                     {singlBlog?.blog_title} Download Free.
                   </h3>
                 </div>
-              </div>
+              </div> */}
             </Grid>
             <Grid item xs={3} sm={3}>
               <div className="articleSocialicon">

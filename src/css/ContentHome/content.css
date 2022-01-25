@@ -30,6 +30,11 @@
   font-family: "Poppins", sans-serif;
   border-radius: 2px;
   cursor: pointer;
+  border-radius: 10px;
+}
+.textonbutton:hover {
+  background: none;
+  border: 1px solid gray;
 }
 .content_Image {
   width: 93%;

@@ -197,7 +197,7 @@
 }
 .user-landing-page-submit-input {
   background: #e7411b;
-  border: 1px solid #ef3f5a;
+
   color: #fff;
   padding: 0 20px;
   cursor: pointer;
@@ -207,6 +207,10 @@
   border-bottom-right-radius: 7px;
   border-top-right-radius: 7px;
   font-size: 12px;
+}
+.user-landing-page-submit-input:hover {
+  background: none;
+  border: 1px solid gray;
 }
 
 /* UserLandingPage Advantages section css starts here */
@@ -222,15 +226,15 @@
 }
 .btn-advantages {
   padding: 14px 29px;
-  background-color: rgb(14, 15, 30);
-  background-color: rgb(14, 15, 30);
+  background-color: #e7411b;
   color: #fff;
-  border: 1px solid #202342;
+  border: none;
   border-radius: 6px;
   margin: 20px 12px 27px 62px;
 }
 .btn-advantages:hover {
-  background-color: #e7411b;
+  background: none;
+  border: 1px solid #202342;
 }
 .listText {
   color: #fff !important;
