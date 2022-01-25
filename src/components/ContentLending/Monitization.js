@@ -96,7 +96,7 @@ const Monitization = () => {
       </div>
       <div className="monibutton">
         <button onClick={showPopup} className="moniBTN">
-          Monitize Your Skills
+          Monétisez vos compétences
         </button>
       </div>
     </>

@@ -74,10 +74,10 @@ const UserLandingPageAdvantages = () => {
           <Grid item xs={12} md={6}>
             <div className="carousalContainer">
               <div className="carousalText">
-                <p className="list-text ">Obtenez les meilleurs conseils</p>
-                <p className="list-text "> Suivez une Roadmap personnalisée</p>
-                <p className="list-text "> Tous vos jeux sont abordés</p>
-                <p className="list-text ">Progressez à votre rythme</p>
+                <p className="list-text ">Obtenez Les Meilleurs conseils</p>
+                <p className="list-text "> Suivez Une Roadmap Personnalisée</p>
+                <p className="list-text "> Tous Vos Jeux Sont Abordés</p>
+                <p className="list-text ">Progressez à Votre Rythme</p>
               </div>
             </div>
           </Grid>

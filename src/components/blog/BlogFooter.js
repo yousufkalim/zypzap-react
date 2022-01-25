@@ -10,6 +10,7 @@ import Globe from "../../assets/icons/globe.svg";
 import email from "../../assets/icons/email.svg";
 import phone from "../../assets/icons/phone.svg";
 import location from "../../assets/icons/location.svg";
+
 import { Link } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
 

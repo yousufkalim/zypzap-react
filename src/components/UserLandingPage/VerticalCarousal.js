@@ -18,7 +18,7 @@ const VerticalCarousel = ({ data, item }) => {
         }
         return prevIndex + 1;
       });
-    }, 2000);
+    }, 1000);
     console.log("uper then mouseout");
     xoxo.addEventListener("mouseout", () => {
       console.log("mouseout");
@@ -32,7 +32,7 @@ const VerticalCarousel = ({ data, item }) => {
           }
           return prevIndex + 1;
         });
-      }, 3000);
+      }, 1000);
     });
     xoxo.addEventListener("mouseover", () => {
       // on mouse hover interval will clear
