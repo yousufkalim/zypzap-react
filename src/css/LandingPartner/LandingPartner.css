@@ -35,16 +35,18 @@
   padding: 10px 20px;
   background-color: transparent;
   color: #fff;
-  border: 1px solid #202342;
+  background-color: #e7411b;
   border-radius: 6px;
   margin: 20px 10px 0px 10px;
   cursor: pointer;
+  border: none;
 }
 .btn-landing-partner:hover {
-  background-color: #e7411b;
+  background: none;
+  border: 1px solid gray;
 }
 
-/* landing partner different company logos css */
+/* landing partner different company logos c-colorss */
 .landing-partner-logo-container {
   text-align: center;
   width: 80%;
