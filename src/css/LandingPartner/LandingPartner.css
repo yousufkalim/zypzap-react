@@ -20,22 +20,31 @@
 }
 .landing-partner-header {
   font-size: 50px;
+  text-transform: uppercase;
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 100;
+  text-shadow: 0px 4px 3px #662f88;
 }
 .partnerTextHeading {
-  font-weight: 100 !important;
+  font-weight: 600 !important;
   font-size: 22px;
   padding-top: 20px;
   padding-bottom: 8px;
+  text-transform: uppercase;
+  text-shadow: 0px 4px 3px #662f88;
 }
 .landing-partner-pargraph {
-  font-size: 18px;
-  opacity: 0.6;
+  font-size: 23px;
+  text-transform: uppercase;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 600;
+  text-shadow: 0px 4px 3px #662f88;
 }
 .btn-landing-partner {
   padding: 10px 20px;
   background-color: transparent;
   color: #fff;
-  background-color: #e7411b;
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   border-radius: 6px;
   margin: 20px 10px 0px 10px;
   cursor: pointer;
@@ -61,8 +70,12 @@
   position: relative;
 }
 .myStylep {
-  color: red !important;
-  font-size: 0.9rem;
+  color: rgb(255, 255, 255) !important;
+  font-size: 22px;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: bold;
+  text-shadow: 0px 4px 3px #662f88;
+  /* width: 60%; */
 }
 
 .myStyle {

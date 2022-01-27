@@ -1,9 +1,12 @@
 body {
-  background-color: rgb(14, 15, 30);
+  /* background-color: rgb(14, 15, 30); */
+
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  background-color: #000;
 }
+
 /* //// content_creator ////// */
 .MuiGrid-container {
   width: 100%;
@@ -22,6 +25,9 @@ body {
   margin: 30px 0 -1px 0;
   font-weight: 500;
   font-size: 26px;
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 100;
+  text-shadow: 0px 4px 3px #662f88;
 }
 .creator_container {
   width: 80%;
@@ -44,28 +50,54 @@ body {
   }
 }
 .creator_P {
-  width: 77%;
-  font-size: 17px;
+  width: 80%;
+  font-size: 25px;
   text-align: left;
-  padding: 2px 15px 0 26px;
-  opacity: 0.8;
+  padding: 0px 15px 0 26px;
+  font-family: "Maven Pro", sans-serif;
+  text-transform: uppercase;
+  line-height: 2.3rem;
+  margin-top: -8px;
 }
+
 .creator_contain {
   display: flex;
   padding: 41px 50px 30px 32px;
 }
 .creator_img {
   background-color: #1b1e39;
-  padding: 11px 10px 0px 11px;
+  padding: 6px 10px 0px 6px;
   border-radius: 50%;
   width: 50px;
   height: 50px;
 }
-.creator_img_icon {
-  width: 28px;
-}
+
 .part_container {
   color: #fff;
+}
+.nosDiv {
+  width: 100%;
+  margin-bottom: 35px;
+}
+.nos-container {
+  width: 75%;
+  margin: auto;
+  background: linear-gradient(
+    90.12deg,
+    #202342 22.77%,
+    rgba(38, 38, 72, 0) 129.88%
+  );
+  border-radius: 14px;
+  height: 172px;
+  display: flex;
+  align-items: center;
+}
+.nosH1 {
+  color: #fff;
+  margin-left: 7%;
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 100;
+  text-shadow: 0px 4px 3px #662f88;
 }
 /* ///// Our Partners ///// */
 .our_partners {
@@ -178,21 +210,24 @@ body {
   font-weight: 500;
   font-size: 26px;
   padding-left: 20px;
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 100;
+  text-shadow: 0px 4px 3px #662f88;
 }
 .hr_line3 {
   display: block;
   width: 24px;
   height: 5px;
-  background-color: red;
+  background-color: #fff;
   border: none;
   margin-bottom: 50px;
   margin: auto;
   border-radius: 5px;
 }
 .monitization_container {
-  width: 90%;
+  width: 100%;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .lineImg {
   position: absolute;
@@ -209,14 +244,9 @@ body {
   right: 26%;
 }
 .moniBox {
-  /* background-color: #1b1e39; */
-  width: 92%;
   border-radius: 13px;
-  /* height: 300px; */
   margin-top: 0px auto 0 auto;
-  /* padding: 60px 7px 60px 7px; */
   margin: auto;
-  /* margin-top: 22px; */
 }
 .moni_icon {
   width: 67%;
@@ -224,14 +254,11 @@ body {
 }
 .moniImage {
   width: 70px;
-  height: 70px;
-  /* background-color: rgb(14, 15, 30); */
   border-radius: 50%;
   margin: auto;
   padding: 18px 0 0 2px;
 }
 .moni_heading {
-  /* width: 78%; */
   margin: auto;
 }
 .moni_h3 {
@@ -239,14 +266,14 @@ body {
   opacity: 0.9;
   font-weight: 500;
   font-size: 20px;
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 100;
 }
 .moni_p {
-  /* padding: 0 15px 0 15px; */
-  line-height: 1.5;
+  padding: 15px 0;
   opacity: 0.8;
-  width: 58%;
-  margin: auto;
-  font-size: 12px;
+  font-size: 15px;
+  font-family: "Maven Pro", sans-serif;
 }
 .monibutton {
   width: 100%;
@@ -257,7 +284,7 @@ body {
   padding: 12px 40px 12px 40px;
   border: none;
   margin: 45px 0px 31px 0;
-  background-color: #e7411b;
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
   font-weight: 900;
   font-family: "Poppins", sans-serif;
@@ -350,8 +377,34 @@ body {
   opacity: 0.8;
   font-size: 20px;
 }
-/* For Mobile*/
+.css-z7uhs0-MuiStepConnector-line {
+  display: block !important;
+  border-color: #662f88 !important;
+  border-top-style: solid !important;
+  border-top-width: 3px !important;
+}
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+  color: #662f88 !important;
+}
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root {
+  color: #662f88 !important;
+  width: 50px !important;
+}
+.step-box {
+  padding-top: 20px;
+}
+.step-count {
+  margin-top: -20px;
+  width: 4px;
+  height: 60px;
+  background: #662f88;
+  margin: -20px auto;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 812px) {
+  /* .step-box {
+    width: 100% !important;
+  } */
   /* Content_creater */
   .content_creator {
     padding: 11px 0;
@@ -543,9 +596,9 @@ body {
     left: 45%;
     margin-left: 10px;
   }
-  .moniBox {
+  /* .moniBox {
     height: 288px;
-  }
+  } */
   .moni_h3 {
     font-size: 18px;
   }

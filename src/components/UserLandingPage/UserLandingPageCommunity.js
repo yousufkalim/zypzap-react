@@ -3,9 +3,9 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 
-import communityImgone from "../../assets/img/communityImgtwo.png";
-import communityImgtwo from "../../assets/img/communityImgtwoo.png";
-import communityImgthree from "../../assets/img/communityImgthree.png";
+import communityImgone from "../../assets/icons/communityImgone.svg";
+import communityImgtwo from "../../assets/icons/communityImgtwo.png";
+import communityImgthree from "../../assets/icons/communityImgthree.png";
 import { useTranslation } from "react-i18next";
 const UserLandingPageCommunity = () => {
   const { t, i18n } = useTranslation();
@@ -52,7 +52,10 @@ const UserLandingPageCommunity = () => {
         </Grid>
         <Grid item xs={12} md={4}>
           <div className="community-block">
-            <img src={communityImgtwo} />
+            <img
+              src={communityImgtwo}
+              style={{ height: "70px", margin: "auto", textAlgn: "center" }}
+            />
             <h5
               className={`${
                 language == "en"
@@ -75,7 +78,10 @@ const UserLandingPageCommunity = () => {
         </Grid>
         <Grid item xs={12} md={4}>
           <div className="community-block community-block-border">
-            <img src={communityImgthree} />
+            <img
+              src={communityImgthree}
+              style={{ height: "70px", margin: "auto", textAlgn: "center" }}
+            />
             <h5
               className={`${
                 language == "en"
