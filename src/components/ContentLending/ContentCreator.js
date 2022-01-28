@@ -1,9 +1,9 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import Groups from "../../assets/icons/Groups.png";
-import Vector from "../../assets/icons/Vector.png";
-import Group from "../../assets/icons/Group.png";
-import Vectors from "../../assets/icons/Vectors.png";
+import Groups from "../../assets/icons/Groups.svg";
+import Vector from "../../assets/icons/Vector.svg";
+import Group from "../../assets/icons/Group.svg";
+import Vectors from "../../assets/icons/Vectors.svg";
 import Airbnb from "../../assets/icons/airbnb.png";
 import Ola from "../../assets/icons/ola.png";
 import Walmart from "../../assets/icons/Walmart.png";
@@ -91,8 +91,14 @@ const ContentCreator = () => {
             </Grid>
           </Grid>
         </div>
+        {/* /// */}
       </div>
-
+      <div className="nosDiv">
+        <div className="nos-container">
+          <h1 className="nosH1">NOS PARTENAIRES</h1>
+        </div>
+      </div>
+      {/* /// */}
       <div className="partner_container" style={{ display: "none" }}>
         <div className=" our_partners" style={{ color: "#fff" }}>
           <div className="heading_container">

@@ -40,10 +40,10 @@ const UserLandingPageBody = () => {
                 : "frUserLandingPageAboutTextImgH1"
             }`}
           >
-            {t("Welcome to the Gamer's eLearning 3.0")}
+            {t("Deviens maitre du jeu !")}
           </h1>
           <p className="user-landing-page-text-on-imgP">
-            {t("Join our Online Courses community and become a pro game")}
+            {t("Accédez à la connaissance supreme du gaming")}
           </p>
           <form
             className={`${

@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
-
 import Carousel from "react-material-ui-carousel";
-
 import imgN1 from "../../assets/img/n1.png";
 import imgN2 from "../../assets/img/n2.png";
 import imgN3 from "../../assets/img/n3.png";
 import imgN4 from "../../assets/img/n4.png";
+import Star from "../../assets/icons/Star.svg";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import SubscriptionPopup from "../PopupForms/SubscriptionPopup";
@@ -74,10 +73,44 @@ const UserLandingPageAdvantages = () => {
           <Grid item xs={12} md={6}>
             <div className="carousalContainer">
               <div className="carousalText">
-                <p className="list-text ">Obtenez Les Meilleurs conseils</p>
-                <p className="list-text "> Suivez Une Roadmap Personnalisée</p>
-                <p className="list-text "> Tous Vos Jeux Sont Abordés</p>
-                <p className="list-text ">Progressez à Votre Rythme</p>
+                <img src={Star} alt="" />
+                <div className="carousalP">
+                  <p className="list-text ">
+                    Monetisation maximale, transparente et diversifiee
+                  </p>
+                </div>
+              </div>
+              <div className="carousalText">
+                <img src={Star} alt="" />
+                <div className="carousalP">
+                  <p className="list-text ">
+                    Creation de cours en ligne ouverte à tous
+                  </p>
+                </div>
+              </div>
+              <div className="carousalText">
+                <img src={Star} alt="" />
+                <div className="carousalP">
+                  <p className="list-text ">
+                    Cadre de creation libre: tous les jeux sont abordés
+                  </p>
+                </div>
+              </div>
+              <div className="carousalText">
+                <img src={Star} alt="" />
+                <div className="carousalP">
+                  <p className="list-text ">
+                    Acces à une communaute de gamers étendue
+                  </p>
+                </div>
+              </div>
+              <div className="carousalText">
+                <img src={Star} alt="" />
+                <div className="carousalP">
+                  <p className="list-text ">
+                    Visibilite sur l'ensemble des sujets soumis par les gamers
+                  </p>
+                </div>
               </div>
             </div>
           </Grid>

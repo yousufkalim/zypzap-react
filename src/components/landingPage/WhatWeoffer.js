@@ -26,7 +26,7 @@ export default function WhatWeOffer() {
     <>
       <div className="whatweoffercontainer ">
         <div className="offerh1">
-          <h1>{t("What we offer")}</h1>
+          <h1 style={{ fontWeight: "100" }}>{t("What we offer")}</h1>
           <div className="offerdashline"></div>
         </div>
       </div>

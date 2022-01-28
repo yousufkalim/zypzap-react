@@ -36,7 +36,7 @@
 .subsformbtn {
   padding: 11px 6px;
   border: none;
-  background-color: #e7411b;
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
   font-family: "Poppins", sans-serif;
   border-radius: 2px;
@@ -47,6 +47,10 @@
   margin-top: 8px;
   font-weight: inherit;
   margin-bottom: 20px;
+}
+.subsformbtn:hover {
+  background: none;
+  border: 1px solid gray;
 }
 .subsinputForm {
   padding-left: 10px;

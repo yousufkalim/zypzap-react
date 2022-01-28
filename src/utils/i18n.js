@@ -136,14 +136,14 @@ i18n
           "Get Early Access": "S'inscrire",
           // landing page
           "Welcome to the": "Bienvenue dans le",
-          "Gamer's eLearning 3.0": "eLearning 3.0 dédié au gaming",
+          "Gamer's eLearning 3.0": "eLearning 3.0 dedie au gaming",
           "Join our Online Courses community and reach your goal":
             "Inscrivez vous dés maintenant et beneficiez gratuitement de toutes les fonctionnalités Passtotrip pendant un mois !",
           "Early access to courses": "S'inscrire",
           "Join us": "Nous rejoindre",
           "Email address": "Adresse email",
           "Become content creator": "Devenir un créateur de contenu",
-          "What we offer": "Découvrez nos offres",
+          "What we offer": "Decouvrez nos offres",
           "I am Gamer": "Je suis un Gamer",
           "It is a long established fact that a reader will be distracted by the readable content of a page this is whe":
             "Suivez les cours de votre choix et commencez à scorer",
@@ -151,7 +151,7 @@ i18n
           "It is a long established fact that a reader will be distracted by the readable content of a page this is whe":
             "Créez vos cours et monetisez votre expertise",
           // blogs on landing page
-          "Our Blog": "Découvrez notre blog",
+          "Our Blog": "Decouvrez notre blog",
           Loading: "Chargement en cours",
           "View all": "Voir plus",
           // User Landing Page
@@ -198,7 +198,7 @@ i18n
             "Monetisation immediate et transparente",
           "Each user has the opportunity to acquire a real expert status within the community":
             "Acquisition d'un statut d'expert ",
-          "Monitization Process": "Processus de monétisation",
+          "Monitization Process": "Processus de monetisation",
           "Prepare a Course": "Préparation du cours",
           "The creator prepares and registers his cours":
             "Le créateur est libre de traiter le sujet qu’il souhaite",

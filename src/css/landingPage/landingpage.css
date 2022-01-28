@@ -16,6 +16,7 @@
   margin-top: 5px;
   position: relative;
   color: white;
+  background-color: black !important;
 }
 
 .landingpagetextonImg {
@@ -35,7 +36,11 @@
 
 .landingpagetextimgH1 {
   font-size: 3em;
+  /* font-size: 55px; */
   margin-bottom: 10px;
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 100;
+  text-shadow: 0px 4px 3px #662f88;
 }
 .landingpagetextonImgP {
   padding: 5px 0px 5px 0px;
@@ -46,7 +51,8 @@
   padding: 8px 22px 8px 22px;
   border: none;
   margin: 13px 13px 8px 0px;
-  background-color: #e7411b;
+  /* background-color: #e7411b; */
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
   font-weight: 900;
   font-family: "Poppins", sans-serif;
@@ -67,7 +73,7 @@
   }
 }
 .landingpagetextonImgbutton:hover {
-  background-color: transparent;
+  background: transparent;
   border: 1px solid #939393;
 }
 @keyframes mymove {
@@ -106,14 +112,18 @@
 }
 .offerh1 {
   margin: 40px 0 40px 0;
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 100;
+  text-shadow: 0px 4px 3px #662f88;
 }
 .offerdashline {
-  background-color: red;
+  background-color: #fff;
   width: 20px;
   height: 5px;
   margin: auto;
   border-radius: 5px;
   margin-top: 13px;
+  margin-bottom: 28px;
 }
 .offerdivleft {
   text-align: center;
@@ -143,17 +153,24 @@
 .offerheading {
   font-size: 25px;
   padding: 10px;
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 100;
+  text-shadow: 0px 4px 3px #662f88;
+  text-transform: uppercase;
 }
 .offerText {
-  font-size: 12px;
+  font-size: 15px;
   color: #d4d4d4;
   padding: 10px 30px 10px 30px;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 400;
 }
 .whatweofferButton {
   padding: 9px 25px;
   border: none;
   margin: 13px 13px 30px 0px;
-  background-color: #e7411b;
+  /* background-color: #e7411b; */
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
   font-weight: 500;
   font-family: "Poppins", sans-serif;
@@ -190,7 +207,7 @@
     left: 27%;
   }
   .frlandingpagetextonImg {
-    left: 32%;
+    left: 35%;
   }
 
   .landingpagetextimgH1 {

@@ -44,7 +44,9 @@ export default function Body() {
               <br className="landingBr" /> {t("Gamer's eLearning 3.0")}
             </h1>
             <p className="myStylep ">
-              {t("Join our Online Courses community and reach your goal")}
+              {t("Inscrivez vous aujourd'hui pour bénéficier")}
+              <br />
+              {t("des avantages uniques")}
             </p>
           </div>
           <div className="landingbuttondiv">
