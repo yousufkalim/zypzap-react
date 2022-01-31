@@ -35,9 +35,9 @@ const UserLandingPageCommunity = () => {
                   : "frcommunity-content-header"
               }`}
             >
-              {t("Evaluation of courses")}
+              {t("Rejoignez la communaute")}
             </h5>
-            <span
+            {/* <span
               className={`${
                 language == "en"
                   ? "community-content-pargraph"
@@ -47,7 +47,7 @@ const UserLandingPageCommunity = () => {
               {t(
                 "Evaluate the courses for continous improvement of the creators"
               )}
-            </span>
+            </span> */}
           </div>
         </Grid>
         <Grid item xs={12} md={4}>
@@ -63,9 +63,9 @@ const UserLandingPageCommunity = () => {
                   : "frcommunity-content-header"
               }`}
             >
-              {t("Community Development")}
+              {t("Participez au developpement de la communaute")}
             </h5>
-            <span
+            {/* <span
               className={`${
                 language == "en"
                   ? "community-content-pargraph"
@@ -73,7 +73,7 @@ const UserLandingPageCommunity = () => {
               }`}
             >
               {t("Participates in the growth of the community and its economy")}
-            </span>
+            </span> */}
           </div>
         </Grid>
         <Grid item xs={12} md={4}>
@@ -89,9 +89,9 @@ const UserLandingPageCommunity = () => {
                   : "frcommunity-content-header"
               }`}
             >
-              {t("Collaboration Between Users")}
+              {t("Beneficiez de cours sur mesure")}
             </h5>
-            <span
+            {/* <span
               className={`${
                 language == "en"
                   ? "community-content-pargraph"
@@ -99,7 +99,7 @@ const UserLandingPageCommunity = () => {
               }`}
             >
               {t("Inform content creators of hot topics to be addressed")}
-            </span>
+            </span> */}
           </div>
         </Grid>
       </Grid>

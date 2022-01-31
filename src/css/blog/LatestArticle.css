@@ -5,6 +5,7 @@
   width: 93%;
   margin: auto;
   text-align: left;
+  font-family: "Maven Pro";
 }
 .LatestArticleheading {
   padding: 15px 0px 0px 10px;
@@ -23,7 +24,7 @@
 .article1img {
   width: 100%;
   padding-top: 5px;
-  height: 328px;
+  height: 360px;
 }
 
 .latestArticleRight {
@@ -44,11 +45,12 @@
 .textdescription {
   padding: 8px 0px 8px 0px;
 }
-.author1 {
+.author1 > span {
   padding-bottom: 10px;
+  color: #fff !important;
 }
 .article2img {
-  width: 34%;
+  width: 30%;
   height: 170px;
 }
 .commentSpan {
@@ -66,7 +68,8 @@
   padding: 15px 0 15px 0;
 }
 .seemore {
-  color: red;
+  font-family: "Maven Pro", sans-serif;
+  color: #fff;
 }
 .seemore:hover {
   text-decoration: underline;

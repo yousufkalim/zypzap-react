@@ -32,7 +32,9 @@ const Monitization = () => {
     <>
       <div className="monitization">
         {open && <SubscriptionPopup open={open} setOpen={setOpen} />}
-        <h2 className="monitization_heading">{t("Monitization Process")}</h2>
+        <h2 className="monitization_heading">
+          {t("Federez une nouvelle communaute")}
+        </h2>
         <hr className="hr_line3" />
         {/* ///// stapper ////// */}
         <Box sx={{ width: "80%", margin: "auto" }} className="step-box">

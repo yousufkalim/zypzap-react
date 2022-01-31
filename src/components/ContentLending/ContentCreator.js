@@ -51,7 +51,9 @@ const ContentCreator = () => {
                   <img src={Groups} alt="Groups" className="creator_img_icon" />
                 </div>
                 <p className="creator_P">
-                  {t("Serve The Community By Creating Relevont Video Content")}
+                  {t(
+                    "Developpez la communaute en proposant des contenus pertinents"
+                  )}
                 </p>
               </div>
             </Grid>
@@ -65,7 +67,9 @@ const ContentCreator = () => {
                   />
                 </div>
                 <p className="creator_P">
-                  {t("Be A Pillor In The Progress Of Gamers At Their Own Pace")}
+                  {t(
+                    "Devenez le meilleur atout des Gamers dans leur progression personnelle"
+                  )}
                 </p>
               </div>
             </Grid>
