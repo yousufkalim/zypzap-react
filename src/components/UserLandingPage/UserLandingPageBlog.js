@@ -71,7 +71,7 @@ const UserLandingPageBlog = () => {
           }}
         >
           <Typography align="center" variant="h5">
-            {t("Our Blog")}
+            {t("Blog")}
           </Typography>
           <div className="offerdashline"> </div>
         </Box>

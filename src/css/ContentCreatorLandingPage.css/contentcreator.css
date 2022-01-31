@@ -12,8 +12,8 @@ body {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  box-sizing: border-box;
-  margin: auto !important;
+  margin: 0px auto !important;
+  overflow: hidden;
 }
 .content_creator {
   width: 100%;
@@ -58,18 +58,22 @@ body {
   text-transform: uppercase;
   line-height: 2.3rem;
   margin-top: -8px;
+  text-shadow: 0px 4px 3px #662f88;
 }
 
 .creator_contain {
   display: flex;
-  padding: 41px 50px 30px 32px;
+  padding: 41px 32px 30px 32px;
 }
 .creator_img {
   background-color: #1b1e39;
-  padding: 6px 10px 0px 6px;
+  padding: 16px 10px 0px 9px;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
+}
+.creator_img_icon {
+  width: 30px;
 }
 
 .part_container {
@@ -214,6 +218,18 @@ body {
   font-weight: 100;
   text-shadow: 0px 4px 3px #662f88;
 }
+.css-95m0ql {
+  display: block !important;
+  border-color: #662f88 !important;
+  border-top-style: solid !important;
+  border-top-width: 5px !important;
+}
+.css-4ff9q7.Mui-active {
+  color: #662f88 !important;
+}
+.css-4ff9q7 {
+  color: #662f88 !important;
+}
 .hr_line3 {
   display: block;
   width: 24px;
@@ -256,7 +272,7 @@ body {
   width: 70px;
   border-radius: 50%;
   margin: auto;
-  padding: 18px 0 0 2px;
+  padding: 0px 0 0 0px;
 }
 .moni_heading {
   margin: auto;
@@ -381,7 +397,7 @@ body {
   display: block !important;
   border-color: #662f88 !important;
   border-top-style: solid !important;
-  border-top-width: 3px !important;
+  border-top-width: 4px !important;
 }
 .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
   color: #662f88 !important;
@@ -395,7 +411,7 @@ body {
 }
 .step-count {
   margin-top: -20px;
-  width: 4px;
+  width: 5px;
   height: 60px;
   background: #662f88;
   margin: -20px auto;

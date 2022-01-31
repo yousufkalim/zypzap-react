@@ -6,12 +6,12 @@
 }
 .textonImgcontent {
   position: absolute;
-  top: 18%;
+  top: 30%;
   left: 9%;
   text-align: left;
 }
 .textH1 {
-  font-size: 4.7em;
+  font-size: 3.7em;
   font-family: "AMCAP Eternal", sans-serif;
   font-weight: 100;
   text-shadow: 0px 4px 3px #662f88;
@@ -57,19 +57,18 @@
     width: 94%;
   }
   .textonImgcontent {
-    top: 17%;
+    top: 30%;
     left: 7%;
   }
 
   .textH1 {
     font-weight: 900;
-    font-size: 4.5em;
+    font-size: 3.5em;
   }
   .textonP {
     font-size: 23px;
   }
   .textonP {
-    opacity: 0.7;
     font-size: 24px;
     margin: 12px 0px 40px 0px;
   }
@@ -103,7 +102,6 @@
     font-size: 1.8em;
   }
   .textonP {
-    opacity: 0.7;
     font-size: 15px;
     margin: 12px 0px 12px 0px;
   }
@@ -113,7 +111,6 @@
     font-size: 2.8em;
   }
   .textonP {
-    opacity: 0.7;
     font-size: 17px;
     margin: 12px 0px 40px 0px;
   }

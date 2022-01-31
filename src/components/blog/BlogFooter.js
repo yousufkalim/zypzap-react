@@ -43,9 +43,9 @@ export default function Footer() {
                       <td>
                         <img src={email} height={15} className="emailicon" />
                       </td>
-                      <td className="infoTd"> Contact@passtotrip.com</td>
+                      <td className="infoTd"> contact@zypsap.com</td>
                     </div>
-                  </tr>
+                    {/* </tr>
                   <tr>
                     <div className="tdDiv">
                       <td>
@@ -54,7 +54,7 @@ export default function Footer() {
                       <td className="infoTd">+33603856707</td>
                     </div>
                   </tr>
-                  <tr>
+                  <tr> */}
                     <div className="tdDiv">
                       <td>
                         <img src={location} height={20} className="emailicon" />
@@ -87,37 +87,37 @@ export default function Footer() {
                 to="/about"
                 style={{ color: "white", textDecoration: "none" }}
               >
-                <p className="pmargin">About Us</p>
+                <p className="pmargin">A propos de nous</p>
               </Link>
               <Link
                 to="/contentcreator"
                 style={{ color: "white", textDecoration: "none" }}
               >
-                <p className="pmargin">Become a Creator</p>
+                <p className="pmargin">Devenir createur</p>
               </Link>
-              <p className="pmargin"> Become a Evaluator</p>
+              <p className="pmargin"> Devenir Evaluateur</p>
               <Link
                 to="/landingpartner"
                 style={{ color: "white", textDecoration: "none" }}
               >
-                <p className="pmargin">Partners</p>
+                <p className="pmargin">Partenaires</p>
               </Link>
-              <p className="pmargin"> Contact Us</p>
+              <p className="pmargin"> Contactez-nous</p>
             </div>
           </Grid>
 
           <Grid item xs={12} sm={3} className="footer_m2">
             <div className="f2div">
-              <p className="pmargin"> Help and Support</p>
+              <p className="pmargin"> L’équipe</p>
               <Link
                 to="/blog"
                 style={{ color: "white", textDecoration: "none" }}
               >
                 <p className="pmargin">Blog</p>
               </Link>
-              <p className="pmargin">Careers</p>
-              <p className="pmargin">Terms</p>
-              <p className="pmargin"> Privacy Policy</p>
+              <p className="pmargin">Rejoignez-nous</p>
+              <p className="pmargin">Informations légales</p>
+              <p className="pmargin">Politique de confidentialité</p>
             </div>
           </Grid>
           <Grid item xs={12} sm={3} className="footer_language">
@@ -136,7 +136,7 @@ export default function Footer() {
         </Grid>
       </div>
       <div className="divforsign" style={{ width: "100%" }}>
-        <p className="sign">©Passtotrip. ALL RIGHTS RESERVED.</p>
+        <p className="sign">©ZypZap. ALL RIGHTS RESERVED.</p>
       </div>
     </>
   );

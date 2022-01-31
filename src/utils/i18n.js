@@ -160,7 +160,7 @@ i18n
           "Join our Online Courses community and become a pro game":
             "Rejoignez notre communauté de cours en ligne et devenez un joueur pro !",
           "Win your games": "Remportez vos parties",
-          "Be part of our community": "Rejoignez la communauté Passtotrip",
+          "Be part of our community": "Rejoignez la communaute Passtotrip",
           "Evaluation of courses": "Évaluation des cours",
           "Evaluate the courses for continous improvement of the creators":
             "Donnez votre avis sur la qualité de chaque cours suivi",
@@ -177,13 +177,13 @@ i18n
             "Il est temps de faire de votre passion un atout !",
           "Get Started": "Nous rejoindre",
           "Content Creators in our Community":
-            "Le role  d'un créateur de contenu",
+            "Le role  d'un createur de contenu",
           "Serve The Community By Creating Relevont Video Content":
-            "Dynamiser la communauté en proposant un contenu pertinent",
+            "Dynamiser la communaute en proposant un contenu pertinents",
           "Be A Pillor In The Progress Of Gamers At Their Own Pace":
             "Devenir le meilleur atout des Gamers dans leur progression personnelle",
           "Listening To The Community About Their Needs":
-            "Rester à l'écoute des sujets attendus par la communauté",
+            "Rester à l'ecoute des sujets attendus par la communaute",
           "Participate In The Moderation And Validtion Of Content":
             "Prendre part à la modération et à la validation du contenu",
           "Our Partners": "Nos Partenaires",
