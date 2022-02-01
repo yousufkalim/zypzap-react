@@ -68,7 +68,12 @@ const UserLandingPageBody = () => {
           </form>
         </div>
       </div>
-      <UserLandingPageAdvantages />
+      <UserLandingPageAdvantages
+        text1="DES COURS CONÇUS POUR PROGRESSER"
+        text2="TOUS LES JEUX SONT ABORDES"
+        text3="DES SUJETS DE COURS SUR MESURE"
+        text4="UN BUDGET MINIMAL POUR UNE PROGRESSION EFFICACE"
+      />
       <UserLandingPageCommunity />
 
       <UserLandingPageTrending />

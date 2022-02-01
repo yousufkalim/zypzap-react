@@ -26,6 +26,8 @@ import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
 import OptionPopup from "./PopupForms/OptionPopup";
 import api from "../api";
 import { Link } from "react-router-dom";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 import { Store, UpdateStore } from "../StoreContext";
 
@@ -84,6 +86,11 @@ export default function PrimarySearchAppBar({
 
     updateStore({ user: null, creator: null });
     localStorage.removeItem("token");
+  };
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
   };
 
   const history = useHistory();
@@ -210,6 +217,7 @@ export default function PrimarySearchAppBar({
         signup={opensignup}
         setSignup={setOpenSignup}
       />
+
       <BecomeCreatorpopup
         open={openBecomeCreatorPopup}
         setOpen={setOpenBecomeCreatorPopup}
@@ -251,6 +259,10 @@ export default function PrimarySearchAppBar({
               />
             </Search>
             {/* <Box sx={{ flexGrow: 1 }} /> */}
+            <Link to="" className="requestBt">
+              <button className="requestBtn">Request a course</button>
+            </Link>
+
             <Box
               className={`${creator ? "headerLinkbox" : "headerLinkbox2"}`}
               sx={{
@@ -294,6 +306,63 @@ export default function PrimarySearchAppBar({
                   <p className="sgnBtn" onClick={() => setOpenLogin(true)}>
                     Login
                   </p>
+                  <div>
+                    <FormControl
+                      style={{
+                        backgroundColor: "#202342",
+                        width: "165px",
+                        height: "30px",
+                        color: "white",
+                        borderRadius: "20px",
+                        border: "none",
+                        outline: "none",
+                        marginTop: "-5px",
+                      }}
+                    >
+                      <Select
+                        style={{
+                          height: "30px",
+                          color: "white",
+                          borderRadius: "20px",
+                          border: "none",
+                          fontSize: "13px",
+                        }}
+                        value={age}
+                        onChange={handleChange}
+                        displayEmpty
+                      >
+                        <MenuItem value="">
+                          <m>Connect Wallet</m>
+                        </MenuItem>
+                        <MenuItem value={10}>Ten</MenuItem>
+                        <MenuItem value={20}>Twenty</MenuItem>
+                        <MenuItem value={30}>Thirty</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </div>
+                  {/* <Link
+                    to="/contentHome"
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
+                    <button
+                      className="sgnBtn"
+                      style={{
+                        backgroundColor: "#202342",
+                        width: "150px",
+                        height: "30px",
+                        color: "white",
+                        borderRadius: "20px",
+                        border: "none",
+                        outline: "none",
+                        height: "30px",
+                        color: "white",
+                        borderRadius: "20px",
+                        border: "none",
+                      }}
+                    >
+                      Switch to Learner
+                    </button>
+                  </Link> */}
                 </>
               )}
 

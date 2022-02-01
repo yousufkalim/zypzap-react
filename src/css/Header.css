@@ -10,7 +10,7 @@
   padding-left: 40px !important;
 }
 .searchBar {
-  width: 50% !important;
+  width: 23% !important;
   border-radius: 60px !important;
 }
 .css-96uuyl {
@@ -29,7 +29,9 @@
   cursor: pointer;
 }
 .css-l2l88c {
-  margin-left: 74px !important;
+  margin-left: auto !important;
+  margin-right: 24px;
+  width: 44% !important;
 }
 .sgnBtn {
   cursor: pointer;
@@ -37,11 +39,22 @@
 .headerLinkbox {
   width: 35% !important;
 }
+.requestBtn {
+  padding: 12px 22px;
+  border: none;
+  margin: 13px 13px 8px 0;
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  color: #fff;
+  font-weight: 900;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 /* for big screens */
 @media only screen and (min-width: 1500px) and (max-width: 1900px) {
   .searchBar {
-    width: 55% !important;
+    width: 23% !important;
   }
   .downarrow {
     position: relative;

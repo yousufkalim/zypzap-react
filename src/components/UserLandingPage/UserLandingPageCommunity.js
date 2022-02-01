@@ -35,7 +35,9 @@ const UserLandingPageCommunity = () => {
                   : "frcommunity-content-header"
               }`}
             >
-              {t("Rejoignez la communaute")}
+              {t("Rejoignez la ")}
+              <br />
+              {t("communaute")}
             </h5>
             {/* <span
               className={`${

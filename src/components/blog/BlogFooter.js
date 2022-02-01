@@ -68,15 +68,7 @@ export default function Footer() {
                   <img src={TwitterIcon2} height={50} className="imgIcon" />
                   <img src={LinkedinIcon2} height={50} className="imgIcon" />
                   <img src={VactorIcon} height={50} className="imgIcon" />
-                  <img
-                    src={InstagramIcon}
-                    height={22}
-                    className="imgIcon"
-                    style={{
-                      marginBottom: "15px",
-                      marginLeft: "5px",
-                    }}
-                  />
+                  <img src={InstagramIcon} className="imgIcon2" />
                 </div>
               </div>
             </div>

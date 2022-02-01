@@ -23,7 +23,7 @@ const onChange = (a, b) => {
   console.log(a, b);
 };
 
-const UserLandingPageAdvantages = () => {
+const UserLandingPageAdvantages = (props) => {
   const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
 
@@ -75,43 +75,35 @@ const UserLandingPageAdvantages = () => {
               <div className="carousalText">
                 <img src={Star} alt="" />
                 <div className="carousalP">
-                  <p className="list-text ">
-                    Monetisation maximale, transparente et diversifiee
-                  </p>
+                  <p className="list-text ">{props.text1}</p>
                 </div>
               </div>
               <div className="carousalText">
                 <img src={Star} alt="" />
                 <div className="carousalP">
-                  <p className="list-text ">
-                    Creation de cours en ligne ouverte à tous
-                  </p>
+                  <p className="list-text ">{props.text2}</p>
                 </div>
               </div>
               <div className="carousalText">
                 <img src={Star} alt="" />
                 <div className="carousalP">
-                  <p className="list-text ">
-                    Cadre de creation libre: tous les jeux sont abordés
-                  </p>
+                  <p className="list-text ">{props.text3}</p>
                 </div>
               </div>
               <div className="carousalText">
                 <img src={Star} alt="" />
                 <div className="carousalP">
-                  <p className="list-text ">
-                    Acces à une communaute de gamers étendue
-                  </p>
+                  <p className="list-text ">{props.text4}</p>
                 </div>
               </div>
-              <div className="carousalText">
+              {/* <div className="carousalText">
                 <img src={Star} alt="" />
                 <div className="carousalP">
                   <p className="list-text ">
                     Visibilite sur l'ensemble des sujets soumis par les gamers
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </Grid>
           <Grid item xs={12} md={6}>

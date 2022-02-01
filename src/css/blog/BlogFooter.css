@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Myriad Pro;
+  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
+}
+
 .footerDiv {
   background-color: #000000;
   color: white;
@@ -16,7 +21,7 @@
   padding: 15px 0px 15px 0px;
 }
 .f2div {
-  padding: 40px 30px 15px 115px;
+  padding: 40px 0px 15px 115px;
   text-align: left;
 }
 .infotable1 {
@@ -32,7 +37,7 @@
 }
 .infoTd {
   text-align: left;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Myriad Pro";
   font-size: 17px;
   padding-bottom: 10px;
 }
@@ -41,8 +46,8 @@
 }
 .pmargin {
   margin-bottom: 17px;
-  font-family: "Maven Pro", sans-serif;
-  font-size: 17px;
+  font-family: "Myriad Pro";
+  font-size: 15px;
   padding-bottom: 10px;
 }
 .pmargin:hover {
@@ -83,6 +88,13 @@
 .imgIcon {
   cursor: pointer;
   margin-right: 9px;
+}
+.imgIcon2 {
+  cursor: pointer;
+  margin-right: 7px;
+  margin-bottom: 15px;
+  margin-left: 0px;
+  height: 22px;
 }
 
 /* for mobile */
@@ -160,5 +172,18 @@
   }
   .infoTd {
     font-size: 15px;
+  }
+  .imgIcon2 {
+    cursor: pointer;
+    margin-right: 7px;
+    margin-bottom: 12px;
+    margin-left: 0px;
+    height: 16px;
+  }
+}
+@media only screen and (min-width: 1213px) and (max-width: 1500px) {
+  .imgIcon {
+    cursor: pointer;
+    margin-right: 0px;
   }
 }

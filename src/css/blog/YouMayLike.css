@@ -27,7 +27,6 @@
 }
 .blogdiv1text {
   padding: 15px 22px 15px 22px;
-  opacity: 0.7;
 }
 .blogdiv1heading {
   padding: 10px 0px 10px 0px;
@@ -37,6 +36,7 @@
 .bloddiv1detail {
   padding: 10px 0px 10px 0px;
   font-family: "Maven Pro", sans-serif;
+  opacity: 0.7;
 }
 
 /* for mobile */

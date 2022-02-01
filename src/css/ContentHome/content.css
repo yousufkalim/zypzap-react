@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Myriad Pro;
+  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
+}
+
 .content_container {
   text-align: center;
   margin-top: 5px;
@@ -11,18 +16,18 @@
   text-align: left;
 }
 .textH1 {
-  font-size: 3.7em;
+  font-size: 3em;
   font-family: "AMCAP Eternal", sans-serif;
   font-weight: 100;
-  text-shadow: 0px 4px 3px #662f88;
+  text-shadow: 0px 3px 3px #662f88;
 }
 .textonP {
-  font-size: 20px;
+  font-size: 23px;
   margin-top: 500px;
   padding: 5px 0px 5px 0px;
   margin: 8px 0px 28px 0px;
-  font-family: "Maven Pro", sans-serif;
-  text-shadow: 0px 4px 3px #662f88;
+  font-family: "Myriad Pro", sans-serif;
+  text-shadow: 0px 3px 3px #662f88;
   color: #fff !important;
   text-transform: uppercase;
 }
