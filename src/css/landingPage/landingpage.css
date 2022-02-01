@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Myriad Pro;
+  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
+}
+
 .landingpageimgcontainer {
   display: flex;
   width: 93%;
@@ -155,21 +160,20 @@
   padding: 10px;
   font-family: "AMCAP Eternal", sans-serif;
   font-weight: 100;
-  text-shadow: 0px 4px 3px #662f88;
   text-transform: uppercase;
 }
 .offerText {
-  font-size: 15px;
-  color: #d4d4d4;
-  padding: 10px 30px 10px 30px;
-  font-family: "Maven Pro", sans-serif;
-  font-weight: 600;
+  font-size: 23px;
+  padding: 10px 70px 10px 77px;
+  font-family: "Myriad Pro";
+  font-weight: 400;
+  width: 82%;
+  margin: auto;
 }
 .whatweofferButton {
   padding: 9px 25px;
   border: none;
   margin: 13px 13px 30px 0px;
-  /* background-color: #e7411b; */
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
   font-weight: 500;

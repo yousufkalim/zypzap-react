@@ -33,7 +33,7 @@ const Monitization = () => {
       <div className="monitization">
         {open && <SubscriptionPopup open={open} setOpen={setOpen} />}
         <h2 className="monitization_heading">
-          {t("Federez une nouvelle communaute")}
+          {t("Processus de monetisation")}
         </h2>
         <hr className="hr_line3" />
         {/* ///// stapper ////// */}

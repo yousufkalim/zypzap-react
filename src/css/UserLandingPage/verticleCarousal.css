@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Myriad Pro;
+  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
+}
+
 button {
   cursor: pointer;
 }
@@ -8,6 +13,7 @@ button {
   display: flex;
   border-radius: 5px;
   overflow: hidden;
+  font-family: "Myriad Pro";
 }
 .thisactive {
   text-align: left;
