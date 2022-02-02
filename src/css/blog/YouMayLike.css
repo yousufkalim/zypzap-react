@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Myriad Pro-REGULAR;
+  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
+}
+
 .youMayLikecontainer {
   margin-top: 5px;
   position: relative;
@@ -29,14 +34,15 @@
   padding: 15px 22px 15px 22px;
 }
 .blogdiv1heading {
-  padding: 10px 0px 10px 0px;
-  font-size: 16px;
-  font-family: "Maven Pro", sans-serif;
+  padding: 0px 0px 10px 0px;
+  font-size: 20px;
+  font-family: "Myriad Pro-REGULAR", sans-serif;
+  font-weight: 500;
 }
 .bloddiv1detail {
-  padding: 10px 0px 10px 0px;
-  font-family: "Maven Pro", sans-serif;
-  opacity: 0.7;
+  padding: 3px 0px 25px 0px;
+  font-family: "Myriad Pro-REGULAR", sans-serif;
+  color: #d4d4d4;
 }
 
 /* for mobile */

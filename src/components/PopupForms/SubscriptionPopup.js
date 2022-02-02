@@ -3,7 +3,7 @@ import Dialog from "@mui/material/Dialog";
 import { toast } from "react-toastify";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useTranslation } from "react-i18next";
-const SubscriptionPopup = ({ open, setOpen, Email }) => {
+const SubscriptionPopup = ({ open, setOpen, Email, heading1, heading2 }) => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
   const [email, setEmail] = useState(Email ? Email : "");
@@ -38,12 +38,19 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
         <div className="login_form">
           <div className="subs_container">
             <div className="form-header-block">
-              <h1 className="subH1">{t("Sign up here")}</h1>
+              <h1 className="subH1">
+                {heading1 ? heading1 : t("Sign up here")}
+              </h1>
+              <p className="subP">
+                {heading2
+                  ? heading2
+                  : "Un an de services offerts aux 10 000 premiers inscrits"}
+              </p>
               <ClearIcon className="subsclearIcon" onClick={handleClose} />
             </div>
             <form onSubmit={submitForm}>
               <label className="email-label" htmlFor="email">
-                {t("Email")}
+                {t("Address Email")}
               </label>
               <input
                 className="subsinputForm"
@@ -54,28 +61,32 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
                 name="email"
                 required
               />
+              {!heading1 && (
+                <div
+                  style={{
+                    display: "-webkit-inline-box",
+                    margin: "10px 0px 10px 0",
+                    fontSize: "16px",
+                  }}
+                >
+                  <input
+                    onChange={getCheckboxValues}
+                    value={values.checkBoxOne}
+                    name="checkBoxOne"
+                    className="popup-checkbox"
+                    type="checkbox"
+                  />
+                  <label className="subsLabel">
+                    {t("Register as a Beta Tester")}
+                  </label>
+                </div>
+              )}
+
               <div
+                className={`${heading1 && "toppdding"}`}
                 style={{
                   display: "-webkit-inline-box",
-                  margin: "10px 0px 10px 0",
-                  fontSize: "16px",
-                }}
-              >
-                <input
-                  onChange={getCheckboxValues}
-                  value={values.checkBoxOne}
-                  name="checkBoxOne"
-                  className="popup-checkbox"
-                  type="checkbox"
-                />
-                <label className="subsLabel">
-                  {t("Register as a beta tester")}
-                </label>
-              </div>
-              <div
-                style={{
-                  display: "-webkit-inline-box",
-                  margin: "0px 0px 30px 0",
+                  margin: "0px 80px 30px 0",
                   paddingTop: "5px",
                   fontSize: "16px",
                 }}
@@ -88,8 +99,13 @@ const SubscriptionPopup = ({ open, setOpen, Email }) => {
                   type="checkbox"
                 />
                 <label className="subsLabel">
+                  {t(`J'accepte`)}
+                  <span className="subsBold">
+                    {/* <span className={`padtop ? "subsBold" "padtop"}`}> */}
+                    {t(` La politique de confidentialité `)}
+                  </span>
                   {t(
-                    `I agree passtotrip Privacy Policy and agree to receive upcoming passtotrip updates`
+                    `de ZypZap et j'accepte de recevoir les prochaines mises à jour`
                   )}
 
                   {/* {t("I agree passtotrip ")}

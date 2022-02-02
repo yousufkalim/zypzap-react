@@ -1,12 +1,29 @@
+@font-face {
+  font-family: Myriad Pro-REGULAR;
+  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
+}
+@font-face {
+  font-family: Myriad Pro;
+  src: url(../../assets/MYRIADPRO-BOLD.OTF);
+}
+
 .form-box {
   width: 482px;
   height: 347px;
   margin: auto;
 }
 .subH1 {
-  padding: 15px 0 30px 0px;
-  font-size: 1.4rem !important;
+  padding: 15px 0 5px 0px;
+  font-size: 1.5rem !important;
   font-weight: 100;
+  text-transform: capitalize;
+  font-family: "Myriad Pro" !important;
+}
+.subP {
+  padding-bottom: 40px;
+  font-size: 14px;
+  font-family: "Myriad Pro-REGULAR" !important;
+  font-weight: 500;
 }
 .css-uhb5lp {
   overflow-y: inherit !important;
@@ -27,11 +44,18 @@
 .email-label {
   font-size: 13px;
   padding: 0px 0 10px 0 !important;
+  font-family: "Myriad Pro-REGULAR" !important;
 }
 .subsLabel {
-  opacity: 0.8;
   padding-bottom: 0 !important;
   font-size: 13px;
+  font-family: "Myriad Pro-REGULAR" !important;
+}
+.subsBold {
+  font-weight: 800;
+  font-size: 15px;
+  color: #fff;
+  font-family: "Myriad Pro" !important;
 }
 .subsformbtn {
   padding: 11px 6px;
@@ -64,6 +88,10 @@
   font: inherit;
   color: currentColor;
   font-size: 13px;
+}
+
+.toppdding {
+  margin-top: 50px !important;
 }
 .popup-checkbox[type="checkbox"] {
   width: 15px !important;

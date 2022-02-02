@@ -29,7 +29,7 @@ export default function Footer() {
         <Grid
           container
           spacing={4}
-          style={{ borderBottom: "0.2px solid gray" }}
+          style={{ borderBottom: "0.2px solid #2B2B4D" }}
         >
           <Grid item xs={12} sm={3} className="footer_container">
             <div className="f1div">

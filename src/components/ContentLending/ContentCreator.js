@@ -51,9 +51,9 @@ const ContentCreator = () => {
                   <img src={Groups} alt="Groups" className="creator_img_icon" />
                 </div>
                 <p className="creator_P">
-                  {t(
-                    "Developpez la communaute en proposant des contenus pertinents"
-                  )}
+                  {t("Developpez la communaute en")}
+                  <br />
+                  {t(" proposant des contenus pertinents")}
                 </p>
               </div>
             </Grid>
@@ -67,19 +67,21 @@ const ContentCreator = () => {
                   />
                 </div>
                 <p className="creator_P">
-                  {t(
-                    "Devenez le meilleur atout des Gamers dans leur progression personnelle"
-                  )}
+                  {t("Devenez le meilleur atout des Gamers ")}
+                  <br />
+                  {t("dans leur progression personnelle")}
                 </p>
               </div>
             </Grid>
-            <Grid item xs={6} sm={6}>
+            <Grid item xs={8} sm={6}>
               <div className="creator_contain">
                 <div className="creator_img">
                   <img src={Vector} alt="Group" className="creator_img_icon" />
                 </div>
                 <p className="creator_P">
-                  {t("Listening To The Community About Their Needs")}
+                  {t("RESTER À L'ECOUTE DES SUJETS ")}
+                  <br />
+                  {t("ATTENDUS PAR LA COMMUNAUTE")}
                 </p>
               </div>
             </Grid>
@@ -89,7 +91,9 @@ const ContentCreator = () => {
                   <img src={Group} alt="Vector" className="creator_img_icon" />
                 </div>
                 <p className="creator_P">
-                  {t("Participate In The Moderation And Validtion Of Content")}
+                  {t("Prenez part à la modération et")}
+                  <br />
+                  {t("à la validation du contenu")}
                 </p>
               </div>
             </Grid>
