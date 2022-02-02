@@ -40,13 +40,13 @@ export default function Article() {
   return (
     <div
       style={{
-        backgroundColor: "#0e0f1e",
+        backgroundColor: "black",
         minHeight: "100vh",
         overflowX: "hidden",
         overflowY: "hidden",
       }}
     >
-      <UserLandingPageHeader />
+      {/* <UserLandingPageHeader /> */}
       {/* <Header
         setOpenLogin={setOpenLogin}
         setOpenSignup={setOpenSignup}

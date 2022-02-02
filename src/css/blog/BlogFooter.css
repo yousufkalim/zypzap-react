@@ -1,5 +1,10 @@
+@font-face {
+  font-family: Myriad Pro;
+  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
+}
+
 .footerDiv {
-  background: #131328;
+  background-color: #000000;
   color: white;
   text-align: center;
   margin-top: 60px;
@@ -16,7 +21,8 @@
   padding: 15px 0px 15px 0px;
 }
 .f2div {
-  padding: 40px 0px 15px 0px;
+  padding: 40px 0px 15px 115px;
+  text-align: left;
 }
 .infotable1 {
   margin: auto;
@@ -31,13 +37,18 @@
 }
 .infoTd {
   text-align: left;
+  font-family: "Myriad Pro";
+  font-size: 17px;
+  padding-bottom: 10px;
 }
 .isocialcondiv {
-  margin-left: -22px;
+  margin: 60px 0 0 50px;
 }
 .pmargin {
   margin-bottom: 17px;
-  opacity: 0.7;
+  font-family: "Myriad Pro";
+  font-size: 15px;
+  padding-bottom: 10px;
 }
 .pmargin:hover {
   opacity: 1;
@@ -54,6 +65,7 @@
   color: white;
   font-weight: bolder;
   cursor: pointer;
+  opacity: 0.7;
 }
 .languageIcon {
   position: relative;
@@ -61,14 +73,28 @@
   top: 4px;
 }
 .divforsign {
-  position: relative;
-  min-height: 180px;
+  /* position: relative; */
+  /* min-height: 180px; */
 }
 .sign {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  opacity: 0.7;
+  background-color: black !important;
+  color: #fff;
+  padding: 13px 160px;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  font-family: "Maven Pro", sans-serif;
+}
+.imgIcon {
+  cursor: pointer;
+  margin-right: 9px;
+}
+.imgIcon2 {
+  cursor: pointer;
+  margin-right: 7px;
+  margin-bottom: 15px;
+  margin-left: 0px;
+  height: 22px;
 }
 
 /* for mobile */
@@ -117,6 +143,7 @@
   }
   .f2div {
     padding: 0px 31px 15px 0px;
+    text-align: center;
   }
   .languagebuttondiv {
     margin-left: -46px;
@@ -124,5 +151,39 @@
   .divforsign {
     position: relative;
     min-height: 118px;
+  }
+}
+@media only screen and (min-width: 813px) and (max-width: 1212px) {
+  .footerLogo {
+    margin-right: 0px;
+  }
+  .f2div {
+    padding: 40px 0px 0px 48px;
+    font-size: 14px;
+  }
+  .isocialcondiv {
+    margin-left: 21px !important;
+  }
+  .imgIcon {
+    height: 40px !important;
+  }
+  .sign {
+    right: 22px;
+  }
+  .infoTd {
+    font-size: 15px;
+  }
+  .imgIcon2 {
+    cursor: pointer;
+    margin-right: 7px;
+    margin-bottom: 12px;
+    margin-left: 0px;
+    height: 16px;
+  }
+}
+@media only screen and (min-width: 1213px) and (max-width: 1500px) {
+  .imgIcon {
+    cursor: pointer;
+    margin-right: 0px;
   }
 }

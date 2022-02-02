@@ -15,7 +15,9 @@ const LandingPartnerHeader = () => {
         />
         <div class=" container">
           <div class="landing-partner-text-container">
-            <h1 className="landing-partner-header">{t("Partner with Us")}</h1>
+            <h1 className="landing-partner-header">
+              {t("Devenez partenaires")}
+            </h1>
             <p className="landing-partner-pargraph">
               {t("Here what we can create together")}
             </p>

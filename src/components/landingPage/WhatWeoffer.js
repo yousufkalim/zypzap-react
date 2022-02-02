@@ -26,7 +26,7 @@ export default function WhatWeOffer() {
     <>
       <div className="whatweoffercontainer ">
         <div className="offerh1">
-          <h1>{t("What we offer")}</h1>
+          <h1 style={{ fontWeight: "100" }}>{t("What we offer")}</h1>
           <div className="offerdashline"></div>
         </div>
       </div>
@@ -37,14 +37,10 @@ export default function WhatWeOffer() {
               <img src={gamerImg} className="offerimg1 " alt="img" />
               <h1 className="offerheading">{t("I am Gamer")}</h1>
               <p className="offerText">
-                {t(
-                  "It is a long established fact that a reader will be distracted by the readable content of a page this is whe"
-                )}
+                {t("Suivez les cours de votre choix et commencez à scorer")}
               </p>
               <Link to="/userlanding">
-                <button className="whatweofferButton">
-                  {t("Early access to courses")}
-                </button>
+                <button className="whatweofferButton">{t("Join us")}</button>
               </Link>
             </div>
           </div>
@@ -55,14 +51,10 @@ export default function WhatWeOffer() {
               <img src={contentImg} className="offerimg2 " alt="img" />
               <h1 className="offerheading">{t("I AM Content Creator")}</h1>
               <p className="offerText">
-                {t(
-                  "It is a long established fact that a reader will be distracted by the readable content of a page this is whe"
-                )}
+                {t("Créez vos cours et monetisez votre expertise")}
               </p>
               <Link to="/contentcreator">
-                <button className="whatweofferButton">
-                  {t("Early access to courses")}
-                </button>
+                <button className="whatweofferButton">{t("Join us")}</button>
               </Link>
             </div>
           </div>

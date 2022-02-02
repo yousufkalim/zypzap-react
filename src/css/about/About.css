@@ -2,7 +2,9 @@
   display: flex;
   width: 93%;
   margin: auto;
+  font-family: Mulish;
 }
+
 .aboutLeftimg {
   width: 100%;
 }
@@ -16,6 +18,7 @@
   margin-top: 5px;
   position: relative;
   color: white;
+  font-family: Mulish;
 }
 .AbouttextonImg {
   position: absolute;
@@ -30,6 +33,7 @@
   margin: 8px 0px;
   display: inline-block;
   opacity: 0.8;
+  font-family: Mulish;
 }
 .AbouttextonImgP {
   font-size: 15px;
@@ -41,13 +45,13 @@
 }
 /* for big screens */
 
-@media only screen and (min-device-width: 1901px) {
+@media only screen and (min-width: 1901px) {
   .AbouttextimgH1 {
     font-size: 8rem;
   }
 }
 
-@media only screen and (min-device-width: 1500px) and (max-device-width: 1900px) {
+@media only screen and (min-width: 1500px) and (max-width: 1900px) {
   .aboutLeftimg {
     height: 525px;
   }
@@ -67,15 +71,23 @@
 }
 
 /* for mobile */
-@media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
+@media only screen and (min-width: 320px) and (max-width: 812px) {
   .AbouttextonImg {
     width: 80%;
   }
   .AbouttextimgH1 {
-    font-size: 2em;
+    font-size: 1.9em;
+    margin-bottom: 0;
+    margin-top: 20px;
   }
   .AbouttextonImgP {
-    font-size: 12px;
-    padding: 0px;
+    font-size: 11px;
+    padding: 0px 45px;
+  }
+}
+@media only screen and (min-width: 813px) and (max-width: 1212px) {
+  .AbouttextonImgP {
+    font-size: 14px;
+    padding: 0px 0px;
   }
 }

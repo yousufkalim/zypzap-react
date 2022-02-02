@@ -1,9 +1,9 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import Groups from "../../assets/icons/Groups.png";
-import Vector from "../../assets/icons/Vector.png";
-import Group from "../../assets/icons/Group.png";
-import Vectors from "../../assets/icons/Vectors.png";
+import Groups from "../../assets/icons/Groups.svg";
+import Vector from "../../assets/icons/Vector.svg";
+import Group from "../../assets/icons/Group.svg";
+import Vectors from "../../assets/icons/Vectors.svg";
 import Airbnb from "../../assets/icons/airbnb.png";
 import Ola from "../../assets/icons/ola.png";
 import Walmart from "../../assets/icons/Walmart.png";
@@ -17,6 +17,20 @@ import { useTranslation } from "react-i18next";
 const ContentCreator = () => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
+
+  React.useEffect(() => {
+    document.addEventListener("scroll", () => {
+      if (window.scrollY > 100 && window.scrollY < 400) {
+        var element = document.getElementsByClassName("content_creator");
+        if (element && element.length > 0) {
+          for (let index = 0; index < element.length; index++) {
+            element[index].classList.add("myStyles");
+          }
+        }
+      }
+    });
+  }, [window.scrollY]);
+
   return (
     <>
       <div className="content_creator">
@@ -37,7 +51,9 @@ const ContentCreator = () => {
                   <img src={Groups} alt="Groups" className="creator_img_icon" />
                 </div>
                 <p className="creator_P">
-                  {t("Serve The Community By Creating Relevont Video Content")}
+                  {t(
+                    "Developpez la communaute en proposant des contenus pertinents"
+                  )}
                 </p>
               </div>
             </Grid>
@@ -51,7 +67,9 @@ const ContentCreator = () => {
                   />
                 </div>
                 <p className="creator_P">
-                  {t("Be A Pillor In The Progress Of Gamers At Their Own Pace")}
+                  {t(
+                    "Devenez le meilleur atout des Gamers dans leur progression personnelle"
+                  )}
                 </p>
               </div>
             </Grid>
@@ -77,8 +95,14 @@ const ContentCreator = () => {
             </Grid>
           </Grid>
         </div>
+        {/* /// */}
       </div>
-
+      <div className="nosDiv">
+        <div className="nos-container">
+          <h1 className="nosH1">NOS PARTENAIRES</h1>
+        </div>
+      </div>
+      {/* /// */}
       <div className="partner_container" style={{ display: "none" }}>
         <div className=" our_partners" style={{ color: "#fff" }}>
           <div className="heading_container">

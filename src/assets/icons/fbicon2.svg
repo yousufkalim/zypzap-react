@@ -1,17 +1,17 @@
 <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_1162:558)">
+<g filter="url(#filter0_d_2716_11449)">
 <circle cx="19" cy="18" r="15" fill="#272727"/>
 </g>
-<path d="M27 18C27 13.5813 23.4187 10 19 10C14.5813 10 11 13.5813 11 18C11 22.4187 14.5813 26 19 26C19.0469 26 19.0938 26 19.1406 25.9969V19.7719H17.4219V17.7688H19.1406V16.2937C19.1406 14.5844 20.1844 13.6531 21.7094 13.6531C22.4406 13.6531 23.0687 13.7063 23.25 13.7313V15.5188H22.2C21.3719 15.5188 21.2094 15.9125 21.2094 16.4906V17.7656H23.1938L22.9344 19.7688H21.2094V25.6906C24.5531 24.7313 27 21.6531 27 18V18Z" fill="white"/>
+<path d="M27 18C27 13.5813 23.4187 10 19 10C14.5813 10 11 13.5813 11 18C11 22.4187 14.5813 26 19 26C19.0469 26 19.0938 26 19.1406 25.9969V19.7719H17.4219V17.7688H19.1406V16.2937C19.1406 14.5844 20.1844 13.6531 21.7094 13.6531C22.4406 13.6531 23.0688 13.7062 23.25 13.7313V15.5188H22.2C21.3719 15.5188 21.2094 15.9125 21.2094 16.4906V17.7656H23.1938L22.9344 19.7688H21.2094V25.6906C24.5531 24.7312 27 21.6531 27 18Z" fill="white"/>
 <defs>
-<filter id="filter0_d_1162:558" x="0" y="0" width="38" height="38" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_d_2716_11449" x="0" y="0" width="38" height="38" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="1"/>
 <feGaussianBlur stdDeviation="2"/>
 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1162:558"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1162:558" result="shape"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2716_11449"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2716_11449" result="shape"/>
 </filter>
 </defs>
 </svg>

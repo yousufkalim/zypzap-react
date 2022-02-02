@@ -1,7 +1,7 @@
 .userReviewContainer {
   background: url("../../assets/img/userreview.png") no-repeat center
     center/cover;
-
+  font-family: Mulish;
   color: white;
   margin-top: 70px;
 }
@@ -10,6 +10,7 @@
   padding: 40px 0px 40px 0px;
   font-weight: 100;
   font-size: 22px;
+  font-family: Mulish;
 }
 
 .keepgrowingGrid {
@@ -82,5 +83,8 @@
   .reviewHeadingdiv {
     padding: 40px 0px 1px 0px;
     font-size: 14px;
+  }
+  .userReviewContainer {
+    margin-top: 35px;
   }
 }

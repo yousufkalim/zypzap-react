@@ -94,7 +94,6 @@
   font-size: 16px;
 }
 .img-create-course {
-
   width: 20%;
 }
 .dashboardcourseimg {
@@ -134,12 +133,26 @@
     width: auto;
   }
   .dashboard-sidebar {
-    display: flex;
-    justify-content: start;
     width: 100%;
-    padding-bottom: 23px;
+    background-color: #131328;
+    padding-top: 18px;
+    display: flex;
+    flex-direction: column;
+    min-height: 25vh !important;
   }
   .card_grids {
     padding: 0 !important;
+  }
+}
+@media all and (max-width: 1212px) {
+  .dashboard_container {
+    width: 100% !important;
+  }
+  .cardGrid-dashboard {
+    width: 78% !important;
+    margin-bottom: 24px !important;
+  }
+  .earning_content {
+    height: 80vh !important;
   }
 }

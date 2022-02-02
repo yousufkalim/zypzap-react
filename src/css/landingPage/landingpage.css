@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Myriad Pro;
+  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
+}
+
 .landingpageimgcontainer {
   display: flex;
   width: 93%;
@@ -16,6 +21,7 @@
   margin-top: 5px;
   position: relative;
   color: white;
+  background-color: black !important;
 }
 
 .landingpagetextonImg {
@@ -35,7 +41,11 @@
 
 .landingpagetextimgH1 {
   font-size: 3em;
+  /* font-size: 55px; */
   margin-bottom: 10px;
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 100;
+  text-shadow: 0px 4px 3px #662f88;
 }
 .landingpagetextonImgP {
   padding: 5px 0px 5px 0px;
@@ -46,13 +56,13 @@
   padding: 8px 22px 8px 22px;
   border: none;
   margin: 13px 13px 8px 0px;
-  background-color: transparent;
+  /* background-color: #e7411b; */
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
   font-weight: 900;
   font-family: "Poppins", sans-serif;
   border-radius: 5px;
   cursor: pointer;
-  border: 1px solid #939393;
 }
 .myStyleBtn {
   animation: MovesBtn 1.8s ease-in;
@@ -68,8 +78,13 @@
   }
 }
 .landingpagetextonImgbutton:hover {
-  background-color: #e7411b;
-  border: none;
+  background: transparent;
+  border: 1px solid #939393;
+}
+@keyframes mymove {
+  to {
+    background-color: transparent;
+  }
 }
 .landingPage_heading {
   position: relative;
@@ -102,14 +117,18 @@
 }
 .offerh1 {
   margin: 40px 0 40px 0;
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 100;
+  text-shadow: 0px 4px 3px #662f88;
 }
 .offerdashline {
-  background-color: red;
+  background-color: #fff;
   width: 20px;
   height: 5px;
   margin: auto;
   border-radius: 5px;
   margin-top: 13px;
+  margin-bottom: 28px;
 }
 .offerdivleft {
   text-align: center;
@@ -125,7 +144,7 @@
   color: white;
   border: 1px solid #454545;
   width: 80%;
-  padding-left: 10px;
+  /* padding-left: 10px; */
   border-radius: 10px;
   margin-left: 10px;
 }
@@ -139,23 +158,33 @@
 .offerheading {
   font-size: 25px;
   padding: 10px;
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
 }
 .offerText {
-  font-size: 12px;
-  color: #d4d4d4;
-  padding: 10px 30px 10px 30px;
+  font-size: 23px;
+  padding: 10px 70px 10px 77px;
+  font-family: "Myriad Pro";
+  font-weight: 400;
+  width: 82%;
+  margin: auto;
 }
 .whatweofferButton {
   padding: 9px 25px;
   border: none;
   margin: 13px 13px 30px 0px;
-  background-color: #e7411b;
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
-  font-weight: 900;
+  font-weight: 500;
   font-family: "Poppins", sans-serif;
   border-radius: 5px;
   cursor: pointer;
   font-size: 12px;
+}
+.whatweofferButton:hover {
+  background: none;
+  border: 1px solid gray;
 }
 .myStyleWhat {
   animation: MovesZoom 0.8s ease-in;
@@ -173,20 +202,20 @@
   }
 }
 /* for big screens */
-@media only screen and (min-width: 1500px) and (max-width: 1900px) {
+@media only screen and (min-width: 1500px) {
   .landingpageRightimg {
     height: 525px;
     right: 45%;
   }
   .landingpagetextonImg {
-    left: 27%;
+    left: 26%;
   }
   .frlandingpagetextonImg {
-    left: 32%;
+    left: 35%;
   }
 
   .landingpagetextimgH1 {
-    font-size: 60px;
+    font-size: 50px;
   }
   .landingpagetextonImgP {
     font-size: 17px;
@@ -198,11 +227,14 @@
     font-size: 30px;
   }
   .offerText {
-    font-size: 15px;
-    padding: 10px 60px 10px 60px;
+    font-size: 19px;
+    padding: 10px 27% 10px 28%;
   }
   .whatweofferButton {
     padding: 10px 35px;
+  }
+  .offerdivright {
+    padding-bottom: 13px;
   }
 }
 

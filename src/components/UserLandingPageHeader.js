@@ -3,7 +3,7 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import logo from "../assets/img/headerlogo.png";
+import NewLogo from "../assets/icons/NewLogo.png";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import SubscriptionPopup from "./PopupForms/SubscriptionPopup";
@@ -34,7 +34,7 @@ const HeaderUserLandingPage = () => {
               <div className="logo-text-container">
                 <img
                   className="logo-img"
-                  src={logo}
+                  src={NewLogo}
                   onClick={() => {
                     history.push("/");
                     window.location.reload();

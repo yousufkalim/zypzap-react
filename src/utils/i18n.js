@@ -23,6 +23,7 @@ i18n
           "Email address": "Email address",
           "Become content creator": "Become content creator",
           "What we offer": "What we offer",
+          "Join us": "Join us",
           "I am Gamer": "I am Gamer",
           "It is a long established fact that a reader will be distracted by the readable content of a page this is whe":
             "It is a long established fact that a reader will be distracted by the readable content of a page this is whe",
@@ -135,13 +136,14 @@ i18n
           "Get Early Access": "S'inscrire",
           // landing page
           "Welcome to the": "Bienvenue dans le",
-          "Gamer's eLearning 3.0": "eLearning3.0 dédié au gaming",
+          "Gamer's eLearning 3.0": "eLearning 3.0 dedie au gaming",
           "Join our Online Courses community and reach your goal":
             "Inscrivez vous dés maintenant et beneficiez gratuitement de toutes les fonctionnalités Passtotrip pendant un mois !",
           "Early access to courses": "S'inscrire",
+          "Join us": "Nous rejoindre",
           "Email address": "Adresse email",
           "Become content creator": "Devenir un créateur de contenu",
-          "What we offer": "Découvrez nos offres",
+          "What we offer": "Decouvrez nos offres",
           "I am Gamer": "Je suis un Gamer",
           "It is a long established fact that a reader will be distracted by the readable content of a page this is whe":
             "Suivez les cours de votre choix et commencez à scorer",
@@ -149,16 +151,16 @@ i18n
           "It is a long established fact that a reader will be distracted by the readable content of a page this is whe":
             "Créez vos cours et monetisez votre expertise",
           // blogs on landing page
-          "Our Blog": "Découvrez notre blog",
+          "Our Blog": "Decouvrez notre blog",
           Loading: "Chargement en cours",
           "View all": "Voir plus",
           // User Landing Page
           "Welcome to the Gamer's eLearning 3.0":
-            "Bienvenue dans le eLearning3.0 dédié au gaming",
+            "Bienvenue dans le eLearning 3.0 dédié au gaming",
           "Join our Online Courses community and become a pro game":
             "Rejoignez notre communauté de cours en ligne et devenez un joueur pro !",
-          "Win your games": "Remportez vos parties",
-          "Be part of our community": "Rejoignez la communauté Passtotrip",
+          "Win your games": "Federez une nouvelle communaute",
+          "Be part of our community": "Rejoignez la communaute",
           "Evaluation of courses": "Évaluation des cours",
           "Evaluate the courses for continous improvement of the creators":
             "Donnez votre avis sur la qualité de chaque cours suivi",
@@ -175,13 +177,13 @@ i18n
             "Il est temps de faire de votre passion un atout !",
           "Get Started": "Nous rejoindre",
           "Content Creators in our Community":
-            "Le role  d'un créateur de contenu",
+            "Le role  d'un createur de contenu",
           "Serve The Community By Creating Relevont Video Content":
-            "Dynamiser la communauté en proposant un contenu pertinent",
+            "Dynamiser la communaute en proposant un contenu pertinents",
           "Be A Pillor In The Progress Of Gamers At Their Own Pace":
             "Devenir le meilleur atout des Gamers dans leur progression personnelle",
           "Listening To The Community About Their Needs":
-            "Rester à l'écoute des sujets attendus par la communauté",
+            "Rester à l'ecoute des sujets attendus par la communaute",
           "Participate In The Moderation And Validtion Of Content":
             "Prendre part à la modération et à la validation du contenu",
           "Our Partners": "Nos Partenaires",
@@ -196,7 +198,7 @@ i18n
             "Monetisation immediate et transparente",
           "Each user has the opportunity to acquire a real expert status within the community":
             "Acquisition d'un statut d'expert ",
-          "Monitization Process": "Processus de monétisation",
+          "Monitization Process": "Processus de monetisation",
           "Prepare a Course": "Préparation du cours",
           "The creator prepares and registers his cours":
             "Le créateur est libre de traiter le sujet qu’il souhaite",

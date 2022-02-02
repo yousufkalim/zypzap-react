@@ -1,0 +1,77 @@
+.formStepOneDiv {
+  height: 100%;
+  margin-bottom: 100px;
+}
+.step_container {
+  margin-top: 25px !important;
+}
+
+.coursInput {
+  width: 90%;
+  background: none;
+  border: 1px solid white;
+  height: 38px;
+  margin-bottom: 19px;
+  opacity: 0.6;
+  padding: 0 10px;
+  color: #fff;
+  margin-top: 8px;
+}
+.stepSelect {
+  width: 90%;
+  background: none;
+  border: 1px solid white;
+  height: 38px;
+  margin-bottom: 19px;
+  opacity: 0.6;
+  padding: 0px 10px;
+  color: #fff;
+  margin-top: 8px;
+}
+.setepOption {
+  background-color: #28293b;
+  margin-bottom: 10px;
+}
+
+.courstexarea {
+  margin-top: 8px;
+  width: 96%;
+  background: none;
+  border: 1px solid white;
+  height: 98px;
+  margin-bottom: 19px;
+  opacity: 0.6;
+  padding: 10px;
+  color: #fff;
+  display: block;
+}
+.coursDetailBtn {
+  display: flex;
+  width: 97%;
+  justify-content: end;
+  margin-top: 33px !important;
+}
+.drafBtn {
+  padding: 8px 25px;
+  border: none;
+  margin: 10px 13px 30px 0px;
+  background-color: #28293b;
+  color: white;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.continueBtn {
+  padding: 8px 25px;
+  border: none;
+  margin: 10px 13px 30px 0px;
+  background-color: #e7411b;
+  color: white;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}

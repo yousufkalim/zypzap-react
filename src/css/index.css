@@ -35,13 +35,18 @@
 @import url("./dashboard/earning.css");
 @import url("./dashboard/createCourse.css");
 @import url("./dashboard/setting.css");
+@import url("./dashboard/FormStepone.css");
+@import url("./dashboard/FormStepTwo.css");
+@import url("./dashboard/FormStepThree.css");
 
 /* Defaults */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Mulish";
+  /* font-family: "AMCAP Eternal", sans-serif; */
+  /* font-weight: 100; */
+  /* background-color: black !important; */
 }
 
 /* Primary Variables */
