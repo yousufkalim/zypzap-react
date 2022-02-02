@@ -13,7 +13,14 @@ const ButtonBecomeAPartner = () => {
   const { language } = i18n;
   return (
     <>
-      {open && <SubscriptionPopup open={open} setOpen={setOpen} />}
+      {open && (
+        <SubscriptionPopup
+          open={open}
+          setOpen={setOpen}
+          heading1="On Vous Contacte Trés Vite  !"
+          heading2="Laissez nous votre adresse mail, on s’occupe du reste"
+        />
+      )}
       <button className="btn-landing-partner" onClick={showPartnerPopup}>
         {t("Become a Partner")}
       </button>

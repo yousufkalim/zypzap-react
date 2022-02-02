@@ -51,7 +51,9 @@ export default function WhatWeOffer() {
               <img src={contentImg} className="offerimg2 " alt="img" />
               <h1 className="offerheading">{t("I AM Content Creator")}</h1>
               <p className="offerText">
-                {t("Créez vos cours et monetisez votre expertise")}
+                {t("Créez vos cours et ")}
+                <br />
+                {t("monetisez votre expertise")}
               </p>
               <Link to="/contentcreator">
                 <button className="whatweofferButton">{t("Join us")}</button>

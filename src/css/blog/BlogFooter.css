@@ -1,5 +1,5 @@
 @font-face {
-  font-family: Myriad Pro;
+  font-family: Myriad Pro-REGULAR;
   src: url(../../assets/MYRIADPRO-REGULAR.OTF);
 }
 
@@ -10,7 +10,8 @@
   margin-top: 60px;
 }
 .footerLogo {
-  margin-right: 60px;
+  margin-left: 16px;
+  margin-bottom: 5px;
 }
 .footerText {
   margin-left: 78px;
@@ -37,16 +38,16 @@
 }
 .infoTd {
   text-align: left;
-  font-family: "Myriad Pro";
-  font-size: 17px;
+  font-family: "Myriad Pro-REGULAR";
+  font-size: 15px;
   padding-bottom: 10px;
 }
 .isocialcondiv {
-  margin: 60px 0 0 50px;
+  margin: 60px 0 0 98px;
 }
 .pmargin {
   margin-bottom: 17px;
-  font-family: "Myriad Pro";
+  font-family: "Myriad Pro-REGULAR";
   font-size: 15px;
   padding-bottom: 10px;
 }
@@ -87,14 +88,14 @@
 }
 .imgIcon {
   cursor: pointer;
-  margin-right: 9px;
+  margin-right: 6px;
 }
 .imgIcon2 {
   cursor: pointer;
   margin-right: 7px;
   margin-bottom: 15px;
-  margin-left: 0px;
-  height: 22px;
+  margin-left: 5px;
+  height: 20px;
 }
 
 /* for mobile */

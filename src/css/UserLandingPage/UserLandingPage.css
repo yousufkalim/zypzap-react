@@ -1,5 +1,5 @@
 @font-face {
-  font-family: Myriad Pro;
+  font-family: Myriad Pro-REGULAR;
   src: url(../../assets/MYRIADPRO-REGULAR.OTF);
 }
 .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
@@ -106,6 +106,9 @@
   margin-bottom: 30px;
   font-weight: 600;
 }
+.css-1t29gy6-MuiToolbar-root {
+  padding-right: 40px !important;
+}
 /* UserLandingPage navbar css starts here */
 .logo-img {
   margin-left: 20px;
@@ -116,14 +119,14 @@
   display: flex;
 }
 .btn-content-creator {
-  padding: 8px 25px;
+  padding: 11px 25px;
   border: none;
   border-radius: 25px;
-  /* background-color: rgb(14, 15, 30); */
-  /* background-color: #e7411b; */
+  text-transform: capitalize;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: #fff;
   margin: 0px 10px;
+  font-family: "Myriad Pro-REGULAR";
 }
 .btn-content-creator:hover {
   background: none;
@@ -219,6 +222,7 @@
   border-bottom-right-radius: 7px;
   border-top-right-radius: 7px;
   font-size: 12px;
+  font-weight: 900;
 }
 .user-landing-page-submit-input:hover {
   background: none;
@@ -242,7 +246,7 @@
 .css-ph2xsj-MuiTypography-root {
   font-family: "AMCAP Eternal", sans-serif !important;
   font-weight: 100 !important;
-  /* text-shadow: 0px 4px 3px #662f88; */
+  text-shadow: 0px 2px 3px #662f88;
 }
 .advantage-grid-border {
   border: 2px solid black;
@@ -351,14 +355,15 @@
   width: 80%;
   margin: auto;
   text-shadow: 0px 4px 3px #662f88;
+  font-family: "Myriad Pro-REGULAR";
 }
 .frcommunity-content-header {
   font-size: 22px;
   padding-top: 20px;
   padding-bottom: 8px;
   text-transform: uppercase;
-  font-family: Myriad Pro;
-  font-weight: 100;
+  font-family: "Myriad Pro-REGULAR";
+  font-weight: 900;
   line-height: 1.6;
 }
 .community-content-pargraph {
@@ -415,7 +420,12 @@
   display: flex;
   margin: 5px;
   padding-bottom: 30px;
+  text-transform: uppercase;
+  font-family: "Myriad Pro-REGULAR";
+  font-weight: 100;
+  font-size: 1rem;
 }
+
 .trendinglogoDiv {
   display: flex;
   padding: 0px 20px 20px 20px;
@@ -451,9 +461,10 @@
 .blog-view-all {
   font-size: 18px !important;
   cursor: pointer;
-  /* font-family: "AMCAP Eternal", sans-serif !important; */
-  font-weight: 600;
+  font-family: "Myriad Pro-REGULAR", sans-serif !important;
+  font-weight: 600 !important;
   /* text-shadow: 0px 4px 3px #662f88; */
+  text-transform: capitalize;
 }
 .blog-view-all:hover {
   text-decoration: underline;
@@ -484,10 +495,15 @@
     line-height: 1.2;
   }
   .btn-content-creator {
-    padding: 8px 35px;
+    padding: 11px 35px;
   }
   .outer-container {
     height: 500px;
+  }
+  .carousalP {
+    /* background-color: rgb(14, 15, 30); */
+    margin-left: 50px;
+    margin-top: -43px;
   }
 }
 /* Media queries */
@@ -519,9 +535,6 @@
   .carousalP {
     margin-left: 50px;
     margin-top: -50px;
-  }
-  .list-text {
-    font-size: 18px !important;
   }
 }
 

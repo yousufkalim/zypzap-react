@@ -14,6 +14,7 @@ button {
   border-radius: 5px;
   overflow: hidden;
   font-family: "Myriad Pro";
+  font-weight: 100;
 }
 .thisactive {
   text-align: left;

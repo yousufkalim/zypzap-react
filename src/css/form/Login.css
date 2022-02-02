@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Myriad Pro;
+  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
+}
+
 .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
   background-color: #15162c !important;
   width: 100% !important;
@@ -20,6 +25,7 @@
   color: #fff;
   margin: auto;
   flex-direction: column-reverse;
+  font-family: "Myriad Pro";
 }
 .loginH1 {
   font-size: 1.4rem;
