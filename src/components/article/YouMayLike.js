@@ -41,7 +41,7 @@ export default function YouMayLike({ blogs, loading }) {
   };
   return (
     <div className="articleyouMayLikecontainer">
-      <p className="youMayLikeheading">You may Like this:</p>
+      <p className="youMayLikeheading">Lisez aussi</p>
       {loading ? (
         <h1>Loading...</h1>
       ) : (
@@ -59,7 +59,7 @@ export default function YouMayLike({ blogs, loading }) {
                         alt="img"
                       />
                       <div className="blogdiv1text">
-                        <h3 className="blogdiv1heading">{item.blog_title}</h3>
+                        <h3 className="blogdiv1heading">{item.blog_title.length>30?item.blog_title.substring(0,30)+"...":item.blog_title}</h3>
                         <p className="bloddiv1detail">
                           {item?.blog_desc.length > 186
                             ? item?.blog_desc.substring(0, 186) + ".."
@@ -71,7 +71,7 @@ export default function YouMayLike({ blogs, loading }) {
                             style={{ textDecoration: "none", color: "white" }}
                           >
                             {" "}
-                            <span className="seemore"> Read More</span>
+                            <span className="seemore" style={{color:"#E7411B"}}> Read More</span>
                           </Link>
                         </p>
                       </div>

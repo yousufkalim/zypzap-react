@@ -17,32 +17,29 @@
 .videoImgDiv {
   width: 80%;
   margin: auto;
-  padding-top: 66px;
+
 }
 .whoweareText {
-  width: 70%;
-  margin: 90px 0 0 40px;
+  
+  width: 65%;
+  margin: 20% 70px 70px 70px;
   text-align: left;
 }
 .whoweareP {
   margin-bottom: 50px;
-  opacity: 0.9;
-  font-size: 16px;
-  line-height: 23px;
+  color: #D4D4D4;
+  font-size: 18px;
+  line-height: 28px;
   width: 100%;
 }
 /* for big screens */
 @media only screen and (min-width: 1500px) and (max-width: 1900px) {
-  .whoweareText {
+  /* .whoweareText {
     width: 65%;
     margin: 14% 70px 70px 70px;
     text-align: left;
-  }
-  .whoweareP {
-    margin-bottom: 50px;
-    font-size: 13px;
-    line-height: 23px;
-  }
+  } */
+
 }
 
 /* for mobile */

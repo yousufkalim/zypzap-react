@@ -159,7 +159,7 @@ i18n
             "Bienvenue dans le eLearning 3.0 dédié au gaming",
           "Join our Online Courses community and become a pro game":
             "Rejoignez notre communauté de cours en ligne et devenez un joueur pro !",
-          "Win your games": "Federez une nouvelle communaute",
+          "Win your games": "Remportez vos parties",
           "Be part of our community": "Rejoignez la communaute",
           "Evaluation of courses": "Évaluation des cours",
           "Evaluate the courses for continous improvement of the creators":

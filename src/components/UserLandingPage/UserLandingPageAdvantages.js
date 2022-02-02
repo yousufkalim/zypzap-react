@@ -74,28 +74,34 @@ const UserLandingPageAdvantages = (props) => {
             <div className="carousalContainer">
               <div className="carousalText">
                 <img src={Star} alt="" />
-                <div className="carousalP">
-                  <p className="list-text ">{props.text1}</p>
+                <div  className={`${!props.text5 && "landingtext"} carousalP`}>
+                  <p className={` list-text` }>{props.text1}</p>
                 </div>
               </div>
               <div className="carousalText">
                 <img src={Star} alt="" />
-                <div className="carousalP">
-                  <p className="list-text ">{props.text2}</p>
+                <div className={`${!props.text5 && "landingtext"} carousalP`}>
+                  <p className={`list-text` }>{props.text2}</p>
                 </div>
               </div>
               <div className="carousalText">
                 <img src={Star} alt="" />
-                <div className="carousalP">
-                  <p className="list-text ">{props.text3}</p>
+                <div  className={`${!props.text5 && "landingtext"} carousalP`}>
+                  <p className={`} list-text` }>{props.text3}</p>
                 </div>
               </div>
               <div className="carousalText">
                 <img src={Star} alt="" />
-                <div className="carousalP">
-                  <p className="list-text ">{props.text4}</p>
+                <div  className={`${!props.text5 && "landingtext"} carousalP`}>
+                  <p className={` list-text` }>{props.text4}</p>
                 </div>
               </div>
+              {props.text5 &&  <div className="carousalText">
+                <img src={Star} alt="" />
+                <div  className={`${!props.text5 && "landingtext"} carousalP`}>
+                  <p className={` list-text` }>{props.text5}</p>
+                </div>
+              </div>}
               {/* <div className="carousalText">
                 <img src={Star} alt="" />
                 <div className="carousalP">
@@ -125,9 +131,10 @@ const UserLandingPageAdvantages = (props) => {
           </Grid>
         </Grid>
         <Grid container justifyContent="center">
-          <button className="btn-advantages" onClick={() => setOpen(true)}>
+          {props.type=="landing" && <button className="btn-advantages" onClick={() => setOpen(true)}>
             {t("Early access to courses")}
-          </button>
+          </button>}
+          
           <Link
             to="/contentcreator"
             style={{ color: "white", textDecoration: "none" }}

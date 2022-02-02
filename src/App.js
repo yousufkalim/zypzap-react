@@ -50,7 +50,7 @@ function App() {
       />
       {/* Routes */}
       <Index />
-      <Cookies />
+      {/* <Cookies /> */}
     </div>
   );
 }

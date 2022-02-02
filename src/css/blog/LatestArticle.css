@@ -1,3 +1,7 @@
+@font-face {
+  font-family: Myriad Pro;
+  src: url(../../assets/MYRIADPRO-BOLD.OTF);
+}
 .LatestArticlecontainer {
   margin-top: 5px;
   position: relative;
@@ -8,9 +12,12 @@
   font-family: "Maven Pro";
 }
 .LatestArticleheading {
-  padding: 15px 0px 0px 10px;
+  padding: 20px 0px 0px 10px;
   font-weight: bolder;
   font-size: 20px;
+  text-transform: uppercase;
+  font-family: 'AMCAP Eternal', sans-serif;
+font-weight: 100;
 }
 .latestArticleLeft {
   background: linear-gradient(
@@ -20,6 +27,7 @@
   ) !important;
   border-radius: 20px !important;
   margin-top: 20px;
+  
 }
 .article1img {
   width: 100%;
@@ -40,10 +48,19 @@
 }
 .articleText {
   padding: 20px 15px 0px 30px;
-  opacity: 0.7;
+  color: #D4D4D4;
+  font-family: "Mulish";
+  font-weight: 100
+  
+;
 }
 .textdescription {
-  padding: 8px 0px 8px 0px;
+  padding: 16px 0px 16px 0px;
+}
+.author1{
+  font-family: "Myriad Pro";
+  color: white;
+  
 }
 .author1 > span {
   padding-bottom: 10px;
@@ -59,13 +76,16 @@
 .articledetail {
   margin-left: 20px;
   padding: 20px;
-  opacity: 0.7;
+  color: #D4D4D4;
 }
 .articleheading {
   padding: 15px 0 15px 0;
 }
 .articleBy {
   padding: 15px 0 15px 0;
+  font-family: "Myriad Pro";
+  color: white;
+  font-size: 20px;
 }
 .seemore {
   font-family: "Maven Pro", sans-serif;
@@ -77,8 +97,8 @@
 }
 
 /* for big screens */
-@media only screen and (min-width: 1500px) and (max-width: 1900px) {
-  .article1img {
+@media only screen and (min-width: 1681px)  {
+  /* .article1img {
     height: 294px;
   }
   .article2img {
@@ -87,7 +107,7 @@
   }
   .articleText {
     padding: 20px 80px 0px 30px;
-  }
+  } */
 }
 
 /* for mobile */
