@@ -45,7 +45,6 @@ const Monitization = () => {
                   <div className="step-count">{label.b}</div>
                   <br />
                 </StepLabel>
-                {/* <StepLabel>{label.a}</StepLabel> */}
               </Step>
             ))}
           </Stepper>
@@ -54,7 +53,6 @@ const Monitization = () => {
             <Grid
               style={{
                 display: "flex",
-                // flexDirection: "column",
                 justifyContent: "space-around",
               }}
               container

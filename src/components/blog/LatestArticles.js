@@ -20,7 +20,7 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
       By: "Baig Irfan",
     },
     {
-      heading: "CoverFire Game || 2021",
+      heading: "CoverFire Game ",
       img: Article2,
       detail:
         "It is a long established fact that a reader will be distracted by the readable content of a page  this is when looking at its layout game is best. ",
@@ -28,7 +28,7 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
       By: " Moin Khan",
     },
     {
-      heading: "Mass Efffect Game || 2021",
+      heading: "Mass Efffect Game ",
       img: Article3,
       detail:
         "It is a long established fact that a reader will be distracted by the readable content of a page  this is when looking at its layout game is best. ",
@@ -36,7 +36,7 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
       By: " Moin Khan",
     },
     {
-      heading: "Alone in the Dark || 2021",
+      heading: "Alone in the Dark ",
       img: Article4,
       detail:
         "It is a long established fact that a reader will be distracted by the readable content of a page  this is when looking at its layout game is best. ",

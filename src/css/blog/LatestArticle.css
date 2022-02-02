@@ -1,7 +1,15 @@
 @font-face {
+
   font-family: Myriad Pro;
   src: url(../../assets/MYRIADPRO-BOLD.OTF);
 }
+
+@font-face {
+  font-family: Myriad Pro--REGULAR;
+  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
+}
+
+
 .LatestArticlecontainer {
   margin-top: 5px;
   position: relative;
@@ -88,8 +96,9 @@ font-weight: 100;
   font-size: 20px;
 }
 .seemore {
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Myriad Pro--REGULAR", sans-serif;
   color: #fff;
+  font-weight: 600;
 }
 .seemore:hover {
   text-decoration: underline;

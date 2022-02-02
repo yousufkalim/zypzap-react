@@ -94,7 +94,7 @@ i18n
           "Sign up here": "Sign up here",
           "on-line": "on-line",
           Email: "Email",
-          "Register as a beta tester": "Register as a beta tester",
+          "Register as a Beta Tester": "Register as a Beta Tester",
           "I agree passtotrip": "I agree passtotrip",
           "Privacy Policy": "Privacy Policy",
           "and agree to receive upcoming passtotrip updates":
@@ -125,8 +125,8 @@ i18n
           "be able to test your game with a community of experts":
             "be able to test your game with a community of experts",
           // subscription form
-          "I agree passtotrip Privacy Policy and agree to receive upcoming passtotrip updates":
-            "I agree passtotrip Privacy Policy and agree to receive upcoming passtotrip updates",
+          "I agree to ZypZap's privacy policy and agree to receive future updates":
+            "I agree to ZypZap's privacy policy and agree to receive future updates",
         },
       },
       fr: {
@@ -141,7 +141,7 @@ i18n
             "Inscrivez vous dés maintenant et beneficiez gratuitement de toutes les fonctionnalités Passtotrip pendant un mois !",
           "Early access to courses": "S'inscrire",
           "Join us": "Nous rejoindre",
-          "Email address": "Adresse email",
+          "Email address": "Adresse Email",
           "Become content creator": "Devenir un créateur de contenu",
           "What we offer": "Decouvrez nos offres",
           "I am Gamer": "Je suis un Gamer",
@@ -213,8 +213,8 @@ i18n
           Publish: "Publier",
           "Sign up here": "Lancez-vous !",
           "on-line": "Mise en ligne",
-          Email: "Adresse email",
-          "Register as a beta tester": "S'inscrire comme bêta testeur",
+          Email: "Adresse Email",
+          "Register as a Beta Tester": "S'inscrire Comme Bêta Testeur",
           "I agree passtotrip": "je suis d'accord passtotrip",
           "Privacy Policy": "Politique de confidentialité",
           "and agree to receive upcoming passtotrip updates":
@@ -245,8 +245,8 @@ i18n
           "be able to test your game with a community of experts":
             "Soumettez vos jeux à notre communauté de gamers experts",
           // subscription form
-          "I agree passtotrip Privacy Policy and agree to receive upcoming passtotrip updates":
-            "J'accepte la politique de confidentialité de passtotrip et j'accepte de recevoir les prochaines mises à jour de passtotrip",
+          "agree to ZypZap's privacy policy and agree to receive future updates":
+            "J'accepte La politique de confidentialité de ZypZap et j'accepte de recevoir les prochaines mises à jour",
         },
       },
     },
