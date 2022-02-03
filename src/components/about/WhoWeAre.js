@@ -1,7 +1,7 @@
 // Init
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import WhoWeAreimg from "../../assets/img/ss2.png";
+import WhoWeAreimg from "../../assets/img/about1.png";
 import VideoImg from "../../assets/img/videoimg.png";
 
 export default function About() {

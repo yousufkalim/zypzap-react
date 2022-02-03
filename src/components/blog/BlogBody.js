@@ -48,7 +48,7 @@ export default function BlogBody() {
         </div>
       </div>
       <LatestArticle blogs={blogs} loading={loading} setLoading={setLoading} />
-      <YouMayLike blogs={blogs} loading={loading} setLoading={setLoading} />
+      {/* <YouMayLike blogs={blogs} loading={loading} setLoading={setLoading} /> */}
       <BlogFooter />
     </>
   );

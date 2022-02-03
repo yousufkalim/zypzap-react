@@ -1,3 +1,7 @@
+@font-face {
+  font-family: Myriad Pro-REGULAR;
+  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
+}
 .articleBodycontainer {
   width: 68%;
   margin: auto;
@@ -6,13 +10,21 @@
 .articlebodyImage {
   width: 70%;
 }
+.h1article{
+  margin-top: 30px;
+  font-family: "Mulish";
+  font-weight: 100;
+}
 .articleimg {
   height: 489px;
   width: 100%;
+  border-radius: 20px;
 }
 .articleavatardiv {
   display: flex;
   margin: 35px 0px 20px 7px;
+  
+  
 }
 .articleavatardiv2 {
   display: flex;
@@ -29,6 +41,7 @@
 }
 .articlep1 {
   font-size: 14px;
+  
 }
 .a_h3 {
   font-weight: 100;
@@ -41,12 +54,15 @@
   opacity: 0.5;
 }
 .articlediv2 {
-  margin-left: 5px;
+  margin-left: 10px;
+  margin-top: 5px;
+  font-family: "Mulish";
+  
 }
 .articleSocialicon {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 30px;
+  margin-top: 33px;
 }
 .articlesocialicon {
   cursor: pointer;
@@ -70,7 +86,9 @@
 /* html css */
 .htmlmaindiv {
   width: 90%;
-  opacity: 0.9;
+  font-family: "Mulish";
+  font-weight: 100;
+  color: #DFDFDF;
 }
 .htmlp1 {
   font-size: 16px;
@@ -99,9 +117,9 @@
 
 /* for big screens */
 @media only screen and (min-width: 1500px) and (max-width: 1900px) {
-  .articleBodycontainer {
+  /* .articleBodycontainer {
     width: 50%;
-  }
+  } */
 }
 
 /* for mobile */
@@ -111,6 +129,7 @@
   }
   .h1article {
     font-size: 20px;
+    ;
   }
   .articleavatardiv2 {
     width: 140%;

@@ -32,6 +32,7 @@
 }
 .partnerTextHeading {
   font-weight: 600 !important;
+  font-family: "Myriad Pro";
   font-size: 22px;
   padding-top: 20px;
   padding-bottom: 8px;
@@ -41,12 +42,12 @@
 .landing-partner-pargraph {
   font-size: 23px;
   text-transform: uppercase;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Myriad Pro";
   font-weight: 600;
   text-shadow: 0px 4px 3px #662f88;
 }
 .btn-landing-partner {
-  padding: 10px 20px;
+  padding: 13px 22px;
   background-color: transparent;
   color: #fff;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
@@ -54,10 +55,18 @@
   margin: 20px 10px 0px 10px;
   cursor: pointer;
   border: none;
+  font-family: "Mulish";
+  font-weight: 900;
 }
 .btn-landing-partner:hover {
   background: none;
   border: 1px solid gray;
+}
+.partnerdiv1{
+  padding: 0 45px;
+}
+.divpadding{
+  padding: 0 33px;
 }
 
 /* landing partner different company logos c-colorss */
@@ -119,14 +128,12 @@
 
 /* for big screens */
 @media only screen and (min-width: 1500px) and (max-width: 1900px) {
-  .landing-partner-header {
-    font-size: 66px;
-  }
-  .landing-partner-pargraph {
+ 
+  /* .landing-partner-pargraph {
     font-size: 25px;
     margin-top: 15px;
     opacity: 0.6;
-  }
+  } */
 }
 
 @media only screen and (min-width: 320px) and (max-width: 820px) {

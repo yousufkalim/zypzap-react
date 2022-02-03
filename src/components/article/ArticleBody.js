@@ -46,7 +46,7 @@ export default function ArticleBody({ singlBlog, loading, blogs }) {
   return (
     <>
       {loading ? (
-        <h1>Loading...</h1>
+        <h1>Chargement en cours...</h1>
       ) : (
         <div className="articleBodycontainer">
           <img
@@ -57,8 +57,8 @@ export default function ArticleBody({ singlBlog, loading, blogs }) {
           />
           <div style={{ width: "85%" }}>
             <h1 className="h1article">
-              Download {singlBlog?.blog_title} on PC/Laptop free [Windows
-              10,8,9.1,7]
+              {singlBlog?.blog_title} 
+              
             </h1>
           </div>
           <Grid container spacing={2}>
