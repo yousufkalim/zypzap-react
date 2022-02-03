@@ -69,6 +69,7 @@ const UserLandingPageBody = () => {
         </div>
       </div>
       <UserLandingPageAdvantages
+      type="landing"
         text1="DES COURS CONÇUS POUR PROGRESSER"
         text2="TOUS LES JEUX SONT ABORDES"
         text3="DES SUJETS DE COURS SUR MESURE"

@@ -74,36 +74,42 @@ const LandingPartnerWays = () => {
       </Box>
       <Grid className="community" container spacing={2}>
         <Grid item xs={12} md={4}>
-          <div className="community-block">
+          <div className="community-block partnerdiv1">
             <img src={landingpartnericonone} />
             <h5 className=" partnerTextHeading">{t("Integration")}</h5>
+            <div className="divpadding">
             <span className="community-content-pargraph">
               {t(
                 "Integrate our catalog of partner offers available to subscribers"
               )}
             </span>
+            </div>
           </div>
         </Grid>
         <Grid item xs={12} md={4}>
-          <div className="community-block">
+          <div className="community-block partnerdiv1">
             <img src={landingpartnericontwo} />
             <h5 className=" partnerTextHeading">
               {t("Co- Marketing Compaigns")}
             </h5>
+            <div className="divpadding">
             <span className="community-content-pargraph">
               {t(
                 "Become an advertiser by placing advertisements in the content"
               )}
             </span>
+            </div>
           </div>
         </Grid>
         <Grid item xs={12} md={4}>
-          <div className="community-block community-block-border">
+          <div className="community-block community-block-border partnerdiv1">
             <img src={landingpartnericonthree} />
             <h5 className=" partnerTextHeading">{t("Live Events")}</h5>
+            <div className="divpadding">
             <span className="community-content-pargraph">
               {t("Make your future game known to our audience")}
             </span>
+            </div>
           </div>
         </Grid>
         {/* arrows */}
@@ -128,30 +134,35 @@ const LandingPartnerWays = () => {
           />
         </Grid>
         <Grid item xs={12} md={4}>
-          <div className="community-block">
+          <div className="community-block partnerdiv1">
             <img src={landingpartnericonfour} />
             <h5 className=" partnerTextHeading">{t("Enjoy Gamers Hearing")}</h5>
+            <div className="divpadding">
             <span className="community-content-pargraph">
               {t("Enjoy a gamer’s hearing and communicate with them")}
             </span>
+            </div>
           </div>
         </Grid>
         <Grid item xs={12} md={4}>
-          <div className="community-block">
+          <div className="community-block partnerdiv1">
             <img src={landingpartnericonfive} />
             <h5 className=" partnerTextHeading">{t("Acquire New Status")}</h5>
+            <div className="divpadding">
             <span className="community-content-pargraph">
               {t("Acquire the status of an active player in the gaming market")}
-            </span>
+            </span></div>
           </div>
         </Grid>
         <Grid item xs={12} md={4}>
-          <div className="community-block community-block-border">
+          <div className="community-block community-block-border partnerdiv1">
             <img src={landingpartnericonsix} />
             <h5 className=" partnerTextHeading">{t("Test your games")}</h5>
+            <div className="divpadding">
             <span className="community-content-pargraph">
               {t("be able to test your game with a community of experts")}
             </span>
+            </div>
           </div>
         </Grid>
 

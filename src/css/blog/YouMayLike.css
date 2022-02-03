@@ -13,8 +13,9 @@
 }
 .youMayLikeheading {
   padding: 20px 0px 15px 10px;
-  font-weight: bolder;
   font-size: 20px;
+  font-family: "Mulish";
+  font-weight: 900;
 }
 .blogdiv1 {
   width: 93%;
@@ -28,15 +29,24 @@
 }
 .blogdivimg {
   width: 100%;
-  /* height: 200px; */
+  height: 200px;
 }
 .blogdiv1text {
   padding: 15px 22px 15px 22px;
+  
 }
 .blogdiv1heading {
-  padding: 0px 0px 10px 0px;
+
+  padding: 10px 0px 10px 0px;
+  font-size: 16px;
+  font-family: "Mulish"
+}
+.bloddiv1detail {
+  padding: 10px 0px 10px 0px;
+  font-family: "Mulish";
+  color: #D4D4D4;
   font-size: 20px;
-  font-family: "Myriad Pro-REGULAR", sans-serif;
+
   font-weight: 500;
 }
 .bloddiv1detail {
@@ -44,6 +54,7 @@
   font-family: "Myriad Pro-REGULAR", sans-serif;
   color: #d4d4d4;
 }
+
 
 /* for mobile */
 @media only screen and (min-width: 320px) and (max-width: 812px) {

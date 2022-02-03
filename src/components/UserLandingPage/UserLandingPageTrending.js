@@ -128,11 +128,12 @@ const UserLandingPageTrending = () => {
   return (
     <>
       <Grid container spacing={3} className="trendingGrid">
-        {gamesHeading.map((item) => (
+ 
+        {/* {gamesHeading.map((item) => (
           <Grid item xs={12} sm={4}>
             <VerticalCarousel data={trending} item={item} />
           </Grid>
-        ))}
+        ))} */}
       </Grid>
     </>
   );

@@ -2,6 +2,10 @@
   font-family: Myriad Pro-REGULAR;
   src: url(../../assets/MYRIADPRO-REGULAR.OTF);
 }
+@font-face {
+  font-family: Myriad Pro-REGULAR;
+  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
+}
 .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
   background-color: #15162c !important;
   width: 100% !important;
@@ -157,7 +161,8 @@
 }
 .UserLandingPageAboutTextImgH1 {
   font-size: calc(4vw - 5px);
-  font-weight: 900;
+  font-weight: 100;
+  font-family: "AMCAP Eternal", sans-serif;
 }
 .frUserLandingPageAboutTextImgH1 {
   font-size: 3em;
@@ -291,16 +296,20 @@
   /* background-color: rgb(14, 15, 30); */
   margin-left: 50px;
   margin-top: -49px;
+  ;
 }
 .list-text {
   border-radius: 25px;
-  padding: 13px 10px;
+  padding: 13px 3px;
   font-size: 23px !important;
-  font-weight: 500;
-  font-family: "Myriad Pro";
+  font-weight: 900;
+  font-family: "Myriad Pro-REGULAR";
   text-transform: uppercase;
   text-shadow: 0px 3px 3px #662f88;
   line-height: 1.6;
+}
+.landingtext{
+  width: 70%;
 }
 .carousalP:hover {
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
@@ -355,26 +364,35 @@
   width: 80%;
   margin: auto;
   text-shadow: 0px 4px 3px #662f88;
-  font-family: "Myriad Pro-REGULAR";
+
+  font-family: "Myriad Pro";
+  font-weight: 100;
+
 }
 .frcommunity-content-header {
   font-size: 22px;
   padding-top: 20px;
   padding-bottom: 8px;
   text-transform: uppercase;
-  font-family: "Myriad Pro-REGULAR";
-  font-weight: 900;
+
+  font-family: "Myriad Pro";
+  font-weight: 100;
+
   line-height: 1.6;
 }
 .community-content-pargraph {
   padding: 15px 0px;
   font-size: 16px;
   opacity: 0.6;
+  font-family: "Myriad Pro-REGULAR";
+  font-weight: 100;
 }
 .frcommunity-content-pargraph {
   padding: 15px 0px;
   font-size: 13px;
   opacity: 0.6;
+  font-family: "Myriad Pro-REGULAR";
+  font-weight: 100;
 }
 .community-box {
   margin: 0 auto !important;
@@ -420,10 +438,12 @@
   display: flex;
   margin: 5px;
   padding-bottom: 30px;
-  text-transform: uppercase;
-  font-family: "Myriad Pro-REGULAR";
+
+  font-family: "Myriad Pro";
   font-weight: 100;
-  font-size: 1rem;
+
+  text-transform: uppercase;
+ 
 }
 
 .trendinglogoDiv {
@@ -471,7 +491,7 @@
 }
 /* for big screens */
 @media only screen and (min-width: 1500px) and (max-width: 1900px) {
-  .user-landing-page-text-on-img {
+  /* .user-landing-page-text-on-img {
     left: 34%;
   }
   .community {
@@ -490,7 +510,7 @@
     margin-top: 35px;
   }
   .list-text {
-    /* padding: 30px 30px 30px 30px; */
+    
     font-size: 20px !important;
     line-height: 1.2;
   }
@@ -499,12 +519,16 @@
   }
   .outer-container {
     height: 500px;
+
+  } */
+
   }
   .carousalP {
     /* background-color: rgb(14, 15, 30); */
     margin-left: 50px;
     margin-top: -43px;
   }
+
 }
 /* Media queries */
 @media all and (max-width: 800px) {
