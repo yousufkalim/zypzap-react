@@ -97,10 +97,16 @@ export default function YouMayLike({ blogs, loading, setLoading }) {
                 <Grid item xs={12} sm={3}>
                   <>
                     <div className="blogdiv1">
-                      <img
-                        src={process.env.REACT_APP_baseURL + item.blog_images}
-                        className="blogdivimg"
-                      />
+                      <Link
+                        to={`blog/${item._id}`}
+                        params={{ testvalue: "hello" }}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <img
+                          src={process.env.REACT_APP_baseURL + item.blog_images}
+                          className="blogdivimg"
+                        />
+                      </Link>
                       <div className="blogdiv1text">
                         <h3 className="blogdiv1heading">
                           {item?.blog_title.length > 20

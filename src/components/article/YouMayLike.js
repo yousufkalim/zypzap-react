@@ -9,32 +9,7 @@ import { Link } from "react-router-dom";
 
 export default function YouMayLike({ blogs, loading }) {
   let newblog = [];
-  let data = [
-    {
-      heading: "Hitman 3",
-      img: Maylike5,
-      detail:
-        "It is a long established fact that a reader will be distracted by the readable content of a page  this is when loovking at its layout game is best. The point of using Lorem Ipsum is that.",
-      date: "December 17, 2021",
-      By: " Moin Khan",
-    },
-    {
-      heading: "WWWe 2k21",
-      img: Maylike6,
-      detail:
-        "It is a long established fact that a reader will be distracted by the readable content of a page  this is when loovking at its layout game is best. The point of using Lorem Ipsum is that.",
-      date: "December 17, 2021",
-      By: " Moin Khan",
-    },
-    {
-      heading: "Counter Strike Go",
-      img: Maylike7,
-      detail:
-        "It is a long established fact that a reader will be distracted by the readable content of a page  this is when loovking at its layout game is best. The point of using Lorem Ipsum is that.",
-      date: "December 17, 2021",
-      By: " Moin Khan",
-    },
-  ];
+
   const getblogs = () => {
     newblog = [...blogs];
     return newblog;
@@ -53,11 +28,16 @@ export default function YouMayLike({ blogs, loading }) {
                 <Grid item xs={12} sm={4}>
                   <>
                     <div className="blogdiv1">
-                      <img
-                        src={process.env.REACT_APP_baseURL + item.blog_images}
-                        className="blogdivimg"
-                        alt="img"
-                      />
+                      <Link
+                        to={`${item._id}`}
+                        style={{ textDecoration: "none", color: "white" }}
+                      >
+                        <img
+                          src={process.env.REACT_APP_baseURL + item.blog_images}
+                          className="blogdivimg"
+                          alt="img"
+                        />
+                      </Link>
                       <div className="blogdiv1text">
                         <h3 className="blogdiv1heading">{item.blog_title}</h3>
                         <p className="bloddiv1detail">
@@ -67,7 +47,7 @@ export default function YouMayLike({ blogs, loading }) {
                         </p>
                         <p>
                           <Link
-                            // to={`blog/${item._id}`}
+                            to={`${item._id}`}
                             style={{ textDecoration: "none", color: "white" }}
                           >
                             {" "}

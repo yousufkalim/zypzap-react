@@ -27,7 +27,7 @@ export default function Article() {
     scrollToTop();
     getSingleBlog();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [id]);
   let getSingleBlog = async () => {
     setLoading(true);
 
