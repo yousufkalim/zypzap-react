@@ -91,7 +91,7 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
                     </Link>
                   </p>
                   <p className="articleBy">
-                  Lire l’article
+                    Lire l’article
                     {/* By{" "}
                     <span style={{ color: "red" }}>
                       {" "}
@@ -116,7 +116,11 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
                         className="article2img"
                       />
                       <div className="articleText">
-                        <h3>{item.blog_title.length>40?item.blog_title.substring(0,40)+"...":item?.blog_title}</h3>
+                        <h3>
+                          {item.blog_title.length > 40
+                            ? item.blog_title.substring(0, 40) + "..."
+                            : item?.blog_title}
+                        </h3>
                         <p className="textdescription">
                           {item?.blog_desc.length > 186
                             ? item?.blog_desc.substring(0, 186) + ".."
@@ -124,7 +128,7 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
                         </p>
 
                         <p className="author1">
-                        Lire l’article
+                          Lire l’article
                           {/* By<span style={{ color: "red" }}> Moin Khan</span> */}
                         </p>
                       </div>
