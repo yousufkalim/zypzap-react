@@ -296,7 +296,6 @@
   /* background-color: rgb(14, 15, 30); */
   margin-left: 50px;
   margin-top: -49px;
-  ;
 }
 .list-text {
   border-radius: 25px;
@@ -308,7 +307,7 @@
   text-shadow: 0px 3px 3px #662f88;
   line-height: 1.6;
 }
-.landingtext{
+.landingtext {
   width: 70%;
 }
 .carousalP:hover {
@@ -367,7 +366,6 @@
 
   font-family: "Myriad Pro";
   font-weight: 100;
-
 }
 .frcommunity-content-header {
   font-size: 22px;
@@ -443,7 +441,6 @@
   font-weight: 100;
 
   text-transform: uppercase;
- 
 }
 
 .trendinglogoDiv {
@@ -521,15 +518,13 @@
     height: 500px;
 
   } */
-
-  }
-  .carousalP {
-    /* background-color: rgb(14, 15, 30); */
-    margin-left: 50px;
-    margin-top: -43px;
-  }
-
 }
+.carousalP {
+  /* background-color: rgb(14, 15, 30); */
+  margin-left: 50px;
+  margin-top: -43px;
+}
+
 /* Media queries */
 @media all and (max-width: 800px) {
   .flex-form {
