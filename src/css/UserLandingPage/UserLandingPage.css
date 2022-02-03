@@ -2,10 +2,8 @@
   font-family: Myriad Pro-REGULAR;
   src: url(../../assets/MYRIADPRO-REGULAR.OTF);
 }
-@font-face {
-  font-family: Myriad Pro-REGULAR;
-  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
-}
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;800&family=Mulish&display=swap");
+
 .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
   background-color: #15162c !important;
   width: 100% !important;
@@ -423,14 +421,16 @@
 .trendingDiv {
   background: linear-gradient(
     90.12deg,
-    #202342 22.77%,
-    rgba(38, 38, 72, 0) 129.88%
+    #202342 -127.23%,
+    rgba(30, 38, 72, 0) 129.88%
   );
+  padding-bottom: 36px;
   border-radius: 15px;
   padding: 10px;
-  width: 96%;
+  width: 81%;
   margin: auto;
   margin-top: 15%;
+  font-family: "Mulish", sans-serif;
 }
 .trendingHeadingDiv {
   display: flex;
@@ -486,9 +486,19 @@
 .blog-view-all:hover {
   text-decoration: underline;
 }
+.topIconHeading {
+  display: flex;
+  margin: 13px 20px;
+}
+.topH1 {
+  font-family: "Myriad Pro-REGULAR", sans-serif !important;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding-top: 4px;
+}
 /* for big screens */
-@media only screen and (min-width: 1500px) and (max-width: 1900px) {
-  /* .user-landing-page-text-on-img {
+@media only screen and (min-width: 1681px) and (max-width: 2000px) {
+  .user-landing-page-text-on-img {
     left: 34%;
   }
   .community {
@@ -499,8 +509,15 @@
     width: 100%;
   }
   .trendingDiv {
-    width: 85%;
-    margin-bottom: 60px;
+    background: linear-gradient(
+      90.12deg,
+      #202342 51.77%,
+      rgba(30, 38, 72, 0) 129.88%
+    );
+    padding: 14px 0 36px 0;
+    width: 75%;
+    margin-bottom: 64px;
+    /* padding-bottom: 36px; */
   }
   .frUserLandingPageAboutTextImgH1 {
     font-size: 3.2rem;
@@ -516,8 +533,15 @@
   }
   .outer-container {
     height: 500px;
-
-  } */
+  }
+  .carousalP {
+    /* background-color: rgb(14, 15, 30); */
+    margin-left: 50px;
+    margin-top: -43px;
+  }
+  .trendingHeadingDiv {
+    margin: 5px 18px;
+  }
 }
 .carousalP {
   /* background-color: rgb(14, 15, 30); */

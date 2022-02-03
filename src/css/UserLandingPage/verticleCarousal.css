@@ -1,8 +1,8 @@
 @font-face {
-  font-family: Myriad Pro;
+  font-family: Myriad Pro-REGULAR;
   src: url(../../assets/MYRIADPRO-REGULAR.OTF);
 }
-
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;800&family=Mulish&display=swap");
 button {
   cursor: pointer;
 }
@@ -13,7 +13,7 @@ button {
   display: flex;
   border-radius: 5px;
   overflow: hidden;
-  font-family: "Myriad Pro";
+  font-family: "Myriad Pro-REGULAR";
   font-weight: 100;
 }
 .thisactive {
@@ -122,5 +122,8 @@ button {
   margin-top: 15px;
   margin-left: 13px;
   font-size: 16px;
-  font-weight: 100;
+  font-weight: 500;
+  font-family: "Myriad Pro-REGULAR";
+  font-size: 1.2rem;
+  /* font-family: "Mulish", sans-serif; */
 }

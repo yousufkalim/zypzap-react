@@ -88,38 +88,47 @@ const UserLandingPageBlog = () => {
                   .map((item, i) => (
                     <Grid item xs={12} sm={4}>
                       <>
-                        <div className="User-landing-page-blog-divone">
-                          <img
-                            src={
-                              process.env.REACT_APP_baseURL + item.blog_images
-                            }
-                            className="blogdivimg"
-                          />
-                          {console.log(item.blog_title)}
-                          <div className="blogdiv1text">
-                            <h3 className="blogdiv1heading">
-                              {item?.blog_title.length > 25
-                                ? item?.blog_title.substring(0, 22) + "..."
-                                : item?.blog_title}
-                            </h3>
+                        <Link
+                          to={`blog/${item._id}`}
+                          params={{ testvalue: "hello" }}
+                          style={{ textDecoration: "none" }}
+                        >
+                          <div className="User-landing-page-blog-divone">
+                            <img
+                              src={
+                                process.env.REACT_APP_baseURL + item.blog_images
+                              }
+                              className="blogdivimg"
+                            />
+                            {console.log(item.blog_title)}
+                            <div className="blogdiv1text">
+                              <h3 className="blogdiv1heading">
+                                {item?.blog_title.length > 25
+                                  ? item?.blog_title.substring(0, 22) + "..."
+                                  : item?.blog_title}
+                              </h3>
 
-                            <p className="bloddiv1detail">
-                              {item?.blog_desc.length > 147
-                                ? item?.blog_desc.substring(0, 146) + ".."
-                                : item?.blog_desc}
-                            </p>
-                            <p>
-                              <Link
-                                to={`blog/${item._id}`}
-                                params={{ testvalue: "hello" }}
-                                style={{ textDecoration: "none" }}
-                              >
-                                {" "}
-                                <span className="seemore"> Lire l’article</span>
-                              </Link>
-                            </p>
+                              <p className="bloddiv1detail">
+                                {item?.blog_desc.length > 147
+                                  ? item?.blog_desc.substring(0, 146) + ".."
+                                  : item?.blog_desc}
+                              </p>
+                              <p>
+                                <Link
+                                  to={`blog/${item._id}`}
+                                  params={{ testvalue: "hello" }}
+                                  style={{ textDecoration: "none" }}
+                                >
+                                  {" "}
+                                  <span className="seemore">
+                                    {" "}
+                                    Lire l’article
+                                  </span>
+                                </Link>
+                              </p>
+                            </div>
                           </div>
-                        </div>
+                        </Link>
                       </>
                     </Grid>
                   ))}

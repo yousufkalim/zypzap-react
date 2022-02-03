@@ -56,10 +56,18 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <div className="latestArticleLeft">
-                <img
-                  src={process.env.REACT_APP_baseURL + blogs[0]?.blog_images}
-                  className="article1img"
-                />
+                <Link
+                  to={{
+                    pathname: `blog/${blogs[0]?._id}`,
+                    state: { message: "hello, im a passed message!" },
+                  }}
+                  style={{ textDecoration: "none" }}
+                >
+                  <img
+                    src={process.env.REACT_APP_baseURL + blogs[0]?.blog_images}
+                    className="article1img"
+                  />
+                </Link>
                 <div className="articledetail">
                   <p>
                     {moment(blogs[0]?.createdAt).format("dddd DD, YYYY")}
