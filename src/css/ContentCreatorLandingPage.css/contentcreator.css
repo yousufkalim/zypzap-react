@@ -223,9 +223,11 @@ body {
 }
 .css-95m0ql {
   display: block !important;
+  border-top: 5px solid !important;
   border-color: #662f88 !important;
-  border-top-style: solid !important;
-  border-top-width: 5px !important;
+  width: 95% !important;
+  margin: auto !important;
+  border-radius: 10px !important;
 }
 .css-4ff9q7.Mui-active {
   color: #662f88 !important;
