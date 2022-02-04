@@ -40,8 +40,8 @@ export default function Body() {
         >
           <div className="landingPage_heading ">
             <h1 className="landingpagetextimgH1 myStyles ">
-              {t("Welcome to the")}
-              <br className="landingBr" /> {t("Gamer's eLearning 3.0")}
+              {t("Bienvenue dans le eLearning 3.0")}
+              <br className="landingBr" /> {t("dedie au gaming")}
             </h1>
             <p className="myStylep ">
               {t("Inscrivez vous aujourd'hui pour bénéficier")}
