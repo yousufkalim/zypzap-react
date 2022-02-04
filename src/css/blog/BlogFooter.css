@@ -98,7 +98,7 @@
 /* for mobile */
 @media only screen and (min-width: 320px) and (max-width: 812px) {
   .footerLogo {
-    margin-right: 0px;
+    margin-left: -15px;
   }
 
   .footerDiv {
@@ -111,10 +111,8 @@
     padding: 20px 0 0 0 !important;
   }
   .sign {
-    position: relative;
-    top: 60px;
-    opacity: 0.7;
-    padding: 0 33px 0 0;
+    padding: 20px 0;
+    justify-content: center;
   }
   .footerText {
     margin-left: 0px;
@@ -126,6 +124,7 @@
   }
   .isocialcondiv {
     margin-left: -30px;
+    margin-top: 0;
   }
   .footer_menu {
     padding: 20px 0 0 0 !important;
@@ -148,7 +147,10 @@
   }
   .divforsign {
     position: relative;
-    min-height: 118px;
+    min-height: 0px;
+  }
+  .languageButton {
+    margin-top: 0px;
   }
 }
 @media only screen and (min-width: 813px) and (max-width: 1212px) {

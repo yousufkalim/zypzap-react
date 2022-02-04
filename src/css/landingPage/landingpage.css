@@ -27,7 +27,7 @@
 .landingpagetextonImg {
   position: absolute;
   top: 45%;
-  left: 30%;
+  left: 37%;
   transform: translate(-50%, -50%);
   text-align: left;
 }
@@ -41,7 +41,6 @@
 
 .landingpagetextimgH1 {
   font-size: 3em;
-  /* font-size: 55px; */
   margin-bottom: 10px;
   font-family: "AMCAP Eternal", sans-serif;
   font-weight: 100;
@@ -204,66 +203,104 @@
     opacity: 1;
   }
 }
-/* for big screens */
-/* @media only screen and (min-width: 1500px) {.user-landing-page-submit-input
+@media only screen and (min-width: 1900px) and (max-width: 2500px) {
   .landingpageRightimg {
     height: 525px;
     right: 45%;
   }
   .landingpagetextonImg {
-    left: 28%;
+    left: 34%;
+  }
+  .frlandingpagetextonImg {
+    left: 34%;
+    top: 44%;
+  }
+
+  .landingpagetextimgH1 {
+    font-size: 3.4rem;
+  }
+  .landingpagetextonImgP {
+    font-size: 12px;
+  }
+  .landingpagetextonImgbutton {
+    padding: 11px 18px 11px 18px;
+    margin: 13px 13px 8px 0px;
+    font-size: 14px;
+  }
+}
+@media only screen and (min-width: 1201px) and (max-width: 1600px) {
+  .landingpageRightimg {
+    height: 525px;
+    right: 45%;
+  }
+  .landingpagetextonImg {
+    left: 35%;
   }
   .frlandingpagetextonImg {
     left: 35%;
+    top: 52%;
   }
-
   .landingpagetextimgH1 {
-    font-size: 50px;
+    font-size: 2.6em;
+    margin-bottom: 10px;
+    font-family: "AMCAP Eternal", sans-serif;
+    font-weight: 100;
+    text-shadow: 0px 4px 3px #662f88;
   }
-  .landingpagetextonImgP {
-    font-size: 17px;
-  }
-  .landingpagetextonImgbutton {
-    margin: 30px 13px 8px 0px;
-  }
-  .offerheading {
-    font-size: 30px;
-  }
-  .offerText {
-    font-size: 19px;
-    padding: 10px 20% 10px 20%;
-  }
-  .whatweofferButton {
-    padding: 10px 35px;
-  }
-  .offerdivright {
-    padding-bottom: 0px;
-  }
-} */
-
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-  .landingpageRightimg {
-    height: 525px;
-    right: 45%;
-  }
-  .landingpagetextonImg {
-    left: 32%;
-  }
-  .frlandingpagetextonImg {
-    left: 32%;
-  }
-
   .landingpagetextimgH1 {
-    font-size: 29px;
+    font-size: 2.6em;
   }
   .landingpagetextonImgP {
     font-size: 8px;
   }
   .landingpagetextonImgbutton {
-    margin: 30px 13px 8px 0px;
+    margin: 25px 13px 8px 0px;
+    /* padding: 8px 10px 8px 8px;
+    font-weight: 50; */
+  }
+  .offerText {
+    padding: 9px 60px 10px 60px;
+  }
+}
+@media only screen and (min-width: 801px) and (max-width: 1200px) {
+  .css-o98hvh {
+    padding: 15px 0 0px 0 !important;
+  }
+  .MuiGrid-spacing-xs-4 {
+    width: calc(100% + 0px) !important;
+  }
+  .User-landing-page-blog-divone {
+    width: 90% !important;
+    margin: auto;
+  }
+  .MuiGrid-spacing-xs-4 > .MuiGrid-item {
+    padding: 0 !important;
+  }
+  .landingpageRightimg {
+    height: 525px;
+    right: 45%;
+  }
+  .landingpagetextonImg {
+    left: 29%;
+  }
+  .frlandingpagetextonImg {
+    left: 30%;
+    top: 52%;
+  }
+
+  .landingpagetextimgH1 {
+    font-size: 24px;
+  }
+  .landingpagetextonImgP {
+    font-size: 8px;
+  }
+  .landingpagetextonImgbutton {
+    margin: 16px 13px 8px 0px;
+    padding: 8px 10px 8px 8px;
+    font-weight: 50;
   }
   .offerheading {
-    font-size: 25px;
+    font-size: 15px;
   }
   .offerText {
     font-size: 14px;
@@ -272,15 +309,13 @@
   .whatweofferButton {
     padding: 10px 35px;
   }
-  .landingpagetextonImgbutton {
-    padding: 8px 10px 8px 8px;
-    font-weight: 500;
-  }
   .offerdivleft {
-    height: 350px;
+    height: 300px;
+    width: 95%;
   }
   .offerdivright {
-    height: 350px;
+    height: 300px;
+    width: 95%;
   }
   .offerimg1 {
     width: 46%;
@@ -290,22 +325,154 @@
     margin-top: 10px;
   }
   .offerh1 {
-    margin: 40px 0 40px 0;
+    margin: 29px 0 24px 0;
     font-size: 0.8rem;
   }
-  .myStylep {
-    font-size: 11px;
+  .UserLandingPageBlogContainer {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+  .blogGridOuterDiv {
+    width: 95%;
+  }
+  .blogdiv1heading {
+    padding: 0px 0px 0 0px;
+    font-size: 12px;
+  }
+  .bloddiv1detail {
+    font-size: 12px;
+    padding: 10px 0px 11px 0px;
+  }
+  .seemore {
+    font-size: 12px;
+  }
+  .MuiGrid-grid-sm-3 {
+    flex-grow: 0;
+    max-width: 50% !important;
+    flex-basis: 50% !important;
+  }
+  .imgIcon {
+    width: 25%;
+    margin-right: 1px;
+  }
+  .imgIcon2 {
+    margin-right: 33px;
+    margin-left: 30px;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 800px) {
+  .css-o98hvh {
+    padding: 15px 0 0px 0 !important;
+  }
+  .MuiGrid-spacing-xs-4 {
+    width: calc(100% + 0px) !important;
+  }
+  .User-landing-page-blog-divone {
+    width: 90% !important;
+    margin: auto;
+  }
+  .MuiGrid-spacing-xs-4 > .MuiGrid-item {
+    padding: 0 !important;
+  }
+  .landingpageRightimg {
+    height: 525px;
+    right: 45%;
+  }
+  .landingpagetextonImg {
+    left: 37%;
+  }
+  .frlandingpagetextonImg {
+    left: 40%;
+    top: 52%;
+  }
+
+  .landingpagetextimgH1 {
+    font-size: 24px;
+  }
+  .landingpagetextonImgP {
+    font-size: 8px;
+  }
+  .landingpagetextonImgbutton {
+    margin: 16px 13px 8px 0px;
+    padding: 8px 10px 8px 8px;
+    font-weight: 50;
+  }
+  .offerheading {
+    font-size: 15px;
+  }
+  .offerText {
+    font-size: 14px;
+    padding: 10px 20px 10px 20px;
+  }
+  .whatweofferButton {
+    padding: 10px 35px;
+  }
+  .offerdivleft {
+    height: 300px;
+    width: 95%;
+  }
+  .offerdivright {
+    height: 300px;
+    width: 95%;
+  }
+  .offerimg1 {
+    width: 46%;
+  }
+  .offerimg2 {
+    width: 44%;
+    margin-top: 10px;
+  }
+  .offerh1 {
+    margin: 29px 0 24px 0;
+    font-size: 0.8rem;
+  }
+  .UserLandingPageBlogContainer {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+  .blogGridOuterDiv {
+    width: 95%;
+  }
+  .blogdiv1heading {
+    padding: 0px 0px 0 0px;
+    font-size: 12px;
+  }
+  .bloddiv1detail {
+    font-size: 12px;
+    padding: 10px 0px 11px 0px;
+  }
+  .seemore {
+    font-size: 12px;
+  }
+  .MuiGrid-grid-sm-3 {
+    flex-grow: 0;
+    max-width: 50% !important;
+    flex-basis: 50% !important;
+  }
+  .imgIcon {
+    width: 25%;
+    margin-right: 1px;
+  }
+  .imgIcon2 {
+    margin-right: 33px;
+    margin-left: 30px;
   }
 }
 
 /* for mobile */
-@media only screen and (min-width: 320px) and (max-width: 768px) {
+@media only screen and (min-width: 320px) and (max-width: 600px) {
   .landingpagetextonImg {
     position: absolute;
     top: 53%;
     left: 38%;
     transform: translate(-50%, -50%);
     text-align: left;
+  }
+  .MuiGrid-spacing-xs-4 > .MuiGrid-item {
+    padding: 0px !important;
+  }
+  .MuiBox-root {
+    padding: 0px !important;
   }
   .frlandingpagetextonImg {
     position: absolute;
@@ -319,7 +486,7 @@
   }
 
   .landingpagetextimgH1 {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
   .landingpagetextonImgP {
     padding: 5px 0px 5px 0px;
@@ -333,6 +500,7 @@
   .landingpagetextonImgbutton {
     font-size: 6px;
     padding: 5px;
+    margin: 7px 13px 8px 0px;
   }
   .offerdivleft {
     margin: auto;
@@ -341,11 +509,19 @@
     margin: auto;
   }
   .offerh1 {
-    margin: 25px 0 20px 0;
+    margin: 17px 0 15px 0;
     font-size: 0.6rem;
   }
   .offerheading {
     font-size: 20px;
     padding: 7px;
+  }
+  .offerText {
+    font-size: 14px;
+    padding: 6px 0px 10px 0;
+  }
+  .whatweofferButton {
+    margin: 13px 0px 30px 0px;
+    font-size: 12px;
   }
 }

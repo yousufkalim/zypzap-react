@@ -24,11 +24,11 @@
   padding: 8px;
   border: none;
   margin: 8px 0px 8px 0px;
-  background-color: #e7411b;
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
   font-weight: 900;
   font-family: "Poppins", sans-serif;
-  border-radius: 2px;
+  border-radius: 4px;
   cursor: pointer;
 }
 .bodyImage {

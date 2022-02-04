@@ -311,7 +311,7 @@ export default function PrimarySearchAppBar({
                       style={{
                         backgroundColor: "#202342",
                         width: "165px",
-                        height: "30px",
+                        height: "35px",
                         color: "white",
                         borderRadius: "20px",
                         border: "none",
@@ -321,7 +321,7 @@ export default function PrimarySearchAppBar({
                     >
                       <Select
                         style={{
-                          height: "30px",
+                          height: "35px",
                           color: "white",
                           borderRadius: "20px",
                           border: "none",
@@ -331,12 +331,17 @@ export default function PrimarySearchAppBar({
                         onChange={handleChange}
                         displayEmpty
                       >
-                        <MenuItem value="">
-                          <m>Connect Wallet</m>
+                        <MenuItem value="" className="walletInputMenu">
+                          <m className="WalletInput">Connect Wallet</m>
                         </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        <br />
+                        <MenuItem value={10} className="walletInputMenu">
+                          Metamask
+                        </MenuItem>
+                        <br />
+                        <MenuItem value={20} className="walletInputMenu">
+                          Coinbase
+                        </MenuItem>
                       </Select>
                     </FormControl>
                   </div>
@@ -367,10 +372,10 @@ export default function PrimarySearchAppBar({
               )}
 
               <div>
-                <img src={UserIcon} alt="img" />
-                <span className="iconseperate">|</span>
+                {/* <img src={UserIcon} alt="img" /> */}
+                <span className="iconseperate2"></span>
                 <img src={Globe} alt="img" />
-                <span className="iconseperate">|</span>
+                <span className="iconseperate"></span>
                 <img src={Moon} alt="img" />
               </div>
             </Box>
