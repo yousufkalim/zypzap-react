@@ -308,14 +308,14 @@ body {
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
   font-weight: 900;
-  font-family: "Poppins", sans-serif;
+  font-family: "Myriad Pro", sans-serif;
+  font-weight: 600;
   border-radius: 5px;
   cursor: pointer;
-  opacity: 0.8;
+  border: 1px solid #662f88;
 }
 .moniBTN:hover {
   background: none;
-  border: 1px solid gray;
 }
 .css-vnkopk-MuiStepLabel-iconContainer {
   background-color: #662f88;

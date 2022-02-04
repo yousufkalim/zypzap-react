@@ -87,17 +87,16 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
                       style={{ textDecoration: "none" }}
                     >
                       {" "}
-                      <span className="seemore"> See more</span>
-                    </Link>
-                  </p>
-                  <p className="articleBy">
-                    Lire l’article
-                    {/* By{" "}
+                      <p className="articleBy">
+                        Lire l’article
+                        {/* By{" "}
                     <span style={{ color: "red" }}>
                       {" "}
                       {blogs[0]?.blog_author?.name.charAt(0).toUpperCase() +
                         blogs[0]?.blog_author?.name.slice(1)}
                     </span> */}
+                      </p>
+                    </Link>
                   </p>
                 </div>
               </div>

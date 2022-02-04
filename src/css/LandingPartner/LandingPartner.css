@@ -55,12 +55,12 @@
   margin: 20px 10px 0px 10px;
   cursor: pointer;
   border: none;
-  font-family: "Mulish";
-  font-weight: 900;
+  font-family: "Myriad Pro", sans-serif;
+  font-weight: 600;
+  border: 1px solid #662f88;
 }
 .btn-landing-partner:hover {
   background: none;
-  border: 1px solid gray;
 }
 .partnerdiv1 {
   padding: 0 45px;

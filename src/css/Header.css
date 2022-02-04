@@ -82,7 +82,7 @@
   }
 }
 /* for mobile */
-@media only screen and (min-width: 320px) and (max-width: 812px) {
+@media only screen and (min-width: 320px) and (max-width: 1200px) {
   .searchBar {
     width: 70% !important;
     margin-left: 27px !important;

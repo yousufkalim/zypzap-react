@@ -57,3 +57,9 @@
     text-align: center;
   }
 }
+@media only screen and (min-width: 1900px) and (max-width: 2500px) {
+  .blogdivimg {
+    width: 100%;
+    height: inherit;
+  }
+}

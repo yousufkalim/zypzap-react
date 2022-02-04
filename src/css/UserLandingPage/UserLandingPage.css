@@ -129,10 +129,11 @@
   color: #fff;
   margin: 0px 10px;
   font-family: "Myriad Pro-REGULAR";
+  font-weight: 600;
+  border: 1px solid #662f88;
 }
 .btn-content-creator:hover {
   background: none;
-  border: 1px solid grey;
 }
 
 /* User landing page header css starts here */
@@ -262,10 +263,12 @@
   border: none;
   border-radius: 6px;
   margin: 20px 12px 27px 7px;
+  font-family: "Myriad Pro", sans-serif;
+  font-weight: 600;
+  border: 1px solid #662f88;
 }
 .btn-advantages:hover {
   background: none;
-  border: 1px solid #202342;
 }
 .listText {
   color: #fff !important;
@@ -584,11 +587,11 @@
     font-size: 20px !important;
     line-height: 1.2;
   }
-  .btn-content-creator {
+  /* .btn-content-creator {
     padding: 9px 18px;
     font-size: 8px;
     margin: 0px 5px;
-  }
+  } */
   .outer-container {
     height: 500px;
   }

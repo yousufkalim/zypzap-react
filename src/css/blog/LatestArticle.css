@@ -36,8 +36,9 @@
 }
 .article1img {
   width: 100%;
-  padding-top: 5px;
-  height: 360px;
+  padding-top: 0px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .latestArticleRight {
