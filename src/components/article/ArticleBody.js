@@ -13,7 +13,8 @@ import BlogFoote from "../blog/BlogFooter";
 import moment from "moment";
 
 export default function ArticleBody({ singlBlog, loading, blogs }) {
-  console.log("singlBlog", singlBlog);
+  console.log("singlBlog", singlBlog?.blog_content);
+  console.log("singlBlog", singlBlog?.blog_desc);
 
   function htmlfile() {
     return {
