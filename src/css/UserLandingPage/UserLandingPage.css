@@ -129,10 +129,11 @@
   color: #fff;
   margin: 0px 10px;
   font-family: "Myriad Pro-REGULAR";
+  font-weight: 600;
+  border: 1px solid #662f88;
 }
 .btn-content-creator:hover {
   background: none;
-  border: 1px solid grey;
 }
 
 /* User landing page header css starts here */
@@ -262,10 +263,12 @@
   border: none;
   border-radius: 6px;
   margin: 20px 12px 27px 7px;
+  font-family: "Myriad Pro", sans-serif;
+  font-weight: 600;
+  border: 1px solid #662f88;
 }
 .btn-advantages:hover {
   background: none;
-  border: 1px solid #202342;
 }
 .listText {
   color: #fff !important;
@@ -554,7 +557,7 @@
   }
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+@media only screen and (min-width: 1201px) and (max-width: 1600px) {
   .user-landing-page-text-on-img {
     left: 34%;
   }
@@ -577,17 +580,15 @@
     padding-bottom: 20px;
   }
   .frUserLandingPageAboutTextImgH1 {
-    font-size: 3.2rem;
+    font-size: 3rem;
     margin-top: 35px;
   }
   .list-text {
     font-size: 20px !important;
-    line-height: 1.2;
+    line-height: 1.5;
   }
-  .btn-content-creator {
-    padding: 9px 18px;
-    font-size: 8px;
-    margin: 0px 5px;
+  .carousalContainer {
+    width: 100%;
   }
   .outer-container {
     height: 500px;
@@ -609,7 +610,29 @@
     padding: 22px 8px !important;
   }
 }
-
+@media all and (min-width: 901px) and (max-width: 1200px) {
+  .frUserLandingPageAboutTextImgH1 {
+    font-size: 2.5em;
+  }
+  .user-landing-page-text-on-imgP {
+    font-size: 20px;
+  }
+  .box-user {
+    width: 90%;
+  }
+  .list-text {
+    font-size: 18px !important;
+  }
+  .frcommunity-content-header {
+    font-size: 15px;
+  }
+  .trendingGrid {
+    width: 100% !important;
+  }
+  .trendingLogoText1 {
+    font-size: 13px !important;
+  }
+}
 /* Media queries */
 @media all and (min-width: 601px) and (max-width: 900px) {
   .css-1t29gy6-MuiToolbar-root {
@@ -630,9 +653,10 @@
   }
   .btn-advantages {
     margin: 10px 5px;
+    padding: 9px 20px;
   }
   .user-landing-page-text-on-imgP {
-    font-size: 10px;
+    font-size: 13px;
   }
   .user-landing-page-right-img {
     position: relative;
@@ -650,6 +674,28 @@
     padding: 6px 13px;
     font-size: 12px;
   }
+  .frUserLandingPageAboutTextImgH1 {
+    font-size: 1.8em;
+  }
+  .list-text {
+    font-size: 18px !important;
+  }
+  .MuiGrid-grid-sm-4 {
+    flex-grow: 0;
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+  }
+  .trendingDiv {
+    background: linear-gradient(
+      90.12deg,
+      #202342 -127.23%,
+      rgba(30, 38, 72, 1) 129.88%
+    );
+    width: 70%;
+  }
+  .trendingLogoText1 {
+    font-size: 1.2rem;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 600px) {
   .trending-table {
@@ -659,8 +705,9 @@
     margin: 10px 5px;
   }
   .user-landing-page-text-on-imgP {
-    font-size: 8px;
-    white-space: normal;
+    margin: 9px 0;
+    font-size: 9px;
+    padding: 0;
   }
   .UserLandingPageAboutTextImgH1 {
     font-size: calc(4vw - 4px);
@@ -668,17 +715,17 @@
     margin-top: 20px;
   }
   .frUserLandingPageAboutTextImgH1 {
-    font-size: auto;
+    font-size: 1.2em;
     white-space: nowrap;
-    margin-top: 20px;
+    margin-top: 17px;
   }
   .user-landing-page-right-img {
     width: 50%;
   }
   .btn-content-creator {
-    padding: 8px 12px;
+    padding: 8px 15px;
     border-radius: 25px;
-    font-size: 9px;
+    font-size: 7px;
   }
   .flex-form {
     width: 188px;
@@ -690,12 +737,15 @@
     padding-top: 20px !important;
   }
   .user-landing-page-submit-input {
-    padding: 0 2px;
+    padding: 0 7px;
     width: 70px;
     font-size: 8px;
   }
   .user-landing-page-email-input {
     width: 50%;
+  }
+  .user-landing-page-email-input::placeholder {
+    font-size: 12px;
   }
   .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
     width: 80% !important;
@@ -708,10 +758,11 @@
   .carousalText {
     margin-top: 20px;
     width: 100%;
-    text-align: center;
+    text-align: left;
   }
   .list-text {
     font-weight: 500;
+    font-size: 12px !important;
   }
   .carousel-img {
     width: 100%;
@@ -719,5 +770,45 @@
   .carousalforRight {
     width: 100% !important;
     margin-top: 10px !important;
+  }
+  .css-ph2xsj-MuiTypography-root {
+    font-size: 1rem !important;
+  }
+  .box-user {
+    width: 90%;
+  }
+  .carousalP {
+    /* background-color: rgb(14, 15, 30); */
+    margin-left: 40px;
+    margin-top: -39px;
+  }
+  .carousalContainer {
+    height: inherit;
+  }
+  .btn-advantages {
+    padding: 9px 14px;
+  }
+  .frcommunity-content-header {
+    font-size: 18px;
+  }
+  .trendingGrid {
+    width: 100% !important;
+  }
+  .trendingDiv {
+    padding: 16px 0;
+    width: 100%;
+    margin-top: 0;
+  }
+  .topIconHeading {
+    margin: 18px 0;
+  }
+  .trendingLogoText1 {
+    font-size: 1rem !important;
+  }
+  .topH1 {
+    font-size: 1.2rem;
+  }
+  .community {
+    padding: 0px 0 0 0;
   }
 }

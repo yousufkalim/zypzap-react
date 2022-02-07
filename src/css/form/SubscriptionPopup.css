@@ -62,7 +62,7 @@
   border: none;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
-  font-family: "Poppins", sans-serif;
+  font-family: "Myriad Pro-REGULAR" !important;
   border-radius: 2px;
   cursor: pointer;
   width: 100%;
@@ -71,10 +71,11 @@
   margin-top: 8px;
   font-weight: inherit;
   margin-bottom: 20px;
+  font-weight: 600;
+  border: 1px solid #662f88;
 }
 .subsformbtn:hover {
   background: none;
-  border: 1px solid gray;
 }
 .subsinputForm {
   padding-left: 10px;

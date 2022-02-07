@@ -22,7 +22,7 @@ export default function YouMayLike({ blogs, loading }) {
       ) : (
         <Grid container spacing={1}>
           {getblogs()
-            ?.slice(3, 6)
+            ?.slice(0, 3)
             .map((item, i) => (
               <>
                 <Grid item xs={12} sm={4}>
@@ -39,7 +39,11 @@ export default function YouMayLike({ blogs, loading }) {
                         />
                       </Link>
                       <div className="blogdiv1text">
-                        <h3 className="blogdiv1heading">{item.blog_title.length>30?item.blog_title.substring(0,30)+"...":item.blog_title}</h3>
+                        <h3 className="blogdiv1heading">
+                          {item.blog_title.length > 30
+                            ? item.blog_title.substring(0, 30) + "..."
+                            : item.blog_title}
+                        </h3>
                         <p className="bloddiv1detail">
                           {item?.blog_desc.length > 186
                             ? item?.blog_desc.substring(0, 186) + ".."
@@ -51,7 +55,13 @@ export default function YouMayLike({ blogs, loading }) {
                             style={{ textDecoration: "none", color: "white" }}
                           >
                             {" "}
-                            <span className="seemore" style={{color:"#E7411B"}}> Read More</span>
+                            <span
+                              className="seemore"
+                              style={{ color: "#E7411B" }}
+                            >
+                              {" "}
+                              Read More
+                            </span>
                           </Link>
                         </p>
                       </div>

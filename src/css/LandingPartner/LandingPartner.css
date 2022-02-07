@@ -55,12 +55,12 @@
   margin: 20px 10px 0px 10px;
   cursor: pointer;
   border: none;
-  font-family: "Mulish";
-  font-weight: 900;
+  font-family: "Myriad Pro", sans-serif;
+  font-weight: 600;
+  border: 1px solid #662f88;
 }
 .btn-landing-partner:hover {
   background: none;
-  border: 1px solid gray;
 }
 .partnerdiv1 {
   padding: 0 45px;
@@ -111,9 +111,51 @@
   }
 }
 /* Media Queries */
-@media all and (min-width: 601px) and (max-width: 959px) {
+
+/* for big screens */
+@media only screen and (min-width: 1500px) and (max-width: 1900px) {
+  /* .landing-partner-pargraph {
+    font-size: 25px;
+    margin-top: 15px;
+    opacity: 0.6;
+  } */
+}
+@media all and (min-width: 901px) and (max-width: 1200px) {
   .landing-partner-text-container {
     white-space: nowrap;
+  }
+
+  .landing-creator-logo-spacing {
+    padding: 20px 0px;
+  }
+  .landing-partner-arrow {
+    display: none;
+  }
+  .community-block {
+    border-right: none;
+    width: 100%;
+    margin: auto;
+  }
+  .myStylep {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .divpadding {
+    padding: 0 0;
+  }
+  .partnerdiv1 {
+    padding: 0 9px;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 900px) {
+  .landing-partner-text-container {
+    white-space: nowrap;
+  }
+  .landing-partner-header {
+    font-size: 36px !important;
+  }
+  .landing-partner-pargraph {
+    font-size: 18px;
   }
   .landing-creator-logo-spacing {
     padding: 20px 0px;
@@ -123,20 +165,13 @@
   }
   .community-block {
     border-right: none;
+    width: 50%;
+    margin: auto;
   }
   .myStylep {
     font-size: 12px;
     line-height: 1.5;
   }
-}
-
-/* for big screens */
-@media only screen and (min-width: 1500px) and (max-width: 1900px) {
-  /* .landing-partner-pargraph {
-    font-size: 25px;
-    margin-top: 15px;
-    opacity: 0.6;
-  } */
 }
 
 @media only screen and (min-width: 320px) and (max-width: 600px) {
@@ -157,5 +192,25 @@
   .myStylep {
     font-size: 8px;
     line-height: 1.3;
+  }
+  .landing-partner-img-container {
+    width: 95%;
+    margin: 0px auto;
+  }
+  .btn-landing-partner {
+    padding: 7px 9px;
+    margin: 7px 10px 0px 10px;
+  }
+  .divpadding {
+    padding: 0 0;
+  }
+  .myStyle {
+    display: none;
+  }
+  .landing-partner-arrow {
+    display: none;
+  }
+  .partnerTextHeading {
+    font-size: 14px;
   }
 }

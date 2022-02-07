@@ -10,7 +10,7 @@
 .articlebodyImage {
   width: 70%;
 }
-.h1article{
+.h1article {
   margin-top: 30px;
   font-family: "Mulish";
   font-weight: 100;
@@ -23,8 +23,6 @@
 .articleavatardiv {
   display: flex;
   margin: 35px 0px 20px 7px;
-  
-  
 }
 .articleavatardiv2 {
   display: flex;
@@ -41,7 +39,6 @@
 }
 .articlep1 {
   font-size: 14px;
-  
 }
 .a_h3 {
   font-weight: 100;
@@ -57,7 +54,6 @@
   margin-left: 10px;
   margin-top: 5px;
   font-family: "Mulish";
-  
 }
 .articleSocialicon {
   display: flex;
@@ -88,7 +84,7 @@
   width: 90%;
   font-family: "Mulish";
   font-weight: 100;
-  color: #DFDFDF;
+  color: #dfdfdf;
 }
 .htmlp1 {
   font-size: 16px;
@@ -114,6 +110,17 @@
   padding-left: 55px;
   line-height: 2.4;
 }
+/* .htmlmaindiv {
+  color: red;
+  background-color: green;
+  text-align: left;
+} */
+.htmlmaindiv > figure > img {
+  width: 100%;
+}
+.htmlmaindiv > p > strong {
+  margin-left: -177px !important;
+}
 
 /* for big screens */
 @media only screen and (min-width: 1500px) and (max-width: 1900px) {
@@ -129,7 +136,6 @@
   }
   .h1article {
     font-size: 20px;
-    ;
   }
   .articleavatardiv2 {
     width: 140%;

@@ -36,8 +36,9 @@
 }
 .article1img {
   width: 100%;
-  padding-top: 5px;
-  height: 360px;
+  padding-top: 0px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .latestArticleRight {
@@ -100,7 +101,7 @@
 }
 
 /* for big screens */
-@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+@media only screen and (min-width: 1201px) and (max-width: 1600px) {
   .article1img {
     height: 294px;
   }
@@ -112,9 +113,7 @@
     font-size: 14px;
   }
 }
-
-/* for mobile */
-@media only screen and (min-width: 320px) and (max-width: 812px) {
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
   .articledetail {
     margin-left: 0px;
     padding: 5px;
@@ -124,9 +123,94 @@
     padding: 10px 0px 12px 12px;
   }
   .textdescription {
-    font-size: 13px;
+    font-size: 14px;
+    padding: 7px 0px 7px 0px;
   }
   .textdescription1 {
     font-size: 13px;
+  }
+  .LatestArticlecontainer {
+    width: 100%;
+  }
+  .article2img {
+    width: 35%;
+    height: 100%;
+  }
+  .latestArticleLeft {
+    width: 75%;
+    margin: auto;
+  }
+  .latestArticleRight {
+    margin-top: 22px;
+    height: 180px;
+  }
+  .articleheading {
+    padding: 10px 0 10px 0;
+    font-size: 19px;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .articledetail {
+    margin-left: 0px;
+    padding: 5px;
+    opacity: 0.7;
+  }
+  .articleText {
+    padding: 10px 0px 12px 12px;
+  }
+  .textdescription {
+    font-size: 17px;
+    padding: 7px 0px 7px 0px;
+  }
+  .textdescription1 {
+    font-size: 13px;
+  }
+  .LatestArticlecontainer {
+    width: 100%;
+  }
+  .article2img {
+    width: 35%;
+    height: 100%px;
+  }
+  .MuiGrid-container {
+    flex-direction: column;
+  }
+  .MuiGrid-grid-sm-6 {
+    flex-grow: 0;
+    max-width: 80% !important;
+    flex-basis: 80% !important;
+    margin: auto !important;
+  }
+  .MuiGrid-grid-xs-12 {
+    width: 100% !important;
+    margin: auto !important;
+  }
+  .MuiGrid-grid-sm-3 {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 600px) {
+  .articledetail {
+    margin-left: 0px;
+    padding: 5px;
+    opacity: 0.7;
+  }
+  .articleText {
+    padding: 10px 0px 12px 12px;
+  }
+  .textdescription {
+    font-size: 10px;
+    padding: 7px 0px 7px 0px;
+  }
+  .textdescription1 {
+    font-size: 13px;
+  }
+  .LatestArticlecontainer {
+    width: 100%;
+  }
+  .article2img {
+    width: 35%;
+    height: 100%px;
   }
 }

@@ -7,12 +7,12 @@
 
 .aboutLeftimg {
   width: 100%;
-  height: 525px;
+  /* height: 525px; */
 }
 .aboutRightimg {
   position: relative;
   width: 100%;
-  
+
   height: 520px;
   right: 62%;
 }
@@ -55,9 +55,6 @@
 }
 
 @media only screen and (min-width: 1500px) and (max-width: 1900px) {
- 
- 
-
 }
 
 /* for mobile */
