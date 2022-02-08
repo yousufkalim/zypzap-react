@@ -7,7 +7,12 @@
   font-family: Myriad Pro--REGULAR;
   src: url(../../assets/MYRIADPRO-REGULAR.OTF);
 }
-
+.MuiGrid-spacing-xs-2 > .MuiGrid-item {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .LatestArticlecontainer {
   margin-top: 5px;
   position: relative;
@@ -195,9 +200,9 @@
     max-width: 80% !important;
     flex-basis: 80% !important;
     margin: auto !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
   }
   .MuiGrid-grid-xs-12 {
     width: 100% !important;
