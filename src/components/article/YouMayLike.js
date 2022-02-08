@@ -57,10 +57,10 @@ export default function YouMayLike({ blogs, loading }) {
                           {" "}
                           <span
                             className="seemore"
-                            style={{ color: "#E7411B" }}
+                            style={{ color: "#E7411B", color: "#fff" }}
                           >
                             {" "}
-                            Read More
+                            Lire l’article
                           </span>
                         </Link>
                       </p>
