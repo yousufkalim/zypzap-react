@@ -11,7 +11,7 @@ import "react-multi-carousel/lib/styles.css";
 export default function LatestCourses() {
   var items = [
     {
-      title: "CS-GO Ep 2 Complete Course",
+      title: "CS-GO Ep 2 Complete Course 1",
       img: Course1,
       name: "James Wiik",
       rating: "rating",

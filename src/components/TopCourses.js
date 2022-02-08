@@ -3,13 +3,14 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Carousel from "react-material-ui-carousel";
 import TopCourseImg from "../assets/img/topcourseimg.png";
+import { ReactComponent as Star1 } from "../assets/icons/star2.svg";
 import avatar from "../assets/img/avatar.png";
 import StarIcon from "@material-ui/icons/Star";
 
 export default function TopCourses() {
   var items = [
     {
-      name: "PUBG gameplay full course1",
+      name: "PUBG gameplay full course",
       description: "Probably the most random thing you have ever seen!",
     },
     {
@@ -75,18 +76,17 @@ function TopCoursesComponent({ item }) {
                 <p className="p2">
                   5.0
                   {[1, 2, 3, 4, 5].map((item) => (
-                    <StarIcon
+                    <Star1
+                      className="starID"
                       style={{
                         width: "15px",
                         height: "15px",
-                        color: "red",
-                        margintTop: "3px",
-                        position: "relative",
+                        // color: "red",
                         top: "3px",
                       }}
                     />
                   ))}
-                  (1809)
+                  &nb (382,420)
                 </p>
               </div>
             </div>
