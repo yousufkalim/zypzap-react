@@ -51,10 +51,10 @@
   display: flex;
   margin-top: 25px;
   border-radius: 20px !important;
-  height: 223px;
+  height: 205px;
 }
 .articleText {
-  padding: 20px 15px 0px 30px;
+  padding: 16px 15px 0px 19px;
   color: #d4d4d4;
   font-family: "Mulish";
   font-weight: 100;
