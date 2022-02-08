@@ -30,6 +30,8 @@
 .blogdivimg {
   width: 100%;
   height: 200px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 .blogdiv1text {
   padding: 15px 18px 15px 18px;
@@ -60,6 +62,6 @@
 @media only screen and (min-width: 1900px) and (max-width: 2500px) {
   .blogdivimg {
     width: 100%;
-    height: inherit;
+    /* height: inherit; */
   }
 }

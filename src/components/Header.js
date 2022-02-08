@@ -16,6 +16,8 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import Logo from "../assets/icons/logo.png";
 import Moon from "../assets/icons/moon.svg";
 import Globe from "../assets/icons/globe.svg";
+import CourseIcon from "../assets/icons/CourseIcon.svg";
+import UserIcons from "../assets/icons/UserIcons.svg";
 import DownArrow from "../assets/icons/downarrow.svg";
 import UserIcon from "../assets/icons/userIcon.svg";
 import { useHistory } from "react-router-dom";
@@ -252,7 +254,30 @@ export default function PrimarySearchAppBar({
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
-              <img src={DownArrow} alt="img" className="downarrow" />
+
+              <div className="dropdown">
+                <button className="dropbtn">
+                  <img src={DownArrow} alt="img" className="downarrow" />
+                </button>
+                <div className="dropdown-content">
+                  <div className="drowp1">
+                    <a href="#">
+                      <img className="UserIcons" src={UserIcon} alt="" />
+                      Content Creators
+                      <p className="drowpP">
+                        Top gamers who create content for you
+                      </p>
+                    </a>
+                  </div>
+                  <div className="drowp1">
+                    <a href="#">
+                      <img className="UserIcons" src={CourseIcon} alt="" />
+                      Courses
+                      <p className="drowpP">Browse and buy courses</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
               <StyledInputBase
                 placeholder="Search"
                 inputProps={{ "aria-label": "search" }}
