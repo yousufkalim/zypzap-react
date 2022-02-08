@@ -1,6 +1,7 @@
 // Init
 import React, { useState, useEffect } from "react";
 import Bodyimg from "../assets/img/body.png";
+import BodyimgShado from "../assets/img/BodyimgShado.svg";
 import BodyBlurimg from "../assets/img/bodyblur.png";
 import TopCourses from "./TopCourses";
 import LatestCourses from "./LatestCourses";
@@ -13,7 +14,18 @@ export default function Body({ setOpenSignup }) {
   return (
     <>
       <div className="Bodycontainer">
-        <img src={Bodyimg} alt="img" className="bodyImage" />
+        <img
+          src={Bodyimg}
+          alt="img"
+          className="bodyImage"
+          style={{ position: "relative" }}
+        />
+        <img
+          src={BodyimgShado}
+          alt="img"
+          className="bodyImage"
+          style={{ position: "absolute", top: "0", left: "55px" }}
+        />
         <div className="textonImg">
           <h1 className="textimgH1">
             We help you becoming
