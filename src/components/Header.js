@@ -310,13 +310,13 @@ export default function PrimarySearchAppBar({
                     <FormControl
                       style={{
                         backgroundColor: "#202342",
-                        width: "165px",
-                        height: "35px",
+                        width: "168px",
+                        height: "32px",
                         color: "white",
                         borderRadius: "20px",
                         border: "none",
                         outline: "none",
-                        marginTop: "-5px",
+                        marginTop: "0px",
                       }}
                     >
                       <Select
@@ -325,7 +325,7 @@ export default function PrimarySearchAppBar({
                           color: "white",
                           borderRadius: "20px",
                           border: "none",
-                          fontSize: "13px",
+                          fontSize: "15px",
                         }}
                         value={age}
                         onChange={handleChange}
