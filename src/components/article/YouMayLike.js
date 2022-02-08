@@ -12,7 +12,9 @@ export default function YouMayLike({ blogs, loading }) {
 
   const getblogs = () => {
     newblog = [...blogs];
-    return newblog;
+    const shuffled = newblog.sort(() => 0.5 - Math.random());
+    let selected = shuffled.slice(0, 3);
+    return selected;
   };
   return (
     <div className="articleyouMayLikecontainer">
@@ -21,55 +23,53 @@ export default function YouMayLike({ blogs, loading }) {
         <h1>Loading...</h1>
       ) : (
         <Grid container spacing={1}>
-          {getblogs()
-            ?.slice(0, 3)
-            .map((item, i) => (
-              <>
-                <Grid item xs={12} sm={4}>
-                  <>
-                    <div className="blogdiv1">
-                      <Link
-                        to={`${item._id}`}
-                        style={{ textDecoration: "none", color: "white" }}
-                      >
-                        <img
-                          src={process.env.REACT_APP_baseURL + item.blog_images}
-                          className="blogdivimg"
-                          alt="img"
-                        />
-                      </Link>
-                      <div className="blogdiv1text">
-                        <h3 className="blogdiv1heading">
-                          {item.blog_title.length > 30
-                            ? item.blog_title.substring(0, 30) + "..."
-                            : item.blog_title}
-                        </h3>
-                        <p className="bloddiv1detail">
-                          {item?.blog_desc.length > 186
-                            ? item?.blog_desc.substring(0, 186) + ".."
-                            : item?.blog_desc}
-                        </p>
-                        <p>
-                          <Link
-                            to={`${item._id}`}
-                            style={{ textDecoration: "none", color: "white" }}
+          {getblogs()?.map((item, i) => (
+            <>
+              <Grid item xs={12} sm={4}>
+                <>
+                  <div className="blogdiv1">
+                    <Link
+                      to={`${item._id}`}
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <img
+                        src={process.env.REACT_APP_baseURL + item.blog_images}
+                        className="blogdivimg"
+                        alt="img"
+                      />
+                    </Link>
+                    <div className="blogdiv1text">
+                      <h3 className="blogdiv1heading">
+                        {item.blog_title.length > 30
+                          ? item.blog_title.substring(0, 30) + "..."
+                          : item.blog_title}
+                      </h3>
+                      <p className="bloddiv1detail">
+                        {item?.blog_desc.length > 186
+                          ? item?.blog_desc.substring(0, 186) + ".."
+                          : item?.blog_desc}
+                      </p>
+                      <p>
+                        <Link
+                          to={`${item._id}`}
+                          style={{ textDecoration: "none", color: "white" }}
+                        >
+                          {" "}
+                          <span
+                            className="seemore"
+                            style={{ color: "#E7411B" }}
                           >
                             {" "}
-                            <span
-                              className="seemore"
-                              style={{ color: "#E7411B" }}
-                            >
-                              {" "}
-                              Read More
-                            </span>
-                          </Link>
-                        </p>
-                      </div>
+                            Read More
+                          </span>
+                        </Link>
+                      </p>
                     </div>
-                  </>
-                </Grid>
-              </>
-            ))}
+                  </div>
+                </>
+              </Grid>
+            </>
+          ))}
         </Grid>
       )}
     </div>
