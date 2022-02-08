@@ -38,6 +38,7 @@
   ) !important;
   border-radius: 20px !important;
   margin-top: 20px;
+  height: 100%;
 }
 .article1img {
   width: 100%;
@@ -130,7 +131,7 @@
     font-size: 0.9rem;
   }
 }
-@media only screen and (min-width: 901px) and (max-width: 1200px) {
+@media only screen and (min-width: 801px) and (max-width: 1200px) {
   .articledetail {
     margin-left: 0px;
     padding: 5px;
@@ -154,7 +155,7 @@
     height: 100%;
   }
   .latestArticleLeft {
-    width: 75%;
+    width: 100%;
     margin: auto;
   }
   .latestArticleRight {
