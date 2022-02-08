@@ -164,7 +164,7 @@
     font-size: 12px;
   }
 }
-@media only screen and (min-width: 601px) and (max-width: 900px) {
+@media only screen and (min-width: 601px) and (max-width: 800px) {
   .articledetail {
     margin-left: 0px;
     padding: 5px;

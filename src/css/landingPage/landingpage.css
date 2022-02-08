@@ -268,9 +268,10 @@
   }
   .MuiGrid-spacing-xs-4 {
     width: calc(100% + 0px) !important;
+    justify-content: space-around !important;
   }
   .User-landing-page-blog-divone {
-    width: 90% !important;
+    /* width: 90% !important; */
     margin: auto;
   }
   .MuiGrid-spacing-xs-4 > .MuiGrid-item {
@@ -312,12 +313,13 @@
     padding: 10px 35px;
   }
   .offerdivleft {
-    height: 300px;
-    width: 95%;
+    /* height: 300px; */
+    width: 100%;
   }
   .offerdivright {
-    height: 300px;
-    width: 95%;
+    /* height: 300px; */
+    width: 100%;
+    margin-left: 0;
   }
   .offerimg1 {
     width: 46%;
@@ -410,12 +412,13 @@
     padding: 10px 35px;
   }
   .offerdivleft {
-    height: 300px;
-    width: 95%;
+    /* height: 300px; */
+    width: 100%;
   }
   .offerdivright {
-    height: 300px;
-    width: 95%;
+    /* height: 300px; */
+    width: 100%;
+    margin-left: 0;
   }
   .offerimg1 {
     width: 46%;
