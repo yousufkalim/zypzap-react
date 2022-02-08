@@ -19,13 +19,16 @@
 }
 .blogdiv1 {
   width: 93%;
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
   border-radius: 20px;
   background: linear-gradient(
     90.12deg,
     #202342 22.77%,
     rgba(38, 38, 72, 0) 129.88%
   );
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .blogdivimg {
   width: 100%;
