@@ -115,8 +115,8 @@ export default function YouMayLike({ blogs, loading, setLoading }) {
                         </h3>
 
                         <p className="bloddiv1detail">
-                          {item?.blog_desc.length > 147
-                            ? item?.blog_desc.substring(0, 146) + ".."
+                          {item?.blog_desc.length > 100
+                            ? item?.blog_desc.substring(0, 130) + ".."
                             : item?.blog_desc}
                         </p>
                         <p>
