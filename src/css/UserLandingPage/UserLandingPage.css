@@ -251,6 +251,7 @@
   font-family: "AMCAP Eternal", sans-serif !important;
   font-weight: 100 !important;
   text-shadow: 0px 2px 3px #662f88;
+  font-size: 28px !important;
 }
 .advantage-grid-border {
   border: 2px solid black;
@@ -300,16 +301,19 @@
 }
 .list-text {
   border-radius: 25px;
-  padding: 13px 3px;
-  font-size: 23px !important;
+  padding: 13px 7px;
+  font-size: 20px !important;
   font-weight: 900;
   font-family: "Myriad Pro-REGULAR";
   text-transform: uppercase;
   text-shadow: 0px 3px 3px #662f88;
   line-height: 1.6;
 }
+.list-text2 {
+  font-size: 26px !important;
+}
 .landingtext {
-  width: 70%;
+  width: 82%;
 }
 .carousalP:hover {
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
@@ -325,7 +329,7 @@
 }
 .carousalText {
   width: 100%;
-  margin: 10px;
+  margin: 13px;
 }
 /* UserLandingPage community section starts here */
 .community {
@@ -336,7 +340,6 @@
 }
 .community-block {
   text-align: center;
-  border-right: 1px solid #383838;
   padding: 0 20px;
 }
 .myStyleUserLanding {
@@ -369,27 +372,23 @@
   font-weight: 100;
 }
 .frcommunity-content-header {
-  font-size: 22px;
+  font-size: 26px;
   padding-top: 20px;
   padding-bottom: 8px;
   text-transform: uppercase;
-
   font-family: "Myriad Pro";
   font-weight: 100;
-
   line-height: 1.6;
 }
 .community-content-pargraph {
   padding: 15px 0px;
-  font-size: 16px;
-  opacity: 0.6;
+  font-size: 20px;
   font-family: "Myriad Pro-REGULAR";
   font-weight: 100;
 }
 .frcommunity-content-pargraph {
   padding: 15px 0px;
   font-size: 13px;
-  opacity: 0.6;
   font-family: "Myriad Pro-REGULAR";
   font-weight: 100;
 }
@@ -468,8 +467,6 @@
 }
 
 .User-landing-page-blog-divone {
-  /* width: 93%; */
-  margin-bottom: 25px;
   border-radius: 20px;
   background: linear-gradient(
     90.12deg,
@@ -477,13 +474,16 @@
     rgba(38, 38, 72, 0) 129.88%
   );
   color: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .blog-view-all {
-  font-size: 18px !important;
+  font-size: 16px !important;
   cursor: pointer;
   font-family: "Myriad Pro-REGULAR", sans-serif !important;
   font-weight: 600 !important;
-  /* text-shadow: 0px 4px 3px #662f88; */
   text-transform: capitalize;
 }
 .blog-view-all:hover {
@@ -495,7 +495,7 @@
 }
 .topH1 {
   font-family: "Myriad Pro-REGULAR", sans-serif !important;
-  font-size: 1.3rem;
+  font-size: 20px;
   font-weight: 600;
   padding-top: 4px;
 }
@@ -533,7 +533,7 @@
     margin-top: 35px;
   }
   .list-text {
-    font-size: 26px !important;
+    font-size: 20px !important;
     line-height: 1.2;
   }
   .btn-content-creator {
@@ -584,7 +584,7 @@
     margin-top: 35px;
   }
   .list-text {
-    font-size: 20px !important;
+    font-size: 18px !important;
     line-height: 1.5;
   }
   .carousalContainer {

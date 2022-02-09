@@ -7,6 +7,7 @@ import Course4 from "../assets/img/course4.png";
 import StarIcon from "@material-ui/icons/Star";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { ReactComponent as Star1 } from "../assets/icons/star2.svg";
 
 export default function LatestCourses() {
   var items = [
@@ -141,15 +142,22 @@ export default function LatestCourses() {
           className="latestcourseCarousel"
         >
           {items.map((item, i) => (
-            <div className="cardGrid">
+            <div
+              className="cardGrid"
+              style={{
+                backgroundColor: " #202342",
+                margin: "12px",
+                borderRadius: "35px",
+              }}
+            >
               <img src={item.img} className="courseimg" alt="img" />
               <h5 className="latestcourseh5">{item.title}</h5>
               <p className="latestcoursep1">{item.name}</p>
               <p className="latestcoursep1">
                 {" "}
-                5.0
+                5.0 &nbsp;
                 {[1, 2, 3, 4, 5].map((item) => (
-                  <StarIcon
+                  <Star1
                     style={{
                       width: "15px",
                       height: "15px",
@@ -160,7 +168,7 @@ export default function LatestCourses() {
                     }}
                   />
                 ))}
-                (1809)
+                &nbsp; (1809)
               </p>
               <h6 className="latestcourseh6">$19.99</h6>
             </div>

@@ -74,7 +74,7 @@ function TopCoursesComponent({ item }) {
                 <p className="p1">Emma Johns</p>
                 <p className="p2">PUBG player</p>
                 <p className="p2">
-                  5.0
+                  5.0 &nbsp;
                   {[1, 2, 3, 4, 5].map((item) => (
                     <Star1
                       className="starID"
@@ -86,7 +86,7 @@ function TopCoursesComponent({ item }) {
                       }}
                     />
                   ))}
-                  &nb (382,420)
+                  &nbsp; (382,420)
                 </p>
               </div>
             </div>

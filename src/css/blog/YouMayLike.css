@@ -12,8 +12,8 @@
   text-align: left;
 }
 .youMayLikeheading {
-  padding: 20px 0px 15px 10px;
-  font-size: 20px;
+  padding: 50px 0px 15px 10px;
+  font-size: 28px;
   font-family: "Mulish";
   font-weight: 900;
 }
@@ -33,7 +33,7 @@
 }
 .blogdivimg {
   width: 100%;
-  height: 200px;
+  height: 300px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
@@ -41,14 +41,14 @@
   padding: 15px 18px 15px 18px;
 }
 .blogdiv1heading {
-  padding: 10px 0px 10px 0px;
-  font-size: 16px;
+  padding: 0px 0px 5px 0px;
+  font-size: 15px;
   font-family: "Mulish";
 }
 .bloddiv1detail {
   font-family: "Mulish";
   color: #d4d4d4;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   padding: 10px 0px 25px 0px;
   color: #d4d4d4;

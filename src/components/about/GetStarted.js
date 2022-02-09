@@ -38,9 +38,7 @@ export default function GetStarted() {
     <>
       <div className="GetInTech">
         <div className="GetInTech_container">
-          <h2 className="get_heading">
-            Get in <span className="touchP">Touch</span>{" "}
-          </h2>
+          <h2 className="get_heading">Ils nous ont rejoint</h2>
           <div className="get_social">
             <div className="socialIncons">
               <img src={Get1} alt="" />

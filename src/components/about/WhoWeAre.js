@@ -8,8 +8,8 @@ export default function About() {
   return (
     <>
       <div className="whowearecontainer">
-        <h1>
-          Who <span style={{ color: "red" }}>we are</span>
+        <h1 style={{ textTransform: "uppercase", fontFamily: "Myriad Pro" }}>
+          il etait une fois...
         </h1>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>

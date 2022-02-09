@@ -115,7 +115,7 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
                         className="article2img"
                       />
                       <div className="articleText">
-                        <h3>
+                        <h3 style={{ fontSize: "20px" }}>
                           {item.blog_title.length > 40
                             ? item.blog_title.substring(0, 40) + "..."
                             : item?.blog_title}
