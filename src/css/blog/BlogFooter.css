@@ -2,7 +2,9 @@
   font-family: Myriad Pro-REGULAR;
   src: url(../../assets/MYRIADPRO-REGULAR.OTF);
 }
-
+.MuiGrid-spacing-xs-4 > .MuiGrid-item {
+  padding: 0px !important;
+}
 .footerDiv {
   background-color: #000000;
   color: white;
