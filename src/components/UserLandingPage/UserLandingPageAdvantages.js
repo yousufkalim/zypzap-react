@@ -65,7 +65,7 @@ const UserLandingPageAdvantages = (props) => {
       <Box className="box-user">
         <Box className="userlandingpageheaderspacing">
           <Typography align="center" variant="h5">
-            {t("Win your games")}
+            {t("Federez une nouvelle communaute")}
           </Typography>
           <div className="offerdashline"> </div>
         </Box>
@@ -74,34 +74,50 @@ const UserLandingPageAdvantages = (props) => {
             <div className="carousalContainer">
               <div className="carousalText">
                 <img src={Star} alt="" />
-                <div  className={`${!props.text5 && "landingtext"} carousalP`}>
-                  <p className={` list-text` }>{props.text1}</p>
+                <div className={`${!props.text5 && "landingtext"} carousalP`}>
+                  <p className={`${!props.text5 && "list-text2"} list-text`}>
+                    {props.text1}
+                  </p>
                 </div>
               </div>
               <div className="carousalText">
                 <img src={Star} alt="" />
                 <div className={`${!props.text5 && "landingtext"} carousalP`}>
-                  <p className={`list-text` }>{props.text2}</p>
+                  <p className={`${!props.text5 && "list-text2"} list-text`}>
+                    {props.text2}
+                  </p>
                 </div>
               </div>
               <div className="carousalText">
                 <img src={Star} alt="" />
-                <div  className={`${!props.text5 && "landingtext"} carousalP`}>
-                  <p className={`} list-text` }>{props.text3}</p>
+                <div className={`${!props.text5 && "landingtext"} carousalP`}>
+                  <p className={`${!props.text5 && "list-text2"} list-text`}>
+                    {props.text3}
+                  </p>
                 </div>
               </div>
               <div className="carousalText">
                 <img src={Star} alt="" />
-                <div  className={`${!props.text5 && "landingtext"} carousalP`}>
-                  <p className={` list-text` }>{props.text4}</p>
+                <div className={`${!props.text5 && "landingtext"} carousalP`}>
+                  <p className={` ${!props.text5 && "list-text2"} list-text`}>
+                    {props.text4}
+                  </p>
                 </div>
               </div>
-              {props.text5 &&  <div className="carousalText">
-                <img src={Star} alt="" />
-                <div  className={`${!props.text5 && "landingtext"} carousalP`}>
-                  <p className={` list-text` }>{props.text5}</p>
+              {props.text5 && (
+                <div className="carousalText">
+                  <img src={Star} alt="" />
+                  <div className={`${!props.text5 && "landingtext"} carousalP`}>
+                    <p className={`list-text`}>{props.text5}</p>
+                    <p
+                      className={`list-text`}
+                      style={{ padding: "0", paddingLeft: "7px" }}
+                    >
+                      {props.text6}
+                    </p>
+                  </div>
                 </div>
-              </div>}
+              )}
               {/* <div className="carousalText">
                 <img src={Star} alt="" />
                 <div className="carousalP">
@@ -131,10 +147,12 @@ const UserLandingPageAdvantages = (props) => {
           </Grid>
         </Grid>
         <Grid container justifyContent="center">
-          {props.type=="landing" && <button className="btn-advantages" onClick={() => setOpen(true)}>
-            {t("Early access to courses")}
-          </button>}
-          
+          {props.type == "landing" && (
+            <button className="btn-advantages" onClick={() => setOpen(true)}>
+              {t("Early access to courses")}
+            </button>
+          )}
+
           <Link
             to="/contentcreator"
             style={{ color: "white", textDecoration: "none" }}

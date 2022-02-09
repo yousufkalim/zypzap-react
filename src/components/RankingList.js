@@ -6,6 +6,10 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import SearchIcon from "@mui/icons-material/Search";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import MenuItem from "@mui/material/MenuItem";
 
 const rows = [
   {
@@ -49,17 +53,73 @@ const rows = [
     Votes: "2230 votes",
   },
 ];
+const currencies = [
+  {
+    value: "EUR",
+    label: "Filter",
+  },
+  {
+    value: "BTC",
+    label: "Filter",
+  },
+];
 const handleVoteClick = (row) => {
   console.log("row is ", row);
 };
 
 export default function RankingList() {
+  const [currency, setCurrency] = React.useState("EUR");
+
+  const handleChange = (event) => {
+    setCurrency(event.target.value);
+  };
   console.log(tableCellClasses.root);
   return (
     <>
       <div className="rankinglistHeadingDiv">
         <p className="rankingListheading">Requests Ranking List</p>
-        <p className="rankingListheading">View All</p>
+        {/* <p className="rankingListheading">View All</p> */}
+        <div style={{ position: "relative", display: "inline-block" }}>
+          <SearchIcon
+            style={{
+              position: "absolute",
+              right: 0,
+              top: 12,
+              width: 20,
+              height: 20,
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Search a game"
+            className="searchbar"
+          />
+        </div>
+        {/* <Box
+          component="form"
+          sx={{
+            "& .MuiTextField-root": {
+              m: 1,
+              width: "25ch",
+              border: "1px solid gray",
+            },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            id="filled-select-currency"
+            select
+            value={currency}
+            onChange={handleChange}
+          >
+            {currencies.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        </Box> */}
       </div>
       <TableContainer component={Paper}>
         <Table className="setTable">

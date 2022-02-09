@@ -56,7 +56,7 @@ body {
 }
 .creator_P {
   width: 100%;
-  font-size: 17px;
+  font-size: 20px;
   text-align: left;
   padding: 12px 15px 0 26px;
   font-family: "Myriad Pro", sans-serif;
@@ -71,14 +71,14 @@ body {
   padding: 41px 32px 30px 32px;
 }
 .creator_img {
-  background-color: #1b1e39;
+  /* background-color: #1b1e39;
   padding: 13px 10px 0px 9px;
   border-radius: 50%;
   width: 60px;
-  height: 54px;
+  height: 54px; */
 }
 .creator_img_icon {
-  width: 30px;
+  /* width: 30px; */
 }
 
 .part_container {
@@ -94,10 +94,10 @@ body {
   background: linear-gradient(
     90.12deg,
     #202342 22.77%,
-    rgba(38, 38, 72, 0) 129.88%
+    rgba(38, 38, 72, 0) 109.88%
   );
   border-radius: 14px;
-  height: 172px;
+  height: 144px;
   display: flex;
   align-items: center;
 }
@@ -107,6 +107,7 @@ body {
   font-family: "AMCAP Eternal", sans-serif;
   font-weight: 100;
   text-shadow: 0px 4px 3px #662f88;
+  font-size: 36px;
 }
 /* ///// Our Partners ///// */
 .our_partners {
@@ -216,10 +217,10 @@ body {
 }
 .monitization_heading {
   margin: 30px 0;
-  font-size: 26px;
+  font-size: 28px;
   font-family: "AMCAP Eternal", sans-serif;
   font-weight: 100;
-  text-shadow: 0px 4px 3px #662f88;
+  text-shadow: 0px 3px 3px #662f88;
 }
 .css-95m0ql {
   display: block !important;
@@ -293,7 +294,7 @@ body {
 }
 .moni_p {
   padding: 15px 0;
-  font-size: 18px;
+  font-size: 20px;
   font-family: "Myriad Pro", sans-serif;
 }
 .monibutton {
@@ -755,10 +756,10 @@ body {
 }
 @media only screen and (min-width: 813px) and (max-width: 900px) {
   .creator_img {
-    padding: 17px 8px 5px 9px;
+    /* padding: 17px 8px 5px 9px;
     border-radius: 50%;
     width: 60px;
-    height: 60px;
+    height: 60px; */
   }
   .creator_P {
     font-size: 14px;
@@ -844,10 +845,10 @@ body {
 }
 @media only screen and (min-width: 901px) and (max-width: 1200px) {
   .creator_img {
-    padding: 17px 8px 5px 9px;
+    /* padding: 17px 8px 5px 9px;
     border-radius: 50%;
     width: 60px;
-    height: 60px;
+    height: 60px; */
   }
   .creator_P {
     font-size: 14px;
@@ -902,7 +903,7 @@ body {
   }
   .moni_p {
     padding: 0 0px 0 0;
-    font-size: 12px;
+    font-size: 14px;
   }
   .outHeading {
     font-size: 1.3rem !important;

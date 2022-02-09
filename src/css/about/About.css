@@ -3,6 +3,7 @@
   width: 93%;
   margin: auto;
   font-family: Mulish;
+  height: 60vh;
 }
 
 .aboutLeftimg {
@@ -31,12 +32,13 @@
   width: 53%;
 }
 .AbouttextimgH1 {
-  font-size: 4rem;
+  font-size: 48px;
   font-weight: 500;
   margin: 8px 0px;
   display: inline-block;
   opacity: 0.8;
-  font-family: Mulish;
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 100;
 }
 .AbouttextonImgP {
   font-size: 20px;

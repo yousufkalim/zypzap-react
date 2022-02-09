@@ -79,9 +79,9 @@ const LandingPartnerWays = () => {
             <h5 className=" partnerTextHeading">{t("Integration")}</h5>
             <div className="divpadding">
               <span className="community-content-pargraph">
-                {t(
-                  "Integrate our catalog of partner offers available to subscribers"
-                )}
+                {t("Intégrez notre catalogue d’offres ")}
+                <br />
+                {t("partenaires dédiées à nos abonnés")}
               </span>
             </div>
           </div>
@@ -94,9 +94,9 @@ const LandingPartnerWays = () => {
             </h5>
             <div className="divpadding">
               <span className="community-content-pargraph">
-                {t(
-                  "Become an advertiser by placing advertisements in the content"
-                )}
+                {t("Devenez un annonceur en positionnant ")}
+                <br />
+                {t(" votre produit dans nos contenus")}
               </span>
             </div>
           </div>
@@ -107,7 +107,9 @@ const LandingPartnerWays = () => {
             <h5 className=" partnerTextHeading">{t("Live Events")}</h5>
             <div className="divpadding">
               <span className="community-content-pargraph">
-                {t("Make your future game known to our audience")}
+                {t("Informez nos utilisateurs de vos ")}
+                <br />
+                {t("prochaines actualités")}
               </span>
             </div>
           </div>
@@ -143,7 +145,9 @@ const LandingPartnerWays = () => {
             <h5 className=" partnerTextHeading">{t("Enjoy Gamers Hearing")}</h5>
             <div className="divpadding">
               <span className="community-content-pargraph">
-                {t("Enjoy a gamer’s hearing and communicate with them")}
+                {t("Interagissez avec les memebres ")}
+                <br />
+                {t("de notre communauté de gamers")}
               </span>
             </div>
           </div>
@@ -154,9 +158,9 @@ const LandingPartnerWays = () => {
             <h5 className=" partnerTextHeading">{t("Acquire New Status")}</h5>
             <div className="divpadding">
               <span className="community-content-pargraph">
-                {t(
-                  "Acquire the status of an active player in the gaming market"
-                )}
+                {t("Consolidez votre image auprés")}
+                <br />
+                {t("de la communauté de gamers")}
               </span>
             </div>
           </div>
@@ -167,7 +171,9 @@ const LandingPartnerWays = () => {
             <h5 className=" partnerTextHeading">{t("Test your games")}</h5>
             <div className="divpadding">
               <span className="community-content-pargraph">
-                {t("be able to test your game with a community of experts")}
+                {t("Soumettez vos jeux à notre ")}
+                <br />
+                {t("communauté de gamers experts")}
               </span>
             </div>
           </div>

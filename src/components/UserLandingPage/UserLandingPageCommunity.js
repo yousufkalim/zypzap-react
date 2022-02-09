@@ -65,7 +65,9 @@ const UserLandingPageCommunity = () => {
                   : "frcommunity-content-header"
               }`}
             >
-              {t("Participez au developpement de la communaute")}
+              {t("Participez au developpement")}
+              <br />
+              {t("de la communaute")}
             </h5>
             {/* <span
               className={`${
@@ -91,7 +93,9 @@ const UserLandingPageCommunity = () => {
                   : "frcommunity-content-header"
               }`}
             >
-              {t("Beneficiez de cours sur mesure")}
+              {t("Beneficiez de cours ")}
+              <br />
+              {t("sur mesure")}
             </h5>
             {/* <span
               className={`${

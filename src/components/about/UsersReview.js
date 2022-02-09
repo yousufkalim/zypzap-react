@@ -28,8 +28,14 @@ export default function UserReview() {
     <>
       <div className="userReviewContainer">
         <div className="reviewHeadingdiv">
-          <h1>
-            We just keep <span style={{ color: "red" }}>growing</span>
+          <h1
+            style={{
+              fontSize: "28px",
+              fontFamily: "Myriad Pro",
+              textTransform: "uppercase",
+            }}
+          >
+            Suivez-nous sur les reseaux sociaux
           </h1>
         </div>
         <Grid container spacing={4} className="keepgrowingGrid">
