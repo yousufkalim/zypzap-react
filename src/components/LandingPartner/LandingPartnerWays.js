@@ -78,11 +78,11 @@ const LandingPartnerWays = () => {
             <img src={landingpartnericonone} />
             <h5 className=" partnerTextHeading">{t("Integration")}</h5>
             <div className="divpadding">
-            <span className="community-content-pargraph">
-              {t(
-                "Integrate our catalog of partner offers available to subscribers"
-              )}
-            </span>
+              <span className="community-content-pargraph">
+                {t(
+                  "Integrate our catalog of partner offers available to subscribers"
+                )}
+              </span>
             </div>
           </div>
         </Grid>
@@ -93,11 +93,11 @@ const LandingPartnerWays = () => {
               {t("Co- Marketing Compaigns")}
             </h5>
             <div className="divpadding">
-            <span className="community-content-pargraph">
-              {t(
-                "Become an advertiser by placing advertisements in the content"
-              )}
-            </span>
+              <span className="community-content-pargraph">
+                {t(
+                  "Become an advertiser by placing advertisements in the content"
+                )}
+              </span>
             </div>
           </div>
         </Grid>
@@ -106,9 +106,9 @@ const LandingPartnerWays = () => {
             <img src={landingpartnericonthree} />
             <h5 className=" partnerTextHeading">{t("Live Events")}</h5>
             <div className="divpadding">
-            <span className="community-content-pargraph">
-              {t("Make your future game known to our audience")}
-            </span>
+              <span className="community-content-pargraph">
+                {t("Make your future game known to our audience")}
+              </span>
             </div>
           </div>
         </Grid>
@@ -122,25 +122,29 @@ const LandingPartnerWays = () => {
           </div>
         </Grid>
         <Grid sx={{ textAlign: "center" }} item xs={12} md={4}>
-          <img
-            className="landing-partner-arrow"
-            src={landingpartnerarrowlogo}
-          />
+          <div className="testArrow">
+            <img
+              className="landing-partner-arrow"
+              src={landingpartnerarrowlogo}
+            />
+          </div>
         </Grid>
         <Grid sx={{ textAlign: "center" }} item xs={12} md={4}>
-          <img
-            className="landing-partner-arrow"
-            src={landingpartnerarrowlogo}
-          />
+          <div className="testArrow">
+            <img
+              className="landing-partner-arrow"
+              src={landingpartnerarrowlogo}
+            />
+          </div>
         </Grid>
         <Grid item xs={12} md={4}>
           <div className="community-block partnerdiv1">
             <img src={landingpartnericonfour} />
             <h5 className=" partnerTextHeading">{t("Enjoy Gamers Hearing")}</h5>
             <div className="divpadding">
-            <span className="community-content-pargraph">
-              {t("Enjoy a gamer’s hearing and communicate with them")}
-            </span>
+              <span className="community-content-pargraph">
+                {t("Enjoy a gamer’s hearing and communicate with them")}
+              </span>
             </div>
           </div>
         </Grid>
@@ -149,9 +153,12 @@ const LandingPartnerWays = () => {
             <img src={landingpartnericonfive} />
             <h5 className=" partnerTextHeading">{t("Acquire New Status")}</h5>
             <div className="divpadding">
-            <span className="community-content-pargraph">
-              {t("Acquire the status of an active player in the gaming market")}
-            </span></div>
+              <span className="community-content-pargraph">
+                {t(
+                  "Acquire the status of an active player in the gaming market"
+                )}
+              </span>
+            </div>
           </div>
         </Grid>
         <Grid item xs={12} md={4}>
@@ -159,9 +166,9 @@ const LandingPartnerWays = () => {
             <img src={landingpartnericonsix} />
             <h5 className=" partnerTextHeading">{t("Test your games")}</h5>
             <div className="divpadding">
-            <span className="community-content-pargraph">
-              {t("be able to test your game with a community of experts")}
-            </span>
+              <span className="community-content-pargraph">
+                {t("be able to test your game with a community of experts")}
+              </span>
             </div>
           </div>
         </Grid>
