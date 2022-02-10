@@ -38,6 +38,7 @@
   font-size: 12px !important;
   justify-content: left !important;
   padding: 10px !important;
+  cursor: pointer;
 }
 .css-6hp17o-MuiList-root-MuiMenu-list {
   background-color: #202342 !important;

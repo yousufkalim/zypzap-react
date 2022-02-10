@@ -342,6 +342,7 @@ export default function PrimarySearchAppBar({
                         border: "none",
                         outline: "none",
                         marginTop: "0px",
+                        cursor: "pointer",
                       }}
                     >
                       <Select
@@ -351,6 +352,7 @@ export default function PrimarySearchAppBar({
                           borderRadius: "20px",
                           border: "none",
                           fontSize: "15px",
+                          cursor: "pointer",
                         }}
                         value={age}
                         onChange={handleChange}
