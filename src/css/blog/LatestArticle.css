@@ -37,7 +37,6 @@
     rgba(38, 38, 72, 0) 129.88%
   ) !important;
   border-radius: 20px !important;
-  margin-top: 20px;
   height: 100%;
 }
 .article1img {
@@ -55,9 +54,9 @@
     rgba(38, 38, 72, 0) 129.88%
   ) !important;
   display: flex;
-  margin-top: 25px;
   border-radius: 20px !important;
-  height: 205px;
+  height: 220px;
+  margin-left: 30px;
 }
 .articleText {
   padding: 0px 15px 0px 19px;
@@ -117,9 +116,9 @@
 
 /* for big screens */
 @media only screen and (min-width: 1201px) and (max-width: 1600px) {
-  .article1img {
+  /* .article1img {
     height: 294px;
-  }
+  } */
   .article2img {
     width: 26%;
   }
@@ -127,7 +126,8 @@
     font-size: 14px;
   }
   .latestArticleRight {
-    height: 164px;
+    height: 199px;
+    margin-left: 20px;
   }
   .textdescription {
     padding: 16px px 0px 16px 0px;
@@ -160,8 +160,8 @@
     margin: auto;
   }
   .latestArticleRight {
-    margin-top: 10px;
-    height: 130px;
+    height: 141px;
+    margin-left: 20px;
   }
   .articleheading {
     padding: 10px 0 10px 0;
@@ -169,6 +169,9 @@
   }
   .articleText {
     font-size: 12px;
+  }
+  .articH3 {
+    font-size: 12px !important;
   }
 }
 @media only screen and (min-width: 601px) and (max-width: 800px) {

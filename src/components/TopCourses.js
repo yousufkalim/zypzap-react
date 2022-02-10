@@ -2,8 +2,8 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Carousel from "react-material-ui-carousel";
-import TopCourseImg from "../assets/img/topcourseimg.png";
 import { ReactComponent as Star1 } from "../assets/icons/star2.svg";
+import TopCourseImg from "../assets/img/topcourseimg.png";
 import avatar from "../assets/img/avatar.png";
 import StarIcon from "@material-ui/icons/Star";
 
