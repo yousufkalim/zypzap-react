@@ -478,6 +478,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 93%;
 }
 .blog-view-all {
   font-size: 16px !important;
@@ -485,6 +486,7 @@
   font-family: "Myriad Pro-REGULAR", sans-serif !important;
   font-weight: 600 !important;
   text-transform: capitalize;
+  padding-top: 20px;
 }
 .blog-view-all:hover {
   text-decoration: underline;
