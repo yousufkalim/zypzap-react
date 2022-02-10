@@ -5,6 +5,17 @@
   background-color: #0e0f1e !important;
   box-shadow: none !important;
 }
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  padding: 0 !important;
+  width: none;
+  color: #fff !important;
+  width: inherit !important;
+  padding: 7px !important;
+  opacity: 0.9;
+}
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select {
+  min-height: 0px !important;
+}
 .headerFirstCell {
   border-bottom-left-radius: 10px !important;
 }
@@ -22,6 +33,8 @@
   justify-content: space-between;
   width: 93%;
   margin: auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .rankingListheading {
   padding: 20px 0px 25px 0px;
@@ -34,6 +47,14 @@
   border: none;
   border: 1px solid rgb(107, 106, 106);
   border-radius: 8px;
+}
+.searchbar2 {
+  background: none;
+  padding: 10px 50px 10px 10px;
+  border: none;
+  border: 1px solid rgb(107, 106, 106);
+  border-radius: 8px;
+  color: white !important;
 }
 .descriptionCell {
   width: 40% !important;
