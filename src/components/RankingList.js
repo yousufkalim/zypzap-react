@@ -68,7 +68,7 @@ export default function RankingList() {
           <SearchIcon
             style={{
               position: "absolute",
-              right: 0,
+              left: 90,
               top: 12,
               width: 20,
               height: 20,
@@ -79,6 +79,14 @@ export default function RankingList() {
             placeholder="Search a game"
             className="searchbar"
           />
+          <div class="dropdown">
+            <button class="dropbtn">Dropdown </button>
+            <div class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+          </div>
         </div>
       </div>
       <TableContainer component={Paper}>
