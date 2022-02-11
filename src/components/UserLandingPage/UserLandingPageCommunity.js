@@ -24,22 +24,23 @@ const UserLandingPageCommunity = () => {
           <div className="offerdashline"> </div>
         </Box>
       </Box>
-      <Grid className="community" container spacing={2}>
-        <Grid item xs={12} md={4}>
-          <div className="community-block">
-            <img src={communityImgone} />
-            <h5
-              className={`${
-                language == "en"
-                  ? "community-content-header"
-                  : "frcommunity-content-header"
-              }`}
-            >
-              {t("Rejoignez la ")}
-              <br />
-              {t("communaute")}
-            </h5>
-            {/* <span
+      <div className="communt_container">
+        <Grid className="community" container spacing={2}>
+          <Grid item xs={12} md={4}>
+            <div className="community-block">
+              <img src={communityImgone} />
+              <h5
+                className={`${
+                  language == "en"
+                    ? "community-content-header"
+                    : "frcommunity-content-header"
+                }`}
+              >
+                {t("Rejoignez la ")}
+                <br />
+                {t("communaute")}
+              </h5>
+              {/* <span
               className={`${
                 language == "en"
                   ? "community-content-pargraph"
@@ -50,26 +51,27 @@ const UserLandingPageCommunity = () => {
                 "Evaluate the courses for continous improvement of the creators"
               )}
             </span> */}
-          </div>
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <div className="community-block">
-            <img
-              src={communityImgtwo}
-              style={{ height: "70px", margin: "auto", textAlgn: "center" }}
-            />
-            <h5
-              className={`${
-                language == "en"
-                  ? "community-content-header"
-                  : "frcommunity-content-header"
-              }`}
-            >
-              {t("Participez au developpement")}
-              <br />
-              {t("de la communaute")}
-            </h5>
-            {/* <span
+            </div>
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <div className="community-block">
+              <img
+                src={communityImgtwo}
+                style={{ height: "70px", margin: "auto", textAlgn: "center" }}
+              />
+              <h5
+                className={`${
+                  language == "en"
+                    ? "community-content-header"
+                    : "frcommunity-content-header"
+                }`}
+              >
+                {t("Participez au developpement")}
+                <br />
+                {t("de la communaute")}
+              </h5>
+              {/* <span
               className={`${
                 language == "en"
                   ? "community-content-pargraph"
@@ -78,26 +80,26 @@ const UserLandingPageCommunity = () => {
             >
               {t("Participates in the growth of the community and its economy")}
             </span> */}
-          </div>
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <div className="community-block community-block-border">
-            <img
-              src={communityImgthree}
-              style={{ height: "70px", margin: "auto", textAlgn: "center" }}
-            />
-            <h5
-              className={`${
-                language == "en"
-                  ? "community-content-header"
-                  : "frcommunity-content-header"
-              }`}
-            >
-              {t("Beneficiez de cours ")}
-              <br />
-              {t("sur mesure")}
-            </h5>
-            {/* <span
+            </div>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <div className="community-block community-block-border">
+              <img
+                src={communityImgthree}
+                style={{ height: "70px", margin: "auto", textAlgn: "center" }}
+              />
+              <h5
+                className={`${
+                  language == "en"
+                    ? "community-content-header"
+                    : "frcommunity-content-header"
+                }`}
+              >
+                {t("Beneficiez de cours ")}
+                <br />
+                {t("sur mesure")}
+              </h5>
+              {/* <span
               className={`${
                 language == "en"
                   ? "community-content-pargraph"
@@ -106,9 +108,10 @@ const UserLandingPageCommunity = () => {
             >
               {t("Inform content creators of hot topics to be addressed")}
             </span> */}
-          </div>
+            </div>
+          </Grid>
         </Grid>
-      </Grid>
+      </div>
     </>
   );
 };
