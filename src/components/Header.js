@@ -332,28 +332,9 @@ export default function PrimarySearchAppBar({
                     Login
                   </p>
                   <div>
-                    <FormControl
-                      style={{
-                        backgroundColor: "#202342",
-                        width: "168px",
-                        height: "32px",
-                        color: "white",
-                        borderRadius: "20px",
-                        border: "none",
-                        outline: "none",
-                        marginTop: "0px",
-                        cursor: "pointer",
-                      }}
-                    >
+                    <FormControl className="form_Control_header">
                       <Select
-                        style={{
-                          height: "35px",
-                          color: "white",
-                          borderRadius: "20px",
-                          border: "none",
-                          fontSize: "15px",
-                          cursor: "pointer",
-                        }}
+                        className="select_form_header"
                         value={age}
                         onChange={handleChange}
                         displayEmpty
@@ -361,11 +342,9 @@ export default function PrimarySearchAppBar({
                         <MenuItem value="" className="walletInputMenu">
                           <m className="WalletInput">Connect Wallet</m>
                         </MenuItem>
-                        <br />
                         <MenuItem value={10} className="walletInputMenu">
                           Metamask
                         </MenuItem>
-                        <br />
                         <MenuItem value={20} className="walletInputMenu">
                           Coinbase
                         </MenuItem>

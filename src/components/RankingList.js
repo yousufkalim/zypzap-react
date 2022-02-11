@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
@@ -8,11 +9,15 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 const rows = [
   {
     Rank: 1,
     Game: "Call of Duty",
+    Date: "19/01/2022",
     GameLecel: "Medium",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis,Lorem ipsum dolor sit amet, consectetur adipiscing",
@@ -21,6 +26,7 @@ const rows = [
   {
     Rank: 2,
     Game: "Call of Duty",
+    Date: "19/01/2022",
     GameLecel: "Medium",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis,Lorem ipsum dolor sit amet, consectetur adipiscing",
@@ -29,6 +35,7 @@ const rows = [
   {
     Rank: 3,
     Game: "Call of Duty",
+    Date: "19/01/2022",
     GameLecel: "Medium",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis,Lorem ipsum dolor sit amet, consectetur adipiscing",
@@ -37,6 +44,7 @@ const rows = [
   {
     Rank: 4,
     Game: "Call of Duty",
+    Date: "19/01/2022",
     GameLecel: "Medium",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis,Lorem ipsum dolor sit amet, consectetur adipiscing",
@@ -45,6 +53,16 @@ const rows = [
   {
     Rank: 5,
     Game: "Call of Duty",
+    Date: "19/01/2022",
+    GameLecel: "Medium",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis,Lorem ipsum dolor sit amet, consectetur adipiscing",
+    Votes: "2230 votes",
+  },
+  {
+    Rank: 6,
+    Game: "Call of Duty",
+    Date: "19/01/2022",
     GameLecel: "Medium",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis,Lorem ipsum dolor sit amet, consectetur adipiscing",
@@ -56,6 +74,11 @@ const handleVoteClick = (row) => {
 };
 
 export default function RankingList() {
+  const [age, setAge] = useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
   console.log(tableCellClasses.root);
   return (
     <>
@@ -65,28 +88,50 @@ export default function RankingList() {
         </div>
         {/* <p className="rankingListheading">View All</p> */}
         <div style={{ position: "relative", display: "inline-block" }}>
-          <SearchIcon
-            style={{
-              position: "absolute",
-              left: 90,
-              top: 12,
-              width: 20,
-              height: 20,
-            }}
-          />
+          <SearchIcon className="search_icon_home" />
           <input
+            style={{
+              color: "#fff",
+            }}
             type="text"
             placeholder="Search a game"
             className="searchbar"
+            onChange={handleChange}
           />
-          <div class="dropdown">
-            <button class="dropbtn">Dropdown </button>
-            <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-          </div>
+          <FormControl className="form_controll_home">
+            <Select className="select_fom_home" value={age} displayEmpty>
+              <MenuItem value="" className="walletInputMenu2">
+                <m className="WalletInput">Filter</m>
+              </MenuItem>
+
+              <MenuItem value={10} className="walletInputMenu2">
+                Filter
+              </MenuItem>
+              <MenuItem value={20} className="walletInputMenu2">
+                Filter
+              </MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl className="form_controll_home">
+            <Select
+              className="select_fom_home"
+              value={age}
+              onChange={handleChange}
+              displayEmpty
+            >
+              <MenuItem value="" className="walletInputMenu2">
+                <m className="WalletInput2">Sort By</m>
+              </MenuItem>
+
+              <MenuItem value={10} className="walletInputMenu2">
+                Sort By
+              </MenuItem>
+
+              <MenuItem value={20} className="walletInputMenu2">
+                Sort By
+              </MenuItem>
+            </Select>
+          </FormControl>
         </div>
       </div>
       <TableContainer component={Paper}>
@@ -106,6 +151,9 @@ export default function RankingList() {
                 Game
               </TableCell>
               <TableCell className="headergameCell" align="right">
+                Date
+              </TableCell>
+              <TableCell className="headergameCell" align="right">
                 Game Lecel
               </TableCell>
               <TableCell className="headerdescriptionCell" align="right">
@@ -123,7 +171,7 @@ export default function RankingList() {
             sx={{
               [`& .${tableCellClasses.root}`]: {
                 borderBottom: "none",
-                background: "#0E0F1E",
+                background: "black",
                 color: "white",
               },
             }}
@@ -131,13 +179,19 @@ export default function RankingList() {
             {rows.map((row) => (
               <TableRow
                 key={row.Rank}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                sx={{
+                  "&:last-child td, &:last-child th": { border: 0 },
+                  backgroundColor: "black",
+                }}
               >
                 <TableCell component="th" scope="row">
                   {row.Rank}
                 </TableCell>
                 <TableCell component="th" scope="row">
                   {row.Game}
+                </TableCell>
+                <TableCell component="th" scope="row">
+                  {row.Date}
                 </TableCell>
                 <TableCell className="headergameCell" align="right">
                   {row.GameLecel}

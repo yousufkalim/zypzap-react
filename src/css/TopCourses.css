@@ -30,7 +30,7 @@
 .topcourseText {
   padding-top: 10px;
   opacity: 0.7 !important;
-  font-size: 21px;
+  font-size: 14px;
 }
 .p1 {
   font-size: 14px;
@@ -51,6 +51,7 @@
 }
 .marginRight {
   margin-right: 10px;
+  font-size: 12px;
 }
 .userprofilediv {
   display: flex;
