@@ -259,7 +259,7 @@
     font-weight: 50; */
   }
   .offerText {
-    padding: 9px 60px 10px 60px;
+    padding: 9px 34px 10px;
   }
 }
 @media only screen and (min-width: 801px) and (max-width: 1200px) {
@@ -414,6 +414,7 @@
   .offerdivleft {
     /* height: 300px; */
     width: 100%;
+    margin-bottom: 20px;
   }
   .offerdivright {
     /* height: 300px; */
