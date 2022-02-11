@@ -369,12 +369,12 @@
   font-weight: 100;
 }
 .frcommunity-content-header {
-  font-size: 26px;
+  font-size: 18px;
   padding-top: 20px;
   padding-bottom: 8px;
   text-transform: uppercase;
-  font-family: "Myriad Pro";
-  font-weight: 100;
+  font-family: "Myriad Pro-REGULAR";
+  font-weight: 600;
   line-height: 1.6;
 }
 .community-content-pargraph {

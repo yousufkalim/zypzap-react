@@ -23,7 +23,7 @@
   font-family: "Maven Pro";
 }
 .LatestArticleheading {
-  padding: 20px 0px 0px 10px;
+  padding: 48px 0px 0px 10px;
   font-weight: bolder;
   font-size: 20px;
   text-transform: uppercase;
@@ -55,7 +55,7 @@
   ) !important;
   display: flex;
   border-radius: 20px !important;
-  height: 220px;
+  height: 207px;
   margin-left: 30px;
 }
 .articleText {
