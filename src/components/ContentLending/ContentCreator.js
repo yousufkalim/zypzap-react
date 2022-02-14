@@ -73,7 +73,7 @@ const ContentCreator = () => {
                 </p>
               </div>
             </Grid>
-            <Grid item xs={8} sm={6}>
+            <Grid item xs={6} sm={6}>
               <div className="creator_contain">
                 <div className="creator_img">
                   <img src={Vector} alt="Group" className="creator_img_icon" />
