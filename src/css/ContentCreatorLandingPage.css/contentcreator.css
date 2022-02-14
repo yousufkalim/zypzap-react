@@ -303,7 +303,7 @@ body {
   width: 50px 0;
 }
 .moniBTN {
-  padding: 12px 40px 12px 40px;
+  padding: 10px 40px 12px 40px;
   border: none;
   margin: 45px 0px 31px 0;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
@@ -463,7 +463,7 @@ body {
     font-size: 10px;
     padding: 15px 0 0 17px;
     width: 100%;
-    line-height: 1.2rem;
+    line-height: 1rem;
   }
   /* Our_partners */
   .our_partners {
@@ -587,7 +587,7 @@ body {
     height: 95px;
   }
   .nosH1 {
-    font-size: 22px;
+    font-size: 18px;
   }
   .monitization {
     width: 100%;
@@ -599,17 +599,18 @@ body {
     padding: 9px 0;
     font-size: 10px;
   }
+  .creator_img_icon {
+    width: 40px;
+  }
 }
 @media only screen and (min-width: 601px) and (max-width: 812px) {
   .content_creator {
     padding: 11px 0;
   }
   .creator_container {
-    margin-top: 30px;
     padding: 0 0px;
-    margin-bottom: 30px;
-    margin: auto;
-    width: 85%;
+    margin: 23px auto 0 auto;
+    width: 80%;
   }
   .creator_heading {
     font-size: 14px;
@@ -623,8 +624,8 @@ body {
     flex-basis: 100% !important;
   }
   .creator_P {
-    font-size: 13px;
-    padding: 2px 0 0 17px;
+    font-size: 14px;
+    padding: 11px 0 0 17px;
     width: 100%;
   }
   /* Our_partners */
@@ -752,6 +753,9 @@ body {
   }
   .css-y9l3cp {
     width: 95% !important;
+  }
+  .creator_img_icon {
+    width: 45px;
   }
 }
 @media only screen and (min-width: 813px) and (max-width: 900px) {

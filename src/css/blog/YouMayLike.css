@@ -43,7 +43,7 @@
 }
 .blogdiv1heading {
   padding: 0px 0px 5px 0px;
-  font-size: 15px;
+  font-size: 22px;
   font-family: "Mulish";
 }
 .bloddiv1detail {
@@ -68,5 +68,12 @@
   .blogdivimg {
     width: 100%;
     /* height: inherit; */
+  }
+}
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+  .blogdiv1 {
+    width: 167% !important;
+    margin-left: -76px;
+    margin-bottom: 15px;
   }
 }

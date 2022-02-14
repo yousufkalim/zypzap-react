@@ -10,6 +10,7 @@ import Dot from "../../assets/icons/dot2.svg";
 import LinkedinIcon from "../../assets/icons/linkedin2.svg";
 import YouMayLike from "./YouMayLike";
 import BlogFoote from "../blog/BlogFooter";
+import TwitterIcon2 from "../../assets/icons/TwitterIcon2.svg";
 import moment from "moment";
 
 export default function ArticleBody({ singlBlog, loading, blogs }) {
@@ -80,7 +81,7 @@ export default function ArticleBody({ singlBlog, loading, blogs }) {
             <Grid item xs={3} sm={3}>
               <div className="articleSocialicon">
                 <img
-                  src={TwitterIcon}
+                  src={TwitterIcon2}
                   className="articlesocialicon"
                   alt="img"
                 />

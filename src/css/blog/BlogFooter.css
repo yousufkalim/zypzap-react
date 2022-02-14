@@ -104,7 +104,7 @@
   }
 
   .footerDiv {
-    margin-top: 70px;
+    margin-top: 0px;
   }
   .infotable1 {
     padding-left: 0px;
@@ -141,12 +141,12 @@
     padding: 0px 0px 15px 0px;
   }
   .f2div {
-    padding: 0px 31px 15px 0px;
+    padding: 0px 0px 15px 0px;
     text-align: center;
   }
-  .languagebuttondiv {
+  /* .languagebuttondiv {
     margin-left: -46px;
-  }
+  } */
   .divforsign {
     position: relative;
     min-height: 0px;
