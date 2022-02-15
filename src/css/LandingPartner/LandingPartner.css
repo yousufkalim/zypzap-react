@@ -3,7 +3,16 @@
   font-family: Myriad Pro;
   src: url(../../assets/MYRIADPRO-BOLD.OTF);
 }
-
+.border_line {
+  height: 150px;
+  border-color: #383838;
+  margin-top: 20px;
+}
+.MuiGrid-grid-md-4 {
+  flex-grow: 0;
+  max-width: 33% !important;
+  flex-basis: 33% !important;
+}
 .landing-partner-img-container {
   text-align: center;
   width: 90%;
@@ -172,12 +181,18 @@
   }
   .community-block {
     border-right: none;
-    width: 50%;
+    width: 100%;
     margin: auto;
   }
   .myStylep {
     font-size: 12px;
     line-height: 1.5;
+  }
+  .border_line {
+    display: none;
+  }
+  .MuiGrid-spacing-xs-2 > .MuiGrid-item {
+    margin: auto;
   }
 }
 
@@ -219,5 +234,22 @@
   }
   .partnerTextHeading {
     font-size: 14px;
+  }
+  .border_line {
+    display: none;
+  }
+  .community-block {
+    border-right: none;
+    width: 100%;
+    margin: auto;
+  }
+  .MuiGrid-spacing-xs-2 {
+    flex-direction: column !important;
+  }
+  .MuiGrid-grid-xs-12 {
+    margin: auto !important;
+  }
+  .User-landing-page-blog-divone {
+    margin-bottom: 30px !important;
   }
 }
