@@ -7,6 +7,10 @@
   font-family: Myriad Pro--REGULAR;
   src: url(../../assets/MYRIADPRO-REGULAR.OTF);
 }
+.headerblogheading {
+  font-family: "Myriad Pro";
+  font-weight: 600;
+}
 .MuiGrid-spacing-xs-2 > .MuiGrid-item {
   padding: 8px;
   display: flex;

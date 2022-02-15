@@ -52,7 +52,7 @@
   color: #e7411b;
 }
 .landingpagetextonImgbutton {
-  padding: 11px 18px 11px 18px;
+  padding: 12px 20px 12px 20px;
   border: none;
   margin: 13px 13px 8px 0px;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
@@ -61,7 +61,7 @@
   font-family: " Myriad Pro", sans-serif;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
   text-transform: capitalize;
   border: 1px solid #662f88;
 }

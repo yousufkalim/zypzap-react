@@ -30,7 +30,7 @@
   margin-top: 500px;
   padding: 5px 0px 5px 0px;
   margin: 8px 0px 28px 0px;
-  font-family: "Myriad Pro-REGULAR", sans-serif;
+  font-family: "Myriad Pro", sans-serif;
   text-shadow: 0px 3px 3px #662f88;
   color: #fff !important;
   text-transform: uppercase;
@@ -72,7 +72,7 @@
 
   .textH1 {
     font-weight: 900;
-    font-size: 3em;
+    font-size: 3.2em;
   }
   .textonP {
     font-size: 23px;

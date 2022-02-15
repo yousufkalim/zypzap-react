@@ -15,7 +15,7 @@ const UserLandingPageCommunity = () => {
       <Box className="box-user">
         <Box
           sx={{
-            padding: "20px 0 20px 0",
+            padding: "18px 0 18px 0",
           }}
         >
           <Typography align="center" variant="h5">

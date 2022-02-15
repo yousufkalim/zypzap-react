@@ -26,6 +26,9 @@
   margin: auto;
   flex-direction: column-reverse;
 }
+.communt_container {
+  margin-top: 25px;
+}
 
 /* .email-label {
   font-size: 1.5em;
@@ -204,7 +207,7 @@
   -webkit-appearance: none;
 }
 .user-landing-page-email-input {
-  flex-basis: 500px;
+  flex-basis: 290px;
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
   background-color: inherit;
@@ -215,19 +218,20 @@
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
 
   color: #fff;
-  padding: 0 20px;
+  padding: 3px 25px;
   cursor: pointer;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
   border-bottom-right-radius: 7px;
   border-top-right-radius: 7px;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 900;
+  border: 1px solid gray;
+  border-left: none;
 }
 .user-landing-page-submit-input:hover {
   background: none;
-  border: 1px solid gray;
 }
 .css-o98hvh {
   padding: 50px 0 20px 0 !important;
@@ -308,7 +312,7 @@
   line-height: 1.6;
 }
 .list-text2 {
-  font-size: 20px !important;
+  font-size: 24px !important;
   font-weight: 600;
 }
 .landingtext {
@@ -359,7 +363,7 @@
   border: none;
 }
 .community-content-header {
-  font-size: 20px;
+  font-size: 27px;
   padding-top: 20px;
   padding-bottom: 8px;
   text-transform: uppercase;
@@ -367,11 +371,11 @@
   margin: auto;
   text-shadow: 0px 4px 3px #662f88;
 
-  font-family: "Myriad Pro";
-  font-weight: 100;
+  font-family: "Myriad Pro-REGULAR";
+  font-weight: 800;
 }
 .frcommunity-content-header {
-  font-size: 20px;
+  font-size: 24px;
   padding-top: 20px;
   padding-bottom: 8px;
   text-transform: uppercase;
@@ -407,7 +411,7 @@
 }
 /* Trending section starts here */
 .trend_container {
-  width: 90%;
+  width: 82%;
   margin: auto;
 }
 .trendingGrid {
@@ -466,7 +470,7 @@
 }
 /* userlandingpage blog */
 .UserLandingPageBlogContainer {
-  width: 82%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -522,7 +526,7 @@
     left: 34%;
   }
   .frcommunity-content-header {
-    font-size: 22px;
+    font-size: 27px;
   }
   .community {
     padding: 0px 0 0 0;
@@ -546,6 +550,9 @@
   .list-text {
     font-size: 22px !important;
     line-height: 1.2;
+  }
+  .list-text2 {
+    font-size: 27px !important;
   }
   .btn-content-creator {
     padding: 11px 35px;
@@ -599,8 +606,15 @@
     margin-top: 35px;
   }
   .list-text {
-    font-size: 18px !important;
+    font-size: 20px !important;
     line-height: 1.5;
+  }
+  .list-text2 {
+    font-size: 27px !important;
+    line-height: 1.5;
+  }
+  .frcommunity-content-header {
+    font-size: 27px;
   }
   .carousalContainer {
     width: 100%;
@@ -618,8 +632,8 @@
   }
   .carousalP {
     /* background-color: rgb(14, 15, 30); */
-    margin-left: 50px;
-    margin-top: -43px;
+    margin-left: 39px;
+    margin-top: -49px;
   }
   .css-1iz4iln {
     padding: 22px 8px !important;
