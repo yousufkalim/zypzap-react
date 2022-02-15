@@ -20,7 +20,7 @@ const scrollToTop = () => {
 };
 
 const onChange = (a, b) => {
-  console.log(a, b);
+  // console.log(a, b);
 };
 
 const UserLandingPageAdvantages = (props) => {
