@@ -53,7 +53,7 @@ const UserLandingPageCommunity = () => {
             </span> */}
             </div>
           </Grid>
-
+          <hr className="border_line" />
           <Grid item xs={12} md={4}>
             <div className="community-block">
               <img
@@ -82,6 +82,7 @@ const UserLandingPageCommunity = () => {
             </span> */}
             </div>
           </Grid>
+          <hr className="border_line" />{" "}
           <Grid item xs={12} md={4}>
             <div className="community-block community-block-border">
               <img
