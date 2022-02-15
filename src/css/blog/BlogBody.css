@@ -35,4 +35,8 @@
   .BlogtextimgH1 {
     font-size: 2em;
   }
+  .BlogbodyImage {
+    width: 93%;
+    height: auto;
+  }
 }
