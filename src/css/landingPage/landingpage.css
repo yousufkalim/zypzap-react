@@ -1,6 +1,6 @@
 @font-face {
   font-family: Myriad Pro;
-  src: url(../../assets/MYRIADPRO-BOLD.OTF);
+  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
 }
 
 .landingpageimgcontainer {
@@ -271,13 +271,13 @@
     justify-content: space-around !important;
   }
   .User-landing-page-blog-divone {
-    /* width: 90% !important; */
     margin: auto;
+    width: 100% !important;
   }
   .MuiGrid-spacing-xs-4 > .MuiGrid-item {
     padding: 0 !important;
-    max-width: 25% !important;
-    flex-basis: 25% !important;
+    max-width: 30% !important;
+    flex-basis: 30% !important;
   }
   .landingpageRightimg {
     height: 525px;
@@ -313,13 +313,14 @@
     padding: 10px 35px;
   }
   .offerdivleft {
-    /* height: 300px; */
-    width: 100%;
+    width: 80%;
+    margin-bottom: 20px;
+    margin: auto;
   }
   .offerdivright {
-    /* height: 300px; */
-    width: 100%;
+    width: 80%;
     margin-left: 0;
+    margin: auto;
   }
   .offerimg1 {
     width: 46%;
@@ -341,7 +342,7 @@
   }
   .blogdiv1heading {
     padding: 0px 0px 0 0px;
-    font-size: 12px;
+    font-size: 15px;
   }
   .bloddiv1detail {
     font-size: 12px;
@@ -372,7 +373,7 @@
     width: calc(100% + 0px) !important;
   }
   .User-landing-page-blog-divone {
-    width: 90% !important;
+    width: 70% !important;
     margin: auto;
   }
   .MuiGrid-spacing-xs-4 > .MuiGrid-item {
@@ -412,14 +413,14 @@
     padding: 10px 35px;
   }
   .offerdivleft {
-    /* height: 300px; */
-    width: 100%;
+    width: 80%;
     margin-bottom: 20px;
+    margin: auto;
   }
   .offerdivright {
-    /* height: 300px; */
-    width: 100%;
+    width: 80%;
     margin-left: 0;
+    margin: auto;
   }
   .offerimg1 {
     width: 46%;
@@ -468,6 +469,9 @@
   }
   .f1div {
     padding: 0px 0px 50px 0px !important;
+  }
+  .MuiGrid-grid-sm-4 {
+    margin-bottom: 20px !important;
   }
 }
 
@@ -535,5 +539,8 @@
   .whatweofferButton {
     margin: 13px 0px 30px 0px;
     font-size: 12px;
+  }
+  .MuiGrid-grid-sm-4 {
+    margin-bottom: 20px !important;
   }
 }

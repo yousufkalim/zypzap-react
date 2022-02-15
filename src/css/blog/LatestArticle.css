@@ -152,16 +152,18 @@
     width: 100%;
   }
   .article2img {
-    width: 35%;
+    width: 22%;
     height: 100%;
   }
   .latestArticleLeft {
-    width: 100%;
+    width: 60%;
     margin: auto;
   }
   .latestArticleRight {
     height: 141px;
     margin-left: 20px;
+    margin: 13px auto;
+    width: 80%;
   }
   .articleheading {
     padding: 10px 0 10px 0;
@@ -174,14 +176,15 @@
     font-size: 12px !important;
   }
 }
-@media only screen and (min-width: 601px) and (max-width: 800px) {
+@media only screen and (min-width: 601px) and (max-width: 900px) {
   .articledetail {
     margin-left: 0px;
     padding: 5px;
     opacity: 0.7;
   }
+
   .textdescription {
-    font-size: 17px;
+    font-size: 15px;
     padding: 7px 0px 7px 0px;
   }
   .textdescription1 {
@@ -191,28 +194,55 @@
     width: 100%;
   }
   .article2img {
-    width: 35%;
-    height: 100%px;
+    width: 22%;
+    height: 100%;
   }
-  .MuiGrid-container {
-    flex-direction: column;
+  .latestArticleLeft {
+    width: 80%;
+    margin: auto;
+  }
+  .latestArticleRight {
+    height: 141px;
+    margin-left: 20px;
+    margin: 13px auto;
+    width: 80%;
+  }
+  .articleheading {
+    padding: 10px 0 10px 0;
+    font-size: 19px;
+  }
+  .articleText {
+    font-size: 12px;
+  }
+  .articH3 {
+    font-size: 20px !important;
   }
   .MuiGrid-grid-sm-6 {
-    flex-grow: 0;
-    max-width: 80% !important;
-    flex-basis: 80% !important;
-    margin: auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-  }
-  .MuiGrid-grid-xs-12 {
-    width: 100% !important;
-    margin: auto !important;
-  }
-  .MuiGrid-grid-sm-3 {
     max-width: 100% !important;
     flex-basis: 100% !important;
+  }
+  .article2img {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+  }
+  .latestArticleRight {
+    width: 70%;
+    flex-direction: column;
+    height: inherit;
+    margin: 10px auto 30px auto;
+  }
+  .articleText {
+    padding: 20px 15px 20px 19px;
+  }
+  .articleheading {
+    padding: 12px 0 12px 0;
+    font-size: 20px;
+  }
+  .author1 {
+    font-family: "Myriad Pro";
+    color: white;
+    font-size: 18px;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 600px) {
@@ -222,7 +252,7 @@
     opacity: 0.7;
   }
   .textdescription {
-    font-size: 10px;
+    font-size: 12px;
     padding: 7px 0px 7px 0px;
   }
   .textdescription1 {
@@ -232,7 +262,21 @@
     width: 100%;
   }
   .article2img {
-    width: 35%;
-    height: 100%px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+  }
+  .latestArticleRight {
+    width: 82%;
+    flex-direction: column;
+    height: inherit;
+    margin: 10px auto 30px auto;
+  }
+  .articleText {
+    padding: 20px 15px 20px 19px;
+  }
+  .articleheading {
+    padding: 12px 0 12px 0;
+    font-size: 20px;
   }
 }

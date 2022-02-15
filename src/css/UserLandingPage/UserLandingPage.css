@@ -125,7 +125,7 @@
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: #fff;
   margin: 0px 10px;
-  font-family: "Myriad Pro-REGULAR";
+  /* font-family: "Myriad Pro-REGULAR"; */
   font-weight: 600;
   border: 1px solid #662f88;
 }
@@ -186,7 +186,7 @@
   display: flex;
   z-index: 10;
   position: relative;
-  width: 350px;
+  width: 410px;
   box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
 }
 .flex-form2 {
@@ -230,7 +230,7 @@
   border: 1px solid gray;
 }
 .css-o98hvh {
-  padding: 35px 0 20px 0 !important;
+  padding: 50px 0 20px 0 !important;
 }
 /* UserLandingPage Advantages section css starts here */
 
@@ -256,7 +256,7 @@
   background-color: aquamarine;
 }
 .btn-advantages {
-  padding: 14px 29px;
+  padding: 10px 29px;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: #fff;
   border: none;
@@ -300,15 +300,16 @@
 .list-text {
   border-radius: 25px;
   padding: 13px 7px;
-  font-size: 20px !important;
+  font-size: 18px !important;
   font-weight: 900;
   font-family: "Myriad Pro-REGULAR";
   text-transform: uppercase;
-  text-shadow: 0px 3px 3px #662f88;
+  text-shadow: 0 3px 3px #662f88;
   line-height: 1.6;
 }
 .list-text2 {
-  font-size: 26px !important;
+  font-size: 20px !important;
+  font-weight: 600;
 }
 .landingtext {
   width: 82%;
@@ -358,7 +359,7 @@
   border: none;
 }
 .community-content-header {
-  font-size: 21px;
+  font-size: 20px;
   padding-top: 20px;
   padding-bottom: 8px;
   text-transform: uppercase;
@@ -370,13 +371,14 @@
   font-weight: 100;
 }
 .frcommunity-content-header {
-  font-size: 18px;
+  font-size: 20px;
   padding-top: 20px;
   padding-bottom: 8px;
   text-transform: uppercase;
   font-family: "Myriad Pro-REGULAR";
   font-weight: 600;
   line-height: 1.6;
+  text-shadow: 0px 3px 3px #662f88;
 }
 .community-content-pargraph {
   padding: 15px 0px;
@@ -405,7 +407,7 @@
 }
 /* Trending section starts here */
 .trend_container {
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 .trendingGrid {
@@ -430,7 +432,7 @@
   );
   border-radius: 15px;
   padding: 10px;
-  width: 91%;
+  width: 100%;
   margin: auto;
   margin-top: 15%;
   font-family: "Mulish", sans-serif;
@@ -495,7 +497,7 @@
 }
 .topIconHeading {
   display: flex;
-  margin: 18px 20px;
+  margin: 10px 0 30px 0;
 }
 .topH1 {
   font-family: "Myriad Pro-REGULAR", sans-serif !important;
@@ -634,7 +636,8 @@
     width: 90%;
   }
   .list-text {
-    font-size: 18px !important;
+    font-size: 14px !important;
+    padding: 18px 0px 0px 7px;
   }
   .frcommunity-content-header {
     font-size: 15px;
@@ -644,6 +647,23 @@
   }
   .trendingLogoText1 {
     font-size: 13px !important;
+  }
+  .topIconHeading {
+    display: flex;
+    margin: 0px 0 14px 0;
+  }
+  .creator_heading {
+    font-size: 22px;
+  }
+  .css-ph2xsj-MuiTypography-root {
+    font-size: 22px !important;
+  }
+  .monitization_heading {
+    font-size: 22px;
+  }
+  .MuiGrid-grid-sm-6 {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
   }
 }
 /* Media queries */
@@ -691,7 +711,8 @@
     font-size: 1.8em;
   }
   .list-text {
-    font-size: 18px !important;
+    font-size: 14px !important;
+    padding: 20px 0px 0px 7px;
   }
   .MuiGrid-grid-sm-4 {
     flex-grow: 0;
@@ -708,6 +729,24 @@
   }
   .trendingLogoText1 {
     font-size: 1.2rem;
+  }
+  .carousalContainer {
+    height: 340px;
+  }
+  .carousel-img {
+    margin-bottom: 0px;
+  }
+  .frcommunity-content-header {
+    font-size: 18px;
+  }
+  .trendingDiv {
+    margin-top: 2%;
+  }
+  .css-ph2xsj-MuiTypography-root {
+    font-size: 20px !important;
+  }
+  .monitization_heading {
+    font-size: 20px !important;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 600px) {
@@ -775,7 +814,8 @@
   }
   .list-text {
     font-weight: 500;
-    font-size: 12px !important;
+    font-size: 10px !important;
+    padding: 11px 7px 0px 0;
   }
   .carousel-img {
     width: 100%;
@@ -802,7 +842,7 @@
     padding: 9px 14px;
   }
   .frcommunity-content-header {
-    font-size: 18px;
+    font-size: 12px;
   }
   .trendingGrid {
     width: 100% !important;
@@ -823,5 +863,15 @@
   }
   .community {
     padding: 0px 0 0 0;
+  }
+  .trendingHeadingDiv {
+    padding-bottom: 0;
+  }
+  .User-landing-page-blog-divone {
+    height: 100%;
+    width: 100%;
+  }
+  .monitization_heading {
+    font-size: 1rem !important;
   }
 }
