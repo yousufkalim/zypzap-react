@@ -50,7 +50,7 @@ const HeaderUserLandingPage = () => {
                 cursor: "pointer",
               }}
             >
-              <Typography sx={{ marginRight: "15px" }}>Blog</Typography>
+              <p className="headerblogheading">Blog</p>
             </Link>
             <Link
               to="/contentcreator"
