@@ -86,6 +86,7 @@ const LandingPartnerWays = () => {
             </div>
           </div>
         </Grid>
+        <hr className="border_line" />
         <Grid item xs={12} md={4}>
           <div className="community-block partnerdiv1">
             <img src={landingpartnericontwo} />
@@ -101,6 +102,7 @@ const LandingPartnerWays = () => {
             </div>
           </div>
         </Grid>
+        <hr className="border_line" />
         <Grid item xs={12} md={4}>
           <div className="community-block community-block-border partnerdiv1">
             <img src={landingpartnericonthree} />
