@@ -197,6 +197,11 @@
 }
 
 @media only screen and (min-width: 320px) and (max-width: 600px) {
+  .MuiGrid-grid-md-4 {
+    flex-grow: 0;
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+  }
   .landing-partner-text-container {
     line-height: 30px;
     white-space: nowrap;

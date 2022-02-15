@@ -65,7 +65,7 @@ export default function BlogBody() {
               className="topcoursecarousal"
               indicators={false}
               interval={3000}
-              autoPlay={true}
+              autoPlay={false}
               animation={"fade"}
             >
               {blogs?.map((item, i) => (
