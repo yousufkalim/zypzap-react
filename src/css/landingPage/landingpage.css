@@ -284,10 +284,10 @@
     right: 45%;
   }
   .landingpagetextonImg {
-    left: 29%;
+    left: 33%;
   }
   .frlandingpagetextonImg {
-    left: 30%;
+    left: 33%;
     top: 52%;
   }
 
@@ -300,7 +300,7 @@
   .landingpagetextonImgbutton {
     margin: 16px 13px 8px 0px;
     padding: 8px 10px 8px 8px;
-    font-weight: 50;
+    font-size: 14px;
   }
   .offerheading {
     font-size: 15px;
@@ -400,7 +400,7 @@
   .landingpagetextonImgbutton {
     margin: 16px 13px 8px 0px;
     padding: 8px 10px 8px 8px;
-    font-weight: 50;
+    font-size: 12px;
   }
   .offerheading {
     font-size: 15px;
@@ -411,6 +411,7 @@
   }
   .whatweofferButton {
     padding: 10px 35px;
+    font-size: 12px;
   }
   .offerdivleft {
     width: 80%;
@@ -442,14 +443,14 @@
   }
   .blogdiv1heading {
     padding: 0px 0px 0 0px;
-    font-size: 12px;
+    font-size: 18px;
   }
   .bloddiv1detail {
-    font-size: 12px;
+    font-size: 14px;
     padding: 10px 0px 11px 0px;
   }
   .seemore {
-    font-size: 12px;
+    font-size: 18px;
   }
   .MuiGrid-grid-sm-3 {
     flex-grow: 0;
@@ -528,8 +529,12 @@
     margin: 17px 0 15px 0;
     font-size: 0.6rem;
   }
+  .offerh1-1 {
+    /* margin: 17px 0 15px 0; */
+    font-size: 20px !important;
+  }
   .offerheading {
-    font-size: 20px;
+    font-size: 17px;
     padding: 7px;
   }
   .offerText {
@@ -539,8 +544,16 @@
   .whatweofferButton {
     margin: 13px 0px 30px 0px;
     font-size: 12px;
+    padding: 7px 14px;
   }
   .MuiGrid-grid-sm-4 {
     margin-bottom: 20px !important;
+  }
+  .blogdiv1heading {
+    padding: 0px 0px 0 0px;
+    font-size: 17px;
+  }
+  .bloddiv1detail {
+    padding: 10px 0px 10px 0px;
   }
 }

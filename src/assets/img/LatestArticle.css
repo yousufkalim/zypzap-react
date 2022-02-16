@@ -2,7 +2,6 @@
   font-family: Myriad Pro;
   src: url(../../assets/MYRIADPRO-BOLD.OTF);
 }
-
 @font-face {
   font-family: Myriad Pro--REGULAR;
   src: url(../../assets/MYRIADPRO-REGULAR.OTF);
@@ -23,9 +22,9 @@
   font-family: "Maven Pro";
 }
 .LatestArticleheading {
-  padding: 48px 0px 0px 10px;
+  padding: 48px 0px 19px 10px;
   font-weight: bolder;
-  font-size: 20px;
+  font-size: 28px;
   text-transform: uppercase;
   font-family: "AMCAP Eternal", sans-serif;
   font-weight: 100;
@@ -41,7 +40,7 @@
 }
 .article1img {
   width: 100%;
-  /* height: 100%; */
+  height: 300px;
   padding-top: 0px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -55,7 +54,7 @@
   ) !important;
   display: flex;
   border-radius: 20px !important;
-  height: 207px;
+  height: 153pxpx;
   margin-left: 30px;
 }
 .articleText {
@@ -69,7 +68,7 @@
   justify-content: space-evenly;
 }
 .textdescription {
-  padding: 16px 0px 16px 0px;
+  padding: 0;
   font-size: 16px;
 }
 .author1 {
@@ -81,8 +80,8 @@
   color: #fff !important;
 }
 .article2img {
-  width: 30%;
-  height: 100%;
+  width: 214px;
+  height: 153px;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
 }
@@ -120,30 +119,34 @@
     height: 294px;
   } */
   .article2img {
-    width: 26%;
+    width: 214px;
+    height: 153px;
   }
   .articleText {
     font-size: 14px;
   }
   .latestArticleRight {
-    height: 199px;
+    height: 153px;
     margin-left: 20px;
   }
   .textdescription {
     padding: 16px px 0px 16px 0px;
     font-size: 0.9rem;
   }
+  .author1 {
+    font-size: 17px;
+  }
 }
 @media only screen and (min-width: 801px) and (max-width: 1200px) {
   .articledetail {
-    margin-left: 0px;
+    margin-left: 15px;
     padding: 5px;
     opacity: 0.7;
   }
 
   .textdescription {
-    font-size: 12px;
-    padding: 7px 0px 7px 0px;
+    font-size: 15px;
+    padding: 0 0px 0px 0px;
   }
   .textdescription1 {
     font-size: 13px;
@@ -152,15 +155,15 @@
     width: 100%;
   }
   .article2img {
-    width: 35%;
-    height: 100%;
+    width: 214px;
+    height: 153px;
   }
   .latestArticleLeft {
     width: 100%;
     margin: auto;
   }
   .latestArticleRight {
-    height: 160px;
+    height: 153px;
     width: 80%;
     margin: 15px auto;
   }
@@ -177,7 +180,7 @@
 }
 @media only screen and (min-width: 601px) and (max-width: 800px) {
   .articledetail {
-    margin-left: 0px;
+    margin-left: 15px;
     padding: 5px;
     opacity: 0.7;
   }
@@ -192,8 +195,7 @@
     width: 100%;
   }
   .article2img {
-    width: 35%;
-    height: 100%px;
+    height: 250px;
   }
   .MuiGrid-container {
     flex-direction: column;
@@ -215,6 +217,12 @@
     max-width: 100% !important;
     flex-basis: 100% !important;
   }
+  .article1img {
+    height: 250px;
+  }
+  .article2img {
+    height: 250px;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 600px) {
   .articledetail {
@@ -233,10 +241,32 @@
     width: 100%;
   }
   .article2img {
-    width: 35%;
-    height: 100%px;
+    height: 180px;
   }
   .articleheading {
-    font-size: 20px;
+    font-size: 17px;
+  }
+}
+@media only screen and (min-width: 1800px) {
+  .article1img {
+    height: 400px;
+  }
+  .article2img {
+    width: 214px;
+    height: 153px;
+  }
+  .articleText {
+    font-size: 14px;
+  }
+  .latestArticleRight {
+    height: 153px;
+    margin-left: 20px;
+  }
+  .textdescription {
+    padding: 16px px 0px 16px 0px;
+    font-size: 0.9rem;
+  }
+  .author1 {
+    font-size: 17px;
   }
 }

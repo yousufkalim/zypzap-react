@@ -71,12 +71,15 @@
     width: 80%;
   }
   .AbouttextimgH1 {
-    font-size: 1.9em;
+    font-size: 20px;
     margin-bottom: 0;
     margin-top: 20px;
   }
   .AbouttextonImgP {
     font-size: 11px;
     padding: 0px 45px;
+  }
+  .aboutimgcontainer {
+    height: 20vh;
   }
 }

@@ -8,7 +8,10 @@ export default function About() {
   return (
     <>
       <div className="whowearecontainer">
-        <h1 style={{ textTransform: "uppercase", fontFamily: "Myriad Pro" }}>
+        <h1
+          className="whowearecontainer_heading"
+          style={{ textTransform: "uppercase", fontFamily: "Myriad Pro" }}
+        >
           il etait une fois...
         </h1>
         <Grid container spacing={2}>
