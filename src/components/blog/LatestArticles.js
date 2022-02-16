@@ -74,7 +74,11 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
                     {/* <span className="commentSpan">' 2 Comments</span> */}
                     <br />
                   </p>
-                  <h2 className="articleheading">{blogs[0]?.blog_title}</h2>
+                  <h2 className="articleheading">
+                    {blogs[0]?.blog_title.length > 30
+                      ? blogs[0]?.blog_title.substring(0, 30) + "..."
+                      : blogs[0]?.blog_title}
+                  </h2>
                   <p className="textdescription1">
                     {blogs[0]?.blog_desc.length > 150
                       ? blogs[0]?.blog_desc.substring(0, 180) + "..."

@@ -307,10 +307,10 @@
 }
 .list-text {
   border-radius: 25px;
-  padding: 13px 7px;
-  font-size: 18px !important;
-  font-weight: 900;
-  font-family: "Myriad Pro-REGULAR";
+  padding: 13px 5px;
+  font-size: 17px !important;
+  font-weight: 400;
+  font-family: "Myriad Pro", sans-serif;
   text-transform: uppercase;
   text-shadow: 0 3px 3px #662f88;
   line-height: 1.6;
@@ -367,7 +367,7 @@
   border: none;
 }
 .community-content-header {
-  font-size: 27px;
+  font-size: 24px;
   padding-top: 20px;
   padding-bottom: 8px;
   text-transform: uppercase;
@@ -654,10 +654,13 @@
     width: 90%;
   }
   .list-text {
-    font-size: 14px !important;
+    font-size: 15px !important;
     padding: 18px 0px 0px 7px;
   }
   .frcommunity-content-header {
+    font-size: 15px;
+  }
+  .community-content-header {
     font-size: 15px;
   }
   .trendingGrid {
@@ -682,6 +685,9 @@
   .MuiGrid-grid-sm-6 {
     max-width: 100% !important;
     flex-basis: 100% !important;
+  }
+  .trend_container {
+    width: 90%;
   }
 }
 /* Media queries */
@@ -729,7 +735,7 @@
     font-size: 1.8em;
   }
   .list-text {
-    font-size: 14px !important;
+    font-size: 16px !important;
     padding: 20px 0px 0px 7px;
   }
   .MuiGrid-grid-sm-4 {
@@ -755,7 +761,10 @@
     margin-bottom: 0px;
   }
   .frcommunity-content-header {
-    font-size: 18px;
+    font-size: 16px;
+  }
+  .community-content-header {
+    font-size: 16px;
   }
   .trendingDiv {
     margin-top: 2%;
@@ -780,7 +789,7 @@
     padding: 0;
   }
   .UserLandingPageAboutTextImgH1 {
-    font-size: calc(4vw - 4px);
+    font-size: calc(5vw - 4px);
     white-space: nowrap;
     margin-top: 20px;
   }
@@ -832,8 +841,8 @@
   }
   .list-text {
     font-weight: 500;
-    font-size: 10px !important;
-    padding: 11px 7px 0px 0;
+    font-size: 12px !important;
+    padding: 11px 7px 0px 5px;
   }
   .carousel-img {
     width: 100%;
@@ -843,7 +852,7 @@
     margin-top: 10px !important;
   }
   .css-ph2xsj-MuiTypography-root {
-    font-size: 1rem !important;
+    font-size: 20px !important;
   }
   .box-user {
     width: 90%;
@@ -877,7 +886,8 @@
     font-size: 1rem !important;
   }
   .topH1 {
-    font-size: 1.2rem;
+    font-size: 16px;
+    padding-top: 7px;
   }
   .community {
     padding: 0px 0 0 0;
@@ -891,5 +901,8 @@
   }
   .monitization_heading {
     font-size: 1rem !important;
+  }
+  .community-content-header {
+    font-size: 14px;
   }
 }

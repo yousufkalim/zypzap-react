@@ -28,9 +28,9 @@
   font-family: "Maven Pro";
 }
 .LatestArticleheading {
-  padding: 48px 0px 0px 10px;
+  padding: 48px 0px 19px 10px;
   font-weight: bolder;
-  font-size: 20px;
+  font-size: 28px;
   text-transform: uppercase;
   font-family: "AMCAP Eternal", sans-serif;
   font-weight: 100;
@@ -46,7 +46,7 @@
 }
 .article1img {
   width: 100%;
-  /* height: 100%; */
+  height: 300px;
   padding-top: 0px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -60,7 +60,7 @@
   ) !important;
   display: flex;
   border-radius: 20px !important;
-  height: 207px;
+  height: 153pxpx;
   margin-left: 30px;
 }
 .articleText {
@@ -74,7 +74,7 @@
   justify-content: space-evenly;
 }
 .textdescription {
-  padding: 16px 0px 16px 0px;
+  padding: 0px;
   font-size: 16px;
 }
 .author1 {
@@ -86,8 +86,8 @@
   color: #fff !important;
 }
 .article2img {
-  width: 30%;
-  height: 100%;
+  width: 214px;
+  height: 153px;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
 }
@@ -125,30 +125,37 @@
     height: 294px;
   } */
   .article2img {
-    width: 26%;
+    width: 214px;
+    height: 160px;
   }
   .articleText {
     font-size: 14px;
   }
   .latestArticleRight {
-    height: 199px;
+    height: 160px;
     margin-left: 20px;
   }
   .textdescription {
     padding: 16px px 0px 16px 0px;
-    font-size: 0.9rem;
+    font-size: 13px;
+  }
+  .articH3 {
+    font-size: 17px !important;
+  }
+  .author1 {
+    font-size: 17px;
   }
 }
 @media only screen and (min-width: 801px) and (max-width: 1200px) {
   .articledetail {
-    margin-left: 0px;
+    margin-left: 15px;
     padding: 5px;
     opacity: 0.7;
   }
 
   .textdescription {
-    font-size: 12px;
-    padding: 7px 0px 7px 0px;
+    font-size: 15px;
+    padding: 0 0px 0px 0px;
   }
   .textdescription1 {
     font-size: 13px;
@@ -157,15 +164,15 @@
     width: 100%;
   }
   .article2img {
-    width: 22%;
-    height: 100%;
+    width: 214px;
+    height: 153px;
   }
   .latestArticleLeft {
     width: 60%;
     margin: auto;
   }
   .latestArticleRight {
-    height: 141px;
+    height: 153px;
     margin-left: 20px;
     margin: 13px auto;
     width: 80%;
@@ -178,12 +185,18 @@
     font-size: 12px;
   }
   .articH3 {
-    font-size: 12px !important;
+    font-size: 20px !important;
+  }
+  .LatestArticleheading {
+    text-align: center;
+  }
+  .author1 {
+    font-size: 18px;
   }
 }
 @media only screen and (min-width: 601px) and (max-width: 900px) {
   .articledetail {
-    margin-left: 0px;
+    margin-left: 15px;
     padding: 5px;
     opacity: 0.7;
   }
@@ -200,10 +213,11 @@
   }
   .article2img {
     width: 22%;
-    height: 100%;
+    height: 250px;
   }
+
   .latestArticleLeft {
-    width: 80%;
+    width: 70%;
     margin: auto;
   }
   .latestArticleRight {
@@ -228,7 +242,7 @@
   }
   .article2img {
     width: 100%;
-    height: 100%;
+    height: 250px;
     margin: auto;
   }
   .latestArticleRight {
@@ -249,10 +263,16 @@
     color: white;
     font-size: 18px;
   }
+  .LatestArticleheading {
+    text-align: center;
+  }
+  .article1img {
+    height: 250px;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 600px) {
   .latestArticleLeft {
-    width: 90%;
+    width: 82%;
     margin: auto;
   }
   .articledetail {
@@ -272,7 +292,7 @@
   }
   .article2img {
     width: 100%;
-    height: 100%;
+    height: 180px;
     margin: auto;
   }
   .latestArticleRight {
@@ -286,6 +306,45 @@
   }
   .articleheading {
     padding: 12px 0 12px 0;
+    font-size: 17px;
+  }
+  .LatestArticleheading {
+    text-align: center;
+    font-size: 20px;
+  }
+  .article1img {
+    height: 200px;
+  }
+  .articH3 {
+    font-size: 17px !important;
+  }
+  .author1 {
+    font-size: 17px;
+  }
+}
+@media only screen and (min-width: 1800px) {
+  .article1img {
+    height: 400px;
+  }
+  .article2img {
+    width: 214px;
+    height: 100%;
+  }
+  .articleText {
+    font-size: 14px;
+  }
+  .latestArticleRight {
+    height: 187px;
+    margin-left: 20px;
+  }
+  .textdescription {
+    padding: 16px px 0px 16px 0px;
+    font-size: 17px;
+  }
+  .articH3 {
+    font-size: 22px !important;
+  }
+  .author1 {
     font-size: 20px;
   }
 }

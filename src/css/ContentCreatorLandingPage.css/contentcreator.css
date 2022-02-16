@@ -56,9 +56,9 @@ body {
 }
 .creator_P {
   width: 100%;
-  font-size: 18px;
+  font-size: 17px;
   text-align: left;
-  padding: 12px 15px 0 26px;
+  padding: 12px 0px 0 26px;
   font-family: "Myriad Pro", sans-serif;
   text-transform: uppercase;
   line-height: 1.8rem;
@@ -294,8 +294,9 @@ body {
 }
 .moni_p {
   padding: 15px 0;
-  font-size: 20px;
+  font-size: 16px;
   font-family: "Myriad Pro", sans-serif;
+  text-shadow: 0px 4px 3px #662f88;
 }
 .monibutton {
   width: 100%;
@@ -463,7 +464,7 @@ body {
     flex-basis: 100% !important;
   }
   .creator_P {
-    font-size: 10px;
+    font-size: 12px;
     padding: 15px 0 0 17px;
     width: 100%;
     line-height: 1rem;
@@ -939,42 +940,8 @@ body {
     width: 100% !important;
   }
 }
-/* @media only screen and (min-width: 1500px) and (max-width: 1900px) {
-  .partners_hading {
-    font-size: 36px;
-  }
-  .partners_pera {
-    font-size: 13px;
-  }
-  .social_icon_one {
-    margin: 49px 44px 0 50px;
-  }
-  .our_partners {
-    padding: 10px 0;
-  }
-  .content_pera {
-    height: 405px !important;
-  }
-  .moni_h3 {
-    font-size: 19px;
-  }
-  .moni_p {
-    padding: 0 15px 0 15px;
-    line-height: 1.5;
-    opacity: 0.8;
-    font-size: 15px;
-  }
-  .moniBox {
-    width: 92%;
-    border-radius: 13px;
-    margin-top: 0px auto 0 auto;
-    margin: auto;
-  }
+@media only screen and (min-width: 1800px) {
   .creator_P {
-    font-size: 19px;
-    width: 100%;
-    text-align: left;
-    padding: 2px 0px 0 26px;
-    opacity: 0.8;
+    font-size: 22px;
   }
-} */
+}

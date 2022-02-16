@@ -29,6 +29,7 @@ export default function UserReview() {
       <div className="userReviewContainer">
         <div className="reviewHeadingdiv">
           <h1
+            className="reviewHeadingdiv_heading"
             style={{
               fontSize: "28px",
               fontFamily: "Myriad Pro",

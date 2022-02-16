@@ -130,15 +130,23 @@
 }
 
 /* for mobile */
+@media only screen and (min-width: 813px) and (max-width: 1200px) {
+  .articleimg {
+    height: 400px;
+  }
+}
 @media only screen and (min-width: 320px) and (max-width: 812px) {
   .articleBodycontainer {
     width: 90%;
   }
   .h1article {
-    font-size: 20px;
+    font-size: 17px;
   }
   .articleavatardiv2 {
     width: 140%;
     font-size: 11px;
+  }
+  .articleimg {
+    height: 180px;
   }
 }
