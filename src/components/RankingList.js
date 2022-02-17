@@ -87,30 +87,37 @@ export default function RankingList() {
           <p className="rankingListheading">Requests Ranking List</p>
         </div>
         {/* <p className="rankingListheading">View All</p> */}
-        <div style={{ position: "relative", display: "inline-block" }}>
-          <SearchIcon className="search_icon_home" />
-          <input
-            style={{
-              color: "#fff",
-            }}
-            type="text"
-            placeholder="Search a game"
-            className="searchbar"
-            onChange={handleChange}
-          />
+        <div
+          className="rankingListheading_input"
+          style={{ position: "relative", display: "inline-block" }}
+        >
+          <div style={{ position: "relative", display: "inline-block" }}>
+            <input
+              style={{
+                color: "#fff",
+              }}
+              type="text"
+              placeholder="Search a game"
+              className="searchbar"
+              onChange={handleChange}
+            />
+            <SearchIcon className="search_icon_home" />
+          </div>
           <FormControl className="form_controll_home">
-            <Select className="select_fom_home" value={age} displayEmpty>
-              <MenuItem value="" className="walletInputMenu2">
-                <m className="WalletInput">Filter</m>
-              </MenuItem>
+            <MenuItem>
+              <Select className="select_fom_home" value={age} displayEmpty>
+                <MenuItem value="" className="walletInputMenu2">
+                  <m className="WalletInput">Filter</m>
+                </MenuItem>
 
-              <MenuItem value={10} className="walletInputMenu2">
-                Filter
-              </MenuItem>
-              <MenuItem value={20} className="walletInputMenu2">
-                Filter
-              </MenuItem>
-            </Select>
+                <MenuItem value={10} className="walletInputMenu2">
+                  Filter
+                </MenuItem>
+                <MenuItem value={20} className="walletInputMenu2">
+                  Filter
+                </MenuItem>
+              </Select>
+            </MenuItem>
           </FormControl>
           <FormControl className="form_controll_home">
             <Select

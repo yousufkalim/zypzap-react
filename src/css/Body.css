@@ -47,6 +47,10 @@
   position: absolute;
   left: 48px;
 }
+.topcourseText_p {
+  text-align: right !important;
+  margin-top: 24px;
+}
 @media only screen and (min-width: 1900px) {
   .bodyImage {
     width: 94%;
@@ -57,8 +61,8 @@
   }
 
   .textonImg {
-    left: 30%;
-    top: 8%;
+    left: 7%;
+    top: 5%;
   }
 
   .textimgH1 {
@@ -104,17 +108,30 @@
   }
   .textonImg {
     position: absolute;
-    top: 70px;
-    left: 36%;
+    top: 80px;
+    left: 7%;
     text-align: left;
     z-index: 1;
   }
   .textimgH1 {
-    font-size: 0.9em;
+    font-size: 40px;
   }
   .textonImgbutton {
-    padding: 4px;
     margin: 4px 0px 0px 0px;
+  }
+
+  element.style {
+  }
+  .textonImgP {
+    padding: 5px 0px 0px 0px;
+    font-size: 17px;
+  }
+  .topcourseText {
+    font-size: 10px !important;
+  }
+  .h3heading {
+    font-size: 17px !important;
+    margin-top: 12px !important;
   }
 }
 @media only screen and (min-width: 601px) and (max-width: 899px) {
@@ -123,17 +140,54 @@
   }
   .textonImg {
     position: absolute;
-    top: 70px;
-    left: 36%;
+    top: 50px;
+    left: 8%;
     text-align: left;
     z-index: 1;
   }
   .textimgH1 {
-    font-size: 0.9em;
+    font-size: 30px;
   }
   .textonImgbutton {
-    padding: 4px;
-    margin: 4px 0px 0px 0px;
+    padding: 7px 8px;
+    /* font-weight: 400; */
+  }
+  .textonImgP {
+    padding: 0px 0px 0px 0px;
+    font-size: 14px;
+  }
+  .MuiGrid-spacing-xs-2 {
+    flex-direction: column !important;
+  }
+  .MuiGrid-grid-sm-5 {
+    max-width: 100% !important;
+  }
+  .MuiGrid-grid-sm-7 {
+    max-width: 100% !important;
+  }
+  .topCoursescontainer {
+    width: 60% !important;
+  }
+  .MuiGrid-grid-xs-12 {
+    margin: 0px 0 0px 0 !important;
+  }
+  .topcourseTextGrid {
+    padding: 0px 20px 0px 20px !important;
+  }
+  .MuiGrid-spacing-xs-2 > .MuiGrid-item {
+    max-width: 100% !important;
+  }
+  .topcourseText_p {
+    text-align: right !important;
+  }
+  .MuiGrid-spacing-xs-2 > .MuiGrid-item {
+    margin: 0 !important;
+  }
+
+  .topRatedheading {
+    padding: 28px 0px 19px 0px;
+    font-weight: 600;
+    font-size: 17px !important;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 600px) {
@@ -142,16 +196,37 @@
   }
   .textonImg {
     position: absolute;
-    top: 70px;
-    left: 36%;
+    top: 37px;
+    left: 9%;
     text-align: left;
     z-index: 1;
   }
   .textimgH1 {
-    font-size: 0.9em;
+    font-size: 1.2rem;
   }
   .textonImgbutton {
-    padding: 4px;
-    margin: 4px 0px 0px 0px;
+    padding: 1px 4px;
+    font-size: 8px;
+    /* font-weight: 400; */
+    margin: 0;
+  }
+  .textonImgP {
+    padding: 0px 0px 0px 0px;
+    font-size: 9px;
+  }
+  .MuiGrid-spacing-xs-2 > .MuiGrid-item {
+    max-width: 100% !important;
+  }
+  .topcourseTextGrid {
+    padding: 0px 20px 0px 20px !important;
+  }
+  .MuiGrid-grid-xs-12 {
+    /* margin: auto !important; */
+    margin: 0px 0 15px 0 !important;
+  }
+  .topRatedheading {
+    padding: 28px 0px 19px 0px;
+    font-weight: 600;
+    font-size: 15px !important;
   }
 }

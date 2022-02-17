@@ -333,22 +333,24 @@ export default function PrimarySearchAppBar({
                   </p>
                   <div>
                     <FormControl className="form_Control_header">
-                      <Select
-                        className="select_form_header"
-                        value={age}
-                        onChange={handleChange}
-                        displayEmpty
-                      >
-                        <MenuItem value="" className="walletInputMenu">
-                          <m className="WalletInput">Connect Wallet</m>
-                        </MenuItem>
-                        <MenuItem value={10} className="walletInputMenu">
-                          Metamask
-                        </MenuItem>
-                        <MenuItem value={20} className="walletInputMenu">
-                          Coinbase
-                        </MenuItem>
-                      </Select>
+                      <MenuItem>
+                        <Select
+                          className="select_form_header"
+                          value={age}
+                          onChange={handleChange}
+                          displayEmpty
+                        >
+                          <MenuItem value="" className="walletInputMenu">
+                            <m className="WalletInput">Connect Wallet</m>
+                          </MenuItem>
+                          <MenuItem value={10} className="walletInputMenu">
+                            Metamask
+                          </MenuItem>
+                          <MenuItem value={20} className="walletInputMenu">
+                            Coinbase
+                          </MenuItem>
+                        </Select>
+                      </MenuItem>
                     </FormControl>
                   </div>
                   {/* <Link

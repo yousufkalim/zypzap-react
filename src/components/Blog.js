@@ -45,40 +45,42 @@ export default function TopRatedContent() {
     },
   ];
   return (
-    <div className="blogcontainer">
-      <div className="blogHeadingDiv">
-        <p className="blogheading">Blog</p>
-        <p className="blogheading">View All</p>
-      </div>
-      <div className="blogGridOuterDiv">
-        <Grid container spacing={4} style={{ width: "auto" }}>
-          {items.map((item, i) => (
-            <Grid item xs={12} sm={3}>
-              <>
-                <div className="blogdiv1">
-                  <img src={item.img} className="blogdivimg" />
-                  <div className="blogdiv1text">
-                    <h3 className="blogdiv1heading">
-                      {item?.heading.length > 25
-                        ? item?.heading.substring(0, 22) + "..."
-                        : item?.heading}
-                    </h3>
+    <div>
+      <div className="blogcontainer">
+        <div className="blogHeadingDiv">
+          <p className="blogheading">Blog</p>
+          <p className="blogheading">View All</p>
+        </div>
+        <div className="blogGridOuterDiv">
+          <Grid container spacing={4} style={{ width: "auto" }}>
+            {items.map((item, i) => (
+              <Grid item xs={12} sm={3}>
+                <>
+                  <div className="blogdiv1">
+                    <img src={item.img} className="blogdivimg" />
+                    <div className="blogdiv1text">
+                      <h3 className="blogdiv1heading">
+                        {item?.heading.length > 25
+                          ? item?.heading.substring(0, 22) + "..."
+                          : item?.heading}
+                      </h3>
 
-                    <p className="bloddiv1detail">
-                      {item?.detail.length > 147
-                        ? item?.detail.substring(0, 146) + ".."
-                        : item?.detail}
-                    </p>
-                    <p>
-                      {" "}
-                      <span className="seemore"> Read More</span>
-                    </p>
+                      <p className="bloddiv1detail">
+                        {item?.detail.length > 147
+                          ? item?.detail.substring(0, 146) + ".."
+                          : item?.detail}
+                      </p>
+                      <p>
+                        {" "}
+                        <span className="seemore"> Read More</span>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </>
-            </Grid>
-          ))}
-        </Grid>
+                </>
+              </Grid>
+            ))}
+          </Grid>
+        </div>
       </div>
     </div>
   );
