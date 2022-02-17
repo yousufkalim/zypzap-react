@@ -84,7 +84,7 @@
 .form_container .formbtns {
   padding: 7px;
   border: none;
-  background-color: #e7411b;
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
   font-family: "Poppins", sans-serif;
   border-radius: 2px;
@@ -94,6 +94,10 @@
   display: block;
   margin-top: 35px;
   font-weight: 500;
+  border: 1px solid #7d668b;
+}
+.form_container .formbtns:hover {
+  background: none;
 }
 .form_container .or {
   display: inline;

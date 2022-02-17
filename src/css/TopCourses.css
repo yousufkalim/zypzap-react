@@ -1,3 +1,7 @@
+.css-bpeome-MuiSvgIcon-root-MuiSelect-icon {
+  color: #fff !important;
+}
+
 .topCoursescontainer {
   margin-top: 5px;
   position: relative;
@@ -98,9 +102,9 @@
     font-size: 17px;
   }
   .topcourseText {
-    font-size: 12px;
+    font-size: 15px;
   }
 }
 .topcourseheading {
-  font-size: 17px;
+  font-size: 17px !important;
 }

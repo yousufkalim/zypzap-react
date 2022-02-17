@@ -2,6 +2,10 @@
 .css-hip9hq-MuiPaper-root-MuiAppBar-root {
   background-color: black !important;
 }
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
+  background-color: rgba(25, 118, 210, 0.08);
+  padding: 9px 4px !important;
+}
 .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
   color: #fff !important;
 }
@@ -44,6 +48,7 @@
 
 .css-6hp17o-MuiList-root-MuiMenu-list {
   background-color: #202342 !important;
+  padding: 10px !important;
 }
 .downarrow {
   position: relative;
@@ -142,10 +147,18 @@
   font-size: 15px !important;
   cursor: pointer !important;
   width: 100%;
+  padding: 0px 6px;
 }
 .h3heading {
   font-size: 24px;
   margin-top: 24px;
+}
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+  width: 100% !important;
+  justify-content: initial !important;
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 /* for big screens */
 @media only screen and (min-width: 1900px) {
