@@ -64,6 +64,9 @@
 /* for mobile */
 @media only screen and (min-width: 320px) and (max-width: 812px) {
   .cardGrid {
-    text-align: center;
+    text-align: left;
+  }
+  .latestcourseheading {
+    font-size: 17px;
   }
 }

@@ -63,7 +63,9 @@ function TopCoursesComponent({ item }) {
             </p>
           </Grid>
           <Grid item xs={4} md={4}>
-            <h3 style={{ textAlign: "right" }}>$19.99</h3>
+            <h3 className="topcourseText_p" style={{ textAlign: "right" }}>
+              $19.99
+            </h3>
           </Grid>
         </Grid>
         <Grid container spacing={2} className="topcourseuserGrid">
