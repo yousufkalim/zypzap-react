@@ -86,12 +86,8 @@ export default function RankingList() {
         <div>
           <p className="rankingListheading">Requests Ranking List</p>
         </div>
-        {/* <p className="rankingListheading">View All</p> */}
-        <div
-          className="rankingListheading_input"
-          style={{ position: "relative", display: "inline-block" }}
-        >
-          <div style={{ position: "relative", display: "inline-block" }}>
+        <div className="rankingListheading_input">
+          <div style={{ display: "inline-block" }}>
             <input
               style={{
                 color: "#fff",
@@ -99,25 +95,27 @@ export default function RankingList() {
               type="text"
               placeholder="Search a game"
               className="searchbar"
-              onChange={handleChange}
             />
-            <SearchIcon className="search_icon_home" />
           </div>
           <FormControl className="form_controll_home">
-            <MenuItem>
-              <Select className="select_fom_home" value={age} displayEmpty>
-                <MenuItem value="" className="walletInputMenu2">
-                  <m className="WalletInput">Filter</m>
-                </MenuItem>
+            <Select
+              className="select_fom_home"
+              value={age}
+              onChange={handleChange}
+              displayEmpty
+            >
+              <MenuItem value="" className="walletInputMenu2">
+                <m className="WalletInput2">Filter</m>
+              </MenuItem>
 
-                <MenuItem value={10} className="walletInputMenu2">
-                  Filter
-                </MenuItem>
-                <MenuItem value={20} className="walletInputMenu2">
-                  Filter
-                </MenuItem>
-              </Select>
-            </MenuItem>
+              <MenuItem value={10} className="walletInputMenu2">
+                Filter
+              </MenuItem>
+
+              <MenuItem value={20} className="walletInputMenu2">
+                Filter
+              </MenuItem>
+            </Select>
           </FormControl>
           <FormControl className="form_controll_home">
             <Select
