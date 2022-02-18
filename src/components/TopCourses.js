@@ -6,28 +6,15 @@ import { ReactComponent as Star1 } from "../assets/icons/star2.svg";
 import TopCourseImg from "../assets/img/topcourseimg.png";
 import avatar from "../assets/img/avatar.png";
 import StarIcon from "@material-ui/icons/Star";
-import { Store, UpdateStore } from "../../src/StoreContext";
-import api from "../api";
-export default function TopCourses() {
+
+export default function TopCourses(props) {
   const [loading, setLoading] = useState(false);
-  // init
-  const updateStore = UpdateStore();
-  const { courses } = Store();
-
-  useEffect(() => {
-    // get top courses
-    getTopCourses();
-  }, []);
-
-  let getTopCourses = async () => {
-    setLoading(true);
-
-    let res = await api("get", "/courses");
-    if (res) {
-      updateStore({ courses: res?.data });
-    }
-    setLoading(false);
-  };
+  const { courses } = props;
+  const Courses = courses.sort(function (a, b) {
+    var c = a.rating;
+    var d = b.rating;
+    return d - c;
+  });
   var items = [
     {
       name: "PUBG gameplay full course",
@@ -51,7 +38,7 @@ export default function TopCourses() {
         activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
         className="topcoursecarousal"
       >
-        {courses?.map((item, i) => (
+        {Courses?.map((item, i) => (
           <TopCoursesComponent key={i} item={item} />
         ))}
       </Carousel>
@@ -110,13 +97,22 @@ function TopCoursesComponent({ item }) {
         <Grid container spacing={2} className="topcourseuserGrid">
           <Grid item xs={6} md={6}>
             <div className="userprofilediv">
-              <img src={avatar} className="avatar" alt="img" />
+              <img
+                src={
+                  item?.creator?.user_id?.profile_photo
+                    ? process.env.REACT_APP_baseURL +
+                      item.creator.user_id.profile_photo
+                    : avatar
+                }
+                className="avatar"
+                alt="img"
+              />
               <div className="div2">
                 <p className="p1">{item?.creator?.user_id?.username}</p>
                 <p className="p2">{item?.course_name + " player"}</p>
                 <p className="p2">
                   {item?.rating ? item.rating : "0.0"} &nbsp;
-                  {[1, 2, 3, 4, 5].map((item) => (
+                  {[1, 2, 3, 4, 5].map((i) => (
                     <Star1
                       className="starID"
                       style={{
@@ -127,7 +123,7 @@ function TopCoursesComponent({ item }) {
                       }}
                     />
                   ))}
-                  {"( " + countViews(item) + " )"}
+                  {" ( " + countViews(item) + " )"}
                   {/* &nbsp; (382,420) */}
                 </p>
               </div>

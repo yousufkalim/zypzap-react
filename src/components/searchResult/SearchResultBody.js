@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Categories from "./Categories";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -14,6 +14,8 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CustomizedMenus from "./CustomizedMenus";
 import HeartIcon from "./HeartIcon";
+import { Store, UpdateStore } from "../../StoreContext";
+import api from "../../api";
 
 var items = [
   {
@@ -140,6 +142,25 @@ const SearchResultBody = () => {
   const [radioBtnValue, setRadioBtnValue] = useState();
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
   console.log(FvrtIconCount);
+  const [loading, setLoading] = useState(false);
+  const updateStore = UpdateStore();
+  const { courses } = Store();
+  let getTopCourses = async () => {
+    console.log("i am in getCoourses");
+    let res = await api("get", "/courses");
+    if (res) {
+      console.log("data", res);
+      updateStore({ courses: res?.data });
+      //updateStore({ create: res?.data });
+    }
+    setLoading(true);
+  };
+  useEffect(() => {
+    // get top courses
+    console.log("i am in useEffect");
+    getTopCourses();
+  }, []);
+
   //sidebar list togle
   const onClickSideBarHeaders = (e) => {
     const id = e.target.id;
@@ -178,6 +199,16 @@ const SearchResultBody = () => {
     setSliderValue(e.target.value);
   };
   // To get slider value
+  let countViews = (course) => {
+    const Videos = course?.videos;
+
+    let count = 0;
+    Videos.map((video) => {
+      count += video.views;
+    });
+
+    return count;
+  };
   return (
     <Box
       className="search-result-container"
@@ -370,49 +401,63 @@ const SearchResultBody = () => {
         </Grid>
       </Box>
       {/*  */}
-      <Box className="cards-container">
-        <div className="cards-box">
-          <div className="cards-header-text">
-            <h2> CS-GO GAME</h2>
-            <span>110 course result</span>
-          </div>
-          <div>
-            {" "}
-            <CustomizedMenus />{" "}
-          </div>
-        </div>
-        <Grid
-          sx={{ padding: "0 20px" }}
-          container
-          spacing={{ xs: 1, md: 1 }}
-          columns={{ xs: 2, sm: 8, md: 12 }}
-        >
-          {items.map((item) => (
-            <Grid item xs={12} sm={6} md={4}>
-              <div className="cardGrid">
-                <div className="favourite-icon-position">
-                  <img src={item.img} className="courseimg" alt="img" />
-                  <HeartIcon id={item.id} FvrtIconCount={FvrtIconCount} />
-                </div>
-                <h5 className="latestcourseh5">{item.title}</h5>
-                <p className="latestcoursep1">{item.name}</p>
-                <p className="latestcoursep1">
-                  {" "}
-                  5.0
-                  {[1, 2, 3, 4, 5].map((item) => (
-                    <StarIcon className="star-icon" />
-                  ))}
-                  (1809)
-                </p>
-                <h6 className="latestcourseh6">$19.99</h6>
+      <>
+        {!loading ? (
+          <h1>Loading...</h1>
+        ) : (
+          <Box className="cards-container">
+            <div className="cards-box">
+              <div className="cards-header-text">
+                <h2> CS-GO GAME</h2>
+                <span>{courses.length + " course result"}</span>
               </div>
+              <div>
+                {" "}
+                <CustomizedMenus />{" "}
+              </div>
+            </div>
+            <Grid
+              sx={{ padding: "0 20px" }}
+              container
+              spacing={{ xs: 1, md: 1 }}
+              columns={{ xs: 2, sm: 8, md: 12 }}
+            >
+              {courses.map((item) => (
+                <Grid item xs={12} sm={6} md={4}>
+                  <div className="cardGrid">
+                    <div className="favourite-icon-position">
+                      <img src={Course1} className="courseimg" alt="img" />
+                      <HeartIcon id={item.id} FvrtIconCount={FvrtIconCount} />
+                    </div>
+                    <h5 className="latestcourseh5">
+                      {" "}
+                      {item?.course_name ? item.course_name : "Fight Course"}
+                    </h5>
+                    <p className="latestcoursep1">
+                      {" "}
+                      {item?.creator?.user_id?.username
+                        ? item.creator.user_id.username
+                        : "Null"}
+                    </p>
+                    <p className="latestcoursep1">
+                      {" "}
+                      {item?.rating ? item.rating : "0.0"}
+                      {[1, 2, 3, 4, 5].map((item) => (
+                        <StarIcon className="star-icon" />
+                      ))}
+                      {" ( " + countViews(item) + " )"}
+                    </p>
+                    <h6 className="latestcourseh6">{item?.price + " $"}</h6>
+                  </div>
+                </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
-        <Box textAlign="center">
-          <button className="btn-search-result">View more</button>
-        </Box>
-      </Box>
+            <Box textAlign="center">
+              <button className="btn-search-result">View more</button>
+            </Box>
+          </Box>
+        )}
+      </>
     </Box>
   );
 };
