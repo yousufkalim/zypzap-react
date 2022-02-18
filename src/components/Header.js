@@ -303,6 +303,11 @@ export default function PrimarySearchAppBar({
             <Link to="" className="requestBt">
               <button className="requestBtn">Request a course</button>
             </Link>
+            <a to="" className="requestBt">
+              <button className="requestBtn" onClick={showBecomePopup}>
+                User Profile
+              </button>
+            </a>
 
             <Box
               className={`${creator ? "headerLinkbox" : "headerLinkbox2"}`}

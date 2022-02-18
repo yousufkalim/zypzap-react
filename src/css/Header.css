@@ -176,6 +176,12 @@
     left: 11.7%;
     width: 13px;
   }
+  .searchItemsIcon {
+    position: absolute;
+    top: 22px;
+    left: 7.5%;
+    z-index: 1;
+  }
 }
 @media only screen and (min-width: 1600px) and (max-width: 1899px) {
   .searchBar {
@@ -213,6 +219,12 @@
   }
   .requestHeading {
     font-size: 38px;
+  }
+  .searchItemsIcon {
+    position: absolute;
+    top: 22px;
+    left: 8.5%;
+    z-index: 1;
   }
 }
 @media only screen and (min-width: 900px) and (max-width: 1200px) {
@@ -268,6 +280,10 @@
   }
   .iconseperate2 {
     margin: 0 0 0 -7px;
+  }
+  .searchItemsIcon {
+    top: 22px;
+    left: 12.2%;
   }
 }
 @media only screen and (min-width: 601px) and (max-width: 899px) {
