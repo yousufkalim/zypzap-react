@@ -141,25 +141,10 @@ const SearchResultBody = () => {
   const [activeButton, setActiveButton] = useState();
   const [radioBtnValue, setRadioBtnValue] = useState();
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
-  console.log(FvrtIconCount);
+
   const [loading, setLoading] = useState(false);
   const updateStore = UpdateStore();
-  const { courses } = Store();
-  let getTopCourses = async () => {
-    console.log("i am in getCoourses");
-    let res = await api("get", "/courses");
-    if (res) {
-      console.log("data", res);
-      updateStore({ courses: res?.data });
-      //updateStore({ create: res?.data });
-    }
-    setLoading(true);
-  };
-  useEffect(() => {
-    // get top courses
-    console.log("i am in useEffect");
-    getTopCourses();
-  }, []);
+  const { courses, searchCourse } = Store();
 
   //sidebar list togle
   const onClickSideBarHeaders = (e) => {
@@ -206,7 +191,6 @@ const SearchResultBody = () => {
     Videos.map((video) => {
       count += video.views;
     });
-
     return count;
   };
   return (
@@ -402,18 +386,21 @@ const SearchResultBody = () => {
       </Box>
       {/*  */}
       <>
-        {!loading ? (
-          <h1>Loading...</h1>
+        {!searchCourse?.length ? (
+          <h1>No Course Found</h1>
         ) : (
           <Box className="cards-container">
             <div className="cards-box">
               <div className="cards-header-text">
                 <h2> CS-GO GAME</h2>
-                <span>{courses.length + " course result"}</span>
+                <span>{searchCourse.length + " course result"}</span>
               </div>
               <div>
                 {" "}
-                <CustomizedMenus />{" "}
+                <CustomizedMenus
+                  courses={searchCourse}
+                  updateStore={updateStore}
+                />
               </div>
             </div>
             <Grid
@@ -422,7 +409,7 @@ const SearchResultBody = () => {
               spacing={{ xs: 1, md: 1 }}
               columns={{ xs: 2, sm: 8, md: 12 }}
             >
-              {courses.map((item) => (
+              {searchCourse.map((item) => (
                 <Grid item xs={12} sm={6} md={4}>
                   <div className="cardGrid">
                     <div className="favourite-icon-position">
@@ -431,6 +418,7 @@ const SearchResultBody = () => {
                     </div>
                     <h5 className="latestcourseh5">
                       {" "}
+                      {console.log("course1234567890", item)}
                       {item?.course_name ? item.course_name : "Fight Course"}
                     </h5>
                     <p className="latestcoursep1">
@@ -441,7 +429,7 @@ const SearchResultBody = () => {
                     </p>
                     <p className="latestcoursep1">
                       {" "}
-                      {item?.rating ? item.rating : "0.0"}
+                      {item?.rating ? item.rating : "567"}
                       {[1, 2, 3, 4, 5].map((item) => (
                         <StarIcon className="star-icon" />
                       ))}

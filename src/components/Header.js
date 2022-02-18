@@ -82,7 +82,7 @@ export default function PrimarySearchAppBar({
   setOpenBecomeCreatorPopup,
 }) {
   const updateStore = UpdateStore();
-  const { user, creator, course } = Store();
+  const { user, creator } = Store();
   const handleLogout = async () => {
     let res = await api("post", "/users/logout/all");
 
@@ -124,10 +124,19 @@ export default function PrimarySearchAppBar({
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+  const handleSearchClick = (event) => {
+    console.log("called");
+  };
   const searchCourse = async (e) => {
     e.preventDefault();
-    let res = await api("get", `/courses/search?name=${e.target.value}`);
-    console.log(res);
+    if (e.target.value !== "") {
+      let res = await api("get", `/courses/search?name=${e.target.value}`);
+      if (res) {
+        console.log("data");
+        updateStore({ searchCourse: res?.data });
+        //updateStore({ create: res?.data });
+      }
+    }
   };
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -256,7 +265,7 @@ export default function PrimarySearchAppBar({
             </Typography>
             <Search onChange={searchCourse} className="searchBar">
               <SearchIconWrapper>
-                <SearchIcon />
+                <SearchIcon onClick={handleSearchClick} />
               </SearchIconWrapper>
 
               <div className="dropdown">
