@@ -24,6 +24,12 @@
   width: 23% !important;
   border-radius: 60px !important;
 }
+.searchItemsIcon {
+  position: absolute;
+  top: 22px;
+  left: 9.2%;
+  z-index: 1;
+}
 .css-96uuyl {
   background-color: #202342 !important;
 }

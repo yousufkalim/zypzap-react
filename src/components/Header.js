@@ -104,6 +104,10 @@ export default function PrimarySearchAppBar({
   const showBecomePopup = () => {
     setOption(true);
   };
+  const onClickEvent = () => {
+    // alert("click");
+    history.push("/searchResult");
+  };
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -249,11 +253,23 @@ export default function PrimarySearchAppBar({
               }}
             >
               {/* Categories */}
+              <div
+                onClick={onClickEvent}
+                style={{
+                  cursor: "pointer",
+                }}
+              >
+                <a
+                  // href="/SearchResult"
+                  target="_blank"
+                  style={{ color: "#fff" }}
+                >
+                  <SearchIcon className="searchItemsIcon" />
+                </a>
+              </div>
             </Typography>
             <Search className="searchBar">
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
+              <SearchIconWrapper></SearchIconWrapper>
 
               <div className="dropdown">
                 <button className="dropbtn">
