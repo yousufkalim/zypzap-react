@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Categories from "./Categories";
+import GameType from "./GameType";
+import Plateforms from "./Plateforms";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -100,30 +102,113 @@ var items = [
     test: "3",
   },
 ];
-
 const categories = [
   {
-    name: "Action",
+    name: "Top 10 Games ",
     value: "name",
   },
   {
-    name: "Racing",
+    name: "Top 10 Trendy Games",
     value: "class",
   },
   {
-    name: "Sports",
+    name: "Top 10 NFT Games",
     value: "age",
   },
   {
-    name: "Fighting",
+    name: "Top 10 Metaverse Games",
     value: "subjects",
   },
   {
-    name: "Puzzle",
+    name: "Top New Games",
     value: "school",
   },
   {
-    name: "Offline",
+    name: "Top Reality Games",
+    value: "schooltwo",
+  },
+];
+const GameTypes = [
+  {
+    name: "Action ",
+    value: "name",
+  },
+  {
+    name: "Adventure",
+    value: "class",
+  },
+  {
+    name: "Metaverse",
+    value: "age",
+  },
+  {
+    name: "MMOG",
+    value: "subjects",
+  },
+  {
+    name: "Car Racing",
+    value: "school",
+  },
+  {
+    name: "Versus Fighting",
+    value: "schooltwo",
+  },
+  {
+    name: "FPS",
+    value: "schooltwo",
+  },
+  {
+    name: "RTS",
+    value: "schooltwo",
+  },
+  {
+    name: "RPG",
+    value: "schooltwo",
+  },
+  {
+    name: "Turn by Turn Strategy",
+    value: "schooltwo",
+  },
+  {
+    name: "Simulation",
+    value: "schooltwo",
+  },
+  {
+    name: "Sport",
+    value: "schooltwo",
+  },
+  {
+    name: "Trading card",
+    value: "schooltwo",
+  },
+  {
+    name: "Puzzle",
+    value: "schooltwo",
+  },
+];
+const PlateformsAry = [
+  {
+    name: "Retro Consoles  ",
+    value: "name",
+  },
+  {
+    name: "PS1/2/3/4/5",
+    value: "class",
+  },
+  {
+    name: "Xbox/360/One/X",
+    value: "age",
+  },
+  {
+    name: "PC",
+    value: "subjects",
+  },
+  {
+    name: "Portable Consoles",
+    value: "school",
+  },
+  {
+    name: "Mobile Games",
     value: "schooltwo",
   },
 ];
@@ -134,11 +219,18 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 const SearchResultBody = () => {
-  const [CategoriesState, setCategoriesState] = useState(false);
+  const [selectedCategories, setselectedCategories] = useState(false);
+  const [selectedGame, setSelectedGame] = useState(false);
+  const [selectedPlateforms, setSelectedPlateforms] = useState(false);
+  const [selectedGameplay, setSelectedGameplay] = useState(false);
+  const [selectedPrice, setSelectedPrice] = useState(false);
   const [SelectInputState, setSelectInputState] = useState(false);
   const [sliderState, setSliderState] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(false);
   const [sliderValue, setSliderValue] = useState(0);
-  const [activeButton, setActiveButton] = useState();
+  const [selectedActiveButton, setSelectedActiveButton] = useState();
+  const [selectedGameBtn, setSelectedGameBtn] = useState();
+  const [selectedPlateformsBtn, setselectedPlateformsBtn] = useState();
   const [radioBtnValue, setRadioBtnValue] = useState();
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
 
@@ -150,20 +242,40 @@ const SearchResultBody = () => {
   const onClickSideBarHeaders = (e) => {
     const id = e.target.id;
     if (id == 1) {
-      setCategoriesState(!CategoriesState);
+      setselectedCategories(!selectedCategories);
     }
     if (id == 2) {
       setSelectInputState(!SelectInputState);
     }
     if (id == 3) {
-      setSliderState(!sliderState);
+      setSelectedPrice(!selectedPrice);
+    }
+    if (id == 4) {
+      setSelectedGame(!selectedGame);
+    }
+    if (id == 5) {
+      setSelectedPlateforms(!selectedPlateforms);
+    }
+    if (id == 6) {
+      setSelectedCourse(!selectedCourse);
+    }
+    if (id == 7) {
+      setSelectedGameplay(!selectedGameplay);
     }
   };
   // sidebar list togle
   // making list item active by chnaging background
   const onSideBtnClick = (e) => {
     const name = e.target.textContent;
-    setActiveButton(name);
+    setSelectedActiveButton(name);
+  };
+  const onSideBtnClick2 = (e) => {
+    const name = e.target.textContent;
+    setSelectedGameBtn(name);
+  };
+  const onSideBtnClick3 = (e) => {
+    const name = e.target.textContent;
+    setselectedPlateformsBtn(name);
   };
   // making list item active by changing background
   //get radio values
@@ -183,6 +295,15 @@ const SearchResultBody = () => {
   const onChangeSliderValue = (e) => {
     setSliderValue(e.target.value);
   };
+  const RequestClikEvent = (e) => {
+    console.log("activeButton categori", selectedActiveButton);
+    console.log("gameBtn gametype", selectedGameBtn);
+    console.log("PlateformsBtn plateform", selectedPlateformsBtn);
+    console.log("GameplayStateBtn GameplayState", selectedGameplay);
+    console.log("PriceStatebtn PriceState", selectedPrice);
+    console.log("CourseStatebtn CourseState", selectedCourse);
+  };
+
   // To get slider value
   let countViews = (course) => {
     const Videos = course?.videos;
@@ -215,7 +336,7 @@ const SearchResultBody = () => {
               className="dropdown-headers"
             >
               Categories
-              {CategoriesState ? (
+              {selectedCategories ? (
                 <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
@@ -237,20 +358,20 @@ const SearchResultBody = () => {
                 />
               )}
             </div>
-            {CategoriesState ? (
+            {selectedCategories ? (
               <Categories
                 categories={categories}
-                activeButton={activeButton}
+                activeButton={selectedActiveButton}
                 trigerOnClickEmpSideBtn={onSideBtnClick}
               />
             ) : null}
             <div
-              id="2"
+              id="4"
               onClick={onClickSideBarHeaders}
               className="dropdown-headers"
             >
-              Gamer Level
-              {SelectInputState ? (
+              Game Type
+              {selectedGame ? (
                 <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
@@ -272,38 +393,100 @@ const SearchResultBody = () => {
                 />
               )}
             </div>
-            {SelectInputState ? (
+
+            {selectedGame ? (
+              <GameType
+                GameTypes={GameTypes}
+                gameBtn={selectedGameBtn}
+                trigerOnClickEmpSideBtn2={onSideBtnClick2}
+              />
+            ) : null}
+            <div
+              id="5"
+              onClick={onClickSideBarHeaders}
+              className="dropdown-headers"
+            >
+              Plateforms
+              {selectedPlateforms ? (
+                <KeyboardArrowDownIcon
+                  sx={{
+                    color: "#fff",
+                    marginTop: "5px",
+                    opacity: "0.6",
+                    width: "2px",
+                    height: "1em !important",
+                  }}
+                />
+              ) : (
+                <KeyboardArrowUpIcon
+                  sx={{
+                    color: "#fff",
+                    marginTop: "5px",
+                    opacity: "0.6",
+                    width: "2px",
+                    height: "1em !important",
+                  }}
+                />
+              )}
+            </div>
+
+            {selectedPlateforms ? (
+              <Plateforms
+                PlateformsAry={PlateformsAry}
+                PlateformsBtn={selectedPlateformsBtn}
+                trigerOnClickEmpSideBtn3={onSideBtnClick3}
+              />
+            ) : null}
+            <div
+              id="7"
+              onClick={onClickSideBarHeaders}
+              className="dropdown-headers"
+            >
+              Gameplay mode
+              {selectedGameplay ? (
+                <KeyboardArrowDownIcon
+                  sx={{
+                    color: "#fff",
+                    marginTop: "5px",
+                    opacity: "0.6",
+                    width: "2px",
+                    height: "1em !important",
+                  }}
+                />
+              ) : (
+                <KeyboardArrowUpIcon
+                  sx={{
+                    color: "#fff",
+                    marginTop: "5px",
+                    opacity: "0.6",
+                    width: "2px",
+                    height: "1em !important",
+                  }}
+                />
+              )}
+            </div>
+            {selectedGameplay ? (
               <div>
                 <form>
                   <div class="radio-item">
                     <input
                       type="radio"
                       onChange={onChangeRadioBtn}
-                      id="entrylevel"
+                      id="Single"
                       name="active"
-                      value="entrylevel"
+                      value="Single"
                     />
-                    <label for="entrylevel">Entry level</label>
+                    <label for="Single">Single mode</label>
                   </div>
                   <div class="radio-item">
                     <input
                       type="radio"
                       onChange={onChangeRadioBtn}
-                      id="intermediatelevel"
+                      id="Multiplayer"
                       name="active"
-                      value="intermediatelevel"
+                      value="Multiplayer"
                     />
-                    <label for="intermediatelevel">Intermediate level</label>
-                  </div>
-                  <div class="radio-item">
-                    <input
-                      type="radio"
-                      onChange={onChangeRadioBtn}
-                      id="advancelevel"
-                      name="active"
-                      value="advancelevel"
-                    />
-                    <label for="advancelevel">Advance level</label>
+                    <label for="Multiplayer">Multiplayer mode</label>
                   </div>
                 </form>
               </div>
@@ -314,7 +497,7 @@ const SearchResultBody = () => {
               className="dropdown-headers"
             >
               Price
-              {sliderState ? (
+              {selectedPrice ? (
                 <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
@@ -336,46 +519,158 @@ const SearchResultBody = () => {
                 />
               )}
             </div>
-            {sliderState ? (
-              <Box
-                sx={{
-                  position: "relative",
-                }}
-              >
-                <div className="slider">
+            {selectedPrice ? (
+              <form>
+                <div class="radio-item">
                   <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={sliderValue}
+                    type="radio"
                     onChange={onChangeSliderValue}
-                    className="slider-input"
+                    id="free"
+                    name="active"
+                    value="free"
                   />
-                  <div>
-                    <span
-                      style={{
-                        position: "absolute",
-                        top: "25px",
-                        left: `${sliderValue * 0.9}%`,
-                      }}
-                    >
-                      {sliderValue}$+
-                    </span>
-                  </div>
+                  <label for="free">Free/Subscription</label>
                 </div>
-              </Box>
+                <div class="radio-item">
+                  <input
+                    type="radio"
+                    onChange={onChangeSliderValue}
+                    id="10€"
+                    name="active"
+                    value="10€"
+                  />
+                  <label for="10€">-10 €</label>
+                </div>
+                <div class="radio-item">
+                  <input
+                    type="radio"
+                    onChange={onChangeSliderValue}
+                    id="20€"
+                    name="active"
+                    value="20€"
+                  />
+                  <label for="20€">-20 €</label>
+                </div>
+                <div class="radio-item">
+                  <input
+                    type="radio"
+                    onChange={onChangeSliderValue}
+                    id="30€"
+                    name="active"
+                    value="30€"
+                  />
+                  <label for="30€">-30 €</label>
+                </div>
+                <div class="radio-item">
+                  <input
+                    type="radio"
+                    onChange={onChangeSliderValue}
+                    id="40€"
+                    name="active"
+                    value="40€"
+                  />
+                  <label for="40€">-40 €</label>
+                </div>
+                <div class="radio-item">
+                  <input
+                    type="radio"
+                    onChange={onChangeSliderValue}
+                    id="50€"
+                    name="active"
+                    value="50€"
+                  />
+                  <label for="50€">-50 €</label>
+                </div>
+                <div class="radio-item">
+                  <input
+                    type="radio"
+                    onChange={onChangeSliderValue}
+                    id="100€"
+                    name="active"
+                    value="100€"
+                  />
+                  <label for="100€">-100 €</label>
+                </div>
+                <div class="radio-item">
+                  <input
+                    type="radio"
+                    onChange={onChangeSliderValue}
+                    id="+100€"
+                    name="active"
+                    value="+100€"
+                  />
+                  <label for="+100€">- +100 €</label>
+                </div>
+              </form>
             ) : null}
+            {/* 111111 */}
+
+            <div
+              id="6"
+              onClick={onClickSideBarHeaders}
+              className="dropdown-headers"
+            >
+              Course type
+              {selectedCourse ? (
+                <KeyboardArrowDownIcon
+                  sx={{
+                    color: "#fff",
+                    marginTop: "5px",
+                    opacity: "0.6",
+                    width: "2px",
+                    height: "1em !important",
+                  }}
+                />
+              ) : (
+                <KeyboardArrowUpIcon
+                  sx={{
+                    color: "#fff",
+                    marginTop: "5px",
+                    opacity: "0.6",
+                    width: "2px",
+                    height: "1em !important",
+                  }}
+                />
+              )}
+            </div>
+            {selectedCourse ? (
+              <form>
+                <div class="radio-item">
+                  <input
+                    type="radio"
+                    onChange={onChangeSliderValue}
+                    id="Subscription"
+                    name="active"
+                    value="Subscription"
+                  />
+                  <label for="Subscription">Subscription Courses</label>
+                </div>
+                <div class="radio-item">
+                  <input
+                    type="radio"
+                    onChange={onChangeSliderValue}
+                    id="Courses"
+                    name="active"
+                    value="Courses"
+                  />
+                  <label for="Courses">Courses on Demand</label>
+                </div>
+              </form>
+            ) : null}
+            {/* 22222 */}
             <h4 className="didnt-find-text">
               Didn't found the <br /> course
             </h4>
             <Box>
               <Button
-                sx={{
-                  backgroundColor: "#e7411b",
-                  padding: "5px 12px",
-                  fontSize: "13px",
-                  margin: "10px 0",
-                }}
+                className="reqstStateBTN"
+                onClick={RequestClikEvent}
+                // sx={{
+                //   backgroundColor: "#e7411b",
+                //   padding: "5px 12px",
+                //   fontSize: "13px",
+                //   margin: "10px 0",
+                // }}
                 variant="contained"
               >
                 Request now

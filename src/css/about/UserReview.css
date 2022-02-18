@@ -12,6 +12,9 @@
   font-size: 22px;
   font-family: Mulish;
 }
+.reviewHeadingdiv_heading {
+  text-shadow: 0px 4px 3px #662f88;
+}
 
 .keepgrowingGrid {
   width: 75% !important;
@@ -86,5 +89,8 @@
   }
   .userReviewContainer {
     margin-top: 35px;
+  }
+  .reviewHeadingdiv_heading {
+    font-size: 20px !important;
   }
 }

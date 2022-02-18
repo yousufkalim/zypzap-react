@@ -86,27 +86,32 @@ export default function RankingList() {
         <div>
           <p className="rankingListheading">Requests Ranking List</p>
         </div>
-        {/* <p className="rankingListheading">View All</p> */}
-        <div style={{ position: "relative", display: "inline-block" }}>
-          <SearchIcon className="search_icon_home" />
-          <input
-            style={{
-              color: "#fff",
-            }}
-            type="text"
-            placeholder="Search a game"
-            className="searchbar"
-            onChange={handleChange}
-          />
+        <div className="rankingListheading_input">
+          <div style={{ display: "inline-block" }}>
+            <input
+              style={{
+                color: "#fff",
+              }}
+              type="text"
+              placeholder="Search a game"
+              className="searchbar"
+            />
+          </div>
           <FormControl className="form_controll_home">
-            <Select className="select_fom_home" value={age} displayEmpty>
+            <Select
+              className="select_fom_home"
+              value={age}
+              onChange={handleChange}
+              displayEmpty
+            >
               <MenuItem value="" className="walletInputMenu2">
-                <m className="WalletInput">Filter</m>
+                <m className="WalletInput2">Filter</m>
               </MenuItem>
 
               <MenuItem value={10} className="walletInputMenu2">
                 Filter
               </MenuItem>
+
               <MenuItem value={20} className="walletInputMenu2">
                 Filter
               </MenuItem>

@@ -104,6 +104,10 @@ export default function PrimarySearchAppBar({
   const showBecomePopup = () => {
     setOption(true);
   };
+  const onClickEvent = () => {
+    // alert("click");
+    history.push("/searchResult");
+  };
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -262,6 +266,20 @@ export default function PrimarySearchAppBar({
               }}
             >
               {/* Categories */}
+              <div
+                onClick={onClickEvent}
+                style={{
+                  cursor: "pointer",
+                }}
+              >
+                <a
+                  // href="/SearchResult"
+                  target="_blank"
+                  style={{ color: "#fff" }}
+                >
+                  <SearchIcon className="searchItemsIcon" />
+                </a>
+              </div>
             </Typography>
             <Search onChange={searchCourse} className="searchBar">
               <SearchIconWrapper>
@@ -300,6 +318,11 @@ export default function PrimarySearchAppBar({
             <Link to="" className="requestBt">
               <button className="requestBtn">Request a course</button>
             </Link>
+            <a to="" className="requestBt">
+              <button className="requestBtn" onClick={showBecomePopup}>
+                User Profile
+              </button>
+            </a>
 
             <Box
               className={`${creator ? "headerLinkbox" : "headerLinkbox2"}`}
@@ -346,22 +369,24 @@ export default function PrimarySearchAppBar({
                   </p>
                   <div>
                     <FormControl className="form_Control_header">
-                      <Select
-                        className="select_form_header"
-                        value={age}
-                        onChange={handleChange}
-                        displayEmpty
-                      >
-                        <MenuItem value="" className="walletInputMenu">
-                          <m className="WalletInput">Connect Wallet</m>
-                        </MenuItem>
-                        <MenuItem value={10} className="walletInputMenu">
-                          Metamask
-                        </MenuItem>
-                        <MenuItem value={20} className="walletInputMenu">
-                          Coinbase
-                        </MenuItem>
-                      </Select>
+                      <MenuItem>
+                        <Select
+                          className="select_form_header"
+                          value={age}
+                          onChange={handleChange}
+                          displayEmpty
+                        >
+                          <MenuItem value="" className="walletInputMenu">
+                            <m className="WalletInput">Connect Wallet</m>
+                          </MenuItem>
+                          <MenuItem value={10} className="walletInputMenu">
+                            Metamask
+                          </MenuItem>
+                          <MenuItem value={20} className="walletInputMenu">
+                            Coinbase
+                          </MenuItem>
+                        </Select>
+                      </MenuItem>
                     </FormControl>
                   </div>
                   {/* <Link

@@ -29,6 +29,7 @@
   border-radius: 2px;
   cursor: pointer;
   border: 1px solid #7d668b;
+  border-radius: 7px;
 }
 .requestButton:hover {
   background: none;

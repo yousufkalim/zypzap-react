@@ -123,12 +123,13 @@
 /* Media Queries */
 
 /* for big screens */
-@media only screen and (min-width: 1500px) and (max-width: 1900px) {
-  /* .landing-partner-pargraph {
-    font-size: 25px;
-    margin-top: 15px;
-    opacity: 0.6;
-  } */
+@media only screen and (min-width: 1900px) {
+  .landing-partner-header {
+    font-size: 55px;
+  }
+  .landing-partner-pargraph {
+    font-size: 26px;
+  }
 }
 @media all and (min-width: 901px) and (max-width: 1200px) {
   .landing-partner-text-container {
@@ -183,6 +184,7 @@
     border-right: none;
     width: 100%;
     margin: auto;
+    padding: 0;
   }
   .myStylep {
     font-size: 12px;
@@ -193,6 +195,15 @@
   }
   .MuiGrid-spacing-xs-2 > .MuiGrid-item {
     margin: auto;
+  }
+  .partnerTextHeading {
+    font-size: 17px;
+  }
+  .community-content-pargraph {
+    font-size: 12px;
+  }
+  .divpadding {
+    padding: 0;
   }
 }
 
@@ -252,7 +263,8 @@
     flex-direction: column !important;
   }
   .MuiGrid-grid-xs-12 {
-    margin: auto !important;
+    /* margin: auto !important; */
+    margin: 0px 0 15px 0 !important;
   }
   .User-landing-page-blog-divone {
     margin-bottom: 30px !important;
