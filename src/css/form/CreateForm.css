@@ -22,7 +22,7 @@
   margin: auto !important;
   border-radius: 15px !important;
   overflow: hidden !important;
-  max-width: 500px !important;
+  max-width: 600px !important;
 }
 .css-ahj2mt-MuiTypography-root {
   margin: 0;
@@ -213,6 +213,149 @@
 .MuiInput-underline:before {
   content: "" !important;
   position: inherit !important;
+}
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  width: 600px !important;
+}
+.userProfile-box {
+  width: 100% !important;
+}
+.userProfile_conteiner {
+  width: 92%;
+  margin: auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #fff;
+  overflow-y: scroll;
+}
+.userProfile_conteiner::-webkit-scrollbar {
+  width: 0px;
+}
+.userProfile_heading {
+  margin: 12px 0;
+}
+.userProfileH1 {
+  font-size: 28px;
+}
+.userProfileP {
+  font-size: 18px;
+  margin: 4px 0 4px 0;
+}
+.userProfile-uploadData {
+  display: flex;
+  align-items: center;
+  margin: 16px 0 11px 0;
+}
+.userProfileInput {
+  background-color: rgba(255, 255, 255, 0.13);
+  padding: 20px 25px;
+  border-radius: 5px;
+}
+.uploadHeading {
+  margin-left: 20px;
+}
+.tags-input-ul {
+  display: flex;
+  border: 1px solid #717171;
+  margin: 8px 0;
+}
+.tags-input-ul2 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  min-height: 80px;
+}
+.userProfileLi {
+  background: #282a49;
+  margin: 5px;
+  list-style: none;
+  border-radius: 4px;
+  margin: 10px 2px 0px 5px;
+  padding: 4px 7px;
+  text-transform: capitalize;
+}
+.userProfile_inputTags {
+  margin: 15px 2px 50px 5px;
+  padding: 5px 0;
+  width: 100px;
+  background: none;
+  border: none;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+}
+.userProfile_inputTags:focus {
+  outline: none;
+}
+.tags-input-FGames {
+  font-size: 16px;
+}
+.allButtons {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  margin: 8px 0;
+}
+.allButtons2 {
+  margin: 8px 0;
+}
+.userTagsAllButton {
+  background: #282a49;
+  border-radius: 4px;
+  margin: 3px;
+  font-size: 16px;
+  padding: 7px 15px;
+  color: #fff;
+  border: none;
+  display: inline-block;
+}
+.userTagsAllButton:hover {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+}
+.gamingModeSelect {
+  margin: 10px 0px;
+}
+.userProfileChackbox[type="checkbox"] {
+  margin: 0 5px;
+  background-color: red;
+}
+
+.userProfileChackbox2 {
+  margin-left: 10px;
+  margin: 0 5px 0 20px;
+}
+.selectInput-userProfile {
+  width: 100%;
+  margin: 8px 0 12px 0;
+  background: none;
+  color: #fff;
+  padding: 15px;
+  background-color: #1d1f38;
+}
+.selectInput-option {
+  background: none !important;
+  display: block;
+  padding: 10px;
+}
+.userProfileButton {
+  width: 100%;
+  padding: 9px 22px;
+  border: none;
+  margin: 8px 0px 8px 0px;
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  color: white;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  border-radius: 4px;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid #7d668b;
+}
+.userProfileButton:hover {
+  background: none;
 }
 @media only screen and (min-width: 320px) and (max-width: 820px) {
   .sosocial_accoountcial {
