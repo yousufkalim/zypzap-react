@@ -181,8 +181,7 @@ export default function LatestCourses(props) {
               <img
                 src={
                   item?.creator?.user_id?.profile_photo
-                    ? process.env.REACT_APP_baseURL +
-                      item.creator.user_id.profile_photo
+                    ? item.creator.user_id.profile_photo
                     : Course1
                 }
                 className="courseimg"

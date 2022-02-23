@@ -74,10 +74,10 @@ export default function CustomizedMenus(props) {
 
   const filterByRating = async (e) => {
     e.preventDefault();
-    console.log("e.target.value", e.target.value);
     console.log("coueses", courses);
     const Courses = courses.sort(function (a, b) {
-      console.log("a", a.rating);
+      if (a.rating === undefined) a.rating = 0;
+      if (b.rating === undefined) b.rating = 0;
       var c = a.rating;
       var d = b.rating;
       return d - c;
@@ -105,7 +105,6 @@ export default function CustomizedMenus(props) {
     const Courses = courses.sort(function (a, b) {
       var c = countViews(a);
       var d = countViews(b);
-
       return d - c;
     });
     updateStore({ courses: Courses });

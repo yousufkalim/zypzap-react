@@ -175,7 +175,7 @@ const GameTypes = [
 ];
 const PlateformsAry = [
   {
-    name: "Retro Consoles  ",
+    name: "Retro Consoles",
     value: "name",
   },
   {

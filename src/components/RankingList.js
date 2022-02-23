@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -12,7 +12,8 @@ import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-
+import { Store, UpdateStore } from "../StoreContext";
+import api from "../api";
 const rows = [
   {
     Rank: 1,
@@ -75,11 +76,25 @@ const handleVoteClick = (row) => {
 
 export default function RankingList() {
   const [age, setAge] = useState("");
-
+  const updateStore = UpdateStore();
+  const { contentRequest, user } = Store();
+  console.log("user", user);
+  let getContentRequest = async () => {
+    let res = await api("get", "/contentRequests");
+    console.log(res);
+    if (res) {
+      updateStore({ contentRequest: res?.data });
+      //updateStore({ create: res?.data });
+    }
+  };
+  useEffect(() => {
+    getContentRequest();
+  }, []);
   const handleChange = (event) => {
     setAge(event.target.value);
   };
   console.log(tableCellClasses.root);
+
   return (
     <>
       <div className="rankinglistHeadingDiv">
@@ -159,7 +174,7 @@ export default function RankingList() {
                 Date
               </TableCell>
               <TableCell className="headergameCell" align="right">
-                Game Lecel
+                Game Level
               </TableCell>
               <TableCell className="headerdescriptionCell" align="right">
                 Description
@@ -181,41 +196,45 @@ export default function RankingList() {
               },
             }}
           >
-            {rows.map((row) => (
-              <TableRow
-                key={row.Rank}
-                sx={{
-                  "&:last-child td, &:last-child th": { border: 0 },
-                  backgroundColor: "black",
-                }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.Rank}
-                </TableCell>
-                <TableCell component="th" scope="row">
-                  {row.Game}
-                </TableCell>
-                <TableCell component="th" scope="row">
-                  {row.Date}
-                </TableCell>
-                <TableCell className="headergameCell" align="right">
-                  {row.GameLecel}
-                </TableCell>
-                <TableCell className="descriptionCell" align="right">
-                  {row.description}
-                </TableCell>
-
-                <TableCell align="right">{row.Votes}</TableCell>
-                <TableCell align="right">
-                  <button
-                    className="votebutton"
-                    onClick={() => handleVoteClick(row)}
+            {!contentRequest
+              ? "Lodding"
+              : contentRequest.map((row, index) => (
+                  <TableRow
+                    key={row.Rank}
+                    sx={{
+                      "&:last-child td, &:last-child th": { border: 0 },
+                      backgroundColor: "black",
+                    }}
                   >
-                    Vote
-                  </button>
-                </TableCell>
-              </TableRow>
-            ))}
+                    <TableCell component="th" scope="row">
+                      {`${index + 1}`}
+                    </TableCell>
+                    <TableCell component="th" scope="row">
+                      {row.game.game_name}
+                    </TableCell>
+                    <TableCell component="th" scope="row">
+                      {row.createdAt}
+                    </TableCell>
+                    <TableCell className="headergameCell" align="right">
+                      {row.GameLecel}
+                    </TableCell>
+                    <TableCell className="descriptionCell" align="right">
+                      {row.description}
+                    </TableCell>
+
+                    <TableCell align="right">
+                      {row?.likes ? row.likes.length + " Votes" : "0 Votes"}
+                    </TableCell>
+                    <TableCell align="right">
+                      <button
+                        className="votebutton"
+                        onClick={() => handleVoteClick(row)}
+                      >
+                        Vote
+                      </button>
+                    </TableCell>
+                  </TableRow>
+                ))}
           </TableBody>
         </Table>
       </TableContainer>

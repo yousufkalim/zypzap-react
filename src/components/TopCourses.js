@@ -79,7 +79,11 @@ function TopCoursesComponent({ item }) {
     >
       <Grid item xs={12} sm={5} className="">
         {/*  make it dynamic  */}
-        <img src={item?.thumbnail?item.thumbnail:TopCourseImg} className="topcourseimg" alt="img" />
+        <img
+          src={item?.thumbnail ? item.thumbnail : TopCourseImg}
+          className="topcourseimg"
+          alt="img"
+        />
       </Grid>
       <Grid item xs={12} sm={7} className="topcourseTextGrid">
         <Grid container spacing={2}>
@@ -101,8 +105,7 @@ function TopCoursesComponent({ item }) {
               <img
                 src={
                   item?.creator?.user_id?.profile_photo
-                    ? process.env.REACT_APP_baseURL +
-                      item.creator.user_id.profile_photo
+                    ? item.creator.user_id.profile_photo
                     : avatar
                 }
                 className="avatar"

@@ -11,15 +11,12 @@ import Blog from "./Blog";
 import { Store, UpdateStore } from "../StoreContext";
 import api from "../api";
 export default function Body({ setOpenSignup }) {
-  console.log("sjcbkscncms");
   const [loading, setLoading] = useState(false);
   const updateStore = UpdateStore();
   const { courses } = Store();
   let getTopCourses = async () => {
-    console.log("i am in getCoourses");
     let res = await api("get", "/courses");
     if (res) {
-      console.log("data", res);
       updateStore({ courses: res?.data });
       //updateStore({ create: res?.data });
     }
