@@ -146,20 +146,35 @@ export default function PropfileInformation({ openProfile, handleClose }) {
           </div>
           {/* gaming mood */}
           {/* select input div */}
-          <div className="userProfileSelectInput">
+          <div>
             <label for="Learning">Learning Rhythm</label>
+          </div>
+          <div className="userProfileSelectInput2">
             <br />
+
             <select
               id="Select"
               name="Select"
-              className="selectInput-userProfile"
+              className="selectInput-userProfile2"
             >
               <option value="volvo" className="selectInput-option">
-                Select
+                Per Week
               </option>
-              <option value="saab">Select</option>
-              <option value="mercedes">Select</option>
-              <option value="audi">Select</option>
+              <option value="saab">Per Month</option>
+              <option value="mercedes">Per Year</option>
+              {/* <option value="audi">Select</option> */}
+            </select>
+            <select
+              id="Select"
+              name="Select"
+              className="selectInput-userProfile2"
+            >
+              <option value="volvo" className="selectInput-option">
+                2 Houre
+              </option>
+              <option value="saab">4 Houre</option>
+              <option value="mercedes">6 Houre</option>
+              {/* <option value="audi">Select</option> */}
             </select>
           </div>
           {/* select input div */}
@@ -173,11 +188,11 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               className="selectInput-userProfile"
             >
               <option value="volvo" className="selectInput-option">
-                Select
+                Medium
               </option>
-              <option value="saab">Medium</option>
-              <option value="mercedes">Medium</option>
-              <option value="audi">Medium</option>
+              {/* <option value="saab">Medium</option> */}
+              <option value="mercedes">initial</option>
+              <option value="audi">pro</option>
             </select>
           </div>
           {/* select input div */}
@@ -191,11 +206,11 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               className="selectInput-userProfile"
             >
               <option value="volvo" className="selectInput-option">
-                Select
+                Medium
               </option>
-              <option value="saab">Pro</option>
-              <option value="mercedes">Pro</option>
-              <option value="audi">Pro</option>
+              {/* <option value="saab">Pro</option> */}
+              <option value="mercedes">Medium</option>
+              <option value="audi">Initial</option>
             </select>
           </div>
           {/* select input div */}
