@@ -209,8 +209,8 @@ export default function PropfileInformation({ openProfile, handleClose }) {
                 Medium
               </option>
               {/* <option value="saab">Pro</option> */}
-              <option value="mercedes">Medium</option>
-              <option value="audi">Initial</option>
+              <option value="mercedes">Initial</option>
+              <option value="audi">Pro</option>
             </select>
           </div>
           {/* select input div */}
