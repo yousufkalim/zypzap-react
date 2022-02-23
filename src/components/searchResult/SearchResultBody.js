@@ -18,7 +18,6 @@ import CustomizedMenus from "./CustomizedMenus";
 import HeartIcon from "./HeartIcon";
 import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
-
 var items = [
   {
     id: 1,
@@ -105,27 +104,15 @@ var items = [
 const categories = [
   {
     name: "Top 10 Games ",
-    value: "name",
+    value: "1",
   },
   {
     name: "Top 10 Trendy Games",
-    value: "class",
-  },
-  {
-    name: "Top 10 NFT Games",
-    value: "age",
-  },
-  {
-    name: "Top 10 Metaverse Games",
-    value: "subjects",
+    value: "1",
   },
   {
     name: "Top New Games",
-    value: "school",
-  },
-  {
-    name: "Top Reality Games",
-    value: "schooltwo",
+    value: "2",
   },
 ];
 const GameTypes = [
@@ -218,26 +205,21 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
+
 const SearchResultBody = () => {
   const [selectedCategories, setselectedCategories] = useState(false);
   const [selectedGame, setSelectedGame] = useState(false);
   const [selectedPlateforms, setSelectedPlateforms] = useState(false);
   const [selectedGameplay, setSelectedGameplay] = useState(false);
   const [selectedPrice, setSelectedPrice] = useState(false);
-  const [SelectInputState, setSelectInputState] = useState(false);
-  const [sliderState, setSliderState] = useState(false);
-  const [selectedCourse, setSelectedCourse] = useState(false);
   const [sliderValue, setSliderValue] = useState(0);
   const [selectedActiveButton, setSelectedActiveButton] = useState();
   const [selectedGameBtn, setSelectedGameBtn] = useState();
   const [selectedPlateformsBtn, setselectedPlateformsBtn] = useState();
   const [radioBtnValue, setRadioBtnValue] = useState();
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
-
-  const [loading, setLoading] = useState(false);
+  const { searchCourse } = Store();
   const updateStore = UpdateStore();
-  const { courses, searchCourse } = Store();
-
   //sidebar list togle
   const onClickSideBarHeaders = (e) => {
     const id = e.target.id;
@@ -245,66 +227,48 @@ const SearchResultBody = () => {
       setselectedCategories(!selectedCategories);
     }
     if (id == 2) {
-      setSelectInputState(!SelectInputState);
-    }
-    if (id == 3) {
-      setSelectedPrice(!selectedPrice);
-    }
-    if (id == 4) {
       setSelectedGame(!selectedGame);
     }
-    if (id == 5) {
+    if (id == 3) {
       setSelectedPlateforms(!selectedPlateforms);
+      // setSelectedPrice(!selectedPrice);
     }
-    if (id == 6) {
-      setSelectedCourse(!selectedCourse);
-    }
-    if (id == 7) {
+    if (id == 4) {
       setSelectedGameplay(!selectedGameplay);
+      //setSelectedGame(!selectedGame);
+      // change1
+    }
+    if (id == 5) {
+      setSelectedPrice(!selectedPrice);
+      //setSelectedPlateforms(!selectedPlateforms);
     }
   };
   // sidebar list togle
   // making list item active by chnaging background
-  const onSideBtnClick = (e) => {
-    const name = e.target.textContent;
+  const onSideBtnClick = async (e) => {
+    // const name = e.target.textContent;
+    const name = e.name;
+    const value = e.value;
+    console.log("name", e);
+    let res = await api("get", `/courses/topGames?type=${value}`);
+    if (res) {
+      console.log("data", res);
+      updateStore({ searchCourse: res?.data });
+      //updateStore({ create: res?.data });
+      setSelectedActiveButton("");
+    }
     setSelectedActiveButton(name);
   };
   const onSideBtnClick2 = (e) => {
     const name = e.target.textContent;
+    console.log("name", name);
     setSelectedGameBtn(name);
   };
   const onSideBtnClick3 = (e) => {
     const name = e.target.textContent;
+    console.log("name ", name);
     setselectedPlateformsBtn(name);
   };
-  // making list item active by changing background
-  //get radio values
-  const onChangeRadioBtn = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    console.log(name, value);
-    setRadioBtnValue((preVal) => {
-      return {
-        ...preVal,
-        [name]: value,
-      };
-    });
-  };
-  //get radio values
-  // To get slider value
-  const onChangeSliderValue = (e) => {
-    setSliderValue(e.target.value);
-  };
-  const RequestClikEvent = (e) => {
-    console.log("activeButton categori", selectedActiveButton);
-    console.log("gameBtn gametype", selectedGameBtn);
-    console.log("PlateformsBtn plateform", selectedPlateformsBtn);
-    console.log("GameplayStateBtn GameplayState", selectedGameplay);
-    console.log("PriceStatebtn PriceState", selectedPrice);
-    console.log("CourseStatebtn CourseState", selectedCourse);
-  };
-
-  // To get slider value
   let countViews = (course) => {
     const Videos = course?.videos;
 
@@ -312,8 +276,40 @@ const SearchResultBody = () => {
     Videos.map((video) => {
       count += video.views;
     });
+
     return count;
   };
+
+  const onChangeRadioBtn = (e) => {
+    const value = e.target.value;
+    setRadioBtnValue(e.target.value);
+  };
+  const onChangeSliderValue = (e) => {
+    setSliderValue(e.target.value);
+    console.log("name", e.target.value);
+  };
+  const RequestClikEvent = async (e) => {
+    const filterData = {
+      gameType: selectedGameBtn,
+      plateForm: selectedPlateformsBtn,
+      mode: radioBtnValue,
+      price: sliderValue,
+    };
+    let res = await api(
+      "get",
+      `/courses/filteredCourses?&&gameType=${selectedGameBtn}&&plateForm=${selectedPlateformsBtn}&&mode=${radioBtnValue}&&price=${sliderValue}`
+    );
+    if (res) {
+      console.log("data", res);
+      updateStore({ searchCourse: res?.data });
+    }
+
+    setSelectedGameBtn("");
+    setselectedPlateformsBtn("");
+    setRadioBtnValue("");
+    setSliderValue("");
+  };
+  // To get slider value
   return (
     <Box
       className="search-result-container"
@@ -366,7 +362,7 @@ const SearchResultBody = () => {
               />
             ) : null}
             <div
-              id="4"
+              id="2"
               onClick={onClickSideBarHeaders}
               className="dropdown-headers"
             >
@@ -393,7 +389,6 @@ const SearchResultBody = () => {
                 />
               )}
             </div>
-
             {selectedGame ? (
               <GameType
                 GameTypes={GameTypes}
@@ -402,7 +397,7 @@ const SearchResultBody = () => {
               />
             ) : null}
             <div
-              id="5"
+              id="3"
               onClick={onClickSideBarHeaders}
               className="dropdown-headers"
             >
@@ -438,7 +433,7 @@ const SearchResultBody = () => {
               />
             ) : null}
             <div
-              id="7"
+              id="4"
               onClick={onClickSideBarHeaders}
               className="dropdown-headers"
             >
@@ -492,7 +487,7 @@ const SearchResultBody = () => {
               </div>
             ) : null}
             <div
-              id="3"
+              id="5"
               onClick={onClickSideBarHeaders}
               className="dropdown-headers"
             >
@@ -537,7 +532,7 @@ const SearchResultBody = () => {
                     onChange={onChangeSliderValue}
                     id="10€"
                     name="active"
-                    value="10€"
+                    value="10"
                   />
                   <label for="10€">-10 €</label>
                 </div>
@@ -547,7 +542,7 @@ const SearchResultBody = () => {
                     onChange={onChangeSliderValue}
                     id="20€"
                     name="active"
-                    value="20€"
+                    value="20"
                   />
                   <label for="20€">-20 €</label>
                 </div>
@@ -557,7 +552,7 @@ const SearchResultBody = () => {
                     onChange={onChangeSliderValue}
                     id="30€"
                     name="active"
-                    value="30€"
+                    value="30"
                   />
                   <label for="30€">-30 €</label>
                 </div>
@@ -567,7 +562,7 @@ const SearchResultBody = () => {
                     onChange={onChangeSliderValue}
                     id="40€"
                     name="active"
-                    value="40€"
+                    value="40"
                   />
                   <label for="40€">-40 €</label>
                 </div>
@@ -577,7 +572,7 @@ const SearchResultBody = () => {
                     onChange={onChangeSliderValue}
                     id="50€"
                     name="active"
-                    value="50€"
+                    value="50"
                   />
                   <label for="50€">-50 €</label>
                 </div>
@@ -587,7 +582,7 @@ const SearchResultBody = () => {
                     onChange={onChangeSliderValue}
                     id="100€"
                     name="active"
-                    value="100€"
+                    value="100"
                   />
                   <label for="100€">-100 €</label>
                 </div>
@@ -604,60 +599,6 @@ const SearchResultBody = () => {
               </form>
             ) : null}
             {/* 111111 */}
-
-            <div
-              id="6"
-              onClick={onClickSideBarHeaders}
-              className="dropdown-headers"
-            >
-              Course type
-              {selectedCourse ? (
-                <KeyboardArrowDownIcon
-                  sx={{
-                    color: "#fff",
-                    marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
-                  }}
-                />
-              ) : (
-                <KeyboardArrowUpIcon
-                  sx={{
-                    color: "#fff",
-                    marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
-                  }}
-                />
-              )}
-            </div>
-            {selectedCourse ? (
-              <form>
-                <div class="radio-item">
-                  <input
-                    type="radio"
-                    onChange={onChangeSliderValue}
-                    id="Subscription"
-                    name="active"
-                    value="Subscription"
-                  />
-                  <label for="Subscription">Subscription Courses</label>
-                </div>
-                <div class="radio-item">
-                  <input
-                    type="radio"
-                    onChange={onChangeSliderValue}
-                    id="Courses"
-                    name="active"
-                    value="Courses"
-                  />
-                  <label for="Courses">Courses on Demand</label>
-                </div>
-              </form>
-            ) : null}
-            {/* 22222 */}
             <h4 className="didnt-find-text">
               Didn't found the <br /> course
             </h4>
@@ -666,7 +607,7 @@ const SearchResultBody = () => {
                 className="reqstStateBTN"
                 onClick={RequestClikEvent}
                 // sx={{
-                //   backgroundColor: "#e7411b",
+                //   backgroundColor: "#E7411B",
                 //   padding: "5px 12px",
                 //   fontSize: "13px",
                 //   margin: "10px 0",
@@ -681,8 +622,8 @@ const SearchResultBody = () => {
       </Box>
       {/*  */}
       <>
-        {!searchCourse?.length ? (
-          <h1>No Course Found</h1>
+        {!searchCourse ? (
+          <h1>Loading...</h1>
         ) : (
           <Box className="cards-container">
             <div className="cards-box">
@@ -713,22 +654,21 @@ const SearchResultBody = () => {
                     </div>
                     <h5 className="latestcourseh5">
                       {" "}
-                      {console.log("course1234567890", item)}
                       {item?.course_name ? item.course_name : "Fight Course"}
                     </h5>
                     <p className="latestcoursep1">
                       {" "}
                       {item?.creator?.user_id?.username
                         ? item.creator.user_id.username
-                        : "Null"}
+                        : "Arslan Ash"}
                     </p>
                     <p className="latestcoursep1">
                       {" "}
-                      {item?.rating ? item.rating : "567"}
-                      {[1, 2, 3, 4, 5].map((item) => (
+                      {item?.rating ? item.rating : "0.1"}
+                      {[1, 2, 3, 4, 5].map((i) => (
                         <StarIcon className="star-icon" />
                       ))}
-                      {" ( " + countViews(item) + " )"}
+                      {item?.videos ? " ( " + countViews(item) + " )" : "( 0 )"}
                     </p>
                     <h6 className="latestcourseh6">{item?.price + " $"}</h6>
                   </div>

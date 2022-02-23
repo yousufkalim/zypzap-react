@@ -78,7 +78,8 @@ function TopCoursesComponent({ item }) {
       style={{ width: "auto" }}
     >
       <Grid item xs={12} sm={5} className="">
-        <img src={TopCourseImg} className="topcourseimg" alt="img" />
+        {/*  make it dynamic  */}
+        <img src={item?.thumbnail?item.thumbnail:TopCourseImg} className="topcourseimg" alt="img" />
       </Grid>
       <Grid item xs={12} sm={7} className="topcourseTextGrid">
         <Grid container spacing={2}>

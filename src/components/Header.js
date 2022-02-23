@@ -136,7 +136,7 @@ export default function PrimarySearchAppBar({
     if (e.target.value !== "") {
       let res = await api("get", `/courses/search?name=${e.target.value}`);
       if (res) {
-        console.log("data");
+        console.log("data", res);
         updateStore({ searchCourse: res?.data });
         //updateStore({ create: res?.data });
       }
@@ -277,7 +277,7 @@ export default function PrimarySearchAppBar({
                   target="_blank"
                   style={{ color: "#fff" }}
                 >
-                  <SearchIcon className="searchItemsIcon" />
+                  {/* <SearchIcon className="searchItemsIcon" /> */}
                 </a>
               </div>
             </Typography>
