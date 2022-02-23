@@ -23,6 +23,7 @@ import UserIcon from "../assets/icons/userIcon.svg";
 import { useHistory } from "react-router-dom";
 import ClearIcon from "@mui/icons-material/Clear";
 import CreateFormPopup from "./PopupForms/CreateFormPopup";
+import PropfileInformation from "./PopupForms/PropfileInformation";
 import LoginFormPopup from "./PopupForms/LoginFormPopup";
 import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
 import OptionPopup from "./PopupForms/OptionPopup";
@@ -75,6 +76,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function PrimarySearchAppBar({
   openlogin,
+
   setOpenLogin,
   opensignup,
   setOpenSignup,
@@ -94,7 +96,16 @@ export default function PrimarySearchAppBar({
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+  const [openProfile, setOpenProfile] = useState(false);
 
+  const handleClickOpen = () => {
+    console.log(openProfile);
+    setOpenProfile(true);
+  };
+
+  const handleClose = () => {
+    setOpenProfile(false);
+  };
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -217,6 +228,10 @@ export default function PrimarySearchAppBar({
         login={openlogin}
         setLogin={setOpenLogin}
       />
+      <PropfileInformation
+        openProfile={openProfile}
+        handleClose={handleClose}
+      />
       <LoginFormPopup
         open={openlogin}
         setOpen={setOpenLogin}
@@ -304,7 +319,7 @@ export default function PrimarySearchAppBar({
               <button className="requestBtn">Request a course</button>
             </Link>
             <a to="" className="requestBt">
-              <button className="requestBtn" onClick={showBecomePopup}>
+              <button className="requestBtn" onClick={handleClickOpen}>
                 User Profile
               </button>
             </a>
