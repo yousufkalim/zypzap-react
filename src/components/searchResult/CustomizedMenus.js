@@ -46,7 +46,7 @@ const StyledMenu = styled((props) => (
 }));
 
 export default function CustomizedMenus(props) {
-  const { updateStore, courses } = props;
+  const { updateStore, searchCourse } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -74,8 +74,8 @@ export default function CustomizedMenus(props) {
 
   const filterByRating = async (e) => {
     e.preventDefault();
-    console.log("coueses", courses);
-    const Courses = courses.sort(function (a, b) {
+    console.log("coueses", searchCourse);
+    const Courses = searchCourse.sort(function (a, b) {
       if (a.rating === undefined) a.rating = 0;
       if (b.rating === undefined) b.rating = 0;
       var c = a.rating;
@@ -83,48 +83,40 @@ export default function CustomizedMenus(props) {
       return d - c;
     });
     console.log("items", Courses);
-    updateStore({ courses: Courses });
+    updateStore({ searchCourse: Courses });
     handleClose();
   };
 
   const filterByDate = async (e) => {
     e.preventDefault();
 
-    const Courses = courses.sort(function (a, b) {
+    const Courses = searchCourse.sort(function (a, b) {
       var c = new Date(a.createdAt);
       var d = new Date(b.createdAt);
       return d - c;
     });
-    updateStore({ courses: Courses });
+    updateStore({ searchCourse: Courses });
     handleClose();
   };
 
   const filterByViews = async (e) => {
     e.preventDefault();
 
-    const Courses = courses.sort(function (a, b) {
+    const Courses = searchCourse.sort(function (a, b) {
       var c = countViews(a);
       var d = countViews(b);
       return d - c;
     });
-    updateStore({ courses: Courses });
+    updateStore({ searchCourse: Courses });
     handleClose();
   };
   const filterByLevel = async (e) => {
     e.preventDefault();
-    const i = courses.filter((course) => course.level !== undefined);
-    const Courses = i.sort(function (a, b) {
-      var c, d;
-      if (a.level === "Advance Level") c = 1;
-      if (a.level === "medium Level") d = 2;
-      if (a.level === "inital Level") c = 3;
-      if (b.level === "Advance Level") d = 1;
-      if (b.level === "medium Level") c = 2;
-      if (b.level === "inital Level") d = 3;
-
-      return d - c;
-    });
-    updateStore({ courses: Courses });
+    const i = searchCourse.filter((course) => course.level === "Advance Level");
+    const j = searchCourse.filter((course) => course.level === "medium Level");
+    const k = searchCourse.filter((course) => course.level === "inital Level");
+    const Courses = [...i, ...j, ...k];
+    updateStore({ searchCourse: Courses });
     handleClose();
   };
   return (

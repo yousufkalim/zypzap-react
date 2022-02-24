@@ -634,7 +634,7 @@ const SearchResultBody = () => {
               <div>
                 {" "}
                 <CustomizedMenus
-                  courses={searchCourse}
+                  searchCourse={searchCourse}
                   updateStore={updateStore}
                 />
               </div>
