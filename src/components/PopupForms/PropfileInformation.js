@@ -152,11 +152,7 @@ export default function PropfileInformation({ openProfile, handleClose }) {
           <div className="userProfileSelectInput2">
             <br />
 
-            <select
-              id="Select"
-              name="Select"
-              className="selectInput-userProfile2"
-            >
+            <select id="Select">
               <option value="volvo" className="selectInput-option">
                 Per Week
               </option>

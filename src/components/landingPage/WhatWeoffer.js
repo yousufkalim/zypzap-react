@@ -42,8 +42,11 @@ export default function WhatWeOffer() {
               <img src={gamerImg} className="offerimg1 " alt="img" />
               <h1 className="offerheading">{t("I am Gamer")}</h1>
               <p className="offerText">
-                {t("Suivez les cours de votre choix et commencez à scorer")}
+                {t("Suivez les cours de votre choix ")}
+                <br />
+                {t(" et commencez à scorer")}
               </p>
+
               <Link to="/userlanding">
                 <button className="whatweofferButton">{t("Join us")}</button>
               </Link>
