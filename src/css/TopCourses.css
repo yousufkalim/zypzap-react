@@ -64,6 +64,7 @@
 .avatar {
   width: 45px;
   height: 45px;
+  border-radius: 50%;
 }
 .activeIndicator {
   /* color: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);

@@ -13,18 +13,17 @@ import api from "../api";
 export default function Body({ setOpenSignup }) {
   const [loading, setLoading] = useState(false);
   const updateStore = UpdateStore();
-  const { courses } = Store();
+  const { courses, user } = Store();
   let getTopCourses = async () => {
     let res = await api("get", "/courses");
     if (res) {
       updateStore({ courses: res?.data });
-      //updateStore({ create: res?.data });
     }
     setLoading(true);
+    console.log("user", user);
   };
   useEffect(() => {
     // get top courses
-    console.log("i am in useEffect");
     getTopCourses();
   }, []);
   return (

@@ -70,22 +70,23 @@ const rows = [
     Votes: "2230 votes",
   },
 ];
-const handleVoteClick = (row) => {
-  console.log("row is ", row);
-};
 
 export default function RankingList() {
   const [age, setAge] = useState("");
   const updateStore = UpdateStore();
   const { contentRequest, user } = Store();
-  console.log("user", user);
   let getContentRequest = async () => {
     let res = await api("get", "/contentRequests");
-    console.log(res);
     if (res) {
       updateStore({ contentRequest: res?.data });
       //updateStore({ create: res?.data });
+      console.log("user", user);
     }
+  };
+  const handleVoteClick = async (row) => {
+    console.log("row is ", row._id);
+    const formData = { course_request_id: row._id, user_id: user._id };
+    let res = await api("put", "/contentRequests/postCoursesVote", formData);
   };
   useEffect(() => {
     getContentRequest();
@@ -216,7 +217,7 @@ export default function RankingList() {
                       {row.createdAt}
                     </TableCell>
                     <TableCell className="headergameCell" align="right">
-                      {row.GameLecel}
+                      {row.GameLevel}
                     </TableCell>
                     <TableCell className="descriptionCell" align="right">
                       {row.description}
