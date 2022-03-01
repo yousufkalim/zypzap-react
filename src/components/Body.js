@@ -20,7 +20,6 @@ export default function Body({ setOpenSignup }) {
       updateStore({ courses: res?.data });
     }
     setLoading(true);
-    console.log("user", user);
   };
   useEffect(() => {
     // get top courses
@@ -52,7 +51,6 @@ export default function Body({ setOpenSignup }) {
               Sign Up For Free
             </button>
           </div>
-          {console.log("Courses", courses)}
           <TopCourses courses={courses} />
           <LatestCourses courses={courses} />
           <TopRatedContent />

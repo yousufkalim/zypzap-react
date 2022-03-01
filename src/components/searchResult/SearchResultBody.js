@@ -117,7 +117,7 @@ const categories = [
 ];
 const GameTypes = [
   {
-    name: "Action ",
+    name: "Action",
     value: "name",
   },
   {
@@ -249,10 +249,8 @@ const SearchResultBody = () => {
     // const name = e.target.textContent;
     const name = e.name;
     const value = e.value;
-    console.log("name", e);
     let res = await api("get", `/courses/topGames?type=${value}`);
     if (res) {
-      console.log("data", res);
       updateStore({ searchCourse: res?.data });
       //updateStore({ create: res?.data });
       setSelectedActiveButton("");
@@ -261,12 +259,10 @@ const SearchResultBody = () => {
   };
   const onSideBtnClick2 = (e) => {
     const name = e.target.textContent;
-    console.log("name", name);
     setSelectedGameBtn(name);
   };
   const onSideBtnClick3 = (e) => {
     const name = e.target.textContent;
-    console.log("name ", name);
     setselectedPlateformsBtn(name);
   };
   let countViews = (course) => {
@@ -286,23 +282,19 @@ const SearchResultBody = () => {
   };
   const onChangeSliderValue = (e) => {
     setSliderValue(e.target.value);
-    console.log("name", e.target.value);
   };
   const RequestClikEvent = async (e) => {
-    console.log("selectedGameBtn", selectedGameBtn);
     const filterData = {
       gameType: selectedGameBtn,
       plateForm: selectedPlateformsBtn,
       mode: radioBtnValue,
       price: sliderValue,
     };
-    console.log("filterData", filterData);
     let res = await api(
       "get",
       `/courses/filteredCourses?&&gameType=${selectedGameBtn}&&plateForm=${selectedPlateformsBtn}&&mode=${radioBtnValue}&&price=${sliderValue}`
     );
     if (res) {
-      console.log("data", res);
       updateStore({ searchCourse: res?.data });
     }
   };

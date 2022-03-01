@@ -80,11 +80,9 @@ export default function RankingList() {
     if (res) {
       updateStore({ contentRequest: res?.data });
       //updateStore({ create: res?.data });
-      console.log("user", user);
     }
   };
   const handleVoteClick = async (row) => {
-    console.log("row is ", row._id);
     const formData = { course_request_id: row._id, user_id: user._id };
     let res = await api("put", "/contentRequests/postCoursesVote", formData);
   };
@@ -94,7 +92,6 @@ export default function RankingList() {
   const handleChange = (event) => {
     setAge(event.target.value);
   };
-  console.log(tableCellClasses.root);
 
   return (
     <>

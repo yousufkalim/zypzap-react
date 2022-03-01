@@ -99,7 +99,6 @@ export default function PrimarySearchAppBar({
   const [openProfile, setOpenProfile] = useState(false);
 
   const handleClickOpen = () => {
-    console.log(openProfile);
     setOpenProfile(true);
   };
 
@@ -147,7 +146,6 @@ export default function PrimarySearchAppBar({
     if (e.target.value !== "") {
       let res = await api("get", `/courses/search?name=${e.target.value}`);
       if (res) {
-        console.log("data", res);
         updateStore({ searchCourse: res?.data });
         //updateStore({ create: res?.data });
       }

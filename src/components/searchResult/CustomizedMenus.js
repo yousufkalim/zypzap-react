@@ -82,7 +82,6 @@ export default function CustomizedMenus(props) {
       var d = b.rating;
       return d - c;
     });
-    console.log("items", Courses);
     updateStore({ searchCourse: Courses });
     handleClose();
   };

@@ -25,13 +25,11 @@ export default function PropfileInformation({ openProfile, handleClose }) {
     if (event.key === "Enter" && event.target.value !== "") {
       setFavouritGame([...favouritGame, event.target.value]);
       event.target.value = "";
-      console.log("tags", favouritGame);
     }
   };
   const onChangeRadioBtn = (e) => {
     const value = e.target.value;
     setGameMood(e.target.value);
-    console.log("xgxhjgv", value);
   };
   const removeTags = (index) => {
     setFavouritGame([
@@ -39,11 +37,11 @@ export default function PropfileInformation({ openProfile, handleClose }) {
     ]);
   };
   const changePlayPeriodHandler = (e) => {
-    console.log(e.target.value);
+
     setPlayPeriod(e.target.value);
   };
   const changePlayTimeHandler = (e) => {
-    console.log(e.target.value);
+
     setPlayTime(e.target.value);
   };
   const changeCurrentLevelHandler = (e) => {
@@ -53,7 +51,7 @@ export default function PropfileInformation({ openProfile, handleClose }) {
     setTargetLevel(e.target.value);
   };
   const selectplateForm = (e) => {
-    console.log(e.target.value);
+  
     if (!plateForm) {
       setPlateForm(e.target.value);
     } else {
@@ -61,10 +59,10 @@ export default function PropfileInformation({ openProfile, handleClose }) {
       setPlateForm(data);
     }
 
-    console.log("plateForm", plateForm);
+  
   };
   const selectGameType = (e) => {
-    console.log(e.target.value);
+  
     if (!gameType) {
       setGameType(e.target.value);
     } else {
@@ -72,14 +70,13 @@ export default function PropfileInformation({ openProfile, handleClose }) {
       setGameType(data);
     }
 
-    console.log("plateForm", gameType);
   };
   const handleImageSelect = async (e) => {
     const formdata = new FormData();
     formdata.append(`file`, e.target.files[0]);
     let res = await api("post", "/uploadImage", formdata);
     setImageURL(res.data.file);
-    console.log("res", res.data.file);
+  
   };
 
   const submitProfile = async (e) => {
@@ -159,7 +156,6 @@ export default function PropfileInformation({ openProfile, handleClose }) {
                     event.target.value = null;
                   }}
                 />
-                {console.log("imag", profile_photo)}
                 <img
                   src={profile_photo ? profile_photo : Course1}
                   className="userProfileInput"
