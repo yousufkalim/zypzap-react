@@ -212,11 +212,11 @@ const SearchResultBody = () => {
   const [selectedPlateforms, setSelectedPlateforms] = useState(false);
   const [selectedGameplay, setSelectedGameplay] = useState(false);
   const [selectedPrice, setSelectedPrice] = useState(false);
-  const [sliderValue, setSliderValue] = useState(0);
-  const [selectedActiveButton, setSelectedActiveButton] = useState();
-  const [selectedGameBtn, setSelectedGameBtn] = useState();
-  const [selectedPlateformsBtn, setselectedPlateformsBtn] = useState();
-  const [radioBtnValue, setRadioBtnValue] = useState();
+  const [sliderValue, setSliderValue] = useState("");
+  const [selectedActiveButton, setSelectedActiveButton] = useState("");
+  const [selectedGameBtn, setSelectedGameBtn] = useState("");
+  const [selectedPlateformsBtn, setselectedPlateformsBtn] = useState("");
+  const [radioBtnValue, setRadioBtnValue] = useState("");
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
   const { searchCourse } = Store();
   const updateStore = UpdateStore();
@@ -295,6 +295,7 @@ const SearchResultBody = () => {
       mode: radioBtnValue,
       price: sliderValue,
     };
+    console.log("filterData", filterData);
     let res = await api(
       "get",
       `/courses/filteredCourses?&&gameType=${selectedGameBtn}&&plateForm=${selectedPlateformsBtn}&&mode=${radioBtnValue}&&price=${sliderValue}`
@@ -303,11 +304,6 @@ const SearchResultBody = () => {
       console.log("data", res);
       updateStore({ searchCourse: res?.data });
     }
-
-    setSelectedGameBtn("");
-    setselectedPlateformsBtn("");
-    setRadioBtnValue("");
-    setSliderValue("");
   };
   // To get slider value
   return (
@@ -590,11 +586,11 @@ const SearchResultBody = () => {
                   <input
                     type="radio"
                     onChange={onChangeSliderValue}
-                    id="+100€"
+                    id="all"
                     name="active"
-                    value="+100€"
+                    value="all"
                   />
-                  <label for="+100€">- +100 €</label>
+                  <label for="all">- +100 €</label>
                 </div>
               </form>
             ) : null}

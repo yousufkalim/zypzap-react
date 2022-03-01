@@ -179,11 +179,7 @@ export default function LatestCourses(props) {
             >
               {/* {item?.creator?.user_id?.profile_photo?.item.creator.user_id.profile_photo:} courseimg img */}
               <img
-                src={
-                  item?.creator?.user_id?.profile_photo
-                    ? item.creator.user_id.profile_photo
-                    : Course1
-                }
+                src={item?.thumbnail ? item.thumbnail : Course1}
                 className="courseimg"
                 alt="img"
               />

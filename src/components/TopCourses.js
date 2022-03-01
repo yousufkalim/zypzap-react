@@ -10,6 +10,7 @@ import StarIcon from "@material-ui/icons/Star";
 export default function TopCourses(props) {
   const [loading, setLoading] = useState(false);
   const { courses } = props;
+
   const Courses = courses.sort(function (a, b) {
     var c = a.rating;
     var d = b.rating;
@@ -29,6 +30,7 @@ export default function TopCourses(props) {
       description: "Hello World!",
     },
   ];
+
   return (
     <div className="topCoursescontainer">
       <p className="topcourseheading">Top Courses</p>
@@ -38,7 +40,7 @@ export default function TopCourses(props) {
         activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
         className="topcoursecarousal"
       >
-        {Courses?.map((item, i) => (
+        {Courses?.slice(0, 3).map((item, i) => (
           <TopCoursesComponent key={i} item={item} />
         ))}
       </Carousel>
@@ -88,11 +90,13 @@ function TopCoursesComponent({ item }) {
       <Grid item xs={12} sm={7} className="topcourseTextGrid">
         <Grid container spacing={2}>
           <Grid item xs={8} md={8}>
-            <h3 className="h3heading">{item?.name}</h3>
+            <h3 className="h3heading">
+              {item?.name ? item.name : "PUBG gameplay full course"}
+            </h3>
             <p className="topcourseText">
               {item?.description
                 ? item.description
-                : "Description is not availiable for this courses"}
+                : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa semper mi feugiat quis tellus arcu. Rutrum non vitae id urna nunc, egestas. Tempus aliquam, at fusce facilisi gravida lacus faucibus felis, aliquet. Condimentum aenean nulla morbi euismod non vel arcu sapien magna."}
             </p>
           </Grid>
           <Grid item xs={4} md={4}>
