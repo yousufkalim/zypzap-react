@@ -289,6 +289,7 @@ const SearchResultBody = () => {
     console.log("name", e.target.value);
   };
   const RequestClikEvent = async (e) => {
+    console.log("selectedGameBtn", selectedGameBtn);
     const filterData = {
       gameType: selectedGameBtn,
       plateForm: selectedPlateformsBtn,
@@ -516,11 +517,11 @@ const SearchResultBody = () => {
                   <input
                     type="radio"
                     onChange={onChangeSliderValue}
-                    id="free"
+                    id="0"
                     name="active"
-                    value="free"
+                    value="0"
                   />
-                  <label for="free">Free/Subscription</label>
+                  <label for="0">Free/Subscription</label>
                 </div>
                 <div class="radio-item">
                   <input
@@ -624,15 +625,19 @@ const SearchResultBody = () => {
           <Box className="cards-container">
             <div className="cards-box">
               <div className="cards-header-text">
-                <h2> CS-GO GAME</h2>
+                <h2>
+                  {" "}
+                  {searchCourse.length == 0 ? "No Course Found" : "CS-GO GAME"}
+                </h2>
                 <span>{searchCourse.length + " course result"}</span>
               </div>
               <div>
-                {" "}
-                <CustomizedMenus
-                  searchCourse={searchCourse}
-                  updateStore={updateStore}
-                />
+                {searchCourse.length != 0 && (
+                  <CustomizedMenus
+                    searchCourse={searchCourse}
+                    updateStore={updateStore}
+                  />
+                )}
               </div>
             </div>
             <Grid
@@ -671,9 +676,11 @@ const SearchResultBody = () => {
                 </Grid>
               ))}
             </Grid>
-            <Box textAlign="center">
-              <button className="btn-search-result">View more</button>
-            </Box>
+            {searchCourse.length != 0 && (
+              <Box textAlign="center">
+                <button className="btn-search-result">View more</button>
+              </Box>
+            )}
           </Box>
         )}
       </>

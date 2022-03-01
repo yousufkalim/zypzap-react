@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 const api = async (method = "get", uri, body) => {
   // Default setting for production
-  console.log("body", body);
+  // console.log("body", body);
   if (window.location.hostname !== "localhost") {
     axios.defaults.baseURL = "https://passtotrip.falconit.com.pk/api";
     axios.defaults.withCredentials = true;
