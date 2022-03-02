@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;800&family=Mulish&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Mulish", sans-serif;
+}
+.userProfile-centerDiv {
+  width: 90%;
+  margin: auto;
+  position: relative;
+}
+.Profile-DP {
+  position: absolute;
+
+  display: inline-block;
+  border-radius: 6px;
+  bottom: -20%;
+  left: 2.9%;
+}
+.DP-img {
+  border: 15px solid #14162c;
+  border-radius: 6px;
+  padding: 0;
+  margin: 0;
+}
+.profile-container {
+  width: 70%;
+  position: absolute;
+  display: flex;
+  /* flex-direction: column; */
+  color: #fff;
+  bottom: 25px;
+  left: 24.5%;
+  z-index: 5;
+
+  align-items: flex-end;
+}
+.prfile-name-heading {
+  margin-right: 20px;
+}
+.profileEditButton {
+  margin-left: auto;
+}
+.profile-name {
+  font-size: 24px;
+  font-size: 100;
+}
+.pofileP {
+  margin: 8px 0 14px 0;
+}
+.prfile-lavelP {
+  font-size: 20px;
+}
+.level-span {
+  font-weight: 700;
+}
+.followingP {
+  font-size: 20px;
+}
+.follo-span {
+  font-weight: 700;
+}
+.editProfiel-btn {
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 10px;
+  border-radius: 4px;
+}
+/* My Profile component */
+.myProfile {
+  /* border: 2px solid red; */
+  color: #fff;
+  width: 90%;
+  margin: auto;
+  margin-top: 10%;
+}
+.myProfileName {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  border-bottom: 1px solid gray;
+  padding-bottom: 10px;
+}
+.profile-headings {
+  /* border: 2px solid rgb(98, 0, 255); */
+  width: 75%;
+}
+.MyProfileP {
+  font-size: 18px;
+  padding: 0 0 39px 0;
+}
+.profile-bioP {
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  margin: 10px 0 13px 0;
+}
+.Bio-container {
+  width: 42%;
+  display: flex;
+  flex-direction: column;
+}
+.profile-allButtons {
+  margin: 13px 0 25px 0;
+}

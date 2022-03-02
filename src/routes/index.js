@@ -16,6 +16,7 @@ import ContentCreatorLandingPage from "../containers/ContentCreatorLandingPage";
 import LandingPartner from "../containers/LandingPartner";
 import ContentDashboard from "../containers/ContentDashboard";
 import ProtectedRoutes from "./ProtectedRoutes.js";
+import UserProfile from "../containers/UserProfilePage";
 
 const index = () => {
   return (
@@ -40,6 +41,7 @@ const index = () => {
       <Route exact path="/contenthome" component={Contenthome} />
       <Route exact path="/searchresult" component={SearchResult} />
       <Route exact path="/dashboard" component={ContentDashboard} />
+      <Route exact path="/userprofile" component={UserProfile} />
       {/* <Route exact path="/*" render={() => <ProtectedRoutes />} /> */}
     </Switch>
   );

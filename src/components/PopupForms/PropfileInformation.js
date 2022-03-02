@@ -37,11 +37,9 @@ export default function PropfileInformation({ openProfile, handleClose }) {
     ]);
   };
   const changePlayPeriodHandler = (e) => {
-
     setPlayPeriod(e.target.value);
   };
   const changePlayTimeHandler = (e) => {
-
     setPlayTime(e.target.value);
   };
   const changeCurrentLevelHandler = (e) => {
@@ -51,32 +49,26 @@ export default function PropfileInformation({ openProfile, handleClose }) {
     setTargetLevel(e.target.value);
   };
   const selectplateForm = (e) => {
-  
     if (!plateForm) {
       setPlateForm(e.target.value);
     } else {
       const data = [...plateForm, e.target.value];
       setPlateForm(data);
     }
-
-  
   };
   const selectGameType = (e) => {
-  
     if (!gameType) {
       setGameType(e.target.value);
     } else {
       const data = [...gameType, e.target.value];
       setGameType(data);
     }
-
   };
   const handleImageSelect = async (e) => {
     const formdata = new FormData();
     formdata.append(`file`, e.target.files[0]);
     let res = await api("post", "/uploadImage", formdata);
     setImageURL(res.data.file);
-  
   };
 
   const submitProfile = async (e) => {
@@ -367,7 +359,6 @@ export default function PropfileInformation({ openProfile, handleClose }) {
           </div>
           <div className="userProfileSelectInput2">
             <br />
-
             <select
               id="Select"
               name="Select"

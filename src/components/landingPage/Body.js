@@ -44,9 +44,9 @@ export default function Body() {
               <br className="landingBr" /> {t("dedie au gaming")}
             </h1>
             <p className="myStylep ">
-              {t("Inscrivez vous aujourd'hui pour bénéficier")}
+              {t("Inscrivez-vous aujourd'hui pour")}
               <br />
-              {t("des avantages uniques")}
+              {t("bénéficier d'avantages uniques")}
             </p>
           </div>
           <div className="landingbuttondiv">
