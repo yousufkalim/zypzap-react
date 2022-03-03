@@ -21,7 +21,7 @@ const ResearchFaild = () => {
           columns={{ xs: 2, sm: 8, md: 12 }}
         >
           <div className="researchErrorImg">
-            <img src={NotFound} alt="" />
+            <img src={NotFound} alt="" style={{ width: "100%" }} />
             <p className="researchP">
               Don’t Worry if you didn’t got what you searched for
             </p>
