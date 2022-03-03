@@ -4,6 +4,7 @@ import Dialog from "@mui/material/Dialog";
 // import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import UserProfileIm from "../../assets/userProfileIm.png";
+import Checkbox from "@mui/material/Checkbox";
 
 export default function PropfileInformation({ openProfile, handleClose }) {
   const [tags, setTags] = React.useState([]);
@@ -13,6 +14,7 @@ export default function PropfileInformation({ openProfile, handleClose }) {
       event.target.value = "";
     }
   };
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const removeTags = (index) => {
     setTags([...tags.filter((tag) => tags.indexOf(tag) !== index)]);
   };
@@ -117,21 +119,10 @@ export default function PropfileInformation({ openProfile, handleClose }) {
           <div className="userProfileGamingMode">
             <p className="gamingModeP">Favorite gaming mode</p>
             <div className="gamingModeSelect">
-              <input
-                type="checkbox"
-                id="vehicle1"
-                name="vehicle1"
-                className="userProfileChackbox"
-                value="Bike"
-              />
+              <Checkbox {...label} />
+
               <label for="vehicle1"> Single Player Mode</label>
-              <input
-                type="checkbox"
-                id="vehicle2"
-                name="vehicle2"
-                value="Car"
-                className="userProfileChackbox2"
-              />
+              <Checkbox {...label} style={{ marginLeft: "13px" }} />
               <label for="vehicle2"> MultiPlayer Mode</label>
             </div>
           </div>
@@ -148,6 +139,7 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               <option value="saab">Per Month</option>
               <option value="mercedes">Per Year</option>
             </select>
+
             <select
               id="Select"
               name="Select"
@@ -171,13 +163,14 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               <option value="volvo" className="selectInput-option">
                 Medium
               </option>
-              <option value="mercedes">initial</option>
+              <option value="mercedes">Initial</option>
               <option value="audi">pro</option>
             </select>
           </div>
           <div className="userProfileSelectInput">
             <label for="Learning">Target Gameplay level</label>
             <br />
+
             <select
               id="Select"
               name="Select"

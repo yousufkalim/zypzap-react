@@ -235,10 +235,10 @@
   margin: 12px 0;
 }
 .userProfileH1 {
-  font-size: 28px;
+  font-size: 24px;
 }
 .userProfileP {
-  font-size: 18px;
+  font-size: 15px;
   margin: 4px 0 4px 0;
 }
 .userProfile-uploadData {
@@ -277,7 +277,7 @@
   text-transform: capitalize;
 }
 .userProfile_inputTags {
-  margin: 15px 2px 50px 5px;
+  margin: 15px 2px 0px 5px;
   padding: 5px 0;
   width: 100px;
   background: none;
@@ -290,7 +290,11 @@
   outline: none;
 }
 .tags-input-FGames {
-  font-size: 16px;
+  font-size: 14px;
+}
+.userButton-heading {
+  font-size: 14px;
+  padding-bottom: 5px;
 }
 .allButtons {
   flex-wrap: wrap;
@@ -332,12 +336,10 @@
   margin: 8px 0 12px 0;
   background: none;
   color: #fff;
-  padding: 15px;
-  background-color: #1d1f38;
+  padding: 10px;
 }
 .userProfileSelectInput2 {
   display: flex;
-  /* flex-direction: column; */
   width: 100%;
   justify-content: space-between;
 }
@@ -347,8 +349,7 @@
   margin: 8px 5px 12px 5px;
   background: none;
   color: #fff;
-  padding: 15px;
-  background-color: #1d1f38;
+  padding: 10px;
 }
 .selectInput-option {
   background: none !important;
