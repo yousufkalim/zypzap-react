@@ -354,6 +354,7 @@
   background: none;
   color: #fff;
   padding: 10px;
+  background-color: #1d1f38 !important;
 }
 .selectInput-option {
   background: none !important;
