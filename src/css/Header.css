@@ -87,7 +87,7 @@
   font-family: "Poppins", sans-serif;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 12px;
 }
 .dropbtn {
   color: white;
@@ -259,7 +259,7 @@
   }
   .requestBtn {
     padding: 6px 5px;
-    font-size: 0.7rem;
+    font-size: 8px;
   }
   .WalletInput {
     font-size: 12px;
@@ -319,7 +319,13 @@
     padding: 8px 9px;
     font-weight: 400;
     font-family: "Poppins", sans-serif;
-    margin: 13px -3px 16px 0 !important;
+    margin: 13px 13px 16px 0 !important;
+  }
+  .searchItemsIcon {
+    position: absolute;
+    top: 22px;
+    left: 13.2%;
+    z-index: 1;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 600px) {
@@ -352,10 +358,10 @@
     margin-left: -28px !important;
   }
   .requestBtn {
-    padding: 8px 5px;
-    margin: 13px 0 8px 0;
+    padding: 8px 7px;
+    margin: 8px 4px 8px 3px;
     font-weight: 400;
-    font-size: 9px;
+    font-size: 5px;
   }
   .css-yz9k0d-MuiInputBase-input {
     font-size: 10px !important;
@@ -371,5 +377,13 @@
   }
   .css-1t29gy6-MuiToolbar-root {
     justify-content: space-around;
+  }
+
+  .css-1pz7awu-MuiButtonBase-root-MuiIconButton-root {
+    padding: 0px !important;
+  }
+  .imgLogo {
+    margin-left: -28px !important;
+    padding-right: 0px !important;
   }
 }

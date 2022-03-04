@@ -16,8 +16,12 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CustomizedMenus from "./CustomizedMenus";
 import HeartIcon from "./HeartIcon";
+
 import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
+
+import ResearchFaild from "./ResearchFaild";
+
 var items = [
   {
     id: 1,
@@ -610,10 +614,11 @@ const SearchResultBody = () => {
         </Grid>
       </Box>
       {/*  */}
-      <>
-        {!searchCourse ? (
-          <h1>Loading...</h1>
-        ) : (
+
+      {!searchCourse ? (
+        <h1>Loading...</h1>
+      ) : (
+        <>
           <Box className="cards-container">
             <div className="cards-box">
               <div className="cards-header-text">
@@ -674,10 +679,56 @@ const SearchResultBody = () => {
               </Box>
             )}
           </Box>
-        )}
-      </>
+        </>
+      )}
     </Box>
   );
 };
 
 export default SearchResultBody;
+
+
+//       {searchCourse.map((item) => (
+//         <Grid item xs={12} sm={6} md={4}>
+//           <div className="cardGrid">
+//             <div className="favourite-icon-position">
+//               <img src={Course1} className="courseimg" alt="img" />
+//               <HeartIcon id={item.id} FvrtIconCount={FvrtIconCount} />
+//             </div>
+//             <h5 className="latestcourseh5">
+//               {" "}
+//               {item?.course_name ? item.course_name : "Fight Course"}
+//             </h5>
+//             <p className="latestcoursep1">
+//               {" "}
+//               {item?.creator?.user_id?.username
+//                 ? item.creator.user_id.username
+//                 : "Arslan Ash"}
+//             </p>
+//             <p className="latestcoursep1">
+//               {" "}
+//               {item?.rating ? item.rating : "0.1"}
+//               {[1, 2, 3, 4, 5].map((i) => (
+//                 <StarIcon className="star-icon" />
+//               ))}
+//               {item?.videos ? " ( " + countViews(item) + " )" : "( 0 )"}
+//             </p>
+//             <h6 className="latestcourseh6">{item?.price + " $"}</h6>
+//           </div>
+//         </Grid>
+//       ))}
+//     </Grid>
+
+//     {searchCourse.length != 0 && (
+//       <Box textAlign="center">
+//         <button className="btn-search-result">View more</button>
+//       </Box>
+//     )}
+//   </Box>
+// )}
+// </>
+
+//   ))}
+// </Grid> */
+// }
+

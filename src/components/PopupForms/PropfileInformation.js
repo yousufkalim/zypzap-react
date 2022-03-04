@@ -4,9 +4,13 @@ import Dialog from "@mui/material/Dialog";
 // import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import UserProfileIm from "../../assets/userProfileIm.png";
+
 import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
 import { Store, UpdateStore } from "../../StoreContext";
+
+import Checkbox from "@mui/material/Checkbox";
+
 export default function PropfileInformation({ openProfile, handleClose }) {
   // const [tags, setTags] = useState([]);
   const [profile_photo, setImageURL] = useState("");
@@ -27,10 +31,14 @@ export default function PropfileInformation({ openProfile, handleClose }) {
       event.target.value = "";
     }
   };
+
   const onChangeRadioBtn = (e) => {
     const value = e.target.value;
     setGameMood(e.target.value);
   };
+
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
   const removeTags = (index) => {
     setFavouritGame([
       ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index),
@@ -112,11 +120,30 @@ export default function PropfileInformation({ openProfile, handleClose }) {
     }
   };
 
+  let gametypebtn = [
+    { name: "Action" },
+    { name: "Adventure" },
+    { name: "Multiplayer game" },
+    { name: "Car Racing" },
+    { name: "FPS" },
+    { name: "Simulation" },
+    { name: "Sports" },
+    { name: "Puzzle" },
+    { name: "RPG" },
+    { name: "RTS" },
+    { name: "Car Racing" },
+  ];
+  let gametypebtn2 = [
+    { name: "Retro Consoles" },
+    { name: "PS1/2/3/4/5" },
+    { name: "Xbox/360/One/X" },
+    { name: "Mobile Games" },
+    { name: "Portable Consoles" },
+    { name: "PC" },
+  ];
+
   return (
     <div>
-      {/* <Button variant="outlined" onClick={handleClickOpen}>
-        Open alert dialog
-      </Button> */}
       <Dialog
         className="userProfile-box"
         open={openProfile}
@@ -125,13 +152,10 @@ export default function PropfileInformation({ openProfile, handleClose }) {
         aria-describedby="alert-dialog-description"
       >
         <div className="userProfile_conteiner">
-          {/* heading div */}
           <div className="userProfile_heading">
             <h2 className="userProfileH1">Profile Information</h2>
             <p className="userProfileP">Input your details</p>
           </div>
-          {/* heading div */}
-          {/* upload image div */}
           <div className="userProfile-uploadData">
             <div>
               <label>
@@ -162,8 +186,6 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               </p>
             </div>
           </div>
-          {/* upload image div */}
-          {/* tage div */}
           <div className="tags-input">
             <div>
               <p className="tags-input-FGames">Favorite Games</p>
@@ -189,8 +211,6 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               </ul>
             </div>
           </div>
-          {/* tage div */}
-          {/* group button */}
           <div className="userButtonGroup">
             <p className="userButton-heading">Game type</p>
             <div className="allButtons">
@@ -271,10 +291,12 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               >
                 Car Racing
               </button>
+
+              {gametypebtn.map((tegs) => (
+                <button className="userTagsAllButton">{tegs.name}</button>
+              ))}
             </div>
           </div>
-          {/* group button */}
-          {/* group button2 */}
           <div className="userButtonGroup">
             <p className="userButton-heading">Gaming Plateforms</p>
             <div className="allButtons2">
@@ -320,10 +342,12 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               >
                 PC
               </button>
+
+              {gametypebtn2.map((tegs2) => (
+                <button className="userTagsAllButton">{tegs2.name}</button>
+              ))}
             </div>
           </div>
-          {/* group button2 */}
-          {/* gaming mood */}
           <div className="userProfileGamingMode">
             <p className="gamingModeP">Favorite gaming mode</p>
             <div className="gamingModeSelect">
@@ -349,11 +373,15 @@ export default function PropfileInformation({ openProfile, handleClose }) {
                   <label for="Multiplayer">Multiplayer mode</label>
                 </div>
               </form>
+
+              <Checkbox {...label} />
+
+              <label for="vehicle1"> Single Player Mode</label>
+              <Checkbox {...label} style={{ marginLeft: "13px" }} />
+
               <label for="vehicle2"> MultiPlayer Mode</label>
             </div>
           </div>
-          {/* gaming mood */}
-          {/* select input div */}
           <div>
             <label for="Learning">Learning Rhythm</label>
           </div>
@@ -372,6 +400,7 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               <option value="Per Year">Per Year</option>
               {/* <option value="audi">Select</option> */}
             </select>
+
             <select
               id="Select"
               name="Select"
@@ -381,13 +410,11 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               <option value="2 Houre" className="selectInput-option">
                 2 Houre
               </option>
+
               <option value="4 Houre">4 Houre</option>
               <option value="6 Houre">6 Houre</option>
-              {/* <option value="audi">Select</option> */}
             </select>
           </div>
-          {/* select input div */}
-          {/* select input div */}
           <div className="userProfileSelectInput">
             <label for="Learning">Current Gameplay level</label>
             <br />
@@ -400,16 +427,16 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               <option value="medium" className="selectInput-option">
                 Medium
               </option>
+
               {/* <option value="saab">Medium</option> */}
               <option value="initial">initial</option>
               <option value="pro">pro</option>
             </select>
           </div>
-          {/* select input div */}
-          {/* select input div */}
           <div className="userProfileSelectInput">
             <label for="Learning">Target Gameplay level</label>
             <br />
+
             <select
               id="Select"
               name="Select"
@@ -419,6 +446,7 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               <option value="medium" className="selectInput-option">
                 Medium
               </option>
+
               {/* <option value="saab">Pro</option> */}
               <option value="initial">Initial</option>
               <option value="pro">Pro</option>
@@ -429,9 +457,8 @@ export default function PropfileInformation({ openProfile, handleClose }) {
             Continue
           </button>
         </div>
+        <button className="userProfileButton">Continue</button>
       </Dialog>
     </div>
   );
 }
-
-// export default PropfileInformation;
