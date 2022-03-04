@@ -11,6 +11,10 @@
   text-align: left;
   font-family: "mulish";
 }
+.topCoursesDiv {
+  max-width: 25% !important;
+  height: auto;
+}
 .topcourseheading {
   padding: 20px 0px 25px 0px;
   font-weight: bolder;

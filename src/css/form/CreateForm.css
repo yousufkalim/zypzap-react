@@ -221,12 +221,14 @@
   width: 100% !important;
 }
 .userProfile_conteiner {
-  width: 92%;
+  width: 100%;
   margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #fff;
   overflow-y: scroll;
+  background-color: #1d1f38;
+  padding: 0 20px;
 }
 .userProfile_conteiner::-webkit-scrollbar {
   width: 0px;
@@ -248,11 +250,13 @@
 }
 .userProfileInput {
   background-color: rgba(255, 255, 255, 0.13);
-  padding: 20px 25px;
-  border-radius: 5px;
+
+  border-radius: 10px;
+  width: 100px;
+  height: 90px;
 }
 .uploadHeading {
-  margin-left: 20px;
+  margin-left: 15px;
 }
 .tags-input-ul {
   display: flex;
@@ -273,11 +277,11 @@
   list-style: none;
   border-radius: 4px;
   margin: 10px 2px 0px 5px;
-  padding: 4px 7px;
+  /* padding: 4px 7px; */
   text-transform: capitalize;
 }
 .userProfile_inputTags {
-  margin: 15px 2px 0px 5px;
+  margin: 7px 2px 0px 5px;
   padding: 5px 0;
   width: 100px;
   background: none;
@@ -299,7 +303,7 @@
 .allButtons {
   flex-wrap: wrap;
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   margin: 8px 0;
 }
 .allButtons2 {
@@ -320,7 +324,7 @@
     linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
 }
 .gamingModeSelect {
-  margin: 10px 0px;
+  margin: 20px 0px 7px 0;
 }
 .userProfileChackbox[type="checkbox"] {
   margin: 0 5px;
@@ -387,5 +391,13 @@
   }
   .create_container .or2 {
     margin: -8px 2px;
+  }
+  .allButtons {
+    justify-content: inherit;
+  }
+}
+@media only screen and (max-width: 319px) {
+  .allButtons {
+    justify-content: inherit;
   }
 }

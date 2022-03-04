@@ -79,7 +79,7 @@ function TopCoursesComponent({ item }) {
       className="topCourseGrid"
       style={{ width: "auto" }}
     >
-      <Grid item xs={12} sm={5} className="">
+      <Grid item xs={12} sm={5} className="topCoursesDiv">
         {/*  make it dynamic  */}
         <img
           src={item?.thumbnail ? item.thumbnail : TopCourseImg}
@@ -87,16 +87,18 @@ function TopCoursesComponent({ item }) {
           alt="img"
         />
       </Grid>
-      <Grid item xs={12} sm={7} className="topcourseTextGrid">
+      <Grid item xs={12} sm={8} className="topcourseTextGrid">
         <Grid container spacing={2}>
           <Grid item xs={8} md={8}>
             <h3 className="h3heading">
               {item?.name ? item.name : "PUBG gameplay full course"}
             </h3>
             <p className="topcourseText">
-              {item?.description
-                ? item.description
-                : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa semper mi feugiat quis tellus arcu. Rutrum non vitae id urna nunc, egestas. Tempus aliquam, at fusce facilisi gravida lacus faucibus felis, aliquet. Condimentum aenean nulla morbi euismod non vel arcu sapien magna."}
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa
+              semper mi feugiat quis tellus arcu. Rutrum non vitae id urna nunc,
+              egestas. Tempus aliquam, at fusce facilisi gravida lacus faucibus
+              felis, aliquet. Condimentum aenean nulla morbi euismod non vel
+              arcu sapien magna.
             </p>
           </Grid>
           <Grid item xs={4} md={4}>
