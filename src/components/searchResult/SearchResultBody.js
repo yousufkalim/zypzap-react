@@ -16,6 +16,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CustomizedMenus from "./CustomizedMenus";
 import HeartIcon from "./HeartIcon";
+import ResearchFaild from "./ResearchFaild";
 
 var items = [
   {
@@ -667,7 +668,7 @@ const SearchResultBody = () => {
       </Box>
       {/*  */}
       <Box className="cards-container">
-        <div className="cards-box">
+        {/* <div className="cards-box">
           <div className="cards-header-text">
             <h2> CS-GO GAME</h2>
             <span>110 course result</span>
@@ -676,8 +677,8 @@ const SearchResultBody = () => {
             {" "}
             <CustomizedMenus />{" "}
           </div>
-        </div>
-        <Grid
+        </div> */}
+        {/* <Grid
           sx={{ padding: "0 20px" }}
           container
           spacing={{ xs: 1, md: 1 }}
@@ -704,10 +705,11 @@ const SearchResultBody = () => {
               </div>
             </Grid>
           ))}
-        </Grid>
-        <Box textAlign="center">
+        </Grid> */}
+        {/* <Box textAlign="center">
           <button className="btn-search-result">View more</button>
-        </Box>
+        </Box> */}
+        <ResearchFaild />
       </Box>
     </Box>
   );
