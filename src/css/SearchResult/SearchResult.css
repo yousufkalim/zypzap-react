@@ -59,6 +59,14 @@
   width: 75%;
   padding: 10px;
 }
+.cards-container2 {
+  background-color: #14162c;
+  border-radius: 8px;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 80px !important;
+}
 .favourite-icon-position {
   position: relative;
 }
@@ -110,6 +118,19 @@
   padding: 5px 12px !important;
   font-size: 13px !important;
   margin: 10px 0 !important;
+}
+.btn-Research {
+  border: none;
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  color: #fff;
+  font-weight: 600 !important;
+  font-family: "Poppins", sans-serif !important;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem !important;
+  padding: 5px 12px !important;
+  font-size: 13px !important;
+  margin-left: auto !important;
 }
 
 .filterby-divider {

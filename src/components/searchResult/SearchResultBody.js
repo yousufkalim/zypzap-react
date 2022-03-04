@@ -16,8 +16,13 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CustomizedMenus from "./CustomizedMenus";
 import HeartIcon from "./HeartIcon";
+
 import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
+
+import ResearchFaild from "./ResearchFaild";
+
+
 var items = [
   {
     id: 1,
@@ -610,6 +615,7 @@ const SearchResultBody = () => {
         </Grid>
       </Box>
       {/*  */}
+
       <>
         {!searchCourse ? (
           <h1>Loading...</h1>
@@ -618,6 +624,35 @@ const SearchResultBody = () => {
             <div className="cards-box">
               <div className="cards-header-text">
                 <h2>
+
+      <Box className="cards-container">
+        {/* <div className="cards-box">
+          <div className="cards-header-text">
+            <h2> CS-GO GAME</h2>
+            <span>110 course result</span>
+          </div>
+          <div>
+            {" "}
+            <CustomizedMenus />{" "}
+          </div>
+        </div> */}
+        {/* <Grid
+          sx={{ padding: "0 20px" }}
+          container
+          spacing={{ xs: 1, md: 1 }}
+          columns={{ xs: 2, sm: 8, md: 12 }}
+        >
+          {items.map((item) => (
+            <Grid item xs={12} sm={6} md={4}>
+              <div className="cardGrid">
+                <div className="favourite-icon-position">
+                  <img src={item.img} className="courseimg" alt="img" />
+                  <HeartIcon id={item.id} FvrtIconCount={FvrtIconCount} />
+                </div>
+                <h5 className="latestcourseh5">{item.title}</h5>
+                <p className="latestcoursep1">{item.name}</p>
+                <p className="latestcoursep1">
+
                   {" "}
                   {searchCourse.length == 0 ? "No Course Found" : "CS-GO GAME"}
                 </h2>
@@ -668,6 +703,7 @@ const SearchResultBody = () => {
                 </Grid>
               ))}
             </Grid>
+
             {searchCourse.length != 0 && (
               <Box textAlign="center">
                 <button className="btn-search-result">View more</button>
@@ -676,6 +712,15 @@ const SearchResultBody = () => {
           </Box>
         )}
       </>
+
+          ))}
+        </Grid> */}
+        {/* <Box textAlign="center">
+          <button className="btn-search-result">View more</button>
+        </Box> */}
+        <ResearchFaild />
+      </Box>
+
     </Box>
   );
 };

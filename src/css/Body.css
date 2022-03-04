@@ -51,6 +51,9 @@
   text-align: right !important;
   margin-top: 24px;
 }
+.profileBackgroun-Image {
+  width: 100%;
+}
 @media only screen and (min-width: 1900px) {
   .bodyImage {
     width: 94%;

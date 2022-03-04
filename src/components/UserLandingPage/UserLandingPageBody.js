@@ -40,7 +40,7 @@ const UserLandingPageBody = () => {
                 : "frUserLandingPageAboutTextImgH1"
             }`}
           >
-            {t("Deviens maitre du jeu !")}
+            {t("Devenez maitre du jeu !")}
           </h1>
           <p className="user-landing-page-text-on-imgP">
             {t("Accédez à la connaissance supreme du gaming")}
@@ -69,7 +69,7 @@ const UserLandingPageBody = () => {
         </div>
       </div>
       <UserLandingPageAdvantages
-      type="landing"
+        type="landing"
         text1="DES COURS CONÇUS POUR PROGRESSER"
         text2="TOUS LES JEUX SONT ABORDES"
         text3="DES SUJETS DE COURS SUR MESURE"
