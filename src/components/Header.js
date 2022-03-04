@@ -84,6 +84,7 @@ export default function PrimarySearchAppBar({
   setOpenBecomeCreatorPopup,
 }) {
   const updateStore = UpdateStore();
+  const [search, setSearch] = useState("course");
   const { user, creator } = Store();
   const handleLogout = async () => {
     let res = await api("post", "/users/logout/all");
@@ -147,10 +148,28 @@ export default function PrimarySearchAppBar({
       let res = await api("get", `/courses/search?name=${e.target.value}`);
       if (res) {
         updateStore({ searchCourse: res?.data });
-        //updateStore({ create: res?.data });
       }
+      // if (search === "course") {
+      //   res = await api("get", `/courses/search?name=${e.target.value}`);
+      // } else {
+      //   res = await api("get", `/creators/search?name=${e.target.value}`);
+      //   console.log("creator", res);
+      // }
+      // if (res) {
+      //   updateStore({ searchCourse: res?.data });
+      //   //updateStore({ create: res?.data });
+      // }
     }
   };
+  const handleCreatorSearch = (e) => {
+    e.preventDefault();
+    setSearch("creator");
+  };
+  const handleCourseSearch = (e) => {
+    e.preventDefault();
+    setSearch("course");
+  };
+
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -305,7 +324,7 @@ export default function PrimarySearchAppBar({
                 </button>
                 <div className="dropdown-content">
                   <div className="drowp1">
-                    <a href="#">
+                    <a href="#" onClick={handleCreatorSearch}>
                       <img className="UserIcons" src={UserIcon} alt="" />
                       Content Creators
                       <p className="drowpP">
@@ -314,7 +333,7 @@ export default function PrimarySearchAppBar({
                     </a>
                   </div>
                   <div className="drowp1">
-                    <a href="#">
+                    <a href="#" onClick={handleCourseSearch}>
                       <img className="UserIcons" src={CourseIcon} alt="" />
                       Courses
                       <p className="drowpP">Browse and buy courses</p>

@@ -77,14 +77,33 @@ export default function RankingList() {
   const { contentRequest, user } = Store();
   let getContentRequest = async () => {
     let res = await api("get", "/contentRequests");
+
     if (res) {
       updateStore({ contentRequest: res?.data });
       //updateStore({ create: res?.data });
     }
   };
   const handleVoteClick = async (row) => {
-    const formData = { course_request_id: row._id, user_id: user._id };
-    let res = await api("put", "/contentRequests/postCoursesVote", formData);
+    if (user) {
+      console.log("user", row);
+      const formData = { course_request_id: row._id, user_id: user._id };
+      let res = await api("put", "/contentRequests/postCoursesVote", formData);
+      if (res) getContentRequest();
+    } else {
+      console.log("Please login!");
+    }
+  };
+  const isShow = (userIds) => {
+    if (user) {
+      const status = userIds.filter((a) => a === user._id);
+      if (status.length === 0) {
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return false;
+    }
   };
   useEffect(() => {
     getContentRequest();
@@ -214,7 +233,7 @@ export default function RankingList() {
                       {row.createdAt}
                     </TableCell>
                     <TableCell className="headergameCell" align="right">
-                      {row.GameLevel}
+                      {row.level}
                     </TableCell>
                     <TableCell className="descriptionCell" align="right">
                       {row.description}
@@ -224,12 +243,24 @@ export default function RankingList() {
                       {row?.likes ? row.likes.length + " Votes" : "0 Votes"}
                     </TableCell>
                     <TableCell align="right">
-                      <button
-                        className="votebutton"
-                        onClick={() => handleVoteClick(row)}
-                      >
-                        Vote
-                      </button>
+                      {user?(<>{isShow(row.likes) ? (
+                        <button
+                          className="votebutton"
+                          key={index}
+                          onClick={() => handleVoteClick(row)}
+                          disabled={true}
+                        >
+                          Voted
+                        </button>
+                      ) : (
+                        <button
+                          className="votebutton"
+                          key={index}
+                          onClick={() => handleVoteClick(row)}
+                        >
+                          Vote
+                        </button>
+                      )}</>):""}
                     </TableCell>
                   </TableRow>
                 ))}
