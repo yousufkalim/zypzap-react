@@ -214,84 +214,6 @@ export default function PropfileInformation({ openProfile, handleClose }) {
           <div className="userButtonGroup">
             <p className="userButton-heading">Game type</p>
             <div className="allButtons">
-              <button
-                className="userTagsAllButton"
-                value="Action"
-                onClick={selectGameType}
-              >
-                Action
-              </button>
-              <button
-                className="userTagsAllButton"
-                value="Adventure"
-                onClick={selectGameType}
-              >
-                Adventure
-              </button>
-              <button
-                className="userTagsAllButton"
-                value="Multiplayer game"
-                onClick={selectGameType}
-              >
-                Multiplayer game
-              </button>
-              <button
-                className="userTagsAllButton"
-                value="Car Racing"
-                onClick={selectGameType}
-              >
-                Car Racing
-              </button>
-              <button
-                className="userTagsAllButton"
-                value="FPS"
-                onClick={selectGameType}
-              >
-                FPS
-              </button>
-              <button
-                className="userTagsAllButton"
-                value="Simulation"
-                onClick={selectGameType}
-              >
-                Simulation
-              </button>
-              <button
-                className="userTagsAllButton"
-                value="Sports"
-                onClick={selectGameType}
-              >
-                Sports
-              </button>
-              <button
-                className="userTagsAllButton"
-                value="Puzzle"
-                onClick={selectGameType}
-              >
-                Puzzle
-              </button>
-              <button
-                className="userTagsAllButton"
-                value="RPG"
-                onClick={selectGameType}
-              >
-                RPG
-              </button>
-              <button
-                className="userTagsAllButton"
-                value="RTS"
-                onClick={selectGameType}
-              >
-                RTS
-              </button>
-              <button
-                className="userTagsAllButton"
-                value="Car Racing"
-                onClick={selectGameType}
-              >
-                Car Racing
-              </button>
-
               {gametypebtn.map((tegs) => (
                 <button className="userTagsAllButton">{tegs.name}</button>
               ))}
@@ -300,49 +222,6 @@ export default function PropfileInformation({ openProfile, handleClose }) {
           <div className="userButtonGroup">
             <p className="userButton-heading">Gaming Plateforms</p>
             <div className="allButtons2">
-              <button
-                className="userTagsAllButton"
-                value="Retro Consoles"
-                onClick={selectplateForm}
-              >
-                Retro Consoles
-              </button>
-              <button
-                className="userTagsAllButton"
-                value="PS1/2/3/4/5"
-                onClick={selectplateForm}
-              >
-                PS1/2/3/4/5
-              </button>
-              <button
-                className="userTagsAllButton"
-                value="Xbox/360/One/X"
-                onClick={selectplateForm}
-              >
-                Xbox/360/One/X
-              </button>
-              <button
-                className="userTagsAllButton"
-                value="Mobile Games"
-                onClick={selectplateForm}
-              >
-                Mobile Games
-              </button>
-              <button
-                className="userTagsAllButton"
-                value="Portable Consoles"
-                onClick={selectplateForm}
-              >
-                Portable Consoles
-              </button>
-              <button
-                className="userTagsAllButton"
-                value="PC"
-                onClick={selectplateForm}
-              >
-                PC
-              </button>
-
               {gametypebtn2.map((tegs2) => (
                 <button className="userTagsAllButton">{tegs2.name}</button>
               ))}
@@ -351,29 +230,6 @@ export default function PropfileInformation({ openProfile, handleClose }) {
           <div className="userProfileGamingMode">
             <p className="gamingModeP">Favorite gaming mode</p>
             <div className="gamingModeSelect">
-              <form>
-                <div class="radio-item">
-                  <input
-                    type="radio"
-                    onChange={onChangeRadioBtn}
-                    id="Single"
-                    name="active"
-                    value="Single"
-                  />
-                  <label for="Single">Single mode</label>
-                </div>
-                <div class="radio-item">
-                  <input
-                    type="radio"
-                    onChange={onChangeRadioBtn}
-                    id="Multiplayer"
-                    name="active"
-                    value="Multiplayer"
-                  />
-                  <label for="Multiplayer">Multiplayer mode</label>
-                </div>
-              </form>
-
               <Checkbox {...label} />
 
               <label for="vehicle1"> Single Player Mode</label>
@@ -457,7 +313,6 @@ export default function PropfileInformation({ openProfile, handleClose }) {
             Continue
           </button>
         </div>
-        <button className="userProfileButton">Continue</button>
       </Dialog>
     </div>
   );

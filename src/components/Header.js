@@ -409,7 +409,7 @@ export default function PrimarySearchAppBar({
                           displayEmpty
                         >
                           <MenuItem value="" className="walletInputMenu">
-                            <m className="WalletInput">Connect Wallet</m>
+                            Connect Wallet
                           </MenuItem>
                           <MenuItem value={10} className="walletInputMenu">
                             Metamask
