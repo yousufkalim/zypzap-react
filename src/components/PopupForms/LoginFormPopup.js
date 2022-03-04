@@ -62,14 +62,14 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
       password,
     };
     try {
-      // let res = await api("post", "/users/login", formdata);
-      // if (res) {
-      //   localStorage.setItem("token", res?.data?.token);
+      let res = await api("post", "/users/login", formdata);
+      if (res) {
+        localStorage.setItem("token", res?.data?.token);
 
-      //   setOpen(false);
-      //   setLoading(false);
-      //   window.location.reload();
-      // }
+        setOpen(false);
+        setLoading(false);
+        window.location.reload();
+      }
       window.location.reload();
     } catch (error) {
       setLoading(false);

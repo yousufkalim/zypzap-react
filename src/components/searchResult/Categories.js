@@ -7,8 +7,7 @@ const Categories = ({ categories, activeButton, trigerOnClickEmpSideBtn }) => {
         const className = activeButton === item.name ? "active" : "";
         return (
           <div
-            onClick={trigerOnClickEmpSideBtn}
-            key={item.name}
+            onClick={() => trigerOnClickEmpSideBtn(item)}
             className={`categories-text ${className}`}
             sx={{ display: "flex", flexDirection: "column" }}
           >

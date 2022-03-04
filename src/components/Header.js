@@ -84,6 +84,7 @@ export default function PrimarySearchAppBar({
   setOpenBecomeCreatorPopup,
 }) {
   const updateStore = UpdateStore();
+  const [search, setSearch] = useState("course");
   const { user, creator } = Store();
   const handleLogout = async () => {
     let res = await api("post", "/users/logout/all");
@@ -99,7 +100,6 @@ export default function PrimarySearchAppBar({
   const [openProfile, setOpenProfile] = useState(false);
 
   const handleClickOpen = () => {
-    console.log(openProfile);
     setOpenProfile(true);
   };
 
@@ -138,6 +138,36 @@ export default function PrimarySearchAppBar({
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
+  };
+  const handleSearchClick = (event) => {
+    console.log("called");
+  };
+  const searchCourse = async (e) => {
+    e.preventDefault();
+    if (e.target.value !== "") {
+      let res = await api("get", `/courses/search?name=${e.target.value}`);
+      if (res) {
+        updateStore({ searchCourse: res?.data });
+      }
+      // if (search === "course") {
+      //   res = await api("get", `/courses/search?name=${e.target.value}`);
+      // } else {
+      //   res = await api("get", `/creators/search?name=${e.target.value}`);
+      //   console.log("creator", res);
+      // }
+      // if (res) {
+      //   updateStore({ searchCourse: res?.data });
+      //   //updateStore({ create: res?.data });
+      // }
+    }
+  };
+  const handleCreatorSearch = (e) => {
+    e.preventDefault();
+    setSearch("creator");
+  };
+  const handleCourseSearch = (e) => {
+    e.preventDefault();
+    setSearch("course");
   };
 
   const menuId = "primary-search-account-menu";
@@ -279,12 +309,14 @@ export default function PrimarySearchAppBar({
                   target="_blank"
                   style={{ color: "#fff" }}
                 >
-                  <SearchIcon className="searchItemsIcon" />
+                  {/* <SearchIcon className="searchItemsIcon" /> */}
                 </a>
               </div>
             </Typography>
-            <Search className="searchBar">
-              <SearchIconWrapper></SearchIconWrapper>
+            <Search onChange={searchCourse} className="searchBar">
+              <SearchIconWrapper>
+                <SearchIcon onClick={handleSearchClick} />
+              </SearchIconWrapper>
 
               <div className="dropdown">
                 <button className="dropbtn">
@@ -292,7 +324,7 @@ export default function PrimarySearchAppBar({
                 </button>
                 <div className="dropdown-content">
                   <div className="drowp1">
-                    <a href="#">
+                    <a href="#" onClick={handleCreatorSearch}>
                       <img className="UserIcons" src={UserIcon} alt="" />
                       Content Creators
                       <p className="drowpP">
@@ -301,7 +333,7 @@ export default function PrimarySearchAppBar({
                     </a>
                   </div>
                   <div className="drowp1">
-                    <a href="#">
+                    <a href="#" onClick={handleCourseSearch}>
                       <img className="UserIcons" src={CourseIcon} alt="" />
                       Courses
                       <p className="drowpP">Browse and buy courses</p>

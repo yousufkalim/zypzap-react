@@ -19,9 +19,7 @@ const scrollToTop = () => {
   });
 };
 
-const onChange = (a, b) => {
-  // console.log(a, b);
-};
+const onChange = (a, b) => {};
 
 const UserLandingPageAdvantages = (props) => {
   const [open, setOpen] = useState(false);
