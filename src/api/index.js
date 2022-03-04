@@ -9,7 +9,7 @@ const api = async (method = "get", uri, body) => {
     axios.defaults.baseURL = "https://passtotrip.falconit.com.pk/api";
     axios.defaults.withCredentials = true;
   }
-  axios.defaults.baseURL = "http://localhost:5000/api/";
+  // axios.defaults.baseURL = "http://localhost:5000/api/";
   axios.defaults.withCredentials = true;
   // API Call
   return new Promise((resolve, reject) => {
