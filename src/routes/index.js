@@ -17,6 +17,7 @@ import LandingPartner from "../containers/LandingPartner";
 import ContentDashboard from "../containers/ContentDashboard";
 import ProtectedRoutes from "./ProtectedRoutes.js";
 import UserProfile from "../containers/UserProfilePage";
+import OverView from "../containers/OverView";
 
 const index = () => {
   return (
@@ -42,7 +43,7 @@ const index = () => {
       <Route exact path="/searchresult" component={SearchResult} />
       <Route exact path="/dashboard" component={ContentDashboard} />
       <Route exact path="/userprofile" component={UserProfile} />
-      {/* <Route exact path="/*" render={() => <ProtectedRoutes />} /> */}
+      <Route exact path="/OverView" component={OverView} />/
     </Switch>
   );
 };
