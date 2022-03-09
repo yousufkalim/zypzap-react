@@ -4,8 +4,13 @@ import Header from "../components/Header";
 import UserLandingPageHeader from "../components/UserLandingPageHeader";
 import Footer from "../components/blog/BlogFooter";
 import Body from "../components/Body";
+import { useLocation } from "react-router-dom";
 
 export default function Home() {
+  const queryParams = new URLSearchParams(window.location.search);
+  const token = queryParams.get("user");
+  localStorage.setItem("token", token);
+
   const [openlogin, setOpenLogin] = React.useState(false);
   const [opensignup, setOpenSignup] = React.useState(false);
   const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] =
