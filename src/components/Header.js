@@ -91,6 +91,7 @@ export default function PrimarySearchAppBar({
 
     updateStore({ user: null, creator: null });
     localStorage.removeItem("token");
+    history.push("/home");
   };
   const [age, setAge] = React.useState("");
 
