@@ -1,0 +1,621 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;800&family=Mulish&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Mulish", sans-serif;
+}
+.OverView {
+  width: 100%;
+  color: #fff;
+}
+.center_overViewDiv {
+  width: 95%;
+  margin: auto;
+  position: relative;
+}
+.overViewImage {
+  position: relative;
+}
+.overIMG {
+  width: 100%;
+}
+.overView_heading {
+  position: absolute;
+  top: 34%;
+  left: 4%;
+  width: 58%;
+}
+.overViewH1 {
+  font-size: 36px;
+  font-weight: 800;
+  font-family: "Mulish", sans-serif;
+  margin-bottom: 15px;
+}
+.overViewTags {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+}
+.overViewLi {
+  list-style: none;
+  display: inline;
+  display: flex;
+}
+.overViewIcon {
+  display: inline;
+  margin-left: 50px;
+  margin-top: -5px;
+}
+.overViewIconP {
+  display: inline;
+  line-height: 2;
+  font-size: 18px;
+  margin-left: 7px;
+}
+.overViewP {
+  font-size: 16px;
+  font-weight: 400;
+}
+/* overViewCard */
+.overViewCard {
+  color: #fff;
+  display: inline-block;
+  position: absolute;
+  top: 25%;
+  right: 5%;
+  background-color: #14162c;
+  border-radius: 8px;
+}
+.overViewCenterdiv {
+  width: 90%;
+  margin: auto;
+  padding-top: 15px;
+}
+.overViewCardIMG {
+  width: 100%;
+}
+.overViewRateContent {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+.cardP1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+.cardP2 {
+  color: #636363;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 7px;
+}
+.cardHurtLogo {
+  margin-left: auto;
+}
+.CardBuyBtn {
+  width: 100%;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 500;
+  padding: 8px 0;
+}
+.CardBuyBtn2 {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #fff;
+  width: 100%;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  padding: 8px 0;
+  background-color: #14162c !important;
+  border: 1px solid #fff;
+}
+.overViewCard-content {
+  margin: 10px 0;
+}
+.overViewCard-contentP {
+  font-size: 18px;
+  font-weight: 600;
+}
+.overContentLi {
+  list-style: none;
+  margin: 20px 0;
+}
+.overContentLiLogo {
+  margin-right: 10px;
+}
+.overViewSocialIcon {
+  margin-bottom: 20px;
+}
+/* overViewMenu */
+.overViewMenu {
+  width: 100%;
+}
+.overViewMene_centerDiv {
+  width: 88%;
+  margin: auto;
+  margin-top: 30px;
+}
+.overViewMenuButton {
+  padding: 10px 20px;
+  background-color: #14162c !important;
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-right: 20px;
+}
+.overViewMenuButton:hover {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+}
+.activebtn {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+}
+.overView_description {
+  width: 100%;
+  margin-top: 4%;
+  color: #fff;
+}
+.overView-descripiton-centerDiv {
+  width: 88%;
+  margin: auto;
+}
+.overView-description-content {
+  width: 60%;
+  margin-bottom: 50px;
+}
+.overRequirements {
+  width: 60%;
+}
+.overDescriptionH3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.overDescriptionP {
+  color: #e0e0e0;
+  font-size: 18px;
+}
+.overRequirement_h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.overRequirementsLi {
+  color: #e0e0e0;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-indent: -1.5em;
+  margin-left: 1.5em;
+}
+/* curriculum */
+.curriculum-h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 25px 0;
+}
+.curriculum-h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.curriculumLi {
+  list-style: none;
+  display: inline;
+  padding-left: 5px;
+}
+.curriculumIMG {
+  display: inline;
+  margin-left: 10px;
+}
+.curriculum-div {
+  width: 60%;
+  background-color: #14162c;
+  margin-bottom: 50px;
+}
+.curriculumTime {
+  display: inline-block;
+  margin-left: auto;
+  padding-right: 20px;
+}
+.curriculumLiDiv {
+  display: flex;
+  padding: 15px 5px 8px 0;
+}
+.curriculum-h3 {
+  background-color: #202342;
+  padding: 10px 10px;
+}
+/* Instructor */
+.instructor-image {
+  padding: 20px 50px 5px 50px;
+}
+.Instructor {
+  display: flex;
+  width: 70%;
+}
+.instructor-co1 {
+  background-color: #202342;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.instructor-co {
+  padding: 0 25px;
+}
+.instructorH2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.instructorP {
+  font-size: 13px;
+  font-weight: 400;
+  margin: 6px 0 0 0;
+}
+.instructor-lavel {
+  font-size: 13px;
+  font-weight: 400;
+  margin: 10px 0 0 0;
+}
+.instructor-span {
+  color: #20bf55;
+  font-weight: 700;
+}
+.instructor-student {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 8px 0 20px 0;
+}
+.Instructor-followBtn {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 4px;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 auto 21px auto;
+  display: inline-block;
+  width: 50%;
+}
+.instructor-aboutH2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+.instructor-aboutP {
+  padding: 0px 0;
+  font-weight: 400;
+  color: #e0e0e0;
+}
+.instructorProfile-heading {
+  padding: 20px 0 0 0;
+  color: #e0e0e0;
+}
+.instructorProfile-Name {
+  font-size: 18px;
+  font-weight: 400;
+}
+.instructorProfile-P {
+  font-size: 18px;
+  font-weight: 400;
+}
+/* reviews */
+.reviews {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1d1f38;
+  padding: 0px 23px 49px 23px;
+}
+.studentFeedBack {
+  text-align: center;
+}
+.reviews-lines {
+  position: relative;
+  width: 60%;
+  padding-left: 10px;
+  padding-top: 38px;
+}
+.reviews-all-star-image {
+  display: flex;
+}
+/* .ReviewsPersntage {
+} */
+.student-feedback-h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 20px 0 0 0;
+}
+.courseRating {
+  background: #17192d;
+  margin: 33px 0 20px 0;
+  padding: 0 0 10px 0;
+}
+.courseRatingH1 {
+  padding: 10px 0;
+}
+.courseRatingP {
+  padding: 8px 0 17px 0;
+}
+.ReviewsPersntage {
+  display: inline;
+  padding: 0 0 0 15px;
+}
+.reviewStarLi {
+  list-style: none;
+  padding: 0 0 8px 0;
+}
+.reviewsStarIcon {
+  padding: 53px 0 0 0;
+}
+@media only screen and (min-width: 901px) and (max-width: 1199px) {
+  .overView_heading {
+    top: 28%;
+  }
+  .overViewH1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+  .overViewP {
+    font-size: 13px;
+  }
+  .overViewIconP {
+    font-size: 13px;
+  }
+  .overViewMenuButton,
+  .cardP2 {
+    font-size: 13px;
+  }
+  .overViewCard {
+    right: 3%;
+    width: 30%;
+  }
+  .cardP1 {
+    font-size: 18px;
+  }
+  .overViewCard-contentP {
+    font-size: 15px;
+  }
+  .overContentLi {
+    font-size: 13px;
+  }
+  .curriculum-h1 {
+    font-size: 18px;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .overViewMenu {
+    text-align: center;
+  }
+  .overView_heading {
+    top: 7%;
+  }
+  .overViewH1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .overViewP {
+    font-size: 10px;
+  }
+  .overViewIconP {
+    font-size: 10px;
+  }
+  .overViewIcon {
+    margin-left: 10px;
+  }
+  .overViewMenuButton,
+  .cardP2 {
+    font-size: 13px;
+  }
+  .overViewCard {
+    position: inherit;
+    right: inherit;
+    width: 100%;
+  }
+  .curriculum-div {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .cardP1 {
+    font-size: 18px;
+  }
+  .overViewCard-contentP {
+    font-size: 15px;
+    padding: 0px 0;
+  }
+  .overContentLi {
+    font-size: 13px;
+    text-indent: -2em;
+    margin-left: 1.6em;
+  }
+  .curriculum-h1 {
+    font-size: 18px;
+  }
+  .overView-description-content {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .overRequirements {
+    width: 100%;
+  }
+  .overViewCenterdiv {
+    display: flex;
+    width: 95%;
+    margin: auto;
+    padding-top: 0;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .overViewSocialIcon {
+    display: flex;
+    flex-direction: column;
+  }
+  .CardBuyBtn2 {
+    padding: 8px 0px;
+    font-size: 12px;
+  }
+  .CardBuyBtn {
+    margin: 30px 0;
+  }
+  .overViewCard-content {
+    margin: 10px 0 0 22px;
+  }
+  .overViewCarImage {
+    width: 58%;
+  }
+  .overViewCardIMG {
+    width: 90%;
+  }
+  .overViewBuy {
+    width: 25%;
+  }
+  .reviews {
+    margin: auto;
+    width: 76%;
+    padding: 0px 0px 30px 0px;
+    flex-direction: column;
+  }
+  .reviewsStarIcon {
+    padding: 20px 0 0 0px;
+  }
+  .reviews-lines {
+    width: 90%;
+    padding-left: 0px;
+    padding-top: 0;
+  }
+  .overSocialIcon {
+    padding: 8px 0;
+  }
+}
+@media only screen and (min-width: 200px) and (max-width: 600px) {
+  .overView_heading {
+    top: 1%;
+    width: 95%;
+  }
+  .overViewTags {
+    margin-top: 14px;
+  }
+  .overViewMenu {
+    text-align: center;
+  }
+  .overViewH1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .overViewP {
+    font-size: 10px;
+  }
+  .overViewIconP {
+    font-size: 10px;
+  }
+  .overViewIcon {
+    margin-left: 10px;
+  }
+  .overViewMenuButton,
+  .cardP2 {
+    font-size: 13px;
+    padding: 10px 13px;
+    margin-right: 5px;
+  }
+  .overViewCard {
+    position: inherit;
+    right: inherit;
+    width: 70%;
+    display: block;
+    margin: auto;
+  }
+  .curriculum-div {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .cardP1 {
+    font-size: 18px;
+  }
+  .overViewCard-contentP {
+    font-size: 15px;
+    padding: 15px 0;
+  }
+  .overContentLi {
+    font-size: 16px;
+    text-indent: -2em;
+    margin-left: 1.6em;
+  }
+  .curriculum-h1 {
+    font-size: 18px;
+  }
+  .overView-description-content {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .overRequirements {
+    width: 100%;
+  }
+  .overViewCenterdiv {
+    display: flex;
+    width: 95%;
+    margin: auto;
+    padding-top: 0;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .overViewSocialIcon {
+    display: flex;
+  }
+  .CardBuyBtn2 {
+    padding: 8px 0px;
+    font-size: 12px;
+  }
+  .CardBuyBtn {
+    margin: 10px 0;
+  }
+  .overViewCard-content {
+    margin: 0;
+  }
+  .overViewCarImage {
+    width: 100%;
+  }
+  .overViewCardIMG {
+    width: 100%;
+  }
+  .overViewBuy {
+    width: 100%;
+  }
+  .Instructor {
+    width: 75%;
+    margin: auto;
+    flex-direction: column;
+  }
+  .instructor-co {
+    padding: 10px 0;
+  }
+  .reviews {
+    margin: auto;
+    width: 76%;
+    padding: 0px 0px 30px 0px;
+    flex-direction: column;
+  }
+  .reviewsStarIcon {
+    padding: 20px 0 0 0px;
+  }
+  .reviews-lines {
+    width: 90%;
+    padding-left: 0px;
+    padding-top: 0;
+  }
+  .overSocialIcon {
+    padding: 0px 10px;
+  }
+}
