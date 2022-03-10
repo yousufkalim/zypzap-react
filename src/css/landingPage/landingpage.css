@@ -162,8 +162,24 @@
   font-weight: 100;
   text-transform: uppercase;
 }
+.offerheading2 {
+  font-size: 25px;
+  padding: 10px;
+  /* font-family: "AMCAP Eternal", sans-serif; */
+  font-weight: 100;
+  text-transform: uppercase;
+}
 .offerText {
   font-size: 23px;
+  padding: 10px 70px 10px 70px;
+  font-family: "Maven Pro";
+  font-weight: 700;
+  width: 82%;
+  margin: auto;
+  line-height: 1.4;
+}
+.offerText2 {
+  font-size: 16px;
   padding: 10px 70px 10px 70px;
   font-family: "Maven Pro";
   font-weight: 700;

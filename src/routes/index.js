@@ -11,6 +11,7 @@ import About from "../containers/About.js";
 import Contenthome from "../containers/ContentHome.js";
 import SearchResult from "../containers/SearchResult";
 import LandingPage from "../containers/Landingpage";
+import StandbyPage from "../containers/StandbyPage";
 import UserLandingPage from "../containers/UserLandingPage";
 import ContentCreatorLandingPage from "../containers/ContentCreatorLandingPage";
 import LandingPartner from "../containers/LandingPartner";
@@ -23,7 +24,7 @@ import Policy from "../containers/Policy";
 const index = () => {
   return (
     <Switch>
-      <Route exact path="/" component={LandingPage} />
+      <Route exact path="/" component={StandbyPage} />
       <Route exact path="/home" component={Home} />
       {/* blogs */}
       <Route exact path="/blog" component={Blog} />

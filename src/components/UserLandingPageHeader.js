@@ -42,7 +42,7 @@ const HeaderUserLandingPage = () => {
                 />
               </div>
             </Typography>
-            <Link
+            {/* <Link
               to="/blog"
               style={{
                 color: "white",
@@ -66,7 +66,7 @@ const HeaderUserLandingPage = () => {
               onClick={() => setOpen(true)}
             >
               {t("Get Early Access")}
-            </button>
+            </button> */}
           </Toolbar>
         </AppBar>
       </Box>
