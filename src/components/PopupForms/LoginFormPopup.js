@@ -16,6 +16,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import api from "../../api";
+
 export default function LoginFormPopup({ open, setOpen, setSignup }) {
   const [loading, setLoading] = useState(false);
   const [values, setValues] = React.useState({
@@ -47,7 +48,6 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
       [e.target.name]: e.target.value,
     });
   };
-
   const submitForm = async (event) => {
     event.preventDefault();
     if (values.email == "") {
@@ -65,12 +65,10 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
       let res = await api("post", "/users/login", formdata);
       if (res) {
         localStorage.setItem("token", res?.data?.token);
-
         setOpen(false);
         setLoading(false);
         window.location.reload();
       }
-      window.location.reload();
     } catch (error) {
       setLoading(false);
     }
@@ -142,16 +140,28 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                   <Grid item xs={12}>
                     <div className="social">
                       <span>
-                        <img src={Google} alt="" />
+                        <a href={`http://localhost:5000/api/users/auth/google`}>
+                          <img src={Google} alt="" />
+                        </a>
                       </span>
                       <span>
-                        <img src={ChatIcon} alt="" />
+                        <a
+                          href={`http://localhost:5000/api/users/auth/facebook`}
+                        >
+                          <img src={ChatIcon} alt="" />
+                        </a>
                       </span>
                       <span>
-                        <img src={DriveIcon} alt="" />
+                        <a
+                          href={`http://localhost:5000/api/users/auth/discord`}
+                        >
+                          <img src={DriveIcon} alt="" />
+                        </a>
                       </span>
                       <span>
-                        <img src={AppleIcon} alt="" />
+                        <a href={`http://localhost:5000/api/users/auth/twitch`}>
+                          <img src={AppleIcon} alt="" />
+                        </a>
                       </span>
                     </div>
                   </Grid>

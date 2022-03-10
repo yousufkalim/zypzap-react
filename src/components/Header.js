@@ -88,9 +88,11 @@ export default function PrimarySearchAppBar({
   const { user, creator } = Store();
   const handleLogout = async () => {
     let res = await api("post", "/users/logout/all");
-
-    updateStore({ user: null, creator: null });
-    localStorage.removeItem("token");
+    if (res) {
+      updateStore({ user: null, creator: null });
+      localStorage.removeItem("token");
+      history.push("/home");
+    }
   };
   const [age, setAge] = React.useState("");
 
@@ -102,6 +104,8 @@ export default function PrimarySearchAppBar({
   const handleClickOpen = () => {
     setOpenProfile(true);
   };
+  console.log("ueser is ", user);
+  console.log("creator is ", creator);
 
   const handleClose = () => {
     setOpenProfile(false);
@@ -380,12 +384,16 @@ export default function PrimarySearchAppBar({
                   </Link>
                 </>
               ) : (
-                <p
-                  className="sgnBtn"
-                  onClick={() => setOpenBecomeCreatorPopup(true)}
-                >
-                  Become a Creater
-                </p>
+                <>
+                  {user?.role == "User" && (
+                    <p
+                      className="sgnBtn"
+                      onClick={() => setOpenBecomeCreatorPopup(true)}
+                    >
+                      Become a Creater
+                    </p>
+                  )}
+                </>
               )}
               {user ? (
                 <p className="sgnBtn" onClick={handleLogout}>
