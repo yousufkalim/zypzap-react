@@ -5,11 +5,14 @@ import UserLandingPageHeader from "../components/UserLandingPageHeader";
 import Footer from "../components/blog/BlogFooter";
 import Body from "../components/Body";
 import { useLocation } from "react-router-dom";
+import SetAuthToken from "../utils/SetAuthToken";
 
 export default function Home() {
   const queryParams = new URLSearchParams(window.location.search);
   const token = queryParams.get("user");
-  localStorage.setItem("token", token);
+  if (localStorage.getItem !== token && token !== null) {
+    localStorage.setItem("token", token);
+  }
 
   const [openlogin, setOpenLogin] = React.useState(false);
   const [opensignup, setOpenSignup] = React.useState(false);

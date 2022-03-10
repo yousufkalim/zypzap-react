@@ -63,6 +63,7 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
 
     try {
       let res = await api("post", `/creators/${user?._id}`, formdata);
+      console.log("res", res);
       if (res) {
         window.location.reload();
         setOpen(false);
@@ -125,17 +126,17 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
                 onChange={handleChange}
               >
                 <FormControlLabel
-                  value="Entry"
+                  value="initial"
                   control={<Radio />}
                   label="Entry Level"
                 />
                 <FormControlLabel
-                  value="Intermediate"
+                  value="medium"
                   control={<Radio />}
                   label="Intermediate Level"
                 />
                 <FormControlLabel
-                  value="Advance"
+                  value="pro"
                   control={<Radio />}
                   label="Advance Level"
                 />
