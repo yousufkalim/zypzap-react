@@ -6,10 +6,10 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import ClearIcon from "@mui/icons-material/Clear";
-import Google from "../../assets/icons/Googli.png";
-import ChatIcon from "../../assets/icons/chatIcon.png";
-import DriveIcon from "../../assets/icons/driveIcon.png";
-import AppleIcon from "../../assets/icons/appleIcon.png";
+import Google from "../../assets/icons/Googli.svg";
+import ChatIcon from "../../assets/icons/twitch.svg";
+import Facebook from "../../assets/icons/fb1.svg";
+import Discord1 from "../../assets/icons/discord1.svg";
 import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -140,27 +140,31 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                   <Grid item xs={12}>
                     <div className="social">
                       <span>
-                        <a href={`http://localhost:5000/api/users/auth/google`}>
-                          <img src={Google} alt="" />
+                        <a
+                          href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}
+                        >
+                          <img src={Discord1} alt="" />
                         </a>
                       </span>
                       <span>
                         <a
-                          href={`http://localhost:5000/api/users/auth/facebook`}
+                          href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}
                         >
                           <img src={ChatIcon} alt="" />
                         </a>
                       </span>
                       <span>
                         <a
-                          href={`http://localhost:5000/api/users/auth/discord`}
+                          href={`${process.env.REACT_APP_baseURL}/users/auth/google`}
                         >
-                          <img src={DriveIcon} alt="" />
+                          <img src={Google} alt="" />
                         </a>
                       </span>
                       <span>
-                        <a href={`http://localhost:5000/api/users/auth/twitch`}>
-                          <img src={AppleIcon} alt="" />
+                        <a
+                          href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}
+                        >
+                          <img src={Facebook} alt="" />
                         </a>
                       </span>
                     </div>
