@@ -1,0 +1,76 @@
+.completeCourse {
+  color: #fff;
+  width: 100%;
+}
+.completeCourse-center-div {
+  width: 95%;
+  margin: auto;
+  display: flex;
+}
+.completeCourse-colm1 {
+  width: 70%;
+}
+.completeCourse-colm2 {
+  width: 50%;
+  padding: 0 30px 0 28px;
+}
+.completeCourseScroll {
+  overflow-y: scroll;
+  height: 470px;
+}
+
+.completeCourseScroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.completeCourseScroll::-webkit-scrollbar-track {
+  background: #1c1e36;
+  border-radius: 5px;
+}
+
+/* Handle */
+.completeCourseScroll::-webkit-scrollbar-thumb {
+  background: #3d3f6b;
+  border-radius: 5px;
+}
+
+.completeCourseH2 {
+  padding: 10px 0px;
+}
+.completeCourseH3 {
+  padding: 12px 0px;
+}
+.completeCourse-Video {
+  width: 100%;
+  height: 473px;
+}
+.completeCourse-videoList {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  background-color: #1d1f38;
+  margin: 2px 0 11px 0;
+  scroll-behavior: auto;
+  width: 98%;
+}
+.playVideoH3 {
+  font-size: 16px;
+  padding: 0 0 6px 0;
+}
+.playVideoP {
+  font-size: 12px;
+}
+.completeCourse-playVideo {
+  width: 120px;
+  height: 100%;
+  cursor: pointer;
+}
+.playVideoHeading {
+  padding-left: 10px;
+}
+.PlayVideo-DownArrow {
+  margin-left: auto;
+  padding-right: 20px;
+  cursor: pointer;
+}

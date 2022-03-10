@@ -63,7 +63,7 @@ export default function Body() {
               style={{ color: "white", textDecoration: "none" }}
             >
               <button className="landingpagetextonImgbutton">
-                {t("Become content creator")}
+                {t("Devenez un createur de contenu")}
               </button>
             </Link>
           </div>

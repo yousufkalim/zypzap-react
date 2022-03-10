@@ -20,6 +20,7 @@ import ProtectedRoutes from "./ProtectedRoutes.js";
 import UserProfile from "../containers/UserProfilePage";
 import OverView from "../containers/OverView";
 import Policy from "../containers/Policy";
+import CoursePage from "../containers/CoursePage";
 
 const index = () => {
   return (
@@ -47,6 +48,7 @@ const index = () => {
       <Route exact path="/dashboard" component={ContentDashboard} />
       <Route exact path="/userprofile" component={UserProfile} />
       <Route exact path="/OverView" component={OverView} />/
+      <Route exact path="/CoursePage" component={CoursePage} />/
     </Switch>
   );
 };
