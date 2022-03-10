@@ -110,6 +110,12 @@ export default function Footer() {
               <p className="pmargin">Rejoignez-nous</p>
               <p className="pmargin">Informations légales</p>
               <p className="pmargin">Politique de confidentialité</p>
+              <Link
+                to="/policy"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                <p className="pmargin">Privacy Policy</p>
+              </Link>
             </div>
           </Grid>
           <Grid item xs={12} sm={3} className="footer_language">

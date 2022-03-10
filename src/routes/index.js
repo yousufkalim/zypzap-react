@@ -19,6 +19,7 @@ import ContentDashboard from "../containers/ContentDashboard";
 import ProtectedRoutes from "./ProtectedRoutes.js";
 import UserProfile from "../containers/UserProfilePage";
 import OverView from "../containers/OverView";
+import Policy from "../containers/Policy";
 
 const index = () => {
   return (
@@ -34,6 +35,7 @@ const index = () => {
       <Route exact path="/landingpage" component={LandingPage} />
       <Route exact path="/userlanding" component={UserLandingPage} />
       <Route exact path="/dashboard" component={ContentDashboard} />
+      <Route exact path="/policy" component={Policy} />
       <Route
         exact
         path="/contentcreator"
