@@ -13,21 +13,21 @@ const FollowUs = () => {
             <div className="followUs-box">
               <img src={FollowSocialIcon} alt="" className="followUsImg" />
               <div className="followSocialHeading">
-                <p className="followSocialP">2M+</p>
+                <p className="followSocialP">0</p>
                 <p className="followSocialP2">Followers</p>
               </div>
             </div>
             <div className="followUs-box">
               <img src={FollowSocialIcon2} alt="" className="followUsImg" />
               <div className="followSocialHeading">
-                <p className="followSocialP">2M+</p>
+                <p className="followSocialP">0</p>
                 <p className="followSocialP2">Likes</p>
               </div>
             </div>
             <div className="followUs-box">
               <img src={FollowSocialIcon3} alt="" className="followUsImg" />
               <div className="followSocialHeading">
-                <p className="followSocialP">2M+</p>
+                <p className="followSocialP">0</p>
                 <p className="followSocialP2">Comments</p>
               </div>
             </div>
