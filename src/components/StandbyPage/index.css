@@ -1,0 +1,243 @@
+@font-face {
+  font-family: Myriad Pro;
+  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
+}
+
+.preparing {
+  color: #fff;
+  width: 100%;
+}
+.preparingCenterDiv {
+  width: 75%;
+  margin: auto;
+  padding: 80px 0;
+  text-align: center;
+}
+.preparingH1 {
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  text-shadow: 0px 3px 3px #662f88;
+}
+.preparingP {
+  font-size: 18px;
+  margin: 10px 0;
+}
+.preparingPrsntage {
+  background-image: url("../../assets/img/PreparingBg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 95%;
+  margin: 50px auto 0 auto;
+}
+.preparingPrsntageCounting {
+  font-size: 14px;
+  padding-bottom: 8px;
+}
+.preparingPrsntageCenterDiv {
+  display: flex;
+  flex-direction: column;
+  padding: 60px 170px;
+}
+.preparingPrsntageDiv {
+  display: flex;
+  justify-content: space-between;
+}
+.preparingPrsntageCounting1 {
+  color: black;
+}
+.preparingPrsntageInput {
+  width: 50%;
+  margin: auto;
+  padding-top: 50px;
+}
+.Input-prsntage {
+  width: 100%;
+  background: none;
+  border: none;
+  border: 1px solid #717171;
+  padding: 10px 7px;
+  margin: 35px 0;
+  border-radius: 2px;
+  color: #fff;
+}
+.PreparingPrnstageP {
+  font-size: 18px;
+}
+.preparingPrsntageBtn {
+  margin-top: 5px;
+  width: 100%;
+  padding: 10px 0px;
+  border: none;
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  font-weight: 400;
+  font-family: " Myriad Pro", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  border: 1px solid #662f88;
+  display: block;
+}
+.preparingPrsntageBtn:hover {
+  background: none;
+}
+.offerimg1-1 {
+  margin-top: 20px;
+}
+
+/* follow Us component */
+.FollowUs {
+  color: #fff;
+  background-image: url("../../assets/img/FollowUsBg.svg");
+  background-size: cover;
+  width: 100%;
+  padding: 100px 0;
+  margin-top: 50px;
+}
+.followSocialBox {
+  display: flex;
+  width: 71%;
+  justify-content: space-between;
+}
+.FollowUs_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.followUsH2 {
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  text-shadow: 0px 3px 3px #662f88;
+  padding-bottom: 60px;
+}
+.followUsImg {
+  margin-right: 10ox;
+}
+.followUs-box {
+  display: flex;
+  align-items: center;
+}
+.followUs-box2 {
+  padding: 0 50px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.followSocialHeading {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+}
+.followSocialHeading2 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 5px;
+}
+.followSocialP {
+  font-size: 28px;
+}
+.followSocialP2 {
+  font-size: 17px;
+  color: #d4d4d4;
+}
+@media only screen and (min-width: 200px) and (max-width: 600px) {
+  .preparingCenterDiv {
+    width: 90%;
+    padding: 33px 0;
+  }
+  .preparingH1 {
+    font-size: 20px;
+  }
+  .preparingP {
+    font-size: 17px;
+  }
+  .preparingPrsntageCenterDiv {
+    padding: 33px 30px;
+  }
+  .preparingPrsntageInput {
+    width: 80%;
+    padding-top: 27px;
+  }
+  .offerimg1 {
+    width: 90% !important;
+  }
+  .offerimg2 {
+    width: 90% !important;
+  }
+  .followSocialBox {
+    width: inherit;
+    flex-direction: column;
+  }
+  .followUs-box {
+    margin-bottom: 20px;
+  }
+  .FollowUs {
+    width: 95%;
+    padding: 22px 0px;
+    margin-top: -56px;
+    text-align: center;
+    margin: auto;
+  }
+  .followUsH2 {
+    font-size: 20px;
+    padding-bottom: 40px;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .preparingCenterDiv {
+    width: 90%;
+    padding: 33px 0;
+  }
+  .preparingH1 {
+    font-size: 22px;
+  }
+  .preparingP {
+    font-size: 20px;
+  }
+  .preparingPrsntageCenterDiv {
+    padding: 70px 30px;
+  }
+  .preparingPrsntageInput {
+    width: 80%;
+    padding-top: 27px;
+  }
+  .offerimg1 {
+    width: 90% !important;
+  }
+  .offerimg2 {
+    width: 90% !important;
+  }
+  .followSocialBox {
+    width: inherit;
+    flex-direction: column;
+  }
+  .followUs-box {
+    margin-bottom: 20px;
+  }
+  .FollowUs {
+    width: 95%;
+    padding: 22px 0px;
+    margin-top: -56px;
+    text-align: center;
+    margin: auto;
+  }
+  .followUsH2 {
+    font-size: 22px;
+    padding-bottom: 40px;
+  }
+  .offerdivleft {
+    margin: 0 auto 64px auto !important;
+  }
+  .offerdivright {
+    margin: 0 auto 64px auto !important;
+  }
+}
+@media only screen and (min-width: 901px) and (max-width: 1199px) {
+  .FollowUs {
+    padding: 67px 0;
+  }
+}

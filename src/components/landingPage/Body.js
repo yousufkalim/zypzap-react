@@ -54,7 +54,8 @@ export default function Body() {
               className="landingpagetextonImgbutton"
               onClick={() => setOpen(true)}
             >
-              {t("Early access to courses")}
+              {/* {t("Early access to courses")} */}
+              {t("Inscrivez-vous")}
             </button>
 
             <Link
