@@ -29,10 +29,8 @@ export default function WhatWeOffer() {
           <h1
             className="offerh1-1"
             style={{ fontWeight: "100", fontSize: "28px" }}
-          >
-            {t("What we offer")}
-          </h1>
-          <div className="offerdashline"></div>
+          ></h1>
+          {/* <div className="offerdashline"></div> */}
         </div>
       </div>
       <Grid container spacing={2} className="offerGrid ">

@@ -15,7 +15,7 @@ const JoinedUs = () => {
             <div className="followUs-box2">
               <img src={JoinLogo1} alt="" className="followUsImg" />
               <div className="followSocialHeading2">
-                <p className="followSocialP">0+</p>
+                <p className="followSocialP">0</p>
                 <p className="followSocialP2">Membres</p>
               </div>
             </div>
@@ -41,7 +41,7 @@ const JoinedUs = () => {
             <div className="followUs-box2">
               <img src={JoinLogo4} alt="" className="followUsImg" />
               <div className="followSocialHeading2">
-                <p className="followSocialP">0+</p>
+                <p className="followSocialP">0</p>
                 <p className="followSocialP2">Nombre de cours disponibles</p>
               </div>
             </div>

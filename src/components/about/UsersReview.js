@@ -43,7 +43,7 @@ export default function UserReview() {
           <Grid item xs={12} md={3}>
             <div>
               <img src={Learners} alt="img" />
-              <h3 className="reviewh3">44M+</h3>
+              <h3 className="reviewh3">0</h3>
               <p className="reviewP">Learners</p>
             </div>
           </Grid>
