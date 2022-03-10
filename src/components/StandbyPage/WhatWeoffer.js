@@ -40,7 +40,9 @@ export default function WhatWeOffer() {
           <div className="offerdivleft">
             <div className="offerdzooming ">
               <img src={gamerImg} className="offerimg1 offerimg1-1" alt="img" />
-              <h1 className=".offerheading2">{t("I am Gamer")}</h1>
+              <h1 className=".offerheading2" style={{ marginTop: "5px" }}>
+                {t("Je suis un Gamer")}
+              </h1>
               <p className="offerText2">
                 {t("Suivez les cours de votre choix ")}
                 <br />
@@ -48,7 +50,10 @@ export default function WhatWeOffer() {
               </p>
 
               <Link to="/userlanding">
-                <button className="whatweofferButton">
+                <button
+                  className="whatweofferButton"
+                  style={{ marginBottom: "18px" }}
+                >
                   {t("Inscrivez-vous")}
                 </button>
               </Link>
@@ -59,7 +64,9 @@ export default function WhatWeOffer() {
           <div className="offerdivright  ">
             <div className="offerdzooming ">
               <img src={contentImg} className="offerimg2 " alt="img" />
-              <h1 className=".offerheading2">{t("I AM Content Creator")}</h1>
+              <h1 className=".offerheading2">
+                {t("Je suis un Createur de contenu")}
+              </h1>
               <p className="offerText2">
                 {t("Créez vos cours et ")}
                 <br />

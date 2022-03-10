@@ -40,7 +40,7 @@ export default function WhatWeOffer() {
           <div className="offerdivleft">
             <div className="offerdzooming ">
               <img src={gamerImg} className="offerimg1 " alt="img" />
-              <h1 className="offerheading">{t("I am Gamer")}</h1>
+              <h1 className="offerheading">{"Je suis un Gamer"}</h1>
               <p className="offerText">
                 {t("Suivez les cours de votre choix ")}
                 <br />
@@ -57,14 +57,19 @@ export default function WhatWeOffer() {
           <div className="offerdivright  ">
             <div className="offerdzooming ">
               <img src={contentImg} className="offerimg2 " alt="img" />
-              <h1 className="offerheading">{t("I AM Content Creator")}</h1>
+              <h1 className="offerheading">
+                {"Je suis un Createur de contenu"}
+              </h1>
+
               <p className="offerText">
                 {t("Créez vos cours et ")}
                 <br />
                 {t("monetisez votre expertise")}
               </p>
               <Link to="/contentcreator">
-                <button className="whatweofferButton">{t("Join us")}</button>
+                <button className="whatweofferButton">
+                  {t("Inscrivez-vous")}
+                </button>
               </Link>
             </div>
           </div>
