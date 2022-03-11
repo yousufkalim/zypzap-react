@@ -74,17 +74,11 @@ const Footer2 = () => {
               >
                 <p className="pmargin">A propos de nous</p>
               </Link>
-              <Link
-                to="/LegalNotice"
-                style={{ color: "white", textDecoration: "none" }}
-              >
+              <Link to="#" style={{ color: "white", textDecoration: "none" }}>
                 <p className="pmargin">Informations légales</p>
               </Link>
               <p className="pmargin"> L’équipe</p>
-              <Link
-                to="/landingpartner"
-                style={{ color: "white", textDecoration: "none" }}
-              >
+              <Link to="#" style={{ color: "white", textDecoration: "none" }}>
                 <p className="pmargin">Politique de confidentialité</p>
               </Link>
               <p className="pmargin"> Contactez-nous</p>

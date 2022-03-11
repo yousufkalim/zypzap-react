@@ -9,18 +9,18 @@ import { Link } from "react-router-dom";
 export default function WhatWeOffer() {
   const { t, i18n } = useTranslation();
 
-  React.useEffect(() => {
-    document.addEventListener("scroll", () => {
-      if (window.scrollY > 300 && window.scrollY < 700) {
-        var element = document.getElementsByClassName("offerdzooming ");
-        if (element && element.length > 0) {
-          for (let index = 0; index < element.length; index++) {
-            element[index].classList.add("myStyleWhat");
-          }
-        }
-      }
-    });
-  }, [window.scrollY]);
+  // React.useEffect(() => {
+  //   document.addEventListener("scroll", () => {
+  //     if (window.scrollY > 300 && window.scrollY < 700) {
+  //       var element = document.getElementsByClassName("offerdzooming ");
+  //       if (element && element.length > 0) {
+  //         for (let index = 0; index < element.length; index++) {
+  //           element[index].classList.add("myStyleWhat");
+  //         }
+  //       }
+  //     }
+  //   });
+  // }, [window.scrollY]);
 
   return (
     <>
@@ -38,7 +38,10 @@ export default function WhatWeOffer() {
           <div className="offerdivleft">
             <div className="offerdzooming ">
               <img src={gamerImg} className="offerimg1 offerimg1-1" alt="img" />
-              <h1 className=".offerheading2" style={{ marginTop: "5px" }}>
+              <h1
+                className=".offerheading2 offerheading5"
+                style={{ marginTop: "5px" }}
+              >
                 {t("Je suis un Gamer")}
               </h1>
               <p className="offerText2">
@@ -62,7 +65,7 @@ export default function WhatWeOffer() {
           <div className="offerdivright  ">
             <div className="offerdzooming ">
               <img src={contentImg} className="offerimg2 " alt="img" />
-              <h1 className=".offerheading2">
+              <h1 className=".offerheading2 offerheading5">
                 {t("Je suis un Createur de contenu")}
               </h1>
               <p className="offerText2">
