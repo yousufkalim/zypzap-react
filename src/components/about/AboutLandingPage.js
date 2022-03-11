@@ -12,11 +12,6 @@ export default function About() {
         </div>
         <div className="AbouttextonImg">
           <h1 className="AbouttextimgH1">Qui sommes-nous ?</h1>
-          {/* <p className="AbouttextonImgP">
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page this is when loovking at its layout
-            game is best. The point of using Lorem Ipsum is that.
-          </p> */}
         </div>
       </div>
       <WhoWeAre />

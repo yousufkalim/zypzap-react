@@ -75,7 +75,7 @@ const Footer2 = () => {
                 <p className="pmargin">A propos de nous</p>
               </Link>
               <Link
-                to="/contentcreator"
+                to="/LegalNotice"
                 style={{ color: "white", textDecoration: "none" }}
               >
                 <p className="pmargin">Informations légales</p>
