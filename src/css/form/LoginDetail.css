@@ -80,7 +80,7 @@
 .MuiSvgIcon-root {
   fill: currentColor;
   width: 2rem !important;
-  color: #fff !important;
+  /* color: #fff !important; */
 }
 .css-vqmohf-MuiButtonBase-root-MuiRadio-root {
   color: #fff !important;

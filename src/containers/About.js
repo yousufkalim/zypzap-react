@@ -1,11 +1,17 @@
 // Init
 import React, { useEffect } from "react";
 // import Header from "../components/Header";
+// import UserReview from "../components/about/UsersReview";
+// import GetStarted from "../components/about/GetStarted";
+// import AboutLandingPage from "../components/about/AboutLandingPage";
+// import Footer from "../components/blog/BlogFooter";
+import "../components/About2/About2.css";
 import UserLandingPageHeader from "../components/UserLandingPageHeader";
-import AboutLandingPage from "../components/about/AboutLandingPage";
-import UserReview from "../components/about/UsersReview";
-import GetStarted from "../components/about/GetStarted";
-import Footer from "../components/blog/BlogFooter";
+import About2 from "../components/About2/About2";
+import OurMissions from "../components/About2/OurMissions";
+import FollowUs from "../components/StandbyPage/FollowUs";
+import JoinedUs from "../components/StandbyPage/JoinedUs";
+import Footer2 from "../components/StandbyPage/Footer2";
 
 export default function About() {
   const [openlogin, setOpenLogin] = React.useState(false);
@@ -40,10 +46,15 @@ export default function About() {
         openBecomeCreatorPopup={openBecomeCreatorPopup}
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
       /> */}
-      <AboutLandingPage />
-      <UserReview />
-      <GetStarted />
-      <Footer />
+      {/* <AboutLandingPage /> */}
+      <About2 />
+      <OurMissions />
+      <FollowUs />
+      <JoinedUs />
+      {/* <UserReview /> */}
+      {/* <GetStarted /> */}
+      {/* <Footer /> */}
+      <Footer2 />
     </div>
   );
 }
