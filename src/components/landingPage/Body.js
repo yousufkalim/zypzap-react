@@ -52,14 +52,15 @@ export default function Body() {
           <div className="landingbuttondiv">
             <button
               className="landingpagetextonImgbutton"
-              onClick={() => setOpen(true)}
+              // onClick={() => setOpen(true)}
             >
               {/* {t("Early access to courses")} */}
               {t("Inscrivez-vous")}
             </button>
 
             <Link
-              to="/contentcreator"
+              to="#"
+              // onClick={() => setOpen(true)}
               style={{ color: "white", textDecoration: "none" }}
             >
               <button className="landingpagetextonImgbutton">
