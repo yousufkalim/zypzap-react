@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import SubscriptionPopup from "../PopupForms/SubscriptionPopup";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import LinearProgress, {
@@ -19,8 +20,10 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }));
 
 const Preparing = () => {
+  const [open, setOpen] = useState(false);
   return (
     <>
+      {open && <SubscriptionPopup open={open} setOpen={setOpen} />}
       <div className="preparing">
         <div className="preparingCenterDiv">
           <div className="preparingHeading">
@@ -56,7 +59,10 @@ const Preparing = () => {
                   type="text"
                   placeholder="e.g. moinheykal@gmail.com"
                 />
-                <buttton className="preparingPrsntageBtn">
+                <buttton
+                  className="preparingPrsntageBtn"
+                  onClick={() => setOpen(true)}
+                >
                   Prévenez-moi !
                 </buttton>
               </div>

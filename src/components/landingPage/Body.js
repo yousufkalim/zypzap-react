@@ -1,9 +1,9 @@
 // Init
 import React, { useState } from "react";
+import SubscriptionPopup from "../PopupForms/SubscriptionPopup";
 import AboutLandingPageImg from "../../assets/img/aboutlandingpage02.png";
 import { Link } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
-import SubscriptionPopup from "../PopupForms/SubscriptionPopup";
 
 export default function Body() {
   const [open, setOpen] = useState(false);
@@ -49,25 +49,25 @@ export default function Body() {
               {t("bénéficier d'avantages uniques")}
             </p>
           </div>
-          <div className="landingbuttondiv">
+          {/* <div className="landingbuttondiv">
             <button
               className="landingpagetextonImgbutton"
-              // onClick={() => setOpen(true)}
+              onClick={() => setOpen(true)}
             >
-              {/* {t("Early access to courses")} */}
+              {t("Early access to courses")}
               {t("Inscrivez-vous")}
             </button>
 
             <Link
               to="#"
-              // onClick={() => setOpen(true)}
+              onClick={() => setOpen(true)}
               style={{ color: "white", textDecoration: "none" }}
             >
               <button className="landingpagetextonImgbutton">
                 {t("Devenez un createur de contenu")}
               </button>
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
