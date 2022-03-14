@@ -6,6 +6,16 @@ import LinkedInAccount from "../components/Team/LinkedInAccount";
 import Footer2 from "../components/StandbyPage/Footer2";
 
 const Team = () => {
+  React.useState(false);
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 1,
+      behavior: "smooth",
+    });
+  };
+  React.useEffect(() => {
+    scrollToTop();
+  }, []);
   return (
     <div>
       <UserLandingPageHeader />
