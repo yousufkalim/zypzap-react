@@ -111,16 +111,11 @@ export default function CustomizedMenus(props) {
   };
   const filterByLevel = async (e) => {
     e.preventDefault();
-    console.log("Before level", searchCourse);
     const i = searchCourse.filter((course) => course.level === "Advance Level");
-    console.log("i : ", i);
     const j = searchCourse.filter((course) => course.level === "medium Level");
-    console.log("j : ", j);
     const k = searchCourse.filter((course) => course.level === "inital Level");
-    console.log("k : ", k);
     const Courses = [...i, ...j, ...k];
     updateStore({ searchCourse: Courses });
-    console.log("After level", Courses);
     handleClose();
   };
   return (

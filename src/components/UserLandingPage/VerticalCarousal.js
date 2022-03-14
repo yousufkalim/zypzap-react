@@ -99,7 +99,7 @@ const VerticalCarousel = ({ data, item }) => {
     setActiveIndex(i);
   };
 
-  return ( 
+  return (
     <div className="trendingDiv">
       <section className={` outer-container`} id={item?.class2Is}>
         <div className="carousel-wrapper">
