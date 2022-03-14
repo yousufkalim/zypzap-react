@@ -39,6 +39,12 @@ const Preparing = () => {
               Inscrivez-vous dès maintenant pour participer au développement de
               notre communauté.
             </p>
+            <p className="preparingP2">
+              Nous avons hâte de vous faire découvrir la plateforme ZypZap.
+              Toute notre équipe est mobilisée sur le développement de ses
+              fonctionnalités inédites et innovantes. Inscrivez-vous dès
+              maintenant pour participer au développement de notre communauté.
+            </p>
           </div>
           <div className="preparingPrsntage">
             <div className="preparingPrsntageCenterDiv">

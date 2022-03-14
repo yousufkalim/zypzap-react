@@ -33,6 +33,11 @@ const CompleteCourse = () => {
             </div>
           </div>
         </div>
+        <div className="Pre-next-btn">
+          <button className="preBTN">Previous</button>
+          <button className="nextBTN">Next</button>
+          {/* <hr className="pre_next_line" /> */}
+        </div>
       </div>
     </>
   );
