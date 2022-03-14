@@ -39,7 +39,7 @@ const teamLeft = [
   },
 ];
 
-const LinkedInAcound = () => {
+const LinkedInAccount = () => {
   return (
     <div>
       <div className="LinkedInAcound">
@@ -75,4 +75,4 @@ const LinkedInAcound = () => {
   );
 };
 
-export default LinkedInAcound;
+export default LinkedInAccount;
