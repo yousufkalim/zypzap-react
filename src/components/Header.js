@@ -104,8 +104,7 @@ export default function PrimarySearchAppBar({
   const handleClickOpen = () => {
     setOpenProfile(true);
   };
-  console.log("ueser is ", user);
-  console.log("creator is ", creator);
+
 
   const handleClose = () => {
     setOpenProfile(false);
@@ -157,7 +156,6 @@ export default function PrimarySearchAppBar({
       //   res = await api("get", `/courses/search?name=${e.target.value}`);
       // } else {
       //   res = await api("get", `/creators/search?name=${e.target.value}`);
-      //   console.log("creator", res);
       // }
       // if (res) {
       //   updateStore({ searchCourse: res?.data });
@@ -354,12 +352,12 @@ export default function PrimarySearchAppBar({
             <Link to="" className="requestBt">
               <button className="requestBtn">Request a course</button>
             </Link>
-            <a to="" className="requestBt">
-              <button className="requestBtn" onClick={handleClickOpen}>
-                User Profile
-              </button>
-            </a>
-
+            {user?.role == "User" && (
+              <Link to="/userprofile" className="requestBt">
+                {/* onClick={handleClickOpen} */}
+                <button className="requestBtn">User Profile</button>
+              </Link>
+            )}
             <Box
               className={`${creator ? "headerLinkbox" : "headerLinkbox2"}`}
               sx={{

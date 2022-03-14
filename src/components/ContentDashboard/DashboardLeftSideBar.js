@@ -5,7 +5,6 @@ const DashboardLeftSideBar = ({
   activeButton,
   trigerOnClickEmpSideBtn,
 }) => {
-  console.log(activeButton);
   return (
     <>
       {items.map((item, i) => {

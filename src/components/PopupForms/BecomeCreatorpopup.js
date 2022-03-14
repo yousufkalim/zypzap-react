@@ -63,7 +63,6 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
 
     try {
       let res = await api("post", `/creators/${user?._id}`, formdata);
-      console.log("res", res);
       if (res) {
         window.location.reload();
         setOpen(false);

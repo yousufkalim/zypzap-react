@@ -4,34 +4,99 @@ import Dialog from "@mui/material/Dialog";
 // import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import UserProfileIm from "../../assets/userProfileIm.png";
-
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
 import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
-import { Store, UpdateStore } from "../../StoreContext";
 
 import Checkbox from "@mui/material/Checkbox";
+import { CallMerge } from "@material-ui/icons";
 
-export default function PropfileInformation({ openProfile, handleClose }) {
-  // const [tags, setTags] = useState([]);
-  const [profile_photo, setImageURL] = useState("");
-  const [favouritGame, setFavouritGame] = useState([""]);
-  const [gameType, setGameType] = useState([""]);
-  const [plateForm, setPlateForm] = useState([""]);
-  const [gameMood, setGameMood] = useState("");
-  const [playPeriod, setPlayPeriod] = useState("");
-  const [playTime, setPlayTime] = useState("");
-  const [currentLevel, setCurrentLevel] = useState("");
-  const [target_level, setTargetLevel] = useState("");
+export default function PropfileInformation({
+  openProfile,
+  handleClose,
+  user,
+}) {
+  useEffect(() => {
+    setCurrentSate();
+  }, [user]);
+  const setCurrentSate = () => {
+    setImageURL(user?.profile_photo ? user.profile_photo : Course1);
+    setFavouritGame(
+      user?.prefrence_games?.favourite_games
+        ? user.prefrence_games.favourite_games
+        : []
+    );
+    setGameType(user?.gameType ? user.gameType : []);
+    setPlateForm(user?.plateForm ? user.plateForm : []);
+    setGameMood(user?.gameMood ? user.gameMood : "Single");
+    setPlayPeriod(
+      user?.prefrence_games?.play_period
+        ? user.prefrence_games.play_period
+        : "Per Week"
+    );
+    setPlayTime(
+      user?.prefrence_games?.play_time_per_perioad
+        ? user.prefrence_games.play_time_per_perioad
+        : "2 Houre"
+    );
+    setCurrentLevel(
+      user?.prefrence_games?.current_level
+        ? user.prefrence_games.current_level
+        : "initial"
+    );
+    setTargetLevel(
+      user?.prefrence_games?.target_level
+        ? user.prefrence_games.target_level
+        : "initial"
+    );
+  };
+  const [profile_photo, setImageURL] = useState(
+    user?.profile_photo ? user.profile_photo : Course1
+  );
+  const [favouritGame, setFavouritGame] = useState(
+    user?.prefrence_games?.favourite_games
+      ? user.prefrence_games.favourite_games
+      : []
+  );
 
-  const updateStore = UpdateStore();
-  const { user } = Store();
+  const [gameType, setGameType] = useState(user?.gameType ? user.gameType : []);
+  const [plateForm, setPlateForm] = useState(
+    user?.plateForm ? user.plateForm : []
+  );
+  const [gameMood, setGameMood] = useState(
+    user?.gameMood ? user.gameMood : "Single"
+  );
+  const [playPeriod, setPlayPeriod] = useState(
+    user?.prefrence_games?.play_period
+      ? user.prefrence_games.play_period
+      : "Per Week"
+  );
+  const [playTime, setPlayTime] = useState(
+    user?.prefrence_games?.play_time_per_perioad
+      ? user.prefrence_games.play_time_per_perioad
+      : "2 Houre"
+  );
+  const [currentLevel, setCurrentLevel] = useState(
+    user?.prefrence_games?.current_level
+      ? user.prefrence_games.current_level
+      : "initial"
+  );
+  const [target_level, setTargetLevel] = useState(
+    user?.prefrence_games?.target_level
+      ? user.prefrence_games.target_level
+      : "initial"
+  );
+
   const addTags = (event) => {
     if (event.key === "Enter" && event.target.value !== "") {
       setFavouritGame([...favouritGame, event.target.value]);
       event.target.value = "";
     }
   };
-
   const onChangeRadioBtn = (e) => {
     const value = e.target.value;
     setGameMood(e.target.value);
@@ -56,19 +121,19 @@ export default function PropfileInformation({ openProfile, handleClose }) {
   const changeTargetLevelHandler = (e) => {
     setTargetLevel(e.target.value);
   };
-  const selectplateForm = (e) => {
+  const selectplateForm = (name) => {
     if (!plateForm) {
-      setPlateForm(e.target.value);
+      setPlateForm(name);
     } else {
-      const data = [...plateForm, e.target.value];
+      const data = [...plateForm, name];
       setPlateForm(data);
     }
   };
-  const selectGameType = (e) => {
+  const selectGameType = (name) => {
     if (!gameType) {
-      setGameType(e.target.value);
+      setGameType(name);
     } else {
-      const data = [...gameType, e.target.value];
+      const data = [...gameType, name];
       setGameType(data);
     }
   };
@@ -113,7 +178,6 @@ export default function PropfileInformation({ openProfile, handleClose }) {
           `/users/addProfileInfo/${user._id}`,
           formdata
         );
-        console.log("res", res);
       } else {
         console.log("Please Login !");
       }
@@ -214,29 +278,93 @@ export default function PropfileInformation({ openProfile, handleClose }) {
           <div className="userButtonGroup">
             <p className="userButton-heading">Game type</p>
             <div className="allButtons">
-              {gametypebtn.map((tegs) => (
-                <button className="userTagsAllButton">{tegs.name}</button>
-              ))}
+              <>
+                {gametypebtn.map((tag) => {
+                  return gameType?.includes(tag.name) ? (
+                    <button
+                      className="activetypebtn"
+                      onClick={() => {
+                        selectGameType(tag.name);
+                      }}
+                    >
+                      {tag.name}
+                    </button>
+                  ) : (
+                    <button
+                      className="userTagsAllButton"
+                      onClick={() => {
+                        selectGameType(tag.name);
+                      }}
+                    >
+                      {tag.name}
+                    </button>
+                  );
+                })}
+              </>
             </div>
           </div>
           <div className="userButtonGroup">
             <p className="userButton-heading">Gaming Plateforms</p>
             <div className="allButtons2">
-              {gametypebtn2.map((tegs2) => (
-                <button className="userTagsAllButton">{tegs2.name}</button>
-              ))}
+              {gametypebtn2.map((tag, i) => {
+                return plateForm?.includes(tag.name) ? (
+                  <button
+                    key={i}
+                    className="activetypebtn"
+                    onClick={() => {
+                      selectplateForm(tag.name);
+                    }}
+                  >
+                    {tag.name}
+                  </button>
+                ) : (
+                  <button
+                    key={i}
+                    className="userTagsAllButton"
+                    onClick={() => {
+                      selectplateForm(tag.name);
+                    }}
+                  >
+                    {tag.name}
+                  </button>
+                );
+              })}
             </div>
           </div>
           <div className="userProfileGamingMode">
-            <p className="gamingModeP">Favorite gaming mode</p>
-            <div className="gamingModeSelect">
+            <FormControl>
+              <p className="gamingModeP">Favorite gaming mode</p>
+              <div className="gamingModeSelect">
+                <RadioGroup
+                  aria-labelledby="demo-radio-buttons-group-label"
+                  defaultValue={gameMood}
+                  name="radio-buttons-group"
+                  style={{ display: "inline" }}
+                >
+                  <FormControlLabel
+                    value="Single"
+                    control={<Radio />}
+                    label="Single"
+                    onClick={onChangeRadioBtn}
+                  />
+                  <FormControlLabel
+                    value="MultiPlayer"
+                    control={<Radio />}
+                    label="MultiPlayer"
+                    onClick={onChangeRadioBtn}
+                  />
+                </RadioGroup>
+              </div>
+            </FormControl>
+
+            {/* <div className="gamingModeSelect">
               <Checkbox {...label} />
 
-              <label for="vehicle1"> Single Player Mode</label>
+              <label for="Single"> Single Player Mode</label>
               <Checkbox {...label} style={{ marginLeft: "13px" }} />
 
-              <label for="vehicle2"> MultiPlayer Mode</label>
-            </div>
+              <label for="MultiPlayer"> MultiPlayer Mode</label>
+            </div> */}
           </div>
           <div>
             <label for="Learning">Learning Rhythm</label>
@@ -250,7 +378,7 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               className="selectInput-userProfile2"
             >
               <option value="Per Week" className="selectInput-option">
-                Per Week
+                {playPeriod}
               </option>
               <option value="Per Month">Per Month</option>
               <option value="Per Year">Per Year</option>
@@ -264,7 +392,7 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               className="selectInput-userProfile2"
             >
               <option value="2 Houre" className="selectInput-option">
-                2 Houre
+                {playTime}
               </option>
 
               <option value="4 Houre">4 Houre</option>
@@ -279,6 +407,7 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               name="Select"
               onChange={changeCurrentLevelHandler}
               className="selectInput-userProfile"
+              defaultValue={currentLevel}
             >
               <option value="medium" className="selectInput-option">
                 Medium
@@ -298,13 +427,14 @@ export default function PropfileInformation({ openProfile, handleClose }) {
               name="Select"
               onChange={changeTargetLevelHandler}
               className="selectInput-userProfile"
+              defaultValue={target_level}
             >
               <option value="medium" className="selectInput-option">
-                Medium
+                Initial
               </option>
 
               {/* <option value="saab">Pro</option> */}
-              <option value="initial">Initial</option>
+              <option value="initial">Medium</option>
               <option value="pro">Pro</option>
             </select>
           </div>

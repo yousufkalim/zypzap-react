@@ -19,7 +19,6 @@ let btns = [
 const CoursePage = () => {
   const [overView, setOverView] = useState(false);
   const [activebtn, setActivebtn] = useState("Overview");
-  console.log("activebtn", activebtn);
 
   const [openlogin, setOpenLogin] = React.useState(false);
   const [opensignup, setOpenSignup] = React.useState(false);

@@ -9,7 +9,6 @@ import { useTranslation } from "react-i18next";
 const UserLandingPageBody = () => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
-  console.log("language ", language);
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
 
