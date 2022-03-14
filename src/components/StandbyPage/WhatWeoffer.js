@@ -1,5 +1,6 @@
 // Init
-import React from "react";
+import React, { useState } from "react";
+import SubscriptionPopup from "../PopupForms/SubscriptionPopup";
 import Grid from "@material-ui/core/Grid";
 import gamerImg from "../../assets/img/ComputerImg.svg";
 import contentImg from "../../assets/img/ComputerImg2.svg";
@@ -7,6 +8,7 @@ import { useTranslation, Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export default function WhatWeOffer() {
+  const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
 
   // React.useEffect(() => {
@@ -24,6 +26,7 @@ export default function WhatWeOffer() {
 
   return (
     <>
+      {open && <SubscriptionPopup open={open} setOpen={setOpen} />}
       <div className="whatweoffercontainer ">
         <div className="offerh1">
           <h1
@@ -50,10 +53,11 @@ export default function WhatWeOffer() {
                 {t(" et commencez à scorer")}
               </p>
 
-              <Link to="/userlanding">
+              <Link to="#">
                 <button
                   className="whatweofferButton"
                   style={{ marginBottom: "18px" }}
+                  onClick={() => setOpen(true)}
                 >
                   {t("Inscrivez-vous")}
                 </button>
@@ -73,8 +77,11 @@ export default function WhatWeOffer() {
                 <br />
                 {t("monetisez votre expertise")}
               </p>
-              <Link to="/contentcreator">
-                <button className="whatweofferButton">
+              <Link to="#">
+                <button
+                  className="whatweofferButton"
+                  onClick={() => setOpen(true)}
+                >
                   {t("Inscrivez-vous")}
                 </button>
               </Link>

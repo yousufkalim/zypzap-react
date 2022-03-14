@@ -9,7 +9,7 @@ const Legal = () => {
           <img src={AboutLandingPageImg} className="aboutLeftimg" />
         </div>
         <div className="AbouttextonImg">
-          <h1 className="AbouttextimgH1">Mentions legales</h1>
+          <h1 className="AbouttextimgH1">Mentions lÉgales</h1>
         </div>
       </div>
     </div>

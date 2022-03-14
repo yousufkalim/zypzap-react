@@ -22,6 +22,7 @@ import OverView from "../containers/OverView";
 import Policy from "../containers/Policy";
 import CoursePage from "../containers/CoursePage";
 import LegalNotice from "../containers/LegalNotice";
+import Team from "../containers/Team";
 
 const index = () => {
   return (
@@ -51,6 +52,7 @@ const index = () => {
       <Route exact path="/OverView" component={OverView} />/
       <Route exact path="/CoursePage" component={CoursePage} />/
       <Route exact path="/LegalNotice" component={LegalNotice} />/
+      <Route exact path="/Team" component={Team} />/
     </Switch>
   );
 };

@@ -228,8 +228,11 @@
     margin: auto;
   }
   .followUsH2 {
-    font-size: 22px;
+    font-size: 25px;
     padding-bottom: 40px;
+  }
+  .ourMissionsH1 {
+    font-size: 25px;
   }
   .offerdivleft {
     margin: 0 auto 64px auto !important;

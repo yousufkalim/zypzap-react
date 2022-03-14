@@ -4,5 +4,14 @@
 .legalHeading-centerDiv {
   width: 90%;
   margin: auto;
+}
+.legalH3 {
   padding-top: 47px;
+  padding-bottom: 34px;
+}
+.legalP {
+  padding-bottom: 5px;
+  color: #f0f0f0;
+  opacity: 0.8;
+  font-size: 18px;
 }
