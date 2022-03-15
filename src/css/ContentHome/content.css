@@ -21,31 +21,33 @@
 }
 .textH1 {
   font-size: 3em;
-  font-family: "AMCAP Eternal", sans-serif;
-  font-weight: 100;
-  text-shadow: 0px 3px 3px #662f88;
+  /* font-family: "AMCAP Eternal", sans-serif; */
+  font-weight: 800;
+  /* text-shadow: 0px 3px 3px #662f88; */
 }
 .textonP {
   font-size: 23px;
   margin-top: 500px;
   padding: 5px 0px 5px 0px;
   margin: 8px 0px 28px 0px;
-  font-family: "Myriad Pro", sans-serif;
-  text-shadow: 0px 3px 3px #662f88;
+  /* font-family: "Myriad Pro", sans-serif; */
+  /* text-shadow: 0px 3px 3px #662f88; */
   color: #fff !important;
   text-transform: uppercase;
 }
 .textonbutton {
-  padding: 10px 18px 10px 18px;
+  padding: 11px 25px;
   border: none;
-  margin: 8px 0px 8px 0px;
-  background-color: #e7411b;
+  margin: 13px 13px 30px 0px;
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
-  font-weight: 900;
-  font-family: "Poppins", sans-serif;
-  border-radius: 2px;
+  font-weight: 600;
+  font-family: "Myriad Pro", sans-serif;
+  border-radius: 5px;
   cursor: pointer;
-  border-radius: 10px;
+  font-size: 14px;
+  text-transform: capitalize;
+  border: 1px solid #662f88;
 }
 .textonbutton:hover {
   background: none;

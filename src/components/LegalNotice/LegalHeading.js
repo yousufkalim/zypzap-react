@@ -75,7 +75,7 @@ const LegalHeading = () => {
             <p className="legalP">
               Conformément à la loi « informatique et libertés » du 6 janvier
               1978 modifiée en 2004, vous bénéficiez d’un droit d’accès et de
-              contact@zypsap.com
+              contact@zypzap.com
             </p>
             <p className="legalP">
               rectification aux informations qui vous concernent, que vous
