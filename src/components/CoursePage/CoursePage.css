@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;800&family=Mulish&display=swap");
+body {
+  font-family: "Mulish", sans-serif;
+}
 .completeCourse {
   color: #fff;
   width: 100%;
@@ -74,3 +78,29 @@
   padding-right: 20px;
   cursor: pointer;
 }
+.Pre-next-btn {
+  position: absolute;
+  right: 70px;
+  padding-top: 25px;
+  /* border-bottom: 1px solid gray; */
+}
+.preBTN {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  margin-right: 30px;
+}
+.nextBTN {
+  background: none;
+  border: none;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 18px;
+}
+/* .pre_next_line {
+  width: 1000px;
+} */
