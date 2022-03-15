@@ -31,7 +31,6 @@ const SubscriptionPopup = ({ open, setOpen, Email, heading1, heading2 }) => {
     if (email == "") {
       return toast.error("Veuillez entrer votre e-mail");
     }
-    console.log("heading1", heading1);
 
     if (!heading1) {
       if (!values.checkBoxOne) {
@@ -39,6 +38,7 @@ const SubscriptionPopup = ({ open, setOpen, Email, heading1, heading2 }) => {
           "Merci d'accepter les conditions pour démarrer le test"
         );
       }
+      setEmail("");
     }
 
     if (!values.checkBoxTwo) {
@@ -46,6 +46,9 @@ const SubscriptionPopup = ({ open, setOpen, Email, heading1, heading2 }) => {
         "Merci d'accepter les conditions pour démarrer le test"
       );
     }
+
+    toast.success("Nous avons bien reçu votre email");
+    handleClose();
     // setLoading(true);
     // let res = await api("post", "/users/contact", {
     //   ...formData,
@@ -139,7 +142,7 @@ const SubscriptionPopup = ({ open, setOpen, Email, heading1, heading2 }) => {
               </label>
             </div>
             <button className="subsformbtn" onClick={() => submitForm()}>
-              {t("Subscribe")}
+              S’inscrire
             </button>
             {/* </form> */}
           </div>
