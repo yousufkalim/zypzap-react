@@ -4,6 +4,11 @@
   /* width: 92%; */
   margin-bottom: 30px;
   padding-top: 35px;
+  /* padding-bottom: 35px; */
+  background-color: #0e0f1e;
+}
+.Carousel-root-1 {
+  background-color: #0e0f1e;
 }
 .happy_box {
   width: 70%;

@@ -43,7 +43,7 @@ export default function Footer() {
                       <td>
                         <img src={email} height={15} className="emailicon" />
                       </td>
-                      <td className="infoTd"> contact@zypsap.com</td>
+                      <td className="infoTd"> contact@zypap.com</td>
                     </div>
                     {/* </tr>
                   <tr>

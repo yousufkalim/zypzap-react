@@ -1,6 +1,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import TeachPlan from "../../assets/TeachPlan.png";
+import TeachPlan from "../../assets/TeachPlan.svg";
+
 const HowToTeach = () => {
   return (
     <>
@@ -21,35 +22,53 @@ const HowToTeach = () => {
                   <div className="Steppertitle12">
                     1<div className="Stepperline2"></div>
                   </div>
-                  <p className="Stepperdisc2">Plan Your Course</p>
+                  <p className="Stepperdisc2">Prepare your course</p>
                 </div>
                 <div>
-                  <p className="Steppera">
+                  {/* <p className="Steppera">
                     Many desktop publishing packages <br /> edditors now use
                     lorem ipsum <br /> and a search for
-                  </p>
+                  </p> */}
                 </div>
                 <div className="Stepper12">
                   <div className="Steppertitle12">
                     2<div className="Stepperline2"></div>
                   </div>
-                  <p className="Stepperdisc2">Record Your Course</p>
+                  <p className="Stepperdisc2">Record your course</p>
+                </div>
+                <div className="Stepper12">
+                  <div className="Steppertitle12">
+                    2<div className="Stepperline2"></div>
+                  </div>
+                  <p className="Stepperdisc2">Edit your course</p>
+                </div>
+                <div className="Stepper12">
+                  <div className="Steppertitle12">
+                    2<div className="Stepperline2"></div>
+                  </div>
+                  <p className="Stepperdisc2">Pass the evaluation check</p>
+                </div>
+                <div className="Stepper12">
+                  <div className="Steppertitle12">
+                    2<div className="Stepperline2"></div>
+                  </div>
+                  <p className="Stepperdisc2">Set the price of your course</p>
                 </div>
                 <div>
-                  <p className="Steppera">
+                  {/* <p className="Steppera">
                     Many desktop publishing packages <br /> edditors now use
                     lorem ipsum <br /> and a search for
-                  </p>
+                  </p> */}
                 </div>
                 <div className="Stepper12">
                   <div className="Steppertitle12">3</div>
-                  <p className="Stepperdisc2">Launch Your Course</p>
+                  <p className="Stepperdisc2">Publish your course</p>
                 </div>
                 <div>
-                  <p className="Steppera">
+                  {/* <p className="Steppera">
                     Many desktop publishing packages <br /> edditors now use
                     lorem ipsum <br /> and a search for
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>

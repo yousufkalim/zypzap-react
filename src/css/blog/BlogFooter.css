@@ -88,7 +88,7 @@
 .imgIcon {
   cursor: pointer;
   width: 40px;
-  height: 20px;
+  /* height: 20px; */
   /* margin-right: 6px; */
 }
 .imgIcon2 {
@@ -182,7 +182,7 @@
     margin-right: 7px;
     margin-bottom: 12px;
     margin-left: 0px;
-    height: 16px;
+    /* height: 16px; */
   }
 }
 @media only screen and (min-width: 1213px) and (max-width: 1500px) {

@@ -16,7 +16,7 @@ const ContentHome = () => {
     <>
       <div
         style={{
-          backgroundColor: "#0E0F1E",
+          backgroundColor: "black",
           minHeight: "100vh",
           overflowX: "hidden",
           overflowY: "hidden",
