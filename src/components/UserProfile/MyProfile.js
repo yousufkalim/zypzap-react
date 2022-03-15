@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from "react";
-const MyProfile = () => {
+const MyProfile = (props) => {
+  const { user } = props;
   const [a, seta] = useState(false);
   let btnTags = [
-    { name: "Fortnite" },
-    { name: "GTA V" },
-    { name: "Call Of Duty" },
+    { name: "Action" },
+    { name: "Adventure" },
+    { name: "Multiplayer game" },
+    { name: "Car Racing" },
+    { name: "FPS" },
+    { name: "Simulation" },
+    { name: "Sports" },
+    { name: "Puzzle" },
+    { name: "RPG" },
+    { name: "RTS" },
   ];
   let gametypebtn = [
     { name: "Action" },
@@ -49,29 +57,23 @@ const MyProfile = () => {
             <div className="userButtonGroup">
               <p className="userButton-heading">Favourite Games</p>
               <div className="profile-allButtons">
-                {btnTags.map((tegs) => (
-                  <button
-                    className={
-                      a != tegs.name ? "userTagsAllButton" : "activetypebtn"
-                    }
-                    onClick={() => seta(tegs.name)}
-                  >
-                    {tegs.name}
-                  </button>
-                ))}
+                {user?.prefrence_games?.favourite_games
+                  ? user.prefrence_games.favourite_games.map((tegs) => (
+                      <button className="userTagsAllButton">{tegs}</button>
+                    ))
+                  : "No favourit Courses"}
               </div>
             </div>
             <div className="userButtonGroup">
               <p className="userButton-heading">Game type</p>
               <div className="profile-allButtons">
-                {gametypebtn.map((tegs) => (
+                {user?.gameType.map((tegs) => (
                   <button
                     className={
                       a != tegs.name ? "userTagsAllButton" : "activetypebtn"
                     }
-                    onClick={() => seta(tegs.name)}
                   >
-                    {tegs.name}
+                    {tegs}
                   </button>
                 ))}
               </div>
@@ -80,15 +82,8 @@ const MyProfile = () => {
               <p className="userButton-heading">Gaming Plateforms</p>
               <div className="profile-allButtons">
                 <div className="profile-allButtons">
-                  {gametypebtn2.map((tegs2) => (
-                    <button
-                      className={
-                        a != tegs2.name ? "userTagsAllButton" : "activetypebtn"
-                      }
-                      onClick={() => seta(tegs2.name)}
-                    >
-                      {tegs2.name}
-                    </button>
+                  {user?.plateForm?.map((tegs2) => (
+                    <button className="userTagsAllButton">{tegs2}</button>
                   ))}
                 </div>
               </div>

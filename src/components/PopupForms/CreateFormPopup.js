@@ -4,10 +4,10 @@ import Dialog from "@mui/material/Dialog";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import ClearIcon from "@mui/icons-material/Clear";
-import Google from "../../assets/icons/Googli.png";
-import ChatIcon from "../../assets/icons/chatIcon.png";
-import DriveIcon from "../../assets/icons/driveIcon.png";
-import AppleIcon from "../../assets/icons/appleIcon.png";
+import Google from "../../assets/icons/Googli.svg";
+import ChatIcon from "../../assets/icons/twitch.svg";
+import Facebook from "../../assets/icons/fb1.svg";
+import Discord1 from "../../assets/icons/discord1.svg";
 import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -171,16 +171,32 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
                     <Grid item xs={12}>
                       <div className="social_accoount">
                         <span>
-                          <img src={Google} alt="" />
+                          <a
+                            href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}
+                          >
+                            <img src={Discord1} alt="" />
+                          </a>
                         </span>
                         <span>
-                          <img src={ChatIcon} alt="" />
+                          <a
+                            href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}
+                          >
+                            <img src={ChatIcon} alt="" />
+                          </a>
                         </span>
                         <span>
-                          <img src={DriveIcon} alt="" />
+                          <a
+                            href={`${process.env.REACT_APP_baseURL}/users/auth/google`}
+                          >
+                            <img src={Google} alt="" />
+                          </a>
                         </span>
                         <span>
-                          <img src={AppleIcon} alt="" />
+                          <a
+                            href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}
+                          >
+                            <img src={Facebook} alt="" />
+                          </a>
                         </span>
                       </div>
                     </Grid>

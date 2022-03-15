@@ -88,9 +88,11 @@ export default function PrimarySearchAppBar({
   const { user, creator } = Store();
   const handleLogout = async () => {
     let res = await api("post", "/users/logout/all");
-
-    updateStore({ user: null, creator: null });
-    localStorage.removeItem("token");
+    if (res) {
+      updateStore({ user: null, creator: null });
+      localStorage.removeItem("token");
+      history.push("/home");
+    }
   };
   const [age, setAge] = React.useState("");
 
@@ -102,6 +104,7 @@ export default function PrimarySearchAppBar({
   const handleClickOpen = () => {
     setOpenProfile(true);
   };
+
 
   const handleClose = () => {
     setOpenProfile(false);
@@ -153,7 +156,6 @@ export default function PrimarySearchAppBar({
       //   res = await api("get", `/courses/search?name=${e.target.value}`);
       // } else {
       //   res = await api("get", `/creators/search?name=${e.target.value}`);
-      //   console.log("creator", res);
       // }
       // if (res) {
       //   updateStore({ searchCourse: res?.data });
@@ -350,12 +352,12 @@ export default function PrimarySearchAppBar({
             <Link to="" className="requestBt">
               <button className="requestBtn">Request a course</button>
             </Link>
-            <a to="" className="requestBt">
-              <button className="requestBtn" onClick={handleClickOpen}>
-                User Profile
-              </button>
-            </a>
-
+            {user?.role == "User" && (
+              <Link to="/userprofile" className="requestBt">
+                {/* onClick={handleClickOpen} */}
+                <button className="requestBtn">User Profile</button>
+              </Link>
+            )}
             <Box
               className={`${creator ? "headerLinkbox" : "headerLinkbox2"}`}
               sx={{
@@ -380,12 +382,16 @@ export default function PrimarySearchAppBar({
                   </Link>
                 </>
               ) : (
-                <p
-                  className="sgnBtn"
-                  onClick={() => setOpenBecomeCreatorPopup(true)}
-                >
-                  Become a Creater
-                </p>
+                <>
+                  {user?.role == "User" && (
+                    <p
+                      className="sgnBtn"
+                      onClick={() => setOpenBecomeCreatorPopup(true)}
+                    >
+                      Become a Creater
+                    </p>
+                  )}
+                </>
               )}
               {user ? (
                 <p className="sgnBtn" onClick={handleLogout}>

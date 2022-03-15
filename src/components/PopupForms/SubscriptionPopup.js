@@ -5,8 +5,6 @@ import ClearIcon from "@mui/icons-material/Clear";
 import { useTranslation } from "react-i18next";
 import api from "../../api";
 const SubscriptionPopup = ({ open, setOpen, Email, heading1, heading2 }) => {
-  console.log("heading1", heading1);
-  console.log("heading2", heading2);
   const { t, i18n } = useTranslation();
   const { language } = i18n;
   const [email, setEmail] = useState(Email ? Email : "");
@@ -16,7 +14,6 @@ const SubscriptionPopup = ({ open, setOpen, Email, heading1, heading2 }) => {
     checkBoxTwo: false,
   });
   const getCheckboxValues = (e) => {
-    // console.log(e.target.checked);
     setValues({
       ...values,
       [e.target.name]: e.target.checked,
@@ -29,7 +26,6 @@ const SubscriptionPopup = ({ open, setOpen, Email, heading1, heading2 }) => {
     setOpen(false);
   };
   const submitForm = (event) => {
-    // event.preventDefault();
     console.log("submit");
 
     if (email == "") {

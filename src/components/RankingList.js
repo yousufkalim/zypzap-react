@@ -182,27 +182,51 @@ export default function RankingList() {
               },
             }}
           >
-            <TableRow>
-              <TableCell className="headerFirstCell">Rank</TableCell>
-              <TableCell className="headergameCell" align="right">
-                Game
-              </TableCell>
-              <TableCell className="headergameCell" align="right">
-                Date
-              </TableCell>
-              <TableCell className="headergameCell" align="right">
-                Game Level
-              </TableCell>
-              <TableCell className="headerdescriptionCell" align="right">
-                Description
-              </TableCell>
-              <TableCell className="" align="right">
-                Votes
-              </TableCell>
-              <TableCell className="headerLastCell" align="right">
-                Action
-              </TableCell>
-            </TableRow>
+            {user ? (
+              <>
+                {" "}
+                <TableRow>
+                  <TableCell className="headerFirstCell">Rank</TableCell>
+                  <TableCell className="headergameCell" align="right">
+                    Game
+                  </TableCell>
+                  <TableCell className="headergameCell" align="right">
+                    Date
+                  </TableCell>
+                  <TableCell className="headergameCell" align="right">
+                    Game Level
+                  </TableCell>
+                  <TableCell className="headerdescriptionCell" align="right">
+                    Description
+                  </TableCell>
+                  <TableCell className="" align="right">
+                    Votes
+                  </TableCell>
+                  <TableCell className="headerLastCell" align="right">
+                    Action
+                  </TableCell>
+                </TableRow>
+              </>
+            ) : (
+              <TableRow>
+                <TableCell className="headerFirstCell">Rank</TableCell>
+                <TableCell className="headergameCell" align="right">
+                  Game
+                </TableCell>
+                <TableCell className="headergameCell" align="right">
+                  Date
+                </TableCell>
+                <TableCell className="headergameCell" align="right">
+                  Game Level
+                </TableCell>
+                <TableCell className="headerdescriptionCell" align="right">
+                  Description
+                </TableCell>
+                <TableCell className="" align="right">
+                  Votes
+                </TableCell>
+              </TableRow>
+            )}
           </TableHead>
           <TableBody
             sx={{
@@ -242,26 +266,32 @@ export default function RankingList() {
                     <TableCell align="right">
                       {row?.likes ? row.likes.length + " Votes" : "0 Votes"}
                     </TableCell>
-                    <TableCell align="right">
-                      {user?(<>{isShow(row.likes) ? (
-                        <button
-                          className="votebutton"
-                          key={index}
-                          onClick={() => handleVoteClick(row)}
-                          disabled={true}
-                        >
-                          Voted
-                        </button>
-                      ) : (
-                        <button
-                          className="votebutton"
-                          key={index}
-                          onClick={() => handleVoteClick(row)}
-                        >
-                          Vote
-                        </button>
-                      )}</>):""}
-                    </TableCell>
+                    {user ? (
+                      <>
+                        <TableCell align="right">
+                          {isShow(row.likes) ? (
+                            <button
+                              className="votebutton"
+                              key={index}
+                              onClick={() => handleVoteClick(row)}
+                              disabled={true}
+                            >
+                              Voted
+                            </button>
+                          ) : (
+                            <button
+                              className="votebutton"
+                              key={index}
+                              onClick={() => handleVoteClick(row)}
+                            >
+                              Vote
+                            </button>
+                          )}
+                        </TableCell>
+                      </>
+                    ) : (
+                      ""
+                    )}
                   </TableRow>
                 ))}
           </TableBody>

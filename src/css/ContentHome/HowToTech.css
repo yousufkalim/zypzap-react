@@ -15,7 +15,7 @@
   width: 100%;
 }
 .Getstarted22 {
-  margin-top: 163px;
+  /* margin-top: 163px; */
 }
 .Getstaredgrid22 {
   display: flex;
@@ -32,7 +32,7 @@
   width: 25px;
 }
 .Stepperline2 {
-  height: 143px !important;
+  height: 27px !important;
   width: 1px;
   background-color: #fff;
   margin-top: 5px;
@@ -53,7 +53,7 @@
 .StepMain2 {
   position: relative;
   width: 60%;
-  padding: 63px 0px 0 0px;
+  padding: 0px 0px 0 0px;
   right: 98px;
   opacity: 0.9;
 }
@@ -66,18 +66,26 @@
 .howTeachBtn {
   margin: auto;
   text-align: center;
-  background-color: #0e0f1e;
+
   padding-bottom: 12px;
+}
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: left;
 }
 /* for big screens */
 @media only screen and (min-width: 1025px) and (max-width: 1400px) {
   .Stepperline2 {
-    height: 244px;
+    height: 27px;
   }
 }
 @media only screen and (min-width: 1500px) and (max-width: 1900px) {
   .Stepperline2 {
-    height: 165px !important;
+    height: 27px !important;
   }
   .getStartedHeading2 {
     font-size: 40px;
@@ -108,7 +116,7 @@
     margin: auto;
   }
   .Getstarted22 {
-    margin-top: 50px;
+    /* margin-top: 50px; */
     /* margin-left: 0 !important; */
   }
   .Getstaredgrid22 {
@@ -144,7 +152,7 @@
   }
   .Getstarted22 {
     width: 280px;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     margin-bottom: 20px;
   }
   .StepMain2 {

@@ -125,17 +125,17 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
                 onChange={handleChange}
               >
                 <FormControlLabel
-                  value="Entry"
+                  value="initial"
                   control={<Radio />}
                   label="Entry Level"
                 />
                 <FormControlLabel
-                  value="Intermediate"
+                  value="medium"
                   control={<Radio />}
                   label="Intermediate Level"
                 />
                 <FormControlLabel
-                  value="Advance"
+                  value="pro"
                   control={<Radio />}
                   label="Advance Level"
                 />

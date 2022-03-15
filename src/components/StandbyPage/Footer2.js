@@ -46,7 +46,7 @@ const Footer2 = () => {
                       <td>
                         <img src={email} height={15} className="emailicon" />
                       </td>
-                      <td className="infoTd"> @zypsap.com</td>
+                      <td className="infoTd"> @zypzap.com</td>
                     </div>
                     <div className="tdDiv">
                       <td>
