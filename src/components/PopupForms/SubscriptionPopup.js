@@ -142,7 +142,7 @@ const SubscriptionPopup = ({ open, setOpen, Email, heading1, heading2 }) => {
               </label>
             </div>
             <button className="subsformbtn" onClick={() => submitForm()}>
-              {t("Subscribe")}
+              S’inscrire
             </button>
             {/* </form> */}
           </div>
