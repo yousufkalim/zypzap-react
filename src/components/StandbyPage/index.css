@@ -121,7 +121,7 @@
   align-items: center;
 }
 .followUs-box2 {
-  padding: 0 50px;
+  /* padding: 0 50px; */
   padding-top: 30px;
   display: flex;
   flex-direction: column;
@@ -143,19 +143,32 @@
   font-size: 28px;
 }
 .followSocialP2 {
-  font-size: 17px;
+  font-size: 10px;
   color: #d4d4d4;
+}
+.preparingP2 {
+  display: none;
+}
+.folowDiv {
+  display: contents;
 }
 @media only screen and (min-width: 200px) and (max-width: 600px) {
   .preparingCenterDiv {
     width: 90%;
-    padding: 33px 0;
+    padding: 95px 0 0 0;
   }
   .preparingH1 {
-    font-size: 20px;
+    font-size: 25px;
+  }
+  .preparingP2 {
+    display: block;
+    font-size: 9px;
+    padding: 11px 0 0px 0;
+    line-height: 1.5;
   }
   .preparingP {
-    font-size: 13px;
+    display: none;
+    font-size: 15px;
   }
   .preparingPrsntageCenterDiv {
     padding: 33px 30px;
@@ -171,7 +184,7 @@
     width: 90% !important;
   }
   .followSocialBox {
-    width: inherit;
+    width: 100%;
     flex-direction: column;
   }
   .followUs-box {
@@ -185,8 +198,12 @@
     margin: auto;
   }
   .followUsH2 {
-    font-size: 20px;
+    font-size: 25px;
     padding-bottom: 40px;
+  }
+  .folowDiv {
+    display: flex;
+    justify-content: space-around;
   }
 }
 @media only screen and (min-width: 601px) and (max-width: 900px) {
@@ -239,6 +256,10 @@
   }
   .offerdivright {
     margin: 0 auto 64px auto !important;
+  }
+  .folowDiv {
+    display: flex;
+    /* justify-content: center; */
   }
 }
 @media only screen and (min-width: 901px) and (max-width: 1199px) {
