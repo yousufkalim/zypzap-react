@@ -179,7 +179,7 @@
   line-height: 1.4;
 }
 .offerText2 {
-  font-size: 14px;
+  font-size: 16px;
   padding: 10px 70px 10px 70px;
   font-family: "Maven Pro";
   font-weight: 700;
@@ -198,7 +198,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   border: 1px solid #662f88;
 }
 .whatweofferButton:hover {
