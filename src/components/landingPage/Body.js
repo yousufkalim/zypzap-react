@@ -1,7 +1,7 @@
 // Init
 import React, { useState } from "react";
 import SubscriptionPopup from "../PopupForms/SubscriptionPopup";
-import AboutLandingPageImg from "../../assets/img/aboutlandingpage02.png";
+import AboutLandingPageImg from "../../assets/img/AboutLandingPageImg.svg";
 import { Link } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
 
@@ -45,7 +45,6 @@ export default function Body() {
             </h1>
             <p className="myStylep ">
               {t("Inscrivez-vous aujourd'hui pour")}
-              {/* <br /> */}
               {t("bénéficier d'avantages uniques")}
             </p>
           </div>
