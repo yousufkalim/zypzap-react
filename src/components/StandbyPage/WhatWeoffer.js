@@ -52,7 +52,9 @@ export default function WhatWeOffer() {
                 <br />
                 {t(" et commencez à scorer")}
               </p>
-
+              <p className="offerText22">
+                Suivez les cours de votre choix et commencez à scorer
+              </p>
               <Link to="#">
                 <button
                   className="whatweofferButton"
@@ -76,6 +78,9 @@ export default function WhatWeOffer() {
                 {t("Créez vos cours et ")}
                 <br />
                 {t("monetisez votre expertise")}
+              </p>
+              <p className="offerText22">
+                Créez vos cours et monetisez votre expertise
               </p>
               <Link to="#">
                 <button

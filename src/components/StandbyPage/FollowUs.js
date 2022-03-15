@@ -14,39 +14,45 @@ const FollowUs = () => {
         <div className="FollowUs_container">
           <h2 className="followUsH2">Suivez-nous sur les reseaux sociaux</h2>
           <div className="followSocialBox">
-            <div className="followUs-box2">
-              <img src={SocialIcon1} alt="" className="followUsImg" />
-              <div className="followSocialHeading2">
-                <p className="followSocialP">0</p>
-                <p className="followSocialP2">Membres</p>
+            {/* this */}
+            <div className="folowDiv">
+              <div className="followUs-box2">
+                <img src={SocialIcon1} alt="" className="followUsImg" />
+                <div className="followSocialHeading2">
+                  <p className="followSocialP">0</p>
+                  <p className="followSocialP2">Membres</p>
+                </div>
+              </div>
+              <div className="followUs-box2">
+                <img src={SocialIcon2} alt="" className="followUsImg" />
+                <div className="followSocialHeading2">
+                  <p className="followSocialP">0</p>
+                  <p className="followSocialP2">Followers</p>
+                </div>
               </div>
             </div>
-            <div className="followUs-box2">
-              <img src={SocialIcon2} alt="" className="followUsImg" />
-              <div className="followSocialHeading2">
-                <p className="followSocialP">0</p>
-                <p className="followSocialP2">Followers</p>
+            {/* this */}
+            <div className="folowDiv">
+              <div className="followUs-box2">
+                <img
+                  src={SocialIcon3}
+                  alt=""
+                  className="followUsImg"
+                  style={{ marginTop: "7px" }}
+                />
+                <div className="followSocialHeading2">
+                  <p className="followSocialP" style={{ marginTop: "7px" }}>
+                    0
+                  </p>
+                  <p className="followSocialP2">Followers</p>
+                </div>
               </div>
-            </div>
-            <div className="followUs-box2">
-              <img
-                src={SocialIcon3}
-                alt=""
-                className="followUsImg"
-                style={{ marginTop: "7px" }}
-              />
-              <div className="followSocialHeading2">
-                <p className="followSocialP" style={{ marginTop: "7px" }}>
-                  0
-                </p>
-                <p className="followSocialP2">Followers</p>
-              </div>
-            </div>
-            <div className="followUs-box2">
-              <img src={SocialIcon4} alt="" className="followUsImg" />
-              <div className="followSocialHeading2">
-                <p className="followSocialP">0</p>
-                <p className="followSocialP2">Likes</p>
+              <div className="followUs-box2">
+                <img src={SocialIcon4} alt="" className="followUsImg" />
+                <div className="followSocialHeading2">
+                  <p className="followSocialP">0</p>
+                  <p className="followSocialP2">Likes</p>
+                </div>
               </div>
             </div>
           </div>

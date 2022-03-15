@@ -228,8 +228,14 @@
     margin: -24px;
   }
   .myStylep {
-    font-size: 8px;
-    line-height: 1.3;
+    font-size: 15px;
+    position: absolute;
+    top: 128px;
+    left: -4px;
+    width: 100%;
+    text-transform: inherit;
+    padding: 7px 0px 0 0;
+    line-height: 1.6;
   }
   .landing-partner-img-container {
     width: 95%;

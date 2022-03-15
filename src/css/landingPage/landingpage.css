@@ -187,6 +187,9 @@
   margin: auto;
   line-height: 1.4;
 }
+.offerText22 {
+  /* display: none; */
+}
 .whatweofferButton {
   padding: 11px 25px;
   border: none;
@@ -510,16 +513,17 @@
   .frlandingpagetextonImg {
     position: absolute;
     top: 53%;
-    left: 40%;
-    transform: translate(-50%, -50%);
+    left: 47%;
+    transform: translate(-50%, -46%);
     text-align: left;
+    width: 79%;
   }
   .landingBr {
     display: none;
   }
 
   .landingpagetextimgH1 {
-    font-size: 1rem;
+    font-size: 28px;
   }
   .landingpagetextonImgP {
     padding: 5px 0px 5px 0px;
@@ -577,7 +581,12 @@
   .offerheading5 {
     font-size: 20px;
   }
+  .offerText22 {
+    display: block;
+    z-index: 5;
+    font-size: 10px;
+  }
   .offerText2 {
-    padding: 0;
+    display: none;
   }
 }
