@@ -1,5 +1,5 @@
 import React from "react";
-import AboutLandingPageImg from "../../assets/img/aboutlandingpage02.png";
+import AboutLandingPageImg from "../../assets/img/AboutLandingPageImg2.svg";
 import WhoWeAre from "../../components/about/WhoWeAre";
 
 const About2 = () => {
