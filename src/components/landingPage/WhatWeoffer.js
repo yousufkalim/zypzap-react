@@ -46,9 +46,9 @@ export default function WhatWeOffer() {
                 <br />
                 {t(" et commencez à scorer")}
               </p>
-              <p className="offerText22">
+              {/* <p className="offerText22">
                 Suivez les cours de votre choix et commencez à scorer
-              </p>
+              </p> */}
               <Link to="/userlanding">
                 <button className="whatweofferButton">{t("Join us")}</button>
               </Link>

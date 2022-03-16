@@ -228,10 +228,10 @@
     margin: -24px;
   }
   .myStylep {
-    font-size: 15px;
+    font-size: 10px;
     position: absolute;
-    top: 128px;
-    left: -4px;
+    top: 34px;
+    left: 0;
     width: 100%;
     text-transform: inherit;
     padding: 7px 0px 0 0;

@@ -46,7 +46,7 @@ const Footer2 = () => {
                       <td>
                         <img src={email} height={15} className="emailicon" />
                       </td>
-                      <td className="infoTd"> @zypzap.com</td>
+                      <td className="infoTd"> contact@zypzap.com</td>
                     </div>
                     <div className="tdDiv">
                       <td>
@@ -92,6 +92,14 @@ const Footer2 = () => {
               </Link>
               <p className="pmargin"> Contactez-nous</p>
             </div>
+            <button
+              className="languageButton"
+              onClick={() =>
+                changeLanguage(`${language == "en" ? "fr" : "en"}`)
+              }
+            >
+              {language == "fr" ? "English" : "French"}
+            </button>
           </Grid>
         </Grid>
       </div>

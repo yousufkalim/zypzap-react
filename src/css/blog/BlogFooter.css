@@ -29,7 +29,7 @@
 }
 .infotable1 {
   margin: auto;
-  padding-left: 35px;
+  padding-left: 80px;
 }
 .tdDiv {
   margin: 5px 0px 10px 0px;
@@ -61,14 +61,16 @@
   font-weight: bolder;
 }
 .languageButton {
-  margin-top: 25px;
-  padding: 10px 15px 10px 35px;
+  margin-top: 0;
+  padding: 10px 15px 10px 15px;
   background: transparent;
   border: 2px solid white;
   color: white;
   font-weight: bolder;
   cursor: pointer;
   opacity: 0.7;
+  position: absolute;
+  right: 187px;
 }
 .languageIcon {
   position: relative;
@@ -154,7 +156,8 @@
     min-height: 0px;
   }
   .languageButton {
-    margin-top: 0px;
+    margin-top: -25px;
+    margin-right: -33px;
   }
 }
 @media only screen and (min-width: 813px) and (max-width: 1212px) {
@@ -184,10 +187,17 @@
     margin-left: 0px;
     /* height: 16px; */
   }
+  .languageButton {
+    margin-top: 40px;
+    margin-right: -33px;
+  }
 }
 @media only screen and (min-width: 1213px) and (max-width: 1500px) {
   .imgIcon {
-    cursor: pointer;
-    margin-right: 0px;
+    margin-top: 40px;
+    margin-right: -127px;
+  }
+  .languageButton {
+    margin-top: 19px;
   }
 }

@@ -149,16 +149,14 @@
 .preparingP2 {
   display: none;
 }
-.folowDiv {
-  display: contents;
-}
+
 @media only screen and (min-width: 200px) and (max-width: 600px) {
   .preparingCenterDiv {
     width: 90%;
-    padding: 95px 0 0 0;
+    padding: 33px 0;
   }
   .preparingH1 {
-    font-size: 25px;
+    font-size: 16px;
   }
   .preparingP2 {
     display: block;
@@ -167,8 +165,8 @@
     line-height: 1.5;
   }
   .preparingP {
-    display: none;
-    font-size: 15px;
+    font-size: 10px;
+    margin: 0 0;
   }
   .preparingPrsntageCenterDiv {
     padding: 33px 30px;
@@ -198,12 +196,12 @@
     margin: auto;
   }
   .followUsH2 {
-    font-size: 25px;
+    font-size: 16px;
     padding-bottom: 40px;
   }
-  .folowDiv {
-    display: flex;
-    justify-content: space-around;
+
+  .preparingPrsntageBtn {
+    font-size: 12px;
   }
 }
 @media only screen and (min-width: 601px) and (max-width: 900px) {
@@ -256,10 +254,6 @@
   }
   .offerdivright {
     margin: 0 auto 64px auto !important;
-  }
-  .folowDiv {
-    display: flex;
-    /* justify-content: center; */
   }
 }
 @media only screen and (min-width: 901px) and (max-width: 1199px) {
