@@ -16,11 +16,11 @@
   padding: 15px 0 5px 0px;
   font-size: 1.5rem !important;
   font-weight: 100;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   font-family: "Myriad Pro" !important;
 }
 .subP {
-  padding-bottom: 40px;
+  padding-bottom: 27px;
   font-size: 14px;
   font-family: "Myriad Pro-REGULAR" !important;
   font-weight: 500;

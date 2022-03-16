@@ -34,14 +34,16 @@ const ContentCreatorLandingPage = () => {
       <CreateHome />
       <ContentCreator />
       <UserLandingPageAdvantages
-      type="content"
+        type="content"
         text1="Monetisation maximale, transparente et diversifiee"
         text2="Creation de cours en ligne ouverte à tous"
-        text3="Cadre de creation libre: tous les jeux sont abordés"
-        text4="Acces à une communaute de gamers étendue"
+        text3="Cadre de creation
+      libre: tous les jeux sont abordés"
+        text4="Acces à une communaute de gamers
+      étendue"
         text5="Visibilite sur l'ensemble des sujets soumis "
-        text6="
-        par les gamers"
+        text6=" par
+      les gamers"
       />
       {/* <Avantages /> */}
       <Monitization />

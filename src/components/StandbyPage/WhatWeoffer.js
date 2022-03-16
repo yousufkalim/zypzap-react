@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 export default function WhatWeOffer() {
   const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
   const { t, i18n } = useTranslation();
 
   // React.useEffect(() => {
@@ -26,7 +27,23 @@ export default function WhatWeOffer() {
 
   return (
     <>
-      {open && <SubscriptionPopup open={open} setOpen={setOpen} />}
+      {open && (
+        <SubscriptionPopup
+          isThreeLine={false}
+          open={open}
+          setOpen={setOpen}
+          title="Inscrivez-vous pour acceder aux avantages uniques"
+        />
+      )}
+      {open2 && (
+        <SubscriptionPopup
+          isThreeLine={true}
+          open={open2}
+          setOpen={setOpen2}
+          title="Inscrivez-vous pour acceder aux avantages uniques"
+          content="Offre reservée aux 1000 premiers inscrits"
+        />
+      )}
       <div className="whatweoffercontainer ">
         <div className="offerh1">
           <h1
@@ -59,7 +76,7 @@ export default function WhatWeOffer() {
                 <button
                   className="whatweofferButton"
                   style={{ marginBottom: "18px" }}
-                  onClick={() => setOpen(true)}
+                  onClick={() => setOpen2(true)}
                 >
                   {t("Inscrivez-vous")}
                 </button>

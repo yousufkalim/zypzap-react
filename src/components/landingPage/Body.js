@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import SubscriptionPopup from "../PopupForms/SubscriptionPopup";
 import AboutLandingPageImg from "../../assets/img/AboutLandingPageImg.svg";
+import StandbyBg from "../../assets/img/StandbyBg.svg";
 import { Link } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
 
@@ -30,6 +31,7 @@ export default function Body() {
       <div className="landingpagecontainer">
         <div className="landingpageimgcontainer">
           <img src={AboutLandingPageImg} className="landingpageLeftimg" />
+          <img src={StandbyBg} className="landingpageLeftimg2" />
         </div>
         <div
           className={`${
@@ -68,6 +70,10 @@ export default function Body() {
             </Link>
           </div> */}
         </div>
+        <p className="myStylep2 ">
+          {t("Inscrivez-vous aujourd'hui pour")}
+          {t("bénéficier d'avantages uniques")}
+        </p>
       </div>
     </>
   );

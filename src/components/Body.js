@@ -8,10 +8,12 @@ import TopRatedContent from "./TopRatedContent";
 import Request from "./Request";
 import RankingList from "./RankingList";
 import Blog from "./Blog";
+import ContentRequest from "../components/PopupForms/ContentRequest";
 import { Store, UpdateStore } from "../StoreContext";
 import api from "../api";
 export default function Body({ setOpenSignup }) {
   const [loading, setLoading] = useState(false);
+  const [openContentRequest, setOpenContentRequest] = useState(false);
   const updateStore = UpdateStore();
   const { courses, user } = Store();
   let getTopCourses = async () => {
@@ -27,6 +29,10 @@ export default function Body({ setOpenSignup }) {
   }, []);
   return (
     <>
+      <ContentRequest
+        openContentRequest={openContentRequest}
+        setOpenContentRequest={setOpenContentRequest}
+      />
       {!loading ? (
         <h1>Loading...</h1>
       ) : (
@@ -54,7 +60,10 @@ export default function Body({ setOpenSignup }) {
           <TopCourses courses={courses} />
           <LatestCourses courses={courses} />
           <TopRatedContent />
-          <Request />
+          <Request
+            openContentRequest={openContentRequest}
+            setOpenContentRequest={setOpenContentRequest}
+          />
           <RankingList />
           <Blog />
         </div>
