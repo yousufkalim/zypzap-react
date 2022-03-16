@@ -179,10 +179,10 @@
   line-height: 1.4;
 }
 .offerText2 {
-  font-size: 16px;
+  font-size: 18px;
   padding: 10px 70px 10px 70px;
-  font-family: "Maven Pro";
-  font-weight: 700;
+  font-family: "Myriad Pro";
+  font-weight: 500;
   width: 82%;
   margin: auto;
   line-height: 1.4;
@@ -256,7 +256,7 @@
     left: 35%;
   }
   .frlandingpagetextonImg {
-    left: 35%;
+    left: 38%;
     top: 52%;
   }
   .landingpagetextimgH1 {
@@ -512,7 +512,7 @@
   }
   .frlandingpagetextonImg {
     position: absolute;
-    top: 53%;
+    top: 45%;
     left: 47%;
     transform: translate(-50%, -46%);
     text-align: left;
@@ -523,7 +523,7 @@
   }
 
   .landingpagetextimgH1 {
-    font-size: 28px;
+    font-size: 16px;
   }
   .landingpagetextonImgP {
     padding: 5px 0px 5px 0px;
@@ -540,7 +540,7 @@
     margin: 7px 13px 8px 0px;
   }
   .offerdivleft {
-    margin: auto;
+    margin: 0 auto 35% auto;
   }
   .offerdivright {
     margin: auto;
@@ -587,6 +587,7 @@
     font-size: 10px;
   }
   .offerText2 {
-    display: none;
+    font-size: 10px;
+    padding: 10px 0px 10px 0;
   }
 }
