@@ -92,15 +92,13 @@ const Footer2 = () => {
               </Link>
               <p className="pmargin"> Contactez-nous</p>
             </div>
-            <button
-              className="languageButton"
-              onClick={() =>
-                changeLanguage(`${language == "en" ? "fr" : "en"}`)
-              }
-            >
-              {language == "fr" ? "English" : "French"}
-            </button>
           </Grid>
+          <button
+            className="languageButton"
+            onClick={() => changeLanguage(`${language == "en" ? "fr" : "en"}`)}
+          >
+            {language == "fr" ? "English" : "French"}
+          </button>
         </Grid>
       </div>
       <div className="divforsign" style={{ width: "100%" }}>

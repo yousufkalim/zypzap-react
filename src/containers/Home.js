@@ -1,5 +1,5 @@
 // Init
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import UserLandingPageHeader from "../components/UserLandingPageHeader";
 import Footer from "../components/blog/BlogFooter";
@@ -14,8 +14,9 @@ export default function Home() {
     localStorage.setItem("token", token);
   }
 
-  const [openlogin, setOpenLogin] = React.useState(false);
-  const [opensignup, setOpenSignup] = React.useState(false);
+  const [openlogin, setOpenLogin] = useState(false);
+  const [opensignup, setOpenSignup] = useState(false);
+
   const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] =
     React.useState(false);
   return (

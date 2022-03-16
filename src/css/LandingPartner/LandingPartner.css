@@ -120,6 +120,9 @@
     font-size: 30px;
   }
 }
+.myStylep2 {
+  display: none;
+}
 /* Media Queries */
 
 /* for big screens */
@@ -228,14 +231,17 @@
     margin: -24px;
   }
   .myStylep {
-    font-size: 10px;
-    position: absolute;
-    top: 34px;
-    left: 0;
-    width: 100%;
-    text-transform: inherit;
-    padding: 7px 0px 0 0;
-    line-height: 1.6;
+    display: none;
+  }
+  .myStylep2 {
+    text-align: left;
+    text-shadow: 0px 4px 3px #662f88;
+    font-family: "Myriad Pro";
+    font-weight: 900;
+    width: 92%;
+    margin: auto;
+    padding: 20px 0 0 0;
+    display: block;
   }
   .landing-partner-img-container {
     width: 95%;

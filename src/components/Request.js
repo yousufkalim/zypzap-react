@@ -1,7 +1,10 @@
 // Init
 import React from "react";
 
-export default function Construction() {
+export default function Construction({
+  openContentRequest,
+  setOpenContentRequest,
+}) {
   return (
     <div className="requestContainer">
       <h1 className="requestHeading">Request a Course Content</h1>
@@ -11,7 +14,14 @@ export default function Construction() {
         <br className="br" /> Rutrum non vitae id urna nunc, egestas. Tempus
         aliquam, at fus
       </p>
-      <button className="requestButton">Request Now</button>
+      <button
+        className="requestButton"
+        onClick={() => {
+          setOpenContentRequest(true);
+        }}
+      >
+        Request Now
+      </button>
     </div>
   );
 }

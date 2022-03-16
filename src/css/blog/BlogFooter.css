@@ -61,7 +61,7 @@
   font-weight: bolder;
 }
 .languageButton {
-  margin-top: 0;
+  margin-top: 42px;
   padding: 10px 15px 10px 15px;
   background: transparent;
   border: 2px solid white;
@@ -69,8 +69,9 @@
   font-weight: bolder;
   cursor: pointer;
   opacity: 0.7;
-  position: absolute;
-  right: 187px;
+  height: 38px;
+  margin-left: auto;
+  margin-right: 101px;
 }
 .languageIcon {
   position: relative;
@@ -129,7 +130,7 @@
     font-size: 12px;
   }
   .isocialcondiv {
-    margin-left: -30px;
+    margin-left: 17px;
     margin-top: 0;
   }
   .footer_menu {
@@ -148,16 +149,13 @@
     padding: 0px 0px 15px 0px;
     text-align: center;
   }
-  /* .languagebuttondiv {
-    margin-left: -46px;
-  } */
   .divforsign {
     position: relative;
     min-height: 0px;
   }
   .languageButton {
-    margin-top: -25px;
-    margin-right: -33px;
+    margin: auto;
+    margin-bottom: 17px;
   }
 }
 @media only screen and (min-width: 813px) and (max-width: 1212px) {
@@ -169,10 +167,11 @@
     font-size: 14px;
   }
   .isocialcondiv {
-    margin-left: 21px !important;
+    margin-left: 70px !important;
   }
   .imgIcon {
-    height: 40px !important;
+    height: 16px !important;
+    width: 33px;
   }
   .sign {
     right: 22px;
@@ -188,14 +187,18 @@
     /* height: 16px; */
   }
   .languageButton {
-    margin-top: 40px;
-    margin-right: -33px;
+    margin-top: 0px;
+    margin-right: 0px;
+  }
+  .languageButton {
+    margin-top: 42px;
+    margin-right: 70px;
   }
 }
 @media only screen and (min-width: 1213px) and (max-width: 1500px) {
   .imgIcon {
     margin-top: 40px;
-    margin-right: -127px;
+    /* margin-right: -127px; */
   }
   .languageButton {
     margin-top: 19px;

@@ -4,7 +4,17 @@ import { toast } from "react-toastify";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useTranslation } from "react-i18next";
 import api from "../../api";
-const SubscriptionPopup = ({ open, setOpen, Email, heading1, heading2 }) => {
+import { PinDropSharp } from "@mui/icons-material";
+const SubscriptionPopup = ({
+  open,
+  setOpen,
+  Email,
+  heading1,
+  heading2,
+  isThreeLine,
+  title,
+  content,
+}) => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
   const [email, setEmail] = useState(Email ? Email : "");
@@ -62,18 +72,17 @@ const SubscriptionPopup = ({ open, setOpen, Email, heading1, heading2 }) => {
   };
   return (
     <>
+      {console.log(`THISIS : ${isThreeLine}`)}
       <Dialog open={open} onClose={handleClose}>
         <div className="login_form">
           <div className="subs_container">
             <div className="form-header-block">
               <h1 className="subH1">
-                {heading1 ? heading1 : t("Sign up here")}
+                {isThreeLine
+                  ? title
+                  : "Recevez notre newsletter pour être au cœur du développement"}
               </h1>
-              <p className="subP">
-                {heading2
-                  ? heading2
-                  : "Un an de services offerts aux 10 000 premiers inscrits"}
-              </p>
+              <p className="subP">{isThreeLine ? content : ""}</p>
               <ClearIcon className="subsclearIcon" onClick={handleClose} />
             </div>
             {/* <form onSubmit={submitForm}> */}
@@ -83,11 +92,44 @@ const SubscriptionPopup = ({ open, setOpen, Email, heading1, heading2 }) => {
             <input
               className="subsinputForm"
               type="email"
-              placeholder="e.g.moinheykal@gmail.com"
+              placeholder="e.g. example@gmail.com"
               value={email}
               onChange={onChange}
               name="email"
             />
+            <div
+              className={`${heading1 && "toppdding"}`}
+              style={{
+                display: "-webkit-inline-box",
+                margin: "10px 80px 5px 0",
+                paddingTop: "5px",
+                fontSize: "16px",
+              }}
+            >
+              <input
+                onChange={getCheckboxValues}
+                value={values.checkBoxTwo}
+                name="checkBoxTwo"
+                className="popup-checkbox"
+                type="checkbox"
+              />
+              <label className="subsLabel">
+                {t(`J'accepte`)}
+                <span className="subsBold">
+                  {/* <span className={`padtop ? "subsBold" "padtop"}`}> */}
+                  {t(` La politique de confidentialité de ZypZap et `)}
+                  <br />
+                </span>
+                {t(`j'accepte de recevoir les prochaines mises à jour`)}
+
+                {/* {t("I agree passtotrip ")}
+                  <span className=" privacy-policy-text">
+                    {t("Privacy Policy")}{" "}
+                  </span>{" "}
+                  {t("and agree to receive upcoming passtotrip updates")} */}
+              </label>
+            </div>
+            <br />
             {!heading1 && (
               <div
                 style={{
@@ -104,43 +146,47 @@ const SubscriptionPopup = ({ open, setOpen, Email, heading1, heading2 }) => {
                   type="checkbox"
                 />
                 <label className="subsLabel">
-                  {t("Register as a Beta Tester")}
+                  {t("S'abonner à la Newsletter")}
                 </label>
               </div>
             )}
-            <div
-              className={`${heading1 && "toppdding"}`}
-              style={{
-                display: "-webkit-inline-box",
-                margin: "0px 80px 30px 0",
-                paddingTop: "5px",
-                fontSize: "16px",
-              }}
-            >
-              <input
-                onChange={getCheckboxValues}
-                value={values.checkBoxTwo}
-                name="checkBoxTwo"
-                className="popup-checkbox"
-                type="checkbox"
-              />
-              <label className="subsLabel">
-                {t(`J'accepte`)}
-                <span className="subsBold">
-                  {/* <span className={`padtop ? "subsBold" "padtop"}`}> */}
-                  {t(` La politique de confidentialité `)}
-                </span>
-                {t(
-                  `de ZypZap et j'accepte de recevoir les prochaines mises à jour`
-                )}
+            {/* ccc */}
+            <br />
 
-                {/* {t("I agree passtotrip ")}
+            {/* ccc */}
+            {isThreeLine ? (
+              <div
+                className={`${heading1 && "toppdding"}`}
+                style={{
+                  display: "-webkit-inline-box",
+                  margin: "0px 80px 30px 0",
+                  paddingTop: "5px",
+                  fontSize: "16px",
+                }}
+              >
+                <input
+                  onChange={getCheckboxValues}
+                  value={values.checkBoxTwo}
+                  name="checkBoxTwo"
+                  className="popup-checkbox"
+                  type="checkbox"
+                />
+                <label className="subsLabel">
+                  <span className="subsBold">
+                    {/* <span className={`padtop ? "subsBold" "padtop"}`}> */}
+                    {t(` S'inscrire comme bêta-testeur`)}
+                  </span>
+
+                  {/* {t("I agree passtotrip ")}
                   <span className=" privacy-policy-text">
                     {t("Privacy Policy")}{" "}
                   </span>{" "}
                   {t("and agree to receive upcoming passtotrip updates")} */}
-              </label>
-            </div>
+                </label>
+              </div>
+            ) : (
+              <></>
+            )}
             <button className="subsformbtn" onClick={() => submitForm()}>
               S’inscrire
             </button>
