@@ -14,39 +14,75 @@ import OverCardSocialIcon2 from "../../assets/icons/OverCardSocialIcon2.svg";
 import OverCardSocialIcon3 from "../../assets/icons/OverCardSocialIcon3.svg";
 import { NavLink } from "react-router-dom";
 
-const OverViewHome = () => {
+const OverViewHome = (props) => {
+  const { singlCourse } = props;
+  const calTotalSecInVideos = (videos) => {
+    let timeInSecond = 1;
+    videos.map((videos) => (timeInSecond += parseInt(videos.duration)));
+    return timeInSecond;
+  };
+  const calculateCourseDuration = (videos) => {
+    const secsPerDay = 86400;
+    const seconds = calTotalSecInVideos(videos);
+    var days = Math.floor(seconds / secsPerDay);
+    let week = 0;
+    if (days < 7) week = 1;
+    if (days > 7) week = days / 7;
+    return week;
+  };
   return (
     <>
       <div className="OverView">
         <div className="center_overViewDiv">
           <div className="overViewImage">
-            <img className="overIMG" src={OverViewImg} alt="" />
+            <img
+              className="overIMG"
+              // singlCourse?.thumbnail ? singlCourse.thumbnail :  it is use for dynamic course thumbnail
+              src={OverViewImg}
+              alt=""
+            />
           </div>
           <div className="overView_heading">
             <div className="overViewContent">
-              <h1 className="overViewH1">Beat the Opponent CS-GO Gameplay</h1>
+              <h1 className="overViewH1">
+                Beat the Opponent{" "}
+                {singlCourse?.course_name ? singlCourse.course_name : "CS GO"}{" "}
+                Gameplay
+              </h1>
               <p className="overViewP">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
-                aliquam, purus sit amet luctus venenatis,Lorem ipsum dolor sit
-                amet, consectetur adipiscing
+                {singlCourse?.description ? singlCourse.description : ""}
               </p>
             </div>
             <div className="overViewTags">
               <li className="overViewLi">
                 <img src={overViewIcon1} alt="" className="overViewIcon-1" />
-                <p className="overViewIconP">10 Weeks</p>
+                <p className="overViewIconP">
+                  {singlCourse?.videos
+                    ? calculateCourseDuration(singlCourse.videos) + " Wseks"
+                    : "10 Weeks"}
+                </p>
               </li>
               <li className="overViewLi">
                 <img src={overViewIcon2} alt="" className="overViewIcon" />
-                <p className="overViewIconP">All Levels</p>
+                <p className="overViewIconP">
+                  {singlCourse?.level ? singlCourse.level : "All Levels"}
+                </p>
               </li>
               <li className="overViewLi">
                 <img src={overViewIcon3} alt="" className="overViewIcon" />
-                <p className="overViewIconP">8 Lessons</p>
+                <p className="overViewIconP">
+                  {singlCourse?.videos
+                    ? singlCourse.videos.length + " Lessons"
+                    : "8 Lessons"}
+                </p>
               </li>
               <li className="overViewLi">
                 <img src={overViewIcon4} alt="" className="overViewIcon" />
-                <p className="overViewIconP">2287 Students</p>
+                <p className="overViewIconP">
+                  {singlCourse?.student
+                    ? singlCourse.student.length + " Students"
+                    : "2287 Students"}
+                </p>
               </li>
             </div>
           </div>
@@ -59,7 +95,11 @@ const OverViewHome = () => {
               </div>
               <div className="overViewBuy">
                 <div className="overViewRateContent">
-                  <p className="cardP1">$19.99</p>
+                  <p className="cardP1">
+                    {singlCourse?.price >= 0
+                      ? "$" + singlCourse.price
+                      : "$19.99"}
+                  </p>
                   <p className="cardP2">$39.99</p>
                   <img src={OverCardHurtLogo} alt="" className="cardHurtLogo" />
                 </div>
@@ -86,7 +126,10 @@ const OverViewHome = () => {
                     alt=""
                     className="overContentLiLogo"
                   />
-                  Use on desktop, tablet & mobile
+                  Use on{" "}
+                  {singlCourse?.plateform
+                    ? singlCourse.plateform
+                    : "desktop, tablet & mobile"}
                 </li>
                 <li className="overContentLi">
                   <img

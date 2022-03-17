@@ -169,52 +169,57 @@ export default function LatestCourses(props) {
           className="latestcourseCarousel"
         >
           {items.map((item, i) => (
-            <Link to="/CoursePage" className="requestBt" course={item}>
-              <a className="courseDetail" key={i}>
-                <div
-                  className="cardGrid"
-                  style={{
-                    backgroundColor: " #202342",
-                    margin: "12px",
-                    borderRadius: "35px",
-                  }}
-                >
-                  {/* {item?.creator?.user_id?.profile_photo?.item.creator.user_id.profile_photo:} courseimg img */}
-                  <img
-                    src={item?.thumbnail ? item.thumbnail : Course1}
-                    className="courseimg"
-                    alt="img"
-                  />
-                  <h5 className="latestcourseh5">
-                    {item?.course_name ? item.course_name : "Fight Course"}
-                  </h5>
-                  <p className="latestcoursep1">
-                    {item?.creator?.user_id?.username}
-                  </p>
-                  <p className="latestcoursep1">
-                    {" "}
-                    {item?.rating ? item.rating : "0.0"} &nbsp;
-                    {[1, 2, 3, 4, 5].map((item) => (
-                      <Star1
-                        style={{
-                          width: "15px",
-                          height: "15px",
-                          color: "red",
-                          margintTop: "3px",
-                          position: "relative",
-                          top: "3px",
-                          key: { item },
-                        }}
-                      />
-                    ))}
-                    &nbsp;{" "}
-                    {item?.student
-                      ? item.student.length + " Student"
-                      : 0 + "   Student"}
-                  </p>
-                  <h6 className="latestcourseh6">{item?.price + " $"}</h6>
-                </div>
-              </a>
+            <Link
+              to={{
+                pathname: `OverView/${item?._id}`,
+                state: { course: `${item}` },
+              }}
+              className="requestBt"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <div
+                className="cardGrid"
+                style={{
+                  backgroundColor: " #202342",
+                  margin: "12px",
+                  borderRadius: "35px",
+                }}
+              >
+                {/* {item?.creator?.user_id?.profile_photo?.item.creator.user_id.profile_photo:} courseimg img */}
+                <img
+                  src={item?.thumbnail ? item.thumbnail : Course1}
+                  className="courseimg"
+                  alt="img"
+                />
+                <h5 className="latestcourseh5">
+                  {item?.course_name ? item.course_name : "Fight Course"}
+                </h5>
+                <p className="latestcoursep1">
+                  {item?.creator?.user_id?.username}
+                </p>
+                <p className="latestcoursep1">
+                  {" "}
+                  {item?.rating ? item.rating : "0.0"} &nbsp;
+                  {[1, 2, 3, 4, 5].map((item) => (
+                    <Star1
+                      style={{
+                        width: "15px",
+                        height: "15px",
+                        color: "red",
+                        margintTop: "3px",
+                        position: "relative",
+                        top: "3px",
+                        key: { item },
+                      }}
+                    />
+                  ))}
+                  &nbsp;{" "}
+                  {item?.student
+                    ? item.student.length + " Student"
+                    : 0 + "   Student"}
+                </p>
+                <h6 className="latestcourseh6">{item?.price + " $"}</h6>
+              </div>
             </Link>
           ))}
         </Carousel>

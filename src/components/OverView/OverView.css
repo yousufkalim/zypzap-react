@@ -288,6 +288,7 @@ body {
   margin: 0 auto 21px auto;
   display: inline-block;
   width: 50%;
+  border: none;
 }
 .instructor-aboutH2 {
   font-size: 22px;
