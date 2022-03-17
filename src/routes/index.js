@@ -47,7 +47,7 @@ const index = () => {
       <Route exact path="/searchresult" component={SearchResult} />
       <Route exact path="/dashboard" component={ContentDashboard} />
       <Route exact path="/userprofile" component={UserProfile} />
-      <Route exact path="/OverView" component={OverView} />/
+      <Route exact path="/OverView/:id" component={OverView} />/
       <Route exact path="/CoursePage" component={CoursePage} />/
     </Switch>
   );

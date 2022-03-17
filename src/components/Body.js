@@ -44,12 +44,21 @@ export default function Body({ setOpenSignup }) {
               <br /> a pro player
             </h1>
             <p className="textonImgP">For players who want more</p>
-            <button
-              className="textonImgbutton"
-              onClick={() => setOpenSignup(true)}
-            >
-              Sign Up For Free
-            </button>
+            {user ? (
+              <button
+                className="textonImgbutton"
+                // onClick={() => setOpenSignup(true)}
+              >
+                Explore Courses
+              </button>
+            ) : (
+              <button
+                className="textonImgbutton"
+                onClick={() => setOpenSignup(true)}
+              >
+                Sign Up For Free
+              </button>
+            )}
           </div>
           <TopCourses courses={courses} />
           <LatestCourses courses={courses} />
