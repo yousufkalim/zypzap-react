@@ -52,7 +52,8 @@
   font-family: "Myriad Pro-REGULAR" !important;
 }
 .subsBold {
-  font-weight: 800;
+  text-decoration: none;
+  font-weight: 100;
   font-size: 15px;
   color: #fff;
   font-family: "Myriad Pro" !important;

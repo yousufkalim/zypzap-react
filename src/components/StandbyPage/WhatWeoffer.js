@@ -42,6 +42,7 @@ export default function WhatWeOffer() {
           setOpen={setOpen2}
           title="Inscrivez-vous pour acceder aux avantages uniques"
           content="Offre reservée aux 1000 premiers inscrits"
+          pera="S'abonner à la Newsletter"
         />
       )}
       <div className="whatweoffercontainer ">

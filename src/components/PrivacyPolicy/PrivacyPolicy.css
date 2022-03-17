@@ -1,0 +1,131 @@
+@font-face {
+  font-family: Myriad Pro;
+  src: url(../../assets/MYRIADPRO-REGULAR.OTF);
+}
+body {
+  font-family: " Myriad Pro", sans-serif;
+  height: 5000vh;
+}
+
+.privacyH1 {
+  position: absolute;
+  left: 0;
+  top: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.5em;
+  margin-bottom: 10px;
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 100;
+  text-shadow: 0px 4px 3px #662f88;
+}
+/* ------------------------------ Introduction ------------------------------ */
+.intro-container {
+  width: 100%;
+  color: #fff;
+}
+.intro-centerDiv {
+  width: 80%;
+  margin: auto;
+}
+.introHeading {
+  width: 1007px;
+  text-transform: capitalize;
+  margin-top: 67px;
+  text-align: justify;
+}
+.introH2 {
+  padding-bottom: 33px;
+  font-size: 22px;
+}
+.introP {
+  font-size: 18px;
+  line-height: 1.8;
+}
+.introHeading2 {
+  padding: 0 50px;
+  text-transform: capitalize;
+}
+.introHeadingH3 {
+  font-size: 18px;
+  font-weight: 900;
+  padding-bottom: 30px;
+}
+.introHeadingH4 {
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 30px;
+}
+.introQuandDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.introShowIcon {
+  margin-left: auto;
+}
+.quandUl {
+  display: none;
+}
+.quandUlActive {
+  display: block;
+}
+.introHeadingH4 > li {
+  list-style: none;
+}
+.introLi {
+  list-style: none;
+  margin-left: 20px;
+  line-height: 2;
+}
+.followwingData-container {
+  width: 100%;
+  color: #fff;
+}
+.followwingData-centerDiv {
+  width: 80%;
+  margin: auto;
+}
+.followwingDataHeading {
+  text-transform: capitalize;
+  margin-top: 0px;
+  text-align: justify;
+}
+.followwingDataQuandDiv {
+  display: flex;
+  align-items: center;
+  width: 92%;
+  margin: auto;
+}
+.introHeadingH4 {
+  padding-top: 30px;
+}
+.followwingDataP2 {
+  font-size: 18px;
+  padding-top: 5px;
+}
+.ProcessingDataH3 {
+  font-size: 18px;
+  font-weight: 900;
+  padding-left: 50px;
+  padding-top: 30px;
+}
+.TraitementP {
+  font-size: 16px;
+  line-height: 2;
+}
+.followwingDataP {
+  line-height: 2;
+}
+.avecNos {
+  width: 95%;
+  margin: auto;
+}
+.avacNosH5 {
+  padding: 20px 0px;
+}
+.avacNosP {
+  line-height: 2;
+}

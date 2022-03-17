@@ -5,6 +5,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import { useTranslation } from "react-i18next";
 import api from "../../api";
 import { PinDropSharp } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 const SubscriptionPopup = ({
   open,
   setOpen,
@@ -14,6 +15,7 @@ const SubscriptionPopup = ({
   isThreeLine,
   title,
   content,
+  pera,
 }) => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
@@ -115,12 +117,13 @@ const SubscriptionPopup = ({
               />
               <label className="subsLabel">
                 {t(`J'accepte`)}
-                <span className="subsBold">
+                <Link to="/PrivacyPolicy" className="subsBold">
                   {/* <span className={`padtop ? "subsBold" "padtop"}`}> */}
-                  {t(` La politique de confidentialité de ZypZap et `)}
-                  <br />
-                </span>
-                {t(`j'accepte de recevoir les prochaines mises à jour`)}
+                  {t(` La politique de confidentialité  `)}
+                </Link>
+                {t(` de ZypZap et`)}
+                <br />
+                {t(` j'accepte de recevoir les prochaines mises à jour`)}
 
                 {/* {t("I agree passtotrip ")}
                   <span className=" privacy-policy-text">
@@ -146,7 +149,7 @@ const SubscriptionPopup = ({
                   type="checkbox"
                 />
                 <label className="subsLabel">
-                  {t("S'abonner à la Newsletter")}
+                  {isThreeLine ? pera : "S'inscrire comme bêta-testeur"}
                 </label>
               </div>
             )}
@@ -172,10 +175,8 @@ const SubscriptionPopup = ({
                   type="checkbox"
                 />
                 <label className="subsLabel">
-                  <span className="subsBold">
-                    {/* <span className={`padtop ? "subsBold" "padtop"}`}> */}
-                    {t(` S'inscrire comme bêta-testeur`)}
-                  </span>
+                  {/* <span className={`padtop ? "subsBold" "padtop"}`}> */}
+                  {t(` S'inscrire comme bêta-testeur`)}
 
                   {/* {t("I agree passtotrip ")}
                   <span className=" privacy-policy-text">
