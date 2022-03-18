@@ -22,6 +22,7 @@ import OverView from "../containers/OverView";
 import Policy from "../containers/Policy";
 import CoursePage from "../containers/CoursePage";
 import LegalNotice from "../containers/LegalNotice";
+import PrivacyPolicy from "../containers/PrivacyPolicy";
 import Team from "../containers/Team";
 
 const index = () => {
@@ -49,10 +50,11 @@ const index = () => {
       <Route exact path="/searchresult" component={SearchResult} />
       <Route exact path="/dashboard" component={ContentDashboard} />
       <Route exact path="/userprofile" component={UserProfile} />
-      <Route exact path="/OverView" component={OverView} />/
-      <Route exact path="/CoursePage" component={CoursePage} />/
-      <Route exact path="/LegalNotice" component={LegalNotice} />/
-      <Route exact path="/Team" component={Team} />/
+      <Route exact path="/OverView" component={OverView} />
+      <Route exact path="/CoursePage" component={CoursePage} />
+      <Route exact path="/LegalNotice" component={LegalNotice} />
+      <Route exact path="/Team" component={Team} />
+      <Route exact path="/PrivacyPolicy" component={PrivacyPolicy} />
     </Switch>
   );
 };
