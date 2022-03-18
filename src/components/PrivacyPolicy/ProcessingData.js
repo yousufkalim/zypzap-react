@@ -49,7 +49,7 @@ const ProcessingData = (props) => {
           {/* -------------------------------- copy div -------------------------------- */}
 
           <ProcessingAllData
-            title="3. Conservation"
+            title="3. Conservation &nbsp;"
             heading="a- Durée"
             content1="Vos informations personnelles sont conservées aussi longtemps que nécessaire pour les traitements énumérés précédemment sauf si vous "
             content2="sollicitez leur effacement ou leur modification (Voir le point 6/ Rectification et suppression des données). "

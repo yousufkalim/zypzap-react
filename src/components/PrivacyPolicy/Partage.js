@@ -3,7 +3,7 @@ import ShowIcon from "../../assets/ShowIcon.svg";
 import CloseIcon from "../../assets/CloseIcon.svg";
 
 const Partage = () => {
-  const [showIcons, setShowIcons] = useState(false);
+  const [showIcons, setShowIcons] = useState(true);
   return (
     <>
       <div className="intro-container">

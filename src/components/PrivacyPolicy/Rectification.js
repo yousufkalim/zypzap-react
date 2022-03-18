@@ -3,14 +3,16 @@ import ShowIcon from "../../assets/ShowIcon.svg";
 import CloseIcon from "../../assets/CloseIcon.svg";
 
 const Rectification = () => {
-  const [showIcons, setShowIcons] = useState(false);
+  const [showIcons, setShowIcons] = useState(true);
   return (
     <>
       <div className="intro-container">
         <div className="intro-centerDiv">
           <div className="followwingDataHeading">
             <div className="followwingDataQuandDiv">
-              <h3 className="introHeadingH4">5. Partage des données</h3>
+              <h3 className="introHeadingH4">
+                6. Rectification et suppression des données
+              </h3>
               {showIcons ? (
                 <img
                   src={ShowIcon}

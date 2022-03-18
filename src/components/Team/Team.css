@@ -9,8 +9,7 @@ body {
 }
 .LinkedInAcound-cenerDiv {
   display: flex;
-  align-items: center;
-  width: 93%;
+  width: 84%;
   margin: 47px auto 47px auto;
 }
 .LinkedInAcound-col1 {
@@ -23,10 +22,13 @@ body {
   display: flex;
   align-items: center;
   padding-bottom: 18px;
+  padding-left: 40px;
 }
 .LinkedInAcound-col2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   width: 68%;
-  text-align: center;
 }
 .LinkedInAcoundH3 {
   font-size: 20px;
@@ -38,6 +40,9 @@ body {
   color: #d7d7d7;
   padding: 10px 0;
 }
+.LinkedInAcoundIMG {
+  border: 5px solid #14162c;
+}
 .LinkedInAcoundButton {
   background: linear-gradient(56.29deg, #662f88 4.14%, #20bf55 130.81%);
   border-radius: 2px;
@@ -48,7 +53,7 @@ body {
   font-family: "Mulish", sans-serif;
 }
 .LinkedInAcound_image {
-  width: 100%;
+  width: 90%;
 }
 @media only screen and (min-width: 601px) and (max-width: 900px) {
   .LinkedInAcoundIMG {

@@ -87,7 +87,10 @@ const Footer2 = () => {
                 <p className="pmargin">L’équipe</p>
               </Link>
               {/* <p className="pmargin"> L’équipe</p> */}
-              <Link to="#" style={{ color: "white", textDecoration: "none" }}>
+              <Link
+                to="/PrivacyPolicy"
+                style={{ color: "white", textDecoration: "none" }}
+              >
                 <p className="pmargin">Politique de confidentialité</p>
               </Link>
               <p className="pmargin"> Contactez-nous</p>
