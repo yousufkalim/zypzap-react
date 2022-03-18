@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import SubscriptionPopup from "../PopupForms/SubscriptionPopup";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import LinearProgress, {
@@ -19,8 +20,10 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }));
 
 const Preparing = () => {
+  const [open, setOpen] = useState(false);
   return (
     <>
+      {open && <SubscriptionPopup open={open} setOpen={setOpen} />}
       <div className="preparing">
         <div className="preparingCenterDiv">
           <div className="preparingHeading">
@@ -35,6 +38,12 @@ const Preparing = () => {
             <p className="preparingP">
               Inscrivez-vous dès maintenant pour participer au développement de
               notre communauté.
+            </p>
+            <p className="preparingP2">
+              Nous avons hâte de vous faire découvrir la plateforme ZypZap.
+              Toute notre équipe est mobilisée sur le développement de ses
+              fonctionnalités inédites et innovantes. Inscrivez-vous dès
+              maintenant pour participer au développement de notre communauté.
             </p>
           </div>
           <div className="preparingPrsntage">
@@ -56,7 +65,10 @@ const Preparing = () => {
                   type="text"
                   placeholder="e.g. moinheykal@gmail.com"
                 />
-                <buttton className="preparingPrsntageBtn">
+                <buttton
+                  className="preparingPrsntageBtn"
+                  onClick={() => setOpen(true)}
+                >
                   Prévenez-moi !
                 </buttton>
               </div>

@@ -1,0 +1,27 @@
+.ourMissions {
+  color: #fff;
+  margin-top: -56px;
+}
+.ourMissions-centerDiv {
+  width: 80%;
+  margin: auto;
+}
+.ourMissionsH1 {
+  text-align: center;
+  font-family: "AMCAP Eternal", sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  text-shadow: 0px 3px 3px #662f88;
+  padding: 30px 0 30px 0;
+}
+.ourMissionP {
+  font-size: 15px;
+  margin-bottom: 26px;
+  line-height: 1.5;
+  color: #d4d4d4;
+}
+@media only screen and (min-width: 200px) and (max-width: 600px) {
+  .ourMissionsH1 {
+    font-size: 20px;
+  }
+}

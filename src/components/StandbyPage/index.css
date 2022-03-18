@@ -10,7 +10,7 @@
 .preparingCenterDiv {
   width: 75%;
   margin: auto;
-  padding: 80px 0;
+  padding: 53px 0;
   text-align: center;
   font-family: "Myriad Pro-REGULAR" !important;
 }
@@ -23,6 +23,9 @@
 .preparingP {
   font-size: 18px;
   margin: 10px 0;
+}
+.preparingP2 {
+  display: none;
 }
 .preparingPrsntage {
   background-image: url("../../assets/img/PreparingBg.svg");
@@ -121,7 +124,7 @@
   align-items: center;
 }
 .followUs-box2 {
-  padding: 0 50px;
+  /* padding: 0 50px; */
   padding-top: 30px;
   display: flex;
   flex-direction: column;
@@ -146,16 +149,34 @@
   font-size: 17px;
   color: #d4d4d4;
 }
+.preparingP2 {
+  display: none;
+}
+.followDiv {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+
 @media only screen and (min-width: 200px) and (max-width: 600px) {
   .preparingCenterDiv {
     width: 90%;
-    padding: 33px 0;
+    padding: 33px 0 19px 0;
   }
   .preparingH1 {
-    font-size: 20px;
+    font-size: 25px;
+    margin: 0 0 14px 0;
+  }
+  .preparingP2 {
+    display: block;
+    font-size: 9px;
+    padding: 0px 0 0px 0;
+    line-height: 1.5;
   }
   .preparingP {
-    font-size: 17px;
+    font-size: 10px;
+    margin: 0 0;
+    display: none;
   }
   .preparingPrsntageCenterDiv {
     padding: 33px 30px;
@@ -171,7 +192,7 @@
     width: 90% !important;
   }
   .followSocialBox {
-    width: inherit;
+    width: 100%;
     flex-direction: column;
   }
   .followUs-box {
@@ -185,8 +206,29 @@
     margin: auto;
   }
   .followUsH2 {
-    font-size: 20px;
-    padding-bottom: 40px;
+    font-size: 25px;
+    padding-bottom: 13px;
+    padding-top: 56px;
+  }
+
+  .preparingPrsntageBtn {
+    font-size: 12px;
+  }
+  .preparingPrsntage {
+    margin: 25px auto 0 auto;
+  }
+  .followDiv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+  .followUs-box2 {
+    width: 50%;
+  }
+  .followUsImg {
+    height: 70px;
+    width: 85px;
   }
 }
 @media only screen and (min-width: 601px) and (max-width: 900px) {
@@ -198,8 +240,10 @@
     font-size: 22px;
   }
   .preparingP {
-    font-size: 20px;
+    font-size: 13px;
+    margin: 5px 0;
   }
+
   .preparingPrsntageCenterDiv {
     padding: 70px 30px;
   }
@@ -228,14 +272,27 @@
     margin: auto;
   }
   .followUsH2 {
-    font-size: 22px;
+    font-size: 25px;
     padding-bottom: 40px;
+  }
+  .ourMissionsH1 {
+    font-size: 25px;
   }
   .offerdivleft {
     margin: 0 auto 64px auto !important;
   }
   .offerdivright {
     margin: 0 auto 64px auto !important;
+  }
+  .followDiv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+  .followUs-box2 {
+    width: 50%;
+    padding: 20px 50px;
   }
 }
 @media only screen and (min-width: 901px) and (max-width: 1199px) {

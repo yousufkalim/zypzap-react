@@ -11,6 +11,7 @@ const CompleteCourse = ({ Videos, singlCourse }) => {
     singlCourse?.videos ? singlCourse.videos.length : 0
   );
   console.log("singlCourse", videos);
+
   return (
     <>
       <div className="completeCourse">
@@ -22,6 +23,7 @@ const CompleteCourse = ({ Videos, singlCourse }) => {
             </h2>
             <video
               controls
+              autoplay
               className="completeCourse-Video"
               src={
                 playVideo?.src_url
@@ -45,6 +47,11 @@ const CompleteCourse = ({ Videos, singlCourse }) => {
               })}
             </div>
           </div>
+        </div>
+        <div className="Pre-next-btn">
+          <button className="preBTN">Previous</button>
+          <button className="nextBTN">Next</button>
+          {/* <hr className="pre_next_line" /> */}
         </div>
       </div>
     </>

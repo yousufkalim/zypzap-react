@@ -46,7 +46,7 @@ const Footer2 = () => {
                       <td>
                         <img src={email} height={15} className="emailicon" />
                       </td>
-                      <td className="infoTd"> @zypsap.com</td>
+                      <td className="infoTd"> contact@zypzap.com</td>
                     </div>
                     <div className="tdDiv">
                       <td>
@@ -75,21 +75,30 @@ const Footer2 = () => {
                 <p className="pmargin">A propos de nous</p>
               </Link>
               <Link
-                to="/contentcreator"
+                to="/LegalNotice"
                 style={{ color: "white", textDecoration: "none" }}
               >
                 <p className="pmargin">Informations légales</p>
               </Link>
-              <p className="pmargin"> L’équipe</p>
               <Link
-                to="/landingpartner"
+                to="/Team"
                 style={{ color: "white", textDecoration: "none" }}
               >
+                <p className="pmargin">L’équipe</p>
+              </Link>
+              {/* <p className="pmargin"> L’équipe</p> */}
+              <Link to="#" style={{ color: "white", textDecoration: "none" }}>
                 <p className="pmargin">Politique de confidentialité</p>
               </Link>
               <p className="pmargin"> Contactez-nous</p>
             </div>
           </Grid>
+          <button
+            className="languageButton"
+            onClick={() => changeLanguage(`${language == "en" ? "fr" : "en"}`)}
+          >
+            {language == "fr" ? "English" : "French"}
+          </button>
         </Grid>
       </div>
       <div className="divforsign" style={{ width: "100%" }}>

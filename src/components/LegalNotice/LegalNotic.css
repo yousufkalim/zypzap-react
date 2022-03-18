@@ -1,0 +1,26 @@
+.legalHeading {
+  color: #fff;
+}
+.legalHeading-centerDiv {
+  width: 90%;
+  margin: auto;
+}
+.legalH3 {
+  padding-top: 47px;
+  padding-bottom: 34px;
+}
+.legalP {
+  padding-bottom: 5px;
+  color: #f0f0f0;
+  opacity: 0.8;
+  font-size: 18px;
+}
+@media only screen and (min-width: 200px) and (max-width: 600px) {
+  .legalP {
+    font-size: 13px;
+  }
+  .legalH3 {
+    padding-top: 24px;
+    padding-bottom: 17px;
+  }
+}

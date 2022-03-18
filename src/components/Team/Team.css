@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;800&family=Mulish&display=swap");
+body {
+  font-family: "Mulish", sans-serif;
+}
+
+.LinkedInAcound {
+  width: 100%;
+  color: #fff;
+}
+.LinkedInAcound-cenerDiv {
+  display: flex;
+  align-items: center;
+  width: 93%;
+  margin: 47px auto 47px auto;
+}
+.LinkedInAcound-col1 {
+  width: 32%;
+}
+.LinkedInAcound-img-content {
+  padding-left: 20px;
+}
+.linded-box {
+  display: flex;
+  align-items: center;
+  padding-bottom: 18px;
+}
+.LinkedInAcound-col2 {
+  width: 68%;
+  text-align: center;
+}
+.LinkedInAcoundH3 {
+  font-size: 20px;
+  font-weight: 800;
+}
+.LinkedInAcoundP {
+  font-size: 13px;
+  font-weight: 400;
+  color: #d7d7d7;
+  padding: 10px 0;
+}
+.LinkedInAcoundButton {
+  background: linear-gradient(56.29deg, #662f88 4.14%, #20bf55 130.81%);
+  border-radius: 2px;
+  border: none;
+  color: #ffffff;
+  padding: 5px;
+  font-weight: 800;
+  font-family: "Mulish", sans-serif;
+}
+.LinkedInAcound_image {
+  width: 100%;
+}
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .LinkedInAcoundIMG {
+    width: 45%;
+  }
+  .LinkedInAcound_image {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 200px) and (max-width: 600px) {
+  .LinkedInAcound-col1 {
+    width: 100%;
+  }
+  .LinkedInAcound-col2 {
+    width: 100%;
+  }
+  .LinkedInAcound-cenerDiv {
+    flex-direction: column;
+  }
+  .css-dudo9s-MuiTypography-root {
+    display: block !important;
+  }
+}
+@media only screen and (min-width: 1800px) {
+  .LinkedInAcoundIMG {
+    width: 200px;
+  }
+}
