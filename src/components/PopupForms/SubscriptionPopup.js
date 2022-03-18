@@ -14,6 +14,7 @@ const SubscriptionPopup = ({
   heading2,
   isThreeLine,
   title,
+  title2,
   content,
   pera,
   check,
@@ -81,6 +82,7 @@ const SubscriptionPopup = ({
           <div className="subs_container">
             <div className="form-header-block">
               <h1 className="subH1">{title}</h1>
+
               <p className="subP">{isThreeLine ? content : ""}</p>
               <ClearIcon className="subsclearIcon" onClick={handleClose} />
             </div>
