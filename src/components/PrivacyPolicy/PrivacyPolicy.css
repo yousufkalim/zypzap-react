@@ -109,7 +109,7 @@ body {
 .ProcessingDataH3 {
   font-size: 18px;
   font-weight: 900;
-  padding-left: 50px;
+  padding-left: 30px;
 }
 .TraitementP {
   font-size: 16px;
@@ -130,6 +130,9 @@ body {
 }
 .ProcessingDataH3Heading {
   padding: 0px 0;
+}
+.ol {
+  padding: 10px 0;
 }
 @media only screen and (min-width: 320px) and (max-width: 600px) {
   .landingpageLeftimg {
@@ -169,6 +172,10 @@ body {
   }
   .ProcessingDataH3 {
     padding: 0;
+  }
+  .subsclearIcon {
+    top: 12px !important;
+    right: 15px !important;
   }
 }
 @media only screen and (min-width: 601px) and (max-width: 800px) {
