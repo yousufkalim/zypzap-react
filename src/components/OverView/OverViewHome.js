@@ -26,7 +26,7 @@ const OverViewHome = (props) => {
     const seconds = calTotalSecInVideos(videos);
     var days = Math.floor(seconds / secsPerDay);
     let week = 0;
-    if (days < 7) week = 1;
+    if (days < 7) week = 0;
     if (days > 7) week = days / 7;
     return week;
   };
@@ -58,7 +58,7 @@ const OverViewHome = (props) => {
                 <img src={overViewIcon1} alt="" className="overViewIcon-1" />
                 <p className="overViewIconP">
                   {singlCourse?.videos
-                    ? calculateCourseDuration(singlCourse.videos) + " Wseks"
+                    ? calculateCourseDuration(singlCourse.videos) + " Weeks"
                     : "10 Weeks"}
                 </p>
               </li>
