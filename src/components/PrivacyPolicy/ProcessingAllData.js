@@ -17,14 +17,14 @@ const ProcessingAllData = (props) => {
           <h3 className="introHeadingH4">{props.heading}</h3>
           {showIcons ? (
             <img
-              src={ShowIcon}
+              src={CloseIcon}
               alt=""
               className="introShowIcon"
               onClick={() => setShowIcons(!showIcons)}
             />
           ) : (
             <img
-              src={CloseIcon}
+              src={ShowIcon}
               alt=""
               className="introShowIcon"
               onClick={() => setShowIcons(!showIcons)}
