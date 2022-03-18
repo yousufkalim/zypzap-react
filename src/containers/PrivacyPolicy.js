@@ -7,6 +7,7 @@ import FollowingData from "../components/PrivacyPolicy/FollowingData";
 import ProcessingData from "../components/PrivacyPolicy/ProcessingData";
 import Partage from "../components/PrivacyPolicy/Partage";
 import Rectification from "../components/PrivacyPolicy/Rectification";
+import Footer2 from "../components/StandbyPage/Footer2";
 
 const PrivacyPolicy = () => {
   const scrollToTop = () => {
@@ -29,6 +30,7 @@ const PrivacyPolicy = () => {
       <ProcessingData />
       <Partage />
       <Rectification />
+      <Footer2 />
       {/* <ProcessingData title="3. Conservation" /> */}
     </>
   );

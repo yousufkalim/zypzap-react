@@ -3,11 +3,11 @@ import ShowIcon from "../../assets/ShowIcon.svg";
 import CloseIcon from "../../assets/CloseIcon.svg";
 
 const ProcessingAllData = (props) => {
-  const [showIcons, setShowIcons] = useState(false);
+  const [showIcons, setShowIcons] = useState(true);
   return (
     <>
       <ol>
-        <div className="ProcessingDataH3">
+        <div className="ProcessingDataH3 process">
           {props.title}
           {/* 2. Traitement et utilisation des données" */}
         </div>

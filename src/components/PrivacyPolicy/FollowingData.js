@@ -37,7 +37,7 @@ const liData = [
 ];
 
 const FollowingData = () => {
-  const [showIcons, setShowIcons] = useState(false);
+  const [showIcons, setShowIcons] = useState(true);
   return (
     <>
       <div className="followwingData-container">

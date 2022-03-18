@@ -1,9 +1,9 @@
 import React from "react";
-import ValenImg from "../../assets/img/ValenImg.png";
-import ValenImg2 from "../../assets/img/ValenImg2.png";
-import ValenImg3 from "../../assets/img/ValenImg3.png";
-import ValenImg4 from "../../assets/img/ValenImg4.png";
-import ValenImg5 from "../../assets/img/ValenImg5.png";
+import ValenImg from "../../assets/img/ValenImg.svg";
+import ValenImg2 from "../../assets/img/ValenImg2.svg";
+import ValenImg3 from "../../assets/img/ValenImg3.svg";
+import ValenImg4 from "../../assets/img/ValenImg4.svg";
+import ValenImg5 from "../../assets/img/ValenImg5.svg";
 import ValenBg from "../../assets/img/ValenBg.svg";
 
 const teamLeft = [

@@ -16,6 +16,7 @@ const SubscriptionPopup = ({
   title,
   content,
   pera,
+  check,
 }) => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
@@ -79,11 +80,7 @@ const SubscriptionPopup = ({
         <div className="login_form">
           <div className="subs_container">
             <div className="form-header-block">
-              <h1 className="subH1">
-                {isThreeLine
-                  ? title
-                  : "Recevez notre newsletter pour être au cœur du développement"}
-              </h1>
+              <h1 className="subH1">{title}</h1>
               <p className="subP">{isThreeLine ? content : ""}</p>
               <ClearIcon className="subsclearIcon" onClick={handleClose} />
             </div>
@@ -141,13 +138,26 @@ const SubscriptionPopup = ({
                   fontSize: "16px",
                 }}
               >
-                <input
-                  onChange={getCheckboxValues}
-                  value={values.checkBoxOne}
-                  name="checkBoxOne"
-                  className="popup-checkbox"
-                  type="checkbox"
-                />
+                {console.log("checked", check)}
+                {isThreeLine ? (
+                  <input
+                    onChange={getCheckboxValues}
+                    value={values.checkBoxOne}
+                    name="checkBoxOne"
+                    className="popup-checkbox"
+                    type="checkbox"
+                    checked="true"
+                  />
+                ) : (
+                  <input
+                    onChange={getCheckboxValues}
+                    value={values.checkBoxOne}
+                    name="checkBoxOne"
+                    className="popup-checkbox"
+                    type="checkbox"
+                  />
+                )}
+
                 <label className="subsLabel">
                   {isThreeLine ? pera : "S'inscrire comme bêta-testeur"}
                 </label>

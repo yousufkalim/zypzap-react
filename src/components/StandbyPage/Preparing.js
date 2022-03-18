@@ -23,7 +23,13 @@ const Preparing = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      {open && <SubscriptionPopup open={open} setOpen={setOpen} />}
+      {open && (
+        <SubscriptionPopup
+          open={open}
+          setOpen={setOpen}
+          title="Recevez notre newsletter pour être au cœur du développement"
+        />
+      )}
       <div className="preparing">
         <div className="preparingCenterDiv">
           <div className="preparingHeading">

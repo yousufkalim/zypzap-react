@@ -211,6 +211,9 @@
   animation: MovesZoom 0.8s ease-in;
   position: relative;
 }
+.offerText22 {
+  display: none;
+}
 @keyframes MovesZoom {
   from {
     transform: scale(0.8);
@@ -403,7 +406,7 @@
   }
 
   .landingpagetextimgH1 {
-    font-size: 24px;
+    font-size: 20px;
   }
   .landingpagetextonImgP {
     font-size: 8px;
@@ -502,7 +505,7 @@
   }
 
   .landingpagetextimgH1 {
-    font-size: 25px;
+    font-size: 22px;
     line-height: 1.5;
   }
   .landingpagetextonImgP {
@@ -566,8 +569,10 @@
     display: block;
     z-index: 5;
     font-size: 10px;
+    padding-top: 10px;
   }
   .offerText2 {
+    display: none;
     font-size: 10px;
     padding: 10px 0px 10px 0;
   }
