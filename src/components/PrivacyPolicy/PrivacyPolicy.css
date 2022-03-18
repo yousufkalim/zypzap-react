@@ -61,7 +61,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 95.8%;
+  width: 97.4%;
 }
 .introShowIcon {
   margin-left: auto;
@@ -97,7 +97,7 @@ body {
 .followwingDataQuandDiv {
   display: flex;
   align-items: center;
-  width: 92%;
+  width: 95%;
   margin: auto;
   padding: 10px 0;
 }

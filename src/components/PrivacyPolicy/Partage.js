@@ -13,14 +13,14 @@ const Partage = () => {
               <h3 className="introHeadingH4">5. Partage des données</h3>
               {showIcons ? (
                 <img
-                  src={ShowIcon}
+                  src={CloseIcon}
                   alt=""
                   className="introShowIcon"
                   onClick={() => setShowIcons(!showIcons)}
                 />
               ) : (
                 <img
-                  src={CloseIcon}
+                  src={ShowIcon}
                   alt=""
                   className="introShowIcon"
                   onClick={() => setShowIcons(!showIcons)}
