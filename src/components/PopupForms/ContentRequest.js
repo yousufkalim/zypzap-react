@@ -1,6 +1,7 @@
 import React from "react";
 import Dialog from "@mui/material/Dialog";
 import ClearIcon from "@mui/icons-material/Clear";
+import "../../css/form/ContentRequest.css";
 
 const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
   const handleClose = () => {
@@ -18,7 +19,10 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
             </div>
             {/* /* --------------------------------- oneDiv --------------------------------- */}
             <div className="requestDiv-box2">
-              <label htmlFor=""> Game name </label>
+              <label htmlFor="" className="requestDov-label">
+                {" "}
+                Game name{" "}
+              </label>
               <input
                 type="text"
                 name=""
@@ -27,14 +31,34 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
               />
             </div>
             {/* /* --------------------------------- oneDiv --------------------------------- */}
-            <div className="requestDiv-box2">
-              <label htmlFor=""> Game Level </label>
+            <div className="requestDiv-box3">
+              <label htmlFor="" className="requestDov-label">
+                {" "}
+                Game Level{" "}
+              </label>
               <input
                 type="text"
                 name=""
                 id=""
                 placeholder="Course title here"
               />
+            </div>
+            {/* /* --------------------------------- oneDiv --------------------------------- */}
+            <div className="requestDiv-box4">
+              <label htmlFor="" className="requestDov-label">
+                Course Description
+              </label>
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                placeholder="Course description here"
+              ></textarea>
+            </div>
+            {/* /* --------------------------------- oneDiv --------------------------------- */}
+            <div className="requestDiv-box5">
+              <button>Request Now</button>
             </div>
             {/* /* --------------------------------- oneDiv --------------------------------- */}
           </div>

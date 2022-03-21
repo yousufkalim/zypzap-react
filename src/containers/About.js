@@ -1,5 +1,5 @@
 // Init
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // import Header from "../components/Header";
 // import UserReview from "../components/about/UsersReview";
 // import GetStarted from "../components/about/GetStarted";
@@ -12,8 +12,10 @@ import OurMissions from "../components/About2/OurMissions";
 import FollowUs from "../components/StandbyPage/FollowUs";
 import JoinedUs from "../components/StandbyPage/JoinedUs";
 import Footer2 from "../components/StandbyPage/Footer2";
+import Contactez from "../components/PopupForms/contactez";
 
 export default function About() {
+  const [openContentRequest, setOpenContentRequest] = useState(false);
   const [openlogin, setOpenLogin] = React.useState(false);
   const [opensignup, setOpenSignup] = React.useState(false);
   const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] =
@@ -37,6 +39,10 @@ export default function About() {
         overflowY: "hidden",
       }}
     >
+      <Contactez
+        openContentRequest={openContentRequest}
+        setOpenContentRequest={setOpenContentRequest}
+      />
       <UserLandingPageHeader />
       {/* <Header
         setOpenLogin={setOpenLogin}
@@ -54,7 +60,10 @@ export default function About() {
       {/* <UserReview /> */}
       {/* <GetStarted /> */}
       {/* <Footer /> */}
-      <Footer2 />
+      <Footer2
+        openContentRequest={openContentRequest}
+        setOpenContentRequest={setOpenContentRequest}
+      />
     </div>
   );
 }
