@@ -144,6 +144,8 @@
   color: #fff;
   position: absolute;
   margin-top: -30px;
+  border: none;
+  padding: 2px 5px;
 }
 .followSocialHeading {
   display: flex;

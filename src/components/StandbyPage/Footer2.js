@@ -58,9 +58,16 @@ const Footer2 = ({ openContentRequest, setOpenContentRequest }) => {
                 </table>
                 <div className="isocialcondiv">
                   <img src={Footor2Icon1} height={40} className="imgIcon" />
-                  <img src={Footor2Icon2} height={40} className="imgIcon" />
+                  <a href="https://twitter.com/ZypZap_com" target="_blank">
+                    <img src={Footor2Icon2} height={40} className="imgIcon" />
+                  </a>
                   <img src={Footor2Icon3} height={40} className="imgIcon" />
-                  <img src={Footor2Icon4} height={40} className="imgIcon" />
+                  <a
+                    href="https://www.facebook.com/zypzap.media"
+                    target="_blank"
+                  >
+                    <img src={Footor2Icon4} height={40} className="imgIcon" />
+                  </a>
                   <img src={Footor2Icon5} height={40} className="imgIcon" />
                 </div>
               </div>
