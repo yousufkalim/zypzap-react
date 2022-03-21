@@ -20,7 +20,7 @@ import Footor2Icon5 from "../../assets/img/Footor2Icon5.svg";
 import { Link } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
 
-const Footer2 = () => {
+const Footer2 = ({ openContentRequest, setOpenContentRequest }) => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
   const changeLanguage = (lng) => {
@@ -93,7 +93,17 @@ const Footer2 = () => {
               >
                 <p className="pmargin">Politique de confidentialité</p>
               </Link>
-              <p className="pmargin"> Contactez-nous</p>
+              <Link
+                to="#"
+                className="pmargin"
+                style={{ color: "white", textDecoration: "none" }}
+                onClick={() => {
+                  setOpenContentRequest(true);
+                }}
+              >
+                {" "}
+                Contactez-nous
+              </Link>
             </div>
           </Grid>
           <button

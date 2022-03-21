@@ -15,44 +15,57 @@ const FollowUs = () => {
           <h2 className="followUsH2">Suivez-nous sur les reseaux sociaux</h2>
           <div className="followSocialBox">
             {/* this */}
+
             <div className="followDiv">
               <div className="followUs-box2">
+                {/* <a href="" className="followUsLinks"> */}
                 <img src={SocialIcon1} alt="" className="followUsImg" />
                 <div className="followSocialHeading2">
                   <p className="followSocialP">0</p>
                   <p className="followSocialP2">Membres</p>
                 </div>
+                {/* </a> */}
               </div>
               <div className="followUs-box2">
-                <img src={SocialIcon2} alt="" className="followUsImg" />
-                <div className="followSocialHeading2">
-                  <p className="followSocialP">0</p>
-                  <p className="followSocialP2">Followers</p>
-                </div>
+                <a
+                  href="https://twitter.com/ZypZap_com"
+                  target="_blank"
+                  className="followUsLinks"
+                >
+                  <img src={SocialIcon2} alt="" className="followUsImg" />
+                  <div className="followSocialHeading2">
+                    <p className="followSocialP">0</p>
+                    <p className="followSocialP2">Followers</p>
+                  </div>
+                </a>
               </div>
             </div>
             {/* this */}
             <div className="followDiv">
               <div className="followUs-box2">
-                <img
-                  src={SocialIcon3}
-                  alt=""
-                  className="followUsImg"
-                  style={{ marginTop: "7px" }}
-                />
+                {/* <a href="" className="followUsLinks"> */}
+                <button className="comming-soonBTn">Coming Soon</button>
+                <img src={SocialIcon3} alt="" className="followUsImg" />
                 <div className="followSocialHeading2">
-                  <p className="followSocialP" style={{ marginTop: "7px" }}>
+                  <p className="followSocialP" style={{ marginTop: "0px" }}>
                     0
                   </p>
                   <p className="followSocialP2">Followers</p>
                 </div>
+                {/* </a> */}
               </div>
               <div className="followUs-box2">
-                <img src={SocialIcon4} alt="" className="followUsImg" />
-                <div className="followSocialHeading2">
-                  <p className="followSocialP">0</p>
-                  <p className="followSocialP2">Likes</p>
-                </div>
+                <a
+                  href="https://www.facebook.com/zypzap.media"
+                  target="_blank"
+                  className="followUsLinks"
+                >
+                  <img src={SocialIcon4} alt="" className="followUsImg" />
+                  <div className="followSocialHeading2">
+                    <p className="followSocialP">0</p>
+                    <p className="followSocialP2">Likes</p>
+                  </div>
+                </a>
               </div>
             </div>
           </div>

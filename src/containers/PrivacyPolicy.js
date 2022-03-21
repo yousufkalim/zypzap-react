@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../components/PrivacyPolicy/PrivacyPolicy.css";
 import UserLandingPageHeader from "../components/UserLandingPageHeader";
 import PrivacyHome from "../components/PrivacyPolicy/PrivacyHome";
@@ -8,8 +8,10 @@ import ProcessingData from "../components/PrivacyPolicy/ProcessingData";
 import Partage from "../components/PrivacyPolicy/Partage";
 import Rectification from "../components/PrivacyPolicy/Rectification";
 import Footer2 from "../components/StandbyPage/Footer2";
+import Contactez from "../components/PopupForms/contactez";
 
 const PrivacyPolicy = () => {
+  const [openContentRequest, setOpenContentRequest] = useState(false);
   const scrollToTop = () => {
     window.scrollTo({
       top: 1,
@@ -23,6 +25,10 @@ const PrivacyPolicy = () => {
   }, []);
   return (
     <>
+      <Contactez
+        openContentRequest={openContentRequest}
+        setOpenContentRequest={setOpenContentRequest}
+      />
       <UserLandingPageHeader />
       <PrivacyHome />
       <Introduction />
@@ -30,7 +36,10 @@ const PrivacyPolicy = () => {
       <ProcessingData />
       <Partage />
       <Rectification />
-      <Footer2 />
+      <Footer2
+        openContentRequest={openContentRequest}
+        setOpenContentRequest={setOpenContentRequest}
+      />
       {/* <ProcessingData title="3. Conservation" /> */}
     </>
   );

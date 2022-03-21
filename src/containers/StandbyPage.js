@@ -8,8 +8,10 @@ import FollowUs from "../components/StandbyPage/FollowUs";
 import JoinedUs from "../components/StandbyPage/JoinedUs";
 import UserLandingPageBlog from "../components/UserLandingPage/UserLandingPageBlog";
 import Footer2 from "../components/StandbyPage/Footer2";
+import Contactez from "../components/PopupForms/contactez";
 
 export default function StandbyPage() {
+  const [openContentRequest, setOpenContentRequest] = useState(false);
   const scrollToTop = () => {
     window.scrollTo({
       top: 1,
@@ -23,6 +25,10 @@ export default function StandbyPage() {
   }, []);
   return (
     <>
+      <Contactez
+        openContentRequest={openContentRequest}
+        setOpenContentRequest={setOpenContentRequest}
+      />
       <div
         style={{
           backgroundColor: "#000",
@@ -38,7 +44,10 @@ export default function StandbyPage() {
         <FollowUs />
         <JoinedUs />
         {/* <UserLandingPageBlog /> */}
-        <Footer2 />
+        <Footer2
+          openContentRequest={openContentRequest}
+          setOpenContentRequest={setOpenContentRequest}
+        />
       </div>
     </>
   );
