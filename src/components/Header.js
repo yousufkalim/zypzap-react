@@ -31,6 +31,7 @@ import api from "../api";
 import { Link } from "react-router-dom";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import NewLogo from "../assets/icons/NewLogo.png";
 
 import { Store, UpdateStore } from "../StoreContext";
 
@@ -104,7 +105,6 @@ export default function PrimarySearchAppBar({
   const handleClickOpen = () => {
     setOpenProfile(true);
   };
-
 
   const handleClose = () => {
     setOpenProfile(false);
@@ -280,7 +280,8 @@ export default function PrimarySearchAppBar({
         <AppBar position="static" className="headerBackgroundColor">
           <Toolbar className="imgLogo">
             <img
-              src={Logo}
+              // src={Logo}
+              src={NewLogo}
               alt="img"
               style={{ cursor: "pointer" }}
               onClick={() => {
