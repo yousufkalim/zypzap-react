@@ -18,6 +18,7 @@ const SubscriptionPopup = ({
   content,
   pera,
   check,
+  type,
 }) => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
@@ -39,9 +40,7 @@ const SubscriptionPopup = ({
   const handleClose = () => {
     setOpen(false);
   };
-  const submitForm = (event) => {
-    console.log("submit");
-
+  const submitForm = async (event) => {
     if (email == "") {
       return toast.error("Veuillez entrer votre e-mail");
     }
@@ -61,22 +60,22 @@ const SubscriptionPopup = ({
       );
     }
 
-    toast.success("Nous avons bien reçu votre email");
+    setLoading(true);
+    let res = await api("post", "/newsletters", {
+      email,
+      type,
+    });
+
+    if (res.status === 200) {
+      toast.success("Soumis avec succès");
+    }
+    setLoading(false);
+    setEmail("");
     handleClose();
-    // setLoading(true);
-    // let res = await api("post", "/users/contact", {
-    //   ...formData,
-    // });
-    // if (res.status === 200) {
-    //   toast.success("Soumis avec succès");
-    //   setFormData({ name: "", email: "", message: "", description: "" });
-    // }
-    // setLoading(false);
-    // setEmail("");
   };
   return (
     <>
-      {console.log(`THISIS : ${isThreeLine}`)}
+      {console.log(type)}
       <Dialog open={open} onClose={handleClose}>
         <div className="login_form">
           <div className="subs_container">
@@ -148,7 +147,6 @@ const SubscriptionPopup = ({
                     name="checkBoxOne"
                     className="popup-checkbox"
                     type="checkbox"
-                    checked="true"
                   />
                 ) : (
                   <input

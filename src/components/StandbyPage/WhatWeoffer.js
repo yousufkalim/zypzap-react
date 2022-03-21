@@ -36,6 +36,7 @@ export default function WhatWeOffer() {
           title="Inscrivez-vous pour acceder aux avantages uniques"
           content="Offre reservée aux 1000 premiers inscrits"
           check="false"
+          type="creator"
         />
       )}
       {open2 && (
@@ -47,6 +48,7 @@ export default function WhatWeOffer() {
           content="Offre reservée aux 1000 premiers inscrits"
           pera="S'abonner à la Newsletter"
           check="true"
+          type="user"
         />
       )}
       <div className="whatweoffercontainer ">
