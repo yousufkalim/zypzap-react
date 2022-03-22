@@ -12,13 +12,11 @@ const SubscriptionPopup = ({
   setOpen,
   Email,
   heading1,
-  heading2,
   isThreeLine,
   title,
   title2,
   content,
   pera,
-  check,
   type,
 }) => {
   const { t, i18n } = useTranslation();
@@ -31,6 +29,7 @@ const SubscriptionPopup = ({
     checkBoxThree: true,
   });
   const getCheckboxValues = (e) => {
+    console.log("e.target.value", e.target.checked);
     setValues({
       ...values,
       [e.target.name]: e.target.checked,
@@ -46,21 +45,23 @@ const SubscriptionPopup = ({
     if (email == "") {
       return toast.error("Veuillez entrer votre e-mail");
     }
-
-    if (!content) {
+    console.log("hgjckej", values.checkBoxOne);
+    console.log("hgjckej", values.checkBoxTwo);
+    if (content) {
+      console.log("hgjckej", values.checkBoxOne);
       if (!values.checkBoxOne) {
         return toast.error(
           "Merci d'accepter les conditions pour démarrer le test"
         );
       }
-      setEmail("");
+      if (!values.checkBoxTwo) {
+        return toast.error(
+          "Merci d'accepter les conditions pour démarrer le test"
+        );
+      }
+      // setEmail("");
     }
 
-    if (!values.checkBoxTwo) {
-      return toast.error(
-        "Merci d'accepter les conditions pour démarrer le test"
-      );
-    }
     // if (!values.checkBoxThree) {
     //   return toast.error(
     //     "Merci d'accepter les conditions pour démarrer le test"
@@ -115,8 +116,8 @@ const SubscriptionPopup = ({
             >
               <input
                 onChange={getCheckboxValues}
-                value={values.checkBoxTwo}
-                name="checkBoxTwo"
+                value={values.checkBoxOne}
+                name="checkBoxOne"
                 className="popup-checkbox"
                 type="checkbox"
               />
