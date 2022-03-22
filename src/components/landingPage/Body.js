@@ -11,7 +11,6 @@ export default function Body() {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
-  console.log("t is ", language);
   React.useEffect(() => {
     document.addEventListener("scroll", () => {
       if (window.scrollY > 0 && window.scrollY < 1) {

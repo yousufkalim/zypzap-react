@@ -334,6 +334,8 @@ const SearchResultBody = () => {
                     width: "2px",
                     height: "1em !important",
                   }}
+                  id="1"
+                  onClick={onClickSideBarHeaders}
                 />
               ) : (
                 <KeyboardArrowUpIcon
@@ -344,6 +346,8 @@ const SearchResultBody = () => {
                     width: "2px",
                     height: "1em !important",
                   }}
+                  id="1"
+                  onClick={onClickSideBarHeaders}
                 />
               )}
             </div>
@@ -369,6 +373,8 @@ const SearchResultBody = () => {
                     width: "2px",
                     height: "1em !important",
                   }}
+                  id="2"
+                  onClick={onClickSideBarHeaders}
                 />
               ) : (
                 <KeyboardArrowUpIcon
@@ -379,6 +385,8 @@ const SearchResultBody = () => {
                     width: "2px",
                     height: "1em !important",
                   }}
+                  id="2"
+                  onClick={onClickSideBarHeaders}
                 />
               )}
             </div>
@@ -404,6 +412,8 @@ const SearchResultBody = () => {
                     width: "2px",
                     height: "1em !important",
                   }}
+                  id="3"
+                  onClick={onClickSideBarHeaders}
                 />
               ) : (
                 <KeyboardArrowUpIcon
@@ -414,6 +424,8 @@ const SearchResultBody = () => {
                     width: "2px",
                     height: "1em !important",
                   }}
+                  id="3"
+                  onClick={onClickSideBarHeaders}
                 />
               )}
             </div>
@@ -440,6 +452,8 @@ const SearchResultBody = () => {
                     width: "2px",
                     height: "1em !important",
                   }}
+                  id="4"
+                  onClick={onClickSideBarHeaders}
                 />
               ) : (
                 <KeyboardArrowUpIcon
@@ -450,6 +464,8 @@ const SearchResultBody = () => {
                     width: "2px",
                     height: "1em !important",
                   }}
+                  id="4"
+                  onClick={onClickSideBarHeaders}
                 />
               )}
             </div>
@@ -494,6 +510,8 @@ const SearchResultBody = () => {
                     width: "2px",
                     height: "1em !important",
                   }}
+                  id="5"
+                  onClick={onClickSideBarHeaders}
                 />
               ) : (
                 <KeyboardArrowUpIcon
@@ -504,6 +522,8 @@ const SearchResultBody = () => {
                     width: "2px",
                     height: "1em !important",
                   }}
+                  id="5"
+                  onClick={onClickSideBarHeaders}
                 />
               )}
             </div>
@@ -687,7 +707,6 @@ const SearchResultBody = () => {
 
 export default SearchResultBody;
 
-
 //       {searchCourse.map((item) => (
 //         <Grid item xs={12} sm={6} md={4}>
 //           <div className="cardGrid">
@@ -731,4 +750,3 @@ export default SearchResultBody;
 //   ))}
 // </Grid> */
 // }
-

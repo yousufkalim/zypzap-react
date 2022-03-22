@@ -26,7 +26,6 @@ const OverView = () => {
   const [rating, setRating] = useState();
   const [showVideo, setShowVideo] = useState({});
 
-  console.log("id", id);
   const [openlogin, setOpenLogin] = React.useState(false);
   const [opensignup, setOpenSignup] = React.useState(false);
   const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] = useState(false);
@@ -46,7 +45,6 @@ const OverView = () => {
 
   let getSingleCourses = async () => {
     let res = await api("get", `/courses/${id}`);
-    console.log("courses", res);
     if (res) {
       setCourse(res?.data);
     }
@@ -54,7 +52,6 @@ const OverView = () => {
   let getRatingOfCourse = async () => {
     if (id) {
       let res = await api("get", `/ratings/forSingleCourses/${id}`);
-      console.log("setRating", res);
       if (res) {
         setRating(res?.data);
       }
@@ -70,11 +67,10 @@ const OverView = () => {
         openBecomeCreatorPopup={openBecomeCreatorPopup}
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
       />
-      {console.log(showVideo, "showVideo")}
       {!showVideo?.src_url ? (
         <OverViewHome singlCourse={course} />
       ) : (
-        <CompleteCourse Videos={showVideo} singlCourse={course}/>
+        <CompleteCourse Videos={showVideo} singlCourse={course} />
       )}
 
       <OverViewMenu

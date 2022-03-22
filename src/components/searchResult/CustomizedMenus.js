@@ -55,12 +55,6 @@ export default function CustomizedMenus(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  const handleOnClick = async (e) => {
-    e.preventDefault();
-    console.log("value", e.target.value);
-  };
-
   let countViews = (course) => {
     const Videos = course?.videos;
 
@@ -74,7 +68,6 @@ export default function CustomizedMenus(props) {
 
   const filterByRating = async (e) => {
     e.preventDefault();
-    console.log("coueses", searchCourse);
     const Courses = searchCourse.sort(function (a, b) {
       if (a.rating === undefined) a.rating = 0;
       if (b.rating === undefined) b.rating = 0;
@@ -157,33 +150,17 @@ export default function CustomizedMenus(props) {
           sx={{ opacity: "0.7" }}
           onClick={filterByRating}
           value={"Rating"}
-          onChange={handleOnClick}
           disableRipple
         >
           Rating
         </MenuItem>
-        <MenuItem
-          sx={{ opacity: "0.7" }}
-          onClick={filterByDate}
-          onChange={handleOnClick}
-          disableRipple
-        >
+        <MenuItem sx={{ opacity: "0.7" }} onClick={filterByDate} disableRipple>
           Date Posted
         </MenuItem>
-        <MenuItem
-          sx={{ opacity: "0.7" }}
-          onClick={filterByViews}
-          onChange={handleOnClick}
-          disableRipple
-        >
+        <MenuItem sx={{ opacity: "0.7" }} onClick={filterByViews} disableRipple>
           Number Of Views
         </MenuItem>
-        <MenuItem
-          sx={{ opacity: "0.7" }}
-          onClick={filterByLevel}
-          onChange={handleOnClick}
-          disableRipple
-        >
+        <MenuItem sx={{ opacity: "0.7" }} onClick={filterByLevel} disableRipple>
           Level
         </MenuItem>
       </StyledMenu>

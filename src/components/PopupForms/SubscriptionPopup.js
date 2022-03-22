@@ -38,7 +38,6 @@ const SubscriptionPopup = ({
     setOpen(false);
   };
   const submitForm = (event) => {
-    console.log("submit");
 
     if (email == "") {
       return toast.error("Veuillez entrer votre e-mail");
@@ -74,7 +73,6 @@ const SubscriptionPopup = ({
   };
   return (
     <>
-      {console.log(`THISIS : ${isThreeLine}`)}
       <Dialog open={open} onClose={handleClose}>
         <div className="login_form">
           <div className="subs_container">
