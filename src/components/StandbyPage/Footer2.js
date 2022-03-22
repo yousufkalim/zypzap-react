@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import NewLogo from "../../assets/icons/NewLogo.png";
-import FbIcon22 from "../../assets/icons/FbIcon22.svg";
-import TwitterIcon2 from "../../assets/icons/TwitterIcon2.svg";
-import Instagram from "../../assets/icons/instagram-icon-8.svg";
-import LinkedinIcon2 from "../../assets/icons/LinkedinIcon2.svg";
-import VactorIcon from "../../assets/icons/VactorIcon.svg";
-import InstagramIcon from "../../assets/icons/InstagramIcon.svg";
-import Globe from "../../assets/icons/globe.svg";
 import email from "../../assets/icons/email.svg";
-import phone from "../../assets/icons/phone.svg";
 import location from "../../assets/icons/location.svg";
 import Footor2Icon1 from "../../assets/img/Footor2Icon1.svg";
 import Footor2Icon2 from "../../assets/img/Footor2Icon2.svg";
@@ -57,7 +49,9 @@ const Footer2 = ({ openContentRequest, setOpenContentRequest }) => {
                   </tr>
                 </table>
                 <div className="isocialcondiv">
-                  <img src={Footor2Icon1} height={40} className="imgIcon" />
+                  <a href="https://discord.gg/QDB2vxVE" target="_blank">
+                    <img src={Footor2Icon1} height={40} className="imgIcon" />
+                  </a>
                   <a href="https://twitter.com/ZypZap_com" target="_blank">
                     <img src={Footor2Icon2} height={40} className="imgIcon" />
                   </a>

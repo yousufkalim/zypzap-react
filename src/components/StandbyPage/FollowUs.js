@@ -1,11 +1,8 @@
 import React from "react";
-import FollowSocialIcon from "../../assets/img/FollowSocialIcon.svg";
-import FollowSocialIcon2 from "../../assets/img/FollowSocialIcon2.svg";
-import FollowSocialIcon3 from "../../assets/img/FollowSocialIcon3.svg";
-import SocialIcon1 from "../../assets/img/SocialIcon1.svg";
-import SocialIcon2 from "../../assets/img/SocialIcon2.svg";
-import SocialIcon3 from "../../assets/img/SocialIcon3.svg";
-import SocialIcon4 from "../../assets/img/SocialIcon4.svg";
+import Discord from "../../assets/img/Discord.svg";
+import Twitter from "../../assets/img/Twitter.svg";
+import Reddit from "../../assets/img/Reddit.svg";
+import Facebook from "../../assets/img/Facebook.svg";
 
 const FollowUs = () => {
   return (
@@ -18,13 +15,17 @@ const FollowUs = () => {
 
             <div className="followDiv">
               <div className="followUs-box2">
-                {/* <a href="" className="followUsLinks"> */}
-                <img src={SocialIcon1} alt="" className="followUsImg" />
-                <div className="followSocialHeading2">
-                  <p className="followSocialP">0</p>
-                  <p className="followSocialP2">Membres</p>
-                </div>
-                {/* </a> */}
+                <a
+                  href="https://discord.gg/QDB2vxVE"
+                  target="_blank"
+                  className="followUsLinks"
+                >
+                  <img src={Discord} alt="" className="followUsImg" />
+                  <div className="followSocialHeading2">
+                    <p className="followSocialP">0</p>
+                    <p className="followSocialP2">Membres</p>
+                  </div>
+                </a>
               </div>
               <div className="followUs-box2">
                 <a
@@ -32,7 +33,7 @@ const FollowUs = () => {
                   target="_blank"
                   className="followUsLinks"
                 >
-                  <img src={SocialIcon2} alt="" className="followUsImg" />
+                  <img src={Twitter} alt="" className="followUsImg" />
                   <div className="followSocialHeading2">
                     <p className="followSocialP">0</p>
                     <p className="followSocialP2">Followers</p>
@@ -45,7 +46,7 @@ const FollowUs = () => {
               <div className="followUs-box2">
                 {/* <a href="" className="followUsLinks"> */}
                 <button className="comming-soonBTn">Coming Soon</button>
-                <img src={SocialIcon3} alt="" className="followUsImg" />
+                <img src={Reddit} alt="" className="followUsImg" />
                 <div className="followSocialHeading2">
                   <p className="followSocialP" style={{ marginTop: "0px" }}>
                     0
@@ -60,7 +61,7 @@ const FollowUs = () => {
                   target="_blank"
                   className="followUsLinks"
                 >
-                  <img src={SocialIcon4} alt="" className="followUsImg" />
+                  <img src={Facebook} alt="" className="followUsImg" />
                   <div className="followSocialHeading2">
                     <p className="followSocialP">0</p>
                     <p className="followSocialP2">Likes</p>

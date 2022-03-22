@@ -66,15 +66,9 @@ const LiDAta = ({ clip, videoCount, setPlayVideo }) => {
   //   var mins = ~~((second % 3600) / 60);
   //   var secs = ~~second % 60;
 
-  //   // Output like "1:01" or "4:03:59" or "123:03:59"
-  //   var ret = "";
-  //   if (hrs > 0) {
-  //     ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
-  //   }
-  //   ret += "" + mins + ":" + (secs < 10 ? "0" : "");
-  //   ret += "" + secs;
-  //   return ret;
-  // };
+  const handleClick = (item) => {
+    setVideo1(item.videoLink);
+  };
   return (
     <li className="completeCourse-videoList" onClick={() => setPlayVideo(clip)}>
       {/* onClick={() => setPlayVideo(clip)} */}

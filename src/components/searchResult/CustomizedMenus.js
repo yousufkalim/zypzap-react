@@ -55,6 +55,11 @@ export default function CustomizedMenus(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleOnClick = async (e) => {
+    e.preventDefault();
+  };
+
   let countViews = (course) => {
     const Videos = course?.videos;
 
