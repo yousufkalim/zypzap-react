@@ -1,8 +1,8 @@
 import React from "react";
-import JoinLogo1 from "../../assets/img/JoinLogo1.svg";
-import JoinLogo2 from "../../assets/img/JoinLogo2.svg";
-import JoinLogo3 from "../../assets/img/JoinLogo3.svg";
-import JoinLogo4 from "../../assets/img/JoinLogo4.svg";
+import Gamers from "../../assets/img/Gamers.svg";
+import Creators from "../../assets/img/Creators.svg";
+import MobileGame from "../../assets/img/MobileGame.svg";
+import DisplayCourse from "../../assets/img/DisplayCourse.svg";
 
 const JoinedUs = () => {
   return (
@@ -14,14 +14,14 @@ const JoinedUs = () => {
           <div className="followSocialBox">
             <div className="followDiv">
               <div className="followUs-box2">
-                <img src={JoinLogo1} alt="" className="followUsImg" />
+                <img src={Gamers} alt="" className="followUsImg" />
                 <div className="followSocialHeading2">
                   <p className="followSocialP">0</p>
                   <p className="followSocialP2">Membres</p>
                 </div>
               </div>
               <div className="followUs-box2">
-                <img src={JoinLogo2} alt="" className="followUsImg" />
+                <img src={Creators} alt="" className="followUsImg" />
                 <div className="followSocialHeading2">
                   <p className="followSocialP">0</p>
                   <p className="followSocialP2">Createurs</p>
@@ -31,7 +31,7 @@ const JoinedUs = () => {
             <div className="followDiv">
               <div className="followUs-box2">
                 <img
-                  src={JoinLogo3}
+                  src={MobileGame}
                   alt=""
                   className="followUsImg"
                   style={{ marginTop: "7px" }}
@@ -42,7 +42,7 @@ const JoinedUs = () => {
                 </div>
               </div>
               <div className="followUs-box2">
-                <img src={JoinLogo4} alt="" className="followUsImg" />
+                <img src={DisplayCourse} alt="" className="followUsImg" />
                 <div className="followSocialHeading2">
                   <p className="followSocialP">0</p>
                   <p className="followSocialP2">Nombre de cours disponibles</p>

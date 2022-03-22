@@ -74,7 +74,11 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
                 value={inputData.Level}
                 id=""
                 className="contactezDiv-input"
-                style={{ border: "none", backgroundColor: "#131321" }}
+                style={{
+                  border: "none",
+                  backgroundColor: "#131321",
+                  color: "#6D6D6D",
+                }}
               >
                 <option value="">Select</option>
                 <option value="">Select</option>

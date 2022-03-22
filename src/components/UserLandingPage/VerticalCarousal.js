@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import trendinglogo from "../../assets/img/trendinglogo.png";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import cn from "classnames";
 

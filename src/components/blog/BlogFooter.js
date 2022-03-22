@@ -4,13 +4,10 @@ import Grid from "@material-ui/core/Grid";
 import NewLogo from "../../assets/icons/NewLogo.png";
 import FbIcon22 from "../../assets/icons/FbIcon22.svg";
 import TwitterIcon2 from "../../assets/icons/TwitterIcon2.svg";
-import Instagram from "../../assets/icons/instagram-icon-8.svg";
 import LinkedinIcon2 from "../../assets/icons/LinkedinIcon2.svg";
 import VactorIcon from "../../assets/icons/VactorIcon.svg";
 import InstagramIcon from "../../assets/icons/InstagramIcon.svg";
-import Globe from "../../assets/icons/globe.svg";
 import email from "../../assets/icons/email.svg";
-import phone from "../../assets/icons/phone.svg";
 import location from "../../assets/icons/location.svg";
 
 import { Link } from "react-router-dom";
@@ -45,16 +42,6 @@ export default function Footer({ openContentRequest, setOpenContentRequest }) {
                       </td>
                       <td className="infoTd"> contact@zypap.com</td>
                     </div>
-                    {/* </tr>
-                  <tr>
-                    <div className="tdDiv">
-                      <td>
-                        <img src={phone} height={20} className="emailicon" />
-                      </td>
-                      <td className="infoTd">+33603856707</td>
-                    </div>
-                  </tr>
-                  <tr> */}
                     <div className="tdDiv">
                       <td>
                         <img src={location} height={20} className="emailicon" />
