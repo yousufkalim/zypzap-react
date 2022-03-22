@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import JoinLogo1 from "../../assets/img/JoinLogo1.svg";
 import JoinLogo2 from "../../assets/img/JoinLogo2.svg";
 import JoinLogo3 from "../../assets/img/JoinLogo3.svg";
 import JoinLogo4 from "../../assets/img/JoinLogo4.svg";
+import api from "../../api";
 
 const JoinedUs = () => {
+  const [allMembers, setAllMembers] = useState(0);
+  const [allCreator, setAllCreator] = useState(0);
+
+  useEffect(() => {
+    setMembers();
+    setCreator();
+  }, []);
+  const setMembers = async () => {
+    let res = await api("get", "/newsletters/all");
+    if (res) {
+      setAllMembers(res.data.allMembers);
+    }
+  };
+
+  const setCreator = async () => {
+    let res = await api("get", "/newsletters/creator");
+    if (res) {
+      setAllCreator(res.data.totalCreator);
+    }
+  };
   return (
     <div>
       {" "}
@@ -16,14 +37,14 @@ const JoinedUs = () => {
               <div className="followUs-box2">
                 <img src={JoinLogo1} alt="" className="followUsImg" />
                 <div className="followSocialHeading2">
-                  <p className="followSocialP">0</p>
+                  <p className="followSocialP">{allMembers ? allMembers : 0}</p>
                   <p className="followSocialP2">Membres</p>
                 </div>
               </div>
               <div className="followUs-box2">
                 <img src={JoinLogo2} alt="" className="followUsImg" />
                 <div className="followSocialHeading2">
-                  <p className="followSocialP">0</p>
+                  <p className="followSocialP">{allCreator ? allCreator : 0}</p>
                   <p className="followSocialP2">Createurs</p>
                 </div>
               </div>

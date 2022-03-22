@@ -62,8 +62,13 @@ body {
   font-size: 16px;
   padding: 0 0 6px 0;
 }
-.playVideoP {
+.playVideonumber {
   font-size: 12px;
+  margin-right: 10px;
+}
+.playVideomint {
+  font-size: 12px;
+  margin-left: 10px;
 }
 .completeCourse-playVideo {
   width: 120px;
@@ -75,6 +80,7 @@ body {
 }
 .PlayVideo-DownArrow {
   margin-left: auto;
+  margin-top: -50px !important;
   padding-right: 20px;
   cursor: pointer;
 }

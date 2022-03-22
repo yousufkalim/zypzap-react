@@ -35,10 +35,11 @@ const CompleteCourse = ({ Videos, singlCourse }) => {
             <h3 className="completeCourseH3">Course Content</h3>
             <div className="completeCourseScroll">
               {videos?.map((clip, index) => {
+                console.log("index", index);
                 return (
                   <LiDAta
                     clip={clip}
-                    key={index}
+                    value={index + 1}
                     videoCount={videoCount}
                     setPlayVideo={setPlayVideo}
                   />
@@ -59,16 +60,27 @@ const CompleteCourse = ({ Videos, singlCourse }) => {
 
 export default CompleteCourse;
 
-const LiDAta = ({ clip, videoCount, setPlayVideo }) => {
-  // const secondToTime = (second) => {
-  //   // Hours, minutes and seconds
-  //   var hrs = ~~(second / 3600);
-  //   var mins = ~~((second % 3600) / 60);
-  //   var secs = ~~second % 60;
+const LiDAta = ({ clip, videoCount, setPlayVideo, value }) => {
+  const secondToTime = (second) => {
+    // Hours, minutes and seconds
+    var hrs = ~~(second / 3600);
+    var mins = ~~((second % 3600) / 60);
+    var secs = ~~second % 60;
 
-  const handleClick = (item) => {
-    setVideo1(item.videoLink);
+    // Output like "1:01" or "4:03:59" or "123:03:59"
+    var ret = "";
+    if (hrs > 0) {
+      ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+    }
+    ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+    ret += "" + secs;
+    return ret;
   };
+  
+   const handleClick = (item) => {
+    setVideo1(item.videoLink);
+   }
+   
   return (
     <li className="completeCourse-videoList" onClick={() => setPlayVideo(clip)}>
       {/* onClick={() => setPlayVideo(clip)} */}
@@ -85,10 +97,11 @@ const LiDAta = ({ clip, videoCount, setPlayVideo }) => {
         <h3 className="playVideoH3">
           {clip?.title ? clip.title : "CS Go"} Ep 1 Complete Course
         </h3>
-        <p className="playVideoP">
-          {/* `${index}/${videoCount}` |{" "} */}
-          {/* {clip?.duration ? secondToTime(clip.duration) : "1:00 min"} */}
-        </p>
+        <span className="playVideonumber">{value + "/" + videoCount} </span>
+        <span>{"|"}</span>
+        <span className="playVideomint" style={{ margin: "10px" }}>
+          {clip?.duration ? secondToTime(clip.duration) + " min" : "1:00 min"}
+        </span>
       </div>
       <i className="PlayVideo-DownArrow fas fa-angle-down"></i>
     </li>
