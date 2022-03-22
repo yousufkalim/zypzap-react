@@ -47,7 +47,7 @@ const SubscriptionPopup = ({
       return toast.error("Veuillez entrer votre e-mail");
     }
 
-    if (!heading1) {
+    if (!content) {
       if (!values.checkBoxOne) {
         return toast.error(
           "Merci d'accepter les conditions pour démarrer le test"
@@ -61,11 +61,11 @@ const SubscriptionPopup = ({
         "Merci d'accepter les conditions pour démarrer le test"
       );
     }
-    if (!values.checkBoxThree) {
-      return toast.error(
-        "Merci d'accepter les conditions pour démarrer le test"
-      );
-    }
+    // if (!values.checkBoxThree) {
+    //   return toast.error(
+    //     "Merci d'accepter les conditions pour démarrer le test"
+    //   );
+    // }
 
     setLoading(true);
     let res = await api("post", "/newsletters", {
@@ -153,7 +153,7 @@ const SubscriptionPopup = ({
                     name="checkBoxThree"
                     className="popup-checkbox"
                     type="checkbox"
-                    // checked
+                    checked={values.checkBoxThree}
                   />
                 ) : (
                   <input

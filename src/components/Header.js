@@ -139,7 +139,9 @@ export default function PrimarySearchAppBar({
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-  const handleSearchClick = (event) => {};
+  const handleSearchClick = (event) => {
+    console.log("called");
+  };
   const searchCourse = async (e) => {
     e.preventDefault();
     if (e.target.value !== "") {
