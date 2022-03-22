@@ -35,7 +35,7 @@ export default function WhatWeOffer() {
           pera="S'abonner à la Newsletter"
           title="Inscrivez-vous pour acceder aux "
           title2="avantages uniques"
-          content="Offre reservée aux 10 000 premiers inscrits"
+          content="Offre reservée aux 1000 premiers inscrits"
           check="false"
           type="creator"
         />
