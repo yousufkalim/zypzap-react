@@ -13,22 +13,17 @@ const Instructor = (props) => {
   const [follow, setFollow] = useState(false);
   const updateStore = UpdateStore();
   const { user } = Store();
-  console.log("creator", singlCourse?.creator, "user", user);
   const totalStudent = (courses) => {
     let total = 0;
-    console.log("courses", courses);
     courses.map((c) => {
       total += c.student.length;
     });
     return total;
   };
   const followMe = async (creator) => {
-    console.log("creator", creator, "user", user);
     const data = { user_id: user?._id, creator_id: creator?._id };
-    console.log("data", data);
     let res = await api("post", "/creators/addFollower", data);
     if (res) {
-      console.log("res follow", res);
       setFollow(true);
     }
   };
@@ -70,12 +65,7 @@ const Instructor = (props) => {
                     : "500000+ Students"}
                 </p>
               </div>
-              {console.log(
-                "showFollowButton123456",
-                !showFollowButton(singlCourse?.creator),
-                follow,
-                "follow"
-              )}
+
               {showFollowButton(singlCourse?.creator) || follow ? (
                 <button className="Instructor-followBtn">Following</button>
               ) : (

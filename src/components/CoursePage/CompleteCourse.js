@@ -10,7 +10,6 @@ const CompleteCourse = ({ Videos, singlCourse }) => {
   const [videoCount, setVideoCount] = useState(
     singlCourse?.videos ? singlCourse.videos.length : 0
   );
-  console.log("singlCourse", videos);
 
   return (
     <>
@@ -22,14 +21,14 @@ const CompleteCourse = ({ Videos, singlCourse }) => {
               Course
             </h2>
             <video
-              controls
-              autoplay
               className="completeCourse-Video"
               src={
                 playVideo?.src_url
                   ? playVideo.src_url
                   : "https://pass-to-trip.s3.eu-west-3.amazonaws.com/1647410128211"
               }
+              controls
+              autoplay
             ></video>
           </div>
           <div className="completeCourse-colm2">
@@ -61,13 +60,8 @@ const CompleteCourse = ({ Videos, singlCourse }) => {
 export default CompleteCourse;
 
 const LiDAta = ({ clip, videoCount, setPlayVideo }) => {
-  {
-    console.log("123456789", clip);
-  }
-
   // const secondToTime = (second) => {
   //   // Hours, minutes and seconds
-  //   console.log("second", second);
   //   var hrs = ~~(second / 3600);
   //   var mins = ~~((second % 3600) / 60);
   //   var secs = ~~second % 60;
@@ -81,7 +75,6 @@ const LiDAta = ({ clip, videoCount, setPlayVideo }) => {
   //   ret += "" + secs;
   //   return ret;
   // };
-  console.log("clip", clip);
   return (
     <li className="completeCourse-videoList" onClick={() => setPlayVideo(clip)}>
       {/* onClick={() => setPlayVideo(clip)} */}

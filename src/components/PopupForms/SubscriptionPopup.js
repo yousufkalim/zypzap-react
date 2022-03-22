@@ -40,6 +40,7 @@ const SubscriptionPopup = ({
   const handleClose = () => {
     setOpen(false);
   };
+
   const submitForm = async (event) => {
     if (email == "") {
       return toast.error("Veuillez entrer votre e-mail");
@@ -75,7 +76,6 @@ const SubscriptionPopup = ({
   };
   return (
     <>
-      {console.log(type)}
       <Dialog open={open} onClose={handleClose}>
         <div className="login_form">
           <div className="subs_container">

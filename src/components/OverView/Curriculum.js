@@ -30,7 +30,6 @@ const Curriculum = (props) => {
 const Video = ({ video, setShowVideo }) => {
   const secondToTime = (second) => {
     // Hours, minutes and seconds
-    console.log("second", second);
     var hrs = ~~(second / 3600);
     var mins = ~~((second % 3600) / 60);
     var secs = ~~second % 60;
@@ -46,7 +45,6 @@ const Video = ({ video, setShowVideo }) => {
   };
   return (
     <>
-      {console.log("vedio link", video)}
       <div className="curriculumLiDiv" onClick={() => setShowVideo(video)}>
         <img src={CurriculumIcon} alt="" className="curriculumIMG" />
         <li className="curriculumLi">

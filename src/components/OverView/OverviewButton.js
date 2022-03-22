@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 const OverviewButton = (props) => {
   const { singlCourse } = props;
-  console.log("dbkhn", singlCourse);
   // const [Course, setCourse] = useState(singleCourse ? singleCourse : "");
   // useEffect(() => {
   //   setCourse(singleCourse ? singleCourse : "");
@@ -20,7 +19,6 @@ const OverviewButton = (props) => {
             </div>
             <div className="overRequirements">
               <h3 className="overRequirement_h3">Requirements</h3>
-              {console.log(singlCourse?.requirement)}
 
               {singlCourse?.requirement.length > 0 ? (
                 singlCourse.requirement.map((req, index) => {

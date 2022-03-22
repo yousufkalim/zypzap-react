@@ -30,7 +30,6 @@ const Reviews = (props) => {
   const [fourStar, setFourStar] = useState(0);
   const [fiveStar, setFiveStar] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
-  console.log("rating", rating);
   useEffect(() => {
     calculateStarRating();
   }, []);
@@ -41,12 +40,10 @@ const Reviews = (props) => {
     var three = 0;
     var four = 0;
     var five = 0;
-    // console.log("totalCount", totalCount, "total", total);
     await rating?.map((Rate) => {
       let r = Rate.rating;
       total = total + r;
       setTotalCount(total);
-      console.log("total", total);
       switch (r) {
         case 1:
           one += r;
@@ -72,18 +69,6 @@ const Reviews = (props) => {
       setFourStar(four);
       setFiveStar(five);
     });
-    console.log(
-      "OneStar",
-      OneStar,
-      twoStar,
-      "twoStar",
-      threeStar,
-      "threeStar",
-      fourStar,
-      "fourStar",
-      fiveStar,
-      "fiveStar"
-    );
   };
   const Percentage = (OneStar, totalCount) => {
     let percentage = ((OneStar / totalCount) * 100).toFixed(0);
@@ -163,7 +148,6 @@ const Reviews = (props) => {
               </Box>
               <Box sx={{ flexGrow: 1 }}>
                 <br />
-                {/* {console.log("total", totalCount)} */}
                 <BorderLinearProgress
                   variant="determinate"
                   value={

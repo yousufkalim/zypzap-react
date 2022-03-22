@@ -31,7 +31,11 @@ const UserProfile = (props) => {
           </div>
 
           <div className="Profile-DP">
-            <img src={ProfileDp} alt="" className="DP-img" />
+            <img
+              src={user?.profile_photo ? user.profile_photo : ProfileDp}
+              alt=""
+              className="DP-img"
+            />
           </div>
           {/* profile Div */}
           <div className="profile-container">

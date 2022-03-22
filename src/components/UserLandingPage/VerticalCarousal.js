@@ -7,7 +7,6 @@ const VerticalCarousel = ({ data, item }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    console.log("useeffect");
     let xoxo = document.getElementById(item.class2Is);
     let interval;
     // it start interval when reload window
@@ -19,9 +18,7 @@ const VerticalCarousel = ({ data, item }) => {
         return prevIndex + 1;
       });
     }, 1000);
-    console.log("uper then mouseout");
     xoxo.addEventListener("mouseout", () => {
-      console.log("mouseout");
       // on mouse out upper interval will clear
       clearInterval(interval);
       // and new interval start
@@ -79,8 +76,6 @@ const VerticalCarousel = ({ data, item }) => {
   const handleClick = (direction) => {
     setActiveIndex((prevIndex) => {
       if (direction === "next") {
-        console.log("previndex", prevIndex);
-        console.log("data.length ", data.length);
         if (prevIndex + 1 > data.length - 1) {
           return 0;
         }
@@ -95,7 +90,6 @@ const VerticalCarousel = ({ data, item }) => {
     });
   };
   const hadleClickonlogo = (item, i) => {
-    console.log("logo", item);
     setActiveIndex(i);
   };
 
