@@ -37,7 +37,7 @@ export default function WhatWeOffer() {
           title2="avantages uniques"
           content="Offre reservée aux 10 000 premiers inscrits"
           check="false"
-          type="creator"
+          type="user"
         />
       )}
       {open2 && (
@@ -50,7 +50,7 @@ export default function WhatWeOffer() {
           content="Offre reservée aux 10 000 premiers inscrits"
           pera="S'abonner à la Newsletter"
           check="true"
-          type="user"
+          type="creator"
         />
       )}
       <div className="whatweoffercontainer ">
