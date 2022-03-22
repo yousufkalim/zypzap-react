@@ -8,7 +8,6 @@ const Notification = () => {
       ...checkBox,
       [e.target.name]: e.target.value,
     });
-    console.log(checkBox);
   };
   return (
     <>

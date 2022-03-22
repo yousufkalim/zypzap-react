@@ -26,6 +26,7 @@ const SubscriptionPopup = ({
   const [values, setValues] = useState({
     checkBoxOne: false,
     checkBoxTwo: false,
+    checkBoxThree: true,
   });
   const getCheckboxValues = (e) => {
     setValues({
@@ -40,8 +41,6 @@ const SubscriptionPopup = ({
     setOpen(false);
   };
   const submitForm = (event) => {
-    console.log("submit");
-
     if (email == "") {
       return toast.error("Veuillez entrer votre e-mail");
     }
@@ -56,6 +55,11 @@ const SubscriptionPopup = ({
     }
 
     if (!values.checkBoxTwo) {
+      return toast.error(
+        "Merci d'accepter les conditions pour démarrer le test"
+      );
+    }
+    if (!values.checkBoxThree) {
       return toast.error(
         "Merci d'accepter les conditions pour démarrer le test"
       );
@@ -76,12 +80,12 @@ const SubscriptionPopup = ({
   };
   return (
     <>
-      {console.log(`THISIS : ${isThreeLine}`)}
       <Dialog open={open} onClose={handleClose}>
         <div className="login_form">
           <div className="subs_container">
             <div className="form-header-block">
               <h1 className="subH1">{title}</h1>
+              <h1 className="subH1">{title2}</h1>
 
               <p className="subP">{isThreeLine ? content : ""}</p>
               <ClearIcon className="subsclearIcon" onClick={handleClose} />
@@ -140,15 +144,15 @@ const SubscriptionPopup = ({
                   fontSize: "16px",
                 }}
               >
-                {console.log("checked", check)}
                 {isThreeLine ? (
                   <input
                     onChange={getCheckboxValues}
-                    value={values.checkBoxOne}
-                    name="checkBoxOne"
+                    value={values.checkBoxThree}
+                    name="checkBoxThree"
                     className="popup-checkbox"
                     type="checkbox"
-                    checked="true"
+                    checked
+                    // checked="true"
                   />
                 ) : (
                   <input

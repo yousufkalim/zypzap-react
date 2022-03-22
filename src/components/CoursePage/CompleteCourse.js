@@ -89,7 +89,6 @@ const LiDAta = (props) => {
 
   const handleClick = (item) => {
     setVideo1(item.videoLink);
-    console.log("dfghj", item.videoLink);
   };
   return (
     <>

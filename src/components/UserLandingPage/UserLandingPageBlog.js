@@ -100,7 +100,6 @@ const UserLandingPageBlog = () => {
                               }
                               className="blogdivimg"
                             />
-                            {console.log(item.blog_title)}
                             <div className="blogdiv1text">
                               <h3 className="blogdiv1heading">
                                 {item?.blog_title.length > 25

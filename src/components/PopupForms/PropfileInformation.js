@@ -170,7 +170,6 @@ export default function PropfileInformation({
         playPeriod === "",
       favouritGame === "")
     ) {
-      console.log("Form not Submit Because some information missing....");
     } else {
       if (user) {
         let res = await api(
@@ -179,7 +178,6 @@ export default function PropfileInformation({
           formdata
         );
       } else {
-        console.log("Please Login !");
       }
     }
   };

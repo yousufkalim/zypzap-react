@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 
 const api = async (method = "get", uri, body) => {
   // Default setting for production
-  // console.log("body", body);
 
   axios.defaults.baseURL = process.env.REACT_APP_baseURL;
   axios.defaults.withCredentials = true;
@@ -19,7 +18,6 @@ const api = async (method = "get", uri, body) => {
         if (err?.response?.status === 401) {
           //  window.location = "/login";
         } else {
-          console.log("API Error --------> ", err?.response);
           toast.error(
             err?.response?.data?.message
               ? err.response.data.message

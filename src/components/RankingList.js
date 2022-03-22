@@ -85,12 +85,10 @@ export default function RankingList() {
   };
   const handleVoteClick = async (row) => {
     if (user) {
-      console.log("user", row);
       const formData = { course_request_id: row._id, user_id: user._id };
       let res = await api("put", "/contentRequests/postCoursesVote", formData);
       if (res) getContentRequest();
     } else {
-      console.log("Please login!");
     }
   };
   const isShow = (userIds) => {

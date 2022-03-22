@@ -58,7 +58,6 @@ export default function CustomizedMenus(props) {
 
   const handleOnClick = async (e) => {
     e.preventDefault();
-    console.log("value", e.target.value);
   };
 
   let countViews = (course) => {
@@ -74,7 +73,6 @@ export default function CustomizedMenus(props) {
 
   const filterByRating = async (e) => {
     e.preventDefault();
-    console.log("coueses", searchCourse);
     const Courses = searchCourse.sort(function (a, b) {
       if (a.rating === undefined) a.rating = 0;
       if (b.rating === undefined) b.rating = 0;
