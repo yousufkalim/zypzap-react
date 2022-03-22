@@ -76,10 +76,7 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value }) => {
     ret += "" + secs;
     return ret;
   };
-  
-   const handleClick = (item) => {
-    setVideo1(item.videoLink);
-   }
+
    
   return (
     <li className="completeCourse-videoList" onClick={() => setPlayVideo(clip)}>
