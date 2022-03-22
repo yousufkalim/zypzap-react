@@ -1,11 +1,35 @@
-import React from "react";
+import { Button } from "@mui/material";
+import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import InstructorIcon from "../../assets/icons/InstructorIcon.svg";
 // import overViewIcon1 from "../../assets/icons/overViewIcon1.svg";
 import overViewIcon2 from "../../assets/icons/overViewIcon2.svg";
 import overViewIcon3 from "../../assets/icons/overViewIcon3.svg";
+import { Store, UpdateStore } from "../../StoreContext";
+import api from "../../api";
 import overViewIcon4 from "../../assets/icons/overViewIcon4.svg";
-const Instructor = () => {
+const Instructor = (props) => {
+  const { singlCourse } = props;
+  const [follow, setFollow] = useState(false);
+  const updateStore = UpdateStore();
+  const { user } = Store();
+  const totalStudent = (courses) => {
+    let total = 0;
+    courses.map((c) => {
+      total += c.student.length;
+    });
+    return total;
+  };
+  const followMe = async (creator) => {
+    const data = { user_id: user?._id, creator_id: creator?._id };
+    let res = await api("post", "/creators/addFollower", data);
+    if (res) {
+      setFollow(true);
+    }
+  };
+  const showFollowButton = (creator) => {
+    return user?.following?.includes(creator?.user_id?._id) ? true : false;
+  };
   return (
     <div>
       <div className="overView_description">
@@ -20,16 +44,40 @@ const Instructor = () => {
                 <img src={InstructorIcon} alt="" className="instructorLogo" />
               </div>
               <div className="instructor-heading">
-                <h2 className="instructorH2">Arslan Ash</h2>
+                <h2 className="instructorH2">
+                  {singlCourse?.creator?.user_id?.username
+                    ? singlCourse.creator.user_id.username
+                    : "Arslan Ash"}
+                </h2>
                 <p className="instructorP">Player of Tekken</p>
                 <p className="instructor-lavel">
-                  Level: <span className="instructor-span">Pro</span>
+                  Level:{" "}
+                  <span className="instructor-span">
+                    {" "}
+                    {singlCourse?.creator?.gameLevel
+                      ? singlCourse.creator.gameLevel
+                      : "Pro"}
+                  </span>
                 </p>
-                <p className="instructor-student">500000+ Students</p>
+                <p className="instructor-student">
+                  {singlCourse?.creator?.courses
+                    ? totalStudent(singlCourse.creator.courses) + " Students"
+                    : "500000+ Students"}
+                </p>
               </div>
-              <Link className="Instructor-followBtn" to="#">
-                Follow
-              </Link>
+
+              {showFollowButton(singlCourse?.creator) || follow ? (
+                <button className="Instructor-followBtn">Following</button>
+              ) : (
+                <button
+                  className="Instructor-followBtn"
+                  onClick={() => {
+                    followMe(singlCourse?.creator);
+                  }}
+                >
+                  Follow
+                </button>
+              )}
             </div>
             <div className="instructor-co">
               <div className="instructor-about-Heading">
@@ -37,7 +85,12 @@ const Instructor = () => {
                 <p className="instructor-aboutP">Taken Player</p>
               </div>
               <div className="instructorProfile-heading">
-                <p className="instructorProfile-Name">Hi, I am Arslan</p>
+                <p className="instructorProfile-Name">
+                  Hi, I am{" "}
+                  {singlCourse?.creator?.user_id?.username
+                    ? singlCourse.creator.user_id.username
+                    : "Arslan Ash"}
+                </p>
                 <p className="instructorProfile-P">
                   I am a Professional Taken player 2 times world champion last
                   year i was choosen to be red bull athelete too i am here to
@@ -51,15 +104,26 @@ const Instructor = () => {
                 </li> */}
                 <li className="overViewLi">
                   <img src={overViewIcon2} alt="" className="overViewIcon-1" />
-                  <p className="overViewIconP">Pro Gamer</p>
+                  <p className="overViewIconP">
+                    {singlCourse?.level ? singlCourse.level : "All Levels"}
+                  </p>
                 </li>
                 <li className="overViewLi">
                   <img src={overViewIcon3} alt="" className="overViewIcon" />
-                  <p className="overViewIconP">8 Lessons</p>
+                  <p className="overViewIconP">
+                    {singlCourse?.videos
+                      ? singlCourse.videos.length + " Lessons"
+                      : "8 Lessons"}
+                    s
+                  </p>
                 </li>
                 <li className="overViewLi">
                   <img src={overViewIcon4} alt="" className="overViewIcon" />
-                  <p className="overViewIconP">2287 Students</p>
+                  <p className="overViewIconP">
+                    {singlCourse?.student
+                      ? singlCourse.student.length + " Students"
+                      : "2287 Students"}
+                  </p>
                 </li>
               </div>
             </div>

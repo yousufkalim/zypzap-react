@@ -169,6 +169,9 @@ export default function PropfileInformation({
           `/users/addProfileInfo/${user._id}`,
           formdata
         );
+        if (res) {
+          handleClose(true);
+        }
       } else {
       }
     }

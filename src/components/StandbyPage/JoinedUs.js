@@ -5,6 +5,26 @@ import MobileGame from "../../assets/img/MobileGame.svg";
 import DisplayCourse from "../../assets/img/DisplayCourse.svg";
 
 const JoinedUs = () => {
+  const [allMembers, setAllMembers] = useState(0);
+  const [allCreator, setAllCreator] = useState(0);
+
+  useEffect(() => {
+    setMembers();
+    setCreator();
+  }, []);
+  const setMembers = async () => {
+    let res = await api("get", "/newsletters/all");
+    if (res) {
+      setAllMembers(res.data.allMembers);
+    }
+  };
+
+  const setCreator = async () => {
+    let res = await api("get", "/newsletters/creator");
+    if (res) {
+      setAllCreator(res.data.totalCreator);
+    }
+  };
   return (
     <div>
       {" "}
@@ -16,14 +36,14 @@ const JoinedUs = () => {
               <div className="followUs-box2">
                 <img src={Gamers} alt="" className="followUsImg" />
                 <div className="followSocialHeading2">
-                  <p className="followSocialP">0</p>
+                  <p className="followSocialP">{allMembers ? allMembers : 0}</p>
                   <p className="followSocialP2">Membres</p>
                 </div>
               </div>
               <div className="followUs-box2">
                 <img src={Creators} alt="" className="followUsImg" />
                 <div className="followSocialHeading2">
-                  <p className="followSocialP">0</p>
+                  <p className="followSocialP">{allCreator ? allCreator : 0}</p>
                   <p className="followSocialP2">Createurs</p>
                 </div>
               </div>

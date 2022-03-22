@@ -34,7 +34,7 @@ const CoursePage = () => {
         openBecomeCreatorPopup={openBecomeCreatorPopup}
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
       />
-      <CompleteCourse />
+      <CompleteCourse selectedVideo={"ghj"} Videos={"gh"} />
       <OverViewMenu
         btns={btns}
         setActivebtn={setActivebtn}

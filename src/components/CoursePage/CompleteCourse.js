@@ -2,73 +2,49 @@ import React, { useState } from "react";
 import GameVideo from "../../assets/GameVideo.mp4";
 // import VideoPlayIcon from "../../assets/icons/VideoPlayIcon.png";
 
-const compLiData = [
-  {
-    title: "CS-GO Ep 1 Complete Course",
-    videoLink: GameVideo,
-    content: "0/6 | 15 min",
-  },
-  {
-    title: "CS-GO Ep 1 Complete Course",
-    videoLink: GameVideo,
-    content: "0/6 | 15 min",
-  },
-  {
-    title: "CS-GO Ep 1 Complete Course",
-    videoLink: GameVideo,
-    content: "0/6 | 15 min",
-  },
-  {
-    title: "CS-GO Ep 1 Complete Course",
-    videoLink: GameVideo,
-    content: "0/6 | 15 min",
-  },
-  {
-    title: "CS-GO Ep 1 Complete Course",
-    videoLink: GameVideo,
-    content: "0/6 | 15 min",
-  },
-  {
-    title: "CS-GO Ep 1 Complete Course",
-    videoLink: GameVideo,
-    content: "0/6 | 15 min",
-  },
-  {
-    title: "CS-GO Ep 1 Complete Course",
-    videoLink: GameVideo,
-    content: "0/6 | 15 min",
-  },
-  {
-    title: "CS-GO Ep 1 Complete Course",
-    videoLink: GameVideo,
-    content: "0/6 | 15 min",
-  },
-  {
-    title: "CS-GO Ep 1 Complete Course",
-    videoLink: GameVideo,
-    content: "0/6 | 15 min",
-  },
-];
+const CompleteCourse = ({ Videos, singlCourse }) => {
+  const [playVideo, setPlayVideo] = useState(Videos);
+  const [videos, setVideos] = useState(
+    singlCourse?.videos ? singlCourse.videos : 0
+  );
+  const [videoCount, setVideoCount] = useState(
+    singlCourse?.videos ? singlCourse.videos.length : 0
+  );
 
-const CompleteCourse = () => {
-  const [video1, setVideo1] = useState(GameVideo);
   return (
     <>
       <div className="completeCourse">
         <div className="completeCourse-center-div">
           <div className="completeCourse-colm1">
-            <h2 className="completeCourseH2">CS-GO Ep 1 Complete Course</h2>
+            <h2 className="completeCourseH2">
+              {playVideo?.title ? playVideo.title : "CS Go"} Ep 1 Complete
+              Course
+            </h2>
             <video
+              className="completeCourse-Video"
+              src={
+                playVideo?.src_url
+                  ? playVideo.src_url
+                  : "https://pass-to-trip.s3.eu-west-3.amazonaws.com/1647410128211"
+              }
               controls
               autoplay
-              className="completeCourse-Video"
-              src={video1}
             ></video>
           </div>
           <div className="completeCourse-colm2">
             <h3 className="completeCourseH3">Course Content</h3>
             <div className="completeCourseScroll">
-              <LiDAta setVideo1={setVideo1} />
+              {videos?.map((clip, index) => {
+                console.log("index", index);
+                return (
+                  <LiDAta
+                    clip={clip}
+                    value={index + 1}
+                    videoCount={videoCount}
+                    setPlayVideo={setPlayVideo}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>
@@ -84,37 +60,47 @@ const CompleteCourse = () => {
 
 export default CompleteCourse;
 
-const LiDAta = (props) => {
-  const { setVideo1 } = props;
+const LiDAta = ({ clip, videoCount, setPlayVideo, value }) => {
+  const secondToTime = (second) => {
+    // Hours, minutes and seconds
+    var hrs = ~~(second / 3600);
+    var mins = ~~((second % 3600) / 60);
+    var secs = ~~second % 60;
 
-  const handleClick = (item) => {
-    setVideo1(item.videoLink);
+    // Output like "1:01" or "4:03:59" or "123:03:59"
+    var ret = "";
+    if (hrs > 0) {
+      ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+    }
+    ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+    ret += "" + secs;
+    return ret;
   };
+
+   
   return (
-    <>
-      {compLiData.map((item) => {
-        return (
-          <>
-            <li
-              className="completeCourse-videoList"
-              onClick={() => {
-                handleClick(item);
-              }}
-            >
-              <video
-                // poster={VideoPlayIcon}
-                className="completeCourse-playVideo"
-                src={item.videoLink}
-              ></video>
-              <div className="playVideoHeading">
-                <h3 className="playVideoH3">{item.title}</h3>
-                <p className="playVideoP">{item.content}</p>
-              </div>
-              <i className="PlayVideo-DownArrow fas fa-angle-down"></i>
-            </li>
-          </>
-        );
-      })}
-    </>
+    <li className="completeCourse-videoList" onClick={() => setPlayVideo(clip)}>
+      {/* onClick={() => setPlayVideo(clip)} */}
+      <video
+        // poster={VideoPlayIcon}
+        className="completeCourse-playVideo"
+        src={
+          clip?.src_url
+            ? clip.src_url
+            : "https://pass-to-trip.s3.eu-west-3.amazonaws.com/1647410128211"
+        }
+      ></video>
+      <div className="playVideoHeading">
+        <h3 className="playVideoH3">
+          {clip?.title ? clip.title : "CS Go"} Ep 1 Complete Course
+        </h3>
+        <span className="playVideonumber">{value + "/" + videoCount} </span>
+        <span>{"|"}</span>
+        <span className="playVideomint" style={{ margin: "10px" }}>
+          {clip?.duration ? secondToTime(clip.duration) + " min" : "1:00 min"}
+        </span>
+      </div>
+      <i className="PlayVideo-DownArrow fas fa-angle-down"></i>
+    </li>
   );
 };

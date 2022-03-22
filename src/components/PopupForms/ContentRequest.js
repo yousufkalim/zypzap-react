@@ -3,15 +3,17 @@ import Dialog from "@mui/material/Dialog";
 import ClearIcon from "@mui/icons-material/Clear";
 import { toast } from "react-toastify";
 import "../../css/form/contactez.css";
+import api from "../../api";
 
 const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
   const [inputData, setInputData] = useState({
-    name: "",
-    Level: "asdf",
-    text: "",
+    gameName: "",
+    Level: "",
+    message: "",
   });
-  const { name, Level, text } = inputData;
 
+  const { gameName, Level, message } = inputData;
+  console.log("inputData", inputData);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setInputData({
@@ -19,19 +21,25 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
       [name]: value,
     });
   };
+  const changeTargetLevelHandler = (e) => {
+    setInputData({ ...inputData, Level: e.target.value });
+  };
 
-  const handleClick = (event) => {
+  const handleClick = async (event) => {
     event.preventDefault();
-    if (name == "") {
+    if (gameName == "") {
       return toast.error("Please enter your Game name");
     }
     if (Level == "") {
       return toast.error("Please enter your Game Level");
     }
-    if (text == "") {
+    if (message == "") {
       return toast.error("Please enter your text");
     }
-    setInputData({ name: "", Level: "", text: "" });
+    console.log("setInputData", inputData);
+    let res = await api("post", "/contentRequests", inputData);
+    //    localhost:5000/api/contentRequests
+    setInputData({ gameName: "", Level: "", text: "" });
     toast.success("Message Send");
   };
   const handleClose = () => {
@@ -57,8 +65,8 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
                 style={{ border: "none", backgroundColor: "#131321" }}
                 className="contactezDiv-input"
                 type="text"
-                name="name"
-                value={inputData.name}
+                name="gameName"
+                value={gameName}
                 id=""
                 placeholder="e.g. moinheykal"
                 onChange={handleChange}
@@ -71,8 +79,8 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
               </label>
               <select
                 name="Level"
-                value={inputData.Level}
-                id=""
+                value={Level}
+                id="Level"
                 className="contactezDiv-input"
                 style={{
                   border: "none",
@@ -80,10 +88,25 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
                   color: "#6D6D6D",
                 }}
               >
-                <option value="">Select</option>
-                <option value="">Select</option>
-                <option value="">Select</option>
+                <option value="Intial" className="selectInput-option">
+                  Intial
+                </option>
+                <option value="Medium">Medium</option>
+                <option value="Pro">Pro</option>
               </select>
+              {/* <select
+              id="Select"
+              name="Select"
+              onChange={changePlayPeriodHandler}
+              className="selectInput-userProfile2"
+            >
+              <option value="Per Week" className="selectInput-option">
+                {playPeriod}
+              </option>
+              <option value="Per Month">Per Month</option>
+              <option value="Per Year">Per Year</option>
+              {/* <option value="audi">Select</option> */}
+              {/* </select> */}
             </div>
             {/* /* --------------------------------- oneDiv --------------------------------- */}
             <div className="contactezDiv-box4">
@@ -93,8 +116,8 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
               <textarea
                 style={{ border: "none", backgroundColor: "#131321" }}
                 className="contactezDiv-input"
-                name="text"
-                value={inputData.text}
+                name="message"
+                value={message}
                 id=""
                 cols="30"
                 rows="5"
