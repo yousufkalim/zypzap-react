@@ -33,8 +33,9 @@ export default function WhatWeOffer() {
           open={open}
           setOpen={setOpen}
           pera="S'abonner à la Newsletter"
-          title="Inscrivez-vous pour acceder aux avantages uniques"
-          content="Offre reservée aux 1000 premiers inscrits"
+          title="Inscrivez-vous pour acceder aux "
+          title2="avantages uniques"
+          content="Offre reservée aux 10 000 premiers inscrits"
           check="false"
           type="creator"
         />
@@ -44,8 +45,9 @@ export default function WhatWeOffer() {
           isThreeLine={true}
           open={open2}
           setOpen={setOpen2}
-          title="Inscrivez-vous pour bénéficier d’un an de  services offerts !"
-          content="Offre reservée aux 1000 premiers inscrits"
+          title="Inscrivez-vous pour bénéficier d’un an de !"
+          title2=" services offerts !"
+          content="Offre reservée aux 10 000 premiers inscrits"
           pera="S'abonner à la Newsletter"
           check="true"
           type="user"

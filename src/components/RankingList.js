@@ -89,7 +89,6 @@ export default function RankingList() {
       let res = await api("put", "/contentRequests/postCoursesVote", formData);
       if (res) getContentRequest();
     } else {
-      console.log("Please login!");
     }
   };
   const isShow = (userIds) => {

@@ -181,7 +181,6 @@ export default function PropfileInformation({
           handleClose(true);
         }
       } else {
-        console.log("Please Login !");
       }
     }
   };

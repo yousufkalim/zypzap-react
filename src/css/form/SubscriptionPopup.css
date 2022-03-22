@@ -6,6 +6,8 @@
   font-family: Myriad Pro;
   src: url(../../assets/MYRIADPRO-BOLD.OTF);
 }
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;800&family=Mulish&display=swap");
+@import url("http://fonts.cdnfonts.com/css/myriad-pro");
 
 .form-box {
   width: 482px;
@@ -13,13 +15,15 @@
   margin: auto;
 }
 .subH1 {
-  padding: 15px 97px 5px 0px;
-  font-size: 1.5rem !important;
-  font-weight: 100;
+  padding: 0px 0px 0px 0px;
+  font-size: 20px !important;
+  font-weight: 400;
   /* text-transform: capitalize; */
-  font-family: "Myriad Pro" !important;
+  /* font-family: "Myriad Pro" ; */
+  font-family: "Myriad Pro", sans-serif !important;
 }
 .subP {
+  padding-top: 20px;
   padding-bottom: 27px;
   font-size: 14px;
   font-family: "Myriad Pro-REGULAR" !important;
@@ -53,7 +57,7 @@
 }
 .subsBold {
   text-decoration: none;
-  font-weight: 100;
+  font-weight: 400;
   font-size: 15px;
   color: #fff;
   font-family: "Myriad Pro" !important;
@@ -63,16 +67,16 @@
   border: none;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
-  font-family: "Myriad Pro-REGULAR" !important;
+  font-family: "Mulish";
   border-radius: 2px;
   cursor: pointer;
   width: 100%;
-  font-size: 15px;
+  font-size: 21px;
   display: block;
   margin-top: 8px;
   font-weight: inherit;
   margin-bottom: 20px;
-  font-weight: 600;
+  font-weight: 500;
   border: 1px solid #662f88;
 }
 .subsformbtn:hover {

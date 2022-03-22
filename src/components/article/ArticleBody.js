@@ -14,7 +14,6 @@ import TwitterIcon2 from "../../assets/icons/TwitterIcon2.svg";
 import moment from "moment";
 
 export default function ArticleBody({ singlBlog, loading, blogs }) {
-
   function htmlfile() {
     return {
       __html: `<div class="htmlmaindiv">

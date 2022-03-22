@@ -18,6 +18,7 @@ const VerticalCarousel = ({ data, item }) => {
         return prevIndex + 1;
       });
     }, 1000);
+
     xoxo.addEventListener("mouseout", () => {
       // on mouse out upper interval will clear
       clearInterval(interval);
