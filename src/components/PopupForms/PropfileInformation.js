@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
-// import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
-import UserProfileIm from "../../assets/userProfileIm.png";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
 import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
-
-import Checkbox from "@mui/material/Checkbox";
-import { CallMerge } from "@material-ui/icons";
 
 export default function PropfileInformation({
   openProfile,

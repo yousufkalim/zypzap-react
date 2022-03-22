@@ -16,7 +16,7 @@
 }
 .subH1 {
   padding: 0px 0px 0px 0px;
-  font-size: 20px !important;
+  font-size: 22px !important;
   font-weight: 400;
   /* text-transform: capitalize; */
   /* font-family: "Myriad Pro" ; */
@@ -46,13 +46,13 @@
   right: 46px;
 }
 .email-label {
-  font-size: 13px;
+  font-size: 16px;
   padding: 0px 0 10px 0 !important;
   font-family: "Myriad Pro-REGULAR" !important;
 }
 .subsLabel {
   padding-bottom: 0 !important;
-  font-size: 13px;
+  font-size: 15px;
   font-family: "Myriad Pro-REGULAR" !important;
 }
 .subsBold {

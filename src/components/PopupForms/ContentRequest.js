@@ -37,7 +37,7 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
       return toast.error("Please enter your text");
     }
     console.log("setInputData", inputData);
-    let res = await api("post", "/contentRequests" , inputData);
+    let res = await api("post", "/contentRequests", inputData);
     //    localhost:5000/api/contentRequests
     setInputData({ gameName: "", Level: "", text: "" });
     toast.success("Message Send");
@@ -82,8 +82,11 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
                 value={Level}
                 id="Level"
                 className="contactezDiv-input"
-                onChange={changeTargetLevelHandler}
-                style={{ border: "none", backgroundColor: "#131321" }}
+                style={{
+                  border: "none",
+                  backgroundColor: "#131321",
+                  color: "#6D6D6D",
+                }}
               >
                 <option value="Intial" className="selectInput-option">
                   Intial

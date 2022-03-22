@@ -3,11 +3,15 @@ import Grid from "@material-ui/core/Grid";
 import NewLogo from "../../assets/icons/NewLogo.png";
 import email from "../../assets/icons/email.svg";
 import location from "../../assets/icons/location.svg";
-import Footor2Icon1 from "../../assets/img/Footor2Icon1.svg";
-import Footor2Icon2 from "../../assets/img/Footor2Icon2.svg";
-import Footor2Icon3 from "../../assets/img/Footor2Icon3.svg";
-import Footor2Icon4 from "../../assets/img/Footor2Icon4.svg";
-import Footor2Icon5 from "../../assets/img/Footor2Icon5.svg";
+import fDiscord from "../../assets/img/fDiscord.svg";
+import fTwitter from "../../assets/img/fTwitter.svg";
+import fReddit from "../../assets/img/fReddit.svg";
+import fFacebook from "../../assets/img/fFacebook.svg";
+import fLinkedin from "../../assets/img/fLinkedin.svg";
+// import Discord from "../../assets/img/Discord.svg";
+// import Twitter from "../../assets/img/Twitter.svg";
+// import Reddit from "../../assets/img/Reddit.svg";
+// import Facebook from "../../assets/img/Facebook.svg";
 
 import { Link } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
@@ -50,19 +54,19 @@ const Footer2 = ({ openContentRequest, setOpenContentRequest }) => {
                 </table>
                 <div className="isocialcondiv">
                   <a href="https://discord.gg/QDB2vxVE" target="_blank">
-                    <img src={Footor2Icon1} height={40} className="imgIcon" />
+                    <img src={fDiscord} height={40} className="imgIcon" />
                   </a>
                   <a href="https://twitter.com/ZypZap_com" target="_blank">
-                    <img src={Footor2Icon2} height={40} className="imgIcon" />
+                    <img src={fTwitter} height={40} className="imgIcon" />
                   </a>
-                  <img src={Footor2Icon3} height={40} className="imgIcon" />
+                  <img src={fReddit} height={40} className="imgIcon" />
                   <a
                     href="https://www.facebook.com/zypzap.media"
                     target="_blank"
                   >
-                    <img src={Footor2Icon4} height={40} className="imgIcon" />
+                    <img src={fFacebook} height={40} className="imgIcon" />
                   </a>
-                  <img src={Footor2Icon5} height={40} className="imgIcon" />
+                  <img src={fLinkedin} height={40} className="imgIcon" />
                 </div>
               </div>
             </div>
