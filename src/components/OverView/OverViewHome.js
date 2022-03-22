@@ -59,7 +59,7 @@ const OverViewHome = (props) => {
                 <p className="overViewIconP">
                   {singlCourse?.videos
                     ? calculateCourseDuration(singlCourse.videos) + " Weeks"
-                    : "10 Weeks"}
+                    : "0 Weeks"}
                 </p>
               </li>
               <li className="overViewLi">
@@ -73,7 +73,7 @@ const OverViewHome = (props) => {
                 <p className="overViewIconP">
                   {singlCourse?.videos
                     ? singlCourse.videos.length + " Lessons"
-                    : "8 Lessons"}
+                    : "0 Lessons"}
                 </p>
               </li>
               <li className="overViewLi">
@@ -81,7 +81,7 @@ const OverViewHome = (props) => {
                 <p className="overViewIconP">
                   {singlCourse?.student
                     ? singlCourse.student.length + " Students"
-                    : "2287 Students"}
+                    : "0 Students"}
                 </p>
               </li>
             </div>
@@ -98,7 +98,7 @@ const OverViewHome = (props) => {
                   <p className="cardP1">
                     {singlCourse?.price >= 0
                       ? "$" + singlCourse.price
-                      : "$19.99"}
+                      : "$0.00"}
                   </p>
                   <p className="cardP2">$39.99</p>
                   <img src={OverCardHurtLogo} alt="" className="cardHurtLogo" />
