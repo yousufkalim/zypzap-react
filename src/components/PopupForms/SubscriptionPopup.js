@@ -14,8 +14,11 @@ const SubscriptionPopup = ({
   heading2,
   isThreeLine,
   title,
+  title2,
   content,
   pera,
+  check,
+  type,
 }) => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
@@ -37,8 +40,8 @@ const SubscriptionPopup = ({
   const handleClose = () => {
     setOpen(false);
   };
-  const submitForm = (event) => {
 
+  const submitForm = async (event) => {
     if (email == "") {
       return toast.error("Veuillez entrer votre e-mail");
     }
@@ -58,18 +61,18 @@ const SubscriptionPopup = ({
       );
     }
 
-    toast.success("Nous avons bien reçu votre email");
+    setLoading(true);
+    let res = await api("post", "/newsletters", {
+      email,
+      type,
+    });
+
+    if (res.status === 200) {
+      toast.success("Soumis avec succès");
+    }
+    setLoading(false);
+    setEmail("");
     handleClose();
-    // setLoading(true);
-    // let res = await api("post", "/users/contact", {
-    //   ...formData,
-    // });
-    // if (res.status === 200) {
-    //   toast.success("Soumis avec succès");
-    //   setFormData({ name: "", email: "", message: "", description: "" });
-    // }
-    // setLoading(false);
-    // setEmail("");
   };
   return (
     <>
@@ -77,11 +80,8 @@ const SubscriptionPopup = ({
         <div className="login_form">
           <div className="subs_container">
             <div className="form-header-block">
-              <h1 className="subH1">
-                {isThreeLine
-                  ? title
-                  : "Recevez notre newsletter pour être au cœur du développement"}
-              </h1>
+              <h1 className="subH1">{title}</h1>
+
               <p className="subP">{isThreeLine ? content : ""}</p>
               <ClearIcon className="subsclearIcon" onClick={handleClose} />
             </div>
@@ -139,13 +139,25 @@ const SubscriptionPopup = ({
                   fontSize: "16px",
                 }}
               >
-                <input
-                  onChange={getCheckboxValues}
-                  value={values.checkBoxOne}
-                  name="checkBoxOne"
-                  className="popup-checkbox"
-                  type="checkbox"
-                />
+                {console.log("checked", check)}
+                {isThreeLine ? (
+                  <input
+                    onChange={getCheckboxValues}
+                    value={values.checkBoxOne}
+                    name="checkBoxOne"
+                    className="popup-checkbox"
+                    type="checkbox"
+                  />
+                ) : (
+                  <input
+                    onChange={getCheckboxValues}
+                    value={values.checkBoxOne}
+                    name="checkBoxOne"
+                    className="popup-checkbox"
+                    type="checkbox"
+                  />
+                )}
+
                 <label className="subsLabel">
                   {isThreeLine ? pera : "S'inscrire comme bêta-testeur"}
                 </label>

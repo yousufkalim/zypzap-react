@@ -31,7 +31,7 @@ body {
   margin: auto;
 }
 .introHeading {
-  width: 1007px;
+  width: 83%;
   text-transform: capitalize;
   margin-top: 67px;
   text-align: justify;
@@ -45,23 +45,23 @@ body {
   line-height: 1.8;
 }
 .introHeading2 {
-  padding: 0 50px;
+  padding: 0 0 0 50px;
   text-transform: capitalize;
 }
 .introHeadingH3 {
   font-size: 18px;
   font-weight: 900;
-  padding-bottom: 30px;
+  padding: 30px 0;
 }
 .introHeadingH4 {
   font-size: 18px;
   font-weight: 700;
-  padding-bottom: 30px;
 }
 .introQuandDiv {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 97.4%;
 }
 .introShowIcon {
   margin-left: auto;
@@ -71,6 +71,7 @@ body {
 }
 .quandUlActive {
   display: block;
+  line-height: 0;
 }
 .introHeadingH4 > li {
   list-style: none;
@@ -96,21 +97,19 @@ body {
 .followwingDataQuandDiv {
   display: flex;
   align-items: center;
-  width: 92%;
+  width: 95%;
   margin: auto;
+  padding: 10px 0;
 }
-.introHeadingH4 {
-  padding-top: 30px;
-}
+
 .followwingDataP2 {
   font-size: 18px;
-  padding-top: 5px;
+  padding: 0 0 30px 0;
 }
 .ProcessingDataH3 {
   font-size: 18px;
   font-weight: 900;
-  padding-left: 50px;
-  padding-top: 30px;
+  padding-left: 30px;
 }
 .TraitementP {
   font-size: 16px;
@@ -128,4 +127,134 @@ body {
 }
 .avacNosP {
   line-height: 2;
+}
+.ProcessingDataH3Heading {
+  padding: 0px 0;
+}
+.ol {
+  padding: 10px 0;
+}
+@media only screen and (min-width: 320px) and (max-width: 600px) {
+  .landingpageLeftimg {
+    display: block;
+  }
+  .privacyH1 {
+    text-align: left;
+    font-size: 25px;
+    width: 77%;
+    left: 30px;
+  }
+  .introHeading {
+    width: 100%;
+    margin-top: 27px;
+  }
+  .introHeading2 {
+    padding: 0;
+  }
+  .followwingData-centerDiv {
+    width: 90%;
+  }
+  .followwingDataQuandDiv {
+    width: 100%;
+  }
+  .intro-centerDiv {
+    width: 90%;
+  }
+  .followwingDataHeading {
+    text-align: inherit;
+  }
+  .introHeadingH4 {
+    font-size: 15px;
+    font-weight: 100;
+  }
+  .introQuandDiv {
+    width: 100%;
+  }
+  .ProcessingDataH3 {
+    padding: 0;
+  }
+  .subsclearIcon {
+    top: 12px !important;
+    right: 15px !important;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 800px) {
+  .landingpageLeftimg {
+    display: block;
+  }
+  .privacyH1 {
+    text-align: left;
+    font-size: 25px;
+    width: 77%;
+    left: 30px;
+  }
+  .introHeading {
+    width: 100%;
+    margin-top: 27px;
+  }
+  .introHeading2 {
+    padding: 0;
+  }
+  .followwingData-centerDiv {
+    width: 90%;
+  }
+  .followwingDataQuandDiv {
+    width: 100%;
+  }
+  .intro-centerDiv {
+    width: 90%;
+  }
+  .followwingDataHeading {
+    text-align: inherit;
+  }
+  .introHeadingH4 {
+    font-size: 15px;
+    font-weight: 100;
+  }
+  .introQuandDiv {
+    width: 100%;
+  }
+  .ProcessingDataH3 {
+    padding: 0;
+  }
+}
+@media only screen and (min-width: 801px) and (max-width: 1100px) {
+  .landingpageLeftimg {
+    display: block;
+  }
+  .privacyH1 {
+    text-align: left;
+    font-size: 35px;
+    width: 77%;
+    left: 30px;
+  }
+  .introHeading {
+    width: 100%;
+    margin-top: 27px;
+  }
+  .introHeading2 {
+    padding: 0;
+  }
+  .followwingData-centerDiv {
+    width: 90%;
+  }
+  .followwingDataQuandDiv {
+    width: 100%;
+  }
+  .intro-centerDiv {
+    width: 90%;
+  }
+  .followwingDataHeading {
+    text-align: inherit;
+  }
+  .introHeadingH4 {
+    font-size: 20px;
+    font-weight: 100;
+  }
+  .introQuandDiv {
+    width: 100%;
+  }
+  .ProcessingDataH3 {
+    padding: 0;
+  }
 }

@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;800&family=Mulish&display=swap");
+body {
+  font-family: "Mulish", sans-serif;
+}
+.contactezDiv {
+  width: 90%;
+  margin: auto;
+  padding: 20px 0;
+  color: #fff;
+}
+.contactez-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 40px;
+}
+.contactezDivH1 {
+  font-size: 28px;
+}
+.contactezDiv-box2,
+.contactezDiv-box3,
+.contactezDiv-box4 {
+  padding-bottom: 14px;
+}
+.contactezDov-label {
+  display: block;
+  padding-bottom: 9px;
+}
+.contactezDiv-input {
+  background: none;
+  border: none;
+  border: 1px solid #717171;
+  width: 100%;
+  padding: 15px 10px;
+  color: #fff;
+  border-radius: 2px;
+}
+
+.contactezBtn {
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  padding: 10px 0;
+  border: none;
+}
+.contactezBtn2 {
+  /* width: 100%; */
+  text-align: center;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+}
+
+.requestDivIcon {
+  cursor: pointer;
+}

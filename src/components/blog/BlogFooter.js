@@ -16,7 +16,7 @@ import location from "../../assets/icons/location.svg";
 import { Link } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
 
-export default function Footer() {
+export default function Footer({ openContentRequest, setOpenContentRequest }) {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
   const changeLanguage = (lng) => {
@@ -64,11 +64,16 @@ export default function Footer() {
                   </tr>
                 </table>
                 <div className="isocialcondiv">
-                  <img src={FbIcon22} height={50} className="imgIcon" />
-                  <img src={TwitterIcon2} height={50} className="imgIcon" />
-                  <img src={LinkedinIcon2} height={50} className="imgIcon" />
-                  <img src={VactorIcon} height={50} className="imgIcon" />
-                  <img src={InstagramIcon} className="imgIcon2" />
+                  <img src={FbIcon22} height={50} className="imgIcon3" />
+                  <img src={TwitterIcon2} height={50} className="imgIcon3" />
+                  <img src={LinkedinIcon2} height={50} className="imgIcon3" />
+                  <img src={VactorIcon} height={50} className="imgIcon3" />
+                  <img
+                    src={InstagramIcon}
+                    height={20}
+                    className="imgIcon3"
+                    style={{ marginBottom: "17px", marginLeft: "5px" }}
+                  />
                 </div>
               </div>
             </div>
@@ -94,7 +99,17 @@ export default function Footer() {
               >
                 <p className="pmargin">Partenaires</p>
               </Link>
-              <p className="pmargin"> Contactez-nous</p>
+              <Link
+                to="#"
+                className="pmargin"
+                style={{ color: "white", textDecoration: "none" }}
+                onClick={() => {
+                  setOpenContentRequest(true);
+                }}
+              >
+                {" "}
+                Contactez-nous
+              </Link>
             </div>
           </Grid>
 
@@ -120,7 +135,7 @@ export default function Footer() {
           </Grid>
           <Grid item xs={12} sm={3} className="footer_language">
             <div className="languagebuttondiv">
-              <img src={Globe} className="languageIcon" />
+              {/* <img src={Globe} className="languageIcon" /> */}
               <button
                 className="languageButton"
                 onClick={() =>

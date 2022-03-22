@@ -29,10 +29,14 @@ export default function WhatWeOffer() {
     <>
       {open && (
         <SubscriptionPopup
-          isThreeLine={false}
+          isThreeLine={true}
           open={open}
           setOpen={setOpen}
+          pera="S'abonner à la Newsletter"
           title="Inscrivez-vous pour acceder aux avantages uniques"
+          content="Offre reservée aux 1000 premiers inscrits"
+          check="false"
+          type="creator"
         />
       )}
       {open2 && (
@@ -40,9 +44,11 @@ export default function WhatWeOffer() {
           isThreeLine={true}
           open={open2}
           setOpen={setOpen2}
-          title="Inscrivez-vous pour acceder aux avantages uniques"
+          title="Inscrivez-vous pour bénéficier d’un an de  services offerts !"
           content="Offre reservée aux 1000 premiers inscrits"
           pera="S'abonner à la Newsletter"
+          check="true"
+          type="user"
         />
       )}
       <div className="whatweoffercontainer ">
@@ -70,9 +76,9 @@ export default function WhatWeOffer() {
                 <br />
                 {t(" et commencez à scorer")}
               </p>
-              {/* <p className="offerText22">
+              <p className="offerText22">
                 Suivez les cours de votre choix et commencez à scorer
-              </p> */}
+              </p>
               <Link to="#">
                 <button
                   className="whatweofferButton"
@@ -97,9 +103,9 @@ export default function WhatWeOffer() {
                 <br />
                 {t("monetisez votre expertise")}
               </p>
-              {/* <p className="offerText22">
+              <p className="offerText22">
                 Créez vos cours et monetisez votre expertise
-              </p> */}
+              </p>
               <Link to="#">
                 <button
                   className="whatweofferButton"

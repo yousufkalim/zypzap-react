@@ -20,7 +20,7 @@ import Footor2Icon5 from "../../assets/img/Footor2Icon5.svg";
 import { Link } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
 
-const Footer2 = () => {
+const Footer2 = ({ openContentRequest, setOpenContentRequest }) => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
   const changeLanguage = (lng) => {
@@ -58,9 +58,16 @@ const Footer2 = () => {
                 </table>
                 <div className="isocialcondiv">
                   <img src={Footor2Icon1} height={40} className="imgIcon" />
-                  <img src={Footor2Icon2} height={40} className="imgIcon" />
+                  <a href="https://twitter.com/ZypZap_com" target="_blank">
+                    <img src={Footor2Icon2} height={40} className="imgIcon" />
+                  </a>
                   <img src={Footor2Icon3} height={40} className="imgIcon" />
-                  <img src={Footor2Icon4} height={40} className="imgIcon" />
+                  <a
+                    href="https://www.facebook.com/zypzap.media"
+                    target="_blank"
+                  >
+                    <img src={Footor2Icon4} height={40} className="imgIcon" />
+                  </a>
                   <img src={Footor2Icon5} height={40} className="imgIcon" />
                 </div>
               </div>
@@ -87,10 +94,23 @@ const Footer2 = () => {
                 <p className="pmargin">L’équipe</p>
               </Link>
               {/* <p className="pmargin"> L’équipe</p> */}
-              <Link to="#" style={{ color: "white", textDecoration: "none" }}>
+              <Link
+                to="/PrivacyPolicy"
+                style={{ color: "white", textDecoration: "none" }}
+              >
                 <p className="pmargin">Politique de confidentialité</p>
               </Link>
-              <p className="pmargin"> Contactez-nous</p>
+              <Link
+                to="#"
+                className="pmargin"
+                style={{ color: "white", textDecoration: "none" }}
+                onClick={() => {
+                  setOpenContentRequest(true);
+                }}
+              >
+                {" "}
+                Contactez-nous
+              </Link>
             </div>
           </Grid>
           <button
