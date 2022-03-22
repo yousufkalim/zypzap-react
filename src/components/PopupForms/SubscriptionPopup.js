@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import Dialog from "@mui/material/Dialog";
 import { toast } from "react-toastify";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -152,6 +153,7 @@ const SubscriptionPopup = ({
                     name="checkBoxThree"
                     className="popup-checkbox"
                     type="checkbox"
+                    // checked
                   />
                 ) : (
                   <input

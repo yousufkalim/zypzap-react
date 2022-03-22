@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import api from "../../api";
 import Gamers from "../../assets/img/Gamers.svg";
 import Creators from "../../assets/img/Creators.svg";
 import MobileGame from "../../assets/img/MobileGame.svg";
