@@ -288,6 +288,7 @@ body {
   margin: 0 auto 21px auto;
   display: inline-block;
   width: 50%;
+  border: none;
 }
 .instructor-aboutH2 {
   font-size: 22px;
@@ -356,9 +357,11 @@ body {
 .reviewStarLi {
   list-style: none;
   padding: 0 0 8px 0;
+  display: flex;
 }
 .reviewsStarIcon {
   padding: 53px 0 0 0;
+  margin: 6px;
 }
 @media only screen and (min-width: 901px) and (max-width: 1199px) {
   .overView_heading {

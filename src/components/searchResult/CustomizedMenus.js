@@ -155,33 +155,17 @@ export default function CustomizedMenus(props) {
           sx={{ opacity: "0.7" }}
           onClick={filterByRating}
           value={"Rating"}
-          onChange={handleOnClick}
           disableRipple
         >
           Rating
         </MenuItem>
-        <MenuItem
-          sx={{ opacity: "0.7" }}
-          onClick={filterByDate}
-          onChange={handleOnClick}
-          disableRipple
-        >
+        <MenuItem sx={{ opacity: "0.7" }} onClick={filterByDate} disableRipple>
           Date Posted
         </MenuItem>
-        <MenuItem
-          sx={{ opacity: "0.7" }}
-          onClick={filterByViews}
-          onChange={handleOnClick}
-          disableRipple
-        >
+        <MenuItem sx={{ opacity: "0.7" }} onClick={filterByViews} disableRipple>
           Number Of Views
         </MenuItem>
-        <MenuItem
-          sx={{ opacity: "0.7" }}
-          onClick={filterByLevel}
-          onChange={handleOnClick}
-          disableRipple
-        >
+        <MenuItem sx={{ opacity: "0.7" }} onClick={filterByLevel} disableRipple>
           Level
         </MenuItem>
       </StyledMenu>

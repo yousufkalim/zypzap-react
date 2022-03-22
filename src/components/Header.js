@@ -382,10 +382,12 @@ export default function PrimarySearchAppBar({
                 </>
               ) : (
                 <>
-                  {user?.role == "User" && (
+                  {user?.role != "Creator" && (
                     <p
                       className="sgnBtn"
-                      onClick={() => setOpenBecomeCreatorPopup(true)}
+                      onClick={() => {
+                        setOpenBecomeCreatorPopup(true);
+                      }}
                     >
                       Become a Creater
                     </p>

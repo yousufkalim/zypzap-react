@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 // import avatar from "../../assets/img/avatar.png";
@@ -22,7 +22,58 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-const Reviews = () => {
+const Reviews = (props) => {
+  const { singlCourse, rating } = props;
+  const [OneStar, setOneStar] = useState(0);
+  const [twoStar, setTwoStar] = useState(0);
+  const [threeStar, setThreeStar] = useState(0);
+  const [fourStar, setFourStar] = useState(0);
+  const [fiveStar, setFiveStar] = useState(0);
+  const [totalCount, setTotalCount] = useState(0);
+  useEffect(() => {
+    calculateStarRating();
+  }, []);
+  const calculateStarRating = async () => {
+    var total = 0;
+    var one = 0;
+    var two = 0;
+    var three = 0;
+    var four = 0;
+    var five = 0;
+    await rating?.map((Rate) => {
+      let r = Rate.rating;
+      total = total + r;
+      setTotalCount(total);
+      switch (r) {
+        case 1:
+          one += r;
+          break;
+        case 2:
+          two += r;
+          break;
+        case 3:
+          three += r;
+          break;
+        case 4:
+          four += r;
+          break;
+        case 5:
+          five += r;
+          break;
+        default:
+        // code block
+      }
+      setOneStar(one);
+      setTwoStar(two);
+      setThreeStar(three);
+      setFourStar(four);
+      setFiveStar(five);
+    });
+  };
+  const Percentage = (OneStar, totalCount) => {
+    let percentage = ((OneStar / totalCount) * 100).toFixed(0);
+    return percentage;
+  };
   return (
     <div>
       <div className="overView_description">
@@ -32,7 +83,9 @@ const Reviews = () => {
             <div className="studentFeedBack">
               <p className="student-feedback-h3">Student feedback</p>
               <div className="courseRating">
-                <h1 className="courseRatingH1">4.8</h1>
+                <h1 className="courseRatingH1">
+                  {singlCourse?.rating ? singlCourse.rating : "4.8"}
+                </h1>
                 <div className="courseRating-images">
                   {[1, 2, 3, 4, 5].map((i) => (
                     <Star1
@@ -51,32 +104,71 @@ const Reviews = () => {
             <div className="reviews-lines">
               <Box sx={{ flexGrow: 1 }}>
                 <br />
-                <BorderLinearProgress variant="determinate" value={55} />
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={
+                    (OneStar / totalCount) * 100 > 0
+                      ? (OneStar / totalCount) * 100
+                      : 0
+                  }
+                />
               </Box>
               <Box sx={{ flexGrow: 1 }}>
                 <br />
-                <BorderLinearProgress variant="determinate" value={15} />
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={
+                    (twoStar / totalCount) * 100 > 0
+                      ? (twoStar / totalCount) * 100
+                      : 0
+                  }
+                />
               </Box>
               <Box sx={{ flexGrow: 1 }}>
                 <br />
-                <BorderLinearProgress variant="determinate" value={20} />
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={
+                    (threeStar / totalCount) * 100 > 0
+                      ? (threeStar / totalCount) * 100
+                      : 0
+                  }
+                />
               </Box>
               <Box sx={{ flexGrow: 1 }}>
                 <br />
-                <BorderLinearProgress variant="determinate" value={8} />
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={
+                    (fourStar / totalCount) * 100 > 0
+                      ? (fourStar / totalCount) * 100
+                      : 0
+                  }
+                />
               </Box>
               <Box sx={{ flexGrow: 1 }}>
                 <br />
-                <BorderLinearProgress variant="determinate" value={2} />
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={
+                    (fiveStar / totalCount) * 100 > 0
+                      ? (fiveStar / totalCount) * 100
+                      : 0
+                  }
+                />
               </Box>
             </div>
             <div className="reviews-all-star-image">
               <div className="reviewsStarIcon">
-                <ReviewStarList text="55%" />
-                <ReviewStarList text="15%" />
-                <ReviewStarList text="20%" />
-                <ReviewStarList text="08%" />
-                <ReviewStarList text="02%" />
+                {/* calculate persentage and fix it upto 2 figure after decimal */}
+                {/* {(OneStar / totalCount) * 100 + "%"} */}
+                <ReviewStarList text={`${Percentage(OneStar, totalCount)}%`} />
+                <ReviewStarList text={`${Percentage(twoStar, totalCount)}%`} />
+                <ReviewStarList
+                  text={`${Percentage(threeStar, totalCount)}%`}
+                />
+                <ReviewStarList text={`${Percentage(fourStar, totalCount)}%`} />
+                <ReviewStarList text={`${Percentage(fiveStar, totalCount)}%`} />
               </div>
             </div>
           </div>

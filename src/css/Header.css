@@ -91,6 +91,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 12px;
+  text-decoration: none !important;
 }
 .dropbtn {
   color: white;
@@ -201,6 +202,7 @@
   .requestBtn {
     padding: 9px 18px;
     font-size: 1rem;
+    text-decoration: none !important;
   }
   .topcourseheading {
     font-size: 28px;
@@ -263,6 +265,7 @@
   .requestBtn {
     padding: 6px 5px;
     font-size: 8px;
+    text-decoration: none !important;
   }
   .WalletInput {
     font-size: 12px;
@@ -323,6 +326,7 @@
     font-weight: 400;
     font-family: "Poppins", sans-serif;
     margin: 13px 13px 16px 0 !important;
+    text-decoration: none;
   }
   .searchItemsIcon {
     position: absolute;
@@ -365,6 +369,7 @@
     margin: 8px 4px 8px 3px;
     font-weight: 400;
     font-size: 5px;
+    text-decoration: none;
   }
   .css-yz9k0d-MuiInputBase-input {
     font-size: 10px !important;

@@ -28,6 +28,7 @@ const Preparing = () => {
           open={open}
           setOpen={setOpen}
           title="Recevez notre newsletter pour être au cœur du développement"
+          type="all"
         />
       )}
       <div className="preparing">
