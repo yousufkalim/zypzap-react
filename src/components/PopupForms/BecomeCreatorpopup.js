@@ -17,6 +17,7 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
     onlineTeaching: "",
     gameLevel: "",
     audience: "",
+    gameMode: "",
   });
   const { gameyouaregoodat, onlineTeaching, gameLevel, audience } = data;
 
@@ -82,16 +83,89 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
             <p className="detail_pera">Input your expertise here</p>
             <form action="" onSubmit={SubmitEvent}>
               <label htmlFor="text" className="teachP">
-                Game you are goot at
+                Expertise Games
               </label>
-              <input
+              <select
+                id=""
+                name="ExpertiseGames"
                 className="detailInput"
-                type="text"
                 placeholder="e.g. CS-GO"
-                name="gameyouaregoodat"
-                value={data.gameyouaregoodat}
+                // value=""
                 onChange={handleChange}
-              />
+                style={{ background: "#1D1F38" }}
+              >
+                <option value="">csgo</option>
+                <option value="">Pubg</option>
+                <option value="">Mincrift</option>
+                <option value="">Tekken5</option>
+              </select>
+
+              <label htmlFor="text" className="teachP">
+                Expertise Game Type
+              </label>
+              <select
+                id=""
+                name="ExpertiseGames"
+                className="detailInput"
+                placeholder="e.g. CS-GO"
+                // value=""
+                onChange={handleChange}
+                style={{ background: "#1D1F38" }}
+              >
+                <option value="">Action</option>
+                <option value="">Adventure</option>
+                <option value="">Metaverse</option>
+                <option value="">MMOG</option>
+              </select>
+              <label htmlFor="text" className="teachP">
+                Expertise Gaming Platform
+              </label>
+              <select
+                id=""
+                name="ExpertiseGame"
+                className="detailInput"
+                placeholder="e.g. CS-GO"
+                // value=""
+                onChange={handleChange}
+                style={{ background: "#1D1F38" }}
+              >
+                <option value="">Retro Consoles</option>
+                <option value="">PS1/2/3/4/5</option>
+                <option value="">Xbox/360/One/X</option>
+                <option value="">PC</option>
+              </select>
+              <FormLabel
+                component="legend"
+                style={{ color: "#fff" }}
+                className="labelP"
+              >
+                Expertise Gaming Mode
+              </FormLabel>
+              <RadioGroup
+                row
+                aria-label="circle"
+                className="cirleInput"
+                name="gameMode"
+                value={data.gameMode}
+                onChange={handleChange}
+              >
+                <FormControlLabel
+                  value="Single"
+                  control={<Radio style={{ fontSize: "10px" }} />}
+                  label="Single mode"
+                />
+                <FormControlLabel
+                  value="Multiplayer"
+                  control={<Radio />}
+                  label="Multiplayer mode"
+                />
+                <FormControlLabel
+                  value="Both"
+                  control={<Radio />}
+                  label="Both "
+                />
+              </RadioGroup>
+
               <FormLabel
                 component="legend"
                 style={{ color: "#fff" }}

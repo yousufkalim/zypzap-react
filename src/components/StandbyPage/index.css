@@ -146,6 +146,7 @@
   margin-top: -30px;
   border: none;
   padding: 2px 5px;
+  cursor: auto;
 }
 .followSocialHeading {
   display: flex;
