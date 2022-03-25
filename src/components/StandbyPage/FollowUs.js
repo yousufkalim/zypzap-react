@@ -56,17 +56,18 @@ const FollowUs = () => {
                 {/* </a> */}
               </div>
               <div className="followUs-box2">
-                <a
+                {/* <a
                   href="https://www.facebook.com/zypzap.media"
                   target="_blank"
                   className="followUsLinks"
-                >
-                  <img src={Facebook} alt="" className="followUsImg" />
-                  <div className="followSocialHeading2">
-                    <p className="followSocialP">0</p>
-                    <p className="followSocialP2">Likes</p>
-                  </div>
-                </a>
+                > */}
+                <button className="comming-soonBTn">Coming Soon</button>
+                <img src={Facebook} alt="" className="followUsImg" />
+                <div className="followSocialHeading2">
+                  <p className="followSocialP">0</p>
+                  <p className="followSocialP2">Likes</p>
+                </div>
+                {/* </a> */}
               </div>
             </div>
           </div>

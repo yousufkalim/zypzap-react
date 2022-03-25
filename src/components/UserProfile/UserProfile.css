@@ -26,10 +26,16 @@ body {
 }
 .Profile-DP {
   position: absolute;
-
   display: inline-block;
   border-radius: 6px;
   bottom: -20%;
+  left: 4%;
+}
+.Profile-DP2 {
+  position: absolute;
+  display: inline-block;
+  border-radius: 6px;
+  bottom: -10%;
   left: 4%;
 }
 .DP-img {
@@ -37,19 +43,27 @@ body {
   border-radius: 6px;
   padding: 0;
   margin: 0;
-  width: 250px;
+  width: 244px;
   height: 250px;
 }
 .profile-container {
   width: 70%;
   position: absolute;
   display: flex;
-  /* flex-direction: column; */
   color: #fff;
   bottom: 25px;
   left: 24.5%;
   z-index: 5;
-
+  align-items: flex-end;
+}
+.profile-container2 {
+  width: 70%;
+  position: absolute;
+  display: flex;
+  color: #fff;
+  bottom: 25px;
+  left: 24.5%;
+  z-index: 5;
   align-items: flex-end;
 }
 .prfile-name-heading {
@@ -74,18 +88,19 @@ body {
 .creatorProfileDiv {
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-left: -20px;
 }
 .editProfiel-btn2 {
-  position: absolute;
+  /* position: absolute; */
   background: none;
   border: 2px solid #fff;
   color: #fff;
   font-size: 18px;
   padding: 10px 20px;
   border-radius: 4px;
-  margin-top: -21%;
+  margin-top: -15%;
+  float: right;
 }
 .creatorProfileContent {
   padding-left: 20px;
@@ -160,6 +175,32 @@ body {
   font-size: 14px;
 }
 
+/* -------------------------- Creator Profile Card -------------------------- */
+.creatorProfileCard {
+  width: 100%;
+  color: #fff;
+}
+.creatorProfileCart-centerDiv {
+  width: 90%;
+  margin: auto;
+  padding-top: 70px;
+  display: flex;
+}
+.creatorCard {
+  width: 25%;
+  margin-top: 20px;
+}
+.creatorProfileH3 {
+  padding-top: 70px;
+  display: block;
+  border-bottom: 1px solid gray;
+  padding-bottom: 20px;
+  width: 90%;
+  margin: auto;
+}
+
+/* -------------------------- Creator Profile Card -------------------------- */
+
 /* All Media Quaries */
 @media only screen and (min-width: 1900px) {
   .Bio-container {
@@ -169,15 +210,25 @@ body {
     font-size: 30px;
   }
   .profile-container {
-    left: 21.5%;
+    bottom: 25px;
+    left: 19.5% !important;
   }
   .MyProfileP {
     font-size: 20px;
+  }
+  .profile-container2 {
+    left: 20.5%;
   }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1499px) {
   .profile-container {
     left: 29.5%;
+  }
+  .profile-container2 {
+    left: 27.5%;
+  }
+  .prfile-lavelP {
+    font-size: 18px;
   }
 }
 @media only screen and (min-width: 901px) and (max-width: 1199px) {
@@ -186,7 +237,8 @@ body {
     width: 70%;
   }
   .DP-img {
-    width: 70%;
+    width: 56%;
+    height: auto;
   }
   .Profile-DP {
     left: 4.9%;
@@ -197,6 +249,36 @@ body {
   .profile-headings {
     width: 100%;
   }
+  .prfile-lavelP {
+    font-size: 11px;
+  }
+  .creatorProfileDiv {
+    margin-top: 5px;
+  }
+  .pofileP {
+    margin: 6px 0 3px 0;
+    font-size: 13px;
+  }
+  .creatorProfileP {
+    font-size: 14px;
+  }
+  .profile-name {
+    font-size: 18px;
+  }
+  .profile-container2 {
+    bottom: 7px;
+  }
+  .editProfiel-btn2 {
+    font-size: 16px;
+    padding: 7px 19px;
+  }
+  .creatorProfileContent {
+    padding-left: 6px;
+  }
+  .creatorCard {
+    width: 50%;
+    margin-top: 40px;
+  }
 }
 @media only screen and (min-width: 701px) and (max-width: 900px) {
   .profile-container {
@@ -204,7 +286,8 @@ body {
     width: 70%;
   }
   .DP-img {
-    width: 60%;
+    width: 49%;
+    height: auto;
   }
   .Profile-DP {
     left: 2.9%;
@@ -214,6 +297,43 @@ body {
   }
   .Bio-container {
     width: 77%;
+  }
+  .prfile-lavelP {
+    font-size: 10px;
+  }
+  .creatorProfileP {
+    font-size: 10px;
+  }
+  .creatorProfileContent {
+    padding-left: 7px;
+  }
+  .creatorProfileDiv {
+    margin-top: 7px;
+  }
+  .pofileP {
+    margin: 6px 0 7px 0;
+    font-size: 13px;
+  }
+  .profile-name {
+    font-size: 18px;
+  }
+  .profile-container2 {
+    bottom: 5px;
+    left: 26.5%;
+  }
+  .editProfiel-btn2 {
+    font-size: 14px;
+    padding: 5px px 13px;
+    margin-top: -21%;
+  }
+  .creatorProfileH3 {
+    padding-top: 30px;
+  }
+  .creatorProfileCart-centerDiv {
+    padding-top: 0px;
+  }
+  .creatorCard {
+    width: 50%;
   }
 }
 @media only screen and (min-width: 501px) and (max-width: 700px) {
@@ -225,13 +345,14 @@ body {
   .DP-img {
     width: 40%;
     border: 6px solid #14162c;
+    height: auto;
   }
   .profile-name {
     font-size: 14px;
   }
   .pofileP {
     margin: 4px 0 7px 0;
-    font-size: 14px;
+    font-size: 11px;
   }
   .prfile-lavelP {
     font-size: 14px;
@@ -260,8 +381,38 @@ body {
     font-size: 14px;
     padding: 7px 12px;
   }
+  .creatorProfileP {
+    font-size: 9px;
+  }
+  .creatorProfileContent {
+    padding-left: 7px;
+  }
+  .prfile-lavelP {
+    font-size: 8px;
+  }
+  .creatorProfileDiv {
+    margin-top: 5px;
+  }
+  .editProfiel-btn2 {
+    font-size: 11px;
+    padding: 3px 13px;
+    margin-top: -16%;
+  }
+  .profile-container2 {
+    bottom: 4px;
+    left: 26.5%;
+  }
+  .creatorProfileH3 {
+    padding-top: 27px;
+  }
+  .creatorProfileCart-centerDiv {
+    padding-top: 9px;
+  }
+  .creatorCard {
+    width: 50%;
+  }
 }
-@media only screen and (min-width: 301px) and (max-width: 500px) {
+@media only screen and (max-width: 500px) {
   .profile-container {
     left: 26%;
     width: 70%;
@@ -272,14 +423,14 @@ body {
     border: 6px solid #14162c;
   }
   .profile-name {
-    font-size: 8px;
+    font-size: 11px;
   }
   .pofileP {
     margin: 3px 0 3px 0;
     font-size: 8px;
   }
   .prfile-lavelP {
-    font-size: 8px;
+    font-size: 6px;
   }
   .level-span {
     font-size: 8px;
@@ -302,46 +453,45 @@ body {
   .Bio-container {
     width: 100%;
   }
-}
-@media only screen and (max-width: 300px) {
-  .profile-container {
-    left: 30%;
-    width: 75%;
-    bottom: 11px;
+  .Profile-DP2 {
+    left: 2%;
   }
   .DP-img {
-    width: 25%;
-    border: 6px solid #14162c;
+    width: 30%;
+    height: auto;
   }
-  .profile-name {
-    font-size: 8px;
+  .creatorProfileDiv {
+    margin-top: 3px;
   }
-  .pofileP {
-    margin: 3px 0 3px 0;
-    font-size: 8px;
+  .creatorProfileContent {
+    padding-left: 5px;
   }
-  .prfile-lavelP {
-    font-size: 8px;
-  }
-  .level-span {
-    font-size: 8px;
-  }
-  .followingP {
-    font-size: 8px;
-  }
-  .editProfiel-btn {
+  .creatorProfileP {
     font-size: 6px;
-    padding: 4px 7px;
   }
-  .MyProfileP {
-    font-size: 8px;
-    padding: 0 0 30px 0;
+
+  .editProfiel-btn2 {
+    font-size: 10px;
+    padding: 3px 5px;
+    margin-top: -20%;
   }
-  .userTagsAllButton {
-    font-size: 8px;
-    padding: 7px 10px;
+  .CreatorProfileImg {
+    width: 80%;
   }
-  .Bio-container {
+  .profile-container2 {
+    bottom: 6px;
+    left: 26.5%;
+  }
+  .creatorProfileH3 {
+    padding-top: 20px;
+    padding-bottom: 11px;
+    font-size: 13px;
+  }
+  .creatorProfileCart-centerDiv {
+    padding-top: 0;
+    flex-direction: column;
+  }
+  .creatorCard {
     width: 100%;
   }
 }
