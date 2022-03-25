@@ -28,6 +28,7 @@ body {
   margin: auto;
   flex-direction: column-reverse;
   padding: 0 30px;
+  overflow: scroll;
 }
 .detailH1 {
   font-size: 28px;
