@@ -65,8 +65,30 @@ body {
 .pofileP {
   margin: 8px 0 14px 0;
 }
+.creatorLogos {
+  padding-left: 20px;
+}
 .prfile-lavelP {
   font-size: 20px;
+}
+.creatorProfileDiv {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: -20px;
+}
+.editProfiel-btn2 {
+  position: absolute;
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-top: -21%;
+}
+.creatorProfileContent {
+  padding-left: 20px;
 }
 .level-span {
   font-weight: 700;

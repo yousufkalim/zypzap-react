@@ -24,6 +24,7 @@ import CoursePage from "../containers/CoursePage";
 import LegalNotice from "../containers/LegalNotice";
 import PrivacyPolicy from "../containers/PrivacyPolicy";
 import Team from "../containers/Team";
+import CreatorProfile from "../containers/CreatorProfile";
 
 const index = () => {
   return (
@@ -55,6 +56,7 @@ const index = () => {
       <Route exact path="/LegalNotice" component={LegalNotice} />
       <Route exact path="/Team" component={Team} />
       <Route exact path="/PrivacyPolicy" component={PrivacyPolicy} />
+      <Route exact path="/CreatorProfile" component={CreatorProfile} />
     </Switch>
   );
 };

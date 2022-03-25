@@ -66,7 +66,12 @@ const Footer2 = ({ openContentRequest, setOpenContentRequest }) => {
                   >
                     <img src={fFacebook} height={40} className="imgIcon" />
                   </a>
-                  <img src={fLinkedin} height={40} className="imgIcon" />
+                  <a
+                    href="https://www.linkedin.com/company/zypzap"
+                    target="_blank"
+                  >
+                    <img src={fLinkedin} height={40} className="imgIcon" />
+                  </a>
                 </div>
               </div>
             </div>
