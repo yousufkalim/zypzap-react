@@ -1,25 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import Dialog from "@mui/material/Dialog";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
+import { useHistory } from "react-router-dom";
 import api from "../../api";
 import { Store, UpdateStore } from "../../StoreContext";
-
-const BecomeCreatorpopup = ({ open, setOpen }) => {
+const gameType = [
+  "Action",
+  "Adventure",
+  "Metaverse",
+  "Massively Multiplayer Games",
+  "Car Racing",
+  "FPS",
+  "RTS",
+  "RPG",
+  "Turn by Turn Strategy",
+  "Simulation",
+  "Sport",
+  "Trading card",
+  "Puzzle",
+  "Versus Fighting",
+  "Trading card and Board games",
+];
+const gamePlateform = [
+  "PC",
+  "Mobile Games",
+  "PS1/2/3/4/5",
+  "Xbox/360/One/X",
+  "Retro Consoles",
+  "Portable Consoles",
+  "Tablet",
+];
+const BecomeCreatorpopup = ({ open, setOpen, games }) => {
+  const history = useHistory();
   const updateStore = UpdateStore();
   const { user, creator } = Store();
   const [loading, setLoading] = useState(false);
+  const [gameyouaregoodat, setGameyouaregoodat] = useState();
   const [data, setData] = useState({
-    gameyouaregoodat: "",
+    plateForm: "",
+    type: "",
     onlineTeaching: "",
     gameLevel: "",
     audience: "",
     gameMode: "",
   });
-  const { gameyouaregoodat, onlineTeaching, gameLevel, audience } = data;
+  const { plateForm, type, onlineTeaching, gameLevel, audience, gameMode } =
+    data;
 
   const handleChange = (e) => {
     setData({
@@ -40,7 +70,7 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
 
   const SubmitEvent = async (e) => {
     e.preventDefault();
-    if (data.gameyouaregoodat == "") {
+    if (gameyouaregoodat == "") {
       return toast.error("Enter game you are good at");
     }
     if (data.onlineTeaching == "") {
@@ -60,18 +90,25 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
       onlineTeaching: onlineTeaching == "yes" ? true : false,
       gameLevel,
       audience,
+      gameMode,
+      type,
+      plateForm,
     };
-
     try {
       let res = await api("post", `/creators/${user?._id}`, formdata);
       if (res) {
         window.location.reload();
         setOpen(false);
         setLoading(false);
+        history.push("/contenthome");
       }
+      window.location.reload();
     } catch (error) {
       setLoading(false);
     }
+  };
+  const handleGameName = (e) => {
+    setGameyouaregoodat(e.target.value);
   };
 
   return (
@@ -87,17 +124,20 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
               </label>
               <select
                 id=""
-                name="ExpertiseGames"
+                name="gameyouaregoodat"
                 className="detailInput"
                 placeholder="e.g. CS-GO"
-                // value=""
-                onChange={handleChange}
+                value={gameyouaregoodat}
+                onChange={handleGameName}
                 style={{ background: "#1D1F38" }}
               >
-                <option value="">csgo</option>
-                <option value="">Pubg</option>
-                <option value="">Mincrift</option>
-                <option value="">Tekken5</option>
+                {games?.map((game) => {
+                  return (
+                    <>
+                      <option value={game._id}>{game.game_name}</option>
+                    </>
+                  );
+                })}
               </select>
 
               <label htmlFor="text" className="teachP">
@@ -105,34 +145,40 @@ const BecomeCreatorpopup = ({ open, setOpen }) => {
               </label>
               <select
                 id=""
-                name="ExpertiseGames"
                 className="detailInput"
                 placeholder="e.g. CS-GO"
-                // value=""
+                name="type"
+                value={data.type}
                 onChange={handleChange}
                 style={{ background: "#1D1F38" }}
               >
-                <option value="">Action</option>
-                <option value="">Adventure</option>
-                <option value="">Metaverse</option>
-                <option value="">MMOG</option>
+                {gameType?.map((type) => {
+                  return (
+                    <>
+                      <option value={type}>{type}</option>
+                    </>
+                  );
+                })}
               </select>
               <label htmlFor="text" className="teachP">
                 Expertise Gaming Platform
               </label>
               <select
                 id=""
-                name="ExpertiseGame"
                 className="detailInput"
                 placeholder="e.g. CS-GO"
-                // value=""
                 onChange={handleChange}
+                name="plateForm"
+                value={data.plateForm}
                 style={{ background: "#1D1F38" }}
               >
-                <option value="">Retro Consoles</option>
-                <option value="">PS1/2/3/4/5</option>
-                <option value="">Xbox/360/One/X</option>
-                <option value="">PC</option>
+                {gamePlateform?.map((type) => {
+                  return (
+                    <>
+                      <option value={type}>{type}</option>
+                    </>
+                  );
+                })}
               </select>
               <FormLabel
                 component="legend"
