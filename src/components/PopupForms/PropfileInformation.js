@@ -6,7 +6,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
-
+import { toast } from "react-toastify";
 export default function PropfileInformation({
   openProfile,
   handleClose,
@@ -170,9 +170,11 @@ export default function PropfileInformation({
           formdata
         );
         if (res) {
+          toast.success("Modifier le profil avec succès");
           handleClose(true);
         }
       } else {
+        toast.success("Profil non modifié");
       }
     }
   };
