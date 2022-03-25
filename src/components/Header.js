@@ -74,12 +74,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function PrimarySearchAppBar({
   openlogin,
-
   setOpenLogin,
   opensignup,
   setOpenSignup,
   openBecomeCreatorPopup,
   setOpenBecomeCreatorPopup,
+  games,
 }) {
   const updateStore = UpdateStore();
   const [search, setSearch] = useState("course");
@@ -92,6 +92,7 @@ export default function PrimarySearchAppBar({
       history.push("/home");
     }
   };
+
   const [age, setAge] = React.useState("");
 
   const handleChange = (event) => {
@@ -99,9 +100,9 @@ export default function PrimarySearchAppBar({
   };
   const [openProfile, setOpenProfile] = useState(false);
 
-  const handleClickOpen = () => {
-    setOpenProfile(true);
-  };
+  // const handleClickOpen = () => {
+  //   setOpenProfile(true);
+  // };
 
   const handleClose = () => {
     setOpenProfile(false);
@@ -115,6 +116,7 @@ export default function PrimarySearchAppBar({
   const showBecomePopup = () => {
     setOption(true);
   };
+
   const onClickEvent = () => {
     // alert("click");
     history.push("/searchResult");
@@ -271,6 +273,7 @@ export default function PrimarySearchAppBar({
       <BecomeCreatorpopup
         open={openBecomeCreatorPopup}
         setOpen={setOpenBecomeCreatorPopup}
+        games={games}
       />
       <OptionPopup open={Option} setOpen={setOption} />
       <Box sx={{ flexGrow: 1 }}>
@@ -381,7 +384,7 @@ export default function PrimarySearchAppBar({
                 </>
               ) : (
                 <>
-                  {user?.role != "Creator" && (
+                  {user?.role != "Creator" && user?.role == "User" && (
                     <p
                       className="sgnBtn"
                       onClick={() => {
