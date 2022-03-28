@@ -465,9 +465,8 @@ export default function PrimarySearchAppBar({
 
               <div>
                 {/* <img src={UserIcon} alt="img" /> */}
-                <span className="iconseperate2"></span>
                 <img src={Globe} alt="img" />
-                <span className="iconseperate"></span>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 <img src={Moon} alt="img" />
               </div>
             </Box>

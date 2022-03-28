@@ -4,10 +4,17 @@
 }
 .step_container {
   margin-top: 25px !important;
+  display: flex;
+  align-items: center;
+}
+.step_container2 {
+  margin-top: 25px !important;
+  display: flex;
+  align-items: center;
 }
 
 .coursInput {
-  width: 90%;
+  width: 93%;
   background: none;
   border: 1px solid white;
   height: 38px;
@@ -18,7 +25,7 @@
   margin-top: 8px;
 }
 .stepSelect {
-  width: 90%;
+  width: 93%;
   background: none;
   border: 1px solid white;
   height: 38px;
@@ -45,6 +52,12 @@
   color: #fff;
   display: block;
 }
+.step4Div {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .coursDetailBtn {
   display: flex;
   width: 97%;
@@ -67,11 +80,13 @@
   padding: 8px 25px;
   border: none;
   margin: 10px 13px 30px 0px;
-  background-color: #e7411b;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 4px;
+
   color: white;
   font-weight: 500;
   font-family: "Poppins", sans-serif;
-  border-radius: 5px;
   cursor: pointer;
   font-size: 12px;
 }

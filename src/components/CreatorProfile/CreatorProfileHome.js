@@ -3,8 +3,8 @@ import "../../components/UserProfile/UserProfile.css";
 import UserHomeProfleImg2 from "../../assets/img/UserHomeProfleImg2.svg";
 import CreatorPrifileImg from "../../assets/img/CreatorPrifileImg.svg";
 import PropfileInformation from "../PopupForms/PropfileInformation";
-import ProGamer from "../../assets/img/ProGamer.svg";
-import ViewCourse from "../../assets/img/ViewCourse.svg";
+import ProGamer from "../../assets/icons/ProGamer.svg";
+import ViewCourse from "../../assets/icons/ViewCourse.svg";
 import ViewStudent from "../../assets/img/ViewStudent.svg";
 import ViewRank from "../../assets/img/ViewRank.svg";
 
