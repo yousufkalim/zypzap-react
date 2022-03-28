@@ -87,7 +87,9 @@
 }
 .create-course-btn {
   padding: 8px 17px;
-  background-color: #e7411b;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 4px;
   border: none;
   color: #fff;
   font-weight: 500;
