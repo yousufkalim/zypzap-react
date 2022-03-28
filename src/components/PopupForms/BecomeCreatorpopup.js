@@ -1,257 +1,301 @@
-import React, { useState } from "react";
-import { toast } from "react-toastify";
+import React, { useState, useEffect } from "react";
+import Select from "react-select";
 import Dialog from "@mui/material/Dialog";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
+import { useHistory } from "react-router-dom";
+import FormControl from "@mui/material/FormControl";
 import api from "../../api";
+import Course1 from "../../assets/img/course1.png";
+import { toast } from "react-toastify";
 import { Store, UpdateStore } from "../../StoreContext";
 
-const BecomeCreatorpopup = ({ open, setOpen }) => {
+const BecomeCreatorpopup = ({ open, setOpen, user, creator }) => {
+  const history = useHistory();
   const updateStore = UpdateStore();
-  const { user, creator } = Store();
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState({
-    gameyouaregoodat: "",
-    onlineTeaching: "",
-    gameLevel: "",
-    audience: "",
-    gameMode: "",
-  });
-  const { gameyouaregoodat, onlineTeaching, gameLevel, audience } = data;
+  const [gameType, setGameType] = useState(user?.gameType ? user.gameType : []);
+  const [plateForm, setPlateForm] = useState(
+    user?.plateForm ? user.plateForm : []
+  );
+  const [gameMood, setGameMood] = useState(
+    user?.gameMood ? user.gameMood : "Single"
+  );
 
-  const handleChange = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
-  };
+  useEffect(() => {
+    setCurrentSate();
+  }, [user]);
 
   const handleClose = () => {
-    setData({
-      gameyouaregoodat: "",
-      onlineTeaching: "",
-      gameLevel: "",
-      audience: "",
-    });
     setOpen(false);
   };
+  const setCurrentSate = () => {
+    setImageURL(user?.profile_photo ? user.profile_photo : Course1);
+    setFavouritGame(user?.expertiseGame ? user.expertiseGame : []);
+    setGameType(user?.gameType ? user.gameType : []);
+    setPlateForm(user?.plateForm ? user.plateForm : []);
+    setGameMood(user?.gameMood ? user.gameMood : "Single");
+  };
+  const [profile_photo, setImageURL] = useState(
+    user?.profile_photo ? user.profile_photo : Course1
+  );
+  const [favouritGame, setFavouritGame] = useState(
+    user?.expertiseGame ? user.expertiseGame : []
+  );
 
-  const SubmitEvent = async (e) => {
-    e.preventDefault();
-    if (data.gameyouaregoodat == "") {
-      return toast.error("Enter game you are good at");
+  const addTags = (event) => {
+    if (event.key === "Enter" && event.target.value !== "") {
+      setFavouritGame([...favouritGame, event.target.value]);
+      event.target.value = "";
     }
-    if (data.onlineTeaching == "") {
-      return toast.error("select any online teaching option");
-    }
-    if (data.gameLevel == "") {
-      return toast.error("select your game level");
-    }
-    if (data.audience == "") {
-      return toast.error("select audience option");
-    }
-    if (!user) {
-      return toast.error("Please login first");
-    }
-    let formdata = {
-      gameyouaregoodat,
-      onlineTeaching: onlineTeaching == "yes" ? true : false,
-      gameLevel,
-      audience,
-    };
+  };
+  const onChangeRadioBtn = (e) => {
+    const value = e.target.value;
+    setGameMood(e.target.value);
+  };
 
-    try {
-      let res = await api("post", `/creators/${user?._id}`, formdata);
-      if (res) {
-        window.location.reload();
-        setOpen(false);
-        setLoading(false);
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
+  const removeTags = (index) => {
+    setFavouritGame([
+      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index),
+    ]);
+  };
+  const selectplateForm = (name) => {
+    if (!plateForm) {
+      setPlateForm(name);
+    } else {
+      const data = [...plateForm, name];
+      setPlateForm(data);
+    }
+  };
+  const selectGameType = (e) => {
+    if (e.target.className === "activetypebtn") {
+      setGameType((prev) => {
+        return prev.filter((a) => a !== e.target.value);
+      });
+    } else {
+      if (!gameType) {
+        setGameType(e.target.value);
+      } else {
+        const data = [...gameType, e.target.value];
+        setGameType(data);
       }
-    } catch (error) {
-      setLoading(false);
     }
   };
 
+  const submitProfile = async (e) => {
+    if (
+      favouritGame === "" ||
+      gameType === "" ||
+      plateForm === "" ||
+      gameMood === ""
+    ) {
+    } else {
+      const formdata = {
+        expertiseGame: favouritGame,
+        profile_photo,
+        gameType: gameType,
+        plateForm: plateForm,
+        gameMood: gameMood,
+      };
+      if (user) {
+        let res = await api("post", `/creators/${user?._id}`, formdata);
+        if (res) {
+          toast.success("Modifier le profil avec succès");
+          updateStore({
+            user: res?.data?.newUsers,
+            creator: res?.data?.creator,
+          });
+          setOpen(false);
+          history.push("/userprofile");
+        }
+        window.location.reload();
+      } else {
+        toast.success("Profil non modifié");
+      }
+    }
+  };
+
+  let gametypebtn = [
+    "Action",
+    "Adventure",
+    "Metaverse",
+    "Massively Multiplayer Games",
+    "Car Racing",
+    "FPS",
+    "RTS",
+    "RPG",
+    "Turn by Turn Strategy",
+    "Simulation",
+    "Sports",
+    "Trading card",
+    "Puzzle",
+    "Versus Fighting",
+    "Trading card and Board games",
+  ];
+  const gamePlateform = [
+    "PC",
+    "Mobile Games",
+    "PS1/2/3/4/5",
+    "Xbox/360/One/X",
+    "Retro Consoles",
+    "Portable Consoles",
+    "Tablet",
+  ];
+
+  const handleImageSelect = async (e) => {
+    const formdata = new FormData();
+    formdata.append(`file`, e.target.files[0]);
+    let res = await api("post", "/uploadImage", formdata);
+    setImageURL(res.data.file);
+  };
   return (
     <>
       <Dialog open={open} onClose={handleClose} className="login_data">
-        <div className="login_Details">
-          <div className="Details_container">
-            <h1 className="detailH1">Creator Details</h1>
-            <p className="detail_pera">Input your expertise here</p>
-            <form action="" onSubmit={SubmitEvent}>
-              <label htmlFor="text" className="teachP">
-                Expertise Games
-              </label>
-              <select
-                id=""
-                name="ExpertiseGames"
-                className="detailInput"
-                placeholder="e.g. CS-GO"
-                // value=""
-                onChange={handleChange}
-                style={{ background: "#1D1F38" }}
-              >
-                <option value="">csgo</option>
-                <option value="">Pubg</option>
-                <option value="">Mincrift</option>
-                <option value="">Tekken5</option>
-              </select>
-
-              <label htmlFor="text" className="teachP">
-                Expertise Game Type
-              </label>
-              <select
-                id=""
-                name="ExpertiseGames"
-                className="detailInput"
-                placeholder="e.g. CS-GO"
-                // value=""
-                onChange={handleChange}
-                style={{ background: "#1D1F38" }}
-              >
-                <option value="">Action</option>
-                <option value="">Adventure</option>
-                <option value="">Metaverse</option>
-                <option value="">MMOG</option>
-              </select>
-              <label htmlFor="text" className="teachP">
-                Expertise Gaming Platform
-              </label>
-              <select
-                id=""
-                name="ExpertiseGame"
-                className="detailInput"
-                placeholder="e.g. CS-GO"
-                // value=""
-                onChange={handleChange}
-                style={{ background: "#1D1F38" }}
-              >
-                <option value="">Retro Consoles</option>
-                <option value="">PS1/2/3/4/5</option>
-                <option value="">Xbox/360/One/X</option>
-                <option value="">PC</option>
-              </select>
-              <FormLabel
-                component="legend"
-                style={{ color: "#fff" }}
-                className="labelP"
-              >
-                Expertise Gaming Mode
-              </FormLabel>
-              <RadioGroup
-                row
-                aria-label="circle"
-                className="cirleInput"
-                name="gameMode"
-                value={data.gameMode}
-                onChange={handleChange}
-              >
-                <FormControlLabel
-                  value="Single"
-                  control={<Radio style={{ fontSize: "10px" }} />}
-                  label="Single mode"
-                />
-                <FormControlLabel
-                  value="Multiplayer"
-                  control={<Radio />}
-                  label="Multiplayer mode"
-                />
-                <FormControlLabel
-                  value="Both"
-                  control={<Radio />}
-                  label="Both "
-                />
-              </RadioGroup>
-
-              <FormLabel
-                component="legend"
-                style={{ color: "#fff" }}
-                className="labelP"
-              >
-                Have you done online teaching before
-              </FormLabel>
-              <RadioGroup
-                className="cInput"
-                row
-                aria-label="circle"
-                name="onlineTeaching"
-                value={data.onlineTeaching}
-                onChange={handleChange}
-              >
-                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                <FormControlLabel value="no" control={<Radio />} label="No" />
-              </RadioGroup>
-              <FormLabel
-                component="legend"
-                style={{ color: "#fff" }}
-                className="labelP"
-              >
-                What is your gameplay level
-              </FormLabel>
-              <RadioGroup
-                aria-label="circle"
-                className="cirleInput"
-                name="gameLevel"
-                value={data.gameLevel}
-                onChange={handleChange}
-              >
-                <FormControlLabel
-                  value="initial"
-                  control={<Radio />}
-                  label="Entry Level"
-                />
-                <FormControlLabel
-                  value="medium"
-                  control={<Radio />}
-                  label="Intermediate Level"
-                />
-                <FormControlLabel
-                  value="pro"
-                  control={<Radio />}
-                  label="Advance Level"
-                />
-              </RadioGroup>
-              <FormLabel
-                component="legend"
-                style={{ color: "#fff" }}
-                className="labelP"
-              >
-                Do you have any audience
-              </FormLabel>
-              <RadioGroup
-                aria-label="circle"
-                className="cirleInput"
-                name="audience"
-                value={data.audience}
-                onChange={handleChange}
-              >
-                <FormControlLabel
-                  value="no"
-                  control={<Radio style={{ fontSize: "10px" }} />}
-                  label="No"
-                />
-                <FormControlLabel
-                  value="Small"
-                  control={<Radio />}
-                  label="Small Audience"
-                />
-                <FormControlLabel
-                  value="Huge"
-                  control={<Radio />}
-                  label="Huge Audience"
-                />
-              </RadioGroup>
-              <button type="submit" className="contBTN">
-                Continue
-              </button>
-            </form>
-            <button className="backBTN" onClick={handleClose}>
-              Back
-            </button>
+        <div className="userProfile_conteiner">
+          <div className="userProfile_heading">
+            <h2 className="userProfileH1">Profile Information</h2>
+            <p className="userProfileP">Input your details</p>
           </div>
+          <div className="userProfile-uploadData">
+            <div>
+              <label>
+                <input
+                  style={{
+                    display: "none",
+                    cursor: "none",
+                  }}
+                  type="file"
+                  accept="image/*"
+                  // placeholder="Ref."
+                  onChange={handleImageSelect}
+                  onClick={(event) => {
+                    event.target.value = null;
+                  }}
+                />
+                <img
+                  src={profile_photo ? profile_photo : Course1}
+                  className="userProfileInput"
+                />
+              </label>
+            </div>
+            <div>
+              <p className="uploadHeading">
+                Upload
+                <br />
+                Picture
+              </p>
+            </div>
+          </div>
+          <div className="tags-input">
+            <div>
+              <p className="tags-input-FGames">Expertise Games</p>
+            </div>
+            <div className="tags-input-ul">
+              <ul className="tags-input-ul2">
+                {favouritGame.map((tag, index) => (
+                  <li key={index} className="userProfileLi">
+                    <i
+                      className="material-icons"
+                      onClick={() => removeTags(index)}
+                    >
+                      <span className="userProfileLiSpan">{tag}</span>
+                    </i>
+                  </li>
+                ))}
+                <input
+                  className="userProfile_inputTags"
+                  type="text"
+                  onKeyUp={(event) => addTags(event)}
+                  placeholder=""
+                />
+              </ul>
+            </div>
+          </div>
+          <div className="userButtonGroup">
+            <p className="userButton-heading">Expertise Game type</p>
+            <div className="allButtons">
+              <>
+                {gametypebtn.map((tag) => {
+                  return (
+                    <button
+                      className={
+                        gameType?.includes(tag)
+                          ? "activetypebtn"
+                          : "userTagsAllButton"
+                      }
+                      value={tag}
+                      onClick={selectGameType}
+                    >
+                      {tag}
+                    </button>
+                  );
+                })}
+              </>
+            </div>
+          </div>
+          <div className="userButtonGroup">
+            <p className="userButton-heading">Expertise Gaming Plateforms</p>
+            <div className="allButtons2">
+              {gamePlateform.map((tag, i) => {
+                return (
+                  <button
+                    key={i}
+                    className={
+                      plateForm?.includes(tag)
+                        ? "activetypebtn"
+                        : "userTagsAllButton"
+                    }
+                    onClick={() => {
+                      selectplateForm(tag);
+                    }}
+                  >
+                    {tag}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          <div className="userProfileGamingMode">
+            <FormControl>
+              <p className="gamingModeP">Expertise Gaming Mode</p>
+              <div className="gamingModeSelect">
+                <RadioGroup
+                  aria-labelledby="demo-radio-buttons-group-label"
+                  defaultValue={gameMood}
+                  name="radio-buttons-group"
+                  style={{ display: "inline" }}
+                >
+                  <FormControlLabel
+                    value="Single"
+                    control={<Radio />}
+                    label="Single Mode"
+                    onClick={onChangeRadioBtn}
+                  />
+                  <FormControlLabel
+                    value="MultiPlayer"
+                    control={<Radio />}
+                    label="MultiPlayer Mode"
+                    onClick={onChangeRadioBtn}
+                  />
+                  <FormControlLabel
+                    value="Both"
+                    control={<Radio />}
+                    label="Both"
+                    onClick={onChangeRadioBtn}
+                  />
+                </RadioGroup>
+              </div>
+            </FormControl>
+          </div>
+          <button className="userProfileButton" onClick={submitProfile}>
+            Continue
+          </button>
+          <button className="backBTN" onClick={handleClose}>
+            Back
+          </button>{" "}
         </div>
       </Dialog>
     </>

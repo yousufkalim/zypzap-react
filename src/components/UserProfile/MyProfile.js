@@ -57,24 +57,25 @@ const MyProfile = (props) => {
             <div className="userButtonGroup">
               <p className="userButton-heading">Favourite Games</p>
               <div className="profile-allButtons">
-                {user?.prefrence_games?.favourite_games
-                  ? user.prefrence_games.favourite_games.map((tegs) => (
-                      <button className="userTagsAllButton">{tegs}</button>
-                    ))
-                  : "No favourit Courses"}
+                {user?.role == "Creator" &&
+                  (user?.expertiseGame
+                    ? user.expertiseGame.map((tegs) => (
+                        <button className="activetypebtn">{tegs}</button>
+                      ))
+                    : "No favourit Courses")}
+                {user?.role == "user" &&
+                  (user?.prefrence_games?.favourite_games
+                    ? user.prefrence_games.favourite_games.map((tegs) => (
+                        <button className="activetypebtn">{tegs}</button>
+                      ))
+                    : "No favourit Courses")}
               </div>
             </div>
             <div className="userButtonGroup">
               <p className="userButton-heading">Game type</p>
               <div className="profile-allButtons">
                 {user?.gameType.map((tegs) => (
-                  <button
-                    className={
-                      a != tegs.name ? "userTagsAllButton" : "activetypebtn"
-                    }
-                  >
-                    {tegs}
-                  </button>
+                  <button className="activetypebtn">{tegs}</button>
                 ))}
               </div>
             </div>
@@ -83,7 +84,7 @@ const MyProfile = (props) => {
               <div className="profile-allButtons">
                 <div className="profile-allButtons">
                   {user?.plateForm?.map((tegs2) => (
-                    <button className="userTagsAllButton">{tegs2}</button>
+                    <button className="activetypebtn">{tegs2}</button>
                   ))}
                 </div>
               </div>

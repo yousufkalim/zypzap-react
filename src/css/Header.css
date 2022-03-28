@@ -93,6 +93,19 @@
   font-size: 12px;
   text-decoration: none !important;
 }
+.basicProfile {
+  padding: 8px 13px;
+  border: none;
+  margin: 13px 13px 8px 0;
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  color: #fff;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  text-decoration: none !important;
+}
 .dropbtn {
   color: white;
   /* padding: 16px; */

@@ -26,11 +26,11 @@
   font-weight: 500;
   font-size: 22px;
   margin-bottom: 6px;
-  padding: 0 0px 0 7px;
+  padding: 0 0px 0 13px;
 }
 .deshLi {
   list-style: none;
-  padding: 7px 0 7px 4px;
+  padding: 7px 5px 7px 13px;
   width: 78%;
   cursor: pointer;
   font-size: 17px;

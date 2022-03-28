@@ -16,6 +16,7 @@ export default function Body({ setOpenSignup }) {
   const [openContentRequest, setOpenContentRequest] = useState(false);
   const updateStore = UpdateStore();
   const { courses, user } = Store();
+
   let getTopCourses = async () => {
     let res = await api("get", "/courses");
     if (res) {
