@@ -7,8 +7,8 @@ const ImageInput = ({ text }) => {
   const [source, setSource] = React.useState();
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-    const url = URL.createObjectURL(file);
-    setSource(url);
+    // const url = URL.createObjectURL(file);
+    // setSource(url);
   };
 
   const handleChoose = (event) => {
@@ -23,7 +23,7 @@ const ImageInput = ({ text }) => {
           className="VideoInput_input"
           type="file"
           onChange={handleFileChange}
-          accept=".mov,.mp4"
+          // accept=".mov,.mp4"
         />
         {!source && (
           <button onClick={handleChoose} className="uploadBtn">

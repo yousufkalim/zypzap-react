@@ -1,0 +1,40 @@
+.createACourse-MainDiv {
+  width: 70%;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: 150px;
+  margin-top: 270px;
+}
+.createACourse-div {
+  background-color: #0e0f1e;
+  /* background-color: #2b36d6; */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.createACourse-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #202342;
+  padding: 10px;
+}
+.createACourse-content {
+  padding: 20px 10px;
+}
+.createACourse-contentP {
+  padding: 20px 0;
+}
+.creatACourseButton {
+  padding: 8px 13px;
+  border: none;
+  margin: 13px 13px 8px 0;
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  color: #fff;
+  font-weight: 400;
+  font-family: "Mulish", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  text-decoration: none !important;
+}

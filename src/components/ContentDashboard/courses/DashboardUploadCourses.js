@@ -5,6 +5,8 @@ import Course2 from "../../../assets/img/course2.png";
 import Course3 from "../../../assets/img/course3.png";
 import Course4 from "../../../assets/img/course4.png";
 import StarIcon from "@material-ui/icons/Star";
+import EditIcon from "../../../assets/icons/EditIcon.svg";
+import DeleteIcon from "../../../assets/icons/DeleteIcon.svg";
 
 var items = [
   {
@@ -104,7 +106,13 @@ const DashboardUploadCourses = () => {
               <div className="favourite-icon-position">
                 <img src={item.img} className="dashboardcourseimg" alt="img" />
               </div>
-              <h5 className="latestcourseh5">{item.title}</h5>
+              <div className="dashbordHeading-div">
+                <h5 className="latestcourseh5">{item.title}</h5>
+                <div className="dashbordIconsDiv">
+                  <img className="deleteIcon2" src={EditIcon} alt="" />
+                  <img className="editIcon2" src={DeleteIcon} alt="" />
+                </div>
+              </div>
               <p className="latestcoursep1">{item.name}</p>
               <p className="latestcoursep1">
                 {" "}
