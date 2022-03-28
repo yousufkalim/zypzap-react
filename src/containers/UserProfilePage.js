@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import UserProfile from "../components/UserProfile/UserProfile";
 import MyProfile from "../components/UserProfile/MyProfile";
 import Header from "../components/Header";
@@ -8,15 +8,12 @@ import { Store, UpdateStore } from "../StoreContext";
 const UserProfilePage = () => {
   const updateStore = UpdateStore();
   const { user } = Store();
+  const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] = useState(false);
   return (
     <>
       <Header
-      // openlogin={openlogin}
-      // setOpenLogin={setOpenLogin}
-      // opensignup={opensignup}
-      // setOpenSignup={setOpenSignup}
-      // openBecomeCreatorPopup={openBecomeCreatorPopup}
-      // setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
+        openBecomeCreatorPopup={openBecomeCreatorPopup}
+        setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
       />
       <UserProfile user={user} />
       <MyProfile user={user} />

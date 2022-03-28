@@ -142,7 +142,7 @@ export default function PrimarySearchAppBar({
     setMobileMoreAnchorEl(event.currentTarget);
   };
   const handleSearchClick = (event) => {
-    console.log("called");
+    history.push("/searchResult");
   };
   const searchCourse = async (e) => {
     e.preventDefault();
@@ -262,6 +262,7 @@ export default function PrimarySearchAppBar({
       <PropfileInformation
         openProfile={openProfile}
         handleClose={handleClose}
+        user={user}
       />
       <LoginFormPopup
         open={openlogin}
@@ -274,6 +275,8 @@ export default function PrimarySearchAppBar({
         open={openBecomeCreatorPopup}
         setOpen={setOpenBecomeCreatorPopup}
         games={games}
+        user={user}
+        creator={creator}
       />
       <OptionPopup open={Option} setOpen={setOption} />
       <Box sx={{ flexGrow: 1 }}>
@@ -353,12 +356,13 @@ export default function PrimarySearchAppBar({
             <Link to="" className="requestBt">
               <button className="requestBtn">Request a course</button>
             </Link>
-            {user?.role == "User" && (
-              <Link to="/userprofile" className="requestBt">
-                {/* onClick={handleClickOpen} */}
-                <button className="requestBtn">User Profile</button>
-              </Link>
-            )}
+            {user?.role == "User" ||
+              (user?.role == "Creator" && (
+                <Link to="/userprofile" className="requestBt">
+                  {/* onClick={handleClickOpen} */}
+                  <button className="requestBtn">User Profile</button>
+                </Link>
+              ))}
             <Box
               className={`${creator ? "headerLinkbox" : "headerLinkbox2"}`}
               sx={{
@@ -376,7 +380,10 @@ export default function PrimarySearchAppBar({
                     <p className="sgnBtn">Switch to Learner</p>
                   </Link>
                   <Link
-                    to="/dashboard"
+                    to={{
+                      pathname: "dashboard",
+                      state: { creator: `${creator}` },
+                    }}
                     style={{ color: "white", textDecoration: "none" }}
                   >
                     <p className="sgnBtn">dashboard</p>
