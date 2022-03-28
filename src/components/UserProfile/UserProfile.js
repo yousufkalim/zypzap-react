@@ -3,23 +3,32 @@ import "../../components/UserProfile/UserProfile.css";
 import UserHomeProfleImg from "../../assets/img/UserHomeProfleImg.svg";
 import ProfileDp from "../../assets/img/ProfileDp.jpg";
 import PropfileInformation from "../PopupForms/PropfileInformation";
-
+import BecomeCreatorpopup from "../PopupForms/BecomeCreatorpopup";
+import { Store, UpdateStore } from "../../StoreContext";
 const UserProfile = (props) => {
   const { user } = props;
   const [openProfile, setOpenProfile] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const updateStore = UpdateStore();
+  const { creator } = Store;
+
   const handleClickOpen = () => {
-    setOpenProfile(true);
+    if (user.role == "Creator") {
+      setOpen(true);
+    } else {
+      setOpenProfile(true);
+    }
   };
-  const handleClose = () => {
-    setOpenProfile(false);
-  };
+
   return (
     <>
       <PropfileInformation
         openProfile={openProfile}
-        handleClose={handleClose}
+        setOpen={setOpen}
         user={user}
       />
+      <BecomeCreatorpopup open={open} setOpen={setOpen} user={user} />
       <div className="userProfileDiv">
         <div className="userProfile-centerDiv">
           <div className="profile-image">
@@ -47,12 +56,18 @@ const UserProfile = (props) => {
                 {user ? user.email[0] : "johnsmith1@gmail.com"}
               </p>
               <p className="prfile-lavelP">
-                Level: <span className="level-span">Semi-Pro</span>
+                Level:{" "}
+                <span className="level-span">
+                  {creator?.gameLevel ? creator.gameLevel : "Semi-Pro"}
+                </span>
               </p>
             </div>
             <div className="following-content">
               <p className="followingP">
-                Following: <span className="follo-span">10</span>
+                Following:{" "}
+                <span className="follo-span">
+                  {creator?.followers ? creator.followers.length : "10"}
+                </span>
               </p>
             </div>
 

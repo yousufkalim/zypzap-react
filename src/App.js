@@ -35,7 +35,11 @@ function App() {
     try {
       let res = await api("get", "/users/getuserbytoken");
       if (res) {
-        updateStore({ user: res?.data, creator: res?.data?.creator });
+        let resCreator;
+        if (res?.data?.creator) {
+          resCreator = await api("get", `/creators/${res.data.creator}`);
+        }
+        updateStore({ user: res?.data, creator: resCreator?.data?.creator });
       }
     } catch (error) {}
   };
