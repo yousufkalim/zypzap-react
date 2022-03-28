@@ -11,7 +11,7 @@ const FormStepTwo = ({ step, setStep, setformDataOne }) => {
   return (
     <>
       <div className="formStepOneDiv">
-        <p>Step {step}/3</p>
+        <p>Step {step}/6</p>
         <div className="uploadBtnDiv">
           <h2
             className={`
@@ -35,13 +35,13 @@ const FormStepTwo = ({ step, setStep, setformDataOne }) => {
 
         {activeUploadButton == 1 ? (
           <Grid container spacing={2}>
-            <div className="step_container">
+            <div className="step_container2">
               <div className="step1">
                 <p className="stapPr">Upload Full Course</p>
                 <VideoInput text="Select Video" />
               </div>
-              <div className="step_or">or</div>
-              <div className="step1">
+              <p className="step_or">or</p>
+              <div className="step2">
                 <p className="stapPr2">Upload chapters</p>
                 <VideoInput text="Select Chapter" />
               </div>
