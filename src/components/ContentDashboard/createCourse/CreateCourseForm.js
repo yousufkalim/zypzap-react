@@ -8,9 +8,19 @@ import FormStepSix from "./FormStepSix";
 
 const CreateCourseForm = () => {
   const [step, setStep] = useState(1);
-  const [formDataOne, setformDataOne] = useState({});
+  const [formDataOne, setformDataOne] = useState({
+    gameName: "",
+    gameLevel: "",
+    gameType: "",
+    gameMood: "",
+    gamePlateForm: "",
+    description: "",
+  });
   const [formDataTwo, setformDataTwo] = useState({});
   const [formDataThree, setformDataThree] = useState({});
+  const [formDataFoure, setformDataFoure] = useState({});
+  const [formDataFive, setformDataFive] = useState({});
+  const [formDataSix, setformDataSix] = useState({});
   return (
     <>
       <div className="createCourseDiv">
@@ -19,6 +29,7 @@ const CreateCourseForm = () => {
           <FormStepone
             step={step}
             setStep={setStep}
+            formDataOne={formDataOne}
             setformDataOne={setformDataOne}
           />
         )}
@@ -26,14 +37,14 @@ const CreateCourseForm = () => {
           <FormStepTwo
             step={step}
             setStep={setStep}
-            setformDataOne={setformDataOne}
+            setformDataOne={setformDataTwo}
           />
         )}
         {step == 3 && (
           <FormStepThree
             step={step}
             setStep={setStep}
-            setformDataOne={setformDataOne}
+            setformDataOne={setformDataThree}
           />
         )}
         {console.log("step", step)}
@@ -41,22 +52,18 @@ const CreateCourseForm = () => {
           <FormStepFour
             step={step}
             setStep={setStep}
-            setformDataOne={setformDataOne}
+            setformDataOne={setformDataFoure}
           />
         )}
         {step == 5 && (
           <FormStepFive
             step={step}
             setStep={setStep}
-            setformDataOne={setformDataOne}
+            setformDataOne={setformDataFive}
           />
         )}
         {step == 6 && (
-          <FormStepSix
-            step={step}
-            setStep={setStep}
-            setformDataOne={setformDataOne}
-          />
+          <FormStepSix step={step} setformDataOne={setformDataSix} />
         )}
       </div>
     </>

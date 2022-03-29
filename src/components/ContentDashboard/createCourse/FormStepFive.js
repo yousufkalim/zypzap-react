@@ -4,7 +4,7 @@ import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "../../../assets/icons/EditIcon.svg";
 import DeleteIcon from "../../../assets/icons/DeleteIcon.svg";
 
-const FormStepFive = ({ step, setStep, setformDataOne }) => {
+const FormStepFive = ({ step, setStep, setformDataFive }) => {
   return (
     <>
       <div className="formStepOneDiv">

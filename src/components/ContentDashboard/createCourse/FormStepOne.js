@@ -1,7 +1,21 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 
-const FormStepone = ({ step, setStep, setformDataOne }) => {
+const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
+  const chnageEvent = (e) => {
+    setformDataOne({
+      ...formDataOne,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const {
+    gameName,
+    gameLevel,
+    gameType,
+    gameMood,
+    gamePlateForm,
+    description,
+  } = formDataOne;
   return (
     <>
       <div className="formStepOneDiv">
@@ -31,6 +45,9 @@ const FormStepone = ({ step, setStep, setformDataOne }) => {
                   type="text"
                   className="coursInput"
                   placeholder="PUBG GamePlay "
+                  value={gameName}
+                  name="gameName"
+                  onChange={chnageEvent}
                 />
               </div>
             </Grid>
@@ -38,7 +55,13 @@ const FormStepone = ({ step, setStep, setformDataOne }) => {
               <Grid xs={12} sm={6}>
                 <div>
                   <p className="stepLabel">Gameplay level</p>
-                  <select id="cars" name="cars" className="stepSelect">
+                  <select
+                    id="gameLevel"
+                    name="gameLevel"
+                    className="stepSelect"
+                    value={gameLevel}
+                    onChange={chnageEvent}
+                  >
                     <option value="volvo" className="setepOption">
                       select level
                     </option>
@@ -65,7 +88,13 @@ const FormStepone = ({ step, setStep, setformDataOne }) => {
                 <Grid xs={12} sm={6}>
                   <div>
                     <p className="stepLabel">Game Type</p>
-                    <select id="cars" name="cars" className="stepSelect">
+                    <select
+                      id="gameType"
+                      name="gameType"
+                      className="stepSelect"
+                      value={gameType}
+                      onChange={chnageEvent}
+                    >
                       <option value="volvo" className="setepOption">
                         select category
                       </option>
@@ -84,7 +113,13 @@ const FormStepone = ({ step, setStep, setformDataOne }) => {
                 <Grid xs={12} sm={6}>
                   <div>
                     <p className="stepLabel">Gaming Mode</p>
-                    <select id="cars" name="cars" className="stepSelect">
+                    <select
+                      id="gameMood"
+                      name="gameMood"
+                      value={gameMood}
+                      className="stepSelect"
+                      onChange={chnageEvent}
+                    >
                       <option value="volvo" className="setepOption">
                         Select Mode
                       </option>
@@ -103,7 +138,13 @@ const FormStepone = ({ step, setStep, setformDataOne }) => {
                 <Grid xs={12} sm={6}>
                   <div>
                     <p className="stepLabel">Gaming Platform</p>
-                    <select id="cars" name="cars" className="stepSelect">
+                    <select
+                      id="gamePlateForm"
+                      name="gamePlateForm"
+                      className="stepSelect"
+                      value={gamePlateForm}
+                      onChange={chnageEvent}
+                    >
                       <option value="volvo" className="setepOption">
                         Retro Consoles
                       </option>
@@ -128,16 +169,21 @@ const FormStepone = ({ step, setStep, setformDataOne }) => {
           Course description
         </label>
         <textarea
-          name=""
+          name="description"
           id=""
           cols="200"
           rows="20"
           placeholder="300 characters maximum"
           className="courstexarea"
+          value={description}
+          onChange={chnageEvent}
         ></textarea>
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button onClick={() => setStep(2)} className="continueBtn">
+          <button
+            onClick={() => console.log("23456", formDataOne)}
+            className="continueBtn"
+          >
             Continue
           </button>
         </div>
