@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
-import VideoInput from "../../../utils/VideoInput";
 import ImageInput from "../../../utils/ImageInput";
 
 const FormStepsix = ({ step, setStep, setformDataOne }) => {
@@ -33,9 +32,7 @@ const FormStepsix = ({ step, setStep, setformDataOne }) => {
         )}
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button onClick={() => setStep(6)} className="continueBtn">
-            Continue
-          </button>
+          <button className="continueBtn">Continue</button>
         </div>
       </div>
     </>

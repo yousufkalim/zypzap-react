@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import VideoInput from "../../../utils/VideoInput";
 
-const FormStepTwo = ({ step, setStep, setformDataOne }) => {
+const FormStepTwo = ({ step, setStep, setformDataTwo }) => {
   const [activeUploadButton, setActiveUploadButton] = useState(1);
   const handleActiveUploadButton = (i) => {
     setActiveUploadButton(i);
