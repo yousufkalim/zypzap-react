@@ -28,7 +28,7 @@ const Setting = () => {
               <h2 className="deshH2">Account Setting</h2>
               <ul className="dashUl">
                 {items.map((item) => {
-                  let classIs = active == item.name ? "actvieClassOne" : "";
+                  let classIs = active == item.name ? "basicProfile" : "";
                   return (
                     <li
                       className={`${classIs} deshLi `}

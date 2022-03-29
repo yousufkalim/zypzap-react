@@ -35,7 +35,6 @@ const CompleteCourse = ({ Videos, singlCourse }) => {
             <h3 className="completeCourseH3">Course Content</h3>
             <div className="completeCourseScroll">
               {videos?.map((clip, index) => {
-                console.log("index", index);
                 return (
                   <LiDAta
                     clip={clip}

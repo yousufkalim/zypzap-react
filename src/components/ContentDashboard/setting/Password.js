@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { toast } from "react-toastify";
-
+import api from "../../../api";
+import { Store, UpdateStore } from "../../../StoreContext";
 const Password = () => {
   const [password, setPaassword] = useState({
     currentPassword: "",
@@ -9,14 +10,14 @@ const Password = () => {
     confirmPassword: "",
   });
   const { currentPassword, newPassword, confirmPassword } = password;
-
+  const { user } = Store();
   const handleChange = (e) => {
     setPaassword({
       ...password,
       [e.target.name]: e.target.value,
     });
   };
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
 
     if (currentPassword == "") {
@@ -28,11 +29,20 @@ const Password = () => {
     if (confirmPassword == "") {
       return toast.error("Enter your confirm new password");
     }
-    setPaassword({
-      currentPassword: "",
-      newPassword: "",
-      confirmPassword: "",
-    });
+    if (newPassword !== newPassword) {
+      return toast.error("New password and Confirm password don't match");
+    }
+    let res = await api("post", `/users/updatePassword/${user?._id}`, password);
+    if (res) {
+      toast.success("Modifier le profil avec succès");
+      setPaassword({
+        currentPassword: "",
+        newPassword: "",
+        confirmPassword: "",
+      });
+    } else {
+      toast.error("Password not change");
+    }
   };
   return (
     <>
@@ -45,7 +55,7 @@ const Password = () => {
               type="password"
               className="dashInput"
               placeholder="Current password"
-              name="currentPassword "
+              name="currentPassword"
               value={currentPassword}
               onChange={handleChange}
             />
@@ -66,7 +76,7 @@ const Password = () => {
               onChange={handleChange}
             />
           </form>
-          <button className="dashBtn2" onClick={handleClick}>
+          <button className="basicProfile" onClick={handleClick}>
             Save Changes
           </button>
         </div>

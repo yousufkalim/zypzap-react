@@ -319,10 +319,10 @@
   border: none;
   display: inline-block;
 }
-.userTagsAllButton:hover {
+/* .userTagsAllButton:hover {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
-}
+} */
 .gamingModeSelect {
   margin: 20px 0px 7px 0;
 }

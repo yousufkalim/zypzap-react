@@ -74,12 +74,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function PrimarySearchAppBar({
   openlogin,
-
   setOpenLogin,
   opensignup,
   setOpenSignup,
   openBecomeCreatorPopup,
   setOpenBecomeCreatorPopup,
+  games,
 }) {
   const updateStore = UpdateStore();
   const [search, setSearch] = useState("course");
@@ -92,6 +92,7 @@ export default function PrimarySearchAppBar({
       history.push("/home");
     }
   };
+
   const [age, setAge] = React.useState("");
 
   const handleChange = (event) => {
@@ -99,9 +100,9 @@ export default function PrimarySearchAppBar({
   };
   const [openProfile, setOpenProfile] = useState(false);
 
-  const handleClickOpen = () => {
-    setOpenProfile(true);
-  };
+  // const handleClickOpen = () => {
+  //   setOpenProfile(true);
+  // };
 
   const handleClose = () => {
     setOpenProfile(false);
@@ -115,6 +116,7 @@ export default function PrimarySearchAppBar({
   const showBecomePopup = () => {
     setOption(true);
   };
+
   const onClickEvent = () => {
     // alert("click");
     history.push("/searchResult");
@@ -140,7 +142,7 @@ export default function PrimarySearchAppBar({
     setMobileMoreAnchorEl(event.currentTarget);
   };
   const handleSearchClick = (event) => {
-    console.log("called");
+    history.push("/searchResult");
   };
   const searchCourse = async (e) => {
     e.preventDefault();
@@ -260,6 +262,7 @@ export default function PrimarySearchAppBar({
       <PropfileInformation
         openProfile={openProfile}
         handleClose={handleClose}
+        user={user}
       />
       <LoginFormPopup
         open={openlogin}
@@ -271,6 +274,9 @@ export default function PrimarySearchAppBar({
       <BecomeCreatorpopup
         open={openBecomeCreatorPopup}
         setOpen={setOpenBecomeCreatorPopup}
+        games={games}
+        user={user}
+        creator={creator}
       />
       <OptionPopup open={Option} setOpen={setOption} />
       <Box sx={{ flexGrow: 1 }}>
@@ -350,12 +356,13 @@ export default function PrimarySearchAppBar({
             <Link to="" className="requestBt">
               <button className="requestBtn">Request a course</button>
             </Link>
-            {user?.role == "User" && (
-              <Link to="/userprofile" className="requestBt">
-                {/* onClick={handleClickOpen} */}
-                <button className="requestBtn">User Profile</button>
-              </Link>
-            )}
+            {user?.role == "User" ||
+              (user?.role == "Creator" && (
+                <Link to="/userprofile" className="requestBt">
+                  {/* onClick={handleClickOpen} */}
+                  <button className="requestBtn">User Profile</button>
+                </Link>
+              ))}
             <Box
               className={`${creator ? "headerLinkbox" : "headerLinkbox2"}`}
               sx={{
@@ -373,7 +380,10 @@ export default function PrimarySearchAppBar({
                     <p className="sgnBtn">Switch to Learner</p>
                   </Link>
                   <Link
-                    to="/dashboard"
+                    to={{
+                      pathname: "dashboard",
+                      state: { creator: `${creator}` },
+                    }}
                     style={{ color: "white", textDecoration: "none" }}
                   >
                     <p className="sgnBtn">dashboard</p>
@@ -381,7 +391,7 @@ export default function PrimarySearchAppBar({
                 </>
               ) : (
                 <>
-                  {user?.role != "Creator" && (
+                  {user?.role != "Creator" && user?.role == "User" && (
                     <p
                       className="sgnBtn"
                       onClick={() => {

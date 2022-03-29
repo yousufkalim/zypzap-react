@@ -13,7 +13,6 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
   });
 
   const { gameName, Level, message } = inputData;
-  console.log("inputData", inputData);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setInputData({
@@ -36,7 +35,6 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
     if (message == "") {
       return toast.error("Please enter your text");
     }
-    console.log("setInputData", inputData);
     let res = await api("post", "/contentRequests", inputData);
     //    localhost:5000/api/contentRequests
     setInputData({ gameName: "", Level: "", text: "" });

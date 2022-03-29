@@ -16,8 +16,10 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import api from "../../api";
+import { useHistory } from "react-router-dom";
 
 export default function LoginFormPopup({ open, setOpen, setSignup }) {
+  const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [values, setValues] = React.useState({
     email: "",
@@ -67,6 +69,9 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
         localStorage.setItem("token", res?.data?.token);
         setOpen(false);
         setLoading(false);
+        if (res?.data?.user?.role == "Creator") {
+          history.push("/contenthome");
+        }
         window.location.reload();
       }
     } catch (error) {
