@@ -147,6 +147,7 @@ body {
   .introHeading {
     width: 100%;
     margin-top: 27px;
+    text-align: inherit;
   }
   .introHeading2 {
     padding: 0;
