@@ -42,34 +42,34 @@ const FollowUs = () => {
               </div>
             </div>
             {/* this */}
-            <div className="followDiv">
-              <div className="followUs-box2">
-                {/* <a href="" className="followUsLinks"> */}
-                <button className="comming-soonBTn">Coming Soon</button>
+            {/* <div className="followDiv"> */}
+            {/* <div className="followUs-box2"> */}
+            {/* <a href="" className="followUsLinks"> */}
+            {/* <button className="comming-soonBTn">Coming Soon</button>
                 <img src={Reddit} alt="" className="followUsImg" />
                 <div className="followSocialHeading2">
                   <p className="followSocialP" style={{ marginTop: "0px" }}>
                     0
                   </p>
                   <p className="followSocialP2">Followers</p>
-                </div>
-                {/* </a> */}
-              </div>
-              <div className="followUs-box2">
-                {/* <a
+                </div> */}
+            {/* </a> */}
+            {/* </div> */}
+            {/* <div className="followUs-box2"> */}
+            {/* <a
                   href="https://www.facebook.com/zypzap.media"
                   target="_blank"
                   className="followUsLinks"
                 > */}
-                <button className="comming-soonBTn">Coming Soon</button>
+            {/* <button className="comming-soonBTn">Coming Soon</button>
                 <img src={Facebook} alt="" className="followUsImg" />
                 <div className="followSocialHeading2">
                   <p className="followSocialP">0</p>
                   <p className="followSocialP2">Likes</p>
-                </div>
-                {/* </a> */}
-              </div>
-            </div>
+                </div> */}
+            {/* </a> */}
+            {/* </div> */}
+            {/* </div> */}
           </div>
         </div>
       </div>

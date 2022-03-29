@@ -45,6 +45,7 @@ export default function Body() {
             </h1>
             <p className="myStylep ">
               {t("Inscrivez-vous aujourd'hui pour")}
+              &nbsp;
               {t("bénéficier d'avantages uniques")}
             </p>
           </div>
@@ -70,6 +71,7 @@ export default function Body() {
         </div>
         <p className="myStylep2 ">
           {t("Inscrivez-vous aujourd'hui pour")}
+          &nbsp;
           {t("bénéficier d'avantages uniques")}
         </p>
       </div>
