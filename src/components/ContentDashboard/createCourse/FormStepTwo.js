@@ -5,8 +5,10 @@ import UploadSuccessfulPopup from "../../PopupForms/UploadSuccessfulPopup";
 import UploadCancalledPopup from "../../PopupForms/UploadCancalledPopup";
 import RequestSuccessfullyPopup from "../../PopupForms/RequestSuccessfullyPopup";
 
+
 const FormStepTwo = ({ step, setStep, setformDataOne }) => {
   const [open, setOpen] = React.useState(false);
+
   const [activeUploadButton, setActiveUploadButton] = useState(1);
   const handleActiveUploadButton = (i) => {
     setActiveUploadButton(i);
