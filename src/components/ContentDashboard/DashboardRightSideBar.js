@@ -12,6 +12,10 @@ const DashboardRightSideBar = ({
   setcreateCourse,
   setDefaultCompState,
 }) => {
+  const [activeUploadButton, setActiveUploadButton] = useState(1);
+  const handleActiveUploadButton = (i) => {
+    setActiveUploadButton(i);
+  };
   return (
     <>
       {defaultCompState === "Course" ? (
@@ -21,9 +25,31 @@ const DashboardRightSideBar = ({
             setDefaultCompState={setDefaultCompState}
           />
           <Box>
-            <h1 className="upload-courses-heading"> My Uploaded Courses</h1>
-
-            <DashboardUploadCourses />
+            <div className="uploadBtnDiv">
+              <h2
+                className={`
+             ${activeUploadButton == 1 && "ActiveLine"} 
+             upload-courses-headings`}
+                onClick={() => handleActiveUploadButton(1)}
+              >
+                My Uploaded Courses
+              </h2>
+              &nbsp; &nbsp;&nbsp;
+              <h2
+                className={`
+             ${activeUploadButton == 2 && "ActiveLine"} 
+             upload-courses-headings`}
+                onClick={() => handleActiveUploadButton(2)}
+              >
+                Record Course
+              </h2>
+            </div>
+            {/* <h1 className="upload-courses-heading"> My Uploaded Courses</h1> */}
+            {activeUploadButton == 1 ? (
+              <DashboardUploadCourses />
+            ) : (
+              <h1>sdfgjkl;'</h1>
+            )}
           </Box>
         </Box>
       ) : null}

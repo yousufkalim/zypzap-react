@@ -1,15 +1,26 @@
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import VideoInput from "../../../utils/VideoInput";
+import UploadSuccessfulPopup from "../../PopupForms/UploadSuccessfulPopup";
+import UploadCancalledPopup from "../../PopupForms/UploadCancalledPopup";
+import RequestSuccessfullyPopup from "../../PopupForms/RequestSuccessfullyPopup";
 
-const FormStepTwo = ({ step, setStep, setformDataTwo }) => {
+
+const FormStepTwo = ({ step, setStep, setformDataOne }) => {
+  const [open, setOpen] = React.useState(false);
+
   const [activeUploadButton, setActiveUploadButton] = useState(1);
   const handleActiveUploadButton = (i) => {
     setActiveUploadButton(i);
   };
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
   return (
     <>
+      <RequestSuccessfullyPopup open={open} setOpen={setOpen} />
       <div className="formStepOneDiv">
         <p>Step {step}/6</p>
         <div className="uploadBtnDiv">
@@ -53,7 +64,9 @@ const FormStepTwo = ({ step, setStep, setformDataTwo }) => {
           </div>
         )}
         <div className="coursDetailBtn">
-          <button className="drafBtn">Draft</button>
+          <button className="drafBtn" onClick={handleClickOpen}>
+            Draft
+          </button>
           <button onClick={() => setStep(3)} className="continueBtn">
             Continue
           </button>

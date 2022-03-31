@@ -109,8 +109,8 @@ const DashboardUploadCourses = () => {
               <div className="dashbordHeading-div">
                 <h5 className="latestcourseh5">{item.title}</h5>
                 <div className="dashbordIconsDiv">
-                  <img className="deleteIcon2" src={EditIcon} alt="" />
-                  <img className="editIcon2" src={DeleteIcon} alt="" />
+                  <img className="deleteIcon" src={EditIcon} alt="" />
+                  <img className="editIcon" src={DeleteIcon} alt="" />
                 </div>
               </div>
               <p className="latestcoursep1">{item.name}</p>
