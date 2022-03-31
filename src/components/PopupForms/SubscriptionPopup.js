@@ -29,6 +29,7 @@ const SubscriptionPopup = ({
     checkBoxThree: true,
   });
   const getCheckboxValues = (e) => {
+    console.log(e.target.name, ":", e.target.checked);
     setValues({
       ...values,
       [e.target.name]: e.target.checked,
@@ -63,11 +64,12 @@ const SubscriptionPopup = ({
     //     "Merci d'accepter les conditions pour démarrer le test"
     //   );
     // }
-
+    const tester = values.checkBoxTwo;
     setLoading(true);
     let res = await api("post", "/newsletters", {
       email,
       type,
+      tester,
     });
 
     if (res.status === 200) {

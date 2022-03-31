@@ -10,6 +10,7 @@ const CompleteCourse = ({ Videos, singlCourse }) => {
   const [videoCount, setVideoCount] = useState(
     singlCourse?.videos ? singlCourse.videos.length : 0
   );
+  console.log("singlCourse", singlCourse);
 
   return (
     <>
@@ -76,7 +77,6 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value }) => {
     return ret;
   };
 
-   
   return (
     <li className="completeCourse-videoList" onClick={() => setPlayVideo(clip)}>
       {/* onClick={() => setPlayVideo(clip)} */}

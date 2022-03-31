@@ -1,11 +1,34 @@
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import VideoInput from "../../../utils/VideoInput";
-
-const FormStepTwo = ({ step, setStep, setformDataTwo }) => {
+import api from "../../../api";
+const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   const [activeUploadButton, setActiveUploadButton] = useState(1);
+  const [uploading, setUploading] = useState(false);
   const handleActiveUploadButton = (i) => {
     setActiveUploadButton(i);
+  };
+  const handleFileChange = (event) => {
+    const files = [...event.target.files];
+    console.log(
+      "🚀 ~ file: FormStepTwo.js ~ line 35 ~ handleFileChange1 ~ file",
+      files
+    );
+    if (files) {
+      setUploading(true);
+    }
+    setformDataTwo(files);
+  };
+  const handleFileChange1 = (event) => {
+    const files = [...event.target.files];
+    console.log(
+      "🚀 ~ file: FormStepTwo.js ~ line 35 ~ handleFileChange1 ~ file",
+      files
+    );
+    if (files) {
+      setUploading(true);
+    }
+    setformDataTwo(files);
   };
 
   return (
@@ -34,27 +57,44 @@ const FormStepTwo = ({ step, setStep, setformDataTwo }) => {
         <div className={` hrLine1`} />
 
         {activeUploadButton == 1 ? (
-          <Grid container spacing={2}>
-            <div className="step_container2">
-              <div className="step1">
-                <p className="stapPr">Upload Full Course</p>
-                <VideoInput text="Select Video" />
-              </div>
-              <p className="step_or">or</p>
-              <div className="step2">
-                <p className="stapPr2">Upload chapters</p>
-                <VideoInput text="Select Chapter" />
-              </div>
-            </div>
-          </Grid>
+          <>
+            {!uploading ? (
+              <Grid container spacing={2}>
+                <div className="step_container2">
+                  <div className="step1">
+                    <p className="stapPr">Upload Full Course</p>
+                    <VideoInput
+                      id="1"
+                      text="Select Video"
+                      onChange={handleFileChange}
+                    />
+                  </div>
+                  <p className="step_or">or</p>
+                  <div className="step2">
+                    <p className="stapPr2">Upload chapters</p>
+                    <VideoInput
+                      id="2"
+                      text="Select Chapter"
+                      onChange={handleFileChange1}
+                    />
+                  </div>
+                </div>
+              </Grid>
+            ) : (
+              <p className="success">
+                Video Upload Successfully Please Continue!
+              </p>
+            )}
+          </>
         ) : (
           <div>
             <h1>Record Course</h1>
           </div>
         )}
+
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button onClick={() => setStep(3)} className="continueBtn">
+          <button onClick={() => setStep(5)} className="continueBtn">
             Continue
           </button>
         </div>

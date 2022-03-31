@@ -64,6 +64,10 @@
   justify-content: end;
   margin-top: 33px !important;
 }
+.success {
+  margin: 10px 13px 30px 0px;
+  padding: 20px 150px;
+}
 .drafBtn {
   padding: 8px 25px;
   border: none;

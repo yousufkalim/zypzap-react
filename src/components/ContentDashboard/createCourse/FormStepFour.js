@@ -1,5 +1,5 @@
 import React from "react";
-const FormStepFour = ({ step, setStep, setformDataFoure }) => {
+const FormStepFour = ({ step, setStep }) => {
   return (
     <>
       <div className="formStepOneDiv">
