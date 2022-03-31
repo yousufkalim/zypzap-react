@@ -19,9 +19,9 @@ const OverviewButton = (props) => {
             </div>
             <div className="overRequirements">
               <h3 className="overRequirement_h3">Requirements</h3>
-
-              {singlCourse?.requirement.length > 0 ? (
-                singlCourse.requirement.map((req, index) => {
+              {console.log("courses", singlCourse)}
+              {singlCourse?.requirement?.length > 0 ? (
+                singlCourse?.requirement.map((req, index) => {
                   if (req) {
                     return (
                       <li className="overRequirementsLi" key={index}>

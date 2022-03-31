@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import GameVideo from "../../assets/GameVideo.mp4";
 // import VideoPlayIcon from "../../assets/icons/VideoPlayIcon.png";
 
-const CompleteCourse = ({ Videos, singlCourse }) => {
-  const [playVideo, setPlayVideo] = useState(Videos);
+const CompleteCourse = ({ Video, singlCourse }) => {
   const [videos, setVideos] = useState(
     singlCourse?.videos ? singlCourse.videos : 0
   );
+  const [playVideo, setPlayVideo] = useState(Video);
   const [videoCount, setVideoCount] = useState(
     singlCourse?.videos ? singlCourse.videos.length : 0
   );
@@ -20,6 +20,7 @@ const CompleteCourse = ({ Videos, singlCourse }) => {
               {playVideo?.title ? playVideo.title : "CS Go"} Ep 1 Complete
               Course
             </h2>
+
             <video
               className="completeCourse-Video"
               src={
@@ -32,7 +33,7 @@ const CompleteCourse = ({ Videos, singlCourse }) => {
             ></video>
           </div>
           <div className="completeCourse-colm2">
-            <h3 className="completeCourseH3">Course Content</h3>
+            <h3 className="completeCourseH3">Course Content </h3>
             <div className="completeCourseScroll">
               {videos?.map((clip, index) => {
                 return (
@@ -76,7 +77,6 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value }) => {
     return ret;
   };
 
-   
   return (
     <li className="completeCourse-videoList" onClick={() => setPlayVideo(clip)}>
       {/* onClick={() => setPlayVideo(clip)} */}
