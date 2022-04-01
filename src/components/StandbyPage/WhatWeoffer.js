@@ -45,7 +45,7 @@ export default function WhatWeOffer() {
           isThreeLine={true}
           open={open2}
           setOpen={setOpen2}
-          title="Inscrivez-vous pour bénéficier d’un an de !"
+          title="Inscrivez-vous pour bénéficier d’un an de"
           title2=" services offerts !"
           content="Offre reservée aux 10 000 premiers inscrits"
           pera="S'abonner à la Newsletter"
@@ -110,7 +110,7 @@ export default function WhatWeOffer() {
               </p>
               <Link to="#">
                 <button
-                  className="whatweofferButton"
+                  className="whatweofferButton2"
                   onClick={() => setOpen(true)}
                 >
                   {t("Inscrivez-vous")}

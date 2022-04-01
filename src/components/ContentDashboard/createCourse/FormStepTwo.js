@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import VideoInput from "../../../utils/VideoInput";
 import api from "../../../api";
+import RequestSuccessfullyPopup from "../../PopupForms/RequestSuccessfullyPopup";
+
 const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
+  const [open, setOpen] = React.useState(false);
   const [activeUploadButton, setActiveUploadButton] = useState(1);
   const [uploading, setUploading] = useState(false);
   const handleActiveUploadButton = (i) => {
@@ -31,8 +34,13 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
     setformDataTwo(files);
   };
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
   return (
     <>
+      <RequestSuccessfullyPopup open={open} setOpen={setOpen} />
       <div className="formStepOneDiv">
         <p>Step {step}/6</p>
         <div className="uploadBtnDiv">

@@ -85,7 +85,6 @@ const SubscriptionPopup = ({
               <h1 className="subH1">{title2}</h1>
 
               <p className="subP">{isThreeLine ? content : ""}</p>
-              <ClearIcon className="subsclearIcon" onClick={handleClose} />
             </div>
             {/* <form onSubmit={submitForm}> */}
             <label className="email-label" htmlFor="email">

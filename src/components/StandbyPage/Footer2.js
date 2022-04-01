@@ -59,12 +59,12 @@ const Footer2 = ({ openContentRequest, setOpenContentRequest }) => {
                   <a href="https://twitter.com/ZypZap_com" target="_blank">
                     <img src={fTwitter} height={40} className="imgIcon" />
                   </a>
-                  <img src={fReddit} height={40} className="imgIcon" />
+                  {/* <img src={fReddit} height={40} className="imgIcon" /> */}
                   {/* <a
                     href="https://www.facebook.com/zypzap.media"
                     target="_blank"
                   > */}
-                  <img src={fFacebook} height={40} className="imgIcon" />
+                  {/* <img src={fFacebook} height={40} className="imgIcon" /> */}
                   {/* </a> */}
                   <a
                     href="https://www.linkedin.com/company/zypzap"

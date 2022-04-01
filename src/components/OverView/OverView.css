@@ -145,6 +145,9 @@ body {
   margin: auto;
   margin-top: 30px;
 }
+.overViewMenuLogos {
+  margin-left: 0px;
+}
 .overViewMenuButton {
   padding: 10px 20px;
   background-color: #14162c !important;

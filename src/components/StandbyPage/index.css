@@ -124,7 +124,7 @@
   align-items: center;
 }
 .followUs-box2 {
-  /* padding: 0 50px; */
+  width: 25%;
   padding-top: 30px;
   display: flex;
   flex-direction: column;
@@ -173,6 +173,7 @@
   width: 50%;
   display: flex;
   justify-content: space-around;
+  margin: auto;
 }
 
 @media only screen and (min-width: 200px) and (max-width: 600px) {
