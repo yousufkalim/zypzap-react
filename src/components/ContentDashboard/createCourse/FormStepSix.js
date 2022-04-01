@@ -8,6 +8,7 @@ const FormStepsix = ({
   formDataTwo,
   formDataSix,
   setformDataSix,
+  creator,
 }) => {
   const [uploading, setUploading] = useState(false);
   const handleFileChange = (event) => {
@@ -17,16 +18,25 @@ const FormStepsix = ({
   };
   const handleClick = async () => {
     let video = [...formDataTwo, formDataSix];
-    console.log("video", formDataTwo);
-    console.log("video", formDataSix);
-
+    const {
+      gamedetails,
+      gameName,
+      gameLevel,
+      gameType,
+      gameMood,
+      gamePlateForm,
+      description,
+    } = formDataOne;
     let formdata = new FormData();
-    video.map((item) => {
-      formdata.append("files", item);
-    });
-    formdata.append(`data`, formDataOne);
-    console.log("formDataOne", formDataOne);
-
+    video.map((item) => formdata.append("files", item));
+    formdata.append(`course_name`, `${gamedetails}`);
+    formdata.append(`game_name`, `${gameName}`);
+    formdata.append(`level`, `${gameLevel}`);
+    formdata.append(`category`, `${gameType}`);
+    formdata.append(`mode`, `${gameMood}`);
+    formdata.append(`plateform`, `${gamePlateForm}`);
+    formdata.append(`description`, `${description}`);
+    formdata.append(`id`, `${creator._id}`);
     let res = await api("post", "/courses", formdata);
     if (res) console.log("res", res);
   };

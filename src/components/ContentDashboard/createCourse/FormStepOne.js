@@ -9,6 +9,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
     });
   };
   const {
+    gamedetails,
     gameName,
     gameLevel,
     gameType,
@@ -29,11 +30,14 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
             <div className="step_container">
               <Grid xs={12} sm={6}>
                 <div>
-                  <p className="stepLabel">Course Details </p>
+                  <p className="stepLabel">Course Title </p>
                   <input
                     type="text"
                     className="coursInput"
                     placeholder="learn how to play minacraft"
+                    value={gamedetails}
+                    name="gamedetails"
+                    onChange={chnageEvent}
                   />
                 </div>
               </Grid>
@@ -62,13 +66,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                     value={gameLevel}
                     onChange={chnageEvent}
                   >
-                    <option value="volvo" className="setepOption">
+                    <option value="inital Level" className="setepOption">
                       Initial
                     </option>
-                    <option value="saab" className="setepOption">
+                    <option value="medium Level" className="setepOption">
                       Medium
                     </option>
-                    <option value="mercedes" className="setepOption">
+                    <option value="Advance Level" className="setepOption">
                       Pro
                     </option>
                   </select>
@@ -135,13 +139,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                       className="stepSelect"
                       onChange={chnageEvent}
                     >
-                      <option value="volvo" className="setepOption">
+                      <option value="Single" className="setepOption">
                         Single
                       </option>
-                      <option value="saab" className="setepOption">
+                      <option value="Multiplayer" className="setepOption">
                         Multiplayer
                       </option>
-                      <option value="mercedes" className="setepOption">
+                      <option value="Both" className="setepOption">
                         Both
                       </option>
                     </select>
