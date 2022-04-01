@@ -46,7 +46,6 @@ const OverView = () => {
   let getSingleCourses = async () => {
     let res = await api("get", `/courses/${id}`);
     if (res) {
-       console.log("res", res);
       setCourse(res?.data);
     }
   };
@@ -68,7 +67,7 @@ const OverView = () => {
         openBecomeCreatorPopup={openBecomeCreatorPopup}
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
       />
-      {!showVideo?.src_url ? (
+      {!course?.videos ? (
         <OverViewHome singlCourse={course} />
       ) : (
         <CompleteCourse Videos={showVideo} singlCourse={course} />
@@ -87,6 +86,9 @@ const OverView = () => {
 
       {activebtn == "Instructor" && <Instructor singlCourse={course} />}
 
+      {activebtn == "Reviews" && (
+        <Reviews singlCourse={course} rating={rating} />
+      )}
       {activebtn == "Reviews" && (
         <Reviews singlCourse={course} rating={rating} />
       )}

@@ -11,6 +11,7 @@ import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
 import { Store, UpdateStore } from "../../StoreContext";
+// import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
 
 const BecomeCreatorpopup = ({ open, setOpen, user, creator }) => {
   const history = useHistory();

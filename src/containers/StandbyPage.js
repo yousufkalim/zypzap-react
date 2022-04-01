@@ -39,10 +39,10 @@ export default function StandbyPage() {
       >
         <UserLandingPageHeader />
         <Body />
-        <Preparing />
-        <WhatWeOffer />
+        {/* <Preparing /> */}
+        {/* <WhatWeOffer /> */}
         <FollowUs />
-        <JoinedUs />
+        {/* <JoinedUs /> */}
         {/* <UserLandingPageBlog /> */}
         <Footer2
           openContentRequest={openContentRequest}
