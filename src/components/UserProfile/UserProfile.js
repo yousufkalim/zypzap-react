@@ -25,7 +25,7 @@ const UserProfile = (props) => {
     <>
       <PropfileInformation
         openProfile={openProfile}
-        setOpen={setOpen}
+        setOpenProfile={setOpenProfile}
         user={user}
       />
       <BecomeCreatorpopup open={open} setOpen={setOpen} user={user} />

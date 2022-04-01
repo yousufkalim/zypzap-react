@@ -51,11 +51,7 @@ const SubscriptionPopup = ({
           "Merci d'accepter les conditions pour démarrer le test"
         );
       }
-      if (!values.checkBoxTwo) {
-        return toast.error(
-          "Merci d'accepter les conditions pour démarrer le test"
-        );
-      }
+
       // setEmail("");
     }
 

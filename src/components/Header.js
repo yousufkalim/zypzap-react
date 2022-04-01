@@ -356,13 +356,13 @@ export default function PrimarySearchAppBar({
             <Link to="" className="requestBt">
               <button className="requestBtn">Request a course</button>
             </Link>
-            {user?.role == "User" ||
-              (user?.role == "Creator" && (
-                <Link to="/userprofile" className="requestBt">
-                  {/* onClick={handleClickOpen} */}
-                  <button className="requestBtn">User Profile</button>
-                </Link>
-              ))}
+
+            {(user?.role == "User" || user?.role == "Creator") && (
+              <Link to="/userprofile" className="requestBt">
+                {/* onClick={handleClickOpen} */}
+                <button className="requestBtn">User Profile</button>
+              </Link>
+            )}
             <Box
               className={`${creator ? "headerLinkbox" : "headerLinkbox2"}`}
               sx={{
