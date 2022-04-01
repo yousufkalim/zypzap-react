@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import "../../css/form/UploadSuccessfulPopup.css";
 import UploadSuccessLog from "../../assets/icons/UploadSuccessLog.svg";
@@ -9,6 +9,7 @@ const DeleteEpisodePUBG = ({ open, setOpen }) => {
 
   const handleClick = () => {
     setShowDeletePopup(true);
+    setOpen(false);
   };
 
   const handleClose = () => {
@@ -31,7 +32,7 @@ const DeleteEpisodePUBG = ({ open, setOpen }) => {
           <div className="uploadSuccess-centerDiv">
             <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />
             <p className="uploadSuccessP">
-              Delete Episode PUBG GamePlay Course 1/2
+              Episode PUBG GamePlay Course 1/2 deleted
             </p>
             <button className="uploadSuccessBTN" onClick={handleClick}>
               Confirm

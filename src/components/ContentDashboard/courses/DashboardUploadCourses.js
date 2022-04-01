@@ -5,8 +5,10 @@ import Course2 from "../../../assets/img/course2.png";
 import Course3 from "../../../assets/img/course3.png";
 import Course4 from "../../../assets/img/course4.png";
 import StarIcon from "@material-ui/icons/Star";
+import { ReactComponent as Star1 } from "../../../assets/icons/star2.svg";
 import EditIcon from "../../../assets/icons/EditIcon.svg";
 import DeleteIcon from "../../../assets/icons/DeleteIcon.svg";
+import IIcon from "../../../assets/icons/IIcon.svg";
 
 var items = [
   {
@@ -27,71 +29,8 @@ var items = [
     price: "19.99",
     test: "2",
   },
-  {
-    id: 3,
-    title: "Taken 5 Fight Course",
-    img: Course3,
-    name: "Arslan Ash",
-    rating: "rating",
-    price: "19.99",
-    test: "3",
-  },
-  {
-    id: 4,
-    title: "Minicraft Full Course",
-    img: Course4,
-    name: "James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "4",
-  },
-  {
-    id: 5,
-    title: "5Minicraft Full Course",
-    img: Course4,
-    name: "5James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "5",
-  },
-  {
-    id: 6,
-    title: "6Minicraft Full Course",
-    img: Course3,
-    name: "6James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "6",
-  },
-  {
-    id: 7,
-    title: "7Minicraft Full Course",
-    img: Course2,
-    name: "7James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "7",
-  },
-  {
-    id: 8,
-    title: "8Minicraft Full Course",
-    img: Course1,
-    name: "8James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "8",
-  },
-  {
-    id: 9,
-    title: "9Minicraft Full Course",
-    img: Course1,
-    name: "9James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "3",
-  },
 ];
-const DashboardUploadCourses = () => {
+const DashboardUploadCourses = ({ pageName }) => {
   return (
     <>
       <Grid
@@ -109,20 +48,47 @@ const DashboardUploadCourses = () => {
               <div className="dashbordHeading-div">
                 <h5 className="latestcourseh5">{item.title}</h5>
                 <div className="dashbordIconsDiv">
-                  <img className="deleteIcon" src={EditIcon} alt="" />
-                  <img className="editIcon" src={DeleteIcon} alt="" />
+                  {pageName === "publish" || pageName === "draft" ? (
+                    <>
+                      <img className="deleteIcon1" src={EditIcon} alt="" />
+                      &nbsp;&nbsp;&nbsp;
+                      <img className="editIcon1" src={DeleteIcon} alt="" />
+                    </>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               </div>
               <p className="latestcoursep1">{item.name}</p>
               <p className="latestcoursep1">
                 {" "}
-                5.0
+                5.0 &nbsp;
                 {[1, 2, 3, 4, 5].map((item) => (
-                  <StarIcon className="star-icon" />
+                  <Star1 className="star-icon" />
                 ))}
-                (1809)
+                &nbsp; (1809)
               </p>
-              <h6 className="dashboardlatestcourseh6">$19.99</h6>
+              <h6
+                className="dashboardlatestcourseh6"
+                style={{ display: "inline-block" }}
+              >
+                $19.99 &nbsp; | &nbsp; 50 min
+              </h6>
+              <p
+                className="dashboardlatestcourseh6"
+                style={{
+                  display: "inline-block",
+                  marginLeft: "auto",
+                  float: "right",
+                  opacity: "0.5",
+                }}
+              >
+                {pageName === "publish" || pageName === "draft" ? (
+                  "D: 11/02/2022"
+                ) : (
+                  <img src={IIcon} alt="" />
+                )}
+              </p>
             </div>
           </Grid>
         ))}
