@@ -1,11 +1,25 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 
-const FormStepone = ({ step, setStep, setformDataOne }) => {
+const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
+  const chnageEvent = (e) => {
+    setformDataOne({
+      ...formDataOne,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const {
+    gameName,
+    gameLevel,
+    gameType,
+    gameMood,
+    gamePlateForm,
+    description,
+  } = formDataOne;
   return (
     <>
       <div className="formStepOneDiv">
-        <p>Step {step}/3</p>
+        <p>Step {step}/6</p>
         <h2 className="coursedetail1">Course Details</h2>
         <div className="hrLine1" />
         <div className="courseDivContainer">
@@ -31,6 +45,9 @@ const FormStepone = ({ step, setStep, setformDataOne }) => {
                   type="text"
                   className="coursInput"
                   placeholder="PUBG GamePlay "
+                  value={gameName}
+                  name="gameName"
+                  onChange={chnageEvent}
                 />
               </div>
             </Grid>
@@ -38,18 +55,21 @@ const FormStepone = ({ step, setStep, setformDataOne }) => {
               <Grid xs={12} sm={6}>
                 <div>
                   <p className="stepLabel">Gameplay level</p>
-                  <select id="cars" name="cars" className="stepSelect">
+                  <select
+                    id="gameLevel"
+                    name="gameLevel"
+                    className="stepSelect"
+                    value={gameLevel}
+                    onChange={chnageEvent}
+                  >
                     <option value="volvo" className="setepOption">
-                      select level
+                      Initial
                     </option>
                     <option value="saab" className="setepOption">
-                      Saab 95
+                      Medium
                     </option>
                     <option value="mercedes" className="setepOption">
-                      Mercedes SLK
-                    </option>
-                    <option value="audi" className="setepOption">
-                      Audi TT
+                      Pro
                     </option>
                   </select>
                 </div>
@@ -65,18 +85,42 @@ const FormStepone = ({ step, setStep, setformDataOne }) => {
                 <Grid xs={12} sm={6}>
                   <div>
                     <p className="stepLabel">Game Type</p>
-                    <select id="cars" name="cars" className="stepSelect">
-                      <option value="volvo" className="setepOption">
-                        select category
+                    <select
+                      id="gameType"
+                      name="gameType"
+                      className="stepSelect"
+                      value={gameType}
+                      onChange={chnageEvent}
+                    >
+                      <option value="Action" className="setepOption">
+                        Action
                       </option>
-                      <option value="saab" className="setepOption">
-                        Saab 95
+                      <option value="Adventure" className="setepOption">
+                        Adventure
                       </option>
-                      <option value="mercedes" className="setepOption">
-                        Mercedes SLK
+                      <option value="Multiplayer game" className="setepOption">
+                        Multiplayer game
                       </option>
-                      <option value="audi" className="setepOption">
-                        Audi TT
+                      <option value="Car Racing" className="setepOption">
+                        Car Racing
+                      </option>
+                      <option value="FPS" className="setepOption">
+                        FPS
+                      </option>
+                      <option value="Simulation" className="setepOption">
+                        Simulation
+                      </option>
+                      <option value="Sports" className="setepOption">
+                        Sports
+                      </option>
+                      <option value="Puzzle" className="setepOption">
+                        Puzzle
+                      </option>
+                      <option value="RPG" className="setepOption">
+                        RPG
+                      </option>
+                      <option value="RTS" className="setepOption">
+                        RTS
                       </option>
                     </select>
                   </div>
@@ -84,18 +128,21 @@ const FormStepone = ({ step, setStep, setformDataOne }) => {
                 <Grid xs={12} sm={6}>
                   <div>
                     <p className="stepLabel">Gaming Mode</p>
-                    <select id="cars" name="cars" className="stepSelect">
+                    <select
+                      id="gameMood"
+                      name="gameMood"
+                      value={gameMood}
+                      className="stepSelect"
+                      onChange={chnageEvent}
+                    >
                       <option value="volvo" className="setepOption">
-                        Select Mode
+                        Single
                       </option>
                       <option value="saab" className="setepOption">
-                        Saab 95
+                        Multiplayer
                       </option>
                       <option value="mercedes" className="setepOption">
-                        Mercedes SLK
-                      </option>
-                      <option value="audi" className="setepOption">
-                        Audi TT
+                        Both
                       </option>
                     </select>
                   </div>
@@ -103,18 +150,30 @@ const FormStepone = ({ step, setStep, setformDataOne }) => {
                 <Grid xs={12} sm={6}>
                   <div>
                     <p className="stepLabel">Gaming Platform</p>
-                    <select id="cars" name="cars" className="stepSelect">
-                      <option value="volvo" className="setepOption">
+                    <select
+                      id="gamePlateForm"
+                      name="gamePlateForm"
+                      className="stepSelect"
+                      value={gamePlateForm}
+                      onChange={chnageEvent}
+                    >
+                      <option value="Retro Consoles" className="setepOption">
                         Retro Consoles
                       </option>
-                      <option value="saab" className="setepOption">
-                        Saab 95
+                      <option value="PS1/2/3/4/5" className="setepOption">
+                        PS1/2/3/4/5
                       </option>
-                      <option value="mercedes" className="setepOption">
-                        Mercedes SLK
+                      <option value="Xbox/360/One/X" className="setepOption">
+                        Xbox/360/One/X
                       </option>
-                      <option value="audi" className="setepOption">
-                        Audi TT
+                      <option value="Mobile Games" className="setepOption">
+                        Mobile Games
+                      </option>
+                      <option value="Portable Consoles" className="setepOption">
+                        Portable Consoles
+                      </option>
+                      <option value="PC" className="setepOption">
+                        PC
                       </option>
                     </select>
                   </div>
@@ -128,12 +187,14 @@ const FormStepone = ({ step, setStep, setformDataOne }) => {
           Course description
         </label>
         <textarea
-          name=""
+          name="description"
           id=""
           cols="200"
           rows="20"
           placeholder="300 characters maximum"
           className="courstexarea"
+          value={description}
+          onChange={chnageEvent}
         ></textarea>
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>

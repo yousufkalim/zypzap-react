@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import Fireicon from "../../../assets/icons/Fireicon.png";
-import AddIcon from "@mui/icons-material/Add";
 
-const FormStepThree = ({ step, setStep, setformDataOne }) => {
+const FormStepThree = ({ step, setStep }) => {
   return (
     <>
       <div className="formStepOneDiv">

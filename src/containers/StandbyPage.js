@@ -42,7 +42,7 @@ export default function StandbyPage() {
         <Preparing />
         <WhatWeOffer />
         <FollowUs />
-        <JoinedUs />
+        {/* <JoinedUs /> */}
         {/* <UserLandingPageBlog /> */}
         <Footer2
           openContentRequest={openContentRequest}
