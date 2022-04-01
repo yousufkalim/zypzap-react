@@ -46,7 +46,6 @@ const OverView = () => {
   let getSingleCourses = async () => {
     let res = await api("get", `/courses/${id}`);
     if (res) {
-      console.log("res", res);
       setCourse(res?.data);
     }
   };

@@ -1,15 +1,8 @@
 import React from "react";
 import Videoicon from "../../src/assets/icons/Videoicon.png";
 
-const VideoInput = ({ text }) => {
+const VideoInput = ({ text, onChange }) => {
   const inputRef = React.useRef();
-
-  const [source, setSource] = React.useState();
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    const url = URL.createObjectURL(file);
-    setSource(url);
-  };
 
   const handleChoose = (event) => {
     inputRef.current.click();
@@ -22,15 +15,15 @@ const VideoInput = ({ text }) => {
           ref={inputRef}
           className="VideoInput_input"
           type="file"
-          onChange={handleFileChange}
+          onChange={onChange}
           accept=".mov,.mp4"
+          multiple
+          name="files[]"
         />
-        {!source && (
-          <button onClick={handleChoose} className="uploadBtn">
-            <img src={Videoicon} alt="" />
-            <p className="videoP">{text}</p>
-          </button>
-        )}
+        <button onClick={handleChoose} className="uploadBtn">
+          <img src={Videoicon} alt="" />
+          <p className="videoP">{text}</p>
+        </button>
       </div>
     </>
   );

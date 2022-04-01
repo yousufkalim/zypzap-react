@@ -19,7 +19,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
   return (
     <>
       <div className="formStepOneDiv">
-        <p>Step {step}/3</p>
+        <p>Step {step}/6</p>
         <h2 className="coursedetail1">Course Details</h2>
         <div className="hrLine1" />
         <div className="courseDivContainer">
@@ -63,16 +63,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                     onChange={chnageEvent}
                   >
                     <option value="volvo" className="setepOption">
-                      select level
+                      Initial
                     </option>
                     <option value="saab" className="setepOption">
-                      Saab 95
+                      Medium
                     </option>
                     <option value="mercedes" className="setepOption">
-                      Mercedes SLK
-                    </option>
-                    <option value="audi" className="setepOption">
-                      Audi TT
+                      Pro
                     </option>
                   </select>
                 </div>
@@ -95,17 +92,35 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                       value={gameType}
                       onChange={chnageEvent}
                     >
-                      <option value="volvo" className="setepOption">
-                        select category
+                      <option value="Action" className="setepOption">
+                        Action
                       </option>
-                      <option value="saab" className="setepOption">
-                        Saab 95
+                      <option value="Adventure" className="setepOption">
+                        Adventure
                       </option>
-                      <option value="mercedes" className="setepOption">
-                        Mercedes SLK
+                      <option value="Multiplayer game" className="setepOption">
+                        Multiplayer game
                       </option>
-                      <option value="audi" className="setepOption">
-                        Audi TT
+                      <option value="Car Racing" className="setepOption">
+                        Car Racing
+                      </option>
+                      <option value="FPS" className="setepOption">
+                        FPS
+                      </option>
+                      <option value="Simulation" className="setepOption">
+                        Simulation
+                      </option>
+                      <option value="Sports" className="setepOption">
+                        Sports
+                      </option>
+                      <option value="Puzzle" className="setepOption">
+                        Puzzle
+                      </option>
+                      <option value="RPG" className="setepOption">
+                        RPG
+                      </option>
+                      <option value="RTS" className="setepOption">
+                        RTS
                       </option>
                     </select>
                   </div>
@@ -121,16 +136,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                       onChange={chnageEvent}
                     >
                       <option value="volvo" className="setepOption">
-                        Select Mode
+                        Single
                       </option>
                       <option value="saab" className="setepOption">
-                        Saab 95
+                        Multiplayer
                       </option>
                       <option value="mercedes" className="setepOption">
-                        Mercedes SLK
-                      </option>
-                      <option value="audi" className="setepOption">
-                        Audi TT
+                        Both
                       </option>
                     </select>
                   </div>
@@ -145,17 +157,23 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                       value={gamePlateForm}
                       onChange={chnageEvent}
                     >
-                      <option value="volvo" className="setepOption">
+                      <option value="Retro Consoles" className="setepOption">
                         Retro Consoles
                       </option>
-                      <option value="saab" className="setepOption">
-                        Saab 95
+                      <option value="PS1/2/3/4/5" className="setepOption">
+                        PS1/2/3/4/5
                       </option>
-                      <option value="mercedes" className="setepOption">
-                        Mercedes SLK
+                      <option value="Xbox/360/One/X" className="setepOption">
+                        Xbox/360/One/X
                       </option>
-                      <option value="audi" className="setepOption">
-                        Audi TT
+                      <option value="Mobile Games" className="setepOption">
+                        Mobile Games
+                      </option>
+                      <option value="Portable Consoles" className="setepOption">
+                        Portable Consoles
+                      </option>
+                      <option value="PC" className="setepOption">
+                        PC
                       </option>
                     </select>
                   </div>
@@ -180,10 +198,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
         ></textarea>
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button
-            onClick={() => console.log("23456", formDataOne)}
-            className="continueBtn"
-          >
+          <button onClick={() => setStep(2)} className="continueBtn">
             Continue
           </button>
         </div>

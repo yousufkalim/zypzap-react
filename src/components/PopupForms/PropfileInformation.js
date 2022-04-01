@@ -12,40 +12,6 @@ export default function PropfileInformation({
   handleClose,
   user,
 }) {
-  useEffect(() => {
-    setCurrentSate();
-  }, [user]);
-  const setCurrentSate = () => {
-    setImageURL(user?.profile_photo ? user.profile_photo : Course1);
-    setFavouritGame(
-      user?.prefrence_games?.favourite_games
-        ? user.prefrence_games.favourite_games
-        : []
-    );
-    setGameType(user?.gameType ? user.gameType : []);
-    setPlateForm(user?.plateForm ? user.plateForm : []);
-    setGameMood(user?.gameMood ? user.gameMood : "Single");
-    setPlayPeriod(
-      user?.prefrence_games?.play_period
-        ? user.prefrence_games.play_period
-        : "Per Week"
-    );
-    setPlayTime(
-      user?.prefrence_games?.play_time_per_perioad
-        ? user.prefrence_games.play_time_per_perioad
-        : "2 Houre"
-    );
-    setCurrentLevel(
-      user?.prefrence_games?.current_level
-        ? user.prefrence_games.current_level
-        : "initial"
-    );
-    setTargetLevel(
-      user?.prefrence_games?.target_level
-        ? user.prefrence_games.target_level
-        : "initial"
-    );
-  };
   const [profile_photo, setImageURL] = useState(
     user?.profile_photo ? user.profile_photo : Course1
   );
@@ -82,6 +48,40 @@ export default function PropfileInformation({
       ? user.prefrence_games.target_level
       : "initial"
   );
+  useEffect(() => {
+    setCurrentSate();
+  }, [user]);
+  const setCurrentSate = () => {
+    setImageURL(user?.profile_photo ? user.profile_photo : Course1);
+    setFavouritGame(
+      user?.prefrence_games?.favourite_games
+        ? user.prefrence_games.favourite_games
+        : []
+    );
+    setGameType(user?.gameType ? user.gameType : []);
+    setPlateForm(user?.plateForm ? user.plateForm : []);
+    setGameMood(user?.gameMood ? user.gameMood : "Single");
+    setPlayPeriod(
+      user?.prefrence_games?.play_period
+        ? user.prefrence_games.play_period
+        : "Per Week"
+    );
+    setPlayTime(
+      user?.prefrence_games?.play_time_per_perioad
+        ? user.prefrence_games.play_time_per_perioad
+        : "2 Houre"
+    );
+    setCurrentLevel(
+      user?.prefrence_games?.current_level
+        ? user.prefrence_games.current_level
+        : "initial"
+    );
+    setTargetLevel(
+      user?.prefrence_games?.target_level
+        ? user.prefrence_games.target_level
+        : "initial"
+    );
+  };
 
   const addTags = (event) => {
     if (event.key === "Enter" && event.target.value !== "") {
@@ -131,7 +131,7 @@ export default function PropfileInformation({
   };
   const handleImageSelect = async (e) => {
     const formdata = new FormData();
-    formdata.append(`file`, e.target.files[0]);
+    formdata.append(`files`, e.target.files[0]);
     let res = await api("post", "/uploadImage", formdata);
     setImageURL(res.data.file);
   };

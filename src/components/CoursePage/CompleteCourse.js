@@ -10,6 +10,7 @@ const CompleteCourse = ({ Video, singlCourse }) => {
   const [videoCount, setVideoCount] = useState(
     singlCourse?.videos ? singlCourse.videos.length : 0
   );
+  console.log("singlCourse", singlCourse);
 
   return (
     <>
