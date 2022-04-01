@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const FormStepThree = ({ step, setStep, setformDataThree }) => {
+const FormStepThree = ({ step, setStep }) => {
   return (
     <>
       <div className="formStepOneDiv">

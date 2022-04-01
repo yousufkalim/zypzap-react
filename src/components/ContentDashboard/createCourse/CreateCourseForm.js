@@ -16,10 +16,7 @@ const CreateCourseForm = () => {
     gamePlateForm: "",
     description: "",
   });
-  const [formDataTwo, setformDataTwo] = useState({});
-  const [formDataThree, setformDataThree] = useState({});
-  const [formDataFoure, setformDataFoure] = useState({});
-  const [formDataFive, setformDataFive] = useState({});
+  const [formDataTwo, setformDataTwo] = useState();
   const [formDataSix, setformDataSix] = useState({});
   return (
     <>
@@ -37,33 +34,29 @@ const CreateCourseForm = () => {
           <FormStepTwo
             step={step}
             setStep={setStep}
-            setformDataOne={setformDataTwo}
+            formDataTwo={formDataTwo}
+            setformDataTwo={setformDataTwo}
           />
         )}
-        {step == 3 && (
-          <FormStepThree
-            step={step}
-            setStep={setStep}
-            setformDataOne={setformDataThree}
-          />
-        )}
+        {step == 3 && <FormStepThree step={step} setStep={setStep} />}
         {console.log("step", step)}
-        {step == 4 && (
-          <FormStepFour
-            step={step}
-            setStep={setStep}
-            setformDataOne={setformDataFoure}
-          />
-        )}
+        {step == 4 && <FormStepFour step={step} setStep={setStep} />}
         {step == 5 && (
           <FormStepFive
             step={step}
             setStep={setStep}
-            setformDataOne={setformDataFive}
+            formDataTwo={formDataTwo}
+            setformDataTwo={setformDataTwo}
           />
         )}
         {step == 6 && (
-          <FormStepSix step={step} setformDataOne={setformDataSix} />
+          <FormStepSix
+            step={step}
+            formDataOne={formDataOne}
+            formDataTwo={formDataTwo}
+            formDataSix={formDataSix}
+            setformDataSix={setformDataSix}
+          />
         )}
       </div>
     </>
