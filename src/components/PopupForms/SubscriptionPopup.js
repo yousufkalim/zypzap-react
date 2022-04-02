@@ -68,9 +68,9 @@ const SubscriptionPopup = ({
       tester,
     });
 
-    if (res.status === 200) {
-      toast.success("Soumis avec succès");
-    }
+    // if (res.status === 200) {
+    //   toast.success("Soumis avec succès");
+    // }
 
     if (isThreeLine) {
       setShowPopup(true);
