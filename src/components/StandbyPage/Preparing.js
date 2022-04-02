@@ -5,7 +5,6 @@ import Box from "@mui/material/Box";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
-
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
   borderRadius: 5,
@@ -20,39 +19,27 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }));
 
 const Preparing = () => {
+  const [showPopup, setShowPopup] = useState(false);
+  const [showPopup2, setShowPopup2] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
   return (
     <>
       {open && (
         <SubscriptionPopup
           open={open}
           setOpen={setOpen}
+          setShowPopups={setShowPopup}
+          setShowPopup={setShowPopup}
           title="Recevez notre newsletter pour être au cœur du développement"
           type="all"
         />
-      )}
+      )}{" "}
       <div className="preparing">
         <div className="preparingCenterDiv">
-          <div className="preparingHeading">
-            <h1 className="preparingH1">Nous prÉparons le lancement</h1>
-            <p className="preparingP">
-              Nous avons hâte de vous faire découvrir la plateforme ZypZap.
-            </p>
-            <p className="preparingP">
-              Toute notre équipe est mobilisée sur le développement de ses
-              fonctionnalités inédites et innovantes.
-            </p>
-            <p className="preparingP">
-              Inscrivez-vous dès maintenant pour participer au développement de
-              notre communauté.
-            </p>
-            <p className="preparingP2">
-              Nous avons hâte de vous faire découvrir la plateforme ZypZap.
-              Toute notre équipe est mobilisée sur le développement de ses
-              fonctionnalités inédites et innovantes. Inscrivez-vous dès
-              maintenant pour participer au développement de notre communauté.
-            </p>
-          </div>
           <div className="preparingPrsntage">
             <div className="preparingPrsntageCenterDiv">
               <div className="preparingPrsntageDiv">
@@ -72,10 +59,7 @@ const Preparing = () => {
                   type="text"
                   placeholder="e.g. moinheykal@gmail.com"
                 />
-                <buttton
-                  className="preparingPrsntageBtn"
-                  onClick={() => setOpen(true)}
-                >
+                <buttton className="preparingPrsntageBtn" onClick={handleClick}>
                   Prévenez-moi !
                 </buttton>
               </div>

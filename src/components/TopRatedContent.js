@@ -6,6 +6,12 @@ import Game3 from "../assets/img/game3.png";
 import Game4 from "../assets/img/game4.png";
 import Game5 from "../assets/img/game5.png";
 import Carousel from "react-multi-carousel";
+import LatestCourseGameIcon from "../assets/icons/LatestCourseGameIcon.svg";
+import LatestCourseLavelIcon from "../assets/icons/LatestCourseLavelIcon.svg";
+import LatestCourseTimingIcon from "../assets/icons/LatestCourseTimingIcon.svg";
+import LatestCourseProPlayerIcon from "../assets/icons/LatestCourseProPlayerIcon.svg";
+import LatestCourseStudentsIcon from "../assets/icons/LatestCourseStudentsIcon.svg";
+import LatestCourseRatingIcon from "../assets/icons/LatestCourseRatingIcon.svg";
 import "react-multi-carousel/lib/styles.css";
 
 export default function TopRatedContent() {
@@ -167,13 +173,65 @@ export default function TopRatedContent() {
           {items.map((item, i) => (
             <div className="topRatedcardGrid">
               <img src={item.img} className="topRatedcourseimg" alt="img" />
-              <h5 className="latestcourseh5">{item.name}</h5>
-              <p className="latestcoursep1">{item.title}</p>
+              <h4 className="latestCourse-h4">
+                <img
+                  src={LatestCourseGameIcon}
+                  alt=""
+                  className="LatestCourse-IMG"
+                />
+                &nbsp;
+                {item.name}
+              </h4>
+              {/* <p className="latestcoursep1">{item.title}</p>
               <p className="latestcoursep1">
                 {" "}
                 Level :<span style={{ color: "red" }}>{item.level}</span>
               </p>
-              <p className="topRatedContentcourseh6">{item.students}</p>
+              <p className="topRatedContentcourseh6">{item.students}</p> */}
+              {/* /* -------------------------------- new card --------------------------------  */}
+              <div className="latestCourseMain-Div">
+                {/* /* ------------------------------- copy colmn -------------------------------  */}
+                <div className="latestCouse-colmn">
+                  <div className="latestCourse-colmn-centerDiv">
+                    <img
+                      src={LatestCourseProPlayerIcon}
+                      alt=""
+                      className="LatestCourse-IMG"
+                    />
+                    <p className="latestCourse-p">Pro Player of...</p>
+                  </div>
+                  <div className="latestCourse-colmn-centerDiv">
+                    <img
+                      src={LatestCourseStudentsIcon}
+                      alt=""
+                      className="LatestCourse-IMG"
+                    />
+                    <p className="latestCourse-p">500000+ Students</p>
+                  </div>
+                </div>
+
+                {/* ------------------------------- copy colmn -------------------------------  */}
+                <div className="latestCouse-colmn">
+                  <div className="latestCourse-colmn-centerDiv">
+                    <img
+                      src={LatestCourseLavelIcon}
+                      alt=""
+                      className="LatestCourse-IMG"
+                    />
+                    <p className="latestCourse-p">All Levels</p>
+                  </div>
+                  <div className="latestCourse-colmn-centerDiv">
+                    <img
+                      src={LatestCourseRatingIcon}
+                      alt=""
+                      className="LatestCourse-IMG"
+                    />
+                    <p className="latestCourse-p">5.0 Rating</p>
+                  </div>
+                </div>
+                {/* ------------------------------- copy colmn -------------------------------  */}
+              </div>
+              {/* /* -------------------------------- new card --------------------------------  */}
             </div>
           ))}
         </Carousel>

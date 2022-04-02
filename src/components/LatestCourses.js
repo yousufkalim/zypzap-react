@@ -9,6 +9,12 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { ReactComponent as Star1 } from "../assets/icons/star2.svg";
 import { Link } from "react-router-dom";
+import LatestCourseGameIcon from "../assets/icons/LatestCourseGameIcon.svg";
+import LatestCourseStarBadgeIcon from "../assets/icons/LatestCourseStarBadgeIcon.svg";
+import LatestCourseLavelIcon from "../assets/icons/LatestCourseLavelIcon.svg";
+import LatestCourseStarIcon from "../assets/icons/LatestCourseStarIcon.svg";
+import LatestCourseVideoIcon from "../assets/icons/LatestCourseVideoIcon.svg";
+import LatestCourseTimingIcon from "../assets/icons/LatestCourseTimingIcon.svg";
 export default function LatestCourses(props) {
   const { courses } = props;
 
@@ -191,10 +197,11 @@ export default function LatestCourses(props) {
                   className="courseimg"
                   alt="img"
                 />
-                <h5 className="latestcourseh5">
-                  {item?.course_name ? item.course_name : "Fight Course"}
-                </h5>
-                <p className="latestcoursep1">
+                <h4 className="latestCourse-h4">
+                  {/* {item?.course_name ? item.course_name : "Fight Course"} */}
+                  CS-GO Ep 2 Complete Course
+                </h4>
+                {/* <p className="latestcoursep1">
                   {item?.creator?.user_id?.username}
                 </p>
                 <p className="latestcoursep1">
@@ -218,7 +225,70 @@ export default function LatestCourses(props) {
                     ? item.student.length + " Student"
                     : 0 + "   Student"}
                 </p>
-                <h6 className="latestcourseh6">{item?.price + " $"}</h6>
+                <h6 className="latestcourseh6">{item?.price + " $"}</h6> */}
+
+                {/* /* -------------------------------- new card --------------------------------  */}
+                <div className="latestCourseMain-Div">
+                  {/* /* ------------------------------- copy colmn -------------------------------  */}
+                  <div className="latestCouse-colmn">
+                    <div className="latestCourse-colmn-centerDiv">
+                      <img
+                        src={LatestCourseGameIcon}
+                        alt=""
+                        className="LatestCourse-IMG"
+                      />
+                      <p className="latestCourse-p">Ifaf ghori</p>
+                    </div>
+                    <div className="latestCourse-colmn-centerDiv">
+                      <img
+                        src={LatestCourseStarIcon}
+                        alt=""
+                        className="LatestCourse-IMG"
+                      />
+                      <p className="latestCourse-p">5.0 Rating</p>
+                    </div>
+                  </div>
+                  {/* ------------------------------- copy colmn -------------------------------  */}
+                  <div className="latestCouse-colmn">
+                    <div className="latestCourse-colmn-centerDiv">
+                      <img
+                        src={LatestCourseStarBadgeIcon}
+                        alt=""
+                        className="LatestCourse-IMG"
+                      />
+                      <p className="latestCourse-p">(382,420)</p>
+                    </div>
+                    <div className="latestCourse-colmn-centerDiv">
+                      <img
+                        src={LatestCourseVideoIcon}
+                        alt=""
+                        className="LatestCourse-IMG"
+                      />
+                      <p className="latestCourse-p">50 min</p>
+                    </div>
+                  </div>
+                  {/* ------------------------------- copy colmn -------------------------------  */}
+                  <div className="latestCouse-colmn">
+                    <div className="latestCourse-colmn-centerDiv">
+                      <img
+                        src={LatestCourseLavelIcon}
+                        alt=""
+                        className="LatestCourse-IMG"
+                      />
+                      <p className="latestCourse-p">All Levels</p>
+                    </div>
+                    <div className="latestCourse-colmn-centerDiv">
+                      <img
+                        src={LatestCourseTimingIcon}
+                        alt=""
+                        className="LatestCourse-IMG"
+                      />
+                      <p className="latestCourse-p">5 Days ago</p>
+                    </div>
+                  </div>
+                  {/* ------------------------------- copy colmn -------------------------------  */}
+                </div>
+                {/* /* -------------------------------- new card --------------------------------  */}
               </div>
             </Link>
           ))}

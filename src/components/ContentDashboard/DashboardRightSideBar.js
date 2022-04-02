@@ -33,7 +33,7 @@ const DashboardRightSideBar = ({
              upload-courses-headings`}
                 onClick={() => handleActiveUploadButton(1)}
               >
-                My Uploaded Courses
+                Published Courses
               </h2>
               &nbsp; &nbsp;&nbsp;
               <h2
@@ -42,15 +42,60 @@ const DashboardRightSideBar = ({
              upload-courses-headings`}
                 onClick={() => handleActiveUploadButton(2)}
               >
-                Record Course
+                Draft Courses
               </h2>
+              &nbsp; &nbsp;&nbsp;
+              <h2
+                className={`
+             ${activeUploadButton == 3 && "ActiveLine"} 
+             upload-courses-headings`}
+                onClick={() => handleActiveUploadButton(3)}
+              >
+                Not Approved Courses
+              </h2>
+              &nbsp; &nbsp;&nbsp;
+              <h2
+                className={`
+             ${activeUploadButton == 4 && "ActiveLine"} 
+             upload-courses-headings`}
+                onClick={() => handleActiveUploadButton(4)}
+              >
+                Under evaluation
+              </h2>
+              &nbsp; &nbsp;&nbsp;
+              <h2
+                className={`
+             ${activeUploadButton == 5 && "ActiveLine"} 
+             upload-courses-headings`}
+                onClick={() => handleActiveUploadButton(5)}
+              >
+                Requested courses
+              </h2>
+              &nbsp; &nbsp;&nbsp;
             </div>
             {/* <h1 className="upload-courses-heading"> My Uploaded Courses</h1> */}
             {activeUploadButton == 1 ? (
-              <DashboardUploadCourses />
-            ) : (
-              <h1>sdfgjkl;'</h1>
-            )}
+              <DashboardUploadCourses pageName={"publish"} />
+            ) : null}
+            {activeUploadButton == 2 ? (
+              <DashboardUploadCourses pageName={"draft"} />
+            ) : null}
+            {activeUploadButton == 3 ? (
+              <DashboardUploadCourses pageName={"notApprove"} />
+            ) : null}
+            {activeUploadButton == 4 ? (
+              <DashboardUploadCourses pageName={"underEvalution"} />
+            ) : null}
+            {activeUploadButton == 5 ? (
+              <div className="request-data">
+                <p className="request-data-p">No data to display</p>
+              </div>
+            ) : null}
+            {/* {activeUploadButton == 6 ? (
+              <>
+                <button style={{ color: "#fff" }}>Commitng Soon</button>
+              </>
+            ) : null} */}
           </Box>
         </Box>
       ) : null}
