@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
-
-const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
+import Select from "@mui/material/Select";
+const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
+  const [game, setGame] = useState(games ? games : []);
+  useEffect(() => {
+    console.log("games", games);
+    setGame(games ? games : []);
+  }, []);
   const chnageEvent = (e) => {
     setformDataOne({
       ...formDataOne,
@@ -9,6 +14,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
     });
   };
   const {
+    gamedetails,
     gameName,
     gameLevel,
     gameType,
@@ -29,11 +35,14 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
             <div className="step_container">
               <Grid xs={12} sm={6}>
                 <div>
-                  <p className="stepLabel">Course Details </p>
+                  <p className="stepLabel">Course Title </p>
                   <input
                     type="text"
                     className="coursInput"
                     placeholder="learn how to play minacraft"
+                    value={gamedetails}
+                    name="gamedetails"
+                    onChange={chnageEvent}
                   />
                 </div>
               </Grid>
@@ -41,14 +50,33 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
             <Grid xs={12} sm={6}>
               <div>
                 <p className="stepLabel">Game Name</p>
-                <input
-                  type="text"
-                  className="coursInput"
-                  placeholder="PUBG GamePlay "
-                  value={gameName}
+                <select
+                  id="gameName"
                   name="gameName"
+                  className="coursInput"
+                  value={game ? games[0].game_name : "PUBG"}
                   onChange={chnageEvent}
-                />
+                >
+                  {console.log("games1234", games[0].game_name)}
+                  {game?.map((g, index) => {
+                    {
+                      console.log("games1234", g);
+                    }
+                    <option id={index} value={g._id} className="setepOption">
+                      {g.game_name}
+                    </option>;
+                  })}
+                </select>
+                {/* <Select
+                name="gameyouaregoodat"
+                isMulti
+                className="form-control-alternative"
+                // defaultValue={["1", "2", "3"]}
+                options={games?.map((game) => ({
+                  value: game?._id,
+                  label: game.game_name,
+                }))}
+              /> */}
               </div>
             </Grid>
             <Grid container spacing={2}>
@@ -62,13 +90,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                     value={gameLevel}
                     onChange={chnageEvent}
                   >
-                    <option value="volvo" className="setepOption">
+                    <option value="inital Level" className="setepOption">
                       Initial
                     </option>
-                    <option value="saab" className="setepOption">
+                    <option value="medium Level" className="setepOption">
                       Medium
                     </option>
-                    <option value="mercedes" className="setepOption">
+                    <option value="Advance Level" className="setepOption">
                       Pro
                     </option>
                   </select>
@@ -135,13 +163,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                       className="stepSelect"
                       onChange={chnageEvent}
                     >
-                      <option value="volvo" className="setepOption">
+                      <option value="Single" className="setepOption">
                         Single
                       </option>
-                      <option value="saab" className="setepOption">
+                      <option value="Multiplayer" className="setepOption">
                         Multiplayer
                       </option>
-                      <option value="mercedes" className="setepOption">
+                      <option value="Both" className="setepOption">
                         Both
                       </option>
                     </select>

@@ -53,12 +53,12 @@ const SubscriptionPopup = ({
           "Merci d'accepter les conditions pour démarrer le test"
         );
       }
-
       if (!values.checkBoxTwo) {
         return toast.error(
           "Merci d'accepter les conditions pour démarrer le test"
         );
       }
+
     }
     const tester = values.checkBoxTwo;
     setLoading(true);
@@ -148,15 +148,16 @@ const SubscriptionPopup = ({
               </label>
             </div>
             <br />
-            {!heading1 && (
-              <div
-                style={{
-                  display: "-webkit-inline-box",
-                  margin: "10px 0px 10px 0",
-                  fontSize: "16px",
-                }}
-              >
-                {isThreeLine ? (
+
+            <div
+              style={{
+                display: "-webkit-inline-box",
+                margin: "10px 0px 10px 0",
+                fontSize: "16px",
+              }}
+            >
+              {isThreeLine && (
+                <>
                   <input
                     onChange={getCheckboxValues}
                     value={values.checkBoxThree}
@@ -165,57 +166,42 @@ const SubscriptionPopup = ({
                     type="checkbox"
                     checked={values.checkBoxThree}
                   />
-                ) : (
-                  <input
-                    onChange={getCheckboxValues}
-                    value={values.checkBoxOne}
-                    name="checkBoxOne"
-                    className="popup-checkbox"
-                    type="checkbox"
-                  />
-                )}
 
-                <label className="subsLabel">
-                  {isThreeLine ? pera : "S'inscrire comme bêta-testeur"}
-                </label>
-              </div>
-            )}
-            {/* ccc */}
+                  <label className="subsLabel">{pera}</label>
+                </>
+              )}
+            </div>
             <br />
 
-            {/* ccc */}
-            {isThreeLine ? (
-              <div
-                className={`${heading1 && "toppdding"}`}
-                style={{
-                  display: "-webkit-inline-box",
-                  margin: "0px 80px 30px 0",
-                  paddingTop: "5px",
-                  fontSize: "16px",
-                }}
-              >
-                <input
-                  onChange={getCheckboxValues}
-                  value={values.checkBoxTwo}
-                  name="checkBoxTwo"
-                  className="popup-checkbox"
-                  type="checkbox"
-                />
-                <label className="subsLabel">
-                  {/* <span className={`padtop ? "subsBold" "padtop"}`}> */}
-                  {t(` S'inscrire comme bêta-testeur`)}
+            <div
+              className={`${heading1 && "toppdding"}`}
+              style={{
+                display: "-webkit-inline-box",
+                margin: "0px 80px 30px 0",
+                paddingTop: "5px",
+                fontSize: "16px",
+              }}
+            >
+              <input
+                onChange={getCheckboxValues}
+                value={values.checkBoxTwo}
+                name="checkBoxTwo"
+                className="popup-checkbox"
+                type="checkbox"
+              />
+              <label className="subsLabel">
+                {/* <span className={`padtop ? "subsBold" "padtop"}`}> */}
+                {t(` S'inscrire comme bêta-testeur`)}
 
-                  {/* {t("I agree passtotrip ")}
+                {/* {t("I agree passtotrip ")}
                   <span className=" privacy-policy-text">
                     {t("Privacy Policy")}{" "}
                   </span>{" "}
                   {t("and agree to receive upcoming passtotrip updates")} */}
-                </label>
-              </div>
-            ) : (
-              <></>
-            )}
-            <button className="subsformbtn" onClick={submitForm}>
+              </label>
+            </div>
+            <button className="subsformbtn" onClick={() => submitForm()}>
+
               S’inscrire
             </button>
             {/* </form> */}
@@ -227,3 +213,51 @@ const SubscriptionPopup = ({
 };
 
 export default SubscriptionPopup;
+
+// <input
+//                   onChange={getCheckboxValues}
+//                   value={values.checkBoxTwo}
+//                   name="checkBoxTwo"
+//                   className="popup-checkbox"
+//                   type="checkbox"
+//                 />
+//                 <label className="subsLabel">
+//                   {/* <span className={`padtop ? "subsBold" "padtop"}`}> */}
+//                   {t(` S'inscrire comme bêta-testeur`)}
+
+//                   {/* {t("I agree passtotrip ")}
+//                   <span className=" privacy-policy-text">
+//                     {t("Privacy Policy")}{" "}
+//                   </span>{" "}
+//                   {t("and agree to receive upcoming passtotrip updates")} */}
+//                 </label>
+/////////////////////
+{
+  /* <input
+onChange={getCheckboxValues}
+value={values.checkBoxOne}
+name="checkBoxOne"
+className="popup-checkbox"
+type="checkbox"
+/>
+<label className="subsLabel">
+{t(`J'accepte`)}
+<Link to="/PrivacyPolicy" className="subsBold">
+  {t(` La politique de confidentialité  `)}
+</Link>
+{t(` de ZypZap et`)}
+<br />
+{t(` j'accepte de recevoir les prochaines mises à jour`)}
+</label> */
+}
+//////
+{
+  /* <input
+onChange={getCheckboxValues}
+value={values.checkBoxThree}
+name="checkBoxThree"
+className="popup-checkbox"
+type="checkbox"
+checked={values.checkBoxThree}
+/> */
+}

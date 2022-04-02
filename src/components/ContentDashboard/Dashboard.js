@@ -7,12 +7,26 @@ import settings from "../../assets/img/settings.png";
 import dollar from "../../assets/img/dollar.png";
 import performance from "../../assets/img/performance.png";
 import youtube from "../../assets/img/youtube.png";
-
+import { Store, UpdateStore } from "../../StoreContext";
+import api from "../../api";
 const Dashboard = () => {
+  const updateStore = UpdateStore();
   const [activeButton, setActiveButton] = useState("Course");
   const [defaultCompState, setDefaultCompState] = useState("Course");
   const [createCourse, setcreateCourse] = useState(false);
-  useEffect(() => {}, []);
+  const [games, setGames] = useState();
+
+  useEffect(() => {
+    getGames();
+  }, []);
+  const getGames = async () => {
+    let res = await api("get", `/games/`);
+    console.log("games in home", res.data);
+    if (res) {
+      updateStore({ Games: res.data });
+      setGames(res.data);
+    }
+  };
   const items = [
     { name: "Course", img: youtube },
     { name: "Performance", img: performance },
@@ -47,6 +61,7 @@ const Dashboard = () => {
           setDefaultCompState={setDefaultCompState}
           setcreateCourse={setcreateCourse}
           createCourse={createCourse}
+          games={games}
         />
       </Box>
     </>

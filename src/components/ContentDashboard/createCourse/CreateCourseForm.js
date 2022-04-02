@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FormStepone from "./FormStepOne";
 import FormStepTwo from "./FormStepTwo";
 import FormStepThree from "./FormStepthree";
 import FormStepFour from "./FormStepFour";
 import FormStepFive from "./FormStepFive";
 import FormStepSix from "./FormStepSix";
-
-const CreateCourseForm = () => {
+import { Store, UpdateStore } from "../../../StoreContext";
+const CreateCourseForm = ({ games }) => {
   const [step, setStep] = useState(1);
   const [formDataOne, setformDataOne] = useState({
+    gamedetails: "",
     gameName: "",
     gameLevel: "",
     gameType: "",
@@ -16,8 +17,11 @@ const CreateCourseForm = () => {
     gamePlateForm: "",
     description: "",
   });
+  console.log("games in creator page", games);
   const [formDataTwo, setformDataTwo] = useState();
   const [formDataSix, setformDataSix] = useState({});
+  const { creator } = Store();
+
   return (
     <>
       <div className="createCourseDiv">
@@ -28,6 +32,7 @@ const CreateCourseForm = () => {
             setStep={setStep}
             formDataOne={formDataOne}
             setformDataOne={setformDataOne}
+            games={games}
           />
         )}
         {step == 2 && (
@@ -56,6 +61,7 @@ const CreateCourseForm = () => {
             formDataTwo={formDataTwo}
             formDataSix={formDataSix}
             setformDataSix={setformDataSix}
+            creator={creator}
           />
         )}
       </div>

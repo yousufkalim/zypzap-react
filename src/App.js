@@ -36,7 +36,7 @@ function App() {
       let res = await api("get", "/users/getuserbytoken");
       if (res) {
         let resCreator;
-        if (res?.data?.creator) {
+        if (res?.data?.role === "Creator") {
           resCreator = await api("get", `/creators/${res.data.creator}`);
         }
         updateStore({ user: res?.data, creator: resCreator?.data?.creator });
