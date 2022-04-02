@@ -30,7 +30,6 @@ const SubscriptionPopup = ({
     checkBoxThree: true,
   });
   const getCheckboxValues = (e) => {
-    console.log(e.target.name, ":", e.target.checked);
     setValues({
       ...values,
       [e.target.name]: e.target.checked,

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import ImageInput from "../../../utils/ImageInput";
 import api from "../../../api";
+import { toast } from "react-toastify";
 const FormStepsix = ({
   step,
   formDataOne,
@@ -38,7 +39,11 @@ const FormStepsix = ({
     formdata.append(`description`, `${description}`);
     formdata.append(`id`, `${creator._id}`);
     let res = await api("post", "/courses", formdata);
-    if (res) console.log("res", res);
+    if (res) {
+      toast.success("Profil non modifié");
+    } else {
+      toast.error("Enter your email");
+    }
   };
   return (
     <>

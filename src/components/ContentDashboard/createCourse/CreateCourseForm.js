@@ -17,7 +17,6 @@ const CreateCourseForm = ({ games }) => {
     gamePlateForm: "",
     description: "",
   });
-  console.log("games in creator page", games);
   const [formDataTwo, setformDataTwo] = useState();
   const [formDataSix, setformDataSix] = useState({});
   const { creator } = Store();
@@ -44,7 +43,6 @@ const CreateCourseForm = ({ games }) => {
           />
         )}
         {step == 3 && <FormStepThree step={step} setStep={setStep} />}
-        {console.log("step", step)}
         {step == 4 && <FormStepFour step={step} setStep={setStep} />}
         {step == 5 && (
           <FormStepFive
