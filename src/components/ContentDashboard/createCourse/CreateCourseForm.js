@@ -6,7 +6,7 @@ import FormStepFour from "./FormStepFour";
 import FormStepFive from "./FormStepFive";
 import FormStepSix from "./FormStepSix";
 import { Store, UpdateStore } from "../../../StoreContext";
-const CreateCourseForm = () => {
+const CreateCourseForm = ({ games }) => {
   const [step, setStep] = useState(1);
   const [formDataOne, setformDataOne] = useState({
     gamedetails: "",
@@ -17,13 +17,11 @@ const CreateCourseForm = () => {
     gamePlateForm: "",
     description: "",
   });
+  console.log("games in creator page", games);
   const [formDataTwo, setformDataTwo] = useState();
   const [formDataSix, setformDataSix] = useState({});
   const { creator } = Store();
-  console.log("creator", creator);
-  useEffect(() => {
-    console.log("creator", creator);
-  }, []);
+
   return (
     <>
       <div className="createCourseDiv">
@@ -34,6 +32,7 @@ const CreateCourseForm = () => {
             setStep={setStep}
             formDataOne={formDataOne}
             setformDataOne={setformDataOne}
+            games={games}
           />
         )}
         {step == 2 && (

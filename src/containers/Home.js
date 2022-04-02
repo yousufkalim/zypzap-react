@@ -8,9 +8,11 @@ import { useLocation } from "react-router-dom";
 import SetAuthToken from "../utils/SetAuthToken";
 import Contactez from "../components/PopupForms/contactez";
 import api from "../api";
+import { Store, UpdateStore } from "../StoreContext";
 export default function Home() {
   const [openContentRequest, setOpenContentRequest] = useState(false);
   const [games, setGames] = useState([]);
+  const updateStore = UpdateStore();
   const queryParams = new URLSearchParams(window.location.search);
   const token = queryParams.get("user");
   if (localStorage.getItem !== token && token !== null) {
@@ -21,7 +23,11 @@ export default function Home() {
   }, []);
   const getGames = async () => {
     let res = await api("get", `/games/`);
-    setGames(res.data);
+    console.log("games in home", res.data);
+    if (res) {
+      updateStore({ Games: res.data });
+      setGames(res.data);
+    }
   };
   const [openlogin, setOpenLogin] = useState(false);
   const [opensignup, setOpenSignup] = useState(false);
