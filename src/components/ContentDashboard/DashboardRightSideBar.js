@@ -11,6 +11,7 @@ const DashboardRightSideBar = ({
   createCourse,
   setcreateCourse,
   setDefaultCompState,
+  games,
 }) => {
   const [activeUploadButton, setActiveUploadButton] = useState(1);
   const handleActiveUploadButton = (i) => {
@@ -98,7 +99,9 @@ const DashboardRightSideBar = ({
           </Box>
         </Box>
       ) : null}
-      {defaultCompState == "" && createCourse && <CreateCourseForm />}
+      {defaultCompState == "" && createCourse && (
+        <CreateCourseForm games={games} />
+      )}
       {defaultCompState === "Performance" ? <Performance /> : null}
       {defaultCompState === "Earning" ? <Earning /> : null}
       {defaultCompState === "Setting" ? <Setting /> : null}
