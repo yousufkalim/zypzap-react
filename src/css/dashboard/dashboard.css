@@ -44,8 +44,20 @@
 }
 .upload-courses-container {
   width: 90%;
-  margin: auto;
+  /* margin: auto; */
   padding: 35px 20px;
+}
+.upload-courses-headings {
+  font-size: 18px;
+  margin: 0 37px -5px 0;
+}
+.request-data {
+  width: 93%;
+  height: 60vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .create-course-img-text {
   display: flex;
@@ -105,7 +117,7 @@
 .dashboardlatestcourseh6 {
   font-size: 13px;
   margin-bottom: 10px;
-  padding: 10px 0 15px 24px;
+  padding: 10px 20px 15px 24px;
 }
 
 @media all and (max-width: 992px) {

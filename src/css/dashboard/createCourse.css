@@ -31,6 +31,10 @@
   display: flex;
   margin-top: 20px;
   cursor: pointer;
+  width: 93%;
+  margin: 0 auto 20px auto;
+  padding: 25px 0 6px 0;
+  border-bottom: 1px solid #313131;
 }
 .uploadCoursebtn {
   margin: 0 20px 0 0;
@@ -43,6 +47,10 @@
 .ActiveLine {
   padding-bottom: 12px;
   opacity: 1 !important;
+  border-bottom: 5px solid #662f88;
+  /* border-bottom: 2px solid transparent;
+  border-image: linear-gradient(65.06deg, #662f88 #20bf55);
+  border-image-slice: 1; */
 }
 .courseDiv {
   width: 100%;

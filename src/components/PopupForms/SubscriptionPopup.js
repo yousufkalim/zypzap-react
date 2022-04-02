@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-
 import Dialog from "@mui/material/Dialog";
 import { toast } from "react-toastify";
-import ClearIcon from "@mui/icons-material/Clear";
 import { useTranslation } from "react-i18next";
 import api from "../../api";
-import { PinDropSharp } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import CongratulationPopup1 from "./CongratulationPopup1";
+import ConfirmationPopup2 from "./ConfirmationPopup2";
 const SubscriptionPopup = ({
   open,
   setOpen,
@@ -19,6 +18,8 @@ const SubscriptionPopup = ({
   pera,
   type,
 }) => {
+  const [showPopup, setShowPopup] = useState(false);
+  const [showPopup2, setShowPopup2] = useState(false);
   const { t, i18n } = useTranslation();
   const { language } = i18n;
   const [email, setEmail] = useState(Email ? Email : "");
@@ -45,21 +46,20 @@ const SubscriptionPopup = ({
     if (email == "") {
       return toast.error("Veuillez entrer votre e-mail");
     }
+
     if (content) {
       if (!values.checkBoxOne) {
         return toast.error(
           "Merci d'accepter les conditions pour démarrer le test"
         );
       }
+      if (!values.checkBoxTwo) {
+        return toast.error(
+          "Merci d'accepter les conditions pour démarrer le test"
+        );
+      }
 
-      // setEmail("");
     }
-
-    // if (!values.checkBoxThree) {
-    //   return toast.error(
-    //     "Merci d'accepter les conditions pour démarrer le test"
-    //   );
-    // }
     const tester = values.checkBoxTwo;
     setLoading(true);
     let res = await api("post", "/newsletters", {
@@ -71,12 +71,28 @@ const SubscriptionPopup = ({
     if (res.status === 200) {
       toast.success("Soumis avec succès");
     }
+
+    if (isThreeLine) {
+      setShowPopup(true);
+    } else {
+      setShowPopup2(true);
+    }
+
     setLoading(false);
     setEmail("");
-    handleClose();
   };
   return (
     <>
+      <CongratulationPopup1
+        open={showPopup}
+        setOpen={() => setShowPopup(!showPopup)}
+        closeModal={handleClose}
+      />
+      <ConfirmationPopup2
+        open={showPopup2}
+        setOpen={() => setShowPopup2(!showPopup2)}
+        closeModal={handleClose}
+      />
       <Dialog open={open} onClose={handleClose}>
         <div className="login_form">
           <div className="subs_container">
@@ -185,6 +201,7 @@ const SubscriptionPopup = ({
               </label>
             </div>
             <button className="subsformbtn" onClick={() => submitForm()}>
+
               S’inscrire
             </button>
             {/* </form> */}
