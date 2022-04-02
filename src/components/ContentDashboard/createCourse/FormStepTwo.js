@@ -13,10 +13,6 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   };
   const handleFileChange = (event) => {
     const files = [...event.target.files];
-    console.log(
-      "🚀 ~ file: FormStepTwo.js ~ line 35 ~ handleFileChange1 ~ file",
-      files
-    );
     if (files) {
       setUploading(true);
     }
@@ -24,10 +20,6 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   };
   const handleFileChange1 = (event) => {
     const files = [...event.target.files];
-    console.log(
-      "🚀 ~ file: FormStepTwo.js ~ line 35 ~ handleFileChange1 ~ file",
-      files
-    );
     if (files) {
       setUploading(true);
     }

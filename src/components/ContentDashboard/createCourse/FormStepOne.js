@@ -4,7 +4,6 @@ import Select from "@mui/material/Select";
 const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
   const [game, setGame] = useState(games ? games : []);
   useEffect(() => {
-    console.log("games", games);
     setGame(games ? games : []);
   }, []);
   const chnageEvent = (e) => {
@@ -54,29 +53,17 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                   id="gameName"
                   name="gameName"
                   className="coursInput"
-                  value={game ? games[0].game_name : "PUBG"}
+                  value={gameName}
                   onChange={chnageEvent}
                 >
-                  {console.log("games1234", games[0].game_name)}
-                  {game?.map((g, index) => {
-                    {
-                      console.log("games1234", g);
-                    }
-                    <option id={index} value={g._id} className="setepOption">
-                      {g.game_name}
-                    </option>;
+                  {games?.map((g, index) => {
+                    return (
+                      <option value={g._id} className="setepOption">
+                        {g.game_name}
+                      </option>
+                    );
                   })}
                 </select>
-                {/* <Select
-                name="gameyouaregoodat"
-                isMulti
-                className="form-control-alternative"
-                // defaultValue={["1", "2", "3"]}
-                options={games?.map((game) => ({
-                  value: game?._id,
-                  label: game.game_name,
-                }))}
-              /> */}
               </div>
             </Grid>
             <Grid container spacing={2}>

@@ -21,7 +21,6 @@ const Dashboard = () => {
   }, []);
   const getGames = async () => {
     let res = await api("get", `/games/`);
-    console.log("games in home", res.data);
     if (res) {
       updateStore({ Games: res.data });
       setGames(res.data);
