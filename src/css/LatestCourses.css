@@ -84,7 +84,30 @@
   font-size: 20px;
   padding: 20px 0px;
 }
-
+/* -------------------------------- new card --------------------------------   */
+.latestCourseMain-Div {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  align-items: center;
+}
+.latestCourse-colmn-centerDiv {
+  display: flex;
+  padding: 15px 0;
+  align-items: center;
+}
+.latestCourse-h4 {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  font-size: 28px;
+}
+.latestCourse-p {
+  padding: 0 0 0 5px;
+}
+/* -------------------------------- new card --------------------------------   */
 /* for mobile */
 @media only screen and (min-width: 320px) and (max-width: 812px) {
   .cardGrid {

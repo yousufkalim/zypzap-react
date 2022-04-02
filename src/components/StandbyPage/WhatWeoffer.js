@@ -11,6 +11,7 @@ export default function WhatWeOffer() {
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
   const { t, i18n } = useTranslation();
+  const [showPopup, setShowPopup] = useState(false);
 
   // React.useEffect(() => {
   //   document.addEventListener("scroll", () => {
@@ -45,6 +46,8 @@ export default function WhatWeOffer() {
           isThreeLine={true}
           open={open2}
           setOpen={setOpen2}
+          setShowPopups={setShowPopup}
+          setShowPopup={setShowPopup}
           title="Inscrivez-vous pour bénéficier d’un an de"
           title2=" services offerts !"
           content="Offre reservée aux 10 000 premiers inscrits"
@@ -60,6 +63,26 @@ export default function WhatWeOffer() {
             style={{ fontWeight: "100", fontSize: "28px" }}
           ></h1>
           {/* <div className="offerdashline"></div> */}
+        </div>
+        <div className="preparingHeading">
+          <h1 className="preparingH1">Nous prÉparons le lancement</h1>
+          <p className="preparingP">
+            Nous avons hâte de vous faire découvrir la plateforme ZypZap.
+          </p>
+          <p className="preparingP">
+            Toute notre équipe est mobilisée sur le développement de ses
+            fonctionnalités inédites et innovantes.
+          </p>
+          <p className="preparingP">
+            Inscrivez-vous dès maintenant pour participer au développement de
+            notre communauté.
+          </p>
+          <p className="preparingP2">
+            Nous avons hâte de vous faire découvrir la plateforme ZypZap. Toute
+            notre équipe est mobilisée sur le développement de ses
+            fonctionnalités inédites et innovantes. Inscrivez-vous dès
+            maintenant pour participer au développement de notre communauté.
+          </p>
         </div>
       </div>
       <Grid container spacing={2} className="offerGrid ">

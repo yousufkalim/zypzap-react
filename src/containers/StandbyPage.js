@@ -39,8 +39,8 @@ export default function StandbyPage() {
       >
         <UserLandingPageHeader />
         <Body />
-        <Preparing />
         <WhatWeOffer />
+        <Preparing />
         <FollowUs />
         {/* <JoinedUs /> */}
         {/* <UserLandingPageBlog /> */}
