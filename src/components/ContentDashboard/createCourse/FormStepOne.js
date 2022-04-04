@@ -78,13 +78,16 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                     onChange={chnageEvent}
                   >
                     <option value="inital Level" className="setepOption">
-                      Initial
+                      Casual
                     </option>
                     <option value="medium Level" className="setepOption">
-                      Medium
+                      Confirmed
                     </option>
                     <option value="Advance Level" className="setepOption">
-                      Pro
+                      Hardcore
+                    </option>
+                    <option value="Advance Level" className="setepOption">
+                      Esporter
                     </option>
                   </select>
                 </div>

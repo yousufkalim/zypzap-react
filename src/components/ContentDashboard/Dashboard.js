@@ -15,7 +15,8 @@ const Dashboard = () => {
   const [defaultCompState, setDefaultCompState] = useState("Course");
   const [createCourse, setcreateCourse] = useState(false);
   const [games, setGames] = useState();
-
+  const { creator } = Store();
+  console.log("creator", creator);
   useEffect(() => {
     getGames();
   }, []);
@@ -61,6 +62,7 @@ const Dashboard = () => {
           setcreateCourse={setcreateCourse}
           createCourse={createCourse}
           games={games}
+          creator={creator}
         />
       </Box>
     </>

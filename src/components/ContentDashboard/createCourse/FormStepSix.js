@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import ImageInput from "../../../utils/ImageInput";
 import api from "../../../api";
+import { Store, UpdateStore } from "../../../StoreContext";
 import { toast } from "react-toastify";
 const FormStepsix = ({
   step,
@@ -11,6 +12,7 @@ const FormStepsix = ({
   setformDataSix,
   creator,
 }) => {
+  const updateStore = UpdateStore();
   const [uploading, setUploading] = useState(false);
   const handleFileChange = (event) => {
     const file = event.target.files[0];
