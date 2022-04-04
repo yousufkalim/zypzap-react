@@ -9,6 +9,8 @@ const FormStepsix = ({
   formDataOne,
   formDataTwo,
   formDataSix,
+  setformDataOne,
+  setformDataTwo,
   setformDataSix,
   creator,
 }) => {
@@ -42,6 +44,17 @@ const FormStepsix = ({
     formdata.append(`id`, `${creator._id}`);
     let res = await api("post", "/courses", formdata);
     if (res) {
+      setformDataOne({
+        gamedetails: "",
+        gameName: "",
+        gameLevel: "",
+        gameType: "",
+        gameMood: "",
+        gamePlateForm: "",
+        description: "",
+      });
+      setformDataTwo([]);
+      setformDataSix({});
       toast.success("Profil non modifié");
     } else {
       toast.error("Enter your email");

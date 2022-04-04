@@ -28,9 +28,7 @@ const calTotalSecInVideos = (videos) => {
 };
 const formated = (date) => {
   const newDate = new Date(date);
-  console.log("date", newDate);
   let format = `D: ${newDate.getMonth()}/${newDate.getDay()}/${newDate.getFullYear()}`;
-  console.log("format", format);
   return format;
 };
 const DashboardUploadCourses = ({ pageName, creator }) => {
