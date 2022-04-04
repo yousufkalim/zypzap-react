@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import ImageInput from "../../../utils/ImageInput";
 import api from "../../../api";
+import { Store, UpdateStore } from "../../../StoreContext";
 import { toast } from "react-toastify";
 const FormStepsix = ({
   step,
   formDataOne,
   formDataTwo,
   formDataSix,
+  setformDataOne,
+  setformDataTwo,
   setformDataSix,
   creator,
 }) => {
+  const updateStore = UpdateStore();
   const [uploading, setUploading] = useState(false);
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -40,6 +44,17 @@ const FormStepsix = ({
     formdata.append(`id`, `${creator._id}`);
     let res = await api("post", "/courses", formdata);
     if (res) {
+      setformDataOne({
+        gamedetails: "",
+        gameName: "",
+        gameLevel: "",
+        gameType: "",
+        gameMood: "",
+        gamePlateForm: "",
+        description: "",
+      });
+      setformDataTwo([]);
+      setformDataSix({});
       toast.success("Profil non modifié");
     } else {
       toast.error("Enter your email");

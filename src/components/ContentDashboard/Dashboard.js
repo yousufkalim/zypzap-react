@@ -10,6 +10,7 @@ import youtube from "../../assets/img/youtube.png";
 import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
 const Dashboard = () => {
+  const { creator } = Store();
   const updateStore = UpdateStore();
   const [activeButton, setActiveButton] = useState("Course");
   const [defaultCompState, setDefaultCompState] = useState("Course");
@@ -18,7 +19,15 @@ const Dashboard = () => {
 
   useEffect(() => {
     getGames();
+    // getCreator();
   }, []);
+  const getCreator = async () => {
+    let id = creator?._id;
+    let res = await api("get", `/creators/${id}`);
+    if (res) {
+      updateStore({ creator: res.data });
+    }
+  };
   const getGames = async () => {
     let res = await api("get", `/games/`);
     if (res) {
@@ -61,6 +70,7 @@ const Dashboard = () => {
           setcreateCourse={setcreateCourse}
           createCourse={createCourse}
           games={games}
+          creator={creator}
         />
       </Box>
     </>

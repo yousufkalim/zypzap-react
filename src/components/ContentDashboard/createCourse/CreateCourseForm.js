@@ -58,6 +58,8 @@ const CreateCourseForm = ({ games }) => {
             formDataOne={formDataOne}
             formDataTwo={formDataTwo}
             formDataSix={formDataSix}
+            setformDataOne={setformDataOne}
+            setformDataTwo={setformDataTwo}
             setformDataSix={setformDataSix}
             creator={creator}
           />

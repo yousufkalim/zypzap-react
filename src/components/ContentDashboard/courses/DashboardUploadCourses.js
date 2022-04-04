@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import Course1 from "../../../assets/img/course1.png";
 import Course2 from "../../../assets/img/course2.png";
@@ -9,28 +9,31 @@ import { ReactComponent as Star1 } from "../../../assets/icons/star2.svg";
 import EditIcon from "../../../assets/icons/EditIcon.svg";
 import DeleteIcon from "../../../assets/icons/DeleteIcon.svg";
 import IIcon from "../../../assets/icons/IIcon.svg";
+import { CompressOutlined } from "@mui/icons-material";
 
-var items = [
-  {
-    id: 1,
-    title: "CS-GO Ep 2 Complete Course",
-    img: Course1,
-    name: "James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "1",
-  },
-  {
-    id: 2,
-    title: "PUBG GamePlay Course",
-    img: Course2,
-    name: "Ifaf ghori",
-    rating: "rating",
-    price: "19.99",
-    test: "2",
-  },
-];
-const DashboardUploadCourses = ({ pageName }) => {
+const calTotalSecInVideos = (videos) => {
+  let timeInSecond = 1;
+  videos.map((videos) => (timeInSecond += parseInt(videos.duration)));
+  var hrs = ~~(timeInSecond / 3600);
+  var mins = ~~((timeInSecond % 3600) / 60);
+  var secs = ~~timeInSecond % 60;
+  let time;
+  if (hrs > 0) {
+    time = `${hrs} : ${mins} :${secs}`;
+  } else {
+    time = `${mins} : ${secs}`;
+  }
+
+  return time;
+};
+const formated = (date) => {
+  const newDate = new Date(date);
+  let format = `D: ${newDate.getMonth()}/${newDate.getDay()}/${newDate.getFullYear()}`;
+  return format;
+};
+const DashboardUploadCourses = ({ pageName, creator }) => {
+  const [star, setstar] = useState();
+
   return (
     <>
       <Grid
@@ -39,14 +42,18 @@ const DashboardUploadCourses = ({ pageName }) => {
         spacing={{ xs: 1, md: 1, lg: 0 }}
         columns={{ xs: 12, sm: 12, md: 12, lg: 12 }}
       >
-        {items.map((item) => (
+        {creator?.courses?.map((item) => (
           <Grid item xs={12} sm={12} md={4} lg={3} className="card_grids">
             <div className="cardGrid-dashboard">
               <div className="favourite-icon-position">
-                <img src={item.img} className="dashboardcourseimg" alt="img" />
+                <img
+                  src={item.thumbnail}
+                  className="dashboardcourseimg"
+                  alt="img"
+                />
               </div>
               <div className="dashbordHeading-div">
-                <h5 className="latestcourseh5">{item.title}</h5>
+                <h5 className="latestcourseh5">{item.course_name}</h5>
                 <div className="dashbordIconsDiv">
                   {pageName === "publish" || pageName === "draft" ? (
                     <>
@@ -59,20 +66,24 @@ const DashboardUploadCourses = ({ pageName }) => {
                   )}
                 </div>
               </div>
-              <p className="latestcoursep1">{item.name}</p>
+              <p className="latestcoursep1">{creator?.user_id?.username}</p>
               <p className="latestcoursep1">
                 {" "}
-                5.0 &nbsp;
+                {item?.rating === 0 ? item?.rating + ".0" : item?.rating} &nbsp;
                 {[1, 2, 3, 4, 5].map((item) => (
                   <Star1 className="star-icon" />
                 ))}
-                &nbsp; (1809)
+                &nbsp;{" "}
+                {`(${
+                  item?.student?.length > 0 ? item?.student?.length : ` 0 `
+                })`}
               </p>
               <h6
                 className="dashboardlatestcourseh6"
                 style={{ display: "inline-block" }}
               >
-                $19.99 &nbsp; | &nbsp; 50 min
+                {"$" + item.price} &nbsp; | &nbsp;{" "}
+                {calTotalSecInVideos(item?.videos)}
               </h6>
               <p
                 className="dashboardlatestcourseh6"
@@ -84,7 +95,7 @@ const DashboardUploadCourses = ({ pageName }) => {
                 }}
               >
                 {pageName === "publish" || pageName === "draft" ? (
-                  "D: 11/02/2022"
+                  <> {formated(item?.createdAt)}</>
                 ) : (
                   <img src={IIcon} alt="" />
                 )}
