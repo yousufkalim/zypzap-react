@@ -9,21 +9,19 @@ import performance from "../../assets/img/performance.png";
 import youtube from "../../assets/img/youtube.png";
 import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
-const Dashboard = () => {
+const Dashboard = ({ id }) => {
   const { creator } = Store();
   const updateStore = UpdateStore();
   const [activeButton, setActiveButton] = useState("Course");
   const [defaultCompState, setDefaultCompState] = useState("Course");
   const [createCourse, setcreateCourse] = useState(false);
   const [games, setGames] = useState();
-
   useEffect(() => {
     getGames();
     // getCreator();
   }, []);
   const getCreator = async () => {
-    let id = creator?._id;
-    let res = await api("get", `/creators/${id}`);
+    let res = await api("get", `/creators/${creator._id}`);
     if (res) {
       updateStore({ creator: res.data });
     }

@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/blog/BlogFooter";
 import Dashboard from "../components/ContentDashboard/Dashboard";
-import CreateACoursePopup from "../components/PopupForms/CreateACoursePopup";
+// import CreateACoursePopup from "../components/PopupForms/CreateACoursePopup";
+import { Store, UpdateStore } from "../StoreContext";
 const ContentDashboard = () => {
+  const { creator } = Store();
   const [footerState, setFooterState] = useState(true);
-  const [openlogin, setOpenLogin] = React.useState(false);
-  const [opensignup, setOpenSignup] = React.useState(false);
-  const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] =
-    React.useState(false);
-  
+  const [openlogin, setOpenLogin] = useState(false);
+  const [opensignup, setOpenSignup] = useState(false);
+  const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] = useState(false);
   return (
     <>
       <div
@@ -28,7 +28,7 @@ const ContentDashboard = () => {
           openBecomeCreatorPopup={openBecomeCreatorPopup}
           setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
         />
-        <Dashboard />
+        <Dashboard id={creator?._id} />
 
         {/* {!footerState && <Footer />} */}
       </div>
