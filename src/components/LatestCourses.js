@@ -17,7 +17,6 @@ import LatestCourseVideoIcon from "../assets/icons/LatestCourseVideoIcon.svg";
 import LatestCourseTimingIcon from "../assets/icons/LatestCourseTimingIcon.svg";
 export default function LatestCourses(props) {
   const { courses } = props;
-
   const items = courses.sort(function (a, b) {
     var c = new Date(a.createdAt);
     var d = new Date(b.createdAt);
@@ -33,15 +32,31 @@ export default function LatestCourses(props) {
 
     return count;
   };
-  let countTime = (course) => {
-    const Videos = course?.videos;
-
-    let count = 0;
-    if (Videos) {
-      Videos.map((video) => {
-        count += video.duration;
-      });
+  const calTotalSecInVideos = (videos) => {
+    let timeInSecond = 1;
+    videos.map((videos) => (timeInSecond += parseInt(videos.duration)));
+    var hrs = ~~(timeInSecond / 3600);
+    var mins = ~~((timeInSecond % 3600) / 60);
+    var secs = ~~timeInSecond % 60;
+    let time;
+    if (hrs > 0) {
+      time = `${hrs} : ${mins} :${secs} hrs`;
+    } else if (mins > 0) {
+      time = `${mins} : ${secs} mins`;
+    } else {
+      time = `${mins} : ${secs} sec`;
     }
+
+    return time;
+  };
+  const timeInday = (videos) => {
+    const secsPerDay = 86400;
+    const seconds = calTotalSecInVideos(videos);
+    var days = Math.floor(seconds / secsPerDay);
+    let week = 0;
+    if (days < 7) week = 0;
+    if (days > 7) week = days / 7;
+    return week;
   };
   // var items = [
   //   {
@@ -191,6 +206,7 @@ export default function LatestCourses(props) {
                   borderRadius: "35px",
                 }}
               >
+                {console.log("item", item)}
                 {/* {item?.creator?.user_id?.profile_photo?.item.creator.user_id.profile_photo:} courseimg img */}
                 <img
                   src={item?.thumbnail ? item.thumbnail : Course1}
@@ -198,8 +214,8 @@ export default function LatestCourses(props) {
                   alt="img"
                 />
                 <h4 className="latestCourse-h4">
-                  {/* {item?.course_name ? item.course_name : "Fight Course"} */}
-                  CS-GO Ep 2 Complete Course
+                  {item?.course_name ? item.course_name : "Fight Course"}
+                  {/* CS-GO Ep 2 Complete Course */}
                 </h4>
                 {/* <p className="latestcoursep1">
                   {item?.creator?.user_id?.username}
@@ -237,7 +253,9 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      <p className="latestCourse-p">Ifaf ghori</p>
+                      <p className="latestcoursep1">
+                        {item?.creator?.user_id?.username}
+                      </p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
                       <img
@@ -245,7 +263,10 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      <p className="latestCourse-p">5.0 Rating</p>
+                      <p className="latestCourse-p">
+                        {" "}
+                        {item?.rating ? item.rating : "0.0"}
+                      </p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}
@@ -256,7 +277,7 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      <p className="latestCourse-p">(382,420)</p>
+                      {countViews(item)}
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
                       <img
@@ -264,7 +285,9 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      <p className="latestCourse-p">50 min</p>
+                      <p className="latestCourse-p">
+                        {calTotalSecInVideos(item?.videos)}
+                      </p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}
@@ -275,7 +298,7 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      <p className="latestCourse-p">All Levels</p>
+                      <p className="latestCourse-p">{item?.level}</p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
                       <img
@@ -283,7 +306,9 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      <p className="latestCourse-p">5 Days ago</p>
+                      <p className="latestCourse-p">
+                        {timeInday(item?.videos)}5 Days ago
+                      </p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}

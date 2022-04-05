@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import Course1 from "../../../assets/img/course1.png";
 import Course2 from "../../../assets/img/course2.png";
@@ -10,7 +10,7 @@ import EditIcon from "../../../assets/icons/EditIcon.svg";
 import DeleteIcon from "../../../assets/icons/DeleteIcon.svg";
 import IIcon from "../../../assets/icons/IIcon.svg";
 import { CompressOutlined } from "@mui/icons-material";
-
+import api from "../../../api";
 const calTotalSecInVideos = (videos) => {
   let timeInSecond = 1;
   videos.map((videos) => (timeInSecond += parseInt(videos.duration)));
@@ -31,12 +31,27 @@ const calTotalSecInVideos = (videos) => {
 const formated = (date) => {
   const newDate = new Date(date);
   console.log("newDate", newDate);
-  let format = `D: ${newDate.getMonth()}/${newDate.getDay()}/${newDate.getFullYear()}`;
+  console.log("month", newDate.getMonth());
+  console.log("month", newDate.getDay());
+  console.log("month", newDate.getFullYear());
+  let format = `D: ${newDate.getMonth() + 1}/${
+    newDate.getDay() + 3
+  }/${newDate.getFullYear()}`;
   return format;
 };
 const DashboardUploadCourses = ({ pageName, creator }) => {
   const [star, setstar] = useState();
-
+  const [course, setCourse] = useState([]);
+  useEffect(() => {
+    // getCourses();
+  }, [creator]);
+  const getCourses = async () => {
+    let res = await api("get", `/courses`);
+    if (res) {
+      setCourse(res.data);
+      console.log("res", res.data);
+    }
+  };
   return (
     <>
       <Grid

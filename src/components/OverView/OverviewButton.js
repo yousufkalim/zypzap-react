@@ -14,6 +14,7 @@ const OverviewButton = (props) => {
             <div className="overView-description-content">
               <h3 className="overDescriptionH3">Description</h3>
               <p className="overDescriptionP">
+                {console.log(singlCourse)}
                 {singlCourse?.description ? singlCourse.description : ""}
               </p>
             </div>
@@ -31,8 +32,7 @@ const OverviewButton = (props) => {
                 })
               ) : (
                 <li className="overRequirementsLi">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
-                  aliquam, purus sit amet luctus venenatis
+                  No requirement available!
                 </li>
               )}
             </div>

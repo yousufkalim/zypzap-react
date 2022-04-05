@@ -60,7 +60,6 @@ const CreateYourCourse = ({ setcreateCourse, setDefaultCompState }) => {
                 setcreateCourse(true);
                 setDefaultCompState("");
               }}
-              onMouseEnter={setAnchorEl}
             >
               Create Your Course
             </button>

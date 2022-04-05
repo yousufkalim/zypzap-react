@@ -4,6 +4,7 @@ import ImageInput from "../../../utils/ImageInput";
 import api from "../../../api";
 import { Store, UpdateStore } from "../../../StoreContext";
 import { toast } from "react-toastify";
+import successPopup from "../../PopupForms/RequestSuccessfullyPopup";
 const FormStepsix = ({
   step,
   formDataOne,
@@ -15,13 +16,14 @@ const FormStepsix = ({
   creator,
 }) => {
   const updateStore = UpdateStore();
-  const [uploading, setUploading] = useState(false);
+  const [uploading, setUploading] = useState(true);
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setformDataSix(file);
     setUploading(true);
   };
   const handleClick = async () => {
+    setUploading(false);
     let video = [...formDataTwo, formDataSix];
     const {
       gamedetails,
@@ -44,6 +46,7 @@ const FormStepsix = ({
     formdata.append(`id`, `${creator._id}`);
     let res = await api("post", "/courses", formdata);
     if (res) {
+      setUploading(true);
       setformDataOne({
         gamedetails: "",
         gameName: "",
@@ -55,6 +58,7 @@ const FormStepsix = ({
       });
       setformDataTwo([]);
       setformDataSix({});
+      console.log("res", res);
       toast.success("Profil non modifié");
     } else {
       toast.error("Enter your email");
@@ -85,7 +89,7 @@ const FormStepsix = ({
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
           <button className="continueBtn" onClick={handleClick}>
-            Submit
+            {uploading ? "Submit" : "Lodding"}
           </button>
         </div>
       </div>
