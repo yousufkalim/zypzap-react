@@ -19,15 +19,18 @@ const calTotalSecInVideos = (videos) => {
   var secs = ~~timeInSecond % 60;
   let time;
   if (hrs > 0) {
-    time = `${hrs} : ${mins} :${secs}`;
+    time = `${hrs} : ${mins} :${secs} hrs`;
+  } else if (mins > 0) {
+    time = `${mins} : ${secs} mins`;
   } else {
-    time = `${mins} : ${secs}`;
+    time = `${mins} : ${secs} sec`;
   }
 
   return time;
 };
 const formated = (date) => {
   const newDate = new Date(date);
+  console.log("newDate", newDate);
   let format = `D: ${newDate.getMonth()}/${newDate.getDay()}/${newDate.getFullYear()}`;
   return format;
 };
