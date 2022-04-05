@@ -30,10 +30,6 @@ const calTotalSecInVideos = (videos) => {
 };
 const formated = (date) => {
   const newDate = new Date(date);
-  console.log("newDate", newDate);
-  console.log("month", newDate.getMonth());
-  console.log("month", newDate.getDay());
-  console.log("month", newDate.getFullYear());
   let format = `D: ${newDate.getMonth() + 1}/${
     newDate.getDay() + 3
   }/${newDate.getFullYear()}`;
@@ -49,7 +45,6 @@ const DashboardUploadCourses = ({ pageName, creator }) => {
     let res = await api("get", `/courses`);
     if (res) {
       setCourse(res.data);
-      console.log("res", res.data);
     }
   };
   return (

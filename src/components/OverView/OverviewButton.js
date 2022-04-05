@@ -14,7 +14,6 @@ const OverviewButton = (props) => {
             <div className="overView-description-content">
               <h3 className="overDescriptionH3">Description</h3>
               <p className="overDescriptionP">
-                {console.log(singlCourse)}
                 {singlCourse?.description ? singlCourse.description : ""}
               </p>
             </div>

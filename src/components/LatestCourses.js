@@ -206,7 +206,6 @@ export default function LatestCourses(props) {
                   borderRadius: "35px",
                 }}
               >
-                {console.log("item", item)}
                 {/* {item?.creator?.user_id?.profile_photo?.item.creator.user_id.profile_photo:} courseimg img */}
                 <img
                   src={item?.thumbnail ? item.thumbnail : Course1}

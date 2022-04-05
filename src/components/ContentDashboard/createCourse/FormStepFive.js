@@ -14,7 +14,6 @@ const FormStepFive = ({ step, setStep, setformDataTwo, formDataTwo }) => {
         {formDataTwo?.map((file, index) => {
           return (
             <>
-              {console.log("index", index)}
               <SingleVideo
                 id={index}
                 file={file}
@@ -43,14 +42,6 @@ const SingleVideo = ({ file, setformDataTwo, index, formDataTwo }) => {
     setformDataTwo(newChapter);
   };
   const handleEdit = (file, index) => {};
-  // const chnageEvent = (e) => {
-  //   setFileName(e.target.value);
-  //   let temp = formDataTwo;
-  //   console.log(temp, "--->temp", e.target.id);
-  //   temp[parseInt(e.target.id)].name = e.target.value;
-  //   setformDataTwo(temp);
-  //   console.log("formDataTwo", formDataTwo);
-  // };
   return (
     <div className="step3_container">
       <div className="step3Counting">{index}-</div>

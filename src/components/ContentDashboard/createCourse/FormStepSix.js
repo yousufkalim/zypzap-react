@@ -58,7 +58,6 @@ const FormStepsix = ({
       });
       setformDataTwo([]);
       setformDataSix({});
-      console.log("res", res);
       toast.success("Profil non modifié");
     } else {
       toast.error("Enter your email");
