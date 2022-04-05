@@ -16,7 +16,7 @@ const FollowUs = () => {
             <div className="followDiv">
               <div className="followUs-box2">
                 <a
-                  href="https://discord.gg/qkv5jufE"
+                  href="https://discord.gg/GtsvfSV79U"
                   target="_blank"
                   className="followUsLinks"
                 >

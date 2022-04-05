@@ -10,14 +10,14 @@ const CreateCourseForm = ({ games }) => {
   const [step, setStep] = useState(1);
   const [formDataOne, setformDataOne] = useState({
     gamedetails: "",
-    gameName: "",
-    gameLevel: "",
-    gameType: "",
-    gameMood: "",
-    gamePlateForm: "",
+    gameName: "PUBG",
+    gameLevel: "Casual",
+    gameType: "Action",
+    gameMood: "Single",
+    gamePlateForm: "Mobile Games",
     description: "",
   });
-  const [formDataTwo, setformDataTwo] = useState();
+  const [formDataTwo, setformDataTwo] = useState([]);
   const [formDataSix, setformDataSix] = useState({});
   const { creator } = Store();
 

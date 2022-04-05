@@ -49,9 +49,6 @@ const OverViewHome = (props) => {
                 {singlCourse?.course_name ? singlCourse.course_name : "CS GO"}{" "}
                 Gameplay
               </h1>
-              <p className="overViewP">
-                {singlCourse?.description ? singlCourse.description : ""}
-              </p>
             </div>
             <div className="overViewTags">
               <li className="overViewLi">
