@@ -42,9 +42,9 @@ export default function LatestCourses(props) {
     if (hrs > 0) {
       time = `${hrs} : ${mins} :${secs} hrs`;
     } else if (mins > 0) {
-      time = `${mins} : ${secs} mins`;
+      time = `${mins}:${secs} mins`;
     } else {
-      time = `${mins} : ${secs} sec`;
+      time = `${secs} sec`;
     }
 
     return time;
@@ -206,7 +206,6 @@ export default function LatestCourses(props) {
                   borderRadius: "35px",
                 }}
               >
-                {/* {item?.creator?.user_id?.profile_photo?.item.creator.user_id.profile_photo:} courseimg img */}
                 <img
                   src={item?.thumbnail ? item.thumbnail : Course1}
                   className="courseimg"
@@ -214,37 +213,8 @@ export default function LatestCourses(props) {
                 />
                 <h4 className="latestCourse-h4">
                   {item?.course_name ? item.course_name : "Fight Course"}
-                  {/* CS-GO Ep 2 Complete Course */}
                 </h4>
-                {/* <p className="latestcoursep1">
-                  {item?.creator?.user_id?.username}
-                </p>
-                <p className="latestcoursep1">
-                  {" "}
-                  {item?.rating ? item.rating : "0.0"} &nbsp;
-                  {[1, 2, 3, 4, 5].map((item) => (
-                    <Star1
-                      style={{
-                        width: "15px",
-                        height: "15px",
-                        color: "red",
-                        margintTop: "3px",
-                        position: "relative",
-                        top: "3px",
-                        key: { item },
-                      }}
-                    />
-                  ))}
-                  &nbsp;{" "}
-                  {item?.student
-                    ? item.student.length + " Student"
-                    : 0 + "   Student"}
-                </p>
-                <h6 className="latestcourseh6">{item?.price + " $"}</h6> */}
-
-                {/* /* -------------------------------- new card --------------------------------  */}
                 <div className="latestCourseMain-Div">
-                  {/* /* ------------------------------- copy colmn -------------------------------  */}
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
                       <img
@@ -252,7 +222,7 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      <p className="latestcoursep1">
+                      <p className="latestCourse-p">
                         {item?.creator?.user_id?.username}
                       </p>
                     </div>
@@ -264,7 +234,7 @@ export default function LatestCourses(props) {
                       />
                       <p className="latestCourse-p">
                         {" "}
-                        {item?.rating ? item.rating : "0.0"}
+                        {item?.rating ? item.rating : "0"}
                       </p>
                     </div>
                   </div>
@@ -276,7 +246,7 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      {countViews(item)}
+                      <p className="latestCourse-p"> {countViews(item)}</p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
                       <img
