@@ -424,6 +424,9 @@ export default function PrimarySearchAppBar({
                           onChange={handleChange}
                           displayEmpty
                         >
+                          <button style={{ color: "white" }}>
+                            Comming Soon
+                          </button>
                           <MenuItem value="" className="walletInputMenu">
                             Connect Wallet
                           </MenuItem>
@@ -437,29 +440,6 @@ export default function PrimarySearchAppBar({
                       </MenuItem>
                     </FormControl>
                   </div>
-                  {/* <Link
-                    to="/contentHome"
-                    style={{ color: "white", textDecoration: "none" }}
-                  >
-                    <button
-                      className="sgnBtn"
-                      style={{
-                        backgroundColor: "#202342",
-                        width: "150px",
-                        height: "30px",
-                        color: "white",
-                        borderRadius: "20px",
-                        border: "none",
-                        outline: "none",
-                        height: "30px",
-                        color: "white",
-                        borderRadius: "20px",
-                        border: "none",
-                      }}
-                    >
-                      Switch to Learner
-                    </button>
-                  </Link> */}
                 </>
               )}
 
