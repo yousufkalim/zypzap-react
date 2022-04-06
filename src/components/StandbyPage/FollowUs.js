@@ -16,7 +16,7 @@ const FollowUs = () => {
             <div className="followDiv">
               <div className="followUs-box2">
                 <a
-                  href="https://discord.gg/QDB2vxVE"
+                  href="https://discord.gg/GtsvfSV79U"
                   target="_blank"
                   className="followUsLinks"
                 >
@@ -29,7 +29,7 @@ const FollowUs = () => {
               </div>
               <div className="followUs-box2">
                 <a
-                  href="https://twitter.com/ZypZap_com"
+                  href="https://twitter.com/ZypZapCommunity"
                   target="_blank"
                   className="followUsLinks"
                 >

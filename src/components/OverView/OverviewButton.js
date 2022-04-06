@@ -31,8 +31,7 @@ const OverviewButton = (props) => {
                 })
               ) : (
                 <li className="overRequirementsLi">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
-                  aliquam, purus sit amet luctus venenatis
+                  No requirement available!
                 </li>
               )}
             </div>

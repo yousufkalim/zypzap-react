@@ -95,7 +95,7 @@
 }
 .latestCourse-colmn-centerDiv {
   display: flex;
-  padding: 15px 0;
+  padding: 15px 4px;
   align-items: center;
 }
 .latestCourse-h4 {

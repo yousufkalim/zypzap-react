@@ -53,10 +53,10 @@ const Footer2 = ({ openContentRequest, setOpenContentRequest }) => {
                   </tr>
                 </table>
                 <div className="isocialcondiv">
-                  <a href="https://discord.gg/QDB2vxVE" target="_blank">
+                  <a href="https://discord.gg/GtsvfSV79U" target="_blank">
                     <img src={fDiscord} height={40} className="imgIcon" />
                   </a>
-                  <a href="https://twitter.com/ZypZap_com" target="_blank">
+                  <a href="https://twitter.com/ZypZapCommunity" target="_blank">
                     <img src={fTwitter} height={40} className="imgIcon" />
                   </a>
                   {/* <img src={fReddit} height={40} className="imgIcon" /> */}

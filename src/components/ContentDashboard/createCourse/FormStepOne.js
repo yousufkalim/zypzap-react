@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import Select from "@mui/material/Select";
+import { toast } from "react-toastify";
 const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
   const [game, setGame] = useState(games ? games : []);
   useEffect(() => {
@@ -21,6 +22,15 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
     gamePlateForm,
     description,
   } = formDataOne;
+  const handleContinue = () => {
+    if (gamedetails == "") {
+      return toast.error("Veuillez saisir le nom de votre cours");
+    }
+    if (description == "") {
+      return toast.error("Veuillez entrer votre description");
+    }
+    setStep(2);
+  };
   return (
     <>
       <div className="formStepOneDiv">
@@ -77,14 +87,17 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                     value={gameLevel}
                     onChange={chnageEvent}
                   >
-                    <option value="inital Level" className="setepOption">
-                      Initial
+                    <option value="Casual" className="setepOption">
+                      Casual
                     </option>
-                    <option value="medium Level" className="setepOption">
-                      Medium
+                    <option value="Confirmed" className="setepOption">
+                      Confirmed
                     </option>
-                    <option value="Advance Level" className="setepOption">
-                      Pro
+                    <option value="Hardcore" className="setepOption">
+                      Hardcore
+                    </option>
+                    <option value="Esporter" className="setepOption">
+                      Esporter
                     </option>
                   </select>
                 </div>
@@ -213,7 +226,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
         ></textarea>
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button onClick={() => setStep(2)} className="continueBtn">
+          <button onClick={handleContinue} className="continueBtn">
             Continue
           </button>
         </div>
@@ -221,5 +234,4 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
     </>
   );
 };
-
 export default FormStepone;

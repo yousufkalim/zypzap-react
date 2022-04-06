@@ -15,7 +15,7 @@ const Instructor = (props) => {
   const { user } = Store();
   const totalStudent = (courses) => {
     let total = 0;
-    courses.map((c) => {
+    courses?.map((c) => {
       total += c.student.length;
     });
     return total;
@@ -62,7 +62,7 @@ const Instructor = (props) => {
                 <p className="instructor-student">
                   {singlCourse?.creator?.courses
                     ? totalStudent(singlCourse.creator.courses) + " Students"
-                    : "500000+ Students"}
+                    : "0 Students"}
                 </p>
               </div>
 

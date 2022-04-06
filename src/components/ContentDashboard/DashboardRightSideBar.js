@@ -12,6 +12,7 @@ const DashboardRightSideBar = ({
   setcreateCourse,
   setDefaultCompState,
   games,
+  creator,
 }) => {
   const [activeUploadButton, setActiveUploadButton] = useState(1);
   const handleActiveUploadButton = (i) => {
@@ -75,7 +76,7 @@ const DashboardRightSideBar = ({
             </div>
             {/* <h1 className="upload-courses-heading"> My Uploaded Courses</h1> */}
             {activeUploadButton == 1 ? (
-              <DashboardUploadCourses pageName={"publish"} />
+              <DashboardUploadCourses pageName={"publish"} creator={creator} />
             ) : null}
             {activeUploadButton == 2 ? (
               <DashboardUploadCourses pageName={"draft"} />
