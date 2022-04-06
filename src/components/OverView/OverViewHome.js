@@ -100,8 +100,15 @@ const OverViewHome = (props) => {
                   <p className="cardP2">$39.99</p>
                   <img src={OverCardHurtLogo} alt="" className="cardHurtLogo" />
                 </div>
+                <NavLink
+                  to="#"
+                  className="CardBuyBtn"
+                  onClick={() => props.setShowVideo(true)}
+                >
+                  Start
+                </NavLink>
                 <NavLink to="#" className="CardBuyBtn">
-                  Buy
+                  Enroll Now
                 </NavLink>
                 <NavLink to="#" className="CardBuyBtn2">
                   Stock It In The Caddy
