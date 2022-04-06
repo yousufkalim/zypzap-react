@@ -33,7 +33,7 @@ export default function LatestCourses(props) {
     return count;
   };
   const calTotalSecInVideos = (videos) => {
-    let timeInSecond = 1;
+    let timeInSecond = 0;
     videos.map((videos) => (timeInSecond += parseInt(videos.duration)));
     var hrs = ~~(timeInSecond / 3600);
     var mins = ~~((timeInSecond % 3600) / 60);
@@ -49,113 +49,13 @@ export default function LatestCourses(props) {
 
     return time;
   };
-  const timeInday = (videos) => {
-    const secsPerDay = 86400;
-    const seconds = calTotalSecInVideos(videos);
-    var days = Math.floor(seconds / secsPerDay);
-    let week = 0;
-    if (days < 7) week = 0;
-    if (days > 7) week = days / 7;
-    return week;
+  const postedTime = (item) => {
+    const date1 = new Date(item?.createdAt);
+    const date2 = new Date();
+    const diffTime = Math.abs(date2 - date1);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
   };
-  // var items = [
-  //   {
-  //     title: "CS-GO Ep 2 Complete Course 1",
-  //     img: Course1,
-  //     name: "James Wiik",
-  //     rating: "rating",
-  //     price: "19.99",
-  //     test: "1",
-  //   },
-  //   {
-  //     title: "PUBG GamePlay Course",
-  //     img: Course2,
-  //     name: "Ifaf ghori",
-  //     rating: "rating",
-  //     price: "19.99",
-  //     test: "2",
-  //   },
-  //   {
-  //     title: "Taken 5 Fight Course",
-  //     img: Course3,
-  //     name: "Arslan Ash",
-  //     rating: "rating",
-  //     price: "19.99",
-  //     test: "3",
-  //   },
-  //   {
-  //     title: "Minicraft Full Course",
-  //     img: Course4,
-  //     name: "James Wiik",
-  //     rating: "rating",
-  //     price: "19.99",
-  //     test: "4",
-  //   },
-  //   {
-  //     title: "5Minicraft Full Course",
-  //     img: Course4,
-  //     name: "5James Wiik",
-  //     rating: "rating",
-  //     price: "19.99",
-  //     test: "5",
-  //   },
-  //   {
-  //     title: "6Minicraft Full Course",
-  //     img: Course3,
-  //     name: "6James Wiik",
-  //     rating: "rating",
-  //     price: "19.99",
-  //     test: "6",
-  //   },
-  //   {
-  //     title: "7Minicraft Full Course",
-  //     img: Course2,
-  //     name: "7James Wiik",
-  //     rating: "rating",
-  //     price: "19.99",
-  //     test: "7",
-  //   },
-  //   {
-  //     title: "8Minicraft Full Course",
-  //     img: Course1,
-  //     name: "8James Wiik",
-  //     rating: "rating",
-  //     price: "19.99",
-  //     test: "8",
-  //   },
-  //   {
-  //     title: "9Minicraft Full Course",
-  //     img: Course1,
-  //     name: "9James Wiik",
-  //     rating: "rating",
-  //     price: "19.99",
-  //     test: "3",
-  //   },
-  //   {
-  //     title: "10Minicraft Full Course",
-  //     img: Course2,
-  //     name: "10James Wiik",
-  //     rating: "rating",
-  //     price: "19.99",
-  //     test: "3",
-  //   },
-  //   {
-  //     title: "11Minicraft Full Course",
-  //     img: Course3,
-  //     name: "11James Wiik",
-  //     rating: "rating",
-  //     price: "19.99",
-  //     test: "3",
-  //   },
-  //   {
-  //     title: "12Minicraft Full Course",
-  //     img: Course4,
-  //     name: "12James Wiik",
-  //     rating: "rating",
-  //     price: "19.99",
-  //     test: "3",
-  //   },
-  // ];
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -234,7 +134,7 @@ export default function LatestCourses(props) {
                       />
                       <p className="latestCourse-p">
                         {" "}
-                        {item?.rating ? item.rating : "0"}
+                        {item?.rating ? `${item.rating} Ratting` : "0 Rattig"}
                       </p>
                     </div>
                   </div>
@@ -246,7 +146,10 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      <p className="latestCourse-p"> {countViews(item)}</p>
+                      <p className="latestCourse-p">
+                        {" "}
+                        {`( ${countViews(item)} )`}
+                      </p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
                       <img
@@ -275,9 +178,9 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      <p className="latestCourse-p">
-                        {timeInday(item?.videos)}5 Days ago
-                      </p>
+                      <p className="latestCourse-p">{`${postedTime(
+                        item
+                      )} days ago`}</p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}

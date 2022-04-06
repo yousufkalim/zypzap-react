@@ -16,7 +16,7 @@ const Instructor = (props) => {
   const totalStudent = (courses) => {
     let total = 0;
     courses?.map((c) => {
-      total += c.student.length;
+      if (c?.student?.length > 0) total += c.student.length;
     });
     return total;
   };
@@ -49,7 +49,9 @@ const Instructor = (props) => {
                     ? singlCourse.creator.user_id.username
                     : "Arslan Ash"}
                 </h2>
-                <p className="instructorP">Player of Tekken</p>
+                <p className="instructorP">
+                  Player of {singlCourse?.course_name}
+                </p>
                 <p className="instructor-lavel">
                   Level:{" "}
                   <span className="instructor-span">
@@ -82,7 +84,7 @@ const Instructor = (props) => {
             <div className="instructor-co">
               <div className="instructor-about-Heading">
                 <h2 className="instructor-aboutH2">About the Instructor</h2>
-                <p className="instructor-aboutP">Taken Player</p>
+                <p className="instructor-aboutP">{singlCourse?.course_name}</p>
               </div>
               <div className="instructorProfile-heading">
                 <p className="instructorProfile-Name">
@@ -92,9 +94,9 @@ const Instructor = (props) => {
                     : "Arslan Ash"}
                 </p>
                 <p className="instructorProfile-P">
-                  I am a Professional Taken player 2 times world champion last
-                  year i was choosen to be red bull athelete too i am here to
-                  help you win the game and have a fun.
+                  {singlCourse?.description
+                    ? singlCourse.description
+                    : "NO discription right know"}
                 </p>
               </div>
               <div className="overViewTags">
@@ -120,9 +122,9 @@ const Instructor = (props) => {
                 <li className="overViewLi">
                   <img src={overViewIcon4} alt="" className="overViewIcon" />
                   <p className="overViewIconP">
-                    {singlCourse?.student
-                      ? singlCourse.student.length + " Students"
-                      : "2287 Students"}
+                    {singlCourse?.creator?.courses
+                      ? totalStudent(singlCourse.creator.courses) + " Students"
+                      : "0 Students"}
                   </p>
                 </li>
               </div>

@@ -22,7 +22,7 @@ const RequestSuccessfullyPopup = ({ open, setOpen }) => {
           <div className="uploadSuccess-centerDiv">
             <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />
             <p className="uploadSuccessP">
-              Your request for the approvel is send <br /> successfully
+              Your Courses is created <br /> successfully
             </p>
             <button className="uploadSuccessBTN">Done</button>
           </div>

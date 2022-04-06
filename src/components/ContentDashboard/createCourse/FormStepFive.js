@@ -5,6 +5,11 @@ import EditIcon from "../../../assets/icons/EditIcon.svg";
 import DeleteIcon from "../../../assets/icons/DeleteIcon.svg";
 
 const FormStepFive = ({ step, setStep, setformDataTwo, formDataTwo }) => {
+  const handleDelete = (file) => {
+    const newChapter = formDataTwo?.filter((a) => a !== file);
+    setformDataTwo(newChapter);
+  };
+  const handleEdit = (file, index) => {};
   return (
     <>
       <div className="formStepOneDiv">
@@ -13,15 +18,33 @@ const FormStepFive = ({ step, setStep, setformDataTwo, formDataTwo }) => {
         <div className="hrLine1" />
         {formDataTwo?.map((file, index) => {
           return (
-            <>
-              <SingleVideo
-                id={index}
-                file={file}
-                setformDataTwo={setformDataTwo}
-                index={index}
-                formDataTwo={formDataTwo}
-              />
-            </>
+            <div className="step3_container">
+              <div className="step3Counting">{index}-</div>
+              <div className="step3Img">
+                <img src={Fireicon} alt="" />
+              </div>
+              <div className="step3Input">
+                <input
+                  id={index}
+                  type="text"
+                  placeholder="Title"
+                  className="step3_inputs"
+                  value={file?.name}
+                />
+                <img
+                  className="editIcon"
+                  src={EditIcon}
+                  alt=""
+                  onClick={() => handleEdit(file)}
+                />
+                <img
+                  className="deleteIcon"
+                  src={DeleteIcon}
+                  alt=""
+                  onClick={() => handleDelete(file)}
+                />
+              </div>
+            </div>
           );
         })}
         <div className="coursDetailBtn">
@@ -35,41 +58,4 @@ const FormStepFive = ({ step, setStep, setformDataTwo, formDataTwo }) => {
   );
 };
 
-const SingleVideo = ({ file, setformDataTwo, index, formDataTwo }) => {
-  const [fileName, setFileName] = useState(file?.name);
-  const handleDelete = (file) => {
-    const newChapter = formDataTwo?.filter((a) => a !== file);
-    setformDataTwo(newChapter);
-  };
-  const handleEdit = (file, index) => {};
-  return (
-    <div className="step3_container">
-      <div className="step3Counting">{index}-</div>
-      <div className="step3Img">
-        <img src={Fireicon} alt="" />
-      </div>
-      <div className="step3Input">
-        <input
-          id={index}
-          type="text"
-          placeholder="Title"
-          className="step3_inputs"
-          value={fileName}
-        />
-        <img
-          className="editIcon"
-          src={EditIcon}
-          alt=""
-          onClick={() => handleEdit(file)}
-        />
-        <img
-          className="deleteIcon"
-          src={DeleteIcon}
-          alt=""
-          onClick={() => handleDelete(file)}
-        />
-      </div>
-    </div>
-  );
-};
 export default FormStepFive;
