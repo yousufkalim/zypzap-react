@@ -153,6 +153,36 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
                     </InputAdornment>
                   }
                 />
+                <label
+                  htmlFor="password"
+                  style={{ marginTop: "30px" }}
+                  className="createLbl"
+                >
+                  Confirm Password
+                </label>
+                <Input
+                  className="inputForm2Password"
+                  type={values.showPassword ? "text" : "password"}
+                  onChange={onChangeEvent}
+                  placeholder="************************"
+                  value={values.password}
+                  name="password"
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        className="showPassInput"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                      >
+                        {values.showPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
                 <button
                   className="formbtn2"
                   type="submit"

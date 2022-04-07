@@ -71,7 +71,13 @@ function TopCoursesComponent({ item }) {
 
     return count;
   };
-
+  const postedTime = (item) => {
+    const date1 = new Date(item?.createdAt);
+    const date2 = new Date();
+    const diffTime = Math.abs(date2 - date1);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
+  };
   return (
     <Grid
       container
@@ -153,6 +159,10 @@ function TopCoursesComponent({ item }) {
                 {item?.student
                   ? item.student.length + " Student"
                   : 0 + "   Student"}
+              </span>
+              <span className="marginRight">|</span>
+              <span className="marginRight">
+                {`${postedTime(item)} days ago`}
               </span>
             </div>
           </Grid>

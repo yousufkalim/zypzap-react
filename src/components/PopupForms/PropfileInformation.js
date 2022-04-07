@@ -9,7 +9,7 @@ import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
 export default function PropfileInformation({
   openProfile,
-  handleClose,
+  setOpenProfile,
   user,
 }) {
   const [profile_photo, setImageURL] = useState(
@@ -171,7 +171,7 @@ export default function PropfileInformation({
         );
         if (res) {
           toast.success("Modifier le profil avec succès");
-          handleClose(true);
+          setOpenProfile(false);
         }
       } else {
         toast.success("Profil non modifié");
@@ -182,15 +182,18 @@ export default function PropfileInformation({
   let gametypebtn = [
     { name: "Action" },
     { name: "Adventure" },
-    { name: "Multiplayer game" },
+    { name: "Metaverse" },
+    { name: "MMOG" },
     { name: "Car Racing" },
+    { name: "Versus Fighting" },
     { name: "FPS" },
-    { name: "Simulation" },
-    { name: "Sports" },
-    { name: "Puzzle" },
-    { name: "RPG" },
     { name: "RTS" },
-    { name: "Car Racing" },
+    { name: "RPG" },
+    { name: "Simulation" },
+    { name: "Turn By Turn Strategy" },
+    { name: "Sport" },
+    { name: "Tradung Card" },
+    { name: "Puzzle" },
   ];
   let gametypebtn2 = [
     { name: "Retro Consoles" },
@@ -206,7 +209,7 @@ export default function PropfileInformation({
       <Dialog
         className="userProfile-box"
         open={openProfile}
-        onClose={handleClose}
+        onClose={() => setOpenProfile(false)}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -404,13 +407,20 @@ export default function PropfileInformation({
               className="selectInput-userProfile"
               defaultValue={currentLevel}
             >
-              <option value="medium" className="selectInput-option">
-                Medium
+              <option value="Casual" className="selectInput-option">
+                Casual (5h - 7h Of Play Per Week)
               </option>
 
-              {/* <option value="saab">Medium</option> */}
-              <option value="initial">initial</option>
-              <option value="pro">pro</option>
+              {/* <option value="saab">Pro</option> */}
+              <option value="Confirmed">
+                Confirmed (8 Hours - 15 Hours Of Play Per Week)
+              </option>
+              <option value="Hardcore">
+                Hardcore (16 Hours - 28 Hours Of Play Per Week)
+              </option>
+              <option value="Esporter">
+                Esporter (More than 30 Hours Of Play Per Week)
+              </option>
             </select>
           </div>
           <div className="userProfileSelectInput">
@@ -424,13 +434,14 @@ export default function PropfileInformation({
               className="selectInput-userProfile"
               defaultValue={target_level}
             >
-              <option value="medium" className="selectInput-option">
-                Initial
+              <option value="Casual" className="selectInput-option">
+                Casual
               </option>
 
               {/* <option value="saab">Pro</option> */}
-              <option value="initial">Medium</option>
-              <option value="pro">Pro</option>
+              <option value="Confirmed">Confirmed</option>
+              <option value="Hardcore">Hardcore</option>
+              <option value="Esporter">Esporter</option>
             </select>
           </div>
           {/* select input div */}

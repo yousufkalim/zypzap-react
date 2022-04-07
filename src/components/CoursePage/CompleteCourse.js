@@ -3,7 +3,7 @@ import GameVideo from "../../assets/GameVideo.mp4";
 import "./CoursePage.css";
 // import VideoPlayIcon from "../../assets/icons/VideoPlayIcon.png";
 
-const CompleteCourse = ({ Video, singlCourse }) => {
+const CompleteCourse = ({ singlCourse }) => {
   const [videos, setVideos] = useState(
     singlCourse?.videos ? singlCourse.videos : 0
   );

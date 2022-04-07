@@ -348,7 +348,7 @@ export default function PrimarySearchAppBar({
                 </div>
               </div>
               <StyledInputBase
-                placeholder="Search"
+                placeholder="Type your search here"
                 inputProps={{ "aria-label": "search" }}
               />
             </Search>
