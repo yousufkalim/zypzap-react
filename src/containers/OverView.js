@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 import CompleteCourse from "../components/CoursePage/CompleteCourse";
 import api from "../api";
 import { Store, UpdateStore } from "../StoreContext";
+import LatestCourses from "../components/LatestCourses";
 let btns = [
   { text: "Overview" },
   { text: "Curriculum" },
@@ -92,6 +93,7 @@ const OverView = () => {
       {activebtn == "Reviews" && (
         <Reviews singlCourse={course} rating={rating} />
       )}
+      {/* <LatestCourses courses={[course]} /> */}
 
       <Footer overView={overView} />
     </div>

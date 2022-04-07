@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import ImageInput from "../../../utils/ImageInput";
+import VideoInput from "../../../utils/VideoInput";
 import api from "../../../api";
 import { Store, UpdateStore } from "../../../StoreContext";
 import { toast } from "react-toastify";
@@ -71,14 +72,25 @@ const FormStepsix = ({
 
         <p className="stapPr">Add intro video and Thumbnail</p>
         <div className={` hrLine1`} />
-        {!uploading ? (
-          <Grid container spacing={2}>
-            <div className="step_container">
-              <div className="step1">
-                <ImageInput text="Select Image" onChange={handleFileChange} />
+        {uploading ? (
+          <div className="step6-upload-div">
+            <Grid container spacing={2}>
+              <div className="step_container">
+                <div className="step1">
+                  <p className="step1-p">Upload Course Thumbnail</p>
+                  <ImageInput text="Select Image" onChange={handleFileChange} />
+                </div>
               </div>
-            </div>
-          </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+              <div className="step_container">
+                <div className="step1">
+                  <p className="step1-p">Upload Course Introduction</p>
+                  <ImageInput text="Select Video" onChange={handleFileChange} />
+                </div>
+              </div>
+            </Grid>
+          </div>
         ) : (
           <p className="success">
             Thumnail Upload Successfully Now Submit Course
@@ -87,8 +99,14 @@ const FormStepsix = ({
 
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
+          <button
+            className="drafBtn"
+            style={{ background: "none", border: "1px solid #662F88" }}
+          >
+            Previous
+          </button>
           <button className="continueBtn" onClick={handleClick}>
-            {uploading ? "Submit" : "Lodding"}
+            {uploading ? "Submit For Approval" : "Lodding"}
           </button>
         </div>
       </div>

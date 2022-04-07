@@ -10,7 +10,13 @@ const FormStepFour = ({ step, setStep }) => {
           <p className="step4DivP">No Video to display</p>
         </div>
         <div className="coursDetailBtn">
-          <button className="drafBtn">Draft</button>
+          <button
+            className="drafBtn"
+            style={{ background: "none", border: "1px solid #662F88" }}
+          >
+            Previous
+          </button>
+
           <button onClick={() => setStep(5)} className="continueBtn">
             Continue
           </button>

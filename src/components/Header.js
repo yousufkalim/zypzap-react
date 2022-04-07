@@ -28,7 +28,8 @@ import api from "../api";
 import { Link } from "react-router-dom";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import NewLogo from "../assets/icons/NewLogo.png";
+// import NewLogo from "../assets/icons/NewLogo.png";
+import HomePageLogo from "../assets/icons/HomePageLogo.svg";
 
 import { Store, UpdateStore } from "../StoreContext";
 
@@ -284,7 +285,7 @@ export default function PrimarySearchAppBar({
           <Toolbar className="imgLogo">
             <img
               // src={Logo}
-              src={NewLogo}
+              src={HomePageLogo}
               alt="img"
               style={{ cursor: "pointer" }}
               onClick={() => {
@@ -355,6 +356,7 @@ export default function PrimarySearchAppBar({
             {/* <Box sx={{ flexGrow: 1 }} /> */}
             <Link to="" className="requestBt">
               <button className="requestBtn">Request a course</button>
+              <button className="comming-soon">Coming Soon</button>
             </Link>
 
             {(user?.role == "User" || user?.role == "Creator") && (
@@ -424,9 +426,6 @@ export default function PrimarySearchAppBar({
                           onChange={handleChange}
                           displayEmpty
                         >
-                          <button style={{ color: "white" }}>
-                            Comming Soon
-                          </button>
                           <MenuItem value="" className="walletInputMenu">
                             Connect Wallet
                           </MenuItem>

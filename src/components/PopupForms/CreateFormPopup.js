@@ -14,8 +14,10 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import api from "../../api";
+import EmailVarificaiton from "./EmailVarificaiton";
 
 const CreateFormPopup = ({ open, setOpen, setLogin }) => {
+  const [opens, setOpens] = React.useState(false);
   useEffect(() => {
     if (!open) {
       setValues({ username: "", email: "", password: "" });
@@ -79,6 +81,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
       if (res) {
         setOpen(false);
         setLoading(false);
+        setOpens(true);
         setValues({ username: "", email: "", password: "" });
         toast.success(res.data.message);
       }
@@ -90,6 +93,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
   return (
     <>
       <div>
+        <EmailVarificaiton open={opens} setOpen={setOpens} />
         <Dialog open={open} onClose={handleClose}>
           <div className="create_form">
             <div className="create_container">
@@ -212,11 +216,11 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
                 <br />
               </div>
               <p className="terms">
-                By Registering for this website, you accept our{" "}
+                By Registering for this website, you accept our
                 <span className="condition">
                   Terms <br /> Of Use
                 </span>{" "}
-                and our <span className="condition">Privacy Policy.</span>{" "}
+                and our <span className="condition">Privacy Policy.</span>
               </p>
             </div>
           </div>

@@ -30,6 +30,7 @@
   width: 100%;
   padding: 17px;
   border-radius: 18%;
+  height: 300px;
 }
 .latestcourseh5 {
   padding-left: 20px;
@@ -105,7 +106,8 @@
   font-size: 28px;
 }
 .latestCourse-p {
-  padding: 0 0 0 5px;
+  padding: 0 0 0 2px;
+  font-size: 15px;
 }
 /* -------------------------------- new card --------------------------------   */
 /* for mobile */
