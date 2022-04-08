@@ -110,6 +110,70 @@
   font-size: 15px;
 }
 /* -------------------------------- new card --------------------------------   */
+/* -------------------------------- wishlist --------------------------------   */
+.wishlistDiv {
+  width: 80%;
+  margin: 0 auto;
+}
+.carousalOuterDiv2 {
+}
+.cardGrid2 {
+  display: flex;
+  align-items: center;
+  background-color: #202342;
+  margin: 12px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  margin-top: 30px;
+}
+.wishList-container {
+  padding-left: 30px;
+}
+
+.wishCardStar {
+  width: 15px;
+  height: 15px;
+  color: red;
+  margin-top: 3px;
+  position: relative;
+  top: 3px;
+}
+.wishCardh3 {
+  padding: 10px;
+  border-bottom: 1px solid gray;
+}
+.requestBt2 {
+  text-decoration: none;
+  width: 30%;
+  margin: auto;
+}
+.wishListh4 {
+  font-size: 28px;
+}
+.wishButtonDiv {
+  margin-left: auto;
+}
+.wishListBtn {
+  font-size: 23px;
+  padding: 10px 20px;
+  margin-right: 40px;
+  color: white;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 4px;
+  border: none;
+}
+.wishlistP {
+  font-size: 22px;
+}
+.wishlistP3 {
+  padding: 20px 0;
+}
+.wishlistP4 {
+  padding: 10px 0 0 0;
+}
+/* -------------------------------- wishlist --------------------------------   */
 /* for mobile */
 @media only screen and (min-width: 320px) and (max-width: 812px) {
   .cardGrid {
