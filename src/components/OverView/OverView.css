@@ -106,6 +106,7 @@ body {
   color: #fff;
   font-weight: 500;
   padding: 8px 0;
+  margin: 15px 2px;
 }
 .CardBuyBtn2 {
   margin-top: 10px;
@@ -173,6 +174,7 @@ body {
 .overView-descripiton-centerDiv {
   width: 88%;
   margin: auto;
+  height: 50vh;
 }
 .overView-description-content {
   width: 60%;

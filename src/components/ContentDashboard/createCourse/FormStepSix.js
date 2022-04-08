@@ -17,14 +17,14 @@ const FormStepsix = ({
   creator,
 }) => {
   const updateStore = UpdateStore();
-  const [uploading, setUploading] = useState(true);
+  const [uploading, setUploading] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setformDataSix(file);
     setUploading(true);
   };
   const handleClick = async () => {
-    setUploading(false);
     let video = [...formDataTwo, formDataSix];
     const {
       gamedetails,
@@ -47,7 +47,6 @@ const FormStepsix = ({
     formdata.append(`id`, `${creator._id}`);
     let res = await api("post", "/courses", formdata);
     if (res) {
-      setUploading(true);
       setformDataOne({
         gamedetails: "",
         gameName: "",
@@ -64,8 +63,16 @@ const FormStepsix = ({
       toast.error("Enter your email");
     }
   };
+  const handleClose = () => {
+    showPopup(false);
+  };
   return (
     <>
+      <successPopup
+        open={showPopup}
+        setOpen={() => setShowPopup(!showPopup)}
+        closeModal={handleClose}
+      />
       <div className="formStepOneDiv">
         <p>Step {step}/6</p>
         <br />
@@ -106,7 +113,11 @@ const FormStepsix = ({
             Previous
           </button>
           <button className="continueBtn" onClick={handleClick}>
+<<<<<<< HEAD
             {uploading ? "Submit For Approval" : "Lodding"}
+=======
+            {uploading ? "Lodding" : "Submit"}
+>>>>>>> 34a2c9c6023a4308628bc1bd374b75c80c3fbd64
           </button>
         </div>
       </div>

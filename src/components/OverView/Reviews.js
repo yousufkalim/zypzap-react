@@ -63,15 +63,21 @@ const Reviews = (props) => {
         default:
         // code block
       }
-      setOneStar(one);
-      setTwoStar(two);
-      setThreeStar(three);
-      setFourStar(four);
-      setFiveStar(five);
     });
+    setOneStar(one);
+    setTwoStar(two);
+    setThreeStar(three);
+    setFourStar(four);
+    setFiveStar(five);
   };
-  const Percentage = (OneStar, totalCount) => {
-    let percentage = ((OneStar / totalCount) * 100).toFixed(0);
+  const Percentage = (Star, totalCount) => {
+    let percentage;
+    if (totalCount === 0) {
+      percentage = 0;
+    } else {
+      percentage = ((Star / totalCount) * 100).toFixed(0);
+    }
+
     return percentage;
   };
   return (
@@ -84,7 +90,7 @@ const Reviews = (props) => {
               <p className="student-feedback-h3">Student feedback</p>
               <div className="courseRating">
                 <h1 className="courseRatingH1">
-                  {singlCourse?.rating ? singlCourse.rating : "4.8"}
+                  {singlCourse?.rating ? singlCourse.rating : "0.0"}
                 </h1>
                 <div className="courseRating-images">
                   {[1, 2, 3, 4, 5].map((i) => (
@@ -106,55 +112,35 @@ const Reviews = (props) => {
                 <br />
                 <BorderLinearProgress
                   variant="determinate"
-                  value={
-                    (OneStar / totalCount) * 100 > 0
-                      ? (OneStar / totalCount) * 100
-                      : 0
-                  }
+                  value={Percentage(OneStar, totalCount)}
                 />
               </Box>
               <Box sx={{ flexGrow: 1 }}>
                 <br />
                 <BorderLinearProgress
                   variant="determinate"
-                  value={
-                    (twoStar / totalCount) * 100 > 0
-                      ? (twoStar / totalCount) * 100
-                      : 0
-                  }
+                  value={Percentage(twoStar, totalCount)}
                 />
               </Box>
               <Box sx={{ flexGrow: 1 }}>
                 <br />
                 <BorderLinearProgress
                   variant="determinate"
-                  value={
-                    (threeStar / totalCount) * 100 > 0
-                      ? (threeStar / totalCount) * 100
-                      : 0
-                  }
+                  value={Percentage(threeStar, totalCount)}
                 />
               </Box>
               <Box sx={{ flexGrow: 1 }}>
                 <br />
                 <BorderLinearProgress
                   variant="determinate"
-                  value={
-                    (fourStar / totalCount) * 100 > 0
-                      ? (fourStar / totalCount) * 100
-                      : 0
-                  }
+                  value={Percentage(fourStar, totalCount)}
                 />
               </Box>
               <Box sx={{ flexGrow: 1 }}>
                 <br />
                 <BorderLinearProgress
                   variant="determinate"
-                  value={
-                    (fiveStar / totalCount) * 100 > 0
-                      ? (fiveStar / totalCount) * 100
-                      : 0
-                  }
+                  value={Percentage(fiveStar, totalCount)}
                 />
               </Box>
             </div>
