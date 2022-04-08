@@ -95,10 +95,9 @@
 }
 .comming-soon {
   position: absolute;
-  margin: 0 0 0 -97px;
-  border-radius: 5px;
+  margin: 0 0 0 -99px;
   border: none;
-  padding: 2px;
+  padding: 2px 5px;
   font-size: 12px;
 }
 .basicProfile {
