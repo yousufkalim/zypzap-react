@@ -81,24 +81,43 @@
   width: 35% !important;
 }
 .requestBtn {
-  padding: 8px 13px;
+  padding: 10px 13px;
   border: none;
-  margin: 13px 13px 8px 0;
+  margin: 8px 13px 8px 0;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: #fff;
-  font-weight: 400;
+  font-weight: bold;
   font-family: "Mulish", sans-serif;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 18px;
   text-decoration: none !important;
 }
 .comming-soon {
   position: absolute;
-  margin: 0 0 0 -99px;
+  margin: 0 0 0 -120px;
   border: none;
-  padding: 2px 5px;
+  padding: 2px 7px;
   font-size: 12px;
+}
+.comming-soon3 {
+  position: absolute;
+  margin: -10px 0 0 70px;
+  font-weight: bold;
+  border: none;
+  padding: 2px 7px;
+  font-size: 12px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  color: #fff;
+}
+.comming-soon2 {
+  font-weight: bold;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .basicProfile {
   padding: 8px 13px;
@@ -160,7 +179,7 @@
 }
 .form_Control_header {
   background-color: #202342 !important;
-  width: 148px !important;
+  width: 170px !important;
   height: 32px !important;
   color: white !important;
   /* border-radius: 20px !important; */
@@ -235,7 +254,7 @@
     text-decoration: none !important;
   }
   .topcourseheading {
-    font-size: 28px;
+    font-size: 28px !important;
   }
   .h3heading {
     font-size: 22px;
@@ -411,6 +430,7 @@
   .MuiSvgIcon-root {
     width: 0em !important;
     margin: 4px 0 0 -8px !important;
+    color: white !important;
   }
   .css-1t29gy6-MuiToolbar-root {
     justify-content: space-around;

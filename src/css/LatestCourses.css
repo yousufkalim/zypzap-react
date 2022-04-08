@@ -96,7 +96,7 @@
 }
 .latestCourse-colmn-centerDiv {
   display: flex;
-  padding: 15px 4px;
+  padding: 10px 4px;
   align-items: center;
 }
 .latestCourse-h4 {
@@ -106,7 +106,7 @@
   font-size: 28px;
 }
 .latestCourse-p {
-  padding: 0 0 0 2px;
+  padding: 0 0 0 6px;
   font-size: 15px;
 }
 /* -------------------------------- new card --------------------------------   */

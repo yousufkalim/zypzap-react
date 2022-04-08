@@ -32,6 +32,7 @@ import Select from "@mui/material/Select";
 import HomePageLogo from "../assets/icons/HomePageLogo.svg";
 
 import { Store, UpdateStore } from "../StoreContext";
+import { Button } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -355,8 +356,10 @@ export default function PrimarySearchAppBar({
             </Search>
             {/* <Box sx={{ flexGrow: 1 }} /> */}
             <Link to="" className="requestBt">
-              <button className="requestBtn">Request a course</button>
-              <button className="comming-soon">Coming Soon</button>
+              <button className="requestBtn">Request a Course</button>
+              <button className="comming-soon">
+                <span className="comming-soon2"> Coming Soon</span>
+              </button>
             </Link>
 
             {(user?.role == "User" || user?.role == "Creator") && (
@@ -419,6 +422,7 @@ export default function PrimarySearchAppBar({
                   </p>
                   <div>
                     <FormControl className="form_Control_header">
+                      <button className="comming-soon3">Coming Soon</button>
                       <MenuItem>
                         <Select
                           className="select_form_header"
