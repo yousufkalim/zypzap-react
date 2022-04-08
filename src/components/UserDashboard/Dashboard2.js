@@ -42,9 +42,16 @@ const Dashboard2 = ({ id }) => {
       img: youtube,
       drop: ["Started courses", "Enrolled courses"],
     },
-    { name: "Wishlist", img: performance },
-    { name: "My Wallet", img: dollar },
-    { name: "Progression Roadmap", img: ProgressionIcon },
+    {
+      name: "Wishlist",
+      img: performance,
+    },
+    { name: "My Wallet", img: dollar, drop2: ["(Coming soon)"] },
+    {
+      name: "Progression Roadmap",
+      img: ProgressionIcon,
+      drop2: ["(Coming soon)"],
+    },
     { name: "Setting", img: settings },
   ];
   const onSideBtnClick = (e) => {
