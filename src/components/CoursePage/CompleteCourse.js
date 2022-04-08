@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import GameVideo from "../../assets/GameVideo.mp4";
+import "./CoursePage.css";
 // import VideoPlayIcon from "../../assets/icons/VideoPlayIcon.png";
 
-const CompleteCourse = ({ Video, singlCourse }) => {
+const CompleteCourse = ({ singlCourse }) => {
   const [videos, setVideos] = useState(
     singlCourse?.videos ? singlCourse.videos : 0
   );
-  const [playVideo, setPlayVideo] = useState(Video);
+  const [playVideo, setPlayVideo] = useState(singlCourse?.videos[0]);
   const [videoCount, setVideoCount] = useState(
     singlCourse?.videos ? singlCourse.videos.length : 0
   );
@@ -23,11 +24,7 @@ const CompleteCourse = ({ Video, singlCourse }) => {
 
             <video
               className="completeCourse-Video"
-              src={
-                playVideo?.src_url
-                  ? playVideo.src_url
-                  : "https://pass-to-trip.s3.eu-west-3.amazonaws.com/1647410128211"
-              }
+              src={playVideo?.src_url}
               controls
               autoplay
             ></video>

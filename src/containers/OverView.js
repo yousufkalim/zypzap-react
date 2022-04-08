@@ -15,9 +15,9 @@ import { Store, UpdateStore } from "../StoreContext";
 import LatestCourses from "../components/LatestCourses";
 let btns = [
   { text: "Overview" },
-  { text: "Curriculum" },
+  { text: "Cursus" },
   { text: "Instructor" },
-  { text: "Reviews" },
+  { text: "Feedback" },
 ];
 const OverView = () => {
   const { id } = useParams();
@@ -25,7 +25,7 @@ const OverView = () => {
   const [activebtn, setActivebtn] = useState("Overview");
   const [course, setCourse] = useState();
   const [rating, setRating] = useState();
-  const [showVideo, setShowVideo] = useState({});
+  const [showVideo, setShowVideo] = useState(false);
 
   const [openlogin, setOpenLogin] = React.useState(false);
   const [opensignup, setOpenSignup] = React.useState(false);
@@ -42,7 +42,7 @@ const OverView = () => {
     getSingleCourses();
     getRatingOfCourse();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id]);
+  }, [id, showVideo]);
 
   let getSingleCourses = async () => {
     let res = await api("get", `/courses/${id}`);
@@ -68,10 +68,10 @@ const OverView = () => {
         openBecomeCreatorPopup={openBecomeCreatorPopup}
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
       />
-      {showVideo ? (
-        <OverViewHome singlCourse={course} />
+      {!showVideo ? (
+        <OverViewHome singlCourse={course} setShowVideo={setShowVideo} />
       ) : (
-        <CompleteCourse Videos={showVideo} singlCourse={course} />
+        <CompleteCourse singlCourse={course} />
       )}
 
       <OverViewMenu
@@ -81,16 +81,13 @@ const OverView = () => {
       />
       {activebtn == "Overview" && <OverviewButton singlCourse={course} />}
 
-      {activebtn == "Curriculum" && (
+      {activebtn == "Cursus" && (
         <Curriculum singlCourse={course} setShowVideo={setShowVideo} />
       )}
 
       {activebtn == "Instructor" && <Instructor singlCourse={course} />}
 
-      {activebtn == "Reviews" && (
-        <Reviews singlCourse={course} rating={rating} />
-      )}
-      {activebtn == "Reviews" && (
+      {activebtn == "Feedback" && (
         <Reviews singlCourse={course} rating={rating} />
       )}
       {/* <LatestCourses courses={[course]} /> */}

@@ -60,15 +60,17 @@ const SubscriptionPopup = ({
       type,
       tester,
     });
+    if (res) {
+      if (isThreeLine) {
+        setShowPopup(true);
+      } else {
+        setShowPopup2(true);
+      }
 
-    if (isThreeLine) {
-      setShowPopup(true);
+      setLoading(false);
+      setEmail("");
     } else {
-      setShowPopup2(true);
     }
-
-    setLoading(false);
-    setEmail("");
   };
   return (
     <>

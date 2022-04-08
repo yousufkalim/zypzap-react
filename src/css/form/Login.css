@@ -135,15 +135,19 @@
   display: flex;
   margin-top: 30px;
   margin-bottom: 25px;
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 55.69%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .sgnUpBtn {
   display: inline;
   background: none;
   border: none;
-  color: #e7411b;
   margin: 0 5px;
   font-weight: 600;
   cursor: pointer;
+  font-size: 15px;
 }
 @media only screen and (min-width: 320px) and (max-width: 768px) {
   .social span {

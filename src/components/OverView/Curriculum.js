@@ -45,7 +45,7 @@ const Video = ({ video, setShowVideo }) => {
   };
   return (
     <>
-      <div className="curriculumLiDiv" onClick={() => setShowVideo(video)}>
+      <div className="curriculumLiDiv">
         <img src={CurriculumIcon} alt="" className="curriculumIMG" />
         <li className="curriculumLi">
           Class no one: Introduction to {video?.title ? video.title : "CS Go"}
