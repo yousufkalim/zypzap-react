@@ -113,11 +113,7 @@ const FormStepsix = ({
             Previous
           </button>
           <button className="continueBtn" onClick={handleClick}>
-<<<<<<< HEAD
-            {uploading ? "Submit For Approval" : "Lodding"}
-=======
-            {uploading ? "Lodding" : "Submit"}
->>>>>>> 34a2c9c6023a4308628bc1bd374b75c80c3fbd64
+            {uploading ? "Submit For Approval" : "Loading"}
           </button>
         </div>
       </div>
