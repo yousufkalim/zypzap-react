@@ -143,6 +143,9 @@
   padding: 10px;
   border-bottom: 1px solid gray;
 }
+.wishCard-P {
+  padding: 10px;
+}
 .requestBt2 {
   text-decoration: none;
   width: 30%;
@@ -172,6 +175,14 @@
 }
 .wishlistP4 {
   padding: 10px 0 0 0;
+}
+.creatorCard2 {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.cardGrid_List {
+  width: 30%;
 }
 /* -------------------------------- wishlist --------------------------------   */
 /* for mobile */

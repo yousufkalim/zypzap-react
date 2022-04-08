@@ -25,7 +25,7 @@ const DashboardRightSideBar2 = ({
     <>
       {defaultCompState === "Course" ? (
         <Box className="upload-courses-container">
-          {/* <Box>
+          <Box>
             <div className="uploadBtnDiv">
               <h2
                 className={`
@@ -37,9 +37,9 @@ const DashboardRightSideBar2 = ({
               </h2>
             </div>
             {activeUploadButton == 1 ? (
-              <DashboardUploadCourses pageName={"publish"} creator={creator} />
+              <DashboardUploadCourses pageName={"Course"} creator={creator} />
             ) : null}
-          </Box> */}
+          </Box>
         </Box>
       ) : null}
       {defaultCompState == "" && createCourse && (

@@ -39,52 +39,46 @@ var items = [
 const Wishlist = () => {
   return (
     <div className="wishlistDiv">
-      <h3 className="wishCardh3">Sarted Courses</h3>
-      <div className="carousalOuterDiv2 ">
-        {items.map((item, i) => (
-          <Link to="#" className="requestBt2" course={item}>
-            <a className="courseDetail2" key={i}>
-              <div className="cardGrid2">
-                <div className="wishCarImgDiv">
-                  <img
-                    src={item?.thumbnail ? item.thumbnail : Course1}
-                    className="courseimg"
-                    alt="img"
-                  />
-                </div>
-                <div className="wishList-container">
-                  <h4 className="wishListh4">CS-GO Ep 2 Complete Course</h4>
-                  <br />
-                  <p className="wishlistP">
-                    {item?.course_name ? item.course_name : "Fight Course"}
-                  </p>
-                  <p className="wishlistP2">
-                    {item?.creator?.user_id?.username}
-                  </p>
-                  <p className="wishlistP3">
-                    {item?.rating ? item.rating : "0.0"} &nbsp;
-                    {[1, 2, 3, 4, 5].map((item) => (
-                      <Star1
-                        className="wishCardStar"
-                        style={{
-                          key: { item },
-                        }}
-                      />
-                    ))}
-                    &nbsp;{" "}
-                    {item?.student
-                      ? item.student.length + " Student"
-                      : 0 + "   Student"}
-                  </p>
-                  <p className="wishlistP4">{" $" + item?.price}</p>
-                </div>
-                <div className="wishButtonDiv">
-                  <button className="wishListBtn">Continue the course</button>
-                </div>
+      <h3 className="wishCardh3">Wishlist</h3>
+      <div className="">
+        {/* <h3 className="creatorProfileH3">Courses</h3> */}
+        <div className="">
+          <div1 className="creatorCard2">
+            {items.map((item, i) => (
+              <div
+                className="cardGrid_List"
+                style={{
+                  backgroundColor: " #202342",
+                  margin: "12px",
+                  borderRadius: "35px",
+                }}
+              >
+                <img src={Course1} className="courseimg" alt="img" />
+                <h5 className="latestcourseh5">PUBG GamePlay Course</h5>
+                <p className="latestcoursep1">Ifaf ghori</p>
+                <p className="latestcoursep1">
+                  {" "}
+                  5.0 &nbsp;
+                  {[1, 2, 3, 4, 5].map((item) => (
+                    <Star1
+                      style={{
+                        width: "15px",
+                        height: "15px",
+                        color: "red",
+                        margintTop: "3px",
+                        position: "relative",
+                        top: "3px",
+                        key: { item },
+                      }}
+                    />
+                  ))}
+                  &nbsp; (382,420)
+                </p>
+                <h6 className="latestcourseh6">$19.99 | 50 min</h6>
               </div>
-            </a>
-          </Link>
-        ))}
+            ))}
+          </div1>
+        </div>
       </div>
     </div>
   );

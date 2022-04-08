@@ -31,7 +31,8 @@ var items = [
 const EnrolledCourse = () => {
   return (
     <div className="wishlistDiv">
-      <h3 className="wishCardh3">Sarted Courses</h3>
+      <h3 className="wishCardh3">Courses</h3>
+      <p className="wishCard-P">Enrolled courses</p>
       <div className="carousalOuterDiv2 ">
         {items.map((item, i) => (
           <Link to="#" className="requestBt2" course={item}>
