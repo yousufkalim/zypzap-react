@@ -6,16 +6,14 @@ import { Store, UpdateStore } from "../../../StoreContext";
 const BasicInformation = () => {
   const { user } = Store();
   const [formData, setFormData] = useState({
-    first_name: user?.first_name ? user.first_name : "",
-    last_name: user?.last_name ? user.last_name : "",
+    username: user?.username ? user.username : "",
     email: user?.email ? user.email[0] : "",
     phone_number: user?.phone_number ? user.phone_number : "",
   });
-  const { first_name, last_name, email, phone_number } = formData;
+  const { username, email, phone_number } = formData;
   useEffect(() => {
     setFormData({
-      first_name: user?.first_name ? user.first_name : "",
-      last_name: user?.last_name ? user.last_name : "",
+      username: user?.username ? user.username : "",
       email: user?.email ? user.email[0] : "",
       phone_number: user?.phone_number ? user.phone_number : "",
     });
@@ -30,12 +28,6 @@ const BasicInformation = () => {
   const SubmitEvent = async (e) => {
     e.preventDefault();
 
-    if (first_name == "") {
-      return toast.error("Enter your first name");
-    }
-    if (last_name == "") {
-      return toast.error("Enter your second name ");
-    }
     if (email == "") {
       return toast.error("Enter your email");
     }
@@ -61,7 +53,7 @@ const BasicInformation = () => {
           <div>
             <img src={DeshProfile} alt="" className="desh_profilePic" />
           </div>
-          <p>@Atif Khan</p>
+          <p>@{username}</p>
           <br />
           <form action="" className="deshForm">
             <input
@@ -69,16 +61,8 @@ const BasicInformation = () => {
               className="dashInput"
               placeholder="First name"
               onChange={chnageEvent}
-              value={first_name}
-              name="first_name"
-            />
-            <input
-              type="text"
-              className="dashInput"
-              placeholder="Last name"
-              onChange={chnageEvent}
-              name="last_name"
-              value={last_name}
+              value={username}
+              name="username"
             />
             <input
               type="email"

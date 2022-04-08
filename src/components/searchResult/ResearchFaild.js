@@ -5,7 +5,7 @@ import NotFound from "../../assets/img/NotFound.svg";
 
 const ResearchFaild = () => {
   return (
-    <div>
+    <>
       <Box className="cards-container2">
         <div className="cards-box">
           <div className="cards-header-text">
@@ -32,7 +32,7 @@ const ResearchFaild = () => {
           <button className="btn-Research"> Request Now</button>
         </Box>
       </Box>
-    </div>
+    </>
   );
 };
 

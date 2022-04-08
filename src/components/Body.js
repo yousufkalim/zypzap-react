@@ -73,9 +73,9 @@ export default function Body({ setOpenSignup }) {
           <Request
             openContentRequest={openContentRequest}
             setOpenContentRequest={setOpenContentRequest}
+            user={user}
           />
-          <RankingList />
-          <Blog />
+          {/* x */}
         </div>
       )}
     </>

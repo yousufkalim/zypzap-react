@@ -11,9 +11,12 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   const handleActiveUploadButton = (i) => {
     setActiveUploadButton(i);
   };
-  const handleFileChange = (event) => {
+  const handleFileChange = async (event) => {
     const files = [...event.target.files];
+    let formdata = new FormData();
+    files.map((item) => formdata.append("files", item));
     if (files) {
+      let res = await api("post", "/videos", formdata);
       setUploading(true);
     }
     setformDataTwo(files);
@@ -24,10 +27,6 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
       setUploading(true);
     }
     setformDataTwo(files);
-  };
-
-  const handleClickOpen = () => {
-    setOpen(true);
   };
 
   return (
