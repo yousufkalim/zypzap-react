@@ -14,7 +14,7 @@ import api from "../api";
 import { Store, UpdateStore } from "../StoreContext";
 let btns = [
   { text: "Overview" },
-  { text: "Curriculum" },
+  { text: "Cursus" },
   { text: "Instructor" },
   { text: "Feedback" },
 ];
@@ -80,7 +80,7 @@ const OverView = () => {
       />
       {activebtn == "Overview" && <OverviewButton singlCourse={course} />}
 
-      {activebtn == "Curriculum" && (
+      {activebtn == "Cursus" && (
         <Curriculum singlCourse={course} setShowVideo={setShowVideo} />
       )}
 
