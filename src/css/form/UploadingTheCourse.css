@@ -1,0 +1,35 @@
+.uploadingtheCourse-p {
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
+.uploadTheCourse-mainDiv {
+  width: 90%;
+  margin: auto;
+  text-align: left;
+}
+.uploadTheCourse-content {
+  display: inline-block;
+}
+.uploadTheCourse-span {
+  float: right;
+  font-size: 14px;
+}
+.uploadTheCourseBTN {
+  /* float: right; */
+  text-decoration: none;
+  border: none;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 500;
+  padding: 8px 20px;
+  display: block;
+  margin-left: auto;
+  margin-top: 40px;
+  font-size: 20px;
+}
+.uploadTheCourse-Headings {
+  margin-top: 15px;
+}

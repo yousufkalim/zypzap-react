@@ -24,9 +24,9 @@
 }
 .img-text-container img {
   margin-right: 7px;
-  height: 10px;
-  margin-top: 5px;
-  width: 12px;
+  /* height: 10px; */
+  margin-top: 0px;
+  /* width: 12px; */
 }
 .dashboard {
   border-right: 3px solid #fff;
@@ -113,6 +113,7 @@
 .dashboardcourseimg {
   width: 100%;
   padding: 10px;
+  height: 300px;
 }
 .dashboardlatestcourseh6 {
   font-size: 13px;
@@ -125,7 +126,16 @@
     width: 25%;
   }
   .upload-courses-container {
-    width: 75%;
+    width: 100%;
+  }
+  .deshLi {
+    font-size: 14px !important;
+  }
+  .ActiveLine {
+    font-size: 14px;
+  }
+  .upload-courses-headings {
+    font-size: 14px;
   }
 }
 
@@ -141,7 +151,8 @@
     flex-direction: column;
   }
   .upload-courses-container {
-    width: 100%;
+    width: 93%;
+    margin: auto;
   }
   .create-course-container {
     width: auto;
@@ -156,6 +167,12 @@
   }
   .card_grids {
     padding: 0 !important;
+  }
+  .ActiveLine {
+    font-size: 14px;
+  }
+  .upload-courses-headings {
+    font-size: 8px !important;
   }
 }
 @media all and (max-width: 1212px) {

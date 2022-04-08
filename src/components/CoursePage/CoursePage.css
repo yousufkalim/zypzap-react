@@ -88,7 +88,6 @@ body {
   position: absolute;
   right: 70px;
   padding-top: 25px;
-  /* border-bottom: 1px solid gray; */
 }
 .preBTN {
   background: none;
@@ -107,6 +106,3 @@ body {
   background-clip: text;
   font-size: 18px;
 }
-/* .pre_next_line {
-  width: 1000px;
-} */

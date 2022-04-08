@@ -92,19 +92,6 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
                 <option value="Medium">Medium</option>
                 <option value="Pro">Pro</option>
               </select>
-              {/* <select
-              id="Select"
-              name="Select"
-              onChange={changePlayPeriodHandler}
-              className="selectInput-userProfile2"
-            >
-              <option value="Per Week" className="selectInput-option">
-                {playPeriod}
-              </option>
-              <option value="Per Month">Per Month</option>
-              <option value="Per Year">Per Year</option>
-              {/* <option value="audi">Select</option> */}
-              {/* </select> */}
             </div>
             {/* /* --------------------------------- oneDiv --------------------------------- */}
             <div className="contactezDiv-box4">

@@ -1,0 +1,111 @@
+.uploadSuccessDiv {
+  width: 100%;
+  background-color: #0e0f1e;
+  overflow: hidden;
+}
+
+.split-center-div {
+  width: 90%;
+  margin: 50px auto 0 auto;
+  border: 0px solid;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-image-source: linear-gradient(to left, #20bf55, #662f88);
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 0;
+}
+.clearIcons {
+  float: right;
+  margin: -39px 21px;
+  cursor: pointer;
+  font-weight: 900 !important;
+  width: 25px !important;
+}
+.split-Col1 {
+  width: 50%;
+}
+.splitInto {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 0 20px;
+}
+.splitInto2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+.splitPart-contrainer {
+  display: flex;
+}
+.splitParts {
+  justify-content: end;
+  align-items: center;
+  padding-top: 30px;
+}
+.parts-p {
+  display: inline-block;
+  padding-left: 20px;
+}
+.partsInput {
+  width: 50%;
+  padding: 8px 5px;
+  background: none;
+  border: none;
+  border: 0px solid;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-image-source: linear-gradient(to left, #20bf55, #662f88);
+  color: #fff;
+}
+.partsInput2 {
+  width: 87%;
+  padding: 8px 5px;
+  background: none;
+  border: none;
+  border: 0px solid;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-image-source: linear-gradient(to left, #20bf55, #662f88);
+  margin-right: 7px;
+  color: #fff;
+}
+.PartsInputLabel {
+  padding-left: 10px;
+  text-align: left;
+  padding-top: 6px;
+}
+.uploadSuccessBTNs {
+  border: none;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 4px;
+  padding: 15px 30px;
+  color: #fff;
+  font-weight: 600;
+  margin-right: 70px;
+  border: 1px solid #20bf55;
+}
+.uploadSuccessBTNs:hover {
+  background: none;
+}
+.splitAddSpace {
+  padding-bottom: 30px;
+}
+@media only screen and (min-width: 20px) and (max-width: 700px) {
+  .split-center-div {
+    justify-content: inherits;
+  }
+  .split-Col1 {
+    width: 38%;
+  }
+  .split-Col2 {
+    width: 72%;
+  }
+  .split-center-div {
+    width: 100%;
+  }
+}

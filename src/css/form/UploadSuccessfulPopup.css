@@ -20,4 +20,8 @@ body {
   padding: 15px 30px;
   color: #fff;
   font-weight: 600;
+  border: 1px solid #20bf55;
+}
+.uploadSuccessBTN:hover {
+  background: none;
 }

@@ -21,15 +21,12 @@
 .requestButton {
   padding: 7px 12px;
   border: none;
-  margin: 10px 0px 10px 0px;
+  margin: 15px 0px 10px 0px;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
-  font-weight: 900;
-  font-family: "Poppins", sans-serif;
-  border-radius: 2px;
+  font-weight: 500;
   cursor: pointer;
   border: 1px solid #7d668b;
-  border-radius: 7px;
 }
 .requestButton:hover {
   background: none;

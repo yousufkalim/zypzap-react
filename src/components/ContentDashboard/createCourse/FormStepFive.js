@@ -49,6 +49,12 @@ const FormStepFive = ({ step, setStep, setformDataTwo, formDataTwo }) => {
         })}
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
+          <button
+            className="drafBtn"
+            style={{ background: "none", border: "1px solid #662F88" }}
+          >
+            Previous
+          </button>
           <button onClick={() => setStep(6)} className="continueBtn">
             Continue
           </button>

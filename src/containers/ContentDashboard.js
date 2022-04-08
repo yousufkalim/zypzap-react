@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/blog/BlogFooter";
 import Dashboard from "../components/ContentDashboard/Dashboard";
-// import CreateACoursePopup from "../components/PopupForms/CreateACoursePopup";
 import { Store, UpdateStore } from "../StoreContext";
+// import CreateACoursePopup from "../components/PopupForms/CreateACoursePopup";
 const ContentDashboard = () => {
   const { creator } = Store();
   const [footerState, setFooterState] = useState(true);
