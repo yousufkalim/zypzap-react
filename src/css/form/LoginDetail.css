@@ -92,8 +92,8 @@ body {
 }
 .MuiSvgIcon-root {
   fill: currentColor;
-  width: 1.3rem !important;
-  height: 1.3rem !important;
+  /* width: 1.3rem !important;
+  height: 1.3rem !important; */
   /* color: #fff !important; */
 }
 .css-vqmohf-MuiButtonBase-root-MuiRadio-root {

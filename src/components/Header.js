@@ -14,6 +14,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import Moon from "../assets/icons/moon.svg";
+import UserHeaderIcon from "../assets/icons/UserHeaderIcon.svg";
 import Globe from "../assets/icons/globe.svg";
 import CourseIcon from "../assets/icons/CourseIcon.svg";
 import DownArrow from "../assets/icons/downarrow.svg";
@@ -322,9 +323,11 @@ export default function PrimarySearchAppBar({
               </div>
             </Typography>
             <Search onChange={searchCourse} className="searchBar">
-              <SearchIconWrapper>
-                <SearchIcon onClick={handleSearchClick} />
-              </SearchIconWrapper>
+              <SearchIcon
+                className="searchBarIcon"
+                onClick={handleSearchClick}
+              />
+              <SearchIconWrapper></SearchIconWrapper>
 
               <div className="dropdown">
                 <button className="dropbtn">
@@ -357,6 +360,10 @@ export default function PrimarySearchAppBar({
             {/* <Box sx={{ flexGrow: 1 }} /> */}
             <Link to="" className="requestBt">
               <button className="requestBtn">Request a Course</button>
+
+              <button className="requestBtn2">
+                <img src={UserHeaderIcon} alt="" />
+              </button>
               <button className="comming-soon">
                 <span className="comming-soon2"> Coming Soon</span>
               </button>
