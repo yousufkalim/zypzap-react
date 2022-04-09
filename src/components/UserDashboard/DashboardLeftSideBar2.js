@@ -49,22 +49,42 @@ const DashboardLeftSideBar2 = ({
               </div>
             </div>
             {/* {flag === item?.} */}
-            {item?.drop && flag && (
-              <div>
-                {item.drop.map((i) => (
-                  <div
-                    style={{
-                      marginLeft: "40px",
-                      paddingBottom: "10px",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => handleClick2(i)}
-                  >
-                    {i}
-                  </div>
-                ))}
-              </div>
-            )}
+            <div>
+              {item?.drop && flag && (
+                <div>
+                  {item.drop.map((i) => (
+                    <div
+                      style={{
+                        marginLeft: "40px",
+                        paddingBottom: "10px",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => handleClick2(i)}
+                    >
+                      {i}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div>
+              {item?.drop2 && (
+                <div>
+                  {item.drop2.map((i) => (
+                    <div
+                      style={{
+                        marginLeft: "30px",
+                        opacity: "0.5",
+                        cursor: "pointer",
+                      }}
+                      // onClick={() => handleClick2(i)}
+                    >
+                      {i}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </>
         );
       })}
