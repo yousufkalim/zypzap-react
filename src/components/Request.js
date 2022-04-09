@@ -1,10 +1,11 @@
 // Init
 import React from "react";
-
+import { Store, UpdateStore } from "../StoreContext";
 export default function Construction({
   openContentRequest,
   setOpenContentRequest,
 }) {
+  const { user } = Store();
   return (
     <div className="requestContainer">
       <h1 className="requestHeading">Request a Course Content</h1>
@@ -14,14 +15,25 @@ export default function Construction({
         <br className="br" /> Rutrum non vitae id urna nunc, egestas. Tempus
         aliquam, at fus
       </p>
-      <button
-        className="requestButton"
-        onClick={() => {
-          setOpenContentRequest(true);
-        }}
-      >
-        Request Now
-      </button>
+      {user ? (
+        <button
+          className="requestButton"
+          onClick={() => {
+            setOpenContentRequest(true);
+          }}
+        >
+          Request Now
+        </button>
+      ) : (
+        <button
+          className="requestButton"
+          onClick={() => {
+            setOpenContentRequest(true);
+          }}
+        >
+          Comming Soon
+        </button>
+      )}
     </div>
   );
 }

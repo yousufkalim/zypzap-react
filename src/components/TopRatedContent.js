@@ -29,7 +29,7 @@ export default function TopRatedContent() {
     {
       title: "Undefeated PUBG player",
       img: Game2,
-      name: "Jennifer Flagg",
+      name: "Jennifer",
       level: "Pro",
       students: "500000+ Students",
       rating: "rating",
@@ -109,7 +109,7 @@ export default function TopRatedContent() {
     {
       title: "10Minicraft Full Course",
       img: Game5,
-      name: "10James Wiik",
+      name: "10James",
       level: "Pro",
       students: "500000+ Students",
       rating: "rating",
@@ -119,7 +119,7 @@ export default function TopRatedContent() {
     {
       title: "11Minicraft Full Course",
       img: Game3,
-      name: "11James Wiik",
+      name: "11James",
       level: "Pro",
       students: "500000+ Students",
       rating: "rating",
@@ -129,7 +129,7 @@ export default function TopRatedContent() {
     {
       title: "12Minicraft Full Course",
       img: Game2,
-      name: "12James Wiik",
+      name: "12James",
       level: "Pro",
       students: "500000+ Students",
       rating: "rating",

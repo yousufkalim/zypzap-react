@@ -228,6 +228,7 @@ const SearchResultBody = () => {
   const [radioBtnValue, setRadioBtnValue] = useState("");
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
   const { searchCourse } = Store();
+  const [search, setSearch] = useState(searchCourse ? searchCourse : []);
   const updateStore = UpdateStore();
   //sidebar list togle
   const onClickSideBarHeaders = (e) => {
@@ -260,6 +261,7 @@ const SearchResultBody = () => {
     const value = e.value;
     let res = await api("get", `/courses/topGames?type=${value}`);
     if (res) {
+      setSearch(res?.data);
       updateStore({ searchCourse: res?.data });
       //updateStore({ create: res?.data });
       setSelectedActiveButton("");
@@ -673,8 +675,8 @@ const SearchResultBody = () => {
       </Box>
       {/*  */}
 
-      {!searchCourse ? (
-        <h1>Loading...</h1>
+      {search?.length === 0 ? (
+        <ResearchFaild />
       ) : (
         <>
           <Box className="cards-container">
@@ -701,7 +703,7 @@ const SearchResultBody = () => {
               spacing={{ xs: 1, md: 1 }}
               columns={{ xs: 2, sm: 8, md: 12 }}
             >
-              {searchCourse.map((item) => (
+              {searchCourse?.map((item) => (
                 <Grid item xs={12} sm={6} md={4}>
                   <div className="cardGrid">
                     <div className="favourite-icon-position">
