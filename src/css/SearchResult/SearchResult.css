@@ -223,7 +223,56 @@
 .slider-color {
   color: #fff !important;
 }
+/* ------------------------------- FollowList ------------------------------- */
+.followList {
+  background-color: #14162c;
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+}
+.followCol1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.following-card {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin-top: 20px;
+}
+.following_P {
+  font-size: 12px;
+}
+.followingP2 {
+  font-size: 12px;
+}
+.followingP3 {
+  font-size: 12px;
+  padding-bottom: 2px;
+}
+.following-link {
+  text-decoration: none;
+}
+.followingButtonDiv {
+  margin-left: auto;
+}
+.following-container {
+  padding-left: 20px;
+}
+.follow-P {
+  font-size: 13px;
+}
 
+.followingBtn {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 4px;
+  /* transform: matrix(1, 0, 0, -1, 0, 0); */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+}
 @media all and (max-width: 800px) {
   .search-result-container {
     display: flex;
