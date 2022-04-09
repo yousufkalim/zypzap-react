@@ -17,7 +17,7 @@
 .coursInput {
   width: 93%;
   background: none;
-  border: 1px solid white;
+  border: 1px solid #555770;
   height: 38px;
   margin-bottom: 19px;
   opacity: 0.6;
@@ -28,7 +28,7 @@
 .stepSelect {
   width: 93%;
   background: none;
-  border: 1px solid white;
+  border: 1px solid #555770;
   height: 38px;
   margin-bottom: 19px;
   opacity: 0.6;
@@ -45,7 +45,7 @@
   margin-top: 8px;
   width: 96%;
   background: none;
-  border: 1px solid white;
+  border: 1px solid #555770;
   height: 98px;
   margin-bottom: 19px;
   opacity: 0.6;
@@ -63,7 +63,7 @@
   display: flex;
   width: 97%;
   justify-content: end;
-  margin-top: 33px !important;
+  margin-top: 100px !important;
 }
 .success {
   margin: 10px 13px 30px 0px;
@@ -94,4 +94,92 @@
   font-family: "Poppins", sans-serif;
   cursor: pointer;
   font-size: 12px;
+}
+.coming-SoonBYN {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 2px;
+  color: #fff;
+  position: absolute;
+  left: 39%;
+  border: none;
+  cursor: progress;
+  margin-top: 4px;
+  padding: 1px 2px;
+}
+.step1-p {
+  padding: 15px 0 20px 0px;
+  font-size: 18px;
+}
+/* -------------------------------- css step3 ------------------------------- */
+.step3-centerDiv {
+  width: 100;
+  margin-top: 30px;
+}
+.Step3Bg {
+  width: 100%;
+  height: 100%;
+}
+.step3-colmn {
+  margin-bottom: 40px;
+}
+.step3-colmn2 {
+  margin-bottom: 50px;
+}
+.step3-colmn3 {
+  text-align: center;
+}
+.step3-buttons {
+  padding: 0 60px;
+  cursor: pointer;
+}
+.step6-upload-div {
+  display: flex;
+  width: 50%;
+}
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .step6-upload-div {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+@media all and (max-width: 600px) {
+  .coursDetailBtn {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 40px !important;
+  }
+  .drafBtn {
+    margin: 10px 0px 30px 0px;
+  }
+  .coursInput {
+    width: 100%;
+  }
+  .stepSelect {
+    width: 100%;
+  }
+  .continueBtn {
+    margin: 10px 0px 30px 0px;
+  }
+  .coming-SoonBYN {
+    left: 67%;
+    margin-top: -2px;
+    font-size: 9px;
+  }
+  .step6-upload-div {
+    width: 100%;
+    flex-direction: column;
+  }
+  .step1-p {
+    padding: 0 0 20px 0;
+  }
+  .step3-buttons {
+    margin-bottom: 13px;
+  }
+  .step4Div {
+    height: 35vh;
+  }
+  .coursedetail1 {
+    font-size: 18px;
+  }
 }

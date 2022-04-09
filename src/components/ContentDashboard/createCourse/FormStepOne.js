@@ -226,7 +226,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
         ></textarea>
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button onClick={handleContinue} className="continueBtn">
+          <button
+            className="drafBtn"
+            style={{ background: "none", border: "1px solid #662F88" }}
+          >
+            Previous
+          </button>
+          <button onClick={() => setStep(2)} className="continueBtn">
             Continue
           </button>
         </div>

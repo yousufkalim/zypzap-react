@@ -36,7 +36,7 @@ const DashboardRightSideBar = ({
               >
                 Published Courses
               </h2>
-              &nbsp; &nbsp;&nbsp;
+              &nbsp; &nbsp;
               <h2
                 className={`
              ${activeUploadButton == 2 && "ActiveLine"} 
@@ -45,7 +45,7 @@ const DashboardRightSideBar = ({
               >
                 Draft Courses
               </h2>
-              &nbsp; &nbsp;&nbsp;
+              &nbsp; &nbsp;
               <h2
                 className={`
              ${activeUploadButton == 3 && "ActiveLine"} 
@@ -54,7 +54,7 @@ const DashboardRightSideBar = ({
               >
                 Not Approved Courses
               </h2>
-              &nbsp; &nbsp;&nbsp;
+              &nbsp; &nbsp;
               <h2
                 className={`
              ${activeUploadButton == 4 && "ActiveLine"} 
@@ -63,7 +63,7 @@ const DashboardRightSideBar = ({
               >
                 Under evaluation
               </h2>
-              &nbsp; &nbsp;&nbsp;
+              &nbsp; &nbsp;
               <h2
                 className={`
              ${activeUploadButton == 5 && "ActiveLine"} 
@@ -72,7 +72,7 @@ const DashboardRightSideBar = ({
               >
                 Requested courses
               </h2>
-              &nbsp; &nbsp;&nbsp;
+              &nbsp; &nbsp;
             </div>
             {/* <h1 className="upload-courses-heading"> My Uploaded Courses</h1> */}
             {activeUploadButton == 1 ? (

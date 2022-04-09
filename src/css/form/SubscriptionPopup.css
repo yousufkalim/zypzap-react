@@ -113,6 +113,9 @@
     font-size: 13px;
   }
   .subsBold {
-    font-size: 14px;
+    font-size: 10px;
+  }
+  .subsLabel {
+    font-size: 12px;
   }
 }

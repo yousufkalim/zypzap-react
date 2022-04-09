@@ -76,6 +76,8 @@ export default function Body({ setOpenSignup }) {
             user={user}
           />
           {/* x */}
+          {/* <RankingList /> */}
+          {/* <Blog /> */}
         </div>
       )}
     </>

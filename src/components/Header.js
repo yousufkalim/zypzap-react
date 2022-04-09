@@ -28,9 +28,11 @@ import api from "../api";
 import { Link } from "react-router-dom";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import NewLogo from "../assets/icons/NewLogo.png";
+// import NewLogo from "../assets/icons/NewLogo.png";
+import HomePageLogo from "../assets/icons/HomePageLogo.svg";
 
 import { Store, UpdateStore } from "../StoreContext";
+import { Button } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -284,7 +286,7 @@ export default function PrimarySearchAppBar({
           <Toolbar className="imgLogo">
             <img
               // src={Logo}
-              src={NewLogo}
+              src={HomePageLogo}
               alt="img"
               style={{ cursor: "pointer" }}
               onClick={() => {
@@ -354,7 +356,10 @@ export default function PrimarySearchAppBar({
             </Search>
             {/* <Box sx={{ flexGrow: 1 }} /> */}
             <Link to="" className="requestBt">
-              <button className="requestBtn">Request a course</button>
+              <button className="requestBtn">Request a Course</button>
+              <button className="comming-soon">
+                <span className="comming-soon2"> Coming Soon</span>
+              </button>
             </Link>
 
             {(user?.role == "User" || user?.role == "Creator") && (
@@ -417,6 +422,7 @@ export default function PrimarySearchAppBar({
                   </p>
                   <div>
                     <FormControl className="form_Control_header">
+                      <button className="comming-soon3">Coming Soon</button>
                       <MenuItem>
                         <Select
                           className="select_form_header"
@@ -437,29 +443,6 @@ export default function PrimarySearchAppBar({
                       </MenuItem>
                     </FormControl>
                   </div>
-                  {/* <Link
-                    to="/contentHome"
-                    style={{ color: "white", textDecoration: "none" }}
-                  >
-                    <button
-                      className="sgnBtn"
-                      style={{
-                        backgroundColor: "#202342",
-                        width: "150px",
-                        height: "30px",
-                        color: "white",
-                        borderRadius: "20px",
-                        border: "none",
-                        outline: "none",
-                        height: "30px",
-                        color: "white",
-                        borderRadius: "20px",
-                        border: "none",
-                      }}
-                    >
-                      Switch to Learner
-                    </button>
-                  </Link> */}
                 </>
               )}
 

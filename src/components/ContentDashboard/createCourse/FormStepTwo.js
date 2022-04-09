@@ -3,9 +3,11 @@ import Grid from "@mui/material/Grid";
 import VideoInput from "../../../utils/VideoInput";
 import api from "../../../api";
 import RequestSuccessfullyPopup from "../../PopupForms/RequestSuccessfullyPopup";
+import UploadingTheCourse from "../../PopupForms/UploadingTheCourse";
 
 const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   const [open, setOpen] = React.useState(false);
+  const [opens, setOpens] = React.useState(false);
   const [activeUploadButton, setActiveUploadButton] = useState(1);
   const [uploading, setUploading] = useState(false);
   const handleActiveUploadButton = (i) => {
@@ -31,6 +33,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
 
   return (
     <>
+      <UploadingTheCourse open={opens} setOpen={setOpens} />
       <RequestSuccessfullyPopup open={open} setOpen={setOpen} />
       <div className="formStepOneDiv">
         <p>Step {step}/6</p>
@@ -52,6 +55,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
           >
             Record Course
           </h2>
+          <button className="coming-SoonBYN">Coming soon</button>
         </div>
         <div className={` hrLine1`} />
 
@@ -68,7 +72,9 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
                       onChange={handleFileChange}
                     />
                   </div>
-                  <p className="step_or">or</p>
+                  <p className="step_or" onClick={() => setOpens(true)}>
+                    or
+                  </p>
                   <div className="step2">
                     <p className="stapPr2">Upload chapters</p>
                     <VideoInput
@@ -93,7 +99,13 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
 
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button onClick={() => setStep(5)} className="continueBtn">
+          <button
+            className="drafBtn"
+            style={{ background: "none", border: "1px solid #662F88" }}
+          >
+            Previous
+          </button>
+          <button onClick={() => setStep(3)} className="continueBtn">
             Continue
           </button>
         </div>

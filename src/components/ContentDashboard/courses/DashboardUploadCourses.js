@@ -13,7 +13,7 @@ import { CompressOutlined } from "@mui/icons-material";
 import api from "../../../api";
 const calTotalSecInVideos = (videos) => {
   let timeInSecond = 1;
-  videos.map((videos) => (timeInSecond += parseInt(videos.duration)));
+  videos?.map((videos) => (timeInSecond += parseInt(videos.duration)));
   var hrs = ~~(timeInSecond / 3600);
   var mins = ~~((timeInSecond % 3600) / 60);
   var secs = ~~timeInSecond % 60;

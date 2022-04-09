@@ -1,7 +1,6 @@
 // Init
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-
 // Routes
 import Construction from "../containers/Construction.js";
 import Home from "../containers/Home";
@@ -24,6 +23,7 @@ import LegalNotice from "../containers/LegalNotice";
 import PrivacyPolicy from "../containers/PrivacyPolicy";
 import Team from "../containers/Team";
 import CreatorProfile from "../containers/CreatorProfile";
+import UserDashboard from "../containers/UserDashboard";
 
 const index = () => {
   return (
@@ -55,6 +55,7 @@ const index = () => {
       <Route exact path="/Team" component={Team} />
       <Route exact path="/PrivacyPolicy" component={PrivacyPolicy} />
       <Route exact path="/CreatorProfile" component={CreatorProfile} />
+      <Route exact path="/UserDashboard" component={UserDashboard} />
     </Switch>
   );
 };

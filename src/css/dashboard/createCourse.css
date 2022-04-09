@@ -21,6 +21,8 @@
 .coursedetail1 {
   margin-top: 20px;
   padding-bottom: 10px;
+  border-bottom: 5px solid #662f88;
+  display: inline-block;
 }
 .hrLine1 {
   width: 100%;
@@ -31,10 +33,11 @@
   display: flex;
   margin-top: 20px;
   cursor: pointer;
-  width: 93%;
-  margin: 0 auto 20px auto;
-  padding: 25px 0 6px 0;
-  border-bottom: 1px solid #313131;
+  width: 100%;
+  margin: 0 auto 0px auto;
+  padding: 25px 0 0px 0;
+  /* border-bottom: 1px solid #313131; */
+  font-size: 12px;
 }
 .uploadCoursebtn {
   margin: 0 20px 0 0;
