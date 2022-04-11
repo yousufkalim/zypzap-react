@@ -63,7 +63,6 @@ const StartedCourse = () => {
                 </div>
                 <div className="wishList-container">
                   <h4 className="wishListh4">CS-GO Ep 2 Complete Course</h4>
-                  <br />
                   <p className="wishlistP">
                     {item?.course_name ? item.course_name : "Fight Course"}
                   </p>

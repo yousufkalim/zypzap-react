@@ -358,7 +358,7 @@ export default function PrimarySearchAppBar({
               />
             </Search>
             {/* <Box sx={{ flexGrow: 1 }} /> */}
-            <Link to="" className="requestBt">
+            <Link to="" className="requestBt2">
               <button className="requestBtn">Request a Course</button>
 
               <button className="requestBtn2">
@@ -453,12 +453,12 @@ export default function PrimarySearchAppBar({
                 </>
               )}
 
-              <div>
-                {/* <img src={UserIcon} alt="img" /> */}
+              {/* <div>
+                <img src={UserIcon} alt="img" />
                 <img src={Globe} alt="img" />
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 <img src={Moon} alt="img" />
-              </div>
+              </div> */}
             </Box>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton

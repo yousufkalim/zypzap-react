@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Dashboard2 from "../components/UserDashboard/Dashboard2";
 import { Store, UpdateStore } from "../StoreContext";
+import "../css/dashboard/Dashbord2Responsive.css";
 
 const UserDashboard = () => {
   const { creator } = Store();
