@@ -1,0 +1,148 @@
+.courseimg2 {
+  width: 90%;
+  margin: 20px auto;
+  display: block;
+}
+@media only screen and (min-width: 320px) and (max-width: 600px) {
+  .wishListh4 {
+    font-size: 14px !important;
+  }
+  .wishListBtn {
+    font-size: 10px !important;
+    padding: 10px 6px !important;
+    margin-right: 15px !important;
+  }
+  .wishlistDiv {
+    width: 100% !important;
+  }
+  .wishlistP {
+    font-size: 10px !important;
+    padding: 5px 0 !important;
+  }
+  .wishList-container {
+    padding-left: 0 !important;
+  }
+  .wishlistP3 {
+    padding: 0 0 !important;
+  }
+  .courseimg {
+    height: 154px !important;
+  }
+  .creatorCard2 {
+    flex-direction: column !important;
+  }
+  .cardGrid_List {
+    width: 80% !important;
+    margin: 14px auto !important;
+  }
+  .tags-input2 {
+    width: 100% !important;
+  }
+  .selectInput2 {
+    width: 100% !important;
+  }
+  .userProfileButton2 {
+    width: 100% !important;
+  }
+  .comming-soon {
+    position: absolute;
+    margin: 0 0 0 -110px !important;
+    padding: 0px 2px !important;
+    font-size: 8px !important;
+  }
+  .searchBarIcon {
+    height: 25px !important;
+    padding: 5px;
+    /* top: 30%; */
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .fa-solid {
+    margin-left: 32px !important;
+  }
+  .wishListh4 {
+    font-size: 14px !important;
+  }
+  .wishListBtn {
+    font-size: 10px !important;
+    padding: 10px 6px !important;
+    margin-right: 15px !important;
+  }
+  .wishlistDiv {
+    width: 100% !important;
+  }
+  .wishlistP {
+    font-size: 10px !important;
+    padding: 5px 0 !important;
+  }
+  .wishList-container {
+    padding-left: 0 !important;
+  }
+  .wishlistP3 {
+    padding: 0 0 !important;
+  }
+  .courseimg {
+    height: 154px !important;
+  }
+  .creatorCard2 {
+    flex-direction: column !important;
+  }
+  .cardGrid_List {
+    width: 80% !important;
+    margin: 14px auto !important;
+  }
+  .tags-input2 {
+    width: 100% !important;
+  }
+  .selectInput2 {
+    width: 100% !important;
+  }
+  .userProfileButton2 {
+    width: 100% !important;
+  }
+  .comming-soon {
+    margin: 7px 0 0 -131px !important;
+    padding: 0px 2px !important;
+    font-size: 11px !important;
+  }
+  .searchBarIcon {
+    height: 25px !important;
+    padding: 5px;
+    /* top: 30%; */
+  }
+  .courseimg2 {
+    width: 100%;
+    padding: 17px;
+    border-radius: 18%;
+    /* height: 300px; */
+  }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+  .css-1kcggdq-MuiInputBase-root .MuiInputBase-input {
+    padding-left: calc(0.7em + -12px) !important;
+  }
+  .comming-soon {
+    margin: 0 0 0 -133px !important;
+    font-size: 9px !important;
+  }
+  .fa-solid {
+    margin-left: 45px !important;
+  }
+  .wishListh4 {
+    font-size: 20px !important;
+  }
+  .wishlistP {
+    font-size: 18px !important;
+    padding: 9px 0 !important;
+  }
+  .wishListBtn {
+    font-size: 17px !important;
+    padding: 10px 8px !important;
+    margin-right: 30px !important;
+  }
+  .courseimg2 {
+    width: 100%;
+  }
+}

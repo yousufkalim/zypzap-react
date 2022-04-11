@@ -53,7 +53,7 @@ const Wishlist = () => {
                   borderRadius: "35px",
                 }}
               >
-                <img src={Course1} className="courseimg" alt="img" />
+                <img src={Course1} className="courseimg2" alt="img" />
                 <h5 className="latestcourseh5">PUBG GamePlay Course</h5>
                 <p className="latestcoursep1">Ifaf ghori</p>
                 <p className="latestcoursep1">
