@@ -358,7 +358,7 @@ export default function PrimarySearchAppBar({
               />
             </Search>
             {/* <Box sx={{ flexGrow: 1 }} /> */}
-            <Link to="" className="requestBt">
+            <Link to="" className="requestBt2">
               <button className="requestBtn">Request a Course</button>
 
               <button className="requestBtn2">
