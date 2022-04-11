@@ -7,16 +7,14 @@ import FormControl from "@mui/material/FormControl";
 import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
-function Setting({ openProfile, setOpenProfile, user }) {
-  const [profile_photo, setImageURL] = useState(
-    user?.profile_photo ? user.profile_photo : Course1
-  );
+import { Store, UpdateStore } from "../../StoreContext";
+function Setting({ openProfile, setOpenProfile }) {
+  const { user } = Store();
   const [favouritGame, setFavouritGame] = useState(
     user?.prefrence_games?.favourite_games
       ? user.prefrence_games.favourite_games
       : []
   );
-
   const [gameType, setGameType] = useState(user?.gameType ? user.gameType : []);
   const [plateForm, setPlateForm] = useState(
     user?.plateForm ? user.plateForm : []
@@ -24,16 +22,10 @@ function Setting({ openProfile, setOpenProfile, user }) {
   const [gameMood, setGameMood] = useState(
     user?.gameMood ? user.gameMood : "Single"
   );
-  const [playPeriod, setPlayPeriod] = useState(
-    user?.prefrence_games?.play_period
-      ? user.prefrence_games.play_period
-      : "Per Week"
+  const [learningRethem, setLearningRethem] = useState(
+    user?.setLearningRethem ? user.setLearningRethem : ""
   );
-  const [playTime, setPlayTime] = useState(
-    user?.prefrence_games?.play_time_per_perioad
-      ? user.prefrence_games.play_time_per_perioad
-      : "2 Houre"
-  );
+
   const [currentLevel, setCurrentLevel] = useState(
     user?.prefrence_games?.current_level
       ? user.prefrence_games.current_level
@@ -48,7 +40,7 @@ function Setting({ openProfile, setOpenProfile, user }) {
     setCurrentSate();
   }, [user]);
   const setCurrentSate = () => {
-    setImageURL(user?.profile_photo ? user.profile_photo : Course1);
+    console.log("user", user);
     setFavouritGame(
       user?.prefrence_games?.favourite_games
         ? user.prefrence_games.favourite_games
@@ -57,16 +49,7 @@ function Setting({ openProfile, setOpenProfile, user }) {
     setGameType(user?.gameType ? user.gameType : []);
     setPlateForm(user?.plateForm ? user.plateForm : []);
     setGameMood(user?.gameMood ? user.gameMood : "Single");
-    setPlayPeriod(
-      user?.prefrence_games?.play_period
-        ? user.prefrence_games.play_period
-        : "Per Week"
-    );
-    setPlayTime(
-      user?.prefrence_games?.play_time_per_perioad
-        ? user.prefrence_games.play_time_per_perioad
-        : "2 Houre"
-    );
+    setLearningRethem(user?.setLearningRethem ? user.setLearningRethem : "");
     setCurrentLevel(
       user?.prefrence_games?.current_level
         ? user.prefrence_games.current_level
@@ -98,11 +81,9 @@ function Setting({ openProfile, setOpenProfile, user }) {
     ]);
   };
   const changePlayPeriodHandler = (e) => {
-    setPlayPeriod(e.target.value);
+    setLearningRethem(e.target.value);
   };
-  const changePlayTimeHandler = (e) => {
-    setPlayTime(e.target.value);
-  };
+
   const changeCurrentLevelHandler = (e) => {
     setCurrentLevel(e.target.value);
   };
@@ -125,39 +106,30 @@ function Setting({ openProfile, setOpenProfile, user }) {
       setGameType(data);
     }
   };
-  const handleImageSelect = async (e) => {
-    const formdata = new FormData();
-    formdata.append(`files`, e.target.files[0]);
-    let res = await api("post", "/uploadImage", formdata);
-    setImageURL(res.data.file);
-  };
 
   const submitProfile = async (e) => {
     const prefrence_games = {
       favourite_games: favouritGame,
-      play_period: playPeriod,
-      play_time_per_perioad: playTime,
+      learningRethem: learningRethem,
       current_level: currentLevel,
       target_level: target_level,
     };
     const formdata = {
-      profile_photo,
       prefrence_games,
       gameType,
       plateForm,
       gameMood,
     };
     if (
-      (prefrence_games === "" ||
-        gameType === "" ||
-        plateForm === "" ||
-        gameMood === "" ||
-        target_level === "" ||
-        currentLevel === "" ||
-        playTime === "" ||
-        playPeriod === "",
-      favouritGame === "")
+      prefrence_games === "" ||
+      gameType === "" ||
+      plateForm === "" ||
+      gameMood === "" ||
+      target_level === "" ||
+      currentLevel === "" ||
+      favouritGame === ""
     ) {
+      return toast.error("Give your complete details!");
     } else {
       if (user) {
         let res = await api(
@@ -166,8 +138,8 @@ function Setting({ openProfile, setOpenProfile, user }) {
           formdata
         );
         if (res) {
+          console.log("res", res);
           toast.success("Modifier le profil avec succès");
-          setOpenProfile(false);
         }
       } else {
         toast.success("Profil non modifié");
@@ -323,10 +295,14 @@ function Setting({ openProfile, setOpenProfile, user }) {
             className="selectInput-userProfile selectInput2"
           >
             <option value="Per Week" className="selectInput-option">
-              {playPeriod}
+              10h to 20h Per Week
             </option>
-            <option value="Per Month">Per Month</option>
-            <option value="Per Year">Per Year</option>
+            <option value="Per Month">10h to 20h Per Week</option>
+            <option value="Per Year">20h to 30h Per Week</option>
+            <option value="Per Month">30h to 40h Per Week</option>
+            <option value="Per Year">40h to 50h Per Week</option>
+            <option value="Per Month">50h to 60h Per Week</option>
+            <option value="Per Year">60h to 70h Per Week</option>
           </select>
         </div>
         <div className="userProfileSelectInput">
@@ -365,12 +341,17 @@ function Setting({ openProfile, setOpenProfile, user }) {
             defaultValue={target_level}
           >
             <option value="Casual" className="selectInput-option">
-              Casual
+              Casual (5h - 7h Of Play Per Week)
             </option>
-
-            <option value="Confirmed">Confirmed</option>
-            <option value="Hardcore">Hardcore</option>
-            <option value="Esporter">Esporter</option>
+            <option value="Confirmed">
+              Confirmed (8 Hours - 15 Hours Of Play Per Week)
+            </option>
+            <option value="Hardcore">
+              Hardcore (16 Hours - 28 Hours Of Play Per Week)
+            </option>
+            <option value="Esporter">
+              Esporter (More than 30 Hours Of Play Per Week)
+            </option>
           </select>
         </div>
         <button
