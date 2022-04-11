@@ -45,9 +45,8 @@
     width: 100% !important;
   }
   .comming-soon {
-    position: absolute;
-    margin: 0 0 0 -110px !important;
-    padding: 0px 2px !important;
+    margin: -36px 0 0 23px !important;
+    padding: 3px 2px !important;
     font-size: 8px !important;
   }
   .searchBarIcon {
@@ -102,8 +101,8 @@
     width: 100% !important;
   }
   .comming-soon {
-    margin: 7px 0 0 -131px !important;
-    padding: 0px 2px !important;
+    margin: -41px 0 0 73px !important;
+    padding: 3px 4px !important;
     font-size: 11px !important;
   }
   .searchBarIcon {
@@ -124,7 +123,7 @@
     padding-left: calc(0.7em + -12px) !important;
   }
   .comming-soon {
-    margin: 0 0 0 -133px !important;
+    margin: -34px 0 0 11px !important;
     font-size: 9px !important;
   }
   .fa-solid {

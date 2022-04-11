@@ -109,7 +109,7 @@
 }
 .comming-soon {
   position: absolute;
-  margin: 0 0 0 -160px;
+  margin: -39px 0 0 60px;
   border: none;
   padding: 2px 7px;
   font-size: 12px;
@@ -222,6 +222,10 @@
   padding-top: 0 !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+.requestBt {
+  display: flex;
+  align-items: center;
 }
 /* for big screens */
 @media only screen and (min-width: 1900px) {
@@ -442,9 +446,9 @@
   }
   .MuiSvgIcon-root {
     width: 1em !important;
-    margin: 4px 0 0 -8px !important;
+    margin: 0px 0 0 -8px !important;
     color: white !important;
-    height: 28px !important;
+    height: 30px !important;
   }
   .css-1t29gy6-MuiToolbar-root {
     justify-content: space-around;
