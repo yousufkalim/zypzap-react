@@ -13,15 +13,8 @@ const DashboardLeftSideBar2 = ({
     setFlag(!flag);
   };
   const handleClick2 = (i) => {
+    console.log(i, "------->i");
     setDefaultCompStatedrop(i);
-    // if (i == "Started courses") {
-    //   return (
-    //     <>
-    //       <div style={{ color: "red" }}>siam khan</div>;
-    //       <StartedCourse />
-    //     </>
-    //   );
-    // }
   };
 
   return (
@@ -39,7 +32,7 @@ const DashboardLeftSideBar2 = ({
                 <img src={item.img} />
                 {item.name}
                 {item?.drop && (
-                  <div style={{ color: "white" }} onClick={handelClick}>
+                  <div style={{ color: "white" }} onClick={() => handelClick()}>
                     <i
                       style={{ marginLeft: "100px" }}
                       class="fa-solid fa-angle-down"
@@ -67,7 +60,7 @@ const DashboardLeftSideBar2 = ({
                 </div>
               )}
             </div>
-            <div>
+            {/* <div>
               {item?.drop2 && (
                 <div>
                   {item.drop2.map((i) => (
@@ -84,7 +77,7 @@ const DashboardLeftSideBar2 = ({
                   ))}
                 </div>
               )}
-            </div>
+            </div> */}
           </>
         );
       })}

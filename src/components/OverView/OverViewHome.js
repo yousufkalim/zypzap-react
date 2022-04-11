@@ -13,8 +13,11 @@ import OverCardSocialIcon1 from "../../assets/icons/OverCardSocialIcon1.svg";
 import OverCardSocialIcon2 from "../../assets/icons/OverCardSocialIcon2.svg";
 import OverCardSocialIcon3 from "../../assets/icons/OverCardSocialIcon3.svg";
 import { NavLink } from "react-router-dom";
-
+import { Store, UpdateStore } from "../../StoreContext";
+import api from "../../api";
 const OverViewHome = (props) => {
+  const { user } = Store();
+  const updateStore = UpdateStore();
   const { singlCourse } = props;
   const calTotalSecInVideos = (videos) => {
     let timeInSecond = 1;
@@ -29,6 +32,28 @@ const OverViewHome = (props) => {
     if (days < 7) week = 0;
     if (days > 7) week = days / 7;
     return week;
+  };
+  const handleClick = async (u, course) => {
+    const data = {
+      courseId: course?._id,
+      userId: u?._id,
+    };
+    let res = await api("post", "/users/enrolledCourseAndStarted", data);
+    if (res) {
+      console.log("res------>", res);
+      updateStore({ user: res.data });
+    }
+  };
+  const handleEnrolled = async (u, course) => {
+    const data = {
+      courseId: course?._id,
+      userId: u?._id,
+    };
+    let res = await api("post", "/users/enrolledCourse", data);
+    if (res) {
+      console.log("res------>", res);
+      updateStore({ user: res.data });
+    }
   };
   return (
     <>
@@ -103,11 +128,20 @@ const OverViewHome = (props) => {
                 <NavLink
                   to="#"
                   className="CardBuyBtn"
-                  onClick={() => props.setShowVideo(true)}
+                  onClick={() => {
+                    handleClick(user, singlCourse);
+                    props.setShowVideo(true);
+                  }}
                 >
                   Start
                 </NavLink>
-                <NavLink to="#" className="CardBuyBtn">
+                <NavLink
+                  to="#"
+                  className="CardBuyBtn"
+                  onClick={() => {
+                    handleEnrolled(user, singlCourse);
+                  }}
+                >
                   Enroll Now
                 </NavLink>
                 <NavLink to="#" className="CardBuyBtn2">

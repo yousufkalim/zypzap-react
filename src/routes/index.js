@@ -38,7 +38,7 @@ const index = () => {
       <Route exact path="/landingpartner" component={LandingPartner} />
       <Route exact path="/landingpage" component={LandingPage} />
       <Route exact path="/userlanding" component={UserLandingPage} />
-      <Route exact path="/dashboard" component={ContentDashboard} />
+      <Route exact path="/UserDashboard" component={UserDashboard} />
       <Route exact path="/policy" component={Policy} />
       <Route
         exact
@@ -55,7 +55,6 @@ const index = () => {
       <Route exact path="/Team" component={Team} />
       <Route exact path="/PrivacyPolicy" component={PrivacyPolicy} />
       <Route exact path="/CreatorProfile" component={CreatorProfile} />
-      <Route exact path="/UserDashboard" component={UserDashboard} />
     </Switch>
   );
 };
