@@ -61,7 +61,6 @@ const StartedCourse = () => {
     <div className="wishlistDiv">
       <h3 className="wishCardh3">Sarted Courses</h3>
       <div className="carousalOuterDiv2 ">
-        {console.log("------>59 ln", User?.enrolled_courses?.length)}
         {User?.enrolled_courses?.length !== 0 ? (
           <>
             {start_courses?.map((item, i) => (

@@ -59,7 +59,7 @@
 }
 .marginRight {
   margin-right: 10px;
-  font-size: 12px;
+  font-size: 13px;
 }
 .userprofilediv {
   display: flex;
@@ -99,6 +99,9 @@
     font-size: 21px;
     padding: 28px 0;
     line-height: 1.7;
+  }
+  .marginRight {
+    font-size: 15px;
   }
 }
 /* for mobile */
