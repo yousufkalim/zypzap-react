@@ -67,7 +67,7 @@ export default function Body({ setOpenSignup }) {
               </button>
             )}
           </div>
-          <TopCourses courses={courses} />
+          <TopCourses courses={courses} user={user} />
           <LatestCourses courses={courses} user={user} />
           <TopRatedContent />
           <Request

@@ -13,7 +13,6 @@ const DashboardLeftSideBar2 = ({
     setFlag(!flag);
   };
   const handleClick2 = (i) => {
-    console.log(i, "------->i");
     setDefaultCompStatedrop(i);
   };
 
@@ -60,7 +59,7 @@ const DashboardLeftSideBar2 = ({
                 </div>
               )}
             </div>
-            {/* <div>
+            <div>
               {item?.drop2 && (
                 <div>
                   {item.drop2.map((i) => (
@@ -77,7 +76,7 @@ const DashboardLeftSideBar2 = ({
                   ))}
                 </div>
               )}
-            </div> */}
+            </div>
           </>
         );
       })}

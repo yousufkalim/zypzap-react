@@ -133,7 +133,7 @@ export default function CustomizedMenus(props) {
           <span> Sort by </span>{" "}
           <KeyboardArrowDownIcon
             sx={{
-              color: "#fff",
+              color: "#fff !important",
               opacity: "0.6",
               width: "2px",
               marginTop: "2px",

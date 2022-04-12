@@ -40,7 +40,6 @@ const OverViewHome = (props) => {
     };
     let res = await api("post", "/users/enrolledCourseAndStarted", data);
     if (res) {
-      console.log("res------>", res);
       updateStore({ user: res.data });
     }
   };
@@ -51,7 +50,6 @@ const OverViewHome = (props) => {
     };
     let res = await api("post", "/users/enrolledCourse", data);
     if (res) {
-      console.log("res------>", res);
       updateStore({ user: res.data });
     }
   };
@@ -129,8 +127,12 @@ const OverViewHome = (props) => {
                   to="#"
                   className="CardBuyBtn"
                   onClick={() => {
-                    handleClick(user, singlCourse);
-                    props.setShowVideo(true);
+                    if (user) {
+                      handleClick(user, singlCourse);
+                      props.setShowVideo(true);
+                    } else {
+                      props.setOpenSignup(true);
+                    }
                   }}
                 >
                   Start
@@ -139,7 +141,11 @@ const OverViewHome = (props) => {
                   to="#"
                   className="CardBuyBtn"
                   onClick={() => {
-                    handleEnrolled(user, singlCourse);
+                    if (user) {
+                      handleEnrolled(user, singlCourse);
+                    } else {
+                      props.setOpenSignup(true);
+                    }
                   }}
                 >
                   Enroll Now
