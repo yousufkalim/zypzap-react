@@ -13,7 +13,6 @@ const DashboardLeftSideBar2 = ({
     setFlag(!flag);
   };
   const handleClick2 = (i) => {
-    console.log(i, "------->i");
     setDefaultCompStatedrop(i);
   };
 
@@ -60,7 +59,7 @@ const DashboardLeftSideBar2 = ({
                 </div>
               )}
             </div>
-            {/* <div>
+            <div>
               {item?.drop2 && (
                 <div>
                   {item.drop2.map((i) => (
@@ -69,6 +68,9 @@ const DashboardLeftSideBar2 = ({
                         marginLeft: "30px",
                         opacity: "0.5",
                         cursor: "pointer",
+                        position: "absolute",
+                        marginTop: "-12px",
+                        fontSize: "14px",
                       }}
                       // onClick={() => handleClick2(i)}
                     >
@@ -77,7 +79,7 @@ const DashboardLeftSideBar2 = ({
                   ))}
                 </div>
               )}
-            </div> */}
+            </div>
           </>
         );
       })}

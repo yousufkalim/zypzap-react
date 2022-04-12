@@ -330,9 +330,9 @@ export default function PrimarySearchAppBar({
               <SearchIconWrapper></SearchIconWrapper>
 
               <div className="dropdown">
-                <button className="dropbtn">
-                  <img src={DownArrow} alt="img" className="downarrow" />
-                </button>
+                {/* <button className="dropbtn"> */}
+                <img src={DownArrow} alt="img" className="downarrow" />
+                {/* </button> */}
                 <div className="dropdown-content">
                   <div className="drowp1">
                     <a href="#" onClick={handleCreatorSearch}>

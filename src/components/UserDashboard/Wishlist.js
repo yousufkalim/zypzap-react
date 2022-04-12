@@ -66,7 +66,6 @@ const Wishlist = () => {
         {/* <h3 className="creatorProfileH3">Courses</h3> */}
         <div className="">
           <div className="creatorCard2">
-            {console.log("------->", User)}
             {User?.wishlist_courses?.length !== 0 ? (
               <>
                 {User?.wishlist_courses?.map((item, i) => (
@@ -78,7 +77,6 @@ const Wishlist = () => {
                       borderRadius: "35px",
                     }}
                   >
-                    {console.log("------->item", item)}
                     <img src={Course1} className="courseimg" alt="img" />
                     <h5 className="latestcourseh5">{item?.course_name}</h5>
                     <p className="latestcoursep1">
