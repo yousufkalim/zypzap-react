@@ -65,7 +65,6 @@ const StartedCourse = () => {
           <>
             {start_courses?.map((item, i) => (
               <>
-                {console.log("------>59 ln445", start_courses)}
                 <Link to="#" className="requestBt2" course={item}>
                   <a className="courseDetail2" key={i}>
                     <div className="cardGrid2">

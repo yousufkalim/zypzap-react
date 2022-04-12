@@ -119,9 +119,7 @@
 }
 
 @media only screen and (min-width: 901px) and (max-width: 1200px) {
-  .css-1kcggdq-MuiInputBase-root .MuiInputBase-input {
-    padding-left: calc(0.7em + -12px) !important;
-  }
+
   .comming-soon {
     margin: -34px 0 0 11px !important;
     font-size: 9px !important;

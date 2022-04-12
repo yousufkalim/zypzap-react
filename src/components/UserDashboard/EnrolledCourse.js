@@ -37,7 +37,7 @@ const EnrolledCourse = () => {
     setEnrolledCourses(
       user?.enrolled_courses?.filter((courses) => courses.started === false)
     );
-  }, [User]);
+  }, []);
   return (
     <div className="wishlistDiv">
       <h3 className="wishCardh3"> Enrolled Courses</h3>

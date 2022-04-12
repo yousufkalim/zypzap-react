@@ -27,10 +27,12 @@
 }
 
 .courseimg {
-  width: 100%;
-  padding: 17px;
-  border-radius: 18%;
-  height: 500px;
+  width: 98%;
+    padding: 17px;
+    border-radius: 18%;
+    height: 390px;
+    margin: auto;
+    display: block;
 }
 
 .dashbordHeading-div {

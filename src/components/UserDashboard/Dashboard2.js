@@ -24,7 +24,6 @@ const Dashboard2 = () => {
     if (user) {
       let res = await api("get", `/users/${user?._id}`);
       if (res) {
-        console.log("------>1234", res);
         updateStore({ user: res.data });
       }
     }

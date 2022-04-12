@@ -11,7 +11,11 @@
   color: #fff !important;
 }
 .css-1kcggdq-MuiInputBase-root .MuiInputBase-input {
-  padding-left: calc(1.7em + 32px) !important;
+  padding-left: calc(0.1em + 32px) !important;
+  width: 19ch !important;
+}
+.css-1kcggdq-MuiInputBase-root .MuiInputBase-input::placeholder{
+  font-size: 14px;
 }
 .headerBackgroundColor {
   background-color: black !important;
@@ -62,7 +66,7 @@
 }
 .downarrow {
   position: relative;
-  left: 11.7%;
+  /* left: -22px; */
   width: 13px;
   cursor: pointer;
 }
@@ -103,7 +107,7 @@
   position: absolute;
   right: 0px;
   width: 50px !important;
-  height: 37px !important;
+  height: 38px !important;
   padding: 5px;
   /* top: 30%; */
 }
@@ -157,7 +161,7 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  left: 45px;
+  left: 20px;
   z-index: 5;
 }
 
@@ -234,7 +238,7 @@
   }
   .downarrow {
     position: relative;
-    left: 11.7%;
+    left: -22px;
     width: 13px;
   }
   .searchItemsIcon {

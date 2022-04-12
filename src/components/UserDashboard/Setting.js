@@ -40,7 +40,6 @@ function Setting({ openProfile, setOpenProfile }) {
     setCurrentSate();
   }, [user]);
   const setCurrentSate = () => {
-    console.log("user", user);
     setFavouritGame(
       user?.prefrence_games?.favourite_games
         ? user.prefrence_games.favourite_games
@@ -138,7 +137,6 @@ function Setting({ openProfile, setOpenProfile }) {
           formdata
         );
         if (res) {
-          console.log("res", res);
           toast.success("Modifier le profil avec succès");
         }
       } else {
