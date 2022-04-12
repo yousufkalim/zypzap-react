@@ -342,11 +342,11 @@ export default function PropfileInformation({
                   <FormControlLabel
                     value="Single"
                     control={<Radio />}
-                    label="Single"
+                    label="Single Player Mode"
                     onClick={onChangeRadioBtn}
                   />
                   <FormControlLabel
-                    value="MultiPlayer"
+                    value="MultiPlayer Mode"
                     control={<Radio />}
                     label="MultiPlayer"
                     onClick={onChangeRadioBtn}

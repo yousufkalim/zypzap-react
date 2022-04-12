@@ -12,7 +12,7 @@
   font-family: "mulish";
 }
 .topCoursesDiv {
-  max-width: 25% !important;
+  max-width: 30% !important;
   height: auto;
 }
 .topcourseheading {
@@ -31,6 +31,7 @@
 .topcourseimg {
   width: 100%;
   padding: 10px;
+  height: 360px !important;
 }
 .topcourseTextGrid {
   padding: 30px 20px 30px 20px;

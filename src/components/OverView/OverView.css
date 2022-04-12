@@ -596,7 +596,9 @@ body {
     width: 100%;
   }
   .overViewCardIMG {
-    width: 100%;
+    width: 82%;
+    display: block;
+    margin: 14px auto;
   }
   .overViewBuy {
     width: 100%;
@@ -613,7 +615,7 @@ body {
     margin: auto;
     width: 76%;
     padding: 0px 0px 30px 0px;
-    flex-direction: column;
+    /* flex-direction: column; */
   }
   .reviewsStarIcon {
     padding: 20px 0 0 0px;
@@ -625,5 +627,8 @@ body {
   }
   .overSocialIcon {
     padding: 0px 10px;
+  }
+  .overView-descripiton-centerDiv {
+    height: inherit;
   }
 }

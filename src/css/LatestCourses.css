@@ -30,7 +30,7 @@
   width: 100%;
   padding: 17px;
   border-radius: 18%;
-  height: 300px;
+  height: 500px;
 }
 
 .dashbordHeading-div {
@@ -105,7 +105,7 @@
 }
 .latestCourse-p {
   padding: 0 0 0 6px;
-  font-size: 15px;
+  font-size: 18px;
 }
 /* -------------------------------- new card --------------------------------   */
 /* -------------------------------- wishlist --------------------------------   */
@@ -200,11 +200,16 @@
 }
 /* -------------------------------- wishlist --------------------------------   */
 /* for mobile */
-@media only screen and (min-width: 320px) and (max-width: 812px) {
+@media only screen and (min-width: 300px) and (max-width: 812px) {
   .cardGrid {
     text-align: left;
   }
   .latestcourseheading {
     font-size: 17px;
   }
+  .requestBt2 {
+    text-decoration: none;
+    width: 37%;
+    margin: auto;
+}
 }
