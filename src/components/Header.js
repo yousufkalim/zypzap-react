@@ -336,9 +336,9 @@ export default function PrimarySearchAppBar({
               </div>
 
               <div className="dropdown">
-                <button className="dropbtn">
-                  <img src={DownArrow} alt="img" className="downarrow" />
-                </button>
+                {/* <button className="dropbtn"> */}
+                <img src={DownArrow} alt="img" className="downarrow" />
+                {/* </button> */}
                 <div className="dropdown-content">
                   <div className="drowp1">
                     <a href="#" onClick={handleCreatorSearch}>
@@ -478,12 +478,12 @@ export default function PrimarySearchAppBar({
                 </>
               )}
 
-              <div>
-                {/* <img src={UserIcon} alt="img" /> */}
+              {/* <div>
+                <img src={UserIcon} alt="img" />
                 <img src={Globe} alt="img" />
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 <img src={Moon} alt="img" />
-              </div>
+              </div> */}
             </Box>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton

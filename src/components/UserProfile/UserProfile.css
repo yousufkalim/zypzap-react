@@ -232,6 +232,7 @@ body {
 .profileSetting-centerDiv {
   display: flex;
   justify-content: space-between;
+  padding: 14px 0;
 }
 .profileSetting-Col {
   width: 25%;

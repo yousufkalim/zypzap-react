@@ -39,6 +39,7 @@ export default function TopCourses(props) {
         animation={"fade"}
         activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
         className="topcoursecarousal"
+        // width="100%"
       >
         {Courses?.slice(0, 3).map((item, i) => (
           <Link
@@ -88,12 +89,7 @@ function TopCoursesComponent({ item }) {
     return diffDays;
   };
   return (
-    <Grid
-      container
-      spacing={2}
-      className="topCourseGrid"
-      style={{ width: "auto" }}
-    >
+    <Grid container spacing={2} className="topCourseGrid">
       <Grid item xs={12} sm={5} className="topCoursesDiv">
         {/*  make it dynamic  */}
         <img

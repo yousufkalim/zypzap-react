@@ -12,6 +12,10 @@ import OverCardHurtLogo from "../../assets/icons/OverCardHurtLogo.svg";
 import OverCardSocialIcon1 from "../../assets/icons/OverCardSocialIcon1.svg";
 import OverCardSocialIcon2 from "../../assets/icons/OverCardSocialIcon2.svg";
 import OverCardSocialIcon3 from "../../assets/icons/OverCardSocialIcon3.svg";
+import RatingStarIcon from "../../assets/icons/RatingStarIcon.svg";
+import Star6 from "../../assets/icons/Star6.svg";
+// import { ReactComponent as Star } from "../../assets/icons/star2.svg";
+// import StarIcon from "@material-ui/icons/Star";
 import { NavLink } from "react-router-dom";
 import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
@@ -68,10 +72,17 @@ const OverViewHome = (props) => {
           <div className="overView_heading">
             <div className="overViewContent">
               <h1 className="overViewH1">
-                Beat the Opponent{" "}
-                {singlCourse?.course_name ? singlCourse.course_name : "CS GO"}{" "}
+                Beat the Opponent
+                {singlCourse?.course_name ? singlCourse.course_name : "CS GO"}
                 Gameplay
               </h1>
+              <p className="overViewContent">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                aliquam, purus sit amet luctus venenatis,Lorem
+              </p>
+              <p className="overViewContent">
+                ipsum dolor sit amet, consectetur adipiscing
+              </p>
             </div>
             <div className="overViewTags">
               <li className="overViewLi">
@@ -104,6 +115,18 @@ const OverViewHome = (props) => {
                     : "0 Students"}
                 </p>
               </li>
+              <li className="overViewLi">
+                <img src={RatingStarIcon} alt="" className="overViewIcon" />
+                <p className="overViewIconP">
+                  5.0 <img src={Star6} alt="" /> Rating
+                </p>
+              </li>
+            </div>
+            <div className="overVeiwSlectBTN">
+              <button className="overVeiwCS-btn">CS:GO course</button>
+              <button className="overVeiwCS-btn">
+                Created by Jordan Gilbert
+              </button>
             </div>
           </div>
 
@@ -152,6 +175,7 @@ const OverViewHome = (props) => {
                 </NavLink>
                 <NavLink to="#" className="CardBuyBtn2">
                   Stock It In The Caddy
+                  <button className="overComming-soonBTN">Comming Soon</button>
                 </NavLink>
               </div>
               <div className="overViewCard-content">

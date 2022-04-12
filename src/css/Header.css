@@ -11,7 +11,11 @@
   color: #fff !important;
 }
 .css-1kcggdq-MuiInputBase-root .MuiInputBase-input {
-  padding-left: calc(1.7em + 32px) !important;
+  padding-left: calc(0.1em + 32px) !important;
+  width: 19ch !important;
+}
+.css-1kcggdq-MuiInputBase-root .MuiInputBase-input::placeholder{
+  font-size: 14px;
 }
 .headerBackgroundColor {
   background-color: black !important;
@@ -62,7 +66,7 @@
 }
 .downarrow {
   position: relative;
-  left: 11.7%;
+  /* left: -22px; */
   width: 13px;
   cursor: pointer;
 }
@@ -103,7 +107,7 @@
   position: absolute;
   right: 0px;
   width: 50px !important;
-  height: 37px !important;
+  height: 38px !important;
   padding: 5px;
   /* top: 30%; */
 }
@@ -112,7 +116,7 @@
 }
 .comming-soon {
   position: absolute;
-  margin: 0 0 0 -160px;
+  margin: -39px 0 0 60px;
   border: none;
   padding: 2px 7px;
   font-size: 12px;
@@ -160,7 +164,7 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  left: 45px;
+  left: 20px;
   z-index: 5;
 }
 
@@ -226,6 +230,10 @@
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
+.requestBt2 {
+  display: flex;
+  align-items: center;
+}
 /* for big screens */
 @media only screen and (min-width: 1900px) {
   .searchBar {
@@ -233,7 +241,7 @@
   }
   .downarrow {
     position: relative;
-    left: 11.7%;
+    left: -22px;
     width: 13px;
   }
   .searchItemsIcon {
@@ -245,7 +253,7 @@
   .css-l2l88c {
     margin-left: auto !important;
     margin-right: 24px;
-    width: 36% !important;
+    width: 26% !important;
   }
 }
 @media only screen and (min-width: 1600px) and (max-width: 1899px) {
@@ -300,13 +308,13 @@
 }
 @media only screen and (min-width: 900px) and (max-width: 1200px) {
   .searchBar {
-    width: 29% !important;
+    width: 26% !important;
     margin-left: 5px !important;
     height: 36px !important;
   }
   .downarrow {
     left: 17%;
-    display: none;
+    /* display: none; */
   }
   .css-6hp17o-MuiList-root-MuiMenu-list {
     background-color: #0e0f1e !important;
@@ -329,8 +337,8 @@
     margin-left: -28px !important;
   }
   .requestBtn {
-    padding: 6px 5px;
-    font-size: 8px;
+    padding: 12px 5px !important;
+    font-size: 10px !important;
     text-decoration: none !important;
   }
   .WalletInput {
@@ -343,7 +351,7 @@
     font-size: 12px;
   }
   .css-l2l88c {
-    margin-left: 0 !important;
+    /* margin-left: 0 !important; */
     margin-right: 0 !important;
     width: 46% !important;
   }
@@ -365,7 +373,7 @@
   }
   .downarrow {
     left: 17%;
-    display: none;
+    /* display: none; */
   }
   .css-6hp17o-MuiList-root-MuiMenu-list {
     background-color: #0e0f1e !important;
@@ -400,9 +408,9 @@
     z-index: 1;
   }
 }
-@media only screen and (min-width: 320px) and (max-width: 600px) {
+@media only screen and (min-width: 300px) and (max-width: 600px) {
   .searchBar {
-    /* width: 38% !important; */
+    width: 38% !important;
     margin-left: 12px !important;
   }
   .downarrow {
@@ -430,10 +438,9 @@
     margin-left: -28px !important;
   }
   .requestBtn {
-    padding: 8px 7px;
-    margin: 8px 4px 8px 3px;
-    font-weight: 400;
-    font-size: 5px;
+    padding: 10px 7px;
+    margin: 0px 4px 0px 3px;
+    font-size: 8px;
     text-decoration: none;
   }
   .css-yz9k0d-MuiInputBase-input {
@@ -442,12 +449,13 @@
     height: 1.1em !important;
   }
   .css-1kcggdq-MuiInputBase-root .MuiInputBase-input {
-    padding-left: calc(-0em + 32px) !important;
+    padding-left: calc(-0em + 11px) !important;
   }
   .MuiSvgIcon-root {
-    width: 0em !important;
-    margin: 4px 0 0 -8px !important;
+    width: 1em !important;
+    margin: 0px 0 0 -8px !important;
     color: white !important;
+    height: 30px !important;
   }
   .css-1t29gy6-MuiToolbar-root {
     justify-content: space-around;
@@ -458,7 +466,10 @@
     padding: 0px !important;
   }
   .imgLogo {
-    margin-left: -28px !important;
+    margin-left: 0px !important;
     padding-right: 0px !important;
   }
+  .requestBtn2 {
+    padding: 5px 13px;
+}
 }

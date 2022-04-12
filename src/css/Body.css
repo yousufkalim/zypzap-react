@@ -130,7 +130,7 @@
     font-size: 17px;
   }
   .topcourseText {
-    font-size: 10px !important;
+    /* font-size: 10px !important; */
   }
   .h3heading {
     font-size: 17px !important;
@@ -231,5 +231,12 @@
     padding: 28px 0px 19px 0px;
     font-weight: 600;
     font-size: 15px !important;
+  }
+}
+@media only screen and (min-width: 1900px) {
+  .topcourseimg {
+    width: 100%;
+    padding: 10px;
+    height: 466px !important;
   }
 }

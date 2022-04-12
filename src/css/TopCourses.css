@@ -12,7 +12,7 @@
   font-family: "mulish";
 }
 .topCoursesDiv {
-  max-width: 25% !important;
+  max-width: 30% !important;
   height: auto;
 }
 .topcourseheading {
@@ -31,6 +31,7 @@
 .topcourseimg {
   width: 100%;
   padding: 10px;
+  height: 360px !important;
 }
 .topcourseTextGrid {
   padding: 30px 20px 30px 20px;
@@ -38,7 +39,7 @@
 .topcourseText {
   padding-top: 10px;
   opacity: 0.7 !important;
-  font-size: 22px;
+  font-size: 28px;
 }
 .p1 {
   font-size: 14px;
@@ -59,7 +60,7 @@
 }
 .marginRight {
   margin-right: 10px;
-  font-size: 12px;
+  font-size: 13px;
 }
 .userprofilediv {
   display: flex;
@@ -99,6 +100,9 @@
     font-size: 21px;
     padding: 28px 0;
     line-height: 1.7;
+  }
+  .marginRight {
+    font-size: 15px;
   }
 }
 /* for mobile */

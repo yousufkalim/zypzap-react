@@ -104,8 +104,10 @@
     margin-bottom: -150px;
   }
   .Carousel-indicatorIcon-4 {
-    font-size: 15px;
+    font-size: 31px !important;
+    padding: 0 6px !important;
     padding-top: -9px;
+
   }
   .Carousel-buttonWrapper-6 {
     top: 0;

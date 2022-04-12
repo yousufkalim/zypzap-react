@@ -20,7 +20,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
   const [opens, setOpens] = React.useState(false);
   useEffect(() => {
     if (!open) {
-      setValues({ username: "", email: "", password: "" });
+      setValues({ username: "", email: "", password: "", CnfrmPassword: "" });
     }
   }, []);
   // init
@@ -29,24 +29,36 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
     username: "",
     email: "",
     password: "",
+    CnfrmPassword: "",
     showPassword: false,
+    showConfirPassword: false,
   });
 
-  const { username, email, password, showPassword } = values;
+  const {
+    username,
+    email,
+    password,
+    showPassword,
+    CnfrmPassword,
+    showConfirPassword,
+  } = values;
   const showLoginFormPopup = () => {
     setLogin(true);
     setOpen(false);
   };
 
   const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
+    setValues({ ...values, showPassword: !showPassword });
+  };
+  const handleClickShowCofirmPassword = () => {
+    setValues({ ...values, showConfirPassword: !showConfirPassword });
   };
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
   const handleClose = () => {
-    setValues({ username: "", email: "", password: "" });
+    setValues({ username: "", email: "", password: "", CnfrmPassword: "" });
     setOpen(false);
   };
 
@@ -68,11 +80,18 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
     if (values.password == "" || password.length < 8) {
       return toast.error("Please enter more then eight digit password");
     }
+    if (values.CnfrmPassword == "" || CnfrmPassword.length < 8) {
+      return toast.error("Please enter more then eight digit Confirm Password");
+    }
+    if (CnfrmPassword !== password) {
+      return toast.error("Password and confirm password dose not match");
+    }
     setLoading(true);
     let formdata = {
       username,
       email,
       password,
+      CnfrmPassword,
       role: "User",
     };
     try {
@@ -136,7 +155,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
                 </label>
                 <Input
                   className="inputForm2Password"
-                  type={values.showPassword ? "text" : "password"}
+                  type={showPassword ? "text" : "password"}
                   onChange={onChangeEvent}
                   placeholder="************************"
                   value={values.password}
@@ -166,19 +185,19 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
                 </label>
                 <Input
                   className="inputForm2Password"
-                  type={values.showPassword ? "text" : "password"}
+                  type={showConfirPassword ? "text" : "password"}
                   onChange={onChangeEvent}
                   placeholder="************************"
-                  value={values.password}
-                  name="password"
+                  value={values.CnfrmPassword}
+                  name="CnfrmPassword"
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
                         className="showPassInput"
-                        onClick={handleClickShowPassword}
+                        onClick={handleClickShowCofirmPassword}
                         onMouseDown={handleMouseDownPassword}
                       >
-                        {values.showPassword ? (
+                        {values.showConfirPassword ? (
                           <Visibility />
                         ) : (
                           <VisibilityOff />
