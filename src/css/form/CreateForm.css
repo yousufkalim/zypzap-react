@@ -121,6 +121,7 @@
   position: absolute;
   right: 25px;
   padding-top: 7px;
+  font-family: 'Mulish';
 }
 .create_container .formbtn2 {
   padding: 5px;
@@ -188,7 +189,7 @@
   display: inline;
   background: none;
   border: none;
-  color: #e7411b;
+  color: #20bf55;
   margin: 0 5px;
   font-weight: bolder;
   cursor: pointer;
@@ -324,7 +325,7 @@
     linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
 } */
 .gamingModeSelect {
-  margin: 20px 0px 7px 0;
+  margin: 20px 0px 7px 20px;
 }
 .userProfileChackbox[type="checkbox"] {
   margin: 0 5px;

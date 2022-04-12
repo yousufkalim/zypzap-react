@@ -26,7 +26,7 @@
     padding: 0 0 !important;
   }
   .courseimg {
-    height: 154px !important;
+    height: 300px !important;
   }
   .creatorCard2 {
     flex-direction: column !important;
@@ -82,7 +82,7 @@
     padding: 0 0 !important;
   }
   .courseimg {
-    height: 154px !important;
+    height: 300px !important;
   }
   .creatorCard2 {
     flex-direction: column !important;
@@ -143,5 +143,11 @@
   }
   .courseimg2 {
     width: 100%;
+  }
+  .courseimg {
+    height: 300px !important;
+  }
+  .topRatedcourseimg{
+    height: 300px !important;
   }
 }
