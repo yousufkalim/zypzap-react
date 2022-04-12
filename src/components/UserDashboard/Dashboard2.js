@@ -11,34 +11,28 @@ import ProgressionIcon from "../../assets/img/ProgressionIcon.svg";
 import { Store, UpdateStore } from "../../StoreContext";
 
 import api from "../../api";
-const Dashboard2 = ({ id }) => {
-  const { creator } = Store();
+const Dashboard2 = () => {
   const updateStore = UpdateStore();
   const [activeButton, setActiveButton] = useState("Course");
   const [defaultCompState, setDefaultCompState] = useState("Course");
   const [defaultCompStatedrop, setDefaultCompStatedrop] = useState("");
-  const [createCourse, setcreateCourse] = useState(false);
-  const [games, setGames] = useState();
+  const { user } = Store();
   useEffect(() => {
-    getGames();
-    // getCreator();
+    getUser();
   }, []);
-  const getCreator = async () => {
-    let res = await api("get", `/creators/${creator._id}`);
-    if (res) {
-      updateStore({ creator: res.data });
+  const getUser = async () => {
+    if (user) {
+      let res = await api("get", `/users/${user?._id}`);
+      if (res) {
+        console.log("------>1234", res);
+        updateStore({ user: res.data });
+      }
     }
   };
-  const getGames = async () => {
-    let res = await api("get", `/games/`);
-    if (res) {
-      updateStore({ Games: res.data });
-      setGames(res.data);
-    }
-  };
+
   const items = [
     {
-      name: "Course ",
+      name: "Course",
       img: youtube,
       drop: ["Started courses", "Enrolled courses"],
     },
@@ -55,10 +49,12 @@ const Dashboard2 = ({ id }) => {
     { name: "Setting", img: settings },
   ];
   const onSideBtnClick = (e) => {
-    const course = e.target.textContent;
-    console.log(course, "course");
-    setDefaultCompState(course);
-    setcreateCourse(false);
+    const course = e?.target?.textContent;
+    if (!course) {
+      setDefaultCompState("Course");
+    } else {
+      setDefaultCompState(course);
+    }
     setActiveButton(course);
   };
   return (
@@ -82,10 +78,6 @@ const Dashboard2 = ({ id }) => {
         <DashboardRightSideBar2
           defaultCompState={defaultCompState}
           setDefaultCompState={setDefaultCompState}
-          setcreateCourse={setcreateCourse}
-          createCourse={createCourse}
-          games={games}
-          creator={creator}
           defaultCompStatedrop={defaultCompStatedrop}
         />
       </Box>

@@ -358,12 +358,16 @@ export default function PrimarySearchAppBar({
               />
             </Search>
             {/* <Box sx={{ flexGrow: 1 }} /> */}
-            <Link to="" className="requestBt2">
-              <button className="requestBtn">Request a Course</button>
+            <Link to="" className="requestBt">
+              {user ? (
+                <></>
+              ) : (
+                <button className="requestBtn">Request a Course</button>
+              )}
 
-              <button className="requestBtn2">
+              {/* <button className="requestBtn2">
                 <img src={UserHeaderIcon} alt="" />
-              </button>
+              </button> */}
               <button className="comming-soon">
                 <span className="comming-soon2"> Coming Soon</span>
               </button>
@@ -372,7 +376,11 @@ export default function PrimarySearchAppBar({
             {(user?.role == "User" || user?.role == "Creator") && (
               <Link to="/userprofile" className="requestBt">
                 {/* onClick={handleClickOpen} */}
-                <button className="requestBtn">User Profile</button>
+                {/* //////User Profile */}
+                <button className="requestBtn">
+                  {" "}
+                  <img src={UserHeaderIcon} alt="" />
+                </button>
               </Link>
             )}
             <Box
@@ -404,14 +412,25 @@ export default function PrimarySearchAppBar({
               ) : (
                 <>
                   {user?.role != "Creator" && user?.role == "User" && (
-                    <p
-                      className="sgnBtn"
-                      onClick={() => {
-                        setOpenBecomeCreatorPopup(true);
-                      }}
-                    >
-                      Become a Creater
-                    </p>
+                    <>
+                      <p
+                        className="sgnBtn"
+                        onClick={() => {
+                          setOpenBecomeCreatorPopup(true);
+                        }}
+                      >
+                        Become a Creater
+                      </p>
+                      <Link
+                        to={{
+                          pathname: "/UserDashboard",
+                          state: { user: `${user}` },
+                        }}
+                        style={{ color: "white", textDecoration: "none" }}
+                      >
+                        <p className="sgnBtn">My Dashboard</p>
+                      </Link>
+                    </>
                   )}
                 </>
               )}
