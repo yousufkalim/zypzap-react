@@ -69,7 +69,11 @@ const OverView = () => {
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
       />
       {!showVideo ? (
-        <OverViewHome singlCourse={course} setShowVideo={setShowVideo} />
+        <OverViewHome
+          singlCourse={course}
+          setShowVideo={setShowVideo}
+          setOpenSignup={setOpenSignup}
+        />
       ) : (
         <CompleteCourse singlCourse={course} />
       )}

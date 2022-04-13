@@ -111,6 +111,9 @@
   padding: 5px;
   /* top: 30%; */
 }
+.pointers {
+  cursor: pointer !important;
+}
 .comming-soon {
   position: absolute;
   margin: -39px 0 0 60px;
