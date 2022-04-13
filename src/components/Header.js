@@ -374,8 +374,8 @@ export default function PrimarySearchAppBar({
               {/* <button className="requestBtn2">
                 <img src={UserHeaderIcon} alt="" />
               </button> */}
-              <button className="comming-soon">
-                <span className="comming-soon2"> Coming Soon</span>
+              <button className="comming-soonBTN">
+                <span className="comming-soonBTN2"> Coming Soon</span>
               </button>
             </Link>
 
