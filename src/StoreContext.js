@@ -23,6 +23,8 @@ export function StoreProvider({ children }) {
     blogs: [],
     singleBlog: {},
     creator: null,
+    searchCreator: [],
+    searchCourse: [],
   });
 
   const updateStore = (data) => {

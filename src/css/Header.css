@@ -111,6 +111,10 @@
   padding: 5px;
   /* top: 30%; */
 }
+.pointers {
+  cursor: pointer !important;
+}
+
 .comming-soonBTN {
   position: absolute;
   margin: 0px 0 0 -110px;

@@ -6,7 +6,7 @@ import { ReactComponent as Star1 } from "../assets/icons/star2.svg";
 import TopCourseImg from "../assets/img/topcourseimg.png";
 import avatar from "../assets/img/avatar.png";
 import StarIcon from "@material-ui/icons/Star";
-
+import { Link } from "react-router-dom";
 export default function TopCourses(props) {
   const [loading, setLoading] = useState(false);
   const { courses } = props;
@@ -42,7 +42,16 @@ export default function TopCourses(props) {
         // width="100%"
       >
         {Courses?.slice(0, 3).map((item, i) => (
-          <TopCoursesComponent key={i} item={item} />
+          <Link
+            to={{
+              pathname: `OverView/${item?._id}`,
+              state: { course: `${item}` },
+            }}
+            className="requestBt"
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            <TopCoursesComponent key={i} item={item} />
+          </Link>
         ))}
       </Carousel>
     </div>
