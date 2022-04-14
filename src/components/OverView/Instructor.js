@@ -68,7 +68,7 @@ const Instructor = (props) => {
                 </p>
               </div>
 
-              {showFollowButton(singlCourse?.creator) || follow ? (
+              {/* {showFollowButton(singlCourse?.creator) || follow ? (
                 <button className="Instructor-followBtn">Following</button>
               ) : (
                 <button
@@ -79,7 +79,7 @@ const Instructor = (props) => {
                 >
                   Follow
                 </button>
-              )}
+              )} */}
             </div>
             <div className="instructor-co">
               <div className="instructor-about-Heading">

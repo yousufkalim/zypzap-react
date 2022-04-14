@@ -120,8 +120,32 @@ const categories = [
     value: "1",
   },
   {
-    name: "Top New Games",
+    name: "Top 10 NFT Games",
     value: "2",
+  },
+  {
+    name: "Top 10 Metaverse Games",
+    value: "3",
+  },
+  {
+    name: "Latest Courses",
+    value: "4",
+  },
+  {
+    name: "Top Courses",
+    value: "5",
+  },
+  {
+    name: "Top Rated Content Creators",
+    value: "6",
+  },
+  {
+    name: "Top New Games",
+    value: "7",
+  },
+  {
+    name: "Top Reality Games",
+    value: "8",
   },
 ];
 const GameTypes = [
@@ -357,7 +381,7 @@ const SearchResultBody = () => {
               color: "#fff",
             }}
           >
-            <h4>Filter by</h4>
+            <h4>Filter By</h4>
             <hr className="filterby-divider" />
             <div
               id="1"
@@ -683,7 +707,6 @@ const SearchResultBody = () => {
             <div className="cards-box">
               <div className="cards-header-text">
                 <h2>
-                  {" "}
                   {searchCourse.length == 0 ? "No Course Found" : "CS-GO GAME"}
                 </h2>
                 <span>{searchCourse.length + " course result"}</span>

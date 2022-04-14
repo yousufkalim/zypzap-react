@@ -7,10 +7,12 @@ import FormControl from "@mui/material/FormControl";
 import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
+import ClearIcon from "@mui/icons-material/Clear";
 export default function PropfileInformation({
   openProfile,
   setOpenProfile,
   user,
+  setOpen,
 }) {
   const [profile_photo, setImageURL] = useState(
     user?.profile_photo ? user.profile_photo : Course1
@@ -203,6 +205,9 @@ export default function PropfileInformation({
     { name: "Portable Consoles" },
     { name: "PC" },
   ];
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
 
   return (
     <div>
@@ -215,6 +220,11 @@ export default function PropfileInformation({
       >
         <div className="userProfile_conteiner">
           <div className="userProfile_heading">
+            <ClearIcon
+              className="clearIcon"
+              onClick={() => setOpenProfile(false)}
+              style={{ margin: "10px 0" }}
+            />
             <h2 className="userProfileH1">Profile Information</h2>
             <p className="userProfileP">Input your details</p>
           </div>
@@ -274,7 +284,7 @@ export default function PropfileInformation({
             </div>
           </div>
           <div className="userButtonGroup">
-            <p className="userButton-heading">Game type</p>
+            <p className="userButton-heading">Game Type</p>
             <div className="allButtons">
               <>
                 {gametypebtn.map((tag) => {
@@ -331,7 +341,7 @@ export default function PropfileInformation({
           </div>
           <div className="userProfileGamingMode">
             <FormControl>
-              <p className="gamingModeP">Favorite gaming mode</p>
+              <p className="gamingModeP">Favorite Gaming Mode</p>
               <div className="gamingModeSelect">
                 <RadioGroup
                   aria-labelledby="demo-radio-buttons-group-label"
@@ -346,9 +356,9 @@ export default function PropfileInformation({
                     onClick={onChangeRadioBtn}
                   />
                   <FormControlLabel
-                    value="MultiPlayer Mode"
+                    value="MultiPlayer"
                     control={<Radio />}
-                    label="MultiPlayer"
+                    label="MultiPlayer Mode"
                     onClick={onChangeRadioBtn}
                   />
                 </RadioGroup>
@@ -382,7 +392,7 @@ export default function PropfileInformation({
               <option value="Per Year">Per Year</option>
               {/* <option value="audi">Select</option> */}
             </select>
-
+            &nbsp;
             <select
               id="Select"
               name="Select"
@@ -398,7 +408,7 @@ export default function PropfileInformation({
             </select>
           </div>
           <div className="userProfileSelectInput">
-            <label for="Learning">Current Gameplay level</label>
+            <label for="Learning">Current Gameplay Level</label>
             <br />
             <select
               id="Select"
@@ -424,7 +434,7 @@ export default function PropfileInformation({
             </select>
           </div>
           <div className="userProfileSelectInput">
-            <label for="Learning">Target Gameplay level</label>
+            <label for="Learning">Target Gameplay Level</label>
             <br />
 
             <select

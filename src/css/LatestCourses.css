@@ -25,6 +25,11 @@
   font-size: 22px;
   font-weight: 600;
 }
+.latestcourseheadings {
+  padding: 35px 0px 3px 0px;
+  font-size: 16px;
+  font-weight: 600;
+}
 
 .courseimg {
   width: 98%;
@@ -178,7 +183,7 @@
 .creatorCard2 {
   display: flex;
   justify-content: space-between;
-  margin: 20px 0;
+  /* margin: 20px 0; */
 }
 .cardGrid_List {
   width: 30%;
@@ -201,6 +206,7 @@
   width: 35% !important;
 }
 /* -------------------------------- wishlist --------------------------------   */
+
 /* for mobile */
 @media only screen and (min-width: 300px) and (max-width: 812px) {
   .cardGrid {

@@ -111,13 +111,6 @@
   padding: 5px;
   /* top: 30%; */
 }
-.comming-soonBTN {
-  position: absolute;
-  margin: 0px 0 0 -110px;
-  border: none;
-  padding: 2px 7px;
-  font-size: 12px;
-}
 .comming-soon3 {
   position: absolute;
   margin: -10px 0 0 70px;
@@ -128,15 +121,6 @@
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: #fff;
-}
-.comming-soonBTN2 {
-  font-weight: bold;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-
 }
 .basicProfile {
   padding: 8px 13px;
@@ -277,7 +261,7 @@
     text-decoration: none !important;
   }
   .topcourseheading {
-    font-size: 28px !important;
+    font-size: 22px !important;
   }
   .h3heading {
     font-size: 22px;

@@ -239,6 +239,7 @@
 }
 .userProfileH1 {
   font-size: 24px;
+  font-family: mulish;
 }
 .userProfileP {
   font-size: 15px;
@@ -300,15 +301,17 @@
 .userButton-heading {
   font-size: 14px;
   padding-bottom: 5px;
+  padding-top: 10px;
 }
 .allButtons {
   flex-wrap: wrap;
   display: flex;
   /* justify-content: space-around; */
-  margin: 8px 0;
+  margin: 0px 0 8px 0;
 }
 .allButtons2 {
-  margin: 8px 0;
+  margin: 0px 0 8px 0;
+
 }
 .userTagsAllButton {
   background: #282a49;
@@ -320,12 +323,15 @@
   border: none;
   display: inline-block;
 }
+.css-1a5icme{
+  color: #fff;
+}
 /* .userTagsAllButton:hover {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
 } */
 .gamingModeSelect {
-  margin: 20px 0px 7px 20px;
+  margin: 5px 0px 0px 10px;
 }
 .userProfileChackbox[type="checkbox"] {
   margin: 0 5px;
@@ -338,7 +344,7 @@
 }
 .selectInput-userProfile {
   width: 100%;
-  margin: 8px 0 12px 0;
+  margin: 5px 0 12px 0;
   background: none;
   color: #fff;
   padding: 10px;
@@ -352,7 +358,7 @@
 .selectInput-userProfile2 {
   display: flex;
   width: 50%;
-  margin: 8px 5px 12px 5px;
+  margin: 8px 0px 12px 0px;
   background: none;
   color: #fff;
   padding: 10px;
