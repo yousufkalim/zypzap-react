@@ -173,12 +173,12 @@ const OverViewHome = (props) => {
                 >
                   Enroll Now
                 </NavLink>
-                <NavLink to="#" className="CardBuyBtn2">
+                {/* <NavLink to="#" className="CardBuyBtn2">
                   Stock It In The Caddy
                   <button className="overComming-soonBTN">Comming Soon</button>
-                </NavLink>
+                </NavLink> */}
               </div>
-              <div className="overViewCard-content">
+              {/* <div1 className="overViewCard-content">
                 <p className="overViewCard-contentP">The course includes</p>
                 <li className="overContentLi">
                   <img
@@ -208,8 +208,8 @@ const OverViewHome = (props) => {
                   Lifetime access
                 </li>
                 <p className="overViewCard-contentP">Share this course</p>
-              </div>
-              <div className="overViewSocialIcon">
+              </div1> */}
+              {/* <div className="overViewSocialIcon">
                 <img
                   src={OverCardSocialIcon1}
                   alt=""
@@ -225,7 +225,7 @@ const OverViewHome = (props) => {
                   alt=""
                   className="overSocialIcon"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

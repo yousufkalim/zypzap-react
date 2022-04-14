@@ -162,7 +162,7 @@ export default function TopRatedContent() {
     <div className="topRatedContentcontainer">
       <div className="topRatedContentHeadingDiv">
         <p className="topRatedheading">Top Rated Content Creators</p>
-        <p className="topRatedheading">View All</p>
+        <p className="topRatedheadings">View All</p>
       </div>
       <div className="TopRatedcarousalOuterDiv">
         <Carousel

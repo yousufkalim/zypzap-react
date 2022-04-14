@@ -70,7 +70,7 @@ const DashboardLeftSideBar2 = ({
                         cursor: "pointer",
                         position: "absolute",
                         marginTop: "-12px",
-                        fontSize: "14px",
+                        fontSize: "10px",
                       }}
                       // onClick={() => handleClick2(i)}
                     >

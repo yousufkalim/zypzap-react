@@ -120,8 +120,32 @@ const categories = [
     value: "1",
   },
   {
-    name: "Top New Games",
+    name: "Top 10 NFT Games",
     value: "2",
+  },
+  {
+    name: "Top 10 Metaverse Games",
+    value: "3",
+  },
+  {
+    name: "Latest Courses",
+    value: "4",
+  },
+  {
+    name: "Top Courses",
+    value: "5",
+  },
+  {
+    name: "Top Rated Content Creators",
+    value: "6",
+  },
+  {
+    name: "Top New Games",
+    value: "7",
+  },
+  {
+    name: "Top Reality Games",
+    value: "8",
   },
 ];
 const GameTypes = [
@@ -352,7 +376,7 @@ const SearchResultBody = ({ search, input }) => {
               color: "#fff",
             }}
           >
-            <h4>Filter by</h4>
+            <h4>Filter By</h4>
             <hr className="filterby-divider" />
             <div
               id="1"

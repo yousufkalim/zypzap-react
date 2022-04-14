@@ -81,7 +81,7 @@ export default function LatestCourses(props) {
     <div className="latestCoursescontainer">
       <div className="latestcourseHeadingDiv">
         <p className="latestcourseheading">Latest Course</p>
-        <p className="latestcourseheading">View All</p>
+        <p className="latestcourseheadings">View All</p>
       </div>
       <div className="carousalOuterDiv">
         <Carousel

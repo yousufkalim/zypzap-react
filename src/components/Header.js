@@ -267,6 +267,7 @@ export default function PrimarySearchAppBar({
       />
       <PropfileInformation
         openProfile={openProfile}
+        setOpenProfile={setOpenProfile}
         handleClose={handleClose}
         user={user}
       />
@@ -374,9 +375,6 @@ export default function PrimarySearchAppBar({
               {/* <button className="requestBtn2">
                 <img src={UserHeaderIcon} alt="" />
               </button> */}
-              <button className="comming-soonBTN">
-                <span className="comming-soonBTN2"> Coming Soon</span>
-              </button>
             </Link>
 
             {(user?.role == "User" || user?.role == "Creator") && (

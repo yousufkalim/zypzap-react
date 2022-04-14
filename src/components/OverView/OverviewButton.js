@@ -17,7 +17,7 @@ const OverviewButton = (props) => {
                 {singlCourse?.description ? singlCourse.description : ""}
               </p>
             </div>
-            <div className="overRequirements">
+            {/* <div className="overRequirements">
               <h3 className="overRequirement_h3">Requirements</h3>
               {singlCourse?.requirement?.length > 0 ? (
                 singlCourse?.requirement.map((req, index) => {
@@ -34,7 +34,7 @@ const OverviewButton = (props) => {
                   No requirement available!
                 </li>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

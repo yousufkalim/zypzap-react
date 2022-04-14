@@ -33,7 +33,19 @@ export default function TopCourses(props) {
 
   return (
     <div className="topCoursescontainer">
-      <p className="topcourseheading">Top Courses</p>
+      <p className="topcourseheading" style={{ display: "inline-block" }}>
+        Top Courses
+      </p>
+      <p
+        className="topcourseheadings"
+        style={{
+          display: "inline-block",
+
+          float: "right",
+        }}
+      >
+        View All
+      </p>
       <Carousel
         autoPlay={false}
         animation={"fade"}
