@@ -26,7 +26,7 @@ import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
 
 import ResearchFaild from "./ResearchFaild";
-
+import CreatorResult from "./CreatorResult";
 var items = [
   {
     id: 1,
@@ -239,7 +239,8 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const SearchResultBody = () => {
+const SearchResultBody = ({ search, input }) => {
+  // initalize variables
   const [selectedCategories, setselectedCategories] = useState(false);
   const [selectedGame, setSelectedGame] = useState(false);
   const [selectedPlateforms, setSelectedPlateforms] = useState(false);
@@ -251,8 +252,10 @@ const SearchResultBody = () => {
   const [selectedPlateformsBtn, setselectedPlateformsBtn] = useState("");
   const [radioBtnValue, setRadioBtnValue] = useState("");
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
-  const { searchCourse } = Store();
-  const [search, setSearch] = useState(searchCourse ? searchCourse : []);
+
+  // recieving context __data
+  const { searchCreator, searchCourse } = Store();
+
   const updateStore = UpdateStore();
   //sidebar list togle
   const onClickSideBarHeaders = (e) => {
@@ -285,7 +288,7 @@ const SearchResultBody = () => {
     const value = e.value;
     let res = await api("get", `/courses/topGames?type=${value}`);
     if (res) {
-      setSearch(res?.data);
+      // setCourse(res?.data);
       updateStore({ searchCourse: res?.data });
       //updateStore({ create: res?.data });
       setSelectedActiveButton("");
@@ -300,16 +303,7 @@ const SearchResultBody = () => {
     const name = e.target.textContent;
     setselectedPlateformsBtn(name);
   };
-  // let countViews = (course) => {
-  //   const Videos = course?.videos;
 
-  //   let count = 0;
-  //   Videos.map((video) => {
-  //     count += video.views;
-  //   });
-
-  //   return count;
-  // };
   let countViews = (course) => {
     const Videos = course?.videos;
 
@@ -363,6 +357,7 @@ const SearchResultBody = () => {
       `/courses/filteredCourses?&&gameType=${selectedGameBtn}&&plateForm=${selectedPlateformsBtn}&&mode=${radioBtnValue}&&price=${sliderValue}`
     );
     if (res) {
+      // setCourse(res.data);
       updateStore({ searchCourse: res?.data });
     }
   };
@@ -698,133 +693,155 @@ const SearchResultBody = () => {
         </Grid>
       </Box>
       {/*  */}
-
-      {search?.length === 0 ? (
-        <ResearchFaild />
-      ) : (
+      {search === "course" ? (
         <>
-          <Box className="cards-container">
-            <div className="cards-box">
-              <div className="cards-header-text">
-                <h2>
-                  {searchCourse.length == 0 ? "No Course Found" : "CS-GO GAME"}
-                </h2>
-                <span>{searchCourse.length + " course result"}</span>
-              </div>
-              <div>
-                {searchCourse.length != 0 && (
-                  <CustomizedMenus
-                    searchCourse={searchCourse}
-                    updateStore={updateStore}
-                  />
-                )}
-              </div>
-            </div>
-            <Grid
-              sx={{ padding: "0 20px" }}
-              container
-              spacing={{ xs: 1, md: 1 }}
-              columns={{ xs: 2, sm: 8, md: 12 }}
-            >
-              {searchCourse?.map((item) => (
-                <Grid item xs={12} sm={6} md={4}>
-                  <div className="cardGrid">
-                    <div className="favourite-icon-position">
-                      <img
-                        src={item?.thumbnail ? item.thumbnail : Course1}
-                        className="courseimg"
-                        alt="img"
-                      />
-                      <HeartIcon id={item.id} FvrtIconCount={FvrtIconCount} />
-                    </div>
-                    <h5 className="latestcourseh5">
-                      {" "}
-                      {item?.course_name ? item.course_name : "Fight Course"}
-                    </h5>
-                    <div className="latestCourseMain-Div">
-                      <div className="latestCouse-colmn">
-                        <div className="latestCourse-colmn-centerDiv">
-                          <img
-                            src={LatestCourseGameIcon}
-                            alt=""
-                            className="LatestCourse-IMG"
-                          />
-                          <p className="latestCourse-p">
-                            {item?.creator?.user_id?.username}
-                          </p>
-                        </div>
-                        <div className="latestCourse-colmn-centerDiv">
-                          <img
-                            src={LatestCourseStarIcon}
-                            alt=""
-                            className="LatestCourse-IMG"
-                          />
-                          <p className="latestCourse-p">
-                            {" "}
-                            {item?.rating
-                              ? `${item.rating} Ratting`
-                              : "0 Rattig"}
-                          </p>
-                        </div>
-                      </div>
-                      {/* ------------------------------- copy colmn -------------------------------  */}
-                      <div className="latestCouse-colmn">
-                        <div className="latestCourse-colmn-centerDiv">
-                          <img
-                            src={LatestCourseStarBadgeIcon}
-                            alt=""
-                            className="LatestCourse-IMG"
-                          />
-                          <p className="latestCourse-p">
-                            {" "}
-                            {`( ${countViews(item)} )`}
-                          </p>
-                        </div>
-                        <div className="latestCourse-colmn-centerDiv">
-                          <img
-                            src={LatestCourseVideoIcon}
-                            alt=""
-                            className="LatestCourse-IMG"
-                          />
-                          <p className="latestCourse-p">
-                            {calTotalSecInVideos(item?.videos)}
-                          </p>
-                        </div>
-                      </div>
-                      {/* ------------------------------- copy colmn -------------------------------  */}
-                      <div className="latestCouse-colmn">
-                        <div className="latestCourse-colmn-centerDiv">
-                          <img
-                            src={LatestCourseLavelIcon}
-                            alt=""
-                            className="LatestCourse-IMG"
-                          />
-                          <p className="latestCourse-p">{item?.level}</p>
-                        </div>
-                        <div className="latestCourse-colmn-centerDiv">
-                          <img
-                            src={LatestCourseTimingIcon}
-                            alt=""
-                            className="LatestCourse-IMG"
-                          />
-                          <p className="latestCourse-p">{`${postedTime(
-                            item
-                          )} days ago`}</p>
-                        </div>
-                      </div>
-                      {/* ------------------------------- copy colmn -------------------------------  */}
-                    </div>
+          {" "}
+          {searchCourse?.length === 0 ? (
+            <ResearchFaild />
+          ) : (
+            <>
+              <Box className="cards-container">
+                <div className="cards-box">
+                  <div className="cards-header-text">
+                    <h2>{`${input} GAMES`}</h2>
+                    <span>{searchCourse.length + " course result"}</span>
                   </div>
+                  <div>
+                    {searchCourse.length != 0 && (
+                      <CustomizedMenus
+                        // todo: should manage by store file
+                        searchCourse={searchCourse}
+                        updateStore={updateStore}
+                      />
+                    )}
+                  </div>
+                </div>
+                <Grid
+                  sx={{ padding: "0 20px" }}
+                  container
+                  spacing={{ xs: 1, md: 1 }}
+                  columns={{ xs: 2, sm: 8, md: 12 }}
+                >
+                  {/* course search ..data */}
+                  {searchCourse?.map((item) => (
+                    <Grid item xs={12} sm={6} md={4}>
+                      <div className="cardGrid">
+                        <div className="favourite-icon-position">
+                          <img
+                            src={item?.thumbnail ? item.thumbnail : Course1}
+                            className="courseimg"
+                            alt="img"
+                          />
+                          <HeartIcon
+                            id={item.id}
+                            FvrtIconCount={FvrtIconCount}
+                          />
+                        </div>
+                        <h5 className="latestcourseh5">
+                          {" "}
+                          {item?.course_name
+                            ? item.course_name
+                            : "Fight Course"}
+                        </h5>
+                        <div className="latestCourseMain-Div">
+                          <div className="latestCouse-colmn">
+                            <div className="latestCourse-colmn-centerDiv">
+                              <img
+                                src={LatestCourseGameIcon}
+                                alt=""
+                                className="LatestCourse-IMG"
+                              />
+                              <p className="latestCourse-p">
+                                {item?.creator?.user_id?.username}
+                              </p>
+                            </div>
+                            <div className="latestCourse-colmn-centerDiv">
+                              <img
+                                src={LatestCourseStarIcon}
+                                alt=""
+                                className="LatestCourse-IMG"
+                              />
+                              <p className="latestCourse-p">
+                                {" "}
+                                {item?.rating
+                                  ? `${item.rating} Ratting`
+                                  : "0 Rattig"}
+                              </p>
+                            </div>
+                          </div>
+                          {/* ------------------------------- copy colmn -------------------------------  */}
+                          <div className="latestCouse-colmn">
+                            <div className="latestCourse-colmn-centerDiv">
+                              <img
+                                src={LatestCourseStarBadgeIcon}
+                                alt=""
+                                className="LatestCourse-IMG"
+                              />
+                              <p className="latestCourse-p">
+                                {" "}
+                                {`( ${countViews(item)} )`}
+                              </p>
+                            </div>
+                            <div className="latestCourse-colmn-centerDiv">
+                              <img
+                                src={LatestCourseVideoIcon}
+                                alt=""
+                                className="LatestCourse-IMG"
+                              />
+                              <p className="latestCourse-p">
+                                {calTotalSecInVideos(item?.videos)}
+                              </p>
+                            </div>
+                          </div>
+                          {/* ------------------------------- copy colmn -------------------------------  */}
+                          <div className="latestCouse-colmn">
+                            <div className="latestCourse-colmn-centerDiv">
+                              <img
+                                src={LatestCourseLavelIcon}
+                                alt=""
+                                className="LatestCourse-IMG"
+                              />
+                              <p className="latestCourse-p">{item?.level}</p>
+                            </div>
+                            <div className="latestCourse-colmn-centerDiv">
+                              <img
+                                src={LatestCourseTimingIcon}
+                                alt=""
+                                className="LatestCourse-IMG"
+                              />
+                              <p className="latestCourse-p">{`${postedTime(
+                                item
+                              )} days ago`}</p>
+                            </div>
+                          </div>
+                          {/* ------------------------------- copy colmn -------------------------------  */}
+                        </div>
+                      </div>
+                    </Grid>
+                  ))}
                 </Grid>
-              ))}
-            </Grid>
-            {searchCourse.length != 0 && (
-              <Box textAlign="center">
-                <button className="btn-search-result">View more</button>
+                {searchCourse.length != 0 && (
+                  <Box textAlign="center">
+                    <button className="btn-search-result">View more</button>
+                  </Box>
+                )}
               </Box>
-            )}
-          </Box>
+            </>
+          )}
         </>
+      ) : (
+        <></>
+      )}
+      {search === "creator" ? (
+        searchCreator?.length === 0 ? (
+          <ResearchFaild />
+        ) : (
+          <>
+            <CreatorResult input={input} />
+          </>
+        )
+      ) : (
+        <></>
       )}
     </Box>
   );

@@ -82,11 +82,24 @@ export default function PrimarySearchAppBar({
   setOpenSignup,
   openBecomeCreatorPopup,
   setOpenBecomeCreatorPopup,
+  search,
   games,
+  setSearch,
+  input,
+  setInput,
 }) {
   const updateStore = UpdateStore();
-  const [search, setSearch] = useState("course");
   const { user, creator } = Store();
+
+  const history = useHistory();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [Option, setOption] = useState(false);
+  const [openProfile, setOpenProfile] = useState(false);
+  const [age, setAge] = React.useState("");
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
   const handleLogout = async () => {
     let res = await api("post", "/users/logout/all");
     if (res) {
@@ -95,14 +108,6 @@ export default function PrimarySearchAppBar({
       history.push("/home");
     }
   };
-
-  const [age, setAge] = React.useState("");
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
-  const [openProfile, setOpenProfile] = useState(false);
-
   // const handleClickOpen = () => {
   //   setOpenProfile(true);
   // };
@@ -110,11 +115,6 @@ export default function PrimarySearchAppBar({
   const handleClose = () => {
     setOpenProfile(false);
   };
-  const history = useHistory();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-  const [Option, setOption] = useState(false);
 
   const showBecomePopup = () => {
     setOption(true);
@@ -149,20 +149,19 @@ export default function PrimarySearchAppBar({
   };
   const searchCourse = async (e) => {
     e.preventDefault();
-    if (e.target.value !== "") {
-      let res = await api("get", `/courses/search?name=${e.target.value}`);
-      if (res) {
-        updateStore({ searchCourse: res?.data });
+    if (input !== "") {
+      if (search === "course") {
+        let res = await api("get", `/courses/search?name=${input}`);
+        if (res) {
+          updateStore({ searchCourse: res?.data });
+        }
       }
-      // if (search === "course") {
-      //   res = await api("get", `/courses/search?name=${e.target.value}`);
-      // } else {
-      //   res = await api("get", `/creators/search?name=${e.target.value}`);
-      // }
-      // if (res) {
-      //   updateStore({ searchCourse: res?.data });
-      //   //updateStore({ create: res?.data });
-      // }
+      if (search === "creator") {
+        let res = await api("get", `/creators/search?name=${input}`);
+        if (res) {
+          updateStore({ searchCreator: res?.data });
+        }
+      }
     }
   };
   const handleCreatorSearch = (e) => {
@@ -172,6 +171,10 @@ export default function PrimarySearchAppBar({
   const handleCourseSearch = (e) => {
     e.preventDefault();
     setSearch("course");
+  };
+  const handleChangeInput = (e) => {
+    setInput(e.target.value);
+    updateStore({ Input: e.target.value });
   };
 
   const menuId = "primary-search-account-menu";
@@ -323,12 +326,15 @@ export default function PrimarySearchAppBar({
                 </a>
               </div>
             </Typography>
-            <Search onChange={searchCourse} className="searchBar">
-              <SearchIcon
-                className="searchBarIcon"
-                onClick={handleSearchClick}
-              />
-              <SearchIconWrapper></SearchIconWrapper>
+            <Search className="searchBar" onChange={handleChangeInput}>
+              <div onClick={searchCourse}>
+                {" "}
+                <SearchIcon
+                  className="searchBarIcon"
+                  onClick={handleSearchClick}
+                />
+                <SearchIconWrapper></SearchIconWrapper>
+              </div>
 
               <div className="dropdown">
                 {/* <button className="dropbtn"> */}

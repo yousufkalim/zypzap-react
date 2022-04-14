@@ -111,6 +111,17 @@
   padding: 5px;
   /* top: 30%; */
 }
+.pointers {
+  cursor: pointer !important;
+}
+
+.comming-soonBTN {
+  position: absolute;
+  margin: 0px 0 0 -110px;
+  border: none;
+  padding: 2px 7px;
+  font-size: 12px;
+}
 .comming-soon3 {
   position: absolute;
   margin: -10px 0 0 70px;
