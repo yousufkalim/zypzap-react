@@ -13,8 +13,10 @@ import LatestCourseProPlayerIcon from "../assets/icons/LatestCourseProPlayerIcon
 import LatestCourseStudentsIcon from "../assets/icons/LatestCourseStudentsIcon.svg";
 import LatestCourseRatingIcon from "../assets/icons/LatestCourseRatingIcon.svg";
 import "react-multi-carousel/lib/styles.css";
+import { useHistory } from "react-router-dom";
 
 export default function TopRatedContent() {
+  const history = useHistory();
   var items = [
     {
       title: "fighting game player of Tekken",
@@ -157,12 +159,22 @@ export default function TopRatedContent() {
       items: 1,
     },
   };
-
+  const handleTopRatedCourses = () => {
+    history.push({
+      pathname: "/searchResult",
+      param: {
+        name: "Top 10 NFT Games",
+        value: "2",
+      },
+    });
+  };
   return (
     <div className="topRatedContentcontainer">
       <div className="topRatedContentHeadingDiv">
         <p className="topRatedheading">Top Rated Content Creators</p>
-        <p className="topRatedheadings">View All</p>
+        <p className="topRatedheadings" onClick={handleTopRatedCourses}>
+          View All
+        </p>
       </div>
       <div className="TopRatedcarousalOuterDiv">
         <Carousel

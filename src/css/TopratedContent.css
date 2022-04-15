@@ -23,6 +23,7 @@
 .topRatedheadings {
   padding: 32px 0px 38px 0px;
   font-size: 16px;
+  cursor: pointer;
 }
 .topRatedcardGrid {
   background: linear-gradient(
@@ -71,6 +72,5 @@ tr {
   }
   .topRatedcourseimg {
     height: 300px;
- 
   }
 }

@@ -103,31 +103,24 @@ export default function PrimarySearchAppBar({
       history.push("/home");
     }
   };
-
   const handleClose = () => {
     setOpenProfile(false);
   };
-
   const showBecomePopup = () => {
     setOption(true);
   };
-
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
-
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
   };
-
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
@@ -371,13 +364,13 @@ export default function PrimarySearchAppBar({
                 value={searchInput}
               />
             </Search>
-            <Link to="" className="requestBt">
+            {/* <Link to="" className="requestBt">
               {user ? (
                 <></>
               ) : (
                 <button className="requestBtn">Request a Course</button>
               )}
-            </Link>
+            </Link> */}
 
             {(user?.role == "User" || user?.role == "Creator") && (
               <Link to="/userprofile" className="requestBt">

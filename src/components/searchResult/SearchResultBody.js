@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Categories from "./Categories";
 import GameType from "./GameType";
 import Plateforms from "./Plateforms";
@@ -23,96 +23,15 @@ import LatestCourseStarIcon from "../../assets/icons/LatestCourseStarIcon.svg";
 import LatestCourseVideoIcon from "../../assets/icons/LatestCourseVideoIcon.svg";
 import LatestCourseTimingIcon from "../../assets/icons/LatestCourseTimingIcon.svg";
 import { Store, UpdateStore } from "../../StoreContext";
+import { useHistory } from "react-router-dom";
 import api from "../../api";
 
 import ResearchFaild from "./ResearchFaild";
 import CreatorResult from "./CreatorResult";
-var items = [
-  {
-    id: 1,
-    title: "CS-GO Ep 2 Complete Course",
-    img: Course1,
-    name: "James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "1",
-  },
-  {
-    id: 2,
-    title: "PUBG GamePlay Course",
-    img: Course2,
-    name: "Ifaf ghori",
-    rating: "rating",
-    price: "19.99",
-    test: "2",
-  },
-  {
-    id: 3,
-    title: "Taken 5 Fight Course",
-    img: Course3,
-    name: "Arslan Ash",
-    rating: "rating",
-    price: "19.99",
-    test: "3",
-  },
-  {
-    id: 4,
-    title: "Minicraft Full Course",
-    img: Course4,
-    name: "James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "4",
-  },
-  {
-    id: 5,
-    title: "5Minicraft Full Course",
-    img: Course4,
-    name: "5James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "5",
-  },
-  {
-    id: 6,
-    title: "6Minicraft Full Course",
-    img: Course3,
-    name: "6James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "6",
-  },
-  {
-    id: 7,
-    title: "7Minicraft Full Course",
-    img: Course2,
-    name: "7James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "7",
-  },
-  {
-    id: 8,
-    title: "8Minicraft Full Course",
-    img: Course1,
-    name: "8James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "8",
-  },
-  {
-    id: 9,
-    title: "9Minicraft Full Course",
-    img: Course1,
-    name: "9James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "3",
-  },
-];
+
 const categories = [
   {
-    name: "Top 10 Games ",
+    name: "Top 10 Games",
     value: "1",
   },
   {
@@ -240,6 +159,13 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const SearchResultBody = () => {
+  const history = useHistory();
+  console.log("get history in search", history.location?.param);
+  useEffect(() => {
+    if (history.location.param) {
+      onSideBtnClick(history.location?.param);
+    }
+  }, []);
   // initalize variables
   const [selectedCategories, setselectedCategories] = useState(false);
   const [selectedGame, setSelectedGame] = useState(false);
@@ -774,7 +700,7 @@ const SearchResultBody = () => {
                               />
                               <p className="latestCourse-p">
                                 {" "}
-                                {`( ${countViews(item)} )`}
+                                {`(${countViews(item)})`}
                               </p>
                             </div>
                             <div className="latestCourse-colmn-centerDiv">

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/blog/BlogFooter";
 import SearchResultBody from "../components/searchResult/SearchResultBody";
+import { useHistory } from "react-router-dom";
 const SearchResult = () => {
+  const history = useHistory();
   const [openlogin, setOpenLogin] = useState(false);
   const [opensignup, setOpenSignup] = useState(false);
   const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] = useState(false);
