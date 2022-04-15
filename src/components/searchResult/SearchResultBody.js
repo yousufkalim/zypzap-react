@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import Categories from "./Categories";
 import GameType from "./GameType";
 import Plateforms from "./Plateforms";
@@ -180,9 +180,11 @@ const SearchResultBody = () => {
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
 
   // recieving context __data
+
   const { searchCreator, searchCourse, searchState, searchInput } = Store();
 
   const updateStore = UpdateStore();
+
   //sidebar list togle
   const onClickSideBarHeaders = (e) => {
     const id = e.target.id;

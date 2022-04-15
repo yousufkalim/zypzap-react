@@ -102,7 +102,7 @@
 }
 .latestCourse-colmn-centerDiv {
   display: flex;
-  padding: 10px 4px;
+  padding: 5px 4px;
   align-items: center;
 }
 .latestCourse-h4 {
@@ -110,10 +110,12 @@
   margin: auto;
   text-align: center;
   font-size: 28px;
+  font-family: Mulish;
 }
 .latestCourse-p {
   padding: 0 0 0 6px;
-  font-size: 18px;
+  /* font-size: 18px; */
+  font-family: Mulish;
 }
 /* -------------------------------- new card --------------------------------   */
 /* -------------------------------- wishlist --------------------------------   */

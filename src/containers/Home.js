@@ -30,7 +30,8 @@ export default function Home() {
   };
   const [openlogin, setOpenLogin] = useState(false);
   const [opensignup, setOpenSignup] = useState(false);
-
+  const [search, setSearch] = useState("course");
+  const [input, setInput] = useState();
   const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] =
     React.useState(false);
   return (
@@ -55,6 +56,10 @@ export default function Home() {
         openBecomeCreatorPopup={openBecomeCreatorPopup}
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
         games={games}
+        search={search}
+        setSearch={setSearch}
+        input={input}
+        setInput={setInput}
       />
       <Body
         openlogin={openlogin}

@@ -379,7 +379,7 @@ export default function PropfileInformation({
           </div>
           <div className="userProfileSelectInput2">
             <br />
-            <select
+            {/* <select
               id="Select"
               name="Select"
               onChange={changePlayPeriodHandler}
@@ -390,7 +390,7 @@ export default function PropfileInformation({
               </option>
               <option value="Per Month">Per Month</option>
               <option value="Per Year">Per Year</option>
-              {/* <option value="audi">Select</option> */}
+              <option value="audi">Select</option>
             </select>
             &nbsp;
             <select
@@ -405,6 +405,24 @@ export default function PropfileInformation({
 
               <option value="4 Houre">4 Houre</option>
               <option value="6 Houre">6 Houre</option>
+            </select> */}
+            <select
+              id="Select"
+              name="Select"
+              onChange={changeCurrentLevelHandler}
+              className="selectInput-userProfile"
+              defaultValue={currentLevel}
+            >
+              <option value="Casual" className="selectInput-option">
+                10h to 20h per week
+              </option>
+
+              {/* <option value="saab">Pro</option> */}
+              <option value="Confirmed">20h To 30h Per Week</option>
+              <option value="Hardcore">30h To 40h Per Week</option>
+              <option value="Esporter">40h To 50h Per Week</option>
+              <option value="Esporter">50h To 60h Per Week</option>
+              <option value="Esporter">60h To 70h Per Week</option>
             </select>
           </div>
           <div className="userProfileSelectInput">
