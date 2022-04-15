@@ -239,7 +239,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const SearchResultBody = ({ search, input }) => {
+const SearchResultBody = () => {
   // initalize variables
   const [selectedCategories, setselectedCategories] = useState(false);
   const [selectedGame, setSelectedGame] = useState(false);
@@ -254,7 +254,7 @@ const SearchResultBody = ({ search, input }) => {
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
 
   // recieving context __data
-  const { searchCreator, searchCourse } = Store();
+  const { searchCreator, searchCourse, searchState, searchInput } = Store();
 
   const updateStore = UpdateStore();
   //sidebar list togle
@@ -283,6 +283,7 @@ const SearchResultBody = ({ search, input }) => {
   // sidebar list togle
   // making list item active by chnaging background
   const onSideBtnClick = async (e) => {
+    console.log("onSideBtnClick", e);
     // const name = e.target.textContent;
     const name = e.name;
     const value = e.value;
@@ -306,7 +307,6 @@ const SearchResultBody = ({ search, input }) => {
 
   let countViews = (course) => {
     const Videos = course?.videos;
-
     let count = 0;
     Videos.map((video) => {
       count += video.views;
@@ -328,7 +328,6 @@ const SearchResultBody = ({ search, input }) => {
     } else {
       time = `${secs} sec`;
     }
-
     return time;
   };
   const postedTime = (item) => {
@@ -678,12 +677,6 @@ const SearchResultBody = ({ search, input }) => {
               <Button
                 className="reqstStateBTN"
                 onClick={RequestClikEvent}
-                // sx={{
-                //   backgroundColor: "#E7411B",
-                //   padding: "5px 12px",
-                //   fontSize: "13px",
-                //   margin: "10px 0",
-                // }}
                 variant="contained"
               >
                 Request now
@@ -693,7 +686,7 @@ const SearchResultBody = ({ search, input }) => {
         </Grid>
       </Box>
       {/*  */}
-      {search === "course" ? (
+      {searchState === "course" ? (
         <>
           {" "}
           {searchCourse?.length === 0 ? (
@@ -703,7 +696,7 @@ const SearchResultBody = ({ search, input }) => {
               <Box className="cards-container">
                 <div className="cards-box">
                   <div className="cards-header-text">
-                    <h2>{`${input} GAMES`}</h2>
+                    <h2>{`${searchInput} GAMES`}</h2>
                     <span>{searchCourse.length + " course result"}</span>
                   </div>
                   <div>
@@ -832,12 +825,12 @@ const SearchResultBody = ({ search, input }) => {
       ) : (
         <></>
       )}
-      {search === "creator" ? (
+      {searchState === "creator" ? (
         searchCreator?.length === 0 ? (
           <ResearchFaild />
         ) : (
           <>
-            <CreatorResult input={input} />
+            <CreatorResult input={searchInput} />
           </>
         )
       ) : (

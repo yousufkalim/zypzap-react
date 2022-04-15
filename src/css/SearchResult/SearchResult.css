@@ -235,6 +235,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.followerNames {
+  color: white;
+}
 .following-card {
   display: flex;
   align-items: center;

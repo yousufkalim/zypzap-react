@@ -16,7 +16,9 @@ const CreatorResult = ({ input }) => {
       let student = 0;
       item?.creator?.courses?.map((_course) => {
         _num += parseInt(_course.rating);
-        student += parseInt(_course.student.length);
+        student += parseInt(
+          _course?.student?.length ? _course?.student?.length : 0
+        );
       });
       _num = _num > 0 ? _num / item?.creator?.courses?.length : 0;
       myCreator.push({ ...item, _avgRating: _num ?? 0, _avgStudent: student });
@@ -57,11 +59,7 @@ const CreatorResult = ({ input }) => {
                     <div className="following-card">
                       <div className="followingImgDiv">
                         <img
-                          src={
-                            item?.profile_photo
-                              ? item.profile_photo
-                              : ArslanAshIMG
-                          }
+                          src={ArslanAshIMG}
                           className="followingIMG"
                           alt="img"
                         />
