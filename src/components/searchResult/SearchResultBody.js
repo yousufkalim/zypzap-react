@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import Categories from "./Categories";
 import GameType from "./GameType";
 import Plateforms from "./Plateforms";
@@ -231,8 +231,8 @@ const SearchResultBody = ({ search, input }) => {
 
   // recieving context __data
   const { searchCreator, searchCourse } = Store();
-
   const updateStore = UpdateStore();
+
   //sidebar list togle
   const onClickSideBarHeaders = (e) => {
     const id = e.target.id;

@@ -150,16 +150,20 @@ export default function PrimarySearchAppBar({
   const searchCourse = async (e) => {
     e.preventDefault();
     if (input !== "") {
+      console.log("search", search);
       if (search === "course") {
         let res = await api("get", `/courses/search?name=${input}`);
         if (res) {
-          updateStore({ searchCourse: res?.data });
+          console.log("res------>1", res.data);
+          updateStore({ searchCourse: res?.data, searchCreator: [] });
         }
       }
       if (search === "creator") {
+        console.log("input", input);
         let res = await api("get", `/creators/search?name=${input}`);
         if (res) {
-          updateStore({ searchCreator: res?.data });
+          console.log("res------>2", res.data);
+          updateStore({ searchCreator: res?.data, searchCourse: [] });
         }
       }
     }
@@ -167,14 +171,16 @@ export default function PrimarySearchAppBar({
   const handleCreatorSearch = (e) => {
     e.preventDefault();
     setSearch("creator");
+    console.log("creator");
   };
   const handleCourseSearch = (e) => {
     e.preventDefault();
     setSearch("course");
+    console.log("course");
   };
   const handleChangeInput = (e) => {
-    setInput(e.target.value);
     updateStore({ Input: e.target.value });
+    setInput(e.target.value);
   };
 
   const menuId = "primary-search-account-menu";
