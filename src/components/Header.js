@@ -155,13 +155,13 @@ export default function PrimarySearchAppBar({
       if (search === "course") {
         let res = await api("get", `/courses/search?name=${input}`);
         if (res) {
-          updateStore({ searchCourse: res?.data });
+          updateStore({ searchCourse: res?.data, searchCreator: [] });
         }
       }
       if (search === "creator") {
         let res = await api("get", `/creators/search?name=${input}`);
         if (res) {
-          updateStore({ searchCreator: res?.data });
+          updateStore({ searchCreator: res?.data, searchCourse: [] });
         }
       }
     }
@@ -175,8 +175,8 @@ export default function PrimarySearchAppBar({
     setSearch("course");
   };
   const handleChangeInput = (e) => {
-    setInput(e.target.value);
     updateStore({ Input: e.target.value });
+    setInput(e.target.value);
   };
 
   const menuId = "primary-search-account-menu";
