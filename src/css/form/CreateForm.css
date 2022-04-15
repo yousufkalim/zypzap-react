@@ -324,12 +324,19 @@
   display: inline-block;
 }
 .css-1a5icme{
-  color: #fff;
+  color: #fff !important;
 }
 /* .userTagsAllButton:hover {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
 } */
+.gamingModeP{
+  padding: 9px 0 0 0;
+}
+.userProfileSelectInput{
+  padding: 5px 0 0 0;
+}
+
 .gamingModeSelect {
   margin: 5px 0px 0px 10px;
 }
