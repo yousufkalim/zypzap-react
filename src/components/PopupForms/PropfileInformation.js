@@ -45,6 +45,9 @@ export default function PropfileInformation({
       ? user.prefrence_games.current_level
       : "initial"
   );
+  const [LearningRhythm, setLearningRhythm] = useState(
+    user?.learning_rhythm || "initial"
+  );
   const [target_level, setTargetLevel] = useState(
     user?.prefrence_games?.target_level
       ? user.prefrence_games.target_level
@@ -112,6 +115,9 @@ export default function PropfileInformation({
   const changeCurrentLevelHandler = (e) => {
     setCurrentLevel(e.target.value);
   };
+  const ChangeLearningRhythm = (e) => {
+    setLearningRhythm(e.target.value);
+  };
   const changeTargetLevelHandler = (e) => {
     setTargetLevel(e.target.value);
   };
@@ -152,6 +158,7 @@ export default function PropfileInformation({
       gameType,
       plateForm,
       gameMood,
+      LearningRhythm,
     };
     if (
       (prefrence_games === "" ||
@@ -409,20 +416,23 @@ export default function PropfileInformation({
             <select
               id="Select"
               name="Select"
-              onChange={changeCurrentLevelHandler}
+              onChange={ChangeLearningRhythm}
               className="selectInput-userProfile"
-              defaultValue={currentLevel}
+              defaultValue={LearningRhythm}
             >
-              <option value="Casual" className="selectInput-option">
+              <option
+                value="10h to 20h per week"
+                className="selectInput-option"
+              >
                 10h to 20h per week
               </option>
 
               {/* <option value="saab">Pro</option> */}
-              <option value="Confirmed">20h To 30h Per Week</option>
-              <option value="Hardcore">30h To 40h Per Week</option>
-              <option value="Esporter">40h To 50h Per Week</option>
-              <option value="Esporter">50h To 60h Per Week</option>
-              <option value="Esporter">60h To 70h Per Week</option>
+              <option value="20h To 30h Per Week">20h To 30h Per Week</option>
+              <option value="30h To 40h Per Week">30h To 40h Per Week</option>
+              <option value="40h To 50h Per Week">40h To 50h Per Week</option>
+              <option value="50h To 60h Per Week">50h To 60h Per Week</option>
+              <option value="60h To 70h Per Week">60h To 70h Per Week</option>
             </select>
           </div>
           <div className="userProfileSelectInput">
