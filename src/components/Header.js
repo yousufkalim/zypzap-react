@@ -13,9 +13,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import Moon from "../assets/icons/moon.svg";
 import UserHeaderIcon from "../assets/icons/UserHeaderIcon.svg";
-import Globe from "../assets/icons/globe.svg";
 import CourseIcon from "../assets/icons/CourseIcon.svg";
 import DownArrow from "../assets/icons/downarrow.svg";
 import UserIcon from "../assets/icons/userIcon.svg";
@@ -34,7 +32,6 @@ import Select from "@mui/material/Select";
 import HomePageLogo from "../assets/icons/HomePageLogo.svg";
 
 import { Store, UpdateStore } from "../StoreContext";
-import { Button } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -83,14 +80,10 @@ export default function PrimarySearchAppBar({
   setOpenSignup,
   openBecomeCreatorPopup,
   setOpenBecomeCreatorPopup,
-  search,
   games,
-  setSearch,
-  input,
-  setInput,
 }) {
   const updateStore = UpdateStore();
-  const { user, creator } = Store();
+  const { user, creator, searchState, searchInput } = Store();
 
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -110,9 +103,6 @@ export default function PrimarySearchAppBar({
       history.push("/home");
     }
   };
-  // const handleClickOpen = () => {
-  //   setOpenProfile(true);
-  // };
 
   const handleClose = () => {
     setOpenProfile(false);
@@ -120,11 +110,6 @@ export default function PrimarySearchAppBar({
 
   const showBecomePopup = () => {
     setOption(true);
-  };
-
-  const onClickEvent = () => {
-    // alert("click");
-    history.push("/searchResult");
   };
 
   const isMenuOpen = Boolean(anchorEl);
@@ -146,37 +131,46 @@ export default function PrimarySearchAppBar({
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-  const handleSearchClick = (event) => {
-    history.push("/searchResult");
-  };
-  const searchCourse = async (e) => {
+  const handleSearchButtonClick = async (e) => {
     e.preventDefault();
-    if (input !== "") {
-      if (search === "course") {
-        let res = await api("get", `/courses/search?name=${input}`);
+
+    if (searchInput) {
+      if (searchState === "course") {
+        let res = await api("get", `/courses/search?name=${searchInput}`);
         if (res) {
-          updateStore({ searchCourse: res?.data, searchCreator: [] });
+
+                    updateStore({ searchCourse: res?.data, searchCreator: [] });
+          history.push("/searchResult");
+
+
+
         }
       }
-      if (search === "creator") {
-        let res = await api("get", `/creators/search?name=${input}`);
+      if (searchState === "creator") {
+        let res = await api("get", `/creators/search?name=${searchInput}`);
         if (res) {
+
           updateStore({ searchCreator: res?.data, searchCourse: [] });
+          history.push("/searchResult");
+
+
+
         }
       }
     }
   };
   const handleCreatorSearch = (e) => {
     e.preventDefault();
-    setSearch("creator");
+    updateStore({ searchState: "creator" });
   };
   const handleCourseSearch = (e) => {
     e.preventDefault();
-    setSearch("course");
+    updateStore({ searchState: "course" });
   };
   const handleChangeInput = (e) => {
-    updateStore({ Input: e.target.value });
-    setInput(e.target.value);
+
+    updateStore({ searchInput: e.target.value });
+
   };
 
   const menuId = "primary-search-account-menu";
@@ -314,7 +308,6 @@ export default function PrimarySearchAppBar({
             >
               {/* Categories */}
               <div
-                onClick={onClickEvent}
                 style={{
                   cursor: "pointer",
                 }}
@@ -323,18 +316,16 @@ export default function PrimarySearchAppBar({
                   // href="/SearchResult"
                   target="_blank"
                   style={{ color: "#fff" }}
-                >
-                  {/* <SearchIcon className="searchItemsIcon" /> */}
-                </a>
+                ></a>
               </div>
             </Typography>
-            <Search className="searchBar" onChange={handleChangeInput}>
-              <div onClick={searchCourse}>
+            <Search className="searchBar">
+              <div
+                onClick={handleSearchButtonClick}
+                style={{ cursor: "pointer" }}
+              >
                 {" "}
-                <SearchIcon
-                  className="searchBarIcon"
-                  onClick={handleSearchClick}
-                />
+                <SearchIcon className="searchBarIcon" />
                 <SearchIconWrapper></SearchIconWrapper>
               </div>
 
@@ -344,7 +335,13 @@ export default function PrimarySearchAppBar({
                 {/* </button> */}
                 <div className="dropdown-content">
                   <div className="drowp1">
-                    <a href="#" onClick={handleCreatorSearch}>
+                    <a
+                      href="#"
+                      className={`${
+                        searchState == "creator" && "activeserchis"
+                      } `}
+                      onClick={handleCreatorSearch}
+                    >
                       <img className="UserIcons" src={UserIcon} alt="" />
                       Content Creators
                       <p className="drowpP">
@@ -352,8 +349,14 @@ export default function PrimarySearchAppBar({
                       </p>
                     </a>
                   </div>
-                  <div className="drowp1">
-                    <a href="#" onClick={handleCourseSearch}>
+                  <div className=" drowp1">
+                    <a
+                      href="#"
+                      className={`${
+                        searchState == "course" && "activeserchis"
+                      } `}
+                      onClick={handleCourseSearch}
+                    >
                       <img className="UserIcons" src={CourseIcon} alt="" />
                       Courses
                       <p className="drowpP">Browse and buy courses</p>
@@ -364,25 +367,21 @@ export default function PrimarySearchAppBar({
               <StyledInputBase
                 placeholder="Type your search here"
                 inputProps={{ "aria-label": "search" }}
+                onChange={handleChangeInput}
+                value={searchInput}
               />
             </Search>
-            {/* <Box sx={{ flexGrow: 1 }} /> */}
             <Link to="" className="requestBt">
               {user ? (
                 <></>
               ) : (
                 <button className="requestBtn">Request a Course</button>
               )}
-
-              {/* <button className="requestBtn2">
-                <img src={UserHeaderIcon} alt="" />
-              </button> */}
             </Link>
 
             {(user?.role == "User" || user?.role == "Creator") && (
               <Link to="/userprofile" className="requestBt">
-                {/* onClick={handleClickOpen} */}
-                {/* //////User Profile */}
+                {/* User Profile */}
                 <button className="requestBtn">
                   {" "}
                   <img src={UserHeaderIcon} alt="" />
@@ -484,13 +483,6 @@ export default function PrimarySearchAppBar({
                   </div>
                 </>
               )}
-
-              {/* <div>
-                <img src={UserIcon} alt="img" />
-                <img src={Globe} alt="img" />
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                <img src={Moon} alt="img" />
-              </div> */}
             </Box>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton

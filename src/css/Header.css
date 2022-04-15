@@ -14,7 +14,7 @@
   padding-left: calc(0.1em + 32px) !important;
   width: 19ch !important;
 }
-.css-1kcggdq-MuiInputBase-root .MuiInputBase-input::placeholder{
+.css-1kcggdq-MuiInputBase-root .MuiInputBase-input::placeholder {
   font-size: 14px;
 }
 .headerBackgroundColor {
@@ -227,6 +227,11 @@
   display: flex;
   align-items: center;
 }
+
+.activeserchis {
+  background-color: #292d55 !important;
+}
+
 .dropdown-contents {
   display: none;
   position: absolute;
@@ -243,6 +248,7 @@
 
 
 .show {display: block;}
+
 /* for big screens */
 @media only screen and (min-width: 1900px) {
   .searchBar {
@@ -480,5 +486,5 @@
   }
   .requestBtn2 {
     padding: 5px 13px;
-}
+  }
 }
