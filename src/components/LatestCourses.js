@@ -180,7 +180,7 @@ export default function LatestCourses(props) {
                       />
                       <p className="latestCourse-p">{`${postedTime(
                         item
-                      )} days ago`}</p>
+                      )} Days ago`}</p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}

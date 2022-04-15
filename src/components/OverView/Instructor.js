@@ -44,18 +44,17 @@ const Instructor = (props) => {
                 <img src={InstructorIcon} alt="" className="instructorLogo" />
               </div>
               <div className="instructor-heading">
-                <h2 className="instructorH2">
+                <h3 className="instructorH2">
                   {singlCourse?.creator?.user_id?.username
                     ? singlCourse.creator.user_id.username
                     : "Arslan Ash"}
-                </h2>
-                <p className="instructorP">
+                </h3>
+                {/* <p className="instructorP">
                   Player of {singlCourse?.course_name}
-                </p>
+                </p> */}
                 <p className="instructor-lavel">
-                  Level:{" "}
+                  Level:
                   <span className="instructor-span">
-                    {" "}
                     {singlCourse?.creator?.gameLevel
                       ? singlCourse.creator.gameLevel
                       : "Pro"}
@@ -83,12 +82,12 @@ const Instructor = (props) => {
             </div>
             <div className="instructor-co">
               <div className="instructor-about-Heading">
-                <h2 className="instructor-aboutH2">About the Instructor</h2>
+                <p className="instructor-aboutH2">About the Instructor</p>
                 <p className="instructor-aboutP">{singlCourse?.course_name}</p>
               </div>
               <div className="instructorProfile-heading">
                 <p className="instructorProfile-Name">
-                  Hi, I am{" "}
+                  Hi, I am
                   {singlCourse?.creator?.user_id?.username
                     ? singlCourse.creator.user_id.username
                     : "Arslan Ash"}
