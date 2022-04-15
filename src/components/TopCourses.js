@@ -7,8 +7,11 @@ import TopCourseImg from "../assets/img/topcourseimg.png";
 import avatar from "../assets/img/avatar.png";
 import StarIcon from "@material-ui/icons/Star";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 export default function TopCourses(props) {
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
+
   const { courses } = props;
 
   const Courses = courses.sort(function (a, b) {
@@ -31,6 +34,15 @@ export default function TopCourses(props) {
     },
   ];
 
+  const handleviewTopCourses = () => {
+    history.push({
+      pathname: "/searchResult",
+      param: {
+        name: "Top 10 Games",
+        value: "1",
+      },
+    });
+  };
   return (
     <div className="topCoursescontainer">
       <p className="topcourseheading" style={{ display: "inline-block" }}>
@@ -40,9 +52,10 @@ export default function TopCourses(props) {
         className="topcourseheadings"
         style={{
           display: "inline-block",
-
+          cursor: "Pointer",
           float: "right",
         }}
+        onClick={handleviewTopCourses}
       >
         View All
       </p>
@@ -156,7 +169,7 @@ function TopCoursesComponent({ item }) {
                       }}
                     />
                   ))}
-                  {" ( " + countViews(item) + " )"}
+                  {" (" + countViews(item) + ")"}
                   {/* &nbsp; (382,420) */}
                 </p>
               </div>

@@ -29,15 +29,16 @@
   padding: 35px 0px 3px 0px;
   font-size: 16px;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .courseimg {
   width: 98%;
-    padding: 17px;
-    border-radius: 18%;
-    height: 390px;
-    margin: auto;
-    display: block;
+  padding: 17px;
+  border-radius: 18%;
+  height: 390px;
+  margin: auto;
+  display: block;
 }
 
 .dashbordHeading-div {
@@ -219,5 +220,5 @@
     text-decoration: none;
     width: 37%;
     margin: auto;
-}
+  }
 }
