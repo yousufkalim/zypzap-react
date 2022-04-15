@@ -17,6 +17,7 @@ import UserHeaderIcon from "../assets/icons/UserHeaderIcon.svg";
 import CourseIcon from "../assets/icons/CourseIcon.svg";
 import DownArrow from "../assets/icons/downarrow.svg";
 import UserIcon from "../assets/icons/userIcon.svg";
+import HeaderLogoutIcon from "../assets/icons/HeaderLogoutIcon.svg";
 import { useHistory } from "react-router-dom";
 import CreateFormPopup from "./PopupForms/CreateFormPopup";
 import PropfileInformation from "./PopupForms/PropfileInformation";
@@ -90,6 +91,7 @@ export default function PrimarySearchAppBar({
   const [Option, setOption] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
   const [age, setAge] = React.useState("");
+  const [showLogoutBtn, setShowLogoutBtn] = useState(false);
   const handleChange = (event) => {
     setAge(event.target.value);
   };
@@ -136,15 +138,23 @@ export default function PrimarySearchAppBar({
       if (searchState === "course") {
         let res = await api("get", `/courses/search?name=${searchInput}`);
         if (res) {
-          updateStore({ searchCourse: res?.data });
+
+                    updateStore({ searchCourse: res?.data, searchCreator: [] });
           history.push("/searchResult");
+
+
+
         }
       }
       if (searchState === "creator") {
         let res = await api("get", `/creators/search?name=${searchInput}`);
         if (res) {
-          updateStore({ searchCreator: res?.data });
+
+          updateStore({ searchCreator: res?.data, searchCourse: [] });
           history.push("/searchResult");
+
+
+
         }
       }
     }
@@ -158,7 +168,9 @@ export default function PrimarySearchAppBar({
     updateStore({ searchState: "course" });
   };
   const handleChangeInput = (e) => {
+
     updateStore({ searchInput: e.target.value });
+
   };
 
   const menuId = "primary-search-account-menu";
@@ -428,8 +440,15 @@ export default function PrimarySearchAppBar({
                 </>
               )}
               {user ? (
-                <p className="sgnBtn" onClick={handleLogout}>
-                  Logout
+                <p className="sgnBtn">
+                  <div class="dropdown" onClick={handleLogout}>
+                    <img src={HeaderLogoutIcon} alt="" />
+                    <div id="myDropdown" class="dropdown-content">
+                      <a className="LogoutBTN" href="#home">
+                        Logout
+                      </a>
+                    </div>
+                  </div>
                 </p>
               ) : (
                 <>

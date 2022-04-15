@@ -138,12 +138,12 @@ const OverViewHome = (props) => {
               </div>
               <div className="overViewBuy">
                 <div className="overViewRateContent">
-                  <p className="cardP1">
+                  {/* <p className="cardP1">
                     {singlCourse?.price >= 0
                       ? "$" + singlCourse.price
                       : "$0.00"}
-                  </p>
-                  <p className="cardP2">$39.99</p>
+                  </p> */}
+                  {/* <p className="cardP2">$39.99</p> */}
                   <img src={OverCardHurtLogo} alt="" className="cardHurtLogo" />
                 </div>
                 <NavLink

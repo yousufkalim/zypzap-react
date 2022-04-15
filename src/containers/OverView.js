@@ -15,7 +15,7 @@ import { Store, UpdateStore } from "../StoreContext";
 import LatestCourses from "../components/LatestCourses";
 let btns = [
   { text: "Overview" },
-  { text: "Curriculum" },
+  { text: "Cursus" },
   { text: "Instructor" },
   { text: "Feedback" },
 ];

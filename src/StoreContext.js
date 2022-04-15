@@ -27,6 +27,7 @@ export function StoreProvider({ children }) {
     searchCourse: [],
     searchState: "course",
     searchInput: "",
+
   });
 
   const updateStore = (data) => {
