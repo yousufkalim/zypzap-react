@@ -270,9 +270,11 @@ export default function PrimarySearchAppBar({
         setOpen={setOpenSignup}
         login={openlogin}
         setLogin={setOpenLogin}
+        setOpenProfile={setOpenProfile}
       />
       <PropfileInformation
         openProfile={openProfile}
+        setOpenProfile={setOpenProfile}
         handleClose={handleClose}
         user={user}
       />

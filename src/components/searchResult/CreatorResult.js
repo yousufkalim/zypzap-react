@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import CustomizedMenus from "./CustomizedMenus";
 import { Store, UpdateStore } from "../../StoreContext";
 
-const CreatorResult = ({ input }) => {
+const CreatorResult = ({ input, creator }) => {
   const { searchCreator } = Store();
   const [_myCreators, set_MyRatingCreators] = useState([]);
   useMemo(() => {
@@ -34,7 +34,7 @@ const CreatorResult = ({ input }) => {
           <div className="followCol1">
             <div className="followerNames">
               <h3 className="followH3">{input}</h3>
-              <p className="follow-P">{searchCreator?.length} result Found</p>
+              <p className="follow-P">{_myCreators?.length} result Found</p>
             </div>
             <div className="followDrowDown">
               <select
@@ -50,7 +50,7 @@ const CreatorResult = ({ input }) => {
           </div>
           {/* div col 2 */}
           <div className="followCol2">
-            <div1 className="following-div ">
+            <div className="following-div">
               {_myCreators?.map((item, i) => (
                 <Link to="#" className="following-link" course={item}>
                   <a className="followingAnker" key={i}>
@@ -70,6 +70,7 @@ const CreatorResult = ({ input }) => {
                         <p className="followingh4">{item.username}</p>
 
                         <p className="following_P">
+                          {console.log("1234", item)}
                           {item?.course_name
                             ? item.course_name
                             : "fighting game player of Tekken"}
@@ -78,7 +79,7 @@ const CreatorResult = ({ input }) => {
                           {item?.creator?.user_id?.username}
                         </p>
                         <p className="followingP3">
-                          {item._avgStudent ?? 0} &nbsp;
+                          {item._avgRating ?? 0} &nbsp;
                           {[1, 2, 3, 4, 5].map((item) => (
                             <Star1
                               className="wishCardStar"
@@ -89,7 +90,7 @@ const CreatorResult = ({ input }) => {
                           ))}
                           <br />
                           {/* todo avg  */}
-                          {item._avgRating ?? 0}
+                          {`${item._avgStudent} Students` ?? 0}
                         </p>
                       </div>
                       {/* <div className="followingButtonDiv">
@@ -99,7 +100,7 @@ const CreatorResult = ({ input }) => {
                   </a>
                 </Link>
               ))}
-            </div1>
+            </div>
           </div>
         </div>
       </div>

@@ -33,7 +33,10 @@ export default function TopCourses(props) {
 
   return (
     <div className="topCoursescontainer">
-      <p className="topcourseheading">Top Courses</p>
+      <div className="latestcourseHeadingDiv">
+        <p className="topcourseheading">Top Courses</p>
+        <p className="latestcourseheading">View All</p>
+      </div>
       <Carousel
         autoPlay={false}
         animation={"fade"}

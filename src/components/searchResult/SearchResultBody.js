@@ -813,6 +813,7 @@ const SearchResultBody = ({ search, input }) => {
           <ResearchFaild />
         ) : (
           <>
+            {console.log("sesgg", searchCreator)}
             <CreatorResult input={input} />
           </>
         )

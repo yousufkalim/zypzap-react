@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../components/UserProfile/UserProfile.css";
 import UserHomeProfleImg2 from "../../assets/img/UserHomeProfleImg2.svg";
 import CreatorPrifileImg from "../../assets/img/CreatorPrifileImg.svg";
@@ -7,7 +7,7 @@ import ProGamer from "../../assets/icons/ProGamer.svg";
 import ViewCourse from "../../assets/icons/ViewCourse.svg";
 import ViewStudent from "../../assets/img/ViewStudent.svg";
 import ViewRank from "../../assets/img/ViewRank.svg";
-
+import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
 import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
 const CreaterDatav = [
@@ -30,8 +30,19 @@ const CreaterDatav = [
 ];
 
 const CreatorProfileHome = (props) => {
-  const { user } = props;
+  const { id } = props;
   const [openProfile, setOpenProfile] = useState(false);
+  const [user, setUser] = useState();
+  useEffect(() => {
+    getCreator();
+  }, [id]);
+  const getCreator = async () => {
+    let res = await api("get", `/users/${id}`);
+    if (res) {
+      console.log("user , ", res.data);
+      setUser(res?.data);
+    }
+  };
   const handleClickOpen = () => {
     setOpenProfile(true);
   };
@@ -63,15 +74,19 @@ const CreatorProfileHome = (props) => {
               <h1 className="profile-name">
                 {user ? user.username : "Atif Khan"}
               </h1>
-
-              <p className="pofileP">Taken Player</p>
-              <p className="prfile-lavelP">
-                Hi, I am Arslan
-                <br />I am a Professional Taken player 2 times world champion
-                last year i was choosen to be red bull athelete too i am here to
-                help you win the game and have a fun.
+              <p className="pofileP">
+                {user?.gameType?.length > 0
+                  ? `${user.gameType} Player`
+                  : "Taken Player"}
               </p>
-              <div className="profileEditButton">
+              <p className="prfile-lavelP">
+                Hi, I am {user?.username ? user.username : "User1"}
+                <br />
+                {user?.creator?.bio
+                  ? user.creator.bio
+                  : "I am a Professional Taken player 2 times world champion last year i was choosen to be red bull athelete too i am here to help you win the game and have a fun."}
+              </p>
+              {/* <div className="profileEditButton">
                 <a to="">
                   <button
                     className="editProfiel-btn2"
@@ -80,24 +95,61 @@ const CreatorProfileHome = (props) => {
                     Follow
                   </button>
                 </a>
-              </div>
+              </div> */}
               <div className="creatorProfileDiv">
-                {CreaterDatav.map((CrntVal) => {
-                  return (
-                    <>
-                      <div className="creatorLogos">
-                        <img
-                          className="CreatorProfileImg"
-                          src={CrntVal.imgSrc}
-                          alt=""
-                        />
-                      </div>
-                      <div className="creatorProfileContent">
-                        <p className="creatorProfileP">{CrntVal.content}</p>
-                      </div>
-                    </>
-                  );
-                })}
+                <>
+                  <div className="creatorLogos">
+                    <img className="CreatorProfileImg" src={ProGamer} alt="" />
+                  </div>
+                  <div className="creatorProfileContent">
+                    <p className="creatorProfileP">
+                      {user?.creator?.gameLevel
+                        ? `${user.creator.gameLevel} Gamer`
+                        : "Pro Gamer"}
+                    </p>
+                  </div>
+                  <div className="creatorLogos">
+                    <img
+                      className="CreatorProfileImg"
+                      src={ViewCourse}
+                      alt=""
+                    />
+                  </div>
+                  <div className="creatorProfileContent">
+                    <p className="creatorProfileP">
+                      {user?.creator?.courses
+                        ? `${user.creator.courses.length} Courses`
+                        : "8 Courses"}
+                    </p>
+                  </div>
+                  <div className="creatorLogos">
+                    <img
+                      className="CreatorProfileImg"
+                      src={ViewStudent}
+                      alt=""
+                    />
+                  </div>
+                  <div className="creatorProfileContent">
+                    <p className="creatorProfileP">
+                      {/* todo populate issue  ----> */}
+                      {/* {user?.creator?.gameLevel
+                        ? user.creator.gameLevel
+                        : "2287 Students"} */}
+                      2287 Students
+                    </p>
+                  </div>
+                  <div className="creatorLogos">
+                    <img className="CreatorProfileImg" src={ViewRank} alt="" />
+                  </div>
+                  <div className="creatorProfileContent">
+                    <p className="creatorProfileP">
+                      {/* {user?.creator?.gameLevel
+                        ? user.creator.gameLevel
+                        : "2nd Rank"} */}
+                      2nd Rank
+                    </p>
+                  </div>
+                </>
               </div>
             </div>
           </div>
