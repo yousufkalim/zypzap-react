@@ -16,6 +16,14 @@ import { Store, UpdateStore } from "../../StoreContext";
 const BecomeCreatorpopup = ({ open, setOpen, user, creator }) => {
   const history = useHistory();
   const updateStore = UpdateStore();
+  const [profile_photo, setImageURL] = useState(
+    user?.profile_photo ? user.profile_photo : Course1
+  );
+  const [favouritGame, setFavouritGame] = useState(
+    user?.prefrence_games?.favourite_games
+      ? user.prefrence_games.favourite_games
+      : []
+  );
   const [gameType, setGameType] = useState(user?.gameType ? user.gameType : []);
   const [plateForm, setPlateForm] = useState(
     user?.plateForm ? user.plateForm : []
@@ -33,17 +41,15 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator }) => {
   };
   const setCurrentSate = () => {
     setImageURL(user?.profile_photo ? user.profile_photo : Course1);
-    setFavouritGame(user?.expertiseGame ? user.expertiseGame : []);
+    setFavouritGame(
+      user?.prefrence_games?.favourite_games
+        ? user.prefrence_games.favourite_games
+        : []
+    );
     setGameType(user?.gameType ? user.gameType : []);
     setPlateForm(user?.plateForm ? user.plateForm : []);
     setGameMood(user?.gameMood ? user.gameMood : "Single");
   };
-  const [profile_photo, setImageURL] = useState(
-    user?.profile_photo ? user.profile_photo : Course1
-  );
-  const [favouritGame, setFavouritGame] = useState(
-    user?.expertiseGame ? user.expertiseGame : []
-  );
 
   const addTags = (event) => {
     if (event.key === "Enter" && event.target.value !== "") {
@@ -63,12 +69,23 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator }) => {
       ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index),
     ]);
   };
-  const selectplateForm = (name) => {
-    if (!plateForm) {
-      setPlateForm(name);
+  const removeTagsPlateForm = (index) => {
+    setPlateForm([
+      ...plateForm.filter((tag) => plateForm.indexOf(tag) !== index),
+    ]);
+  };
+  const selectplateForm = (e) => {
+    if (e.target.className === "activetypebtn") {
+      setPlateForm((prev) => {
+        return prev.filter((a) => a !== e.target.value);
+      });
     } else {
-      const data = [...plateForm, name];
-      setPlateForm(data);
+      if (!plateForm) {
+        setPlateForm(e.target.value);
+      } else {
+        const data = [...plateForm, e.target.value];
+        setPlateForm(data);
+      }
     }
   };
   const selectGameType = (e) => {
@@ -147,10 +164,12 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator }) => {
   ];
 
   const handleImageSelect = async (e) => {
+    console.log("12345", e.target.files[0]);
     const formdata = new FormData();
-    formdata.append(`file`, e.target.files[0]);
+    formdata.append(`files`, e.target.files[0]);
     let res = await api("post", "/uploadImage", formdata);
-    setImageURL(res.data.file);
+    console.log("res.data.file.location", res.data.file);
+    if (res) setImageURL(res.data.file[0].location);
   };
   return (
     <>
@@ -249,9 +268,8 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator }) => {
                         ? "activetypebtn"
                         : "userTagsAllButton"
                     }
-                    onClick={() => {
-                      selectplateForm(tag);
-                    }}
+                    value={tag}
+                    onClick={selectplateForm}
                   >
                     {tag}
                   </button>

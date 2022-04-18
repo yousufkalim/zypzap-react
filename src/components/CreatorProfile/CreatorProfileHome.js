@@ -33,21 +33,36 @@ const CreatorProfileHome = (props) => {
   const { id } = props;
   const [openProfile, setOpenProfile] = useState(false);
   const [user, setUser] = useState();
+  const [courses, setCourses] = useState();
   useEffect(() => {
     getCreator();
   }, [id]);
+  let countViews = (course) => {
+    const Videos = course?.videos;
+
+    let count = 0;
+    Videos.map((video) => {
+      count += video.views;
+    });
+
+    return count;
+  };
   const getCreator = async () => {
     let res = await api("get", `/users/${id}`);
     if (res) {
-      console.log("user , ", res.data);
       setUser(res?.data);
+      setCourses(res?.data?.creator?.courses);
     }
   };
   const handleClickOpen = () => {
     setOpenProfile(true);
   };
-  const handleClose = () => {
-    setOpenProfile(false);
+  const totalStudent = (courses) => {
+    let total = 0;
+    courses?.map((c) => {
+      if (c?.student?.length > 0) total += c.student.length;
+    });
+    return total;
   };
   return (
     <>
@@ -132,10 +147,9 @@ const CreatorProfileHome = (props) => {
                   <div className="creatorProfileContent">
                     <p className="creatorProfileP">
                       {/* todo populate issue  ----> */}
-                      {/* {user?.creator?.gameLevel
-                        ? user.creator.gameLevel
-                        : "2287 Students"} */}
-                      2287 Students
+                      {user?.creator?.courses
+                        ? totalStudent(user.creator.courses) + " Students"
+                        : "No Student"}
                     </p>
                   </div>
                   <div className="creatorLogos">
@@ -159,39 +173,43 @@ const CreatorProfileHome = (props) => {
       <div className="creatorProfileCard">
         <h3 className="creatorProfileH3">Courses</h3>
         <div className="creatorProfileCart-centerDiv">
-          <div className="creatorCard">
-            <div
-              className="cardGrid"
-              style={{
-                backgroundColor: " #202342",
-                margin: "12px",
-                borderRadius: "35px",
-              }}
-            >
-              <img src={Course1} className="courseimg" alt="img" />
-              <h5 className="latestcourseh5">PUBG GamePlay Course</h5>
-              <p className="latestcoursep1">Ifaf ghori</p>
-              <p className="latestcoursep1">
-                {" "}
-                5.0 &nbsp;
-                {[1, 2, 3, 4, 5].map((item) => (
-                  <Star1
-                    style={{
-                      width: "15px",
-                      height: "15px",
-                      color: "red",
-                      margintTop: "3px",
-                      position: "relative",
-                      top: "3px",
-                      key: { item },
-                    }}
-                  />
-                ))}
-                &nbsp; (382,420)
-              </p>
-              <h6 className="latestcourseh6">44$</h6>
+          {courses?.map((item, i) => (
+            <div className="creatorCard">
+              <div
+                className="cardGrid"
+                style={{
+                  backgroundColor: " #202342",
+                  margin: "12px",
+                  borderRadius: "35px",
+                }}
+              >
+                <img src={item?.thumbnail} className="courseimg" alt="img" />
+                <h5 className="latestcourseh5">
+                  {item?.course_name} GamePlay Course
+                </h5>
+                <p className="latestcoursep1">{user && user.username}</p>
+                <p className="latestcoursep1">
+                  {" "}
+                  {`${item?.rating} `}
+                  {[1, 2, 3, 4, 5].map((item) => (
+                    <Star1
+                      style={{
+                        width: "15px",
+                        height: "15px",
+                        color: "red",
+                        margintTop: "3px",
+                        position: "relative",
+                        top: "3px",
+                        key: { item },
+                      }}
+                    />
+                  ))}
+                  {" (" + countViews(item) + ")"}
+                </p>
+                <h6 className="latestcourseh6">{item?.price}$</h6>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </>

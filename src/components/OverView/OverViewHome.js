@@ -118,7 +118,7 @@ const OverViewHome = (props) => {
               <li className="overViewLi">
                 <img src={RatingStarIcon} alt="" className="overViewIcon" />
                 <p className="overViewIconP">
-                  {singlCourse?.rating ? singlCourse.rating : "0.0"}{" "}
+                  {singlCourse?.rating ? singlCourse.rating : <></>}{" "}
                   <img src={Star6} alt="" /> Rating
                 </p>
               </li>

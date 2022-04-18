@@ -7,6 +7,7 @@ const CompleteCourse = ({ singlCourse }) => {
   const [videos, setVideos] = useState(
     singlCourse?.videos ? singlCourse.videos : 0
   );
+  // const [id, setId] = useSate();
   const [playVideo, setPlayVideo] = useState(singlCourse?.videos[0]);
   const [videoCount, setVideoCount] = useState(
     singlCourse?.videos ? singlCourse.videos.length : 0

@@ -16,11 +16,9 @@ const Instructor = (props) => {
   const { user } = Store();
   const totalStudent = (courses) => {
     let total = 0;
-    console.log("singlCourse ----->Instructor", singlCourse);
     courses?.map((c) => {
       if (c?.student?.length > 0) total += c.student.length;
     });
-    console.log("total", total);
     return total;
   };
   // const followMe = async (creator) => {
@@ -73,13 +71,9 @@ const Instructor = (props) => {
                   </span>
                 </p>
                 <p className="instructor-student">
-                  {/* {singlCourse?.creator?.courses
+                  {singlCourse?.creator?.courses
                     ? totalStudent(singlCourse.creator.courses) + " Students"
-                    : "0 Students"} */}
-                  {console.log("singlCourse", singlCourse)}
-                  {singlCourse?.student?.length
-                    ? `${singlCourse.student.length} Student`
-                    : "0 Student"}
+                    : "0 Students"}
                 </p>
               </div>
               {/* 
@@ -140,7 +134,6 @@ const Instructor = (props) => {
                     {/* {singlCourse?.creator?.courses
                       ? totalStudent(singlCourse.creator.courses) + " Students"
                       : "0 Students"} */}
-                    {console.log("singlCourse", singlCourse)}
                     {singlCourse?.student?.length
                       ? `${singlCourse.student.length} Student`
                       : "0 Student"}

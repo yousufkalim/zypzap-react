@@ -82,8 +82,8 @@ export default function LatestCourses(props) {
     history.push({
       pathname: "/searchResult",
       param: {
-        name: "Top 10 Trendy Games",
-        value: "1",
+        name: "Latest Courses",
+        value: "2",
       },
     });
   };
@@ -144,10 +144,11 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      <p className="latestCourse-p">
-                        {" "}
-                        {item?.rating ? `${item.rating} Rating` : "0 Rating"}
-                      </p>
+                      {item?.rating !== 0 && (
+                        <p className="latestCourse-p">
+                          {item?.rating ? `${item.rating} Rating` : ""}
+                        </p>
+                      )}
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}

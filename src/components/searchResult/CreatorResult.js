@@ -5,7 +5,7 @@ import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
 import { Link } from "react-router-dom";
 import CustomizedMenus from "./CustomizedMenus";
 import { Store, UpdateStore } from "../../StoreContext";
-
+import Box from "@mui/material/Box";
 const CreatorResult = ({ input, creator }) => {
   const { searchCreator } = Store();
   const [_myCreators, set_MyRatingCreators] = useState([]);
@@ -38,17 +38,6 @@ const CreatorResult = ({ input, creator }) => {
               <h3 className="followH3">{input}</h3>
               <p className="follow-P">{_myCreators?.length} result Found</p>
             </div>
-            <div className="followDrowDown">
-              <select
-                name="cars"
-                id="cars"
-                style={{ border: "none", background: "none", color: "white" }}
-              >
-                <option value="volvo">By Rating</option>
-                <option value="opel">Sort By Number Of Views</option>
-                <option value="audi">Sort By Level</option>
-              </select>
-            </div>
           </div>
           {/* div col 2 */}
           <div className="followCol2">
@@ -68,7 +57,6 @@ const CreatorResult = ({ input, creator }) => {
                         <p className="followingh4">{item.username}</p>
 
                         <p className="following_P">
-                          {console.log("1234", item)}
                           {item?.course_name
                             ? item.course_name
                             : "fighting game player of Tekken"}
