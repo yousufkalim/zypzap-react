@@ -9,6 +9,7 @@ import Instructor from "../components/OverView/Instructor";
 import Reviews from "../components/OverView/Reviews";
 import Footer from "../components/blog/BlogFooter";
 import { useParams } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import CompleteCourse from "../components/CoursePage/CompleteCourse";
 import api from "../api";
 import { Store, UpdateStore } from "../StoreContext";
@@ -19,8 +20,8 @@ let btns = [
   { text: "Instructor" },
   { text: "Feedback" },
 ];
-const OverView = () => {
-  const { id } = useParams();
+const OverView = (props) => {
+  const { id, value } = useParams();
   const [overView, setOverView] = useState(false);
   const [activebtn, setActivebtn] = useState("Overview");
   const [course, setCourse] = useState();

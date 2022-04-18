@@ -97,8 +97,8 @@ const DashboardRightSideBar2 = ({
       {defaultCompState == "Started courses" && <StartedCourse />}
       {defaultCompState == "Enrolled courses" && <EnrolledCourse />}
       {defaultCompState == "Wishlist" && <Wishlist />}
-      {defaultCompState == "My Wallet" && <MyWallet />}
-      {defaultCompState == "Progression Roadmap" && <ProgressionRoadmap />}
+      {defaultCompState == "My Walle" && <MyWallet />}
+      {defaultCompState == "Progression Roadma" && <ProgressionRoadmap />}
       {defaultCompState == "Setting" && <Setting />}
     </>
   );

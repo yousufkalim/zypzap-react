@@ -55,7 +55,8 @@ const index = () => {
       <Route exact path="/LegalNotice" component={LegalNotice} />
       <Route exact path="/Team" component={Team} />
       <Route exact path="/PrivacyPolicy" component={PrivacyPolicy} />
-      <Route exact path="/CreatorProfile" component={CreatorProfile} />
+      <Route exact path="/CreatorProfile/:id" component={CreatorProfile} />
+      {/* <Route exact path="/CreatorProfile" component={CreatorProfile} /> */}
       <Route
         exact
         path="/SettingCreatorProfile"
