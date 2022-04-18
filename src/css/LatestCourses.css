@@ -40,6 +40,11 @@
   margin: auto;
   display: block;
 }
+.startcourseimg{
+  
+  height: 290px !important
+  
+}
 
 .dashbordHeading-div {
   padding-right: 20px;
@@ -158,6 +163,9 @@
   width: 30%;
   margin: auto;
 }
+.startcourse2{ text-decoration: none;
+  width: 100%;
+  margin: auto;}
 .wishListh4 {
   font-size: 28px;
 }

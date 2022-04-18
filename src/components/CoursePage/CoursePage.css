@@ -54,9 +54,11 @@ body {
   display: flex;
   align-items: center;
   background-color: #1d1f38;
-  margin: 2px 0 11px 0;
+  margin: 2px 0 15px 0;
+  padding: 0px;
   scroll-behavior: auto;
   width: 98%;
+  border-radius: 5px;
 }
 .playVideoH3 {
   font-size: 16px;
@@ -71,8 +73,8 @@ body {
   margin-left: 10px;
 }
 .completeCourse-playVideo {
-  width: 120px;
-  height: 100%;
+  width: 23%;
+  
   cursor: pointer;
 }
 .playVideoHeading {
