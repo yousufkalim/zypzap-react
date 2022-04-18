@@ -16,8 +16,8 @@ import Input from "@material-ui/core/Input";
 import api from "../../api";
 import EmailVarificaiton from "./EmailVarificaiton";
 
-const CreateFormPopup = ({ open, setOpen, setLogin }) => {
-  const [opens, setOpens] = React.useState(false);
+const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
+  // const [opens, setOpens] = React.useState(false);
   useEffect(() => {
     if (!open) {
       setValues({ username: "", email: "", password: "", CnfrmPassword: "" });
@@ -100,8 +100,8 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
       if (res) {
         setOpen(false);
         setLoading(false);
-        setOpens(true);
         setValues({ username: "", email: "", password: "" });
+        setOpenProfile(true);
         toast.success(res.data.message);
       }
     } catch (error) {
@@ -112,7 +112,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
   return (
     <>
       <div>
-        <EmailVarificaiton open={opens} setOpen={setOpens} />
+        {/* <EmailVarificaiton open={opens} setOpen={setOpens} /> */}
         <Dialog open={open} onClose={handleClose}>
           <div className="create_form">
             <div className="create_container">

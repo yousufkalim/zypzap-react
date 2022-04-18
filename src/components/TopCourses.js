@@ -45,6 +45,11 @@ export default function TopCourses(props) {
   };
   return (
     <div className="topCoursescontainer">
+      {/* <<<<<<< HEAD
+      <div className="latestcourseHeadingDiv">
+        <p className="topcourseheading">Top Courses</p>
+        <p className="latestcourseheading">View All</p>
+      </div> */}
       <p className="topcourseheading" style={{ display: "inline-block" }}>
         Top Courses
       </p>
@@ -157,7 +162,7 @@ function TopCoursesComponent({ item }) {
                 <p className="p1">{item?.creator?.user_id?.username}</p>
                 <p className="p2">{item?.course_name + " player"}</p>
                 <p className="p2">
-                  {item?.rating ? item.rating : "0.0"} &nbsp;
+                  {item?.rating ? item.rating : <></>} &nbsp;
                   {[1, 2, 3, 4, 5].map((i) => (
                     <Star1
                       className="starID"
@@ -180,10 +185,13 @@ function TopCoursesComponent({ item }) {
               <span className="marginRight">
                 {item?.level ? item.level : "inital level"}
               </span>
-              <span className="marginRight">|</span>
-              <span className="marginRight">
-                {countTime(item) ? countTime(item) + "min" : "0 min"}
-              </span>
+              {item?.videos?.length > 0 && (
+                <>
+                  <span className="marginRight">|</span>
+                  <span className="marginRight">{countTime(item)}</span>
+                </>
+              )}
+
               <span className="marginRight">|</span>
               <span className="marginRight">
                 {item?.student

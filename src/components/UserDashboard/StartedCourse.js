@@ -10,6 +10,7 @@ import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { Store, UpdateStore } from "../../StoreContext";
+import { useHistory } from "react-router-dom";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
@@ -48,6 +49,7 @@ var items = [
 
 const StartedCourse = () => {
   const { user } = Store();
+  const history = useHistory();
   const [lodding, setLodding] = useState(true);
   const [User, setUser] = useState(user ? user : {});
   const [start_courses, setEnrolledCourses] = useState([]);
@@ -57,6 +59,11 @@ const StartedCourse = () => {
       user?.enrolled_courses?.filter((courses) => courses.started === true)
     );
   }, [User]);
+  const handleStartCourses = (id) => {
+    history.push({
+      pathname: `/OverView/${id}`,
+    });
+  };
   return (
     <div className="wishlistDiv">
       <h3 className="wishCardh3">Sarted Courses</h3>
@@ -110,7 +117,14 @@ const StartedCourse = () => {
                         </p>
                       </div>
                       <div className="wishButtonDiv">
-                        <button className="wishListBtn">Start Now</button>
+                        <button
+                          className="wishListBtn"
+                          onClick={() =>
+                            handleStartCourses(item?.course_id?._id)
+                          }
+                        >
+                          Start Now
+                        </button>
                       </div>
                     </div>
                   </a>

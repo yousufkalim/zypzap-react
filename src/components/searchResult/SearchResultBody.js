@@ -40,7 +40,7 @@ const categories = [
   },
   {
     name: "Top 10 NFT Games",
-    value: "2",
+    value: "4",
   },
   {
     name: "Top 10 Metaverse Games",
@@ -48,7 +48,7 @@ const categories = [
   },
   {
     name: "Latest Courses",
-    value: "4",
+    value: "2",
   },
   {
     name: "Top Courses",
@@ -160,7 +160,6 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const SearchResultBody = () => {
   const history = useHistory();
-  console.log("get history in search", history.location?.param);
   useEffect(() => {
     if (history.location.param) {
       onSideBtnClick(history.location?.param);
@@ -178,7 +177,7 @@ const SearchResultBody = () => {
   const [selectedPlateformsBtn, setselectedPlateformsBtn] = useState("");
   const [radioBtnValue, setRadioBtnValue] = useState("");
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
-
+  const [courses, setCourses] = useState([]);
   // recieving context __data
 
   const { searchCreator, searchCourse, searchState, searchInput } = Store();
@@ -211,7 +210,6 @@ const SearchResultBody = () => {
   // sidebar list togle
   // making list item active by chnaging background
   const onSideBtnClick = async (e) => {
-    console.log("onSideBtnClick", e);
     // const name = e.target.textContent;
     const name = e.name;
     const value = e.value;
@@ -239,7 +237,6 @@ const SearchResultBody = () => {
     Videos.map((video) => {
       count += video.views;
     });
-
     return count;
   };
   const calTotalSecInVideos = (videos) => {
@@ -284,7 +281,9 @@ const SearchResultBody = () => {
       `/courses/filteredCourses?&&gameType=${selectedGameBtn}&&plateForm=${selectedPlateformsBtn}&&mode=${radioBtnValue}&&price=${sliderValue}`
     );
     if (res) {
-      // setCourse(res.data);
+      setCourses(res.data);
+      const course = res?.data.filter((c, index) => c.index < 12);
+      console.log("12345", course);
       updateStore({ searchCourse: res?.data });
     }
   };
@@ -758,6 +757,7 @@ const SearchResultBody = () => {
           <ResearchFaild />
         ) : (
           <>
+            {/* <CreatorResult input={input} /> */}
             <CreatorResult input={searchInput} />
           </>
         )
