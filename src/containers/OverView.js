@@ -17,7 +17,7 @@ let btns = [
   { text: "Overview" },
   { text: "Cursus" },
   { text: "Instructor" },
-  { text: "Feedback" },
+  { text: "Feedback" }
 ];
 const OverView = () => {
   const { id } = useParams();
@@ -34,7 +34,7 @@ const OverView = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 1,
-      behavior: "smooth",
+      behavior: "smooth"
     });
   };
   useEffect(() => {

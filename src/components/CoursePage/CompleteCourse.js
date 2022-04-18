@@ -96,7 +96,6 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value }) => {
           {clip?.duration ? secondToTime(clip.duration) + " min" : "1:00 min"}
         </span>
       </div>
-      <i className="PlayVideo-DownArrow fas fa-angle-down"></i>
     </li>
   );
 };
