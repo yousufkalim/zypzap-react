@@ -15,7 +15,7 @@ const UserProfile = (props) => {
   const { creator } = Store;
 
   const handleClickOpen = () => {
-    if (user.role == "Creator") {
+    if (user?.role == "Creator") {
       setOpen(true);
     } else {
       setOpenProfile(true);

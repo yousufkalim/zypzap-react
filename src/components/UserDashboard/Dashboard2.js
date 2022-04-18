@@ -39,11 +39,10 @@ const Dashboard2 = () => {
       name: "Wishlist",
       img: performance,
     },
-    { name: "My Wallet", img: dollar, drop2: ["(Coming soon)"] },
+    { name: "My Wallet", img: dollar },
     {
       name: "Progression Roadmap",
       img: ProgressionIcon,
-      drop2: ["(Coming soon)"],
     },
     { name: "Setting", img: settings },
   ];

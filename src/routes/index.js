@@ -22,6 +22,10 @@ import PrivacyPolicy from "../containers/PrivacyPolicy";
 import Team from "../containers/Team";
 import CreatorProfile from "../containers/CreatorProfile";
 
+import UserDashboard from "../containers/UserDashboard";
+import SettingCreatorProfile from "../containers/SettingCreatorProfile.js";
+
+
 const index = () => {
   return (
     <Switch>
@@ -51,7 +55,15 @@ const index = () => {
       <Route exact path="/Team" component={Team} />
       <Route exact path="/PrivacyPolicy" component={PrivacyPolicy} />
       <Route exact path="/CreatorProfile" component={CreatorProfile} />
+
       <Route exact path="/*" render={() => <ProtectedRoutes />} />
+
+      <Route
+        exact
+        path="/SettingCreatorProfile"
+        component={SettingCreatorProfile}
+      />
+
     </Switch>
   );
 };
