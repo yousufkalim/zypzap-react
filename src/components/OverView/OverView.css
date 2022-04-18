@@ -273,8 +273,8 @@ body {
   padding: 0 25px;
 }
 .instructorH2 {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16px;
+  /* font-weight: 600; */
 }
 .instructorP {
   font-size: 13px;
@@ -311,15 +311,15 @@ body {
 }
 .instructor-aboutH2 {
   font-size: 22px;
-  font-weight: 700;
+
 }
 .instructor-aboutP {
-  padding: 0px 0;
+  padding: 3px 0;
   font-weight: 400;
   color: #e0e0e0;
 }
 .instructorProfile-heading {
-  padding: 20px 0 0 0;
+  padding: 14px 0 0 0;
   color: #e0e0e0;
 }
 .instructorProfile-Name {
@@ -383,7 +383,7 @@ body {
   margin: 6px;
 }
 .overVeiwSlectBTN{
-  margin: 40px 0px;
+  margin: 22px 0px;
 }
 .overVeiwCS-btn{
   color: #fff;

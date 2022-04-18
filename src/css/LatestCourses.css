@@ -25,14 +25,20 @@
   font-size: 22px;
   font-weight: 600;
 }
+.latestcourseheadings {
+  padding: 35px 0px 3px 0px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
 
 .courseimg {
   width: 98%;
-    padding: 17px;
-    border-radius: 18%;
-    height: 390px;
-    margin: auto;
-    display: block;
+  padding: 17px;
+  border-radius: 18%;
+  height: 390px;
+  margin: auto;
+  display: block;
 }
 
 .dashbordHeading-div {
@@ -96,7 +102,7 @@
 }
 .latestCourse-colmn-centerDiv {
   display: flex;
-  padding: 10px 4px;
+  padding: 5px 4px;
   align-items: center;
 }
 .latestCourse-h4 {
@@ -104,10 +110,12 @@
   margin: auto;
   text-align: center;
   font-size: 28px;
+  font-family: Mulish;
 }
 .latestCourse-p {
   padding: 0 0 0 6px;
-  font-size: 18px;
+  /* font-size: 18px; */
+  font-family: Mulish;
 }
 /* -------------------------------- new card --------------------------------   */
 /* -------------------------------- wishlist --------------------------------   */
@@ -178,7 +186,7 @@
 .creatorCard2 {
   display: flex;
   justify-content: space-between;
-  margin: 20px 0;
+  /* margin: 20px 0; */
 }
 .cardGrid_List {
   width: 30%;
@@ -201,6 +209,7 @@
   width: 35% !important;
 }
 /* -------------------------------- wishlist --------------------------------   */
+
 /* for mobile */
 @media only screen and (min-width: 300px) and (max-width: 812px) {
   .cardGrid {
@@ -213,5 +222,5 @@
     text-decoration: none;
     width: 37%;
     margin: auto;
-}
+  }
 }

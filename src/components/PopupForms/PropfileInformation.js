@@ -7,10 +7,12 @@ import FormControl from "@mui/material/FormControl";
 import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
+import ClearIcon from "@mui/icons-material/Clear";
 export default function PropfileInformation({
   openProfile,
   setOpenProfile,
   user,
+  setOpen,
 }) {
   const [profile_photo, setImageURL] = useState(
     user?.profile_photo ? user.profile_photo : Course1
@@ -37,6 +39,9 @@ export default function PropfileInformation({
     user?.prefrence_games?.current_level
       ? user.prefrence_games.current_level
       : "initial"
+  );
+  const [LearningRhythm, setLearningRhythm] = useState(
+    user?.learning_rhythm || "initial"
   );
   const [target_level, setTargetLevel] = useState(
     user?.prefrence_games?.target_level
@@ -98,6 +103,9 @@ export default function PropfileInformation({
   const changeCurrentLevelHandler = (e) => {
     setCurrentLevel(e.target.value);
   };
+  const ChangeLearningRhythm = (e) => {
+    setLearningRhythm(e.target.value);
+  };
   const changeTargetLevelHandler = (e) => {
     setTargetLevel(e.target.value);
   };
@@ -121,7 +129,6 @@ export default function PropfileInformation({
     const formdata = new FormData();
     formdata.append(`files`, e.target.files[0]);
     let res = await api("post", "/uploadImage", formdata);
-    console.log("res image", res);
     setImageURL(res.data.file[0].location);
   };
 
@@ -138,6 +145,7 @@ export default function PropfileInformation({
       gameType,
       plateForm,
       gameMood,
+      LearningRhythm,
     };
     if (
       prefrence_games === "" ||
@@ -157,7 +165,6 @@ export default function PropfileInformation({
           formdata
         );
         if (res) {
-          console.log("res", res);
           toast.success("Modifier le profil avec succès");
           setOpenProfile(false);
         }
@@ -191,6 +198,9 @@ export default function PropfileInformation({
     { name: "Portable Consoles" },
     { name: "PC" },
   ];
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
 
   return (
     <div>
@@ -203,6 +213,11 @@ export default function PropfileInformation({
       >
         <div className="userProfile_conteiner">
           <div className="userProfile_heading">
+            <ClearIcon
+              className="clearIcon"
+              onClick={() => setOpenProfile(false)}
+              style={{ margin: "10px 0" }}
+            />
             <h2 className="userProfileH1">Profile Information</h2>
             <p className="userProfileP">Input your details</p>
           </div>
@@ -262,7 +277,7 @@ export default function PropfileInformation({
             </div>
           </div>
           <div className="userButtonGroup">
-            <p className="userButton-heading">Game type</p>
+            <p className="userButton-heading">Game Type</p>
             <div className="allButtons">
               <>
                 {gametypebtn.map((tag) => {
@@ -319,7 +334,7 @@ export default function PropfileInformation({
           </div>
           <div className="userProfileGamingMode">
             <FormControl>
-              <p className="gamingModeP">Favorite gaming mode</p>
+              <p className="gamingModeP">Favorite Gaming Mode</p>
               <div className="gamingModeSelect">
                 <RadioGroup
                   aria-labelledby="demo-radio-buttons-group-label"
@@ -334,23 +349,14 @@ export default function PropfileInformation({
                     onClick={onChangeRadioBtn}
                   />
                   <FormControlLabel
-                    value="MultiPlayer Mode"
+                    value="MultiPlayer"
                     control={<Radio />}
-                    label="MultiPlayer"
+                    label="MultiPlayer Mode"
                     onClick={onChangeRadioBtn}
                   />
                 </RadioGroup>
               </div>
             </FormControl>
-
-            {/* <div className="gamingModeSelect">
-              <Checkbox {...label} />
-
-              <label for="Single"> Single Player Mode</label>
-              <Checkbox {...label} style={{ marginLeft: "13px" }} />
-
-              <label for="MultiPlayer"> MultiPlayer Mode</label>
-            </div> */}
           </div>
           <div>
             <label for="Learning">Learning Rhythm</label>
@@ -363,32 +369,35 @@ export default function PropfileInformation({
               onChange={changePlayPeriodHandler}
               className="selectInput-userProfile2"
             >
-              <option value="Per Week" className="selectInput-option">
+              <option
+                value="10h To 20h Per Week"
+                className="selectInput-option"
+              >
                 {learningRethem === "10h To 20h Per Week"
                   ? learningRethem
                   : "10h To 20h Per Week"}
               </option>
-              <option value="Per Month">
+              <option value="20h To 30h Per Week">
                 {learningRethem === "20h To 30h Per Week"
                   ? learningRethem
                   : "20h To 30h Per Week"}
               </option>
-              <option value="Per Year">
+              <option value="30h To 40h Per Week">
                 {learningRethem === "30h To 40h Per Week"
                   ? learningRethem
                   : "30h To 40h Per Week"}
               </option>
-              <option value="Per Week" className="selectInput-option">
+              <option value="40h To 50h Per Week">
                 {learningRethem === "40h To 50h Per Week"
                   ? learningRethem
                   : "40h To 50h Per Week"}
               </option>
-              <option value="Per Month">
+              <option value="50h To 60h Per Week">
                 {learningRethem === "50h To 60h Per Week"
                   ? learningRethem
                   : "50h To 60h Per Week"}
               </option>
-              <option value="Per Year">
+              <option value="60h To 70h Per Week">
                 {learningRethem === "60h To 70h Per Week"
                   ? learningRethem
                   : "60h To 70h Per Week"}
@@ -396,7 +405,7 @@ export default function PropfileInformation({
             </select>
           </div>
           <div className="userProfileSelectInput">
-            <label for="Learning">Current Gameplay level</label>
+            <label for="Learning">Current Gameplay Level</label>
             <br />
             <select
               id="Select"
@@ -422,7 +431,7 @@ export default function PropfileInformation({
             </select>
           </div>
           <div className="userProfileSelectInput">
-            <label for="Learning">Target Gameplay level</label>
+            <label for="Learning">Target Gameplay Level</label>
             <br />
 
             <select

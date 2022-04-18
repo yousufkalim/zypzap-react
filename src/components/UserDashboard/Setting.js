@@ -199,7 +199,7 @@ function Setting({ openProfile, setOpenProfile }) {
           </div>
         </div>
         <div className="userButtonGroup">
-          <p className="userButton-heading">Game type</p>
+          <p className="userButton-heading">Game Type</p>
           <div className="allButtons">
             <>
               {gametypebtn.map((tag) => {
@@ -256,7 +256,7 @@ function Setting({ openProfile, setOpenProfile }) {
         </div>
         <div className="userProfileGamingMode">
           <FormControl>
-            <p className="gamingModeP">Favorite gaming mode</p>
+            <p className="gamingModeP">Favorite Gaming Mode</p>
             <div className="gamingModeSelect">
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
@@ -268,13 +268,13 @@ function Setting({ openProfile, setOpenProfile }) {
                 <FormControlLabel
                   value="Single"
                   control={<Radio />}
-                  label="Single"
+                  label="Single Player Mode"
                   onClick={onChangeRadioBtn}
                 />
                 <FormControlLabel
                   value="MultiPlayer"
                   control={<Radio />}
-                  label="MultiPlayer"
+                  label="MultiPlayer Mode"
                   onClick={onChangeRadioBtn}
                 />
               </RadioGroup>
@@ -285,7 +285,6 @@ function Setting({ openProfile, setOpenProfile }) {
           <label for="Learning">Learning Rhythm</label>
         </div>
         <div className="userProfileSelectInput">
-          <br />
           <select
             id="Select"
             name="Select"
@@ -293,7 +292,7 @@ function Setting({ openProfile, setOpenProfile }) {
             className="selectInput-userProfile selectInput2"
           >
             <option value="Per Week" className="selectInput-option">
-              10h to 20h Per Week
+              Select
             </option>
             <option value="Per Month">10h to 20h Per Week</option>
             <option value="Per Year">20h to 30h Per Week</option>
@@ -304,7 +303,7 @@ function Setting({ openProfile, setOpenProfile }) {
           </select>
         </div>
         <div className="userProfileSelectInput">
-          <label for="Learning">Current Gameplay level</label>
+          <label for="Learning">Current Gameplay Level</label>
           <br />
           <select
             id="Select"
@@ -322,13 +321,11 @@ function Setting({ openProfile, setOpenProfile }) {
             <option value="Hardcore">
               Hardcore (16 Hours - 28 Hours Of Play Per Week)
             </option>
-            <option value="Esporter">
-              Esporter (More than 30 Hours Of Play Per Week)
-            </option>
+            <option value="Esporter">Medium</option>
           </select>
         </div>
         <div className="userProfileSelectInput">
-          <label for="Learning">Target Gameplay level</label>
+          <label for="Learning">Target Gameplay Level</label>
           <br />
 
           <select
@@ -339,11 +336,9 @@ function Setting({ openProfile, setOpenProfile }) {
             defaultValue={target_level}
           >
             <option value="Casual" className="selectInput-option">
-              Casual (5h - 7h Of Play Per Week)
+              Pro
             </option>
-            <option value="Confirmed">
-              Confirmed (8 Hours - 15 Hours Of Play Per Week)
-            </option>
+            <option value="Confirmed">Pro</option>
             <option value="Hardcore">
               Hardcore (16 Hours - 28 Hours Of Play Per Week)
             </option>

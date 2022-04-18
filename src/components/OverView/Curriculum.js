@@ -9,7 +9,7 @@ const Curriculum = (props) => {
     <div>
       <div className="overView_description">
         <div className="overView-descripiton-centerDiv">
-          <h1 className="curriculum-h1">Curriulum For this Course</h1>
+          <h1 className="curriculum-h1">Chapters</h1>
           <div className="curriculum-div">
             <h1 className="curriculum-h3">Getting Started: Introduction</h1>
             {singlCourse?.videos.length > 0 ? (

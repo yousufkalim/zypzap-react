@@ -15,7 +15,9 @@ import LatestCourseLavelIcon from "../assets/icons/LatestCourseLavelIcon.svg";
 import LatestCourseStarIcon from "../assets/icons/LatestCourseStarIcon.svg";
 import LatestCourseVideoIcon from "../assets/icons/LatestCourseVideoIcon.svg";
 import LatestCourseTimingIcon from "../assets/icons/LatestCourseTimingIcon.svg";
+import { useHistory } from "react-router-dom";
 export default function LatestCourses(props) {
+  const history = useHistory();
   const { courses } = props;
   const items = courses.sort(function (a, b) {
     var c = new Date(a.createdAt);
@@ -76,12 +78,22 @@ export default function LatestCourses(props) {
       items: 1,
     },
   };
-
+  const handleLatestCourses = () => {
+    history.push({
+      pathname: "/searchResult",
+      param: {
+        name: "Top 10 Trendy Games",
+        value: "1",
+      },
+    });
+  };
   return (
     <div className="latestCoursescontainer">
       <div className="latestcourseHeadingDiv">
         <p className="latestcourseheading">Latest Course</p>
-        <p className="latestcourseheading">View All</p>
+        <p className="latestcourseheadings" onClick={handleLatestCourses}>
+          View All
+        </p>
       </div>
       <div className="carousalOuterDiv">
         <Carousel
@@ -134,7 +146,7 @@ export default function LatestCourses(props) {
                       />
                       <p className="latestCourse-p">
                         {" "}
-                        {item?.rating ? `${item.rating} Ratting` : "0 Rattig"}
+                        {item?.rating ? `${item.rating} Rating` : "0 Rating"}
                       </p>
                     </div>
                   </div>
@@ -148,7 +160,7 @@ export default function LatestCourses(props) {
                       />
                       <p className="latestCourse-p">
                         {" "}
-                        {`( ${countViews(item)} )`}
+                        {`(${countViews(item)})`}
                       </p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
@@ -180,7 +192,7 @@ export default function LatestCourses(props) {
                       />
                       <p className="latestCourse-p">{`${postedTime(
                         item
-                      )} days ago`}</p>
+                      )} Days ago`}</p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}

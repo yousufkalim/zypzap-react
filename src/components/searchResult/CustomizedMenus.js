@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -48,6 +48,7 @@ const StyledMenu = styled((props) => (
 export default function CustomizedMenus(props) {
   const { updateStore, searchCourse } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [sortBy, setSortBy] = useState("");
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -73,6 +74,7 @@ export default function CustomizedMenus(props) {
 
   const filterByRating = async (e) => {
     e.preventDefault();
+    setSortBy("Rating");
     const Courses = searchCourse.sort(function (a, b) {
       if (a.rating === undefined) a.rating = 0;
       if (b.rating === undefined) b.rating = 0;
@@ -86,6 +88,7 @@ export default function CustomizedMenus(props) {
 
   const filterByDate = async (e) => {
     e.preventDefault();
+    setSortBy("Date");
 
     const Courses = searchCourse.sort(function (a, b) {
       var c = new Date(a.createdAt);
@@ -98,6 +101,7 @@ export default function CustomizedMenus(props) {
 
   const filterByViews = async (e) => {
     e.preventDefault();
+    setSortBy("Views");
 
     const Courses = searchCourse.sort(function (a, b) {
       var c = countViews(a);
@@ -109,6 +113,7 @@ export default function CustomizedMenus(props) {
   };
   const filterByLevel = async (e) => {
     e.preventDefault();
+    setSortBy("Level");
     const i = searchCourse.filter((course) => course.level === "Advance Level");
     const j = searchCourse.filter((course) => course.level === "medium Level");
     const k = searchCourse.filter((course) => course.level === "inital Level");
@@ -130,7 +135,7 @@ export default function CustomizedMenus(props) {
       >
         <div className="btn-icon-container">
           {" "}
-          <span> Sort by </span>{" "}
+          <span> Sort by: </span>{" "}
           <KeyboardArrowDownIcon
             sx={{
               color: "#fff !important",
@@ -140,6 +145,7 @@ export default function CustomizedMenus(props) {
               height: "0.8em !important",
             }}
           />{" "}
+          {sortBy || ""}
         </div>
       </button>
       <StyledMenu

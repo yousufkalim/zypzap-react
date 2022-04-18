@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Categories from "./Categories";
 import GameType from "./GameType";
 import Plateforms from "./Plateforms";
@@ -23,96 +23,15 @@ import LatestCourseStarIcon from "../../assets/icons/LatestCourseStarIcon.svg";
 import LatestCourseVideoIcon from "../../assets/icons/LatestCourseVideoIcon.svg";
 import LatestCourseTimingIcon from "../../assets/icons/LatestCourseTimingIcon.svg";
 import { Store, UpdateStore } from "../../StoreContext";
+import { useHistory } from "react-router-dom";
 import api from "../../api";
 
 import ResearchFaild from "./ResearchFaild";
 import CreatorResult from "./CreatorResult";
-var items = [
-  {
-    id: 1,
-    title: "CS-GO Ep 2 Complete Course",
-    img: Course1,
-    name: "James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "1",
-  },
-  {
-    id: 2,
-    title: "PUBG GamePlay Course",
-    img: Course2,
-    name: "Ifaf ghori",
-    rating: "rating",
-    price: "19.99",
-    test: "2",
-  },
-  {
-    id: 3,
-    title: "Taken 5 Fight Course",
-    img: Course3,
-    name: "Arslan Ash",
-    rating: "rating",
-    price: "19.99",
-    test: "3",
-  },
-  {
-    id: 4,
-    title: "Minicraft Full Course",
-    img: Course4,
-    name: "James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "4",
-  },
-  {
-    id: 5,
-    title: "5Minicraft Full Course",
-    img: Course4,
-    name: "5James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "5",
-  },
-  {
-    id: 6,
-    title: "6Minicraft Full Course",
-    img: Course3,
-    name: "6James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "6",
-  },
-  {
-    id: 7,
-    title: "7Minicraft Full Course",
-    img: Course2,
-    name: "7James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "7",
-  },
-  {
-    id: 8,
-    title: "8Minicraft Full Course",
-    img: Course1,
-    name: "8James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "8",
-  },
-  {
-    id: 9,
-    title: "9Minicraft Full Course",
-    img: Course1,
-    name: "9James Wiik",
-    rating: "rating",
-    price: "19.99",
-    test: "3",
-  },
-];
+
 const categories = [
   {
-    name: "Top 10 Games ",
+    name: "Top 10 Games",
     value: "1",
   },
   {
@@ -120,8 +39,32 @@ const categories = [
     value: "1",
   },
   {
-    name: "Top New Games",
+    name: "Top 10 NFT Games",
+    value: "4",
+  },
+  {
+    name: "Top 10 Metaverse Games",
+    value: "3",
+  },
+  {
+    name: "Latest Courses",
     value: "2",
+  },
+  {
+    name: "Top Courses",
+    value: "5",
+  },
+  {
+    name: "Top Rated Content Creators",
+    value: "6",
+  },
+  {
+    name: "Top New Games",
+    value: "7",
+  },
+  {
+    name: "Top Reality Games",
+    value: "8",
   },
 ];
 const GameTypes = [
@@ -215,7 +158,13 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const SearchResultBody = ({ search, input }) => {
+const SearchResultBody = () => {
+  const history = useHistory();
+  useEffect(() => {
+    if (history.location.param) {
+      onSideBtnClick(history.location?.param);
+    }
+  }, []);
   // initalize variables
   const [selectedCategories, setselectedCategories] = useState(false);
   const [selectedGame, setSelectedGame] = useState(false);
@@ -228,9 +177,11 @@ const SearchResultBody = ({ search, input }) => {
   const [selectedPlateformsBtn, setselectedPlateformsBtn] = useState("");
   const [radioBtnValue, setRadioBtnValue] = useState("");
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
-
+  const [courses, setCourses] = useState([]);
   // recieving context __data
-  const { searchCreator, searchCourse } = Store();
+
+  const { searchCreator, searchCourse, searchState, searchInput } = Store();
+
   const updateStore = UpdateStore();
 
   //sidebar list togle
@@ -282,12 +233,10 @@ const SearchResultBody = ({ search, input }) => {
 
   let countViews = (course) => {
     const Videos = course?.videos;
-
     let count = 0;
     Videos.map((video) => {
       count += video.views;
     });
-
     return count;
   };
   const calTotalSecInVideos = (videos) => {
@@ -304,7 +253,6 @@ const SearchResultBody = ({ search, input }) => {
     } else {
       time = `${secs} sec`;
     }
-
     return time;
   };
   const postedTime = (item) => {
@@ -333,7 +281,9 @@ const SearchResultBody = ({ search, input }) => {
       `/courses/filteredCourses?&&gameType=${selectedGameBtn}&&plateForm=${selectedPlateformsBtn}&&mode=${radioBtnValue}&&price=${sliderValue}`
     );
     if (res) {
-      // setCourse(res.data);
+      setCourses(res.data);
+      const course = res?.data.filter((c, index) => c.index < 12);
+      console.log("12345", course);
       updateStore({ searchCourse: res?.data });
     }
   };
@@ -352,7 +302,7 @@ const SearchResultBody = ({ search, input }) => {
               color: "#fff",
             }}
           >
-            <h4>Filter by</h4>
+            <h4>Filter By</h4>
             <hr className="filterby-divider" />
             <div
               id="1"
@@ -654,12 +604,6 @@ const SearchResultBody = ({ search, input }) => {
               <Button
                 className="reqstStateBTN"
                 onClick={RequestClikEvent}
-                // sx={{
-                //   backgroundColor: "#E7411B",
-                //   padding: "5px 12px",
-                //   fontSize: "13px",
-                //   margin: "10px 0",
-                // }}
                 variant="contained"
               >
                 Request now
@@ -669,7 +613,7 @@ const SearchResultBody = ({ search, input }) => {
         </Grid>
       </Box>
       {/*  */}
-      {search === "course" ? (
+      {searchState === "course" ? (
         <>
           {" "}
           {searchCourse?.length === 0 ? (
@@ -679,7 +623,7 @@ const SearchResultBody = ({ search, input }) => {
               <Box className="cards-container">
                 <div className="cards-box">
                   <div className="cards-header-text">
-                    <h2>{`${input} GAMES`}</h2>
+                    <h2>{`${searchInput} GAMES`}</h2>
                     <span>{searchCourse.length + " course result"}</span>
                   </div>
                   <div>
@@ -755,7 +699,7 @@ const SearchResultBody = ({ search, input }) => {
                               />
                               <p className="latestCourse-p">
                                 {" "}
-                                {`( ${countViews(item)} )`}
+                                {`(${countViews(item)})`}
                               </p>
                             </div>
                             <div className="latestCourse-colmn-centerDiv">
@@ -808,13 +752,13 @@ const SearchResultBody = ({ search, input }) => {
       ) : (
         <></>
       )}
-      {search === "creator" ? (
+      {searchState === "creator" ? (
         searchCreator?.length === 0 ? (
           <ResearchFaild />
         ) : (
           <>
-            {console.log("sesgg", searchCreator)}
-            <CreatorResult input={input} />
+            {/* <CreatorResult input={input} /> */}
+            <CreatorResult input={searchInput} />
           </>
         )
       ) : (
