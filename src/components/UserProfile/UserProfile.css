@@ -46,6 +46,9 @@ body {
   width: 244px;
   height: 250px;
 }
+.editprofileIcon{
+  position: relative;
+}
 .profile-container {
   width: 70%;
   position: absolute;

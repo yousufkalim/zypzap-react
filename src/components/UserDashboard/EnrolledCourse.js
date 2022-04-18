@@ -46,7 +46,12 @@ const EnrolledCourse = () => {
           <>
             {enrolled_courses?.map((item, i) => (
               <>
-                <Link to="#" className="requestBt2" course={item}>
+                <Link
+                  to="#"
+                  className="courseDetail2"
+                  course={item}
+                  style={{ textDecoration: "none" }}
+                >
                   <a className="courseDetail2" key={i}>
                     <div className="cardGrid2">
                       <div className="wishCarImgDiv">
@@ -56,7 +61,7 @@ const EnrolledCourse = () => {
                               ? item.course_id.thumbnail
                               : Course1
                           }
-                          className="courseimg"
+                          className="courseimg startcourseimg"
                           alt="img"
                         />
                       </div>

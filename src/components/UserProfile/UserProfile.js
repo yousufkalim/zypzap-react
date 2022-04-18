@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../components/UserProfile/UserProfile.css";
 import UserHomeProfleImg from "../../assets/img/UserHomeProfleImg.svg";
 import ProfileDp from "../../assets/img/ProfileDp.jpg";
+import editIcon from "../../assets/editicon2.svg";
 import PropfileInformation from "../PopupForms/PropfileInformation";
 import BecomeCreatorpopup from "../PopupForms/BecomeCreatorpopup";
 import { Store, UpdateStore } from "../../StoreContext";
@@ -45,6 +46,7 @@ const UserProfile = (props) => {
               alt=""
               className="DP-img"
             />
+            <img src={editIcon} className="editprofileIcon" />
           </div>
           {/* profile Div */}
           <div className="profile-container">

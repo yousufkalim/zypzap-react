@@ -65,7 +65,7 @@ const StartedCourse = () => {
           <>
             {start_courses?.map((item, i) => (
               <>
-                <Link to="#" className="requestBt2" course={item}>
+                <Link to="#" className="startcourse2 " course={item}>
                   <a className="courseDetail2" key={i}>
                     <div className="cardGrid2">
                       <div className="wishCarImgDiv">
@@ -75,7 +75,7 @@ const StartedCourse = () => {
                               ? item.course_id.thumbnail
                               : Course1
                           }
-                          className="courseimg"
+                          className="courseimg startcourseimg"
                           alt="img"
                         />
                       </div>
