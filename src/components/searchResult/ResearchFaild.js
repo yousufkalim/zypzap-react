@@ -14,7 +14,7 @@ const ResearchFaild = () => {
           </div>
         </div>
         <Grid
-          sx={{ padding: "0 20px" }}
+          sx={{ padding: "0 0px" }}
           container
           spacing={{ xs: 1, md: 1 }}
           sty
@@ -29,7 +29,7 @@ const ResearchFaild = () => {
         </Grid>
 
         <Box textAlign="center">
-          <button className="btn-Research"> Request Now</button>
+          <button className="btn-Research"> Coming Soon</button>
         </Box>
       </Box>
     </>

@@ -398,7 +398,7 @@ export default function PrimarySearchAppBar({
                     }}
                     style={{ color: "white", textDecoration: "none" }}
                   >
-                    <p className="sgnBtn">dashboard</p>
+                    <p className="sgnBtn">Dashboard</p>
                   </Link>
                 </>
               ) : (

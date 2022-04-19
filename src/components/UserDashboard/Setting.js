@@ -294,12 +294,18 @@ function Setting({ openProfile, setOpenProfile }) {
             <option value="Per Week" className="selectInput-option">
               Select
             </option>
-            <option value="Per Month">10h to 20h Per Week</option>
+            <option value="Per Week" className="selectInput-option">
+              Select
+            </option>
+            <option value="Per Week" className="selectInput-option">
+              Select
+            </option>
+            {/* <option value="Per Month">10h to 20h Per Week</option>
             <option value="Per Year">20h to 30h Per Week</option>
             <option value="Per Month">30h to 40h Per Week</option>
             <option value="Per Year">40h to 50h Per Week</option>
             <option value="Per Month">50h to 60h Per Week</option>
-            <option value="Per Year">60h to 70h Per Week</option>
+            <option value="Per Year">60h to 70h Per Week</option> */}
           </select>
         </div>
         <div className="userProfileSelectInput">
@@ -313,14 +319,10 @@ function Setting({ openProfile, setOpenProfile }) {
             defaultValue={currentLevel}
           >
             <option value="Casual" className="selectInput-option">
-              Casual (5h - 7h Of Play Per Week)
+              Medium
             </option>
-            <option value="Confirmed">
-              Confirmed (8 Hours - 15 Hours Of Play Per Week)
-            </option>
-            <option value="Hardcore">
-              Hardcore (16 Hours - 28 Hours Of Play Per Week)
-            </option>
+            <option value="Confirmed">Medium</option>
+            <option value="Hardcore">Medium</option>
             <option value="Esporter">Medium</option>
           </select>
         </div>
@@ -339,12 +341,8 @@ function Setting({ openProfile, setOpenProfile }) {
               Pro
             </option>
             <option value="Confirmed">Pro</option>
-            <option value="Hardcore">
-              Hardcore (16 Hours - 28 Hours Of Play Per Week)
-            </option>
-            <option value="Esporter">
-              Esporter (More than 30 Hours Of Play Per Week)
-            </option>
+            <option value="Hardcore">Pro</option>
+            <option value="Esporter">Pro</option>
           </select>
         </div>
         <button

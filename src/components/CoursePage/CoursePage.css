@@ -20,7 +20,7 @@ body {
 }
 .completeCourseScroll {
   overflow-y: scroll;
-  height: 470px;
+  /* height: 470px; */
 }
 
 .completeCourseScroll::-webkit-scrollbar {
@@ -47,7 +47,7 @@ body {
 }
 .completeCourse-Video {
   width: 100%;
-  height: 473px;
+  /* height: 473px; */
 }
 .completeCourse-videoList {
   list-style: none;
