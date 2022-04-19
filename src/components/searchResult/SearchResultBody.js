@@ -208,7 +208,6 @@ const SearchResultBody = () => {
   //sidebar list togle
   const onClickSideBarHeaders = (e) => {
     const id = e.target.id;
-    console.log("id", id);
     if (id == 1) {
       setselectedCategories(!selectedCategories);
     }
@@ -229,7 +228,6 @@ const SearchResultBody = () => {
       //setSelectedPlateforms(!selectedPlateforms);
     }
     if (id == 6) {
-      console.log("345678", selectedlevelBtn);
       setSelectedLevel(!selectedLevel);
     }
   };
@@ -258,7 +256,6 @@ const SearchResultBody = () => {
   };
   const onSideBtnClick6 = (e) => {
     const name = e.target.textContent;
-    console.log("name", name);
     setselectedlevelBtn(name);
   };
 
@@ -301,7 +298,6 @@ const SearchResultBody = () => {
     setSliderValue(e.target.value);
   };
   const RequestClikEvent = async (e) => {
-    console.log("selectedlevelBtn", selectedlevelBtn);
     let res = await api(
       "get",
       `/courses/filteredCourses?&&gameType=${selectedGameBtn}&&plateForm=${selectedPlateformsBtn}&&level=${selectedlevelBtn}&&mode=${radioBtnValue}&&price=${sliderValue}`
@@ -309,7 +305,6 @@ const SearchResultBody = () => {
     if (res) {
       setCourses(res.data);
       const course = res?.data.filter((c, index) => c.index < 12);
-      console.log("12345", course);
       updateStore({ searchCourse: res?.data });
     }
   };
