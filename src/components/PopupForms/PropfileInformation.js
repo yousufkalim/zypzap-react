@@ -165,7 +165,6 @@ export default function PropfileInformation({
         );
         if (res) {
           updateStore({ user: res.data });
-          toast.success("Modifier le profil avec succès");
           setOpenProfile(false);
           setCongratulation(true);
         }

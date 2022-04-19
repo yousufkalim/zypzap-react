@@ -41,11 +41,11 @@ const categories = [
   },
   {
     name: "Top 10 NFT Games",
-    value: "4",
+    value: "3",
   },
   {
     name: "Top 10 Metaverse Games",
-    value: "3",
+    value: "4",
   },
   {
     name: "Latest Courses",
@@ -53,19 +53,19 @@ const categories = [
   },
   {
     name: "Top Courses",
-    value: "5",
+    value: "1",
   },
   {
     name: "Top Rated Content Creators",
-    value: "6",
+    value: "5",
   },
   {
     name: "Top New Games",
-    value: "7",
+    value: "6",
   },
   {
     name: "Top Reality Games",
-    value: "8",
+    value: "7",
   },
 ];
 const GameTypes = [
@@ -200,7 +200,7 @@ const SearchResultBody = () => {
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
   const [courses, setCourses] = useState([]);
   // recieving context __data
-
+  useEffect(() => {}, [searchCreator]);
   const { searchCreator, searchCourse, searchState, searchInput } = Store();
 
   const updateStore = UpdateStore();
@@ -239,10 +239,18 @@ const SearchResultBody = () => {
     const value = e.value;
     let res = await api("get", `/courses/topGames?type=${value}`);
     if (res) {
-      // setCourse(res?.data);
-      updateStore({ searchCourse: res?.data });
-      //updateStore({ create: res?.data });
-      setSelectedActiveButton("");
+      if (value === 5) {
+        updateStore({
+          searchCreator: res?.data,
+          searchInput: name,
+          searchState: "creator",
+          searchCourse: [],
+        });
+        setSelectedActiveButton("");
+      } else {
+        updateStore({ searchCourse: res?.data, searchInput: name });
+        setSelectedActiveButton("");
+      }
     }
     setSelectedActiveButton(name);
   };
@@ -262,7 +270,7 @@ const SearchResultBody = () => {
   let countViews = (course) => {
     const Videos = course?.videos;
     let count = 0;
-    Videos.map((video) => {
+    Videos?.map((video) => {
       count += video.views;
     });
     return count;
@@ -763,7 +771,7 @@ const SearchResultBody = () => {
                               />
                               <p className="latestCourse-p">
                                 {" "}
-                                {`(${countViews(item)})`}
+                                {item?.videos ? `(${countViews(item)})` : ""}
                               </p>
                             </div>
                             <div className="latestCourse-colmn-centerDiv">
