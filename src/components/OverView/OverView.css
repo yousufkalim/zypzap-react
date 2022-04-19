@@ -383,7 +383,7 @@ body {
   margin: 6px;
 }
 .overVeiwSlectBTN{
-  margin: 22px 0px;
+  margin: 30px 0px;
 }
 .overVeiwCS-btn{
   color: #fff;
@@ -570,10 +570,8 @@ body {
   .overViewCard {
     position: inherit;
     right: inherit;
-    width: 70%;
-    display: block;
-    margin: auto;
-    top: 150px;
+    width: 100%;
+
   }
   .overViewContent{
     font-size: 13px;
