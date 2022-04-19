@@ -8,11 +8,12 @@ import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
 import ClearIcon from "@mui/icons-material/Clear";
+import { Store, UpdateStore } from "../../StoreContext";
 export default function PropfileInformation({
   openProfile,
   setOpenProfile,
   user,
-  setOpen,
+  setCongratulation,
 }) {
   const [profile_photo, setImageURL] = useState(
     user?.profile_photo ? user.profile_photo : Course1
@@ -50,6 +51,7 @@ export default function PropfileInformation({
   );
   useEffect(() => {
     setCurrentSate();
+    console.log("user", user);
   }, [user]);
   const setCurrentSate = () => {
     setImageURL(user?.profile_photo ? user.profile_photo : Course1);
@@ -95,9 +97,6 @@ export default function PropfileInformation({
     setFavouritGame([
       ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index),
     ]);
-  };
-  const changePlayPeriodHandler = (e) => {
-    setLearningRethem(e.target.value);
   };
 
   const changeCurrentLevelHandler = (e) => {
@@ -161,12 +160,14 @@ export default function PropfileInformation({
       if (user) {
         let res = await api(
           "put",
-          `/users/addProfileInfo/${user._id}`,
+          `/users/addProfileInfo/${user?._id}`,
           formdata
         );
         if (res) {
+          console.log("true4567");
           toast.success("Modifier le profil avec succès");
           setOpenProfile(false);
+          setCongratulation(true);
         }
       } else {
         toast.success("Profil non modifié");
@@ -366,7 +367,7 @@ export default function PropfileInformation({
             <select
               id="Select"
               name="Select"
-              onChange={changePlayPeriodHandler}
+              onChange={ChangeLearningRhythm}
               className="selectInput-userProfile2"
             >
               <option

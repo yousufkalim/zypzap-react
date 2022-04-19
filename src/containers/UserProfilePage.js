@@ -8,6 +8,7 @@ import { Store, UpdateStore } from "../StoreContext";
 const UserProfilePage = () => {
   const updateStore = UpdateStore();
   const { user } = Store();
+  console.log("23456", user);
   const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] = useState(false);
   return (
     <>

@@ -127,7 +127,7 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator }) => {
             creator: res?.data?.creator,
           });
           setOpen(false);
-          history.push("/userprofile");
+          // history.push("/userprofile");
         }
         window.location.reload();
       } else {

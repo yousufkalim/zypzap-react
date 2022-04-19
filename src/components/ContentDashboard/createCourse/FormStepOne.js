@@ -26,6 +26,23 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
     if (gamedetails == "") {
       return toast.error("Veuillez saisir le nom de votre cours");
     }
+    if (gameName == "") {
+      return toast.error("Veuillez entrer votre nom du jeu");
+    }
+    if (gameLevel == "") {
+      return toast.error("Veuillez saisir le nom de votre niveau de jeu");
+    }
+    if (gameType == "") {
+      return toast.error("Veuillez entrer votre type de jeu");
+    }
+    if (gameMood == "") {
+      return toast.error("Veuillez entrer votre ambiance de jeu");
+    }
+    if (gamePlateForm == "") {
+      return toast.error(
+        "Veuillez saisir le nom de votre forme de plateau de jeu"
+      );
+    }
     if (description == "") {
       return toast.error("Veuillez entrer votre description");
     }
@@ -232,7 +249,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
           >
             Previous
           </button>
-          <button onClick={() => setStep(2)} className="continueBtn">
+          <button onClick={handleContinue} className="continueBtn">
             Continue
           </button>
         </div>
