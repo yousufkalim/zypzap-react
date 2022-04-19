@@ -6,12 +6,12 @@ const MyProfileData = ({ user, btnTags, gametypebtn, gametypebtn2, seta }) => {
       <div className="profile-headings">
         <span className="profile-bioP">Bio</span>
         <p className="MyProfileP">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
+          {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
           purus sit amet luctus venenatis,Lorem ipsum dolor sit amet,
           consectetur adipiscing Lorem ipsum dolor sit amet, consectetur
           adipiscing elit ut aliquam, purus sit amet luctus venenatis,Lorem
           ipsum dolor sit amet, consectetur adipiscing Lorem ipsum dolor sit
-          amet,
+          amet, */}
         </p>
       </div>
       <div className="Bio-container">
