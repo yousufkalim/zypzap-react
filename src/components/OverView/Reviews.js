@@ -72,8 +72,6 @@ const Reviews = (props) => {
   };
   const Percentage = (Star, totalCount) => {
     let percentage;
-    // console.log("Star", Star);
-    // console.log("totalCount", totalCount);
     if (totalCount === 0) {
       percentage = 0;
     } else {
@@ -150,17 +148,12 @@ const Reviews = (props) => {
               <div className="reviewsStarIcon">
                 {/* calculate persentage and fix it upto 2 figure after decimal */}
                 {/* {(OneStar / totalCount) * 100 + "%"} */}
-                {console.log("OneStar", OneStar)}
                 <ReviewStarList text={`${Percentage(OneStar, totalCount)}%`} />
-                {console.log("twoStar", twoStar)}
                 <ReviewStarList text={`${Percentage(twoStar, totalCount)}%`} />
-                {console.log("threeStar", threeStar)}
                 <ReviewStarList
                   text={`${Percentage(threeStar, totalCount)}%`}
                 />
-                {console.log("fourStar", totalCount)}
                 <ReviewStarList text={`${Percentage(fourStar, totalCount)}%`} />
-                {console.log("fiveStar", fiveStar)}
                 <ReviewStarList text={`${Percentage(fiveStar, totalCount)}%`} />
               </div>
             </div>

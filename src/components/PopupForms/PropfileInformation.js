@@ -51,7 +51,6 @@ export default function PropfileInformation({
   );
   useEffect(() => {
     setCurrentSate();
-    console.log("user", user);
   }, [user]);
   const setCurrentSate = () => {
     setImageURL(user?.profile_photo ? user.profile_photo : Course1);
@@ -164,7 +163,6 @@ export default function PropfileInformation({
           formdata
         );
         if (res) {
-          console.log("true4567");
           toast.success("Modifier le profil avec succès");
           setOpenProfile(false);
           setCongratulation(true);
