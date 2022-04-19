@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UserProfile from "../components/UserProfile/UserProfile";
 import MyProfile from "../components/UserProfile/MyProfile";
 import Header from "../components/Header";
@@ -9,6 +9,7 @@ const UserProfilePage = () => {
   const updateStore = UpdateStore();
   const { user } = Store();
   const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] = useState(false);
+  useEffect(() => {}, [user]);
   return (
     <>
       <Header

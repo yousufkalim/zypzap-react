@@ -121,7 +121,7 @@
   position: absolute;
   right: 25px;
   padding-top: 7px;
-  font-family: 'Mulish';
+  font-family: "Mulish";
 }
 .create_container .formbtn2 {
   padding: 5px;
@@ -311,7 +311,6 @@
 }
 .allButtons2 {
   margin: 0px 0 8px 0;
-
 }
 .userTagsAllButton {
   background: #282a49;
@@ -323,17 +322,17 @@
   border: none;
   display: inline-block;
 }
-.css-1a5icme{
+.css-1a5icme {
   color: #fff !important;
 }
 /* .userTagsAllButton:hover {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
 } */
-.gamingModeP{
+.gamingModeP {
   padding: 9px 0 0 0;
 }
-.userProfileSelectInput{
+.userProfileSelectInput {
   padding: 5px 0 0 0;
 }
 
@@ -359,8 +358,8 @@
 }
 .userProfileSelectInput2 {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
+  width: 70%;
+  /* justify-content: space-between; */
 }
 .selectInput-userProfile2 {
   display: flex;
