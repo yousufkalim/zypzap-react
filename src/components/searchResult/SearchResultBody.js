@@ -239,7 +239,7 @@ const SearchResultBody = () => {
     const value = e.value;
     let res = await api("get", `/courses/topGames?type=${value}`);
     if (res) {
-      if (value == 5) {
+      if (value == "5") {
         updateStore({
           searchState: "creator",
           searchCourse: [],
@@ -248,7 +248,7 @@ const SearchResultBody = () => {
         });
         setSelectedActiveButton("");
       }
-      if (value != "5") {
+      if (value !== "5") {
         updateStore({
           searchState: "course",
           searchCourse: res?.data,
@@ -697,7 +697,6 @@ const SearchResultBody = () => {
             <ResearchFaild />
           ) : (
             <>
-              {("length", searchCourse)}
               <Box className="cards-container">
                 <div className="cards-box">
                   <div className="cards-header-text">
