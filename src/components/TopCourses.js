@@ -45,11 +45,6 @@ export default function TopCourses(props) {
   };
   return (
     <div className="topCoursescontainer">
-      {/* <<<<<<< HEAD
-      <div className="latestcourseHeadingDiv">
-        <p className="topcourseheading">Top Courses</p>
-        <p className="latestcourseheading">View All</p>
-      </div> */}
       <p className="topcourseheading" style={{ display: "inline-block" }}>
         Top Courses
       </p>
@@ -132,7 +127,9 @@ function TopCoursesComponent({ item }) {
         <Grid container spacing={2}>
           <Grid item xs={8} md={8}>
             <h3 className="h3heading">
-              {item?.name ? item.name : "PUBG gameplay full course"}
+              {item?.name
+                ? item.name + "gameplay full course"
+                : "PUBG gameplay full course"}
             </h3>
             <p className="topcourseText">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa

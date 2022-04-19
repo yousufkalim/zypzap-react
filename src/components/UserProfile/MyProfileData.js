@@ -24,7 +24,6 @@ const MyProfileData = ({ user, btnTags, gametypebtn, gametypebtn2, seta }) => {
                     <button className="activetypebtn">{tegs}</button>
                   ))
                 : "No favourit Courses")}
-            {console.log("gxtxtcu", user.prefrence_games.favourite_games)}
             {user?.role == "User" &&
               (user?.prefrence_games?.favourite_games
                 ? user.prefrence_games.favourite_games.map((tegs) => (

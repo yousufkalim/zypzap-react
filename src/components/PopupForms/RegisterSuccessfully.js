@@ -4,7 +4,7 @@ import "../../css/form/UploadSuccessfulPopup.css";
 import UploadSuccessLog from "../../assets/icons/UploadSuccessLog.svg";
 import ClearIcon from "@mui/icons-material/Clear";
 
-const CongratulationPopup1 = ({ open, setOpen }) => {
+const CongratulationPopup1 = ({ open, setOpen, text }) => {
   const handleClose = () => {
     setOpen(false);
   };
@@ -24,7 +24,7 @@ const CongratulationPopup1 = ({ open, setOpen }) => {
             <p className="uploadSuccessP">
               Congradulation !
               <br />
-              You Are Successfully Registered!
+              {text}
             </p>
             <button className="uploadSuccessBTN" onClick={handleClose}>
               close

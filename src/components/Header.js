@@ -246,6 +246,7 @@ export default function PrimarySearchAppBar({
       <RegisterSuccessfully
         open={openCongratulation}
         setOpen={setCongratulation}
+        text="You Are Successfully Registered !"
       />
       <CreateFormPopup
         open={opensignup}
