@@ -15,6 +15,7 @@ export default function PropfileInformation({
   user,
   setCongratulation,
 }) {
+  const updateStore = UpdateStore();
   const [profile_photo, setImageURL] = useState(
     user?.profile_photo ? user.profile_photo : Course1
   );
@@ -163,6 +164,7 @@ export default function PropfileInformation({
           formdata
         );
         if (res) {
+          updateStore({ user: res.data });
           toast.success("Modifier le profil avec succès");
           setOpenProfile(false);
           setCongratulation(true);
