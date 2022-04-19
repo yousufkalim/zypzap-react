@@ -407,7 +407,7 @@ export default function PrimarySearchAppBar({
                     }}
                     style={{ color: "white", textDecoration: "none" }}
                   >
-                    <p className="sgnBtn">dashboard</p>
+                    <p className="sgnBtn">Dashboard</p>
                   </Link>
                 </>
               ) : (
@@ -456,7 +456,7 @@ export default function PrimarySearchAppBar({
                   </p>
                   <div>
                     <FormControl className="form_Control_header">
-                      {/* <button className="comming-soon3">Coming Soon</button> */}
+                      <button className="comming-soon3">Coming Soon</button>
                       <MenuItem>
                         <Select
                           className="select_form_header"

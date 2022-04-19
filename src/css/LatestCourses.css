@@ -33,7 +33,7 @@
 }
 
 .courseimg {
-  width: 98%;
+  width: 100%;
   padding: 17px;
   border-radius: 18%;
   height: 390px;
@@ -98,11 +98,12 @@
 }
 /* -------------------------------- new card --------------------------------   */
 .latestCourseMain-Div {
-  width: 90%;
+  width: 95%;
   margin: auto;
   display: flex;
   justify-content: space-between;
   padding: 15px 0;
+  align-items: center;
   align-items: center;
 }
 .latestCourse-colmn-centerDiv {
@@ -121,6 +122,7 @@
   padding: 0 0 0 6px;
   /* font-size: 18px; */
   font-family: Mulish;
+  font-size: 14px !important;
 }
 /* -------------------------------- new card --------------------------------   */
 /* -------------------------------- wishlist --------------------------------   */

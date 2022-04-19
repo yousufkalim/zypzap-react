@@ -10,7 +10,6 @@ import { toast } from "react-toastify";
 import { Store, UpdateStore } from "../../StoreContext";
 function Setting({ openProfile, setOpenProfile }) {
   const { user } = Store();
-  const updateStore = UpdateStore();
   const [favouritGame, setFavouritGame] = useState(
     user?.prefrence_games?.favourite_games
       ? user.prefrence_games.favourite_games
@@ -80,9 +79,10 @@ function Setting({ openProfile, setOpenProfile }) {
       ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index),
     ]);
   };
-  const ChangeLearningRhythm = (e) => {
+  const changePlayPeriodHandler = (e) => {
     setLearningRethem(e.target.value);
   };
+
   const changeCurrentLevelHandler = (e) => {
     setCurrentLevel(e.target.value);
   };
@@ -150,7 +150,6 @@ function Setting({ openProfile, setOpenProfile }) {
           formdata
         );
         if (res) {
-          updateStore({ user: res?.data });
           toast.success("Modifier le profil avec succès");
         }
       } else {
@@ -331,44 +330,28 @@ function Setting({ openProfile, setOpenProfile }) {
         <div>
           <label for="Learning">Learning Rhythm</label>
         </div>
-        <div className="userProfileSelectInput2">
-          <br />
+        <div className="userProfileSelectInput">
           <select
             id="Select"
             name="Select"
-            onChange={ChangeLearningRhythm}
-            className="selectInput-userProfile2"
+            onChange={changePlayPeriodHandler}
+            className="selectInput-userProfile selectInput2"
           >
-            <option value="10h To 20h Per Week" className="selectInput-option">
-              {learningRethem === "10h To 20h Per Week"
-                ? learningRethem
-                : "10h To 20h Per Week"}
+            <option value="Per Week" className="selectInput-option">
+              Select
             </option>
-            <option value="20h To 30h Per Week">
-              {learningRethem === "20h To 30h Per Week"
-                ? learningRethem
-                : "20h To 30h Per Week"}
+            <option value="Per Week" className="selectInput-option">
+              Select
             </option>
-            <option value="30h To 40h Per Week">
-              {learningRethem === "30h To 40h Per Week"
-                ? learningRethem
-                : "30h To 40h Per Week"}
+            <option value="Per Week" className="selectInput-option">
+              Select
             </option>
-            <option value="40h To 50h Per Week">
-              {learningRethem === "40h To 50h Per Week"
-                ? learningRethem
-                : "40h To 50h Per Week"}
-            </option>
-            <option value="50h To 60h Per Week">
-              {learningRethem === "50h To 60h Per Week"
-                ? learningRethem
-                : "50h To 60h Per Week"}
-            </option>
-            <option value="60h To 70h Per Week">
-              {learningRethem === "60h To 70h Per Week"
-                ? learningRethem
-                : "60h To 70h Per Week"}
-            </option>
+            {/* <option value="Per Month">10h to 20h Per Week</option>
+            <option value="Per Year">20h to 30h Per Week</option>
+            <option value="Per Month">30h to 40h Per Week</option>
+            <option value="Per Year">40h to 50h Per Week</option>
+            <option value="Per Month">50h to 60h Per Week</option>
+            <option value="Per Year">60h to 70h Per Week</option> */}
           </select>
         </div>
         <div className="userProfileSelectInput">
@@ -382,17 +365,11 @@ function Setting({ openProfile, setOpenProfile }) {
             defaultValue={currentLevel}
           >
             <option value="Casual" className="selectInput-option">
-              Casual (5h - 7h Of Play Per Week)
+              Medium
             </option>
-            <option value="Confirmed">
-              Confirmed (8 Hours - 15 Hours Of Play Per Week)
-            </option>
-            <option value="Hardcore">
-              Hardcore (16 Hours - 28 Hours Of Play Per Week)
-            </option>
-            <option value="Esporter">
-              Esporter (More than 30 Hours Of Play Per Week)
-            </option>
+            <option value="Confirmed">Medium</option>
+            <option value="Hardcore">Medium</option>
+            <option value="Esporter">Medium</option>
           </select>
         </div>
         <div className="userProfileSelectInput">
@@ -407,17 +384,11 @@ function Setting({ openProfile, setOpenProfile }) {
             defaultValue={target_level}
           >
             <option value="Casual" className="selectInput-option">
-              Casual (5h - 7h Of Play Per Week)
+              Pro
             </option>
-            <option value="Confirmed">
-              Confirmed (8 Hours - 15 Hours Of Play Per Week)
-            </option>
-            <option value="Hardcore">
-              Hardcore (16 Hours - 28 Hours Of Play Per Week)
-            </option>
-            <option value="Esporter">
-              Esporter (More than 30 Hours Of Play Per Week)
-            </option>
+            <option value="Confirmed">Pro</option>
+            <option value="Hardcore">Pro</option>
+            <option value="Esporter">Pro</option>
           </select>
         </div>
         <button

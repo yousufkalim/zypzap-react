@@ -61,8 +61,8 @@
   background-color: #14162c;
   border-radius: 8px;
   color: #fff;
-  width: 75%;
-  padding: 10px;
+  width: 85%;
+  padding: 0px;
 }
 .cards-container2 {
   background-color: #14162c;
@@ -182,6 +182,7 @@
 .active {
   background-color: #14164c;
   width: 100%;
+  font-weight: 900;
 }
 .radio-item {
   position: relative;

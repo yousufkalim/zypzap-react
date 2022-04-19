@@ -37,7 +37,7 @@ const SettingCreatorProfileHomePage = () => {
             <div className="following-content">
               <p className="followingP">
                 Following:
-                <span className="follo-span"> 10</span>
+                <span className="follo-span"> 0</span>
               </p>
             </div>
           </div>
