@@ -144,11 +144,9 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      {item?.rating !== 0 && (
-                        <p className="latestCourse-p">
-                          {item?.rating ? `${item.rating} Rating` : ""}
-                        </p>
-                      )}
+                      <p className="latestCourse-p">
+                        {item?.rating ? `${item.rating} Rating` : "No Rating"}
+                      </p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}

@@ -32,14 +32,14 @@ const Reviews = (props) => {
   const [totalCount, setTotalCount] = useState(0);
   useEffect(() => {
     calculateStarRating();
-  }, []);
+  }, [rating]);
   const calculateStarRating = async () => {
-    var total,
-      one,
-      two,
-      three,
-      four,
-      five = 0;
+    var total = 0;
+    var one = 0;
+    var two = 0;
+    var three = 0;
+    var four = 0;
+    var five = 0;
     await rating?.map((Rate) => {
       let r = Rate.rating;
       total = total + r;

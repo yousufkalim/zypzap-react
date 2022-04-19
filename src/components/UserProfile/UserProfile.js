@@ -4,11 +4,15 @@ import UserHomeProfleImg from "../../assets/img/UserHomeProfleImg.svg";
 import ProfileDp from "../../assets/img/ProfileDp.jpg";
 import editIcon from "../../assets/editicon2.svg";
 import PropfileInformation from "../PopupForms/PropfileInformation";
+import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
 import BecomeCreatorpopup from "../PopupForms/BecomeCreatorpopup";
 import { Store, UpdateStore } from "../../StoreContext";
+import { useHistory } from "react-router-dom";
 const UserProfile = (props) => {
   const { user } = props;
+  const history = useHistory();
   const [openProfile, setOpenProfile] = useState(false);
+  const [openCongratulation, setCongratulation] = useState(false);
   const [open, setOpen] = useState(false);
 
   const updateStore = UpdateStore();
@@ -21,13 +25,27 @@ const UserProfile = (props) => {
       setOpenProfile(true);
     }
   };
-
+  const handleSwitch = () => {
+    history.push({
+      pathname: "/dashboard",
+      param: {
+        name: "Setting",
+        value: "Setting",
+      },
+    });
+  };
   return (
     <>
+      <RegisterSuccessfully
+        open={openCongratulation}
+        setOpen={setCongratulation}
+        text="Your Profile Edit Successfully !"
+      />
       <PropfileInformation
         openProfile={openProfile}
         setOpenProfile={setOpenProfile}
         user={user}
+        setCongratulation={setCongratulation}
       />
       <BecomeCreatorpopup open={open} setOpen={setOpen} user={user} />
       <div className="userProfileDiv">
@@ -46,7 +64,13 @@ const UserProfile = (props) => {
               alt=""
               className="DP-img"
             />
-            <img src={editIcon} className="editprofileIcon" />
+            {user?.role === "Creator" && (
+              <img
+                src={editIcon}
+                className="editprofileIcon"
+                onClick={handleSwitch}
+              />
+            )}
           </div>
           {/* profile Div */}
           <div className="profile-container">

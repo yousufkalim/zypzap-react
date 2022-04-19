@@ -127,7 +127,7 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator }) => {
             creator: res?.data?.creator,
           });
           setOpen(false);
-          history.push("/userprofile");
+          // history.push("/userprofile");
         }
         window.location.reload();
       } else {
@@ -164,11 +164,9 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator }) => {
   ];
 
   const handleImageSelect = async (e) => {
-    console.log("12345", e.target.files[0]);
     const formdata = new FormData();
     formdata.append(`files`, e.target.files[0]);
     let res = await api("post", "/uploadImage", formdata);
-    console.log("res.data.file.location", res.data.file);
     if (res) setImageURL(res.data.file[0].location);
   };
   return (
