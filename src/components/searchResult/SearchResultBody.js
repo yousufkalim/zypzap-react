@@ -714,7 +714,7 @@ const SearchResultBody = () => {
                   {/* course search ..data */}
                   {searchCourse?.map((item) => (
                     <Grid item xs={12} sm={6} md={4}>
-                      <div className="cardGrid">
+                      <div className="cardGrid searchcard">
                         <div className="favourite-icon-position">
                           <img
                             src={item?.thumbnail ? item.thumbnail : Course1}

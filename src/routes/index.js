@@ -2,7 +2,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 // Routes
-import Construction from "../containers/Construction.js";
 import Home from "../containers/Home";
 import Blog from "../containers/Blog";
 import Article from "../containers/Article";
@@ -14,7 +13,6 @@ import StandbyPage from "../containers/StandbyPage";
 import UserLandingPage from "../containers/UserLandingPage";
 import ContentCreatorLandingPage from "../containers/ContentCreatorLandingPage";
 import LandingPartner from "../containers/LandingPartner";
-import ContentDashboard from "../containers/ContentDashboard";
 import ProtectedRoutes from "./ProtectedRoutes.js";
 import UserProfile from "../containers/UserProfilePage";
 import OverView from "../containers/OverView";
@@ -23,8 +21,10 @@ import LegalNotice from "../containers/LegalNotice";
 import PrivacyPolicy from "../containers/PrivacyPolicy";
 import Team from "../containers/Team";
 import CreatorProfile from "../containers/CreatorProfile";
+
 import UserDashboard from "../containers/UserDashboard";
 import SettingCreatorProfile from "../containers/SettingCreatorProfile.js";
+
 
 const index = () => {
   return (
@@ -39,7 +39,7 @@ const index = () => {
       <Route exact path="/landingpartner" component={LandingPartner} />
       <Route exact path="/landingpage" component={LandingPage} />
       <Route exact path="/userlanding" component={UserLandingPage} />
-      <Route exact path="/UserDashboard" component={UserDashboard} />
+
       <Route exact path="/policy" component={Policy} />
       <Route
         exact
@@ -49,12 +49,13 @@ const index = () => {
       {/* content creator */}
       <Route exact path="/contenthome" component={Contenthome} />
       <Route exact path="/searchresult" component={SearchResult} />
-      <Route exact path="/dashboard" component={ContentDashboard} />
       <Route exact path="/userprofile" component={UserProfile} />
       <Route exact path="/OverView/:id" component={OverView} />
       <Route exact path="/LegalNotice" component={LegalNotice} />
       <Route exact path="/Team" component={Team} />
       <Route exact path="/PrivacyPolicy" component={PrivacyPolicy} />
+      <Route exact path="/CreatorProfile" component={CreatorProfile} />
+      <Route exact path="/*" render={() => <ProtectedRoutes />} />
       <Route exact path="/CreatorProfile/:id" component={CreatorProfile} />
       {/* <Route exact path="/CreatorProfile" component={CreatorProfile} /> */}
       <Route
@@ -62,6 +63,7 @@ const index = () => {
         path="/SettingCreatorProfile"
         component={SettingCreatorProfile}
       />
+
     </Switch>
   );
 };

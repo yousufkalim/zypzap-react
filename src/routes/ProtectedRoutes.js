@@ -2,11 +2,13 @@ import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Store, UpdateStore } from "../StoreContext";
 import ContentDashboard from "../containers/ContentDashboard";
+import UserDashboard from "../containers/UserDashboard";
+
 import api from "../api";
 
 const ProtectedRoutes = () => {
   const updateStore = UpdateStore();
-  const { creator } = Store();
+  const { user, creator } = Store();
   useEffect(() => {
     // checkAuth();
   }, []);
@@ -22,14 +24,20 @@ const ProtectedRoutes = () => {
 
   return (
     <>
-      {creator ? (
+      {user ? (
         <>
-          <Switch>
-            <Route exact path="/dashboard" component={ContentDashboard} />
-          </Switch>
+          {creator ? (
+            <Switch>
+              <Route exact path="/dashboard" component={ContentDashboard} />
+            </Switch>
+          ) : (
+            <Switch>
+              <Route exact path="/UserDashboard" component={UserDashboard} />
+            </Switch>
+          )}
         </>
       ) : (
-        <>{(window.location = "/")}</>
+        <>{(window.location = "/home")}</>
       )}
     </>
   );
