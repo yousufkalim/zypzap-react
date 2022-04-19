@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import Categories from "./Categories";
 import GameType from "./GameType";
 import Plateforms from "./Plateforms";
+import Level from "./gameLevel";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -151,6 +152,24 @@ const PlateformsAry = [
     value: "schooltwo",
   },
 ];
+const levelAry = [
+  {
+    name: "Casual",
+    value: "Casual",
+  },
+  {
+    name: "Confirmed",
+    value: "Confirmed",
+  },
+  {
+    name: "Hardcore",
+    value: "Hardcore",
+  },
+  {
+    name: "Esporter",
+    value: "Esporter",
+  },
+];
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(2),
@@ -169,12 +188,14 @@ const SearchResultBody = () => {
   const [selectedCategories, setselectedCategories] = useState(false);
   const [selectedGame, setSelectedGame] = useState(false);
   const [selectedPlateforms, setSelectedPlateforms] = useState(false);
+  const [selectedLevel, setSelectedLevel] = useState(false);
   const [selectedGameplay, setSelectedGameplay] = useState(false);
   const [selectedPrice, setSelectedPrice] = useState(false);
   const [sliderValue, setSliderValue] = useState("");
   const [selectedActiveButton, setSelectedActiveButton] = useState("");
   const [selectedGameBtn, setSelectedGameBtn] = useState("");
   const [selectedPlateformsBtn, setselectedPlateformsBtn] = useState("");
+  const [selectedlevelBtn, setselectedlevelBtn] = useState("");
   const [radioBtnValue, setRadioBtnValue] = useState("");
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
   const [courses, setCourses] = useState([]);
@@ -187,6 +208,7 @@ const SearchResultBody = () => {
   //sidebar list togle
   const onClickSideBarHeaders = (e) => {
     const id = e.target.id;
+    console.log("id", id);
     if (id == 1) {
       setselectedCategories(!selectedCategories);
     }
@@ -205,6 +227,10 @@ const SearchResultBody = () => {
     if (id == 5) {
       setSelectedPrice(!selectedPrice);
       //setSelectedPlateforms(!selectedPlateforms);
+    }
+    if (id == 6) {
+      console.log("345678", selectedlevelBtn);
+      setSelectedLevel(!selectedLevel);
     }
   };
   // sidebar list togle
@@ -229,6 +255,11 @@ const SearchResultBody = () => {
   const onSideBtnClick3 = (e) => {
     const name = e.target.textContent;
     setselectedPlateformsBtn(name);
+  };
+  const onSideBtnClick6 = (e) => {
+    const name = e.target.textContent;
+    console.log("name", name);
+    setselectedlevelBtn(name);
   };
 
   let countViews = (course) => {
@@ -270,15 +301,10 @@ const SearchResultBody = () => {
     setSliderValue(e.target.value);
   };
   const RequestClikEvent = async (e) => {
-    const filterData = {
-      gameType: selectedGameBtn,
-      plateForm: selectedPlateformsBtn,
-      mode: radioBtnValue,
-      price: sliderValue,
-    };
+    console.log("selectedlevelBtn", selectedlevelBtn);
     let res = await api(
       "get",
-      `/courses/filteredCourses?&&gameType=${selectedGameBtn}&&plateForm=${selectedPlateformsBtn}&&mode=${radioBtnValue}&&price=${sliderValue}`
+      `/courses/filteredCourses?&&gameType=${selectedGameBtn}&&plateForm=${selectedPlateformsBtn}&&level=${selectedlevelBtn}&&mode=${radioBtnValue}&&price=${sliderValue}`
     );
     if (res) {
       setCourses(res.data);
@@ -422,6 +448,49 @@ const SearchResultBody = () => {
                 trigerOnClickEmpSideBtn3={onSideBtnClick3}
               />
             ) : null}
+            {/* ////////////////////
+             */}
+            <div
+              id="6"
+              onClick={onClickSideBarHeaders}
+              className="dropdown-headers"
+            >
+              Gameplay Level
+              {!selectedLevel ? (
+                <KeyboardArrowDownIcon
+                  sx={{
+                    color: "#fff",
+                    marginTop: "5px",
+                    opacity: "0.6",
+                    width: "2px",
+                    height: "1em !important",
+                  }}
+                  id="6"
+                  onClick={onClickSideBarHeaders}
+                />
+              ) : (
+                <KeyboardArrowUpIcon
+                  sx={{
+                    color: "#fff",
+                    marginTop: "5px",
+                    opacity: "0.6",
+                    width: "2px",
+                    height: "1em !important",
+                  }}
+                  id="6"
+                  onClick={onClickSideBarHeaders}
+                />
+              )}
+            </div>
+            {selectedLevel ? (
+              <Level
+                PlateformsAry={levelAry}
+                PlateformsBtn={selectedlevelBtn}
+                trigerOnClickEmpSideBtn3={onSideBtnClick6}
+              />
+            ) : null}
+
+            {/*  */}
             <div
               id="4"
               onClick={onClickSideBarHeaders}

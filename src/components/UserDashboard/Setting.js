@@ -89,20 +89,33 @@ function Setting({ openProfile, setOpenProfile }) {
   const changeTargetLevelHandler = (e) => {
     setTargetLevel(e.target.value);
   };
-  const selectplateForm = (name) => {
-    if (!plateForm) {
-      setPlateForm(name);
+
+  const selectplateForm = (e) => {
+    if (e.target.className === "activetypebtn") {
+      setPlateForm((prev) => {
+        return prev.filter((a) => a !== e.target.value);
+      });
     } else {
-      const data = [...plateForm, name];
-      setPlateForm(data);
+      if (!plateForm) {
+        setPlateForm(e.target.value);
+      } else {
+        const data = [...plateForm, e.target.value];
+        setPlateForm(data);
+      }
     }
   };
-  const selectGameType = (name) => {
-    if (!gameType) {
-      setGameType(name);
+  const selectGameType = (e) => {
+    if (e.target.className === "activetypebtn") {
+      setGameType((prev) => {
+        return prev.filter((a) => a !== e.target.value);
+      });
     } else {
-      const data = [...gameType, name];
-      setGameType(data);
+      if (!gameType) {
+        setGameType(e.target.value);
+      } else {
+        const data = [...gameType, e.target.value];
+        setGameType(data);
+      }
     }
   };
 
@@ -146,28 +159,30 @@ function Setting({ openProfile, setOpenProfile }) {
   };
 
   let gametypebtn = [
-    { name: "Action" },
-    { name: "Adventure" },
-    { name: "Metaverse" },
-    { name: "MMOG" },
-    { name: "Car Racing" },
-    { name: "Versus Fighting" },
-    { name: "FPS" },
-    { name: "RTS" },
-    { name: "RPG" },
-    { name: "Simulation" },
-    { name: "Turn By Turn Strategy" },
-    { name: "Sport" },
-    { name: "Tradung Card" },
-    { name: "Puzzle" },
+    "Action",
+    "Adventure",
+    "Metaverse",
+    "Massively Multiplayer Games",
+    "Car Racing",
+    "FPS",
+    "RTS",
+    "RPG",
+    "Turn by Turn Strategy",
+    "Simulation",
+    "Sports",
+    "Trading card",
+    "Puzzle",
+    "Versus Fighting",
+    "Trading card and Board games",
   ];
-  let gametypebtn2 = [
-    { name: "Retro Consoles" },
-    { name: "PS1/2/3/4/5" },
-    { name: "Xbox/360/One/X" },
-    { name: "Mobile Games" },
-    { name: "Portable Consoles" },
-    { name: "PC" },
+  const gamePlateform = [
+    "PC",
+    "Mobile Games",
+    "PS1/2/3/4/5",
+    "Xbox/360/One/X",
+    "Retro Consoles",
+    "Portable Consoles",
+    "Tablet",
   ];
 
   return (
@@ -202,7 +217,7 @@ function Setting({ openProfile, setOpenProfile }) {
           <p className="userButton-heading">Game Type</p>
           <div className="allButtons">
             <>
-              {gametypebtn.map((tag) => {
+              {/* {gametypebtn.map((tag) => {
                 return gameType?.includes(tag.name) ? (
                   <button
                     className="activetypebtn"
@@ -222,6 +237,21 @@ function Setting({ openProfile, setOpenProfile }) {
                     {tag.name}
                   </button>
                 );
+              })} */}
+              {gametypebtn.map((tag) => {
+                return (
+                  <button
+                    className={
+                      gameType?.includes(tag)
+                        ? "activetypebtn"
+                        : "userTagsAllButton"
+                    }
+                    value={tag}
+                    onClick={selectGameType}
+                  >
+                    {tag}
+                  </button>
+                );
               })}
             </>
           </div>
@@ -229,7 +259,7 @@ function Setting({ openProfile, setOpenProfile }) {
         <div className="userButtonGroup">
           <p className="userButton-heading">Gaming Plateforms</p>
           <div className="allButtons2">
-            {gametypebtn2.map((tag, i) => {
+            {/* {gametypebtn2.map((tag, i) => {
               return plateForm?.includes(tag.name) ? (
                 <button
                   key={i}
@@ -249,6 +279,22 @@ function Setting({ openProfile, setOpenProfile }) {
                   }}
                 >
                   {tag.name}
+                </button>
+              );
+            })} */}
+            {gamePlateform.map((tag, i) => {
+              return (
+                <button
+                  key={i}
+                  className={
+                    plateForm?.includes(tag)
+                      ? "activetypebtn"
+                      : "userTagsAllButton"
+                  }
+                  value={tag}
+                  onClick={selectplateForm}
+                >
+                  {tag}
                 </button>
               );
             })}

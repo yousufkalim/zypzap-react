@@ -15,15 +15,9 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import api from "../../api";
 import EmailVarificaiton from "./EmailVarificaiton";
-
+import { Store, UpdateStore } from "../../StoreContext";
 const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
   // const [opens, setOpens] = React.useState(false);
-  useEffect(() => {
-    if (!open) {
-      setValues({ username: "", email: "", password: "", CnfrmPassword: "" });
-    }
-  }, []);
-  // init
   const [loading, setLoading] = useState(false);
   const [values, setValues] = React.useState({
     username: "",
@@ -33,6 +27,13 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
     showPassword: false,
     showConfirPassword: false,
   });
+  const updateStore = UpdateStore();
+  useEffect(() => {
+    if (!open) {
+      setValues({ username: "", email: "", password: "", CnfrmPassword: "" });
+    }
+  }, []);
+  // init
 
   const {
     username,
@@ -98,6 +99,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
       let res = await api("post", "/users", formdata);
 
       if (res) {
+        updateStore({ user: res.data.user });
         setOpen(false);
         setLoading(false);
         setValues({ username: "", email: "", password: "" });

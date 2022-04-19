@@ -25,6 +25,7 @@ import LoginFormPopup from "./PopupForms/LoginFormPopup";
 import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
 import OptionPopup from "./PopupForms/OptionPopup";
 import api from "../api";
+import RegisterSuccessfully from "./PopupForms/RegisterSuccessfully";
 import { Link } from "react-router-dom";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
@@ -90,6 +91,7 @@ export default function PrimarySearchAppBar({
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [Option, setOption] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
+  const [openCongratulation, setCongratulation] = useState(false);
   const [age, setAge] = React.useState("");
   const [showLogoutBtn, setShowLogoutBtn] = useState(false);
   const handleChange = (event) => {
@@ -241,6 +243,11 @@ export default function PrimarySearchAppBar({
 
   return (
     <>
+      <RegisterSuccessfully
+        open={openCongratulation}
+        setOpen={setCongratulation}
+        text="You Are Successfully Registered !"
+      />
       <CreateFormPopup
         open={opensignup}
         setOpen={setOpenSignup}
@@ -253,6 +260,7 @@ export default function PrimarySearchAppBar({
         setOpenProfile={setOpenProfile}
         handleClose={handleClose}
         user={user}
+        setCongratulation={setCongratulation}
       />
       <LoginFormPopup
         open={openlogin}
@@ -267,6 +275,7 @@ export default function PrimarySearchAppBar({
         games={games}
         user={user}
         creator={creator}
+        // setCongratulation={setCongratulation}
       />
       <OptionPopup open={Option} setOpen={setOption} />
       <Box sx={{ flexGrow: 1 }}>

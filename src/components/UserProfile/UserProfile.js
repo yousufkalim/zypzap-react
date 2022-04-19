@@ -4,11 +4,14 @@ import UserHomeProfleImg from "../../assets/img/UserHomeProfleImg.svg";
 import ProfileDp from "../../assets/img/ProfileDp.jpg";
 import editIcon from "../../assets/editicon2.svg";
 import PropfileInformation from "../PopupForms/PropfileInformation";
+import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
 import BecomeCreatorpopup from "../PopupForms/BecomeCreatorpopup";
 import { Store, UpdateStore } from "../../StoreContext";
+
 const UserProfile = (props) => {
   const { user } = props;
   const [openProfile, setOpenProfile] = useState(false);
+  const [openCongratulation, setCongratulation] = useState(false);
   const [open, setOpen] = useState(false);
 
   const updateStore = UpdateStore();
@@ -24,10 +27,16 @@ const UserProfile = (props) => {
 
   return (
     <>
+      <RegisterSuccessfully
+        open={openCongratulation}
+        setOpen={setCongratulation}
+        text="Your Profile Edit Successfully !"
+      />
       <PropfileInformation
         openProfile={openProfile}
         setOpenProfile={setOpenProfile}
         user={user}
+        setCongratulation={setCongratulation}
       />
       <BecomeCreatorpopup open={open} setOpen={setOpen} user={user} />
       <div className="userProfileDiv">

@@ -4,7 +4,7 @@ import VideoInput from "../../../utils/VideoInput";
 import api from "../../../api";
 import RequestSuccessfullyPopup from "../../PopupForms/RequestSuccessfullyPopup";
 import UploadingTheCourse from "../../PopupForms/UploadingTheCourse";
-
+import { toast } from "react-toastify";
 const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   const [open, setOpen] = React.useState(false);
   const [opens, setOpens] = React.useState(false);
@@ -16,12 +16,12 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   const handleFileChange = async (event) => {
     const files = [...event.target.files];
     let formdata = new FormData();
-    files.map((item) => formdata.append("files", item));
+    files.map((item) => formdata.append("video", item));
     if (files) {
       let res = await api("post", "/videos", formdata);
       setUploading(true);
+      setformDataTwo(files);
     }
-    setformDataTwo(files);
   };
   const handleFileChange1 = (event) => {
     const files = [...event.target.files];
@@ -30,7 +30,12 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
     }
     setformDataTwo(files);
   };
-
+  const handleVideo = () => {
+    if (!uploading) {
+      return toast.error("Sélectionnez la vidéo pour la prochaine étape");
+    }
+    setStep(3);
+  };
   return (
     <>
       <UploadingTheCourse open={opens} setOpen={setOpens} />
@@ -102,10 +107,11 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
           <button
             className="drafBtn"
             style={{ background: "none", border: "1px solid #662F88" }}
+            onClick={() => setStep(1)}
           >
             Previous
           </button>
-          <button onClick={() => setStep(3)} className="continueBtn">
+          <button onClick={handleVideo} className="continueBtn">
             Continue
           </button>
         </div>
