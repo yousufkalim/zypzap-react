@@ -384,6 +384,9 @@ body {
 
     margin-bottom: 50px;
   }
+  .editprofileIcon {
+    right: 14%;
+}
 }
 @media only screen and (min-width: 701px) and (max-width: 900px) {
   .profile-container {
@@ -391,7 +394,7 @@ body {
     width: 70%;
   }
   .DP-img {
-    width: 49%;
+    width: 44%;
     height: auto;
   }
   .Profile-DP {
@@ -448,6 +451,9 @@ body {
     margin: auto;
     margin-bottom: 50px;
   }
+  .editprofileIcon {
+    right: 13%;
+}
 }
 @media only screen and (min-width: 501px) and (max-width: 700px) {
   .profile-container {
@@ -456,9 +462,11 @@ body {
     width: 73%;
   }
   .DP-img {
-    width: 40%;
-    border: 6px solid #14162c;
-    height: auto;
+       /* width: 30%; */
+       border: 6px solid #14162c;
+       /* height: 40%; */
+       width: 94px;
+       height: 102px;
   }
   .profile-name {
     font-size: 14px;
@@ -531,10 +539,16 @@ body {
     width: 100%;
     margin-bottom: 50px;
   }
+  .editprofileIcon {
+
+    bottom: 13px;
+    right: 28%;
+
+}
 }
 @media only screen and (max-width: 500px) {
   .profile-container {
-    left: 26%;
+    left: 33%;
     width: 70%;
     bottom: 11px;
   }
@@ -621,4 +635,8 @@ body {
     width: 100%;
     margin-bottom: 50px;
   }
+  .editprofileIcon {
+    bottom: 14px;
+    right: 10%;
+}
 }
