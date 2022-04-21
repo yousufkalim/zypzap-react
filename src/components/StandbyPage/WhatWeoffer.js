@@ -6,8 +6,10 @@ import gamerImg from "../../assets/img/ComputerImg.svg";
 import contentImg from "../../assets/img/ComputerImg2.svg";
 import { useTranslation, Trans } from "react-i18next";
 import { Link } from "react-router-dom";
-
+import "../../css/landingPage/landingpage.css";
+import CongratulationPopup1 from "../PopupForms/CongratulationPopup1";
 export default function WhatWeOffer() {
+  const [successPopup, setSuccessPopup] = useState(false);
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
   const { t, i18n } = useTranslation();
@@ -25,17 +27,25 @@ export default function WhatWeOffer() {
   //     }
   //   });
   // }, [window.scrollY]);
-
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <>
+      <CongratulationPopup1
+        open={successPopup}
+        setOpen={setSuccessPopup}
+        closeModal={handleClose}
+      />
       {open && (
         <SubscriptionPopup
           isThreeLine={true}
           open={open}
           setOpen={setOpen}
+          setSuccessPopup={setSuccessPopup}
           pera="S'abonner à la Newsletter"
-          title="Inscrivez-vous pour acceder aux "
-          title2="avantages uniques"
+          title="Accédez à des avantages uniques ! "
+          // title2="avantages uniques"
           content="Offre reservée aux 1000 premiers inscrits"
           check="false"
           type="creator"
@@ -47,9 +57,9 @@ export default function WhatWeOffer() {
           open={open2}
           setOpen={setOpen2}
           setShowPopups={setShowPopup}
-          setShowPopup={setShowPopup}
-          title="Inscrivez-vous pour bénéficier d’un an de"
-          title2=" services offerts !"
+          setSuccessPopup={setSuccessPopup}
+          title="Bénéficiez d’un an de services offerts !"
+          // title2=" services offerts !"
           content="Offre reservée aux 10 000 premiers inscrits"
           pera="S'abonner à la Newsletter"
           check="true"
@@ -90,10 +100,7 @@ export default function WhatWeOffer() {
           <div className="offerdivleft">
             <div className="offerdzooming ">
               <img src={gamerImg} className="offerimg1 offerimg1-1" alt="img" />
-              <h1
-                className=".offerheading2 offerheading5"
-                style={{ marginTop: "5px" }}
-              >
+              <h1 className="offerheading2 offerheading5">
                 {t("Je suis un Gamer")}
               </h1>
               <p className="offerText2">
@@ -110,7 +117,7 @@ export default function WhatWeOffer() {
                   style={{ marginBottom: "18px" }}
                   onClick={() => setOpen2(true)}
                 >
-                  {t("Inscrivez-vous")}
+                  {t("Pré-inscrivez vous")}
                 </button>
               </Link>
             </div>
@@ -120,8 +127,8 @@ export default function WhatWeOffer() {
           <div className="offerdivright  ">
             <div className="offerdzooming ">
               <img src={contentImg} className="offerimg2 " alt="img" />
-              <h1 className=".offerheading2 offerheading5">
-                {t("Je suis un Createur de contenu")}
+              <h1 className="offerheading2 offerheading5">
+                {t("Je suis un Créateur ")}
               </h1>
               <p className="offerText2">
                 {t("Créez vos cours et ")}
@@ -136,7 +143,7 @@ export default function WhatWeOffer() {
                   className="whatweofferButton2"
                   onClick={() => setOpen(true)}
                 >
-                  {t("Inscrivez-vous")}
+                  {t("Pré-inscrivez vous")}
                 </button>
               </Link>
             </div>

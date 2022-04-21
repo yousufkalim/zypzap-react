@@ -123,7 +123,13 @@ function TopCoursesComponent({ item }) {
           alt="img"
         />
       </Grid>
-      <Grid item xs={12} sm={8} className="topcourseTextGrid">
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        className="topcourseTextGrid"
+        justifyContent="space-between"
+      >
         <Grid container spacing={2}>
           <Grid item xs={8} md={10}>
             <h3 className="h3heading">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import GameVideo from "../../assets/GameVideo.mp4";
 import "./CoursePage.css";
+// import "../../";
 // import VideoPlayIcon from "../../assets/icons/VideoPlayIcon.png";
 
 const CompleteCourse = ({ singlCourse }) => {

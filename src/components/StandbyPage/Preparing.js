@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SubscriptionPopup from "../PopupForms/SubscriptionPopup";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
+import CongratulationPopup2 from "../PopupForms/ConfirmationPopup2";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
@@ -19,6 +20,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }));
 
 const Preparing = () => {
+  const [successPopup, setSuccessPopup] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [showPopup2, setShowPopup2] = useState(false);
   const [open, setOpen] = useState(false);
@@ -26,15 +28,25 @@ const Preparing = () => {
   const handleClick = () => {
     setOpen(true);
   };
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <>
+      <CongratulationPopup2
+        open={successPopup}
+        setOpen={setSuccessPopup}
+        closeModal={handleClose}
+      />
       {open && (
         <SubscriptionPopup
           open={open}
           setOpen={setOpen}
           setShowPopups={setShowPopup}
           setShowPopup={setShowPopup}
-          title="Recevez notre newsletter pour être au cœur du développement"
+          setSuccessPopup={setSuccessPopup}
+          title="Recevez notre newsletter pour être "
+          title2="au cœur du développement"
           type="all"
         />
       )}{" "}
@@ -53,7 +65,9 @@ const Preparing = () => {
                 <BorderLinearProgress variant="determinate" value={75} />
               </Box>
               <div className="preparingPrsntageInput">
-                <p className="PreparingPrnstageP">Restez informé</p>
+                <p className="PreparingPrnstageP">
+                  Restez informÉs sur notre dÉveloppement
+                </p>
                 <input
                   className="Input-prsntage"
                   type="text"

@@ -6,11 +6,13 @@ import api from "../../api";
 import { Link } from "react-router-dom";
 import CongratulationPopup1 from "./CongratulationPopup1";
 import ConfirmationPopup2 from "./ConfirmationPopup2";
+import ClearIcon from "@mui/icons-material/Clear";
 const SubscriptionPopup = ({
   open,
   setOpen,
   Email,
   heading1,
+  setSuccessPopup,
   isThreeLine,
   title,
   title2,
@@ -62,14 +64,16 @@ const SubscriptionPopup = ({
     });
     if (res) {
       if (isThreeLine) {
-        setShowPopup(true);
+        setOpen(false);
+        setSuccessPopup(true);
       } else {
-        setShowPopup2(true);
+        setOpen(false);
+        setSuccessPopup(true);
       }
-
       setLoading(false);
       setEmail("");
     } else {
+      setOpen(false);
     }
   };
   return (
@@ -89,6 +93,7 @@ const SubscriptionPopup = ({
           <div className="subs_container">
             <div className="form-header-block">
               <h1 className="subH1">{title}</h1>
+              <ClearIcon className="subsclearIcon" onClick={handleClose} />
               <h1 className="subH1">{title2}</h1>
 
               <p className="subP">{isThreeLine ? content : ""}</p>
@@ -173,23 +178,27 @@ const SubscriptionPopup = ({
                 fontSize: "16px",
               }}
             >
-              <input
-                onChange={getCheckboxValues}
-                value={values.checkBoxTwo}
-                name="checkBoxTwo"
-                className="popup-checkbox"
-                type="checkbox"
-              />
-              <label className="subsLabel">
-                {/* <span className={`padtop ? "subsBold" "padtop"}`}> */}
-                {t(` S'inscrire comme bêta-testeur`)}
+              {title !== "Recevez notre newsletter pour être " && (
+                <>
+                  <input
+                    onChange={getCheckboxValues}
+                    value={values.checkBoxTwo}
+                    name="checkBoxTwo"
+                    className="popup-checkbox"
+                    type="checkbox"
+                  />
+                  <label className="subsLabel">
+                    {/* <span className={`padtop ? "subsBold" "padtop"}`}> */}
+                    {t(` S'inscrire comme bêta-testeur`)}
 
-                {/* {t("I agree passtotrip ")}
+                    {/* {t("I agree passtotrip ")}
                   <span className=" privacy-policy-text">
                     {t("Privacy Policy")}{" "}
                   </span>{" "}
                   {t("and agree to receive upcoming passtotrip updates")} */}
-              </label>
+                  </label>
+                </>
+              )}
             </div>
             <button className="subsformbtn" onClick={() => submitForm()}>
               S’inscrire
