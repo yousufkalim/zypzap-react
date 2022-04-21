@@ -52,12 +52,12 @@ const categories = [
     value: "2",
   },
   {
-    name: "Top Courses",
-    value: "1",
-  },
-  {
     name: "Top Rated Content Creators",
     value: "5",
+  },
+  {
+    name: "Top Courses",
+    value: "1",
   },
   {
     name: "Top New Games",
@@ -68,6 +68,7 @@ const categories = [
     value: "7",
   },
 ];
+
 const GameTypes = [
   {
     name: "Action",
@@ -198,11 +199,10 @@ const SearchResultBody = () => {
   const [selectedlevelBtn, setselectedlevelBtn] = useState("");
   const [radioBtnValue, setRadioBtnValue] = useState("");
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
-  const [courses, setCourses] = useState([]);
   // recieving context __data
-  useEffect(() => {}, [searchCreator]);
-  const { searchCreator, searchCourse, searchState, searchInput } = Store();
 
+  const { searchCreator, searchCourse, searchState, searchInput } = Store();
+  useEffect(() => {}, [searchState, searchCourse, searchCreator]);
   const updateStore = UpdateStore();
 
   //sidebar list togle
@@ -239,16 +239,22 @@ const SearchResultBody = () => {
     const value = e.value;
     let res = await api("get", `/courses/topGames?type=${value}`);
     if (res) {
-      if (value === 5) {
+      if (value == "5") {
         updateStore({
-          searchCreator: res?.data,
-          searchInput: name,
           searchState: "creator",
           searchCourse: [],
+          searchCreator: res?.data,
+          searchInput: name,
         });
         setSelectedActiveButton("");
-      } else {
-        updateStore({ searchCourse: res?.data, searchInput: name });
+      }
+      if (value !== "5") {
+        updateStore({
+          searchState: "course",
+          searchCourse: res?.data,
+          searchCreator: [],
+          searchInput: name,
+        });
         setSelectedActiveButton("");
       }
     }
@@ -311,7 +317,6 @@ const SearchResultBody = () => {
       `/courses/filteredCourses?&&gameType=${selectedGameBtn}&&plateForm=${selectedPlateformsBtn}&&level=${selectedlevelBtn}&&mode=${radioBtnValue}&&price=${sliderValue}`
     );
     if (res) {
-      setCourses(res.data);
       const course = res?.data.filter((c, index) => c.index < 12);
       updateStore({ searchCourse: res?.data });
     }
