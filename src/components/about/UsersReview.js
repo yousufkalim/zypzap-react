@@ -36,7 +36,7 @@ export default function UserReview() {
               textTransform: "uppercase",
             }}
           >
-            Suivez-nous sur les reseaux sociaux
+            Suivez-nous sur les rÉseaux sociaux
           </h1>
         </div>
         <Grid container spacing={4} className="keepgrowingGrid">
