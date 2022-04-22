@@ -251,7 +251,7 @@ const SearchResultBody = () => {
       if (value !== "5") {
         updateStore({
           searchState: "course",
-          searchCourse: res?.data,
+          searchCourse: res.data,
           searchCreator: [],
           searchInput: name,
         });

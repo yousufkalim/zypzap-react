@@ -9,8 +9,8 @@ import { Store, UpdateStore } from "../../../StoreContext";
 const CreateCourseForm = ({ games }) => {
   const [step, setStep] = useState(1);
   const [formDataOne, setformDataOne] = useState({
-    gamedetails: "",
-    gameName: "PUBG",
+    course_name: "",
+    gameName: "6200f02b8542301913dc354b",
     gameLevel: "Casual",
     gameType: "Action",
     gameMood: "Single",
@@ -18,7 +18,8 @@ const CreateCourseForm = ({ games }) => {
     description: "",
   });
   const [formDataTwo, setformDataTwo] = useState([]);
-  const [formDataSix, setformDataSix] = useState({});
+  const [formDataFive, setformDataFive] = useState([]);
+  const [formDataSix, setformDataSix] = useState();
   const { creator } = Store();
 
   return (
@@ -50,16 +51,19 @@ const CreateCourseForm = ({ games }) => {
             setStep={setStep}
             formDataTwo={formDataTwo}
             setformDataTwo={setformDataTwo}
+            setformDataFive={setformDataFive}
           />
         )}
         {step == 6 && (
           <FormStepSix
             step={step}
+            setStep={setStep}
             formDataOne={formDataOne}
-            formDataTwo={formDataTwo}
+            formDataFive={formDataFive}
             formDataSix={formDataSix}
             setformDataOne={setformDataOne}
-            setformDataTwo={setformDataTwo}
+            formDataFive={formDataFive}
+            setformDataFive={setformDataFive}
             setformDataSix={setformDataSix}
             creator={creator}
           />
