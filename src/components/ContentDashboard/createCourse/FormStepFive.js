@@ -4,12 +4,14 @@ import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "../../../assets/icons/EditIcon.svg";
 import DeleteIcon from "../../../assets/icons/DeleteIcon.svg";
 import api from "../../../api";
+import { toast } from "react-toastify";
 import { Store, UpdateStore } from "../../../StoreContext";
 const FormStepFive = ({
   step,
   setStep,
   setformDataTwo,
   formDataTwo,
+  formDataFive,
   setformDataFive,
 }) => {
   const { creator } = Store();
@@ -20,6 +22,13 @@ const FormStepFive = ({
     setformDataTwo(newChapter);
   };
   const handleSubmit = async () => {
+    if (formDataTwo.length === 0) {
+      if (formDataFive.length === 0) {
+        toast.error("Veuillez sélectionner une vidéo pour ce cours");
+        setStep(2);
+      }
+      setStep(6);
+    }
     setlodding(true);
     let newArray = [];
     for (let i = 0; i < formDataTwo.length; i++) {
@@ -27,7 +36,10 @@ const FormStepFive = ({
       newArray = [...newArray, file._id];
       setformDataFive(newArray);
       if (formDataTwo.length === 1) setStep(6);
-      if (i !== formDataTwo.length - 1) setStep(6);
+      if (i !== formDataTwo.length - 1) {
+        setformDataTwo([]);
+        setStep(6);
+      }
     }
   };
   const handleSingleVideo = async (file) => {

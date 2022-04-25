@@ -35,7 +35,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
     // e.preventDefault();
     const files = file.target.files;
     if (!files) return;
-    let newArray = [];
+    let newArray = ([] = formDataTwo);
     for (let i = 0; i < files.length; i++) {
       const url = await singlefileUpload(files[i]);
       setImgUrl(...imgUrl, url);

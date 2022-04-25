@@ -23,27 +23,27 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
     description,
   } = formDataOne;
   const handleContinue = () => {
-    if (course_name == "") {
+    if (course_name === "") {
       return toast.error("Veuillez saisir le nom de votre cours");
     }
-    if (gameName == "") {
+    if (gameName === "") {
       return toast.error("Veuillez entrer votre nom du jeu");
     }
-    if (gameLevel == "") {
+    if (gameLevel === "") {
       return toast.error("Veuillez saisir le nom de votre niveau de jeu");
     }
-    if (gameType == "") {
+    if (gameType === "") {
       return toast.error("Veuillez entrer votre type de jeu");
     }
-    if (gameMood == "") {
+    if (gameMood === "") {
       return toast.error("Veuillez entrer votre ambiance de jeu");
     }
-    if (gamePlateForm == "") {
+    if (gamePlateForm === "") {
       return toast.error(
         "Veuillez saisir le nom de votre forme de plateau de jeu"
       );
     }
-    if (description == "") {
+    if (description === "") {
       return toast.error("Veuillez entrer votre description");
     }
     setStep(2);

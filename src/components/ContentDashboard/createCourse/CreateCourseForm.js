@@ -51,6 +51,7 @@ const CreateCourseForm = ({ games }) => {
             setStep={setStep}
             formDataTwo={formDataTwo}
             setformDataTwo={setformDataTwo}
+            formDataFive={formDataFive}
             setformDataFive={setformDataFive}
           />
         )}

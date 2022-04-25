@@ -37,15 +37,16 @@ const FormStepsix = ({
   const [uploading, setUploading] = useState(false);
   const [btnState, setBtnState] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
-  const [imgUrl, setImgUrl] = useState([]);
-  const [videoName, setVideoName] = useState("");
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    setformDataSix(file);
-    setUploading(true);
-  };
+  const [imgUrl, setImgUrl] = useState("");
+  // const [videoName, setVideoName] = useState("");
+  // const handleFileChange = (event) => {
+  //   const file = event.target.files[0];
+  //   setformDataSix(file);
+  //   setUploading(true);
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setBtnState(3);
     const file = e.target.files[0];
     if (!file) return;
     const storageRef = ref(storage, `files/${file.name}`);
@@ -65,12 +66,16 @@ const FormStepsix = ({
           setformDataSix(downloadURL);
           setImgUrl(downloadURL);
           setUploading(true);
+          setBtnState(0);
         });
       }
     );
   };
 
   const handleClick = async () => {
+    if (imgUrl == "") {
+      return toast.error("Veuillez entrer la vignette du cours");
+    }
     setBtnState(1);
     // let video = [...formDataTwo, formDataSix];
     const {
@@ -86,6 +91,7 @@ const FormStepsix = ({
     let data = { formDataOne, formDataFive, formDataSix, id: creator._id };
     let res = await api("post", "/courses", data);
     if (res) {
+      updateStore({ creator: res?.data?.creator });
       setformDataOne({
         course_name: "",
         gameName: "",
@@ -153,12 +159,18 @@ const FormStepsix = ({
           >
             Previous
           </button>
-          <button className="continueBtn" onClick={handleClick}>
+          <button
+            className="continueBtn"
+            onClick={handleClick}
+            disabled={btnState == 0 ? false : true}
+          >
             {btnState === 0
               ? "Submit For Approval"
               : btnState === 1
               ? "Loading"
-              : "Submited"}
+              : btnState === 2
+              ? "Submited"
+              : "uploading thumnail"}
           </button>
         </div>
       </div>
