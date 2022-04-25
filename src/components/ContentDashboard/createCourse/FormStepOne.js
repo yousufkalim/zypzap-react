@@ -14,7 +14,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
     });
   };
   const {
-    gamedetails,
+    course_name,
     gameName,
     gameLevel,
     gameType,
@@ -23,27 +23,27 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
     description,
   } = formDataOne;
   const handleContinue = () => {
-    if (gamedetails == "") {
+    if (course_name === "") {
       return toast.error("Veuillez saisir le nom de votre cours");
     }
-    if (gameName == "") {
+    if (gameName === "") {
       return toast.error("Veuillez entrer votre nom du jeu");
     }
-    if (gameLevel == "") {
+    if (gameLevel === "") {
       return toast.error("Veuillez saisir le nom de votre niveau de jeu");
     }
-    if (gameType == "") {
+    if (gameType === "") {
       return toast.error("Veuillez entrer votre type de jeu");
     }
-    if (gameMood == "") {
+    if (gameMood === "") {
       return toast.error("Veuillez entrer votre ambiance de jeu");
     }
-    if (gamePlateForm == "") {
+    if (gamePlateForm === "") {
       return toast.error(
         "Veuillez saisir le nom de votre forme de plateau de jeu"
       );
     }
-    if (description == "") {
+    if (description === "") {
       return toast.error("Veuillez entrer votre description");
     }
     setStep(2);
@@ -66,8 +66,8 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                     type="text"
                     className="coursInput"
                     placeholder="learn how to play minacraft"
-                    value={gamedetails}
-                    name="gamedetails"
+                    value={course_name}
+                    name="course_name"
                     onChange={chnageEvent}
                   />
                 </div>
@@ -243,12 +243,12 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
         ></textarea>
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button
+          {/* <button
             className="drafBtn"
             style={{ background: "none", border: "1px solid #662F88" }}
           >
             Previous
-          </button>
+          </button> */}
           <button onClick={handleContinue} className="continueBtn">
             Continue
           </button>

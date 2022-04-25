@@ -11,6 +11,7 @@ import DeleteIcon from "../../../assets/icons/DeleteIcon.svg";
 import IIcon from "../../../assets/icons/IIcon.svg";
 import { CompressOutlined } from "@mui/icons-material";
 import api from "../../../api";
+import { Store, UpdateStore } from "../../../StoreContext";
 const calTotalSecInVideos = (videos) => {
   let timeInSecond = 1;
   videos?.map((videos) => (timeInSecond += parseInt(videos.duration)));
@@ -35,18 +36,12 @@ const formated = (date) => {
   }/${newDate.getFullYear()}`;
   return format;
 };
-const DashboardUploadCourses = ({ pageName, creator }) => {
-  const [star, setstar] = useState();
-  const [course, setCourse] = useState([]);
+const DashboardUploadCourses = ({ pageName }) => {
+  const { creator } = Store();
   useEffect(() => {
     // getCourses();
   }, [creator]);
-  const getCourses = async () => {
-    let res = await api("get", `/courses`);
-    if (res) {
-      setCourse(res.data);
-    }
-  };
+
   return (
     <>
       <Grid

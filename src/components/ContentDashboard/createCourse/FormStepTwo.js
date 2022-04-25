@@ -5,11 +5,121 @@ import api from "../../../api";
 import RequestSuccessfullyPopup from "../../PopupForms/RequestSuccessfullyPopup";
 import UploadingTheCourse from "../../PopupForms/UploadingTheCourse";
 import { toast } from "react-toastify";
+import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+
+const firebaseConfig = {
+  apiKey: "GOOGLE_API_KEY_REDACTED",
+  authDomain: "video-storage-3769b.firebaseapp.com",
+  projectId: "video-storage-3769b",
+  storageBucket: "video-storage-3769b.appspot.com",
+  messagingSenderId: "674858504046",
+  appId: "1:674858504046:web:dc91ec7bc28e23342c3b7f",
+  measurementId: "G-TRTYFM0GKT",
+};
+export const app = initializeApp(firebaseConfig);
+export const storage = getStorage(app);
 const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   const [open, setOpen] = React.useState(false);
+  const [progress, setProgress] = useState(0);
   const [opens, setOpens] = React.useState(false);
   const [activeUploadButton, setActiveUploadButton] = useState(1);
   const [uploading, setUploading] = useState(false);
+  const [imgUrl, setImgUrl] = useState([]);
+  const [videoName, setVideoName] = useState("");
+  const [mbPerSecond, setmbPerSecond] = useState(0);
+  const [timeUploadRemaining, setTimeUploadRemaining] = useState(0);
+
+  const handleSubmit = async (file) => {
+    // e.preventDefault();
+    const files = file.target.files;
+    if (!files) return;
+    let newArray = ([] = formDataTwo);
+    for (let i = 0; i < files.length; i++) {
+      const url = await singlefileUpload(files[i]);
+      setImgUrl(...imgUrl, url);
+      const fileData = { name: files[i].name, path: url };
+      newArray = [...newArray, fileData];
+      setformDataTwo(newArray);
+      if (i !== files.length - 1) setProgress(0);
+      setUploading(true);
+      setTimeUploadRemaining(1);
+    }
+  };
+
+  const singlefileUpload = (file) => {
+    return new Promise((resolve, reject) => {
+      setVideoName(file.name);
+      if (!file) return;
+      const storageRef = ref(storage, `files/${file.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, file);
+      // file upload speed code
+      let lastBytesTransfered = null;
+      let lastBytesTransferedTime = null; //new Date().getTime();
+      let totaltransferedBytes = 0;
+      let updateDurationThreshold = 2000;
+      let speed = 0;
+      setOpens(true);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          if (lastBytesTransferedTime == null) {
+            lastBytesTransfered = snapshot.bytesTransferred;
+            lastBytesTransferedTime = new Date().getTime();
+            totaltransferedBytes += snapshot.bytesTransferred;
+            speed = 0;
+          } else {
+            let now = new Date().getTime();
+            let _duration = now - lastBytesTransferedTime;
+            if (_duration > updateDurationThreshold) {
+              let bytesPerSecond =
+                (snapshot.bytesTransferred - lastBytesTransfered) /
+                updateDurationThreshold;
+
+              lastBytesTransfered = snapshot.bytesTransferred;
+
+              lastBytesTransferedTime = now;
+              let newbytesPerSecond = bytesPerSecond / 1024;
+              setmbPerSecond(newbytesPerSecond.toFixed(3));
+              let remTime =
+                (((snapshot.totalBytes - snapshot.bytesTransferred) /
+                  bytesPerSecond) *
+                  2) /
+                (updateDurationThreshold - 1000);
+              totaltransferedBytes += lastBytesTransfered;
+              remTime = remTime.toFixed(0);
+              if (remTime < 60) remTime = `${remTime} sec left`;
+              if (remTime > 60 && remTime < 3600) {
+                remTime = (remTime / 60).toFixed(2);
+                remTime = `${remTime} min left`;
+              }
+
+              if (remTime > 3600) {
+                remTime = (remTime / 3600).toFixed(2);
+                remTime = `${remTime} houre left`;
+              }
+              setTimeUploadRemaining(remTime);
+            }
+          }
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setProgress(progress);
+        },
+        (error) => {
+          reject(error);
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            resolve(downloadURL);
+          });
+        }
+      );
+    });
+  };
+
+  const handleClick = () => {};
   const handleActiveUploadButton = (i) => {
     setActiveUploadButton(i);
   };
@@ -31,14 +141,24 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
     setformDataTwo(files);
   };
   const handleVideo = () => {
-    if (!uploading) {
+    if (formDataTwo.length === 0) {
       return toast.error("Sélectionnez la vidéo pour la prochaine étape");
     }
-    setStep(3);
+    setStep(5);
   };
   return (
     <>
-      <UploadingTheCourse open={opens} setOpen={setOpens} />
+      <UploadingTheCourse
+        open={opens}
+        setOpen={setOpens}
+        progress={progress}
+        setProgress={setProgress}
+        videoName={videoName}
+        imgUrl={imgUrl}
+        uploading={uploading}
+        mbPerSecond={mbPerSecond}
+        timeUploadRemaining={timeUploadRemaining}
+      />
       <RequestSuccessfullyPopup open={open} setOpen={setOpen} />
       <div className="formStepOneDiv">
         <p>Step {step}/6</p>
@@ -74,7 +194,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
                     <VideoInput
                       id="1"
                       text="Select Video"
-                      onChange={handleFileChange}
+                      onChange={handleSubmit}
                     />
                   </div>
                   <p className="step_or" onClick={() => setOpens(true)}>

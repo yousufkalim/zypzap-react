@@ -3,11 +3,55 @@ import Fireicon from "../../../assets/icons/Fireicon.png";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "../../../assets/icons/EditIcon.svg";
 import DeleteIcon from "../../../assets/icons/DeleteIcon.svg";
-
-const FormStepFive = ({ step, setStep, setformDataTwo, formDataTwo }) => {
+import api from "../../../api";
+import { toast } from "react-toastify";
+import { Store, UpdateStore } from "../../../StoreContext";
+const FormStepFive = ({
+  step,
+  setStep,
+  setformDataTwo,
+  formDataTwo,
+  formDataFive,
+  setformDataFive,
+}) => {
+  const { creator } = Store();
+  const [creatorId, setCreatorId] = useState(creator ? creator._id : null);
+  const [lodding, setlodding] = useState(false);
   const handleDelete = (file) => {
     const newChapter = formDataTwo?.filter((a) => a !== file);
     setformDataTwo(newChapter);
+  };
+  const handleSubmit = async () => {
+    if (formDataTwo.length === 0) {
+      if (formDataFive.length === 0) {
+        toast.error("Veuillez sélectionner une vidéo pour ce cours");
+        setStep(2);
+      }
+      setStep(6);
+    }
+    setlodding(true);
+    let newArray = [];
+    for (let i = 0; i < formDataTwo.length; i++) {
+      let file = await handleSingleVideo(formDataTwo[i]);
+      newArray = [...newArray, file._id];
+      setformDataFive(newArray);
+      if (formDataTwo.length === 1) setStep(6);
+      if (i !== formDataTwo.length - 1) {
+        setformDataTwo([]);
+        setStep(6);
+      }
+    }
+  };
+  const handleSingleVideo = async (file) => {
+    return new Promise(async (resolve, reject) => {
+      file.creator = creatorId;
+      let res = await api("post", "/videos", file);
+      if (res) {
+        resolve(res.data);
+      } else {
+        reject(null);
+      }
+    });
   };
   const handleEdit = (file, index) => {};
   return (
@@ -52,11 +96,12 @@ const FormStepFive = ({ step, setStep, setformDataTwo, formDataTwo }) => {
           <button
             className="drafBtn"
             style={{ background: "none", border: "1px solid #662F88" }}
+            onClick={() => setStep(2)}
           >
             Previous
           </button>
-          <button onClick={() => setStep(6)} className="continueBtn">
-            Continue
+          <button onClick={handleSubmit} className="continueBtn">
+            {lodding ? "lodding" : "Continue"}
           </button>
         </div>
       </div>
