@@ -10,7 +10,6 @@ const MyPrifileSetting = () => {
   const [values, setValues] = React.useState(false);
 
   const handleClickShowPassword = () => {
-    console.log("4567", !values.showPassword);
     setValues(!values);
   };
 
