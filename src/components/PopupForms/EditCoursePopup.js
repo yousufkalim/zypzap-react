@@ -7,6 +7,7 @@ import Grid from "@mui/material/Grid";
 import UploadSuccessfulPopup from "./UploadSuccessfulPopup";
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
+import { Store, UpdateStore } from "../../StoreContext";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import UploadingTheCourse from "../PopupForms/UploadingTheCourse";
 //      todo later---->
@@ -31,6 +32,7 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 const EditCoursePopup = ({ open, setOpen, course }) => {
+  const { Games, creator } = Store();
   const [showPopup, setShowPopup] = React.useState(false);
   const [opens, setOpens] = React.useState(false);
   const [mbPerSecond, setmbPerSecond] = useState(0);
@@ -38,36 +40,48 @@ const EditCoursePopup = ({ open, setOpen, course }) => {
   const [imgUrl, setImgUrl] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [videoName, setVideoName] = useState("");
+  const [game, setGame] = useState(Games ? Games : []);
   const [timeUploadRemaining, setTimeUploadRemaining] = useState(0);
   const [formDataTwo, setformDataTwo] = useState([]);
   const [formDataOne, setformDataOne] = useState({
     course_name: course?.course_name,
-    gameName: "",
+    gameName: course?.game_id?.game_name,
     gameLevel: course?.gameLevel,
-    gameType: course?.gameType,
+    gameType: course?.game_id?.category,
     gameMood: course?.gameMood,
     gamePlateForm: course?.gamePlateForm,
     description: course?.description,
   });
+  const {
+    course_name,
+    gameName,
+    gameLevel,
+    gameType,
+    gameMood,
+    gamePlateForm,
+    description,
+  } = formDataOne;
   useEffect(() => {
     setformDataOne({
       course_name: course?.course_name,
-      gameName: course?.game_id?.game_nsme,
+      gameName: course?.game_id?.game_name,
       gameLevel: course?.level,
-      gameType: course?.gameType,
+      gameType: course?.game_id?.category,
       gameMood: course?.mode,
       gamePlateForm: course?.plateform,
       description: course?.description,
     });
   }, [course]);
-
-  const handleClickOpen = () => {
+  useEffect(() => {
+    setGame(Games ? Games : []);
+  }, [Games]);
+  const handleSave = () => {
+    const data = { formDataOne, formDataTwo, id: course?._id };
     setShowPopup(true);
     setOpen(false);
+    setformDataTwo([]);
   };
   const chnageEvent = (e) => {
-    if (e.target.name === "course_name" && formDataOne?.course_name === "") {
-    }
     setformDataOne({
       ...formDataOne,
       [e.target.name]: e.target.value,
@@ -203,11 +217,7 @@ const EditCoursePopup = ({ open, setOpen, course }) => {
                         type="text"
                         className="coursInput"
                         placeholder="learn how to play minacraft"
-                        value={
-                          formDataOne?.course_name
-                            ? formDataOne.course_name
-                            : ""
-                        }
+                        value={course_name ? course_name : ""}
                         onChange={chnageEvent}
                       />
                     </div>
@@ -216,14 +226,21 @@ const EditCoursePopup = ({ open, setOpen, course }) => {
                 <Grid xs={12} sm={6}>
                   <div>
                     <p className="stepLabel">Game Name</p>
-                    <input
+                    <select
                       id="gameName"
                       name="gameName"
-                      type="text"
                       className="coursInput"
-                      placeholder="PUBG GamePlay "
-                      value={course?.game_id?.game_name}
-                    />
+                      value={gameName}
+                      onChange={chnageEvent}
+                    >
+                      {game?.map((g, index) => {
+                        return (
+                          <option value={g._id} className="setepOption">
+                            {g.game_name}
+                          </option>
+                        );
+                      })}
+                    </select>
                   </div>
                 </Grid>
                 <Grid container spacing={2}>
@@ -234,7 +251,7 @@ const EditCoursePopup = ({ open, setOpen, course }) => {
                         id="gameLevel"
                         name="gameLevel"
                         className="stepSelect"
-                        value={course?.gameLevel}
+                        value={gameLevel}
                         onChange={chnageEvent}
                       >
                         <option value="Casual" className="setepOption">
@@ -263,11 +280,12 @@ const EditCoursePopup = ({ open, setOpen, course }) => {
                     <Grid xs={12} sm={6}>
                       <div>
                         <p className="stepLabel">Game Type</p>
+
                         <select
                           id="gameType"
                           name="gameType"
                           className="stepSelect"
-                          value={course?.gameType}
+                          value={gameType}
                           onChange={chnageEvent}
                         >
                           <option value="Action" className="setepOption">
@@ -313,7 +331,7 @@ const EditCoursePopup = ({ open, setOpen, course }) => {
                           id="gameMood"
                           name="gameMood"
                           className="stepSelect"
-                          value={course?.gameMood}
+                          value={gameMood}
                           onChange={chnageEvent}
                         >
                           <option value="Single" className="setepOption">
@@ -335,7 +353,7 @@ const EditCoursePopup = ({ open, setOpen, course }) => {
                           id="gamePlateForm"
                           name="gamePlateForm"
                           className="stepSelect"
-                          value={course?.gamePlateForm}
+                          value={gamePlateForm}
                           onChange={chnageEvent}
                         >
                           <option
@@ -383,7 +401,7 @@ const EditCoursePopup = ({ open, setOpen, course }) => {
               rows="20"
               placeholder="300 characters maximum"
               className="courstexarea"
-              value={formDataOne?.description}
+              value={description}
               onChange={chnageEvent}
             ></textarea>
             <Grid container spacing={2}>
@@ -407,7 +425,7 @@ const EditCoursePopup = ({ open, setOpen, course }) => {
               <button className="drafBtn" onClick={handleClose}>
                 Cancel
               </button>
-              <button className="continueBtn" onClick={handleClickOpen}>
+              <button className="continueBtn" onClick={handleSave}>
                 Save
               </button>
             </div>
