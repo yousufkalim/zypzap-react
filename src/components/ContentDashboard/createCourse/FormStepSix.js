@@ -105,6 +105,7 @@ const FormStepsix = ({
       setformDataSix("");
       setBtnState(2);
       toast.success("Profil non modifié");
+      // setStep(1);  --todo change url
     } else {
       toast.error("Enter your email");
     }

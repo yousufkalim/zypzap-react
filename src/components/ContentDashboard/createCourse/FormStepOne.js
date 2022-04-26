@@ -4,15 +4,6 @@ import Select from "@mui/material/Select";
 import { toast } from "react-toastify";
 const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
   const [game, setGame] = useState(games ? games : []);
-  useEffect(() => {
-    setGame(games ? games : []);
-  }, []);
-  const chnageEvent = (e) => {
-    setformDataOne({
-      ...formDataOne,
-      [e.target.name]: e.target.value,
-    });
-  };
   const {
     course_name,
     gameName,
@@ -22,6 +13,20 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
     gamePlateForm,
     description,
   } = formDataOne;
+  useEffect(() => {
+    setGame(games ? games : []);
+    setformDataOne({
+      ...formDataOne,
+      ["gameName"]: games[0]._id,
+    });
+  }, []);
+  const chnageEvent = (e) => {
+    setformDataOne({
+      ...formDataOne,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const handleContinue = () => {
     if (course_name === "") {
       return toast.error("Veuillez saisir le nom de votre cours");
@@ -80,7 +85,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                   id="gameName"
                   name="gameName"
                   className="coursInput"
-                  value={gameName}
+                  value={gameName ? gameName : games[0]._id}
                   onChange={chnageEvent}
                 >
                   {games?.map((g, index) => {

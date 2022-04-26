@@ -38,11 +38,13 @@ const UploadingTheCourse = ({
     setProgress(0);
   };
   const CancelHandleClick = () => {
-    setShowPopup(true);
+    // setShowPopup(true);
     setOpen(false);
     setProgress(0);
   };
   const CloseHandleClick = () => {
+    //   todo integration
+    setShowPopup(true);
     setOpen(false);
     setProgress(0);
   };
@@ -84,7 +86,7 @@ const UploadingTheCourse = ({
                   className="uploadTheCourseBTN"
                   onClick={CloseHandleClick}
                 >
-                  Close
+                  Done
                 </button>
               ) : (
                 <button

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Fireicon from "../../../assets/icons/Fireicon.png";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "../../../assets/icons/EditIcon.svg";
@@ -32,6 +32,9 @@ const FormStepFive = ({
     setlodding(true);
     let newArray = [];
     for (let i = 0; i < formDataTwo.length; i++) {
+      if (formDataTwo[i].name === "") {
+        formDataTwo[i].name = formDataTwo[i]?.file?.name;
+      }
       let file = await handleSingleVideo(formDataTwo[i]);
       newArray = [...newArray, file._id];
       setformDataFive(newArray);
@@ -54,6 +57,13 @@ const FormStepFive = ({
     });
   };
   const handleEdit = (file, index) => {};
+  const handleChange = (e, index) => {
+    setformDataTwo((prev) => {
+      prev[index].name = e.target.value;
+      return [...prev];
+    });
+  };
+
   return (
     <>
       <div className="formStepOneDiv">
@@ -73,7 +83,8 @@ const FormStepFive = ({
                   type="text"
                   placeholder="Title"
                   className="step3_inputs"
-                  value={file?.name}
+                  value={file?.name ? file.name : ""}
+                  onChange={(e) => handleChange(e, index)}
                 />
                 <img
                   className="editIcon"

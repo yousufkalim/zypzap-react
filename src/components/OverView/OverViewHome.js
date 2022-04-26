@@ -124,7 +124,10 @@ const OverViewHome = (props) => {
               </li>
             </div>
             <div className="overVeiwSlectBTN">
-              <button className="overVeiwCS-btn">CS:GO course</button>
+              <button className="overVeiwCS-btn">
+                {singlCourse?.course_name ? singlCourse.course_name : "CS GO"}{" "}
+                course
+              </button>
               <button className="overVeiwCS-btn">
                 Created by Jordan Gilbert
               </button>

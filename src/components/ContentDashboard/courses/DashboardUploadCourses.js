@@ -11,6 +11,7 @@ import DeleteIcon from "../../../assets/icons/DeleteIcon.svg";
 import IIcon from "../../../assets/icons/IIcon.svg";
 import { CompressOutlined } from "@mui/icons-material";
 import api from "../../../api";
+import { Link } from "react-router-dom";
 import { Store, UpdateStore } from "../../../StoreContext";
 const calTotalSecInVideos = (videos) => {
   let timeInSecond = 1;
@@ -52,63 +53,73 @@ const DashboardUploadCourses = ({ pageName }) => {
       >
         {creator?.courses?.map((item) => (
           <Grid item xs={12} sm={12} md={4} lg={3} className="card_grids">
-            <div className="cardGrid-dashboard">
-              <div className="favourite-icon-position">
-                <img
-                  src={item.thumbnail}
-                  className="dashboardcourseimg"
-                  alt="img"
-                />
-              </div>
-              <div className="dashbordHeading-div">
-                <h5 className="latestcourseh5">{item.course_name}</h5>
-                <div className="dashbordIconsDiv">
-                  {pageName === "publish" || pageName === "draft" ? (
-                    <>
-                      <img className="deleteIcon1" src={EditIcon} alt="" />
-                      &nbsp;&nbsp;&nbsp;
-                      <img className="editIcon1" src={DeleteIcon} alt="" />
-                    </>
-                  ) : (
-                    <></>
-                  )}
+            <Link
+              to={{
+                pathname: `OverView/${item?._id}`,
+                state: { course: `${item}` },
+              }}
+              className="requestBt"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <div className="cardGrid-dashboard">
+                <div className="favourite-icon-position">
+                  <img
+                    src={item.thumbnail}
+                    className="dashboardcourseimg"
+                    alt="img"
+                  />
                 </div>
+                <div className="dashbordHeading-div">
+                  <h5 className="latestcourseh5">{item.course_name}</h5>
+                  <div className="dashbordIconsDiv">
+                    {pageName === "publish" || pageName === "draft" ? (
+                      <>
+                        <img className="deleteIcon1" src={EditIcon} alt="" />
+                        &nbsp;&nbsp;&nbsp;
+                        <img className="editIcon1" src={DeleteIcon} alt="" />
+                      </>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                </div>
+                <p className="latestcoursep1">{creator?.user_id?.username}</p>
+                <p className="latestcoursep1">
+                  {" "}
+                  {item?.rating === 0 ? item?.rating + ".0" : item?.rating}{" "}
+                  &nbsp;
+                  {[1, 2, 3, 4, 5].map((item) => (
+                    <Star1 className="star-icon" />
+                  ))}
+                  &nbsp;{" "}
+                  {`(${
+                    item?.student?.length > 0 ? item?.student?.length : ` 0 `
+                  })`}
+                </p>
+                <h6
+                  className="dashboardlatestcourseh6"
+                  style={{ display: "inline-block" }}
+                >
+                  {"$" + item.price} &nbsp; | &nbsp;{" "}
+                  {calTotalSecInVideos(item?.videos)}
+                </h6>
+                <p
+                  className="dashboardlatestcourseh6"
+                  style={{
+                    display: "inline-block",
+                    marginLeft: "auto",
+                    float: "right",
+                    opacity: "0.5",
+                  }}
+                >
+                  {pageName === "publish" || pageName === "draft" ? (
+                    <> {formated(item?.createdAt)}</>
+                  ) : (
+                    <img src={IIcon} alt="" />
+                  )}
+                </p>
               </div>
-              <p className="latestcoursep1">{creator?.user_id?.username}</p>
-              <p className="latestcoursep1">
-                {" "}
-                {item?.rating === 0 ? item?.rating + ".0" : item?.rating} &nbsp;
-                {[1, 2, 3, 4, 5].map((item) => (
-                  <Star1 className="star-icon" />
-                ))}
-                &nbsp;{" "}
-                {`(${
-                  item?.student?.length > 0 ? item?.student?.length : ` 0 `
-                })`}
-              </p>
-              <h6
-                className="dashboardlatestcourseh6"
-                style={{ display: "inline-block" }}
-              >
-                {"$" + item.price} &nbsp; | &nbsp;{" "}
-                {calTotalSecInVideos(item?.videos)}
-              </h6>
-              <p
-                className="dashboardlatestcourseh6"
-                style={{
-                  display: "inline-block",
-                  marginLeft: "auto",
-                  float: "right",
-                  opacity: "0.5",
-                }}
-              >
-                {pageName === "publish" || pageName === "draft" ? (
-                  <> {formated(item?.createdAt)}</>
-                ) : (
-                  <img src={IIcon} alt="" />
-                )}
-              </p>
-            </div>
+            </Link>
           </Grid>
         ))}
       </Grid>
