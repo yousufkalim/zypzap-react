@@ -5,7 +5,7 @@ import DeleteIcon from "../../assets/icons/DeleteIcon.svg";
 import EditCoursePopup from "../PopupForms/EditCoursePopup";
 import DeleteEpisodePopup from "../PopupForms/DeleteEpisodePopup";
 import { Store, UpdateStore } from "../../StoreContext";
-const OverViewMenu = ({ setActivebtn, btns, activebtn }) => {
+const OverViewMenu = ({ setActivebtn, btns, activebtn, course }) => {
   const { user } = Store();
   const [open, setOpen] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
@@ -21,7 +21,7 @@ const OverViewMenu = ({ setActivebtn, btns, activebtn }) => {
   }, [user]);
   return (
     <>
-      <EditCoursePopup open={open} setOpen={setOpen} />
+      <EditCoursePopup open={open} setOpen={setOpen} course={course} />
       <DeleteEpisodePopup open={showDeletePopup} setOpen={setShowDeletePopup} />
       <div className="overViewMenu">
         <div className="overViewMene_centerDiv">

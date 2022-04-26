@@ -84,7 +84,7 @@ const UploadingTheCourse = ({
                   className="uploadTheCourseBTN"
                   onClick={CloseHandleClick}
                 >
-                  Close
+                  Done
                 </button>
               ) : (
                 <button

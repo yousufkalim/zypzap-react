@@ -10,7 +10,7 @@ const CreateCourseForm = ({ games }) => {
   const [step, setStep] = useState(1);
   const [formDataOne, setformDataOne] = useState({
     course_name: "",
-    gameName: "6200f02b8542301913dc354b",
+    gameName: "",
     gameLevel: "Casual",
     gameType: "Action",
     gameMood: "Single",

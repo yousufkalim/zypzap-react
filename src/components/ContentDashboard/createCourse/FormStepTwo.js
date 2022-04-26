@@ -9,6 +9,16 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 
+//      todo later---->
+// const firebaseConfig = {
+//   apiKey: process.env.FIREBASE_APP_API_KEY,
+//   authDomain: process.env.FIREBASE_APP_AUTH_DOMAIN,
+//   projectId: process.env.FIREBASE_APP_PROJECT_ID,
+//   storageBucket: process.env.FIREBASE_APP_STORAGE_BUCKET,
+//   messagingSenderId: process.env.FIREBASE_APP_MESSAGING_SENDER_ID,
+//   appId: process.env.FIREBASE_APP_ID,
+//   measurementId: process.env.FIREBASE_APP_MEASURMENT_ID,
+// };
 const firebaseConfig = {
   apiKey: "GOOGLE_API_KEY_REDACTED",
   authDomain: "video-storage-3769b.firebaseapp.com",
@@ -39,12 +49,12 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
     for (let i = 0; i < files.length; i++) {
       const url = await singlefileUpload(files[i]);
       setImgUrl(...imgUrl, url);
-      const fileData = { name: files[i].name, path: url };
+      const fileData = { name: files[i].name, path: url, file: files[i] };
       newArray = [...newArray, fileData];
       setformDataTwo(newArray);
       if (i !== files.length - 1) setProgress(0);
       setUploading(true);
-      setTimeUploadRemaining(1);
+      setTimeUploadRemaining(`0 sec left`);
     }
   };
 
@@ -89,7 +99,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
                 (updateDurationThreshold - 1000);
               totaltransferedBytes += lastBytesTransfered;
               remTime = remTime.toFixed(0);
-              if (remTime < 60) remTime = `${remTime} sec left`;
+              if (remTime <= 60) remTime = `${remTime} sec left`;
               if (remTime > 60 && remTime < 3600) {
                 remTime = (remTime / 60).toFixed(2);
                 remTime = `${remTime} min left`;
@@ -119,20 +129,20 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
     });
   };
 
-  const handleClick = () => {};
+  // const handleClick = () => {};
   const handleActiveUploadButton = (i) => {
     setActiveUploadButton(i);
   };
-  const handleFileChange = async (event) => {
-    const files = [...event.target.files];
-    let formdata = new FormData();
-    files.map((item) => formdata.append("video", item));
-    if (files) {
-      let res = await api("post", "/videos", formdata);
-      setUploading(true);
-      setformDataTwo(files);
-    }
-  };
+  // const handleFileChange = async (event) => {
+  //   const files = [...event.target.files];
+  //   let formdata = new FormData();
+  //   files.map((item) => formdata.append("video", item));
+  //   if (files) {
+  //     let res = await api("post", "/videos", formdata);
+  //     setUploading(true);
+  //     setformDataTwo(files);
+  //   }
+  // };
   const handleFileChange1 = (event) => {
     const files = [...event.target.files];
     if (files) {
