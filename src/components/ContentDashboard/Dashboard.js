@@ -67,6 +67,7 @@ const Dashboard = ({ id }) => {
               items={items}
               activeButton={activeButton}
               trigerOnClickEmpSideBtn={onSideBtnClick}
+              setDefaultCompState={setDefaultCompState}
             />
           </Grid>
         </Box>
@@ -78,6 +79,7 @@ const Dashboard = ({ id }) => {
           createCourse={createCourse}
           games={games}
           creator={creator}
+          setDefaultCompState={setDefaultCompState}
         />
       </Box>
     </>

@@ -7,6 +7,7 @@ import { Store, UpdateStore } from "../../../StoreContext";
 import { toast } from "react-toastify";
 import successPopup from "../../PopupForms/RequestSuccessfullyPopup";
 import { initializeApp } from "firebase/app";
+import { useHistory } from "react-router-dom";
 import { getStorage } from "firebase/storage";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 const firebaseConfig = {
@@ -31,7 +32,9 @@ const FormStepsix = ({
   formDataFive,
   setStep,
   setformDataFive,
+  setDefaultCompState,
 }) => {
+  const history = useHistory();
   const updateStore = UpdateStore();
   const { creator } = Store();
   const [uploading, setUploading] = useState(false);
@@ -105,6 +108,10 @@ const FormStepsix = ({
       setformDataSix("");
       setBtnState(2);
       toast.success("Profil non modifié");
+      setDefaultCompState("Course");
+      setStep("");
+
+      // window.location.reload();
       // setStep(1);  --todo change url
     } else {
       toast.error("Enter your email");

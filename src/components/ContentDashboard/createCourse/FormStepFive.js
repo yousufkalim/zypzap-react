@@ -17,6 +17,7 @@ const FormStepFive = ({
   const { creator } = Store();
   const [creatorId, setCreatorId] = useState(creator ? creator._id : null);
   const [lodding, setlodding] = useState(false);
+  const [newVideos, setNewVideos] = useState(formDataTwo ? formDataTwo : []);
   const handleDelete = (file) => {
     const newChapter = formDataTwo?.filter((a) => a !== file);
     setformDataTwo(newChapter);
@@ -62,6 +63,10 @@ const FormStepFive = ({
       prev[index].name = e.target.value;
       return [...prev];
     });
+    setNewVideos((prev) => {
+      prev[index].name = e.target.value;
+      return [...prev];
+    });
   };
 
   return (
@@ -70,7 +75,7 @@ const FormStepFive = ({
         <p>Step {step}/6</p>
         <h2 className="coursedetail1">Uploaded Episode</h2>
         <div className="hrLine1" />
-        {formDataTwo?.map((file, index) => {
+        {newVideos?.map((file, index) => {
           return (
             <div className="step3_container">
               <div className="step3Counting">{index}-</div>

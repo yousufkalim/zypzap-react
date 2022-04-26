@@ -101,7 +101,10 @@ const DashboardRightSideBar = ({
         </Box>
       ) : null}
       {defaultCompState == "" && createCourse && (
-        <CreateCourseForm games={games} />
+        <CreateCourseForm
+          games={games}
+          setDefaultCompState={setDefaultCompState}
+        />
       )}
       {defaultCompState === "Performance" ? <Performance /> : null}
       {defaultCompState === "Earning" ? <Earning /> : null}
