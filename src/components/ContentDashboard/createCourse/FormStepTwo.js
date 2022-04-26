@@ -168,6 +168,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
         uploading={uploading}
         mbPerSecond={mbPerSecond}
         timeUploadRemaining={timeUploadRemaining}
+        setformDataTwo={setformDataTwo}
       />
       <RequestSuccessfullyPopup open={open} setOpen={setOpen} />
       <div className="formStepOneDiv">
@@ -215,7 +216,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
                     <VideoInput
                       id="2"
                       text="Select Chapter"
-                      onChange={handleFileChange1}
+                      // onChange={handleFileChange1}
                     />
                   </div>
                 </div>
