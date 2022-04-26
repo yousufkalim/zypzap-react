@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import GameVideo from "../../assets/GameVideo.mp4";
 import "./CoursePage.css";
 // import VideoPlayIcon from "../../assets/icons/VideoPlayIcon.png";
-import ShakaPlayer from "shaka-player-react";
-import "shaka-player/dist/controls.css";
+
+import ReactPlayer from "react-player";
 
 const CompleteCourse = ({ singlCourse }) => {
   const [videos, setVideos] = useState(
@@ -15,17 +15,6 @@ const CompleteCourse = ({ singlCourse }) => {
     singlCourse?.videos ? singlCourse.videos.length : 0
   );
 
-  useEffect(() => {
-    init();
-  }, [videoCount]);
-  const init = () => {
-    const video = document.getElementById("video");
-    const ui = video["ui"];
-    const config = {
-      addSeekBar: false,
-    };
-    ui.configure(config);
-  };
   return (
     <>
       <div className="completeCourse">
@@ -35,12 +24,8 @@ const CompleteCourse = ({ singlCourse }) => {
               {playVideo?.title ? playVideo.title : "CS Go"} Ep 1 Complete
               Course
             </h2>
-            <ShakaPlayer
-              autoPlay
-              id="video"
-              className="completeCourse-Video"
-              src={playVideo?.src_url}
-            />
+            {/* <ReactPlayer src={playVideo?.src_url} /> */}
+            <ReactPlayer url={playVideo?.src_url} controls autoplay />
             {/* <video
               className="completeCourse-Video"
               src={playVideo?.src_url}
