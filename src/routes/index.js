@@ -25,7 +25,6 @@ import CreatorProfile from "../containers/CreatorProfile";
 import UserDashboard from "../containers/UserDashboard";
 import SettingCreatorProfile from "../containers/SettingCreatorProfile.js";
 
-
 const index = () => {
   return (
     <Switch>
@@ -63,7 +62,6 @@ const index = () => {
         path="/SettingCreatorProfile"
         component={SettingCreatorProfile}
       />
-
     </Switch>
   );
 };

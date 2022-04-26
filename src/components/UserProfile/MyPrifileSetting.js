@@ -7,15 +7,11 @@ import MasterCard from "../../assets/icons/MasterCard.svg";
 import Switch from "@mui/material/Switch";
 
 const MyPrifileSetting = () => {
-  const [values, setValues] = React.useState({
-    showPassword: false,
-  });
+  const [values, setValues] = React.useState(false);
 
   const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
-    });
+    console.log("4567", !values.showPassword);
+    setValues(!values);
   };
 
   const handleMouseDownPassword = (event) => {
@@ -44,7 +40,7 @@ const MyPrifileSetting = () => {
                 Change The Password
               </label>
               <input
-                type="password"
+                type={values ? "text" : "password"}
                 className="profileInputs "
                 placeholder="*************"
               />
@@ -53,7 +49,7 @@ const MyPrifileSetting = () => {
                 onClick={handleClickShowPassword}
                 onMouseDown={handleMouseDownPassword}
               >
-                {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                {values ? <VisibilityOff /> : <Visibility />}
               </button>
             </div>
             <div className="profileSetting_Input">

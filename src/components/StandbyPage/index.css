@@ -55,26 +55,27 @@
   color: black;
 }
 .preparingPrsntageInput {
-  width: 50%;
+  width: 100%;
   margin: auto;
   padding-top: 50px;
 }
 .Input-prsntage {
-  width: 100%;
+  width: 50%;
   background: none;
   border: none;
   border: 1px solid #717171;
   padding: 10px 7px;
-  margin: 25px 0;
+  margin: 8px 0 25px 0;
   border-radius: 2px;
   color: #fff;
 }
 .PreparingPrnstageP {
-  font-size: 18px;
+  font-size: 28px;
+  text-transform: uppercase;
+  font-family: "AMCAP Eternal", sans-serif;
 }
 .preparingPrsntageBtn {
-  margin-top: 5px;
-  width: 100%;
+  width: 50%;
   padding: 10px 0px;
   border: none;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
@@ -85,6 +86,7 @@
   font-size: 18px;
   border: 1px solid #662f88;
   display: block;
+  margin: auto;
 }
 .preparingPrsntageBtn:hover {
   background: none;
@@ -127,7 +129,7 @@
   align-items: center;
 }
 .followUs-box2 {
-  width: 25%;
+  width: 100%;
   padding-top: 30px;
   display: flex;
   flex-direction: column;
@@ -177,6 +179,7 @@
   display: flex;
   justify-content: space-around;
   margin: auto;
+  align-items: center;
 }
 
 @media only screen and (min-width: 200px) and (max-width: 600px) {
@@ -206,12 +209,7 @@
     width: 80%;
     padding-top: 27px;
   }
-  .offerimg1 {
-    width: 90% !important;
-  }
-  .offerimg2 {
-    width: 90% !important;
-  }
+
   .followSocialBox {
     width: 100%;
     flex-direction: column;
@@ -272,12 +270,7 @@
     width: 80%;
     padding-top: 27px;
   }
-  .offerimg1 {
-    width: 90% !important;
-  }
-  .offerimg2 {
-    width: 90% !important;
-  }
+ 
   .followSocialBox {
     width: inherit;
     flex-direction: column;

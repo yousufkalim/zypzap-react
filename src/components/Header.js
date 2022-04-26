@@ -23,6 +23,9 @@ import CreateFormPopup from "./PopupForms/CreateFormPopup";
 import PropfileInformation from "./PopupForms/PropfileInformation";
 import LoginFormPopup from "./PopupForms/LoginFormPopup";
 import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
+import DoYouWant from "./PopupForms/DoYouWant";
+import CongratsPopup from "./PopupForms/CongratsPopup";
+import OopsPopup from "./PopupForms/OopsPopup";
 import OptionPopup from "./PopupForms/OptionPopup";
 import api from "../api";
 import RegisterSuccessfully from "./PopupForms/RegisterSuccessfully";
@@ -94,6 +97,9 @@ export default function PrimarySearchAppBar({
   const [openCongratulation, setCongratulation] = useState(false);
   const [age, setAge] = React.useState("");
   const [showLogoutBtn, setShowLogoutBtn] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
+  const [open3, setOpen3] = useState(false);
   const handleChange = (event) => {
     setAge(event.target.value);
   };
@@ -275,8 +281,17 @@ export default function PrimarySearchAppBar({
         games={games}
         user={user}
         creator={creator}
+        setOpen2={setOpen2}
+        setOpen3={setOpen3}
         // setCongratulation={setCongratulation}
       />
+      <DoYouWant
+        open={open}
+        setOpen={setOpen}
+        setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
+      />
+      <CongratsPopup open={open2} setOpen={setOpen2} />
+      <OopsPopup open={open3} setOpen={setOpen3} />
       <OptionPopup open={Option} setOpen={setOption} />
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" className="headerBackgroundColor">
@@ -400,6 +415,7 @@ export default function PrimarySearchAppBar({
                   >
                     <p className="sgnBtn">Switch to Learner</p>
                   </Link>
+
                   <Link
                     to={{
                       pathname: "dashboard",
@@ -417,7 +433,8 @@ export default function PrimarySearchAppBar({
                       <p
                         className="sgnBtn"
                         onClick={() => {
-                          setOpenBecomeCreatorPopup(true);
+                          // setOpenBecomeCreatorPopup(true);
+                          setOpen(true);
                         }}
                       >
                         Become a Creater
