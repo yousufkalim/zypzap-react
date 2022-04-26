@@ -123,9 +123,15 @@ function TopCoursesComponent({ item }) {
           alt="img"
         />
       </Grid>
-      <Grid item xs={12} sm={8} className="topcourseTextGrid">
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        className="topcourseTextGrid"
+        justifyContent="space-between"
+      >
         <Grid container spacing={2}>
-          <Grid item xs={8} md={8}>
+          <Grid item xs={8} md={10}>
             <h3 className="h3heading">
               {item?.name
                 ? item.name + "gameplay full course"
@@ -139,9 +145,9 @@ function TopCoursesComponent({ item }) {
               arcu sapien magna.
             </p>
           </Grid>
-          <Grid item xs={4} md={4}>
-            {/* <h3 style={{ textAlign: "right" }}>{item?.price + " $"}</h3> */}
-          </Grid>
+          {/* <Grid item xs={4} md={4}>
+            <h3 style={{ textAlign: "right" }}>{item?.price + " $"}</h3>
+          </Grid> */}
         </Grid>
         <Grid container spacing={2} className="topcourseuserGrid">
           <Grid item xs={6} md={6}>

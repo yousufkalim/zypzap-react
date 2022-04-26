@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GameVideo from "../../assets/GameVideo.mp4";
 import "./CoursePage.css";
+// import "../../";
 // import VideoPlayIcon from "../../assets/icons/VideoPlayIcon.png";
 
 import ReactPlayer from "react-player";

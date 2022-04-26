@@ -11,9 +11,17 @@ import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
 import { Store, UpdateStore } from "../../StoreContext";
+
 // import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
 
-const BecomeCreatorpopup = ({ open, setOpen, user, creator }) => {
+const BecomeCreatorpopup = ({
+  open,
+  setOpen,
+  user,
+  creator,
+  setOpen3,
+  setOpen2,
+}) => {
   const history = useHistory();
   const updateStore = UpdateStore();
   const [profile_photo, setImageURL] = useState(
@@ -105,11 +113,12 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator }) => {
 
   const submitProfile = async (e) => {
     if (
-      favouritGame === "" ||
-      gameType === "" ||
-      plateForm === "" ||
+      favouritGame === "" &&
+      gameType === "" &&
+      plateForm === "" &&
       gameMood === ""
     ) {
+      return toast.error("Veuillez saisir le nom de votre cours");
     } else {
       const formdata = {
         expertiseGame: favouritGame,
@@ -120,18 +129,18 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator }) => {
       };
       if (user) {
         let res = await api("post", `/creators/${user?._id}`, formdata);
+
         if (res) {
-          toast.success("Modifier le profil avec succès");
           updateStore({
             user: res?.data?.newUsers,
             creator: res?.data?.creator,
           });
           setOpen(false);
-          // history.push("/userprofile");
+          setOpen2(true);
+          // window.location.reload();
         }
-        window.location.reload();
       } else {
-        toast.success("Profil non modifié");
+        setOpen3(true);
       }
     }
   };

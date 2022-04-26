@@ -72,9 +72,9 @@ const OverViewHome = (props) => {
           <div className="overView_heading">
             <div className="overViewContent">
               <h1 className="overViewH1">
-                Beat the Opponent
-                {singlCourse?.course_name ? singlCourse.course_name : "CS GO"}
-                Gameplay
+                Beat the Opponent&nbsp;
+                {singlCourse?.course_name ? singlCourse.course_name : " CS GO "}
+                &nbsp;Gameplay
               </h1>
               <p className="overViewContent">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit ut

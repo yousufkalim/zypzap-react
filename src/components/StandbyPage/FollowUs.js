@@ -9,7 +9,7 @@ const FollowUs = () => {
     <>
       <div className="FollowUs">
         <div className="FollowUs_container">
-          <h2 className="followUsH2">Suivez-nous sur les reseaux sociaux</h2>
+          <h2 className="followUsH2">Suivez-nous sur les rÉseaux sociaux</h2>
           <div className="followSocialBox">
             {/* this */}
 
