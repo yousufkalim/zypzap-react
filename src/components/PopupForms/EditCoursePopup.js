@@ -7,9 +7,11 @@ import Grid from "@mui/material/Grid";
 import UploadSuccessfulPopup from "./UploadSuccessfulPopup";
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
+import { toast } from "react-toastify";
 import { Store, UpdateStore } from "../../StoreContext";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import UploadingTheCourse from "../PopupForms/UploadingTheCourse";
+import api from "../../api";
 //      todo later---->
 // const firebaseConfig = {
 //   apiKey: process.env.FIREBASE_APP_API_KEY,
@@ -45,7 +47,7 @@ const EditCoursePopup = ({ open, setOpen, course }) => {
   const [formDataTwo, setformDataTwo] = useState([]);
   const [formDataOne, setformDataOne] = useState({
     course_name: course?.course_name,
-    gameName: course?.game_id?.game_name,
+    gameName: course?.game_id?._id,
     gameLevel: course?.gameLevel,
     gameType: course?.game_id?.category,
     gameMood: course?.gameMood,
@@ -64,7 +66,7 @@ const EditCoursePopup = ({ open, setOpen, course }) => {
   useEffect(() => {
     setformDataOne({
       course_name: course?.course_name,
-      gameName: course?.game_id?.game_name,
+      gameName: course?.game_id?._id,
       gameLevel: course?.level,
       gameType: course?.game_id?.category,
       gameMood: course?.mode,
@@ -75,11 +77,16 @@ const EditCoursePopup = ({ open, setOpen, course }) => {
   useEffect(() => {
     setGame(Games ? Games : []);
   }, [Games]);
-  const handleSave = () => {
+  const handleSave = async () => {
     const data = { formDataOne, formDataTwo, id: course?._id };
-    setShowPopup(true);
-    setOpen(false);
-    setformDataTwo([]);
+    let res = await api("put", "/courses", data);
+    if (res) {
+      setShowPopup(true);
+      setOpen(false);
+      setformDataTwo([]);
+    } else {
+      return toast.error("Courses not update try again");
+    }
   };
   const chnageEvent = (e) => {
     setformDataOne({

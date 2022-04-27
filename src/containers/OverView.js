@@ -21,7 +21,7 @@ let btns = [
   { text: "Feedback" },
 ];
 const OverView = (props) => {
-  const { id, value } = useParams();
+  const { id } = useParams();
   const [overView, setOverView] = useState(false);
   const [activebtn, setActivebtn] = useState("Overview");
   const [course, setCourse] = useState();
