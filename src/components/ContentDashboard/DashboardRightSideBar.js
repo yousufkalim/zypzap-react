@@ -82,10 +82,10 @@ const DashboardRightSideBar = ({
               <DashboardUploadCourses pageName={"draft"} />
             ) : null}
             {activeUploadButton == 3 ? (
-              <DashboardUploadCourses pageName={"notApprove"} />
+              <DashboardUploadCourses pageName={"Not Approve"} />
             ) : null}
             {activeUploadButton == 4 ? (
-              <DashboardUploadCourses pageName={"underEvalution"} />
+              <DashboardUploadCourses pageName={"Under Evalution"} />
             ) : null}
             {activeUploadButton == 5 ? (
               <div className="request-data">

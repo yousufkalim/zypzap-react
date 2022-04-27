@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import { Store, UpdateStore } from "../../StoreContext";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import UploadingTheCourse from "../PopupForms/UploadingTheCourse";
+
 import api from "../../api";
 //      todo later---->
 // const firebaseConfig = {
@@ -33,7 +34,7 @@ const firebaseConfig = {
 };
 export const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
-const EditCoursePopup = ({ open, setOpen, course }) => {
+const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   const { Games, creator } = Store();
   const [showPopup, setShowPopup] = React.useState(false);
   const [opens, setOpens] = React.useState(false);
@@ -45,6 +46,7 @@ const EditCoursePopup = ({ open, setOpen, course }) => {
   const [game, setGame] = useState(Games ? Games : []);
   const [timeUploadRemaining, setTimeUploadRemaining] = useState(0);
   const [formDataTwo, setformDataTwo] = useState([]);
+  const [formDataFive, setformDataFive] = useState([]);
   const [formDataOne, setformDataOne] = useState({
     course_name: course?.course_name,
     gameName: course?.game_id?._id,
@@ -77,23 +79,26 @@ const EditCoursePopup = ({ open, setOpen, course }) => {
   useEffect(() => {
     setGame(Games ? Games : []);
   }, [Games]);
-  const handleSave = async () => {
-    const data = { formDataOne, formDataTwo, id: course?._id };
-    let res = await api("put", "/courses", data);
-    if (res) {
-      setShowPopup(true);
-      setOpen(false);
-      setformDataTwo([]);
-    } else {
-      return toast.error("Courses not update try again");
-    }
-  };
   const chnageEvent = (e) => {
     setformDataOne({
       ...formDataOne,
       [e.target.name]: e.target.value,
     });
   };
+  const handleSave = async () => {
+    const data = { formDataOne, formDataFive, id: course?._id };
+    let res = await api("put", "/courses", data);
+    if (res) {
+      // setShowPopup(true);
+      setformDataTwo([]);
+      setformDataFive([]);
+      setOpen(false);
+      setOpenS(true);
+    } else {
+      return toast.error("Courses not update try again");
+    }
+  };
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -106,14 +111,29 @@ const EditCoursePopup = ({ open, setOpen, course }) => {
       const url = await singlefileUpload(files[i]);
       setImgUrl(...imgUrl, url);
       const fileData = { name: files[i].name, path: url, file: files[i] };
+      let file = await handleSingleVideo(fileData);
+      // setUploadedVideos([...uploadedVideos, formDataTwo[i]]);
+      newArray = [...newArray, file._id];
+      setformDataFive(newArray);
       newArray = [...newArray, fileData];
       setformDataTwo(newArray);
       if (i !== files.length - 1) setProgress(0);
+
       setUploading(true);
       setTimeUploadRemaining(`0 sec left`);
     }
   };
-
+  const handleSingleVideo = async (file) => {
+    return new Promise(async (resolve, reject) => {
+      file.creator = creator._id;
+      let res = await api("post", "/videos", file);
+      if (res) {
+        resolve(res.data);
+      } else {
+        reject(null);
+      }
+    });
+  };
   const singlefileUpload = (file) => {
     return new Promise((resolve, reject) => {
       setVideoName(file.name);

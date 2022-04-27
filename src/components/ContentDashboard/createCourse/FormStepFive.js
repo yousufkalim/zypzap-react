@@ -17,7 +17,9 @@ const FormStepFive = ({
   const { creator } = Store();
   const [creatorId, setCreatorId] = useState(creator ? creator._id : null);
   const [lodding, setlodding] = useState(false);
-  const [newVideos, setNewVideos] = useState(formDataTwo ? formDataTwo : []);
+  const [uploadedVideos, setUploadedVideos] = useState([]);
+  // const [newVideos, setNewVideos] = useState([]);
+
   const handleDelete = (file) => {
     const newChapter = formDataTwo?.filter((a) => a !== file);
     setformDataTwo(newChapter);
@@ -31,17 +33,17 @@ const FormStepFive = ({
       setStep(6);
     }
     setlodding(true);
-    let newArray = [];
-    for (let i = 0; i < formDataTwo.length; i++) {
+    let newArray = [...formDataFive];
+    for (let i = formDataFive?.length; i < formDataTwo.length; i++) {
       if (formDataTwo[i].name === "") {
         formDataTwo[i].name = formDataTwo[i]?.file?.name;
       }
       let file = await handleSingleVideo(formDataTwo[i]);
+      // setUploadedVideos([...uploadedVideos, formDataTwo[i]]);
       newArray = [...newArray, file._id];
       setformDataFive(newArray);
       if (formDataTwo.length === 1) setStep(6);
-      if (i !== formDataTwo.length - 1) {
-        setformDataTwo([]);
+      if (i == formDataTwo.length - 1) {
         setStep(6);
       }
     }
@@ -63,10 +65,6 @@ const FormStepFive = ({
       prev[index].name = e.target.value;
       return [...prev];
     });
-    setNewVideos((prev) => {
-      prev[index].name = e.target.value;
-      return [...prev];
-    });
   };
 
   return (
@@ -75,7 +73,7 @@ const FormStepFive = ({
         <p>Step {step}/6</p>
         <h2 className="coursedetail1">Uploaded Episode</h2>
         <div className="hrLine1" />
-        {newVideos?.map((file, index) => {
+        {formDataTwo?.map((file, index) => {
           return (
             <div className="step3_container">
               <div className="step3Counting">{index}-</div>
