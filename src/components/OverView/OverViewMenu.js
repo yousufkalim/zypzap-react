@@ -34,7 +34,11 @@ const OverViewMenu = ({ setActivebtn, btns, activebtn, course }) => {
         course={course}
         setOpenS={setOpens}
       />
-      <DeleteEpisodePopup open={showDeletePopup} setOpen={setShowDeletePopup} />
+      <DeleteEpisodePopup
+        open={showDeletePopup}
+        setOpen={setShowDeletePopup}
+        course={course}
+      />
       <div className="overViewMenu">
         <div className="overViewMene_centerDiv">
           {btns.map((btn) => (

@@ -5,7 +5,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import DeleteEpisodePUBG from "./DeleteEpisodePUBG";
 import DeleteFullCoursePopup from "./DeleteFullCoursePopup";
 
-const DeleteEpisodePopup = ({ open, setOpen }) => {
+const DeleteEpisodePopup = ({ open, setOpen, course }) => {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
 
   const handleClick = () => {
@@ -26,6 +26,7 @@ const DeleteEpisodePopup = ({ open, setOpen }) => {
       <DeleteFullCoursePopup
         open={showDeletePopup}
         setOpen={setShowDeletePopup}
+        course={course}
       />
       <Dialog
         open={open}
