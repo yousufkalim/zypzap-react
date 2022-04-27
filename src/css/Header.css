@@ -126,6 +126,7 @@
   position: absolute;
   margin: -10px 0 0 70px;
   font-weight: bold;
+  z-index: 5;
   border: none;
   padding: 2px 7px;
   font-size: 12px;
@@ -246,8 +247,9 @@
   display: block;
 }
 
-
-.show {display: block;}
+.show {
+  display: block;
+}
 
 /* for big screens */
 @media only screen and (min-width: 1900px) {

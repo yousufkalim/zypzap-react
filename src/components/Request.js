@@ -15,7 +15,7 @@ export default function Construction({
         <br className="br" /> Rutrum non vitae id urna nunc, egestas. Tempus
         aliquam, at fus
       </p>
-      {user ? (
+      {/* {user ? (
         <button
           className="requestButton"
           onClick={() => {
@@ -24,16 +24,16 @@ export default function Construction({
         >
           Request Now
         </button>
-      ) : (
-        <button
-          className="requestButton"
-          onClick={() => {
-            setOpenContentRequest(true);
-          }}
-        >
-          Comming Soon
-        </button>
-      )}
+      ) : ( */}
+      <button
+        className="requestButton"
+        // onClick={() => {
+        //   setOpenContentRequest(true);
+        // }}
+      >
+        Comming Soon
+      </button>
+      {/* )} */}
     </div>
   );
 }
