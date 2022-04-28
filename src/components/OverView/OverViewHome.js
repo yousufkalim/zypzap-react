@@ -14,6 +14,7 @@ import OverCardSocialIcon2 from "../../assets/icons/OverCardSocialIcon2.svg";
 import OverCardSocialIcon3 from "../../assets/icons/OverCardSocialIcon3.svg";
 import RatingStarIcon from "../../assets/icons/RatingStarIcon.svg";
 import Star6 from "../../assets/icons/Star6.svg";
+
 // import { ReactComponent as Star } from "../../assets/icons/star2.svg";
 // import StarIcon from "@material-ui/icons/Star";
 import { NavLink } from "react-router-dom";
@@ -151,38 +152,64 @@ const OverViewHome = (props) => {
                       : "$0.00"}
                   </p> */}
                   {/* <p className="cardP2">$39.99</p> */}
-                  <img src={OverCardHurtLogo} alt="" className="cardHurtLogo" />
+                  {user?.role === "User" && (
+                    <img
+                      src={OverCardHurtLogo}
+                      alt=""
+                      className="cardHurtLogo"
+                    />
+                  )}
                 </div>
-                <NavLink
-                  to="#"
-                  className="CardBuyBtn"
-                  onClick={() => {
-                    if (user) {
-                      handleClick(user, singlCourse);
-                      props.setShowVideo(true);
-                    } else {
-                      setOpenGuestPopUp(true);
-                      // props.setOpenSignup(true);
-                    }
-                  }}
-                >
-                  Start
-                </NavLink>
-                <NavLink
-                  to="#"
-                  className="CardBuyBtn"
-                  onClick={() => {
-                    if (user) {
-                      handleEnrolled(user, singlCourse);
-                    } else {
-                      setOpenGuestPopUp(true);
+                {user?.role === "Creator" ? (
+                  <NavLink
+                    to="#"
+                    className="CardBuyBtn"
+                    onClick={() => {
+                      if (user) {
+                        handleClick(user, singlCourse);
+                        props.setShowVideo(true);
+                      } else {
+                        props.setOpenSignup(true);
+                      }
+                    }}
+                  >
+                    View
+                  </NavLink>
+                ) : (
+                  <>
+                    {" "}
+                    <NavLink
+                      to="#"
+                      className="CardBuyBtn"
+                      onClick={() => {
+                        if (user) {
+                          handleClick(user, singlCourse);
+                          props.setShowVideo(true);
+                        } else {
+                          setOpenGuestPopUp(true);
+                          // props.setOpenSignup(true);
+                        }
+                      }}
+                    >
+                      Start
+                    </NavLink>
+                    <NavLink
+                      to="#"
+                      className="CardBuyBtn"
+                      onClick={() => {
+                        if (user) {
+                          handleEnrolled(user, singlCourse);
+                        } else {
+                          setOpenGuestPopUp(true);
 
-                      // props.setOpenSignup(true);
-                    }
-                  }}
-                >
-                  Enroll Now
-                </NavLink>
+                          // props.setOpenSignup(true);
+                        }
+                      }}
+                    >
+                      Enroll Now
+                    </NavLink>
+                  </>
+                )}
                 {/* <NavLink to="#" className="CardBuyBtn2">
                   Stock It In The Caddy
                   <button className="overComming-soonBTN">Comming Soon</button>

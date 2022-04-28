@@ -4,8 +4,9 @@ import "../../css/form/UploadSuccessfulPopup.css";
 import UploadSuccessLog from "../../assets/icons/UploadSuccessLog.svg";
 // import UploadedEpisodePopup from "./UploadedEpisodePopup";
 import ClearIcon from "@mui/icons-material/Clear";
-
+import { useHistory } from "react-router-dom";
 const DeletedFullCoursePopup = ({ open, setOpen }) => {
+  const history = useHistory();
   const [showDeletePopup, setShowDeletePopup] = useState(false);
 
   const handleClick = () => {
@@ -14,6 +15,10 @@ const DeletedFullCoursePopup = ({ open, setOpen }) => {
   };
   const handleClose = () => {
     setOpen(false);
+    history.push("/dashboard");
+  };
+  const hanldleClick = (e) => {
+    history.push("/dashboard");
   };
   return (
     <div>
@@ -27,7 +32,12 @@ const DeletedFullCoursePopup = ({ open, setOpen }) => {
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv">
             <ClearIcon className="subsclearIcon" onClick={handleClose} />
-            <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />
+            <img
+              src={UploadSuccessLog}
+              alt=""
+              className="uloadSuccessIMG"
+              onClick={hanldleClick}
+            />
             <p className="uploadSuccessP">CS-GO Ep 1 Complete Course Deleted</p>
           </div>
         </div>

@@ -424,8 +424,8 @@ export default function PrimarySearchAppBar({
 
                   <Link
                     to={{
-                      pathname: "dashboard",
-                      state: { creator: `${creator}` }
+                      pathname: "/dashboard",
+                      state: { creator: `${creator}` },
                     }}
                     style={{ color: "white", textDecoration: "none" }}
                   >

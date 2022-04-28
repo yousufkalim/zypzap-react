@@ -9,6 +9,7 @@ import successPopup from "../../PopupForms/RequestSuccessfullyPopup";
 import { initializeApp } from "firebase/app";
 import { useHistory } from "react-router-dom";
 import { getStorage } from "firebase/storage";
+import CourseAproved from "../../PopupForms/CourseAproved";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 const firebaseConfig = {
   apiKey: "GOOGLE_API_KEY_REDACTED",
@@ -39,6 +40,7 @@ const FormStepsix = ({
   const { creator } = Store();
   const [uploading, setUploading] = useState(false);
   const [btnState, setBtnState] = useState(0);
+  const [opens, setOpens] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [imgUrl, setImgUrl] = useState("");
   // const [videoName, setVideoName] = useState("");
@@ -108,8 +110,9 @@ const FormStepsix = ({
       setformDataSix("");
       setBtnState(2);
       toast.success("Profil non modifié");
-      setDefaultCompState("Course");
-      setStep("");
+      // setDefaultCompState("Course");
+      setOpens(true);
+      // setStep("");
 
       // window.location.reload();
       // setStep(1);  --todo change url
@@ -118,15 +121,23 @@ const FormStepsix = ({
     }
   };
   const handleClose = () => {
-    showPopup(false);
+    setOpens(false);
   };
   return (
     <>
-      <successPopup
+      <CourseAproved
+        open={opens}
+        setOpen={setOpens}
+        closeModal={handleClose}
+        setDefaultCompState={setDefaultCompState}
+        setStep={setStep}
+        text=""
+      />
+      {/* <successPopup
         open={showPopup}
         setOpen={() => setShowPopup(!showPopup)}
         closeModal={handleClose}
-      />
+      /> */}
       <div className="formStepOneDiv">
         <p>Step {step}/6</p>
         <br />
