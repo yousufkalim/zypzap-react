@@ -166,7 +166,7 @@
 }
 
 .dropdown-content {
-  display: none;
+  display: block;
   position: absolute;
   min-width: 260px;
   z-index: 1;
@@ -178,15 +178,14 @@
   background-color: #202342;
   text-decoration: none;
   display: block;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family:"Mulish"
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
+  /* display: block; */
 }
 .dropdown-content a:hover {
-  background-color: #292d55;
+  background-color: #12142b;
 }
 .UserIcons {
   margin-right: 10px;

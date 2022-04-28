@@ -97,6 +97,7 @@ export default function PrimarySearchAppBar({
   const [Option, setOption] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
   const [openCongratulation, setCongratulation] = useState(false);
+  const [searchFlag, setSearchFlag] = useState(false);
   const [age, setAge] = React.useState("");
 
   const [open, setOpen] = useState(false);
@@ -164,10 +165,12 @@ export default function PrimarySearchAppBar({
   };
   const handleCreatorSearch = (e) => {
     e.preventDefault();
+    setSearchFlag(false);
     updateStore({ searchState: "creator" });
   };
   const handleCourseSearch = (e) => {
     e.preventDefault();
+    setSearchFlag(false);
     updateStore({ searchState: "course" });
   };
   const handleChangeInput = (e) => {
@@ -348,38 +351,45 @@ export default function PrimarySearchAppBar({
 
               <div className="dropdown">
                 {/* <button className="dropbtn"> */}
-                <img src={DownArrow} alt="img" className="downarrow" />
+                <img
+                  src={DownArrow}
+                  alt="img"
+                  className="downarrow"
+                  onClick={() => setSearchFlag(!searchFlag)}
+                />
                 {/* </button> */}
-                <div className="dropdown-content">
-                  <div className="drowp1">
-                    <a
-                      href="#"
-                      className={`${
-                        searchState == "creator" && "activeserchis"
-                      } `}
-                      onClick={handleCreatorSearch}
-                    >
-                      <img className="UserIcons" src={UserIcon} alt="" />
-                      Content Creators
-                      <p className="drowpP">
-                        Top gamers who create content for you
-                      </p>
-                    </a>
+                {searchFlag && (
+                  <div className="dropdown-content">
+                    <div className="drowp1">
+                      <a
+                        href="#"
+                        className={`${
+                          searchState == "creator" && "activeserchis"
+                        } `}
+                        onClick={handleCreatorSearch}
+                      >
+                        <img className="UserIcons" src={UserIcon} alt="" />
+                        Content Creators
+                        <p className="drowpP">
+                          Top gamers who create content for you
+                        </p>
+                      </a>
+                    </div>
+                    <div className=" drowp1">
+                      <a
+                        href="#"
+                        className={`${
+                          searchState == "course" && "activeserchis"
+                        } `}
+                        onClick={handleCourseSearch}
+                      >
+                        <img className="UserIcons" src={CourseIcon} alt="" />
+                        Courses
+                        <p className="drowpP">Browse and buy courses</p>
+                      </a>
+                    </div>
                   </div>
-                  <div className=" drowp1">
-                    <a
-                      href="#"
-                      className={`${
-                        searchState == "course" && "activeserchis"
-                      } `}
-                      onClick={handleCourseSearch}
-                    >
-                      <img className="UserIcons" src={CourseIcon} alt="" />
-                      Courses
-                      <p className="drowpP">Browse and buy courses</p>
-                    </a>
-                  </div>
-                </div>
+                )}
               </div>
               <StyledInputBase
                 placeholder="Type your search here"
