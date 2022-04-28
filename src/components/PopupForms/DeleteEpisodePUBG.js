@@ -3,15 +3,9 @@ import Dialog from "@mui/material/Dialog";
 import "../../css/form/UploadSuccessfulPopup.css";
 import UploadSuccessLog from "../../assets/icons/UploadSuccessLog.svg";
 import DeletedEpisodeCourse from "./DeletedEpisodeCourse";
-
-const DeleteEpisodePUBG = ({ open, setOpen }) => {
+import ClearIcon from "@mui/icons-material/Clear";
+const DeleteEpisodePUBG = ({ open, setOpen, text }) => {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
-
-  const handleClick = () => {
-    setShowDeletePopup(true);
-    setOpen(false);
-  };
-
   const handleClose = () => {
     setOpen(false);
   };
@@ -29,14 +23,12 @@ const DeleteEpisodePUBG = ({ open, setOpen }) => {
         aria-describedby="alert-dialog-description"
       >
         <div className="uploadSuccessDiv">
+          <ClearIcon className="subsclearIcon" onClick={handleClose} />
           <div className="uploadSuccess-centerDiv">
             <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />
             <p className="uploadSuccessP">
-              Episode PUBG GamePlay Course 1/2 deleted
+              Episode {text.title} GamePlay Course {text.index}/2 deleted
             </p>
-            <button className="uploadSuccessBTN" onClick={handleClick}>
-              Confirm
-            </button>
           </div>
         </div>
       </Dialog>

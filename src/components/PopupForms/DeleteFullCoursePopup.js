@@ -15,6 +15,7 @@ const DeleteFullCoursePopup = ({ open, setOpen, course }) => {
     if (res) {
       setShowDeletePopup(true);
       setOpen(false);
+    } else {
     }
   };
 
@@ -27,6 +28,7 @@ const DeleteFullCoursePopup = ({ open, setOpen, course }) => {
         open={showDeletePopup}
         setOpen={setShowDeletePopup}
       />
+
       <Dialog
         open={open}
         setOpe={setOpen}

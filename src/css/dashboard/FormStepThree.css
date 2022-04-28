@@ -9,6 +9,14 @@
   margin-right: 0px;
   position: relative;
 }
+.step3Input1 {
+  width: 53%;
+  margin-right: 0px;
+  position: relative;
+}
+.DeleteBtn {
+  padding-top: 5px !important;
+}
 .step3_inputs {
   width: 100%;
   background: none;
@@ -33,6 +41,10 @@
 }
 .step3Img {
   margin-left: 10px;
+}
+.step3Img1 {
+  margin-left: 30px;
+  margin-top: 14px;
 }
 .step3BTN {
   width: 15%;

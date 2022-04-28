@@ -6,9 +6,11 @@ import EditCoursePopup from "../PopupForms/EditCoursePopup";
 import DeleteEpisodePopup from "../PopupForms/DeleteEpisodePopup";
 import CourseAproved from "../PopupForms/CourseAproved";
 import { Store, UpdateStore } from "../../StoreContext";
+import DeleteEpisode from "../ContentDashboard/createCourse/DeleteEpisode";
 const OverViewMenu = ({ setActivebtn, btns, activebtn, course }) => {
   const { user } = Store();
   const [open, setOpen] = useState(false);
+  const [openEpisode, setOpenEpisode] = useState(false);
   const [opens, setOpens] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [userRole, setUserRole] = useState(user?.role ? user.role : "User");
@@ -26,7 +28,12 @@ const OverViewMenu = ({ setActivebtn, btns, activebtn, course }) => {
       <CourseAproved
         open={opens}
         setOpen={setOpens}
-        text="Course Edid Successfully!"
+        text="Course Edit Successfully!"
+      />
+      <DeleteEpisode
+        setOpen={setOpenEpisode}
+        open={openEpisode}
+        course={course}
       />
       <EditCoursePopup
         open={open}
@@ -38,6 +45,7 @@ const OverViewMenu = ({ setActivebtn, btns, activebtn, course }) => {
         open={showDeletePopup}
         setOpen={setShowDeletePopup}
         course={course}
+        setOpenEpisode={setOpenEpisode}
       />
       <div className="overViewMenu">
         <div className="overViewMene_centerDiv">
