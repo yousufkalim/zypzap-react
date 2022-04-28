@@ -33,149 +33,149 @@ import CreatorResult from "./CreatorResult";
 const categories = [
   {
     name: "Top 10 Games",
-    value: "1",
+    value: "1"
   },
   {
     name: "Top 10 Trendy Games",
-    value: "1",
+    value: "1"
   },
   {
     name: "Top 10 NFT Games",
-    value: "3",
+    value: "3"
   },
   {
     name: "Top 10 Metaverse Games",
-    value: "4",
+    value: "4"
   },
   {
     name: "Latest Courses",
-    value: "2",
+    value: "2"
   },
   {
     name: "Top Rated Content Creators",
-    value: "5",
+    value: "5"
   },
   {
     name: "Top Courses",
-    value: "1",
+    value: "1"
   },
   {
     name: "Top New Games",
-    value: "6",
+    value: "6"
   },
   {
     name: "Top Reality Games",
-    value: "7",
-  },
+    value: "7"
+  }
 ];
 
 const GameTypes = [
   {
     name: "Action",
-    value: "name",
+    value: "name"
   },
   {
     name: "Adventure",
-    value: "class",
+    value: "class"
   },
   {
     name: "Metaverse",
-    value: "age",
+    value: "age"
   },
   {
     name: "MMOG",
-    value: "subjects",
+    value: "subjects"
   },
   {
     name: "Car Racing",
-    value: "school",
+    value: "school"
   },
   {
     name: "Versus Fighting",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "FPS",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "RTS",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "RPG",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "Turn by Turn Strategy",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "Simulation",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "Sport",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "Trading card",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "Puzzle",
-    value: "schooltwo",
-  },
+    value: "schooltwo"
+  }
 ];
 const PlateformsAry = [
   {
     name: "Retro Consoles",
-    value: "name",
+    value: "name"
   },
   {
     name: "PS1/2/3/4/5",
-    value: "class",
+    value: "class"
   },
   {
     name: "Xbox/360/One/X",
-    value: "age",
+    value: "age"
   },
   {
     name: "PC",
-    value: "subjects",
+    value: "subjects"
   },
   {
     name: "Portable Consoles",
-    value: "school",
+    value: "school"
   },
   {
     name: "Mobile Games",
-    value: "schooltwo",
-  },
+    value: "schooltwo"
+  }
 ];
 const levelAry = [
   {
     name: "Casual",
-    value: "Casual",
+    value: "Casual"
   },
   {
     name: "Confirmed",
-    value: "Confirmed",
+    value: "Confirmed"
   },
   {
     name: "Hardcore",
-    value: "Hardcore",
+    value: "Hardcore"
   },
   {
     name: "Esporter",
-    value: "Esporter",
-  },
+    value: "Esporter"
+  }
 ];
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(2),
   textAlign: "center",
-  color: theme.palette.text.secondary,
+  color: theme.palette.text.secondary
 }));
 
 const SearchResultBody = () => {
@@ -244,7 +244,7 @@ const SearchResultBody = () => {
           searchState: "creator",
           searchCourse: [],
           searchCreator: res?.data,
-          searchInput: name,
+          searchInput: name
         });
         setSelectedActiveButton("");
       }
@@ -253,7 +253,7 @@ const SearchResultBody = () => {
           searchState: "course",
           searchCourse: res.data,
           searchCreator: [],
-          searchInput: name,
+          searchInput: name
         });
         setSelectedActiveButton("");
       }
@@ -333,7 +333,7 @@ const SearchResultBody = () => {
             sx={{
               textAlign: "left",
               backgroundColor: "#0E0F1E",
-              color: "#fff",
+              color: "#fff"
             }}
           >
             <h4>Filter By</h4>
@@ -349,9 +349,8 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="1"
                   onClick={onClickSideBarHeaders}
@@ -361,9 +360,8 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="1"
                   onClick={onClickSideBarHeaders}
@@ -388,9 +386,9 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="2"
                   onClick={onClickSideBarHeaders}
@@ -400,9 +398,9 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="2"
                   onClick={onClickSideBarHeaders}
@@ -427,9 +425,9 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="3"
                   onClick={onClickSideBarHeaders}
@@ -439,9 +437,9 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="3"
                   onClick={onClickSideBarHeaders}
@@ -465,25 +463,24 @@ const SearchResultBody = () => {
             >
               Gameplay Level
               {!selectedLevel ? (
-                <KeyboardArrowDownIcon
+                <KeyboardArrowUpIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="6"
                   onClick={onClickSideBarHeaders}
                 />
               ) : (
-                <KeyboardArrowUpIcon
+                <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="6"
                   onClick={onClickSideBarHeaders}
@@ -510,9 +507,8 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="4"
                   onClick={onClickSideBarHeaders}
@@ -522,9 +518,8 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="4"
                   onClick={onClickSideBarHeaders}
@@ -568,9 +563,8 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="5"
                   onClick={onClickSideBarHeaders}
@@ -580,9 +574,8 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="5"
                   onClick={onClickSideBarHeaders}
@@ -674,9 +667,9 @@ const SearchResultBody = () => {
               </form>
             ) : null}
             {/* 111111 */}
-            <h4 className="didnt-find-text">
+            {/* <h4 className="didnt-find-text">
               Didn't found the <br /> course
-            </h4>
+            </h4> */}
             <Box>
               <Button
                 className="reqstStateBTN"

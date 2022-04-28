@@ -35,7 +35,7 @@ const CreatorResult = ({ input, creator }) => {
           {/* div col 1 */}
           <div className="followCol1">
             <div className="followerNames">
-              <h3 className="followH3">{input}</h3>
+              {/* <h3 className="followH3">{input}</h3> */}
               <p className="follow-P">{_myCreators?.length} result Found</p>
             </div>
           </div>
@@ -70,7 +70,7 @@ const CreatorResult = ({ input, creator }) => {
                             <Star1
                               className="wishCardStar"
                               style={{
-                                key: { item },
+                                key: { item }
                               }}
                             />
                           ))}
