@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import OverViewImg from "../../assets/img/OverviewImg.svg";
 import OverViewCardImg from "../../assets/img/OverViewCardImg.svg";
 import overViewIcon1 from "../../assets/icons/overViewIcon1.svg";
@@ -19,10 +19,12 @@ import Star6 from "../../assets/icons/Star6.svg";
 import { NavLink } from "react-router-dom";
 import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
+import GuestSignUpPopUp from "../PopupForms/GuestSignUpPopUp";
 const OverViewHome = (props) => {
   const { user } = Store();
   const updateStore = UpdateStore();
   const { singlCourse } = props;
+  const [openGuestPopUp, setOpenGuestPopUp] = useState(false);
   const calTotalSecInVideos = (videos) => {
     let timeInSecond = 1;
     videos.map((videos) => (timeInSecond += parseInt(videos.duration)));
@@ -84,6 +86,7 @@ const OverViewHome = (props) => {
                 ipsum dolor sit amet, consectetur adipiscing
               </p>
             </div>
+
             <div className="overViewTags">
               <li className="overViewLi">
                 <img src={overViewIcon1} alt="" className="overViewIcon-1" />
@@ -158,7 +161,8 @@ const OverViewHome = (props) => {
                       handleClick(user, singlCourse);
                       props.setShowVideo(true);
                     } else {
-                      props.setOpenSignup(true);
+                      setOpenGuestPopUp(true);
+                      // props.setOpenSignup(true);
                     }
                   }}
                 >
@@ -171,7 +175,9 @@ const OverViewHome = (props) => {
                     if (user) {
                       handleEnrolled(user, singlCourse);
                     } else {
-                      props.setOpenSignup(true);
+                      setOpenGuestPopUp(true);
+
+                      // props.setOpenSignup(true);
                     }
                   }}
                 >
@@ -233,6 +239,11 @@ const OverViewHome = (props) => {
             </div>
           </div>
         </div>
+        <GuestSignUpPopUp
+          open={openGuestPopUp}
+          setOpen={setOpenGuestPopUp}
+          setOpenSignup={props.setOpenSignup}
+        />
       </div>
     </>
   );

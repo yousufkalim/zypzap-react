@@ -8,6 +8,7 @@ const ContentDashboard = () => {
   const { creator } = Store();
   const [footerState, setFooterState] = useState(true);
   const [openlogin, setOpenLogin] = useState(false);
+
   const [opensignup, setOpenSignup] = useState(false);
   const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] = useState(false);
   return (
