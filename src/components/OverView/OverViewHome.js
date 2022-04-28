@@ -21,11 +21,13 @@ import GuestSignUpPopUp from "../PopupForms/GuestSignUpPopUp";
 import { NavLink } from "react-router-dom";
 import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
+import GuestSignUpPopUp from "../PopupForms/GuestSignUpPopUp";
 const OverViewHome = (props) => {
   const { user } = Store();
   const updateStore = UpdateStore();
   const [openGuestPopUp, setOpenGuestPopUp] = useState(false);
   const { singlCourse } = props;
+  const [openGuestPopUp, setOpenGuestPopUp] = useState(false);
   const calTotalSecInVideos = (videos) => {
     let timeInSecond = 1;
     videos.map((videos) => (timeInSecond += parseInt(videos.duration)));
@@ -87,6 +89,7 @@ const OverViewHome = (props) => {
                 ipsum dolor sit amet, consectetur adipiscing
               </p>
             </div>
+
             <div className="overViewTags">
               <li className="overViewLi">
                 <img src={overViewIcon1} alt="" className="overViewIcon-1" />

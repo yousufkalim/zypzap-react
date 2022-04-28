@@ -22,6 +22,8 @@ import { useHistory } from "react-router-dom";
 import CreateFormPopup from "./PopupForms/CreateFormPopup";
 import PropfileInformation from "./PopupForms/PropfileInformation";
 import LoginFormPopup from "./PopupForms/LoginFormPopup";
+import LogoutForm from "./PopupForms/LogoutForm";
+
 import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
 import DoYouWant from "./PopupForms/DoYouWant";
 import CongratsPopup from "./PopupForms/CongratsPopup";
@@ -96,13 +98,18 @@ export default function PrimarySearchAppBar({
   const [openProfile, setOpenProfile] = useState(false);
   const [openCongratulation, setCongratulation] = useState(false);
   const [age, setAge] = React.useState("");
-  const [showLogoutBtn, setShowLogoutBtn] = useState(false);
+
   const [open, setOpen] = useState(false);
+
   const [open2, setOpen2] = useState(false);
   const [open3, setOpen3] = useState(false);
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+
+  // const showLogoutFormPopup = () => {
+
+  // };
   const handleLogout = async () => {
     let res = await api("post", "/users/logout/all");
     if (res) {
@@ -274,7 +281,6 @@ export default function PrimarySearchAppBar({
         signup={opensignup}
         setSignup={setOpenSignup}
       />
-
       <BecomeCreatorpopup
         open={openBecomeCreatorPopup}
         setOpen={setOpenBecomeCreatorPopup}
@@ -454,12 +460,32 @@ export default function PrimarySearchAppBar({
               )}
               {user ? (
                 <p className="sgnBtn">
-                  <div class="dropdown" onClick={handleLogout}>
+                  <div class="dropdown">
                     <img src={HeaderLogoutIcon} alt="" />
                     <div id="myDropdown" class="dropdown-content">
-                      <a className="LogoutBTN" href="#home">
-                        Logout
-                      </a>
+                      <button
+                        className="formbtn2"
+                        type="submit"
+                        onClick={handleLogout}
+                        style={{
+                          padding: "5px",
+                          border: "none",
+                          background:
+                            "linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)",
+                          color: "white",
+                          fontWeight: "900",
+                          borderRadius: " 2px",
+                          cursor: "pointer",
+                          width: " 35%",
+                          fontSize: "16px",
+                          display: "block",
+                          fontWeight: "500",
+                          border: "1px solid #7d668b",
+                          marginRight: "20px",
+                        }}
+                      >
+                        Log out
+                      </button>
                     </div>
                   </div>
                 </p>
