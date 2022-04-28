@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../components/UserProfile/UserProfile.css";
 import UserHomeProfleImg2 from "../../assets/img/UserHomeProfleImg2.svg";
 import CreatorPrifileImg from "../../assets/img/CreatorPrifileImg.svg";
@@ -7,7 +7,7 @@ import ProGamer from "../../assets/icons/ProGamer.svg";
 import ViewCourse from "../../assets/icons/ViewCourse.svg";
 import ViewStudent from "../../assets/img/ViewStudent.svg";
 import ViewRank from "../../assets/img/ViewRank.svg";
-
+import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
 import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
 const CreaterDatav = [
@@ -30,13 +30,41 @@ const CreaterDatav = [
 ];
 
 const CreatorProfileHome = (props) => {
-  const { user } = props;
+  const { id } = props;
   const [openProfile, setOpenProfile] = useState(false);
+  const [user, setUser] = useState();
+  const [courses, setCourses] = useState();
+  useEffect(() => {
+    getCreator();
+  }, [id]);
+  let countViews = (course) => {
+    const Videos = course?.videos;
+
+    let count = 0;
+    Videos.map((video) => {
+      count += video.views;
+    });
+
+    return count;
+  };
+  const getCreator = async () => {
+    let res = await api("get", `/users/${id}`);
+    if (res) {
+      setUser(res?.data);
+      const courses = res?.data?.creator?.courses;
+      courses.length = 4;
+      setCourses(courses);
+    }
+  };
   const handleClickOpen = () => {
     setOpenProfile(true);
   };
-  const handleClose = () => {
-    setOpenProfile(false);
+  const totalStudent = (courses) => {
+    let total = 0;
+    courses?.map((c) => {
+      if (c?.student?.length > 0) total += c.student.length;
+    });
+    return total;
   };
   return (
     <>
@@ -63,15 +91,19 @@ const CreatorProfileHome = (props) => {
               <h1 className="profile-name">
                 {user ? user.username : "Atif Khan"}
               </h1>
-
-              <p className="pofileP">Taken Player</p>
-              <p className="prfile-lavelP">
-                Hi, I am Arslan
-                <br />I am a Professional Taken player 2 times world champion
-                last year i was choosen to be red bull athelete too i am here to
-                help you win the game and have a fun.
+              <p className="pofileP">
+                {user?.gameType?.length > 0
+                  ? `${user.gameType} Player`
+                  : "Taken Player"}
               </p>
-              <div className="profileEditButton">
+              <p className="prfile-lavelP">
+                Hi, I am {user?.username ? user.username : "User1"}
+                <br />
+                {user?.creator?.bio
+                  ? user.creator.bio
+                  : "I am a Professional Taken player 2 times world champion last year i was choosen to be red bull athelete too i am here to help you win the game and have a fun."}
+              </p>
+              {/* <div className="profileEditButton">
                 <a to="">
                   <button
                     className="editProfiel-btn2"
@@ -80,24 +112,60 @@ const CreatorProfileHome = (props) => {
                     Follow
                   </button>
                 </a>
-              </div>
+              </div> */}
               <div className="creatorProfileDiv">
-                {CreaterDatav.map((CrntVal) => {
-                  return (
-                    <>
-                      <div className="creatorLogos">
-                        <img
-                          className="CreatorProfileImg"
-                          src={CrntVal.imgSrc}
-                          alt=""
-                        />
-                      </div>
-                      <div className="creatorProfileContent">
-                        <p className="creatorProfileP">{CrntVal.content}</p>
-                      </div>
-                    </>
-                  );
-                })}
+                <>
+                  <div className="creatorLogos">
+                    <img className="CreatorProfileImg" src={ProGamer} alt="" />
+                  </div>
+                  <div className="creatorProfileContent">
+                    <p className="creatorProfileP">
+                      {user?.creator?.gameLevel
+                        ? `${user.creator.gameLevel} Gamer`
+                        : "Pro Gamer"}
+                    </p>
+                  </div>
+                  <div className="creatorLogos">
+                    <img
+                      className="CreatorProfileImg"
+                      src={ViewCourse}
+                      alt=""
+                    />
+                  </div>
+                  <div className="creatorProfileContent">
+                    <p className="creatorProfileP">
+                      {user?.creator?.courses
+                        ? `${user.creator.courses.length} Courses`
+                        : "8 Courses"}
+                    </p>
+                  </div>
+                  <div className="creatorLogos">
+                    <img
+                      className="CreatorProfileImg"
+                      src={ViewStudent}
+                      alt=""
+                    />
+                  </div>
+                  <div className="creatorProfileContent">
+                    <p className="creatorProfileP">
+                      {/* todo populate issue  ----> */}
+                      {user?.creator?.courses
+                        ? totalStudent(user.creator.courses) + " Students"
+                        : "No Student"}
+                    </p>
+                  </div>
+                  <div className="creatorLogos">
+                    <img className="CreatorProfileImg" src={ViewRank} alt="" />
+                  </div>
+                  <div className="creatorProfileContent">
+                    <p className="creatorProfileP">
+                      {/* {user?.creator?.gameLevel
+                        ? user.creator.gameLevel
+                        : "2nd Rank"} */}
+                      2nd Rank
+                    </p>
+                  </div>
+                </>
               </div>
             </div>
           </div>
@@ -107,39 +175,43 @@ const CreatorProfileHome = (props) => {
       <div className="creatorProfileCard">
         <h3 className="creatorProfileH3">Courses</h3>
         <div className="creatorProfileCart-centerDiv">
-          <div className="creatorCard">
-            <div
-              className="cardGrid"
-              style={{
-                backgroundColor: " #202342",
-                margin: "12px",
-                borderRadius: "35px",
-              }}
-            >
-              <img src={Course1} className="courseimg" alt="img" />
-              <h5 className="latestcourseh5">PUBG GamePlay Course</h5>
-              <p className="latestcoursep1">Ifaf ghori</p>
-              <p className="latestcoursep1">
-                {" "}
-                5.0 &nbsp;
-                {[1, 2, 3, 4, 5].map((item) => (
-                  <Star1
-                    style={{
-                      width: "15px",
-                      height: "15px",
-                      color: "red",
-                      margintTop: "3px",
-                      position: "relative",
-                      top: "3px",
-                      key: { item },
-                    }}
-                  />
-                ))}
-                &nbsp; (382,420)
-              </p>
-              <h6 className="latestcourseh6">44$</h6>
+          {courses?.map((item, i) => (
+            <div className="creatorCard">
+              <div
+                className="cardGrid"
+                style={{
+                  backgroundColor: " #202342",
+                  margin: "12px",
+                  borderRadius: "35px",
+                }}
+              >
+                <img src={item?.thumbnail} className="courseimg" alt="img" />
+                <h5 className="latestcourseh5">
+                  {item?.course_name} GamePlay Course
+                </h5>
+                <p className="latestcoursep1">{user && user.username}</p>
+                <p className="latestcoursep1">
+                  {" "}
+                  {`${item?.rating} `}
+                  {[1, 2, 3, 4, 5].map((item) => (
+                    <Star1
+                      style={{
+                        width: "15px",
+                        height: "15px",
+                        color: "red",
+                        margintTop: "3px",
+                        position: "relative",
+                        top: "3px",
+                        key: { item },
+                      }}
+                    />
+                  ))}
+                  {" (" + countViews(item) + ")"}
+                </p>
+                <h6 className="latestcourseh6">{item?.price}$</h6>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </>

@@ -9,6 +9,7 @@ import Instructor from "../components/OverView/Instructor";
 import Reviews from "../components/OverView/Reviews";
 import Footer from "../components/blog/BlogFooter";
 import { useParams } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import CompleteCourse from "../components/CoursePage/CompleteCourse";
 import api from "../api";
 import { Store, UpdateStore } from "../StoreContext";
@@ -17,9 +18,9 @@ let btns = [
   { text: "Overview" },
   { text: "Cursus" },
   { text: "Instructor" },
-  { text: "Feedback" }
+  { text: "Feedback" },
 ];
-const OverView = () => {
+const OverView = (props) => {
   const { id } = useParams();
   const [overView, setOverView] = useState(false);
   const [activebtn, setActivebtn] = useState("Overview");
@@ -34,7 +35,7 @@ const OverView = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 1,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
   useEffect(() => {
@@ -46,6 +47,7 @@ const OverView = () => {
 
   let getSingleCourses = async () => {
     let res = await api("get", `/courses/${id}`);
+
     if (res) {
       setCourse(res?.data);
     }
@@ -82,6 +84,7 @@ const OverView = () => {
         btns={btns}
         setActivebtn={setActivebtn}
         activebtn={activebtn}
+        course={course}
       />
       {activebtn == "Overview" && <OverviewButton singlCourse={course} />}
 

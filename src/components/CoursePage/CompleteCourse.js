@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GameVideo from "../../assets/GameVideo.mp4";
 import "./CoursePage.css";
+// import "../../";
 // import VideoPlayIcon from "../../assets/icons/VideoPlayIcon.png";
+
+import ReactPlayer from "react-player";
 
 const CompleteCourse = ({ singlCourse }) => {
   const [videos, setVideos] = useState(
     singlCourse?.videos ? singlCourse.videos : 0
   );
+  // const [id, setId] = useSate();
   const [playVideo, setPlayVideo] = useState(singlCourse?.videos[0]);
   const [videoCount, setVideoCount] = useState(
     singlCourse?.videos ? singlCourse.videos.length : 0
@@ -21,13 +25,14 @@ const CompleteCourse = ({ singlCourse }) => {
               {playVideo?.title ? playVideo.title : "CS Go"} Ep 1 Complete
               Course
             </h2>
-
-            <video
+            {/* <ReactPlayer src={playVideo?.src_url} /> */}
+            <ReactPlayer url={playVideo?.src_url} controls autoplay />
+            {/* <video
               className="completeCourse-Video"
               src={playVideo?.src_url}
               controls
               autoplay
-            ></video>
+            ></video> */}
           </div>
           <div className="completeCourse-colm2">
             <h3 className="completeCourseH3">Course Content </h3>

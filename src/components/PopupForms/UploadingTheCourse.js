@@ -21,14 +21,32 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-const UploadingTheCourse = ({ open, setOpen }) => {
+const UploadingTheCourse = ({
+  open,
+  setOpen,
+  progress,
+  setProgress,
+  videoName,
+  imgUrl,
+  uploading,
+  mbPerSecond,
+  timeUploadRemaining,
+}) => {
   const [showPopup, setShowPopup] = useState(false);
   const handleClose = () => {
     setOpen(false);
+    setProgress(0);
   };
   const CancelHandleClick = () => {
+    // setShowPopup(true);
+    setOpen(false);
+    setProgress(0);
+  };
+  const CloseHandleClick = () => {
+    //   todo integration
     setShowPopup(true);
     setOpen(false);
+    setProgress(0);
   };
 
   return (
@@ -47,24 +65,37 @@ const UploadingTheCourse = ({ open, setOpen }) => {
             <div className="uploadTheCourse-mainDiv">
               <div className="uploadTheCourse-Heading">
                 <p className="uploadTheCourse-content">
-                  Lorem ipsum dolor sit amet, adipiscing mp.4{" "}
+                  Lorem ipsum dolor sit amet, {videoName}
                 </p>
-                <span className="uploadTheCourse-span">52%</span>
+                <span className="uploadTheCourse-span">{progress}%</span>
               </div>
               <Box sx={{ flexGrow: 1 }}>
                 <br />
-                <BorderLinearProgress variant="determinate" value="50" />
+                <BorderLinearProgress variant="determinate" value={progress} />
               </Box>
               <div className="uploadTheCourse-Headings">
-                <p className="uploadTheCourse-content">Speed: 10 MB/s</p>
-                <span className="uploadTheCourse-span">Time: 2 min left</span>
+                <p className="uploadTheCourse-content">
+                  Speed: {mbPerSecond} MB/s
+                </p>
+                <span className="uploadTheCourse-span">
+                  Time: {timeUploadRemaining}
+                </span>
               </div>
-              <button
-                className="uploadTheCourseBTN"
-                onClick={CancelHandleClick}
-              >
-                Cancel
-              </button>
+              {progress === 100 && uploading ? (
+                <button
+                  className="uploadTheCourseBTN"
+                  onClick={CloseHandleClick}
+                >
+                  Done
+                </button>
+              ) : (
+                <button
+                  className="uploadTheCourseBTN"
+                  onClick={CancelHandleClick}
+                >
+                  Cancel
+                </button>
+              )}
             </div>
           </div>
         </div>

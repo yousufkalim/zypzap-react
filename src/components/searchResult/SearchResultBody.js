@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import Categories from "./Categories";
 import GameType from "./GameType";
 import Plateforms from "./Plateforms";
+import Level from "./gameLevel";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -40,33 +41,34 @@ const categories = [
   },
   {
     name: "Top 10 NFT Games",
-    value: "2",
-  },
-  {
-    name: "Top 10 Metaverse Games",
     value: "3",
   },
   {
-    name: "Latest Courses",
+    name: "Top 10 Metaverse Games",
     value: "4",
   },
   {
-    name: "Top Courses",
-    value: "5",
+    name: "Latest Courses",
+    value: "2",
   },
   {
     name: "Top Rated Content Creators",
-    value: "6",
+    value: "5",
+  },
+  {
+    name: "Top Courses",
+    value: "1",
   },
   {
     name: "Top New Games",
-    value: "7",
+    value: "6",
   },
   {
     name: "Top Reality Games",
-    value: "8",
+    value: "7",
   },
 ];
+
 const GameTypes = [
   {
     name: "Action",
@@ -151,6 +153,24 @@ const PlateformsAry = [
     value: "schooltwo",
   },
 ];
+const levelAry = [
+  {
+    name: "Casual",
+    value: "Casual",
+  },
+  {
+    name: "Confirmed",
+    value: "Confirmed",
+  },
+  {
+    name: "Hardcore",
+    value: "Hardcore",
+  },
+  {
+    name: "Esporter",
+    value: "Esporter",
+  },
+];
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(2),
@@ -160,7 +180,6 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const SearchResultBody = () => {
   const history = useHistory();
-  console.log("get history in search", history.location?.param);
   useEffect(() => {
     if (history.location.param) {
       onSideBtnClick(history.location?.param);
@@ -170,19 +189,20 @@ const SearchResultBody = () => {
   const [selectedCategories, setselectedCategories] = useState(false);
   const [selectedGame, setSelectedGame] = useState(false);
   const [selectedPlateforms, setSelectedPlateforms] = useState(false);
+  const [selectedLevel, setSelectedLevel] = useState(false);
   const [selectedGameplay, setSelectedGameplay] = useState(false);
   const [selectedPrice, setSelectedPrice] = useState(false);
   const [sliderValue, setSliderValue] = useState("");
   const [selectedActiveButton, setSelectedActiveButton] = useState("");
   const [selectedGameBtn, setSelectedGameBtn] = useState("");
   const [selectedPlateformsBtn, setselectedPlateformsBtn] = useState("");
+  const [selectedlevelBtn, setselectedlevelBtn] = useState("");
   const [radioBtnValue, setRadioBtnValue] = useState("");
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
-
   // recieving context __data
 
   const { searchCreator, searchCourse, searchState, searchInput } = Store();
-
+  useEffect(() => {}, [searchState, searchCourse, searchCreator]);
   const updateStore = UpdateStore();
 
   //sidebar list togle
@@ -207,20 +227,36 @@ const SearchResultBody = () => {
       setSelectedPrice(!selectedPrice);
       //setSelectedPlateforms(!selectedPlateforms);
     }
+    if (id == 6) {
+      setSelectedLevel(!selectedLevel);
+    }
   };
   // sidebar list togle
   // making list item active by chnaging background
   const onSideBtnClick = async (e) => {
-    console.log("onSideBtnClick", e);
     // const name = e.target.textContent;
     const name = e.name;
     const value = e.value;
     let res = await api("get", `/courses/topGames?type=${value}`);
     if (res) {
-      // setCourse(res?.data);
-      updateStore({ searchCourse: res?.data });
-      //updateStore({ create: res?.data });
-      setSelectedActiveButton("");
+      if (value == "5") {
+        updateStore({
+          searchState: "creator",
+          searchCourse: [],
+          searchCreator: res?.data,
+          searchInput: name,
+        });
+        setSelectedActiveButton("");
+      }
+      if (value !== "5") {
+        updateStore({
+          searchState: "course",
+          searchCourse: res.data,
+          searchCreator: [],
+          searchInput: name,
+        });
+        setSelectedActiveButton("");
+      }
     }
     setSelectedActiveButton(name);
   };
@@ -232,14 +268,17 @@ const SearchResultBody = () => {
     const name = e.target.textContent;
     setselectedPlateformsBtn(name);
   };
+  const onSideBtnClick6 = (e) => {
+    const name = e.target.textContent;
+    setselectedlevelBtn(name);
+  };
 
   let countViews = (course) => {
     const Videos = course?.videos;
     let count = 0;
-    Videos.map((video) => {
+    Videos?.map((video) => {
       count += video.views;
     });
-
     return count;
   };
   const calTotalSecInVideos = (videos) => {
@@ -273,18 +312,12 @@ const SearchResultBody = () => {
     setSliderValue(e.target.value);
   };
   const RequestClikEvent = async (e) => {
-    const filterData = {
-      gameType: selectedGameBtn,
-      plateForm: selectedPlateformsBtn,
-      mode: radioBtnValue,
-      price: sliderValue,
-    };
     let res = await api(
       "get",
-      `/courses/filteredCourses?&&gameType=${selectedGameBtn}&&plateForm=${selectedPlateformsBtn}&&mode=${radioBtnValue}&&price=${sliderValue}`
+      `/courses/filteredCourses?&&gameType=${selectedGameBtn}&&plateForm=${selectedPlateformsBtn}&&level=${selectedlevelBtn}&&mode=${radioBtnValue}&&price=${sliderValue}`
     );
     if (res) {
-      // setCourse(res.data);
+      const course = res?.data.filter((c, index) => c.index < 12);
       updateStore({ searchCourse: res?.data });
     }
   };
@@ -423,6 +456,49 @@ const SearchResultBody = () => {
                 trigerOnClickEmpSideBtn3={onSideBtnClick3}
               />
             ) : null}
+            {/* ////////////////////
+             */}
+            <div
+              id="6"
+              onClick={onClickSideBarHeaders}
+              className="dropdown-headers"
+            >
+              Gameplay Level
+              {!selectedLevel ? (
+                <KeyboardArrowDownIcon
+                  sx={{
+                    color: "#fff",
+                    marginTop: "5px",
+                    opacity: "0.6",
+                    width: "2px",
+                    height: "1em !important",
+                  }}
+                  id="6"
+                  onClick={onClickSideBarHeaders}
+                />
+              ) : (
+                <KeyboardArrowUpIcon
+                  sx={{
+                    color: "#fff",
+                    marginTop: "5px",
+                    opacity: "0.6",
+                    width: "2px",
+                    height: "1em !important",
+                  }}
+                  id="6"
+                  onClick={onClickSideBarHeaders}
+                />
+              )}
+            </div>
+            {selectedLevel ? (
+              <Level
+                PlateformsAry={levelAry}
+                PlateformsBtn={selectedlevelBtn}
+                trigerOnClickEmpSideBtn3={onSideBtnClick6}
+              />
+            ) : null}
+
+            {/*  */}
             <div
               id="4"
               onClick={onClickSideBarHeaders}
@@ -700,7 +776,7 @@ const SearchResultBody = () => {
                               />
                               <p className="latestCourse-p">
                                 {" "}
-                                {`(${countViews(item)})`}
+                                {item?.videos ? `(${countViews(item)})` : ""}
                               </p>
                             </div>
                             <div className="latestCourse-colmn-centerDiv">
@@ -758,6 +834,7 @@ const SearchResultBody = () => {
           <ResearchFaild />
         ) : (
           <>
+            {/* <CreatorResult input={input} /> */}
             <CreatorResult input={searchInput} />
           </>
         )

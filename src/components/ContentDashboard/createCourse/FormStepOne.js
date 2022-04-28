@@ -4,17 +4,8 @@ import Select from "@mui/material/Select";
 import { toast } from "react-toastify";
 const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
   const [game, setGame] = useState(games ? games : []);
-  useEffect(() => {
-    setGame(games ? games : []);
-  }, []);
-  const chnageEvent = (e) => {
-    setformDataOne({
-      ...formDataOne,
-      [e.target.name]: e.target.value,
-    });
-  };
   const {
-    gamedetails,
+    course_name,
     gameName,
     gameLevel,
     gameType,
@@ -22,11 +13,42 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
     gamePlateForm,
     description,
   } = formDataOne;
+  useEffect(() => {
+    setGame(games ? games : []);
+    setformDataOne({
+      ...formDataOne,
+      ["gameName"]: games[0]._id,
+    });
+  }, []);
+  const chnageEvent = (e) => {
+    setformDataOne({
+      ...formDataOne,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const handleContinue = () => {
-    if (gamedetails == "") {
+    if (course_name === "") {
       return toast.error("Veuillez saisir le nom de votre cours");
     }
-    if (description == "") {
+    if (gameName === "") {
+      return toast.error("Veuillez entrer votre nom du jeu");
+    }
+    if (gameLevel === "") {
+      return toast.error("Veuillez saisir le nom de votre niveau de jeu");
+    }
+    if (gameType === "") {
+      return toast.error("Veuillez entrer votre type de jeu");
+    }
+    if (gameMood === "") {
+      return toast.error("Veuillez entrer votre ambiance de jeu");
+    }
+    if (gamePlateForm === "") {
+      return toast.error(
+        "Veuillez saisir le nom de votre forme de plateau de jeu"
+      );
+    }
+    if (description === "") {
       return toast.error("Veuillez entrer votre description");
     }
     setStep(2);
@@ -49,8 +71,8 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                     type="text"
                     className="coursInput"
                     placeholder="learn how to play minacraft"
-                    value={gamedetails}
-                    name="gamedetails"
+                    value={course_name}
+                    name="course_name"
                     onChange={chnageEvent}
                   />
                 </div>
@@ -63,7 +85,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                   id="gameName"
                   name="gameName"
                   className="coursInput"
-                  value={gameName}
+                  value={gameName ? gameName : games[0]._id}
                   onChange={chnageEvent}
                 >
                   {games?.map((g, index) => {
@@ -226,13 +248,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
         ></textarea>
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button
+          {/* <button
             className="drafBtn"
             style={{ background: "none", border: "1px solid #662F88" }}
           >
             Previous
-          </button>
-          <button onClick={() => setStep(2)} className="continueBtn">
+          </button> */}
+          <button onClick={handleContinue} className="continueBtn">
             Continue
           </button>
         </div>

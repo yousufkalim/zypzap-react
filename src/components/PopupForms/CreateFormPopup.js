@@ -15,15 +15,9 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import api from "../../api";
 import EmailVarificaiton from "./EmailVarificaiton";
-
-const CreateFormPopup = ({ open, setOpen, setLogin }) => {
-  const [opens, setOpens] = React.useState(false);
-  useEffect(() => {
-    if (!open) {
-      setValues({ username: "", email: "", password: "", CnfrmPassword: "" });
-    }
-  }, []);
-  // init
+import { Store, UpdateStore } from "../../StoreContext";
+const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
+  // const [opens, setOpens] = React.useState(false);
   const [loading, setLoading] = useState(false);
   const [values, setValues] = React.useState({
     username: "",
@@ -33,6 +27,13 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
     showPassword: false,
     showConfirPassword: false,
   });
+  const updateStore = UpdateStore();
+  useEffect(() => {
+    if (!open) {
+      setValues({ username: "", email: "", password: "", CnfrmPassword: "" });
+    }
+  }, []);
+  // init
 
   const {
     username,
@@ -98,10 +99,11 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
       let res = await api("post", "/users", formdata);
 
       if (res) {
+        updateStore({ user: res.data.user });
         setOpen(false);
         setLoading(false);
-        setOpens(true);
         setValues({ username: "", email: "", password: "" });
+        setOpenProfile(true);
         toast.success(res.data.message);
       }
     } catch (error) {
@@ -112,7 +114,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin }) => {
   return (
     <>
       <div>
-        <EmailVarificaiton open={opens} setOpen={setOpens} />
+        {/* <EmailVarificaiton open={opens} setOpen={setOpens} /> */}
         <Dialog open={open} onClose={handleClose}>
           <div className="create_form">
             <div className="create_container">

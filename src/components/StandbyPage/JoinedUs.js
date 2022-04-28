@@ -33,16 +33,7 @@ const JoinedUs = () => {
         <div className="FollowUs_container">
           <h2 className="followUsH2">Ils nous ont rejoint</h2>
           <div className="followSocialBox">
-            {/* <div className="followDiv"> */}
-            {/* <div className="followUs-box2">
-                <img src={Creators} alt="" className="followUsImg" />
-                <div className="followSocialHeading2">
-                  <p className="followSocialP">{allCreator ? allCreator : 0}</p>
-                  <p className="followSocialP2">Createurs</p>
-                </div>
-              </div> */}
-            {/* </div> */}
-            <div className="followDiv">
+            <div1 className="followDiv">
               <div className="followUs-box2">
                 <img src={Gamers} alt="" className="followUsImg" />
                 <div className="followSocialHeading2">
@@ -50,6 +41,15 @@ const JoinedUs = () => {
                   <p className="followSocialP2">Membres</p>
                 </div>
               </div>
+              <div className="followUs-box2">
+                <img src={Creators} alt="" className="followUsImg" />
+                <div className="followSocialHeading2">
+                  <p className="followSocialP">{allCreator ? allCreator : 0}</p>
+                  <p className="followSocialP2">Createurs</p>
+                </div>
+              </div>
+            </div1>
+            <div className="followDiv">
               <div className="followUs-box2">
                 <img
                   src={MobileGame}

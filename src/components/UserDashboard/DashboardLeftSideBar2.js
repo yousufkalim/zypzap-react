@@ -26,6 +26,7 @@ const DashboardLeftSideBar2 = ({
               key={item.course}
               onClick={trigerOnClickEmpSideBtn}
               className={`sidebar-course-opt ${className}`}
+              style={{ position: "relative" }}
             >
               <div className="img-text-container">
                 <img src={item.img} />
@@ -33,8 +34,8 @@ const DashboardLeftSideBar2 = ({
                 {item?.drop && (
                   <div style={{ color: "white" }} onClick={() => handelClick()}>
                     <i
-                      style={{ marginLeft: "100px" }}
-                      class="fa-solid fa-angle-down"
+                      // style={{ marginLeft: "auto" }}
+                      class=" CourseDownArrow fa-solid fa-angle-down"
                     ></i>
                   </div>
                 )}

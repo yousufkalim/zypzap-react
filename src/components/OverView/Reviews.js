@@ -32,7 +32,7 @@ const Reviews = (props) => {
   const [totalCount, setTotalCount] = useState(0);
   useEffect(() => {
     calculateStarRating();
-  }, []);
+  }, [rating]);
   const calculateStarRating = async () => {
     var total = 0;
     var one = 0;

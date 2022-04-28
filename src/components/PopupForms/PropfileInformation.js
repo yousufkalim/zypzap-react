@@ -8,12 +8,14 @@ import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
 import ClearIcon from "@mui/icons-material/Clear";
+import { Store, UpdateStore } from "../../StoreContext";
 export default function PropfileInformation({
   openProfile,
   setOpenProfile,
   user,
-  setOpen,
+  setCongratulation,
 }) {
+  const updateStore = UpdateStore();
   const [profile_photo, setImageURL] = useState(
     user?.profile_photo ? user.profile_photo : Course1
   );
@@ -30,20 +32,18 @@ export default function PropfileInformation({
   const [gameMood, setGameMood] = useState(
     user?.gameMood ? user.gameMood : "Single"
   );
-  const [playPeriod, setPlayPeriod] = useState(
-    user?.prefrence_games?.play_period
-      ? user.prefrence_games.play_period
-      : "Per Week"
-  );
-  const [playTime, setPlayTime] = useState(
-    user?.prefrence_games?.play_time_per_perioad
-      ? user.prefrence_games.play_time_per_perioad
-      : "2 Houre"
+  const [learningRethem, setLearningRethem] = useState(
+    user?.prefrence_games?.learningRethem
+      ? user.prefrence_games.learningRethem
+      : "10h To 20h Per Week"
   );
   const [currentLevel, setCurrentLevel] = useState(
     user?.prefrence_games?.current_level
       ? user.prefrence_games.current_level
       : "initial"
+  );
+  const [LearningRhythm, setLearningRhythm] = useState(
+    user?.learning_rhythm || "initial"
   );
   const [target_level, setTargetLevel] = useState(
     user?.prefrence_games?.target_level
@@ -63,15 +63,10 @@ export default function PropfileInformation({
     setGameType(user?.gameType ? user.gameType : []);
     setPlateForm(user?.plateForm ? user.plateForm : []);
     setGameMood(user?.gameMood ? user.gameMood : "Single");
-    setPlayPeriod(
-      user?.prefrence_games?.play_period
-        ? user.prefrence_games.play_period
+    setLearningRethem(
+      user?.prefrence_games?.learningRethem
+        ? user.prefrence_games.learningRethem
         : "Per Week"
-    );
-    setPlayTime(
-      user?.prefrence_games?.play_time_per_perioad
-        ? user.prefrence_games.play_time_per_perioad
-        : "2 Houre"
     );
     setCurrentLevel(
       user?.prefrence_games?.current_level
@@ -103,14 +98,12 @@ export default function PropfileInformation({
       ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index),
     ]);
   };
-  const changePlayPeriodHandler = (e) => {
-    setPlayPeriod(e.target.value);
-  };
-  const changePlayTimeHandler = (e) => {
-    setPlayTime(e.target.value);
-  };
+
   const changeCurrentLevelHandler = (e) => {
     setCurrentLevel(e.target.value);
+  };
+  const ChangeLearningRhythm = (e) => {
+    setLearningRhythm(e.target.value);
   };
   const changeTargetLevelHandler = (e) => {
     setTargetLevel(e.target.value);
@@ -135,14 +128,13 @@ export default function PropfileInformation({
     const formdata = new FormData();
     formdata.append(`files`, e.target.files[0]);
     let res = await api("post", "/uploadImage", formdata);
-    setImageURL(res.data.file);
+    setImageURL(res.data.file[0].location);
   };
 
   const submitProfile = async (e) => {
     const prefrence_games = {
       favourite_games: favouritGame,
-      play_period: playPeriod,
-      play_time_per_perioad: playTime,
+      learningRethem: learningRethem,
       current_level: currentLevel,
       target_level: target_level,
     };
@@ -152,28 +144,29 @@ export default function PropfileInformation({
       gameType,
       plateForm,
       gameMood,
+      LearningRhythm,
     };
     if (
-      (prefrence_games === "" ||
-        gameType === "" ||
-        plateForm === "" ||
-        gameMood === "" ||
-        target_level === "" ||
-        currentLevel === "" ||
-        playTime === "" ||
-        playPeriod === "",
-      favouritGame === "")
+      prefrence_games === "" ||
+      gameType === "" ||
+      plateForm === "" ||
+      gameMood === "" ||
+      target_level === "" ||
+      currentLevel === "" ||
+      learningRethem === "" ||
+      favouritGame === ""
     ) {
     } else {
       if (user) {
         let res = await api(
           "put",
-          `/users/addProfileInfo/${user._id}`,
+          `/users/addProfileInfo/${user?._id}`,
           formdata
         );
         if (res) {
-          toast.success("Modifier le profil avec succès");
+          updateStore({ user: res.data });
           setOpenProfile(false);
+          setCongratulation(true);
         }
       } else {
         toast.success("Profil non modifié");
@@ -364,65 +357,51 @@ export default function PropfileInformation({
                 </RadioGroup>
               </div>
             </FormControl>
-
-            {/* <div className="gamingModeSelect">
-              <Checkbox {...label} />
-
-              <label for="Single"> Single Player Mode</label>
-              <Checkbox {...label} style={{ marginLeft: "13px" }} />
-
-              <label for="MultiPlayer"> MultiPlayer Mode</label>
-            </div> */}
           </div>
           <div>
             <label for="Learning">Learning Rhythm</label>
           </div>
           <div className="userProfileSelectInput2">
             <br />
-            {/* <select
-              id="Select"
-              name="Select"
-              onChange={changePlayPeriodHandler}
-              className="selectInput-userProfile2"
-            >
-              <option value="Per Week" className="selectInput-option">
-                {playPeriod}
-              </option>
-              <option value="Per Month">Per Month</option>
-              <option value="Per Year">Per Year</option>
-              <option value="audi">Select</option>
-            </select>
-            &nbsp;
             <select
               id="Select"
               name="Select"
-              onChange={changePlayTimeHandler}
+              onChange={ChangeLearningRhythm}
               className="selectInput-userProfile2"
             >
-              <option value="2 Houre" className="selectInput-option">
-                {playTime}
+              <option
+                value="10h To 20h Per Week"
+                className="selectInput-option"
+              >
+                {learningRethem === "10h To 20h Per Week"
+                  ? learningRethem
+                  : "10h To 20h Per Week"}
               </option>
-
-              <option value="4 Houre">4 Houre</option>
-              <option value="6 Houre">6 Houre</option>
-            </select> */}
-            <select
-              id="Select"
-              name="Select"
-              onChange={changeCurrentLevelHandler}
-              className="selectInput-userProfile"
-              defaultValue={currentLevel}
-            >
-              <option value="Casual" className="selectInput-option">
-                10h to 20h per week
+              <option value="20h To 30h Per Week">
+                {learningRethem === "20h To 30h Per Week"
+                  ? learningRethem
+                  : "20h To 30h Per Week"}
               </option>
-
-              {/* <option value="saab">Pro</option> */}
-              <option value="Confirmed">20h To 30h Per Week</option>
-              <option value="Hardcore">30h To 40h Per Week</option>
-              <option value="Esporter">40h To 50h Per Week</option>
-              <option value="Esporter">50h To 60h Per Week</option>
-              <option value="Esporter">60h To 70h Per Week</option>
+              <option value="30h To 40h Per Week">
+                {learningRethem === "30h To 40h Per Week"
+                  ? learningRethem
+                  : "30h To 40h Per Week"}
+              </option>
+              <option value="40h To 50h Per Week">
+                {learningRethem === "40h To 50h Per Week"
+                  ? learningRethem
+                  : "40h To 50h Per Week"}
+              </option>
+              <option value="50h To 60h Per Week">
+                {learningRethem === "50h To 60h Per Week"
+                  ? learningRethem
+                  : "50h To 60h Per Week"}
+              </option>
+              <option value="60h To 70h Per Week">
+                {learningRethem === "60h To 70h Per Week"
+                  ? learningRethem
+                  : "60h To 70h Per Week"}
+              </option>
             </select>
           </div>
           <div className="userProfileSelectInput">
@@ -463,16 +442,19 @@ export default function PropfileInformation({
               defaultValue={target_level}
             >
               <option value="Casual" className="selectInput-option">
-                Casual
+                Casual (5h - 7h Of Play Per Week)
               </option>
-
-              {/* <option value="saab">Pro</option> */}
-              <option value="Confirmed">Confirmed</option>
-              <option value="Hardcore">Hardcore</option>
-              <option value="Esporter">Esporter</option>
+              <option value="Confirmed">
+                Confirmed (8 Hours - 15 Hours Of Play Per Week)
+              </option>
+              <option value="Hardcore">
+                Hardcore (16 Hours - 28 Hours Of Play Per Week)
+              </option>
+              <option value="Esporter">
+                Esporter (More than 30 Hours Of Play Per Week)
+              </option>
             </select>
           </div>
-          {/* select input div */}
           <button className="userProfileButton" onClick={submitProfile}>
             Continue
           </button>

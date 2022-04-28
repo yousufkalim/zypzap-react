@@ -4,30 +4,48 @@ import UserHomeProfleImg from "../../assets/img/UserHomeProfleImg.svg";
 import ProfileDp from "../../assets/img/ProfileDp.jpg";
 import editIcon from "../../assets/editicon2.svg";
 import PropfileInformation from "../PopupForms/PropfileInformation";
+import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
 import BecomeCreatorpopup from "../PopupForms/BecomeCreatorpopup";
 import { Store, UpdateStore } from "../../StoreContext";
+import { useHistory } from "react-router-dom";
 const UserProfile = (props) => {
   const { user } = props;
+  const history = useHistory();
   const [openProfile, setOpenProfile] = useState(false);
+  const [openCongratulation, setCongratulation] = useState(false);
   const [open, setOpen] = useState(false);
 
   const updateStore = UpdateStore();
   const { creator } = Store;
 
   const handleClickOpen = () => {
-    if (user.role == "Creator") {
+    if (user?.role == "Creator") {
       setOpen(true);
     } else {
       setOpenProfile(true);
     }
   };
-
+  const handleSwitch = () => {
+    history.push({
+      pathname: "/dashboard",
+      param: {
+        name: "Setting",
+        value: "Setting",
+      },
+    });
+  };
   return (
     <>
+      <RegisterSuccessfully
+        open={openCongratulation}
+        setOpen={setCongratulation}
+        text="Your Profile Edit Successfully !"
+      />
       <PropfileInformation
         openProfile={openProfile}
         setOpenProfile={setOpenProfile}
         user={user}
+        setCongratulation={setCongratulation}
       />
       <BecomeCreatorpopup open={open} setOpen={setOpen} user={user} />
       <div className="userProfileDiv">
@@ -46,7 +64,13 @@ const UserProfile = (props) => {
               alt=""
               className="DP-img"
             />
-            <img src={editIcon} className="editprofileIcon" />
+            {user?.role === "Creator" && (
+              <img
+                src={editIcon}
+                className="editprofileIcon"
+                onClick={handleSwitch}
+              />
+            )}
           </div>
           {/* profile Div */}
           <div className="profile-container">
@@ -58,7 +82,7 @@ const UserProfile = (props) => {
                 {user ? user.email[0] : "johnsmith1@gmail.com"}
               </p>
               <p className="prfile-lavelP">
-                Level:{" "}
+                Level:
                 <span className="level-span">
                   {creator?.gameLevel ? creator.gameLevel : "Semi-Pro"}
                 </span>
@@ -66,9 +90,9 @@ const UserProfile = (props) => {
             </div>
             <div className="following-content">
               <p className="followingP">
-                Following:{" "}
+                Following:
                 <span className="follo-span">
-                  {creator?.followers ? creator.followers.length : "10"}
+                  {creator?.followers ? creator.followers.length : "0"}
                 </span>
               </p>
             </div>

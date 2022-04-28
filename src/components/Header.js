@@ -22,9 +22,15 @@ import { useHistory } from "react-router-dom";
 import CreateFormPopup from "./PopupForms/CreateFormPopup";
 import PropfileInformation from "./PopupForms/PropfileInformation";
 import LoginFormPopup from "./PopupForms/LoginFormPopup";
+import LogoutForm from "./PopupForms/LogoutForm";
+
 import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
+import DoYouWant from "./PopupForms/DoYouWant";
+import CongratsPopup from "./PopupForms/CongratsPopup";
+import OopsPopup from "./PopupForms/OopsPopup";
 import OptionPopup from "./PopupForms/OptionPopup";
 import api from "../api";
+import RegisterSuccessfully from "./PopupForms/RegisterSuccessfully";
 import { Link } from "react-router-dom";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
@@ -90,11 +96,20 @@ export default function PrimarySearchAppBar({
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [Option, setOption] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
+  const [openCongratulation, setCongratulation] = useState(false);
   const [age, setAge] = React.useState("");
-  const [showLogoutBtn, setShowLogoutBtn] = useState(false);
+
+  const [open, setOpen] = useState(false);
+
+  const [open2, setOpen2] = useState(false);
+  const [open3, setOpen3] = useState(false);
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+
+  // const showLogoutFormPopup = () => {
+
+  // };
   const handleLogout = async () => {
     let res = await api("post", "/users/logout/all");
     if (res) {
@@ -131,23 +146,18 @@ export default function PrimarySearchAppBar({
       if (searchState === "course") {
         let res = await api("get", `/courses/search?name=${searchInput}`);
         if (res) {
-
-                    updateStore({ searchCourse: res?.data, searchCreator: [] });
-          history.push("/searchResult");
-
-
-
+          updateStore({ searchCourse: res?.data, searchCreator: [] });
+          const courses = res?.data;
+          history.push(`/searchResult`);
         }
       }
+      //   state: { courses },
+      // }
       if (searchState === "creator") {
         let res = await api("get", `/creators/search?name=${searchInput}`);
         if (res) {
-
           updateStore({ searchCreator: res?.data, searchCourse: [] });
           history.push("/searchResult");
-
-
-
         }
       }
     }
@@ -161,9 +171,7 @@ export default function PrimarySearchAppBar({
     updateStore({ searchState: "course" });
   };
   const handleChangeInput = (e) => {
-
     updateStore({ searchInput: e.target.value });
-
   };
 
   const menuId = "primary-search-account-menu";
@@ -248,17 +256,24 @@ export default function PrimarySearchAppBar({
 
   return (
     <>
+      <RegisterSuccessfully
+        open={openCongratulation}
+        setOpen={setCongratulation}
+        text="You Are Successfully Registered !"
+      />
       <CreateFormPopup
         open={opensignup}
         setOpen={setOpenSignup}
         login={openlogin}
         setLogin={setOpenLogin}
+        setOpenProfile={setOpenProfile}
       />
       <PropfileInformation
         openProfile={openProfile}
         setOpenProfile={setOpenProfile}
         handleClose={handleClose}
         user={user}
+        setCongratulation={setCongratulation}
       />
       <LoginFormPopup
         open={openlogin}
@@ -266,14 +281,23 @@ export default function PrimarySearchAppBar({
         signup={opensignup}
         setSignup={setOpenSignup}
       />
-
       <BecomeCreatorpopup
         open={openBecomeCreatorPopup}
         setOpen={setOpenBecomeCreatorPopup}
         games={games}
         user={user}
         creator={creator}
+        setOpen2={setOpen2}
+        setOpen3={setOpen3}
+        // setCongratulation={setCongratulation}
       />
+      <DoYouWant
+        open={open}
+        setOpen={setOpen}
+        setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
+      />
+      <CongratsPopup open={open2} setOpen={setOpen2} />
+      <OopsPopup open={open3} setOpen={setOpen3} />
       <OptionPopup open={Option} setOpen={setOption} />
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" className="headerBackgroundColor">
@@ -397,6 +421,7 @@ export default function PrimarySearchAppBar({
                   >
                     <p className="sgnBtn">Switch to Learner</p>
                   </Link>
+
                   <Link
                     to={{
                       pathname: "dashboard",
@@ -404,7 +429,7 @@ export default function PrimarySearchAppBar({
                     }}
                     style={{ color: "white", textDecoration: "none" }}
                   >
-                    <p className="sgnBtn">dashboard</p>
+                    <p className="sgnBtn">Dashboard</p>
                   </Link>
                 </>
               ) : (
@@ -414,7 +439,8 @@ export default function PrimarySearchAppBar({
                       <p
                         className="sgnBtn"
                         onClick={() => {
-                          setOpenBecomeCreatorPopup(true);
+                          // setOpenBecomeCreatorPopup(true);
+                          setOpen(true);
                         }}
                       >
                         Become a Creater
@@ -434,12 +460,32 @@ export default function PrimarySearchAppBar({
               )}
               {user ? (
                 <p className="sgnBtn">
-                  <div class="dropdown" onClick={handleLogout}>
+                  <div class="dropdown">
                     <img src={HeaderLogoutIcon} alt="" />
                     <div id="myDropdown" class="dropdown-content">
-                      <a className="LogoutBTN" href="#home">
-                        Logout
-                      </a>
+                      <button
+                        className="formbtn2"
+                        type="submit"
+                        onClick={handleLogout}
+                        style={{
+                          padding: "5px",
+                          border: "none",
+                          background:
+                            "linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)",
+                          color: "white",
+                          fontWeight: "900",
+                          borderRadius: " 2px",
+                          cursor: "pointer",
+                          width: " 35%",
+                          fontSize: "16px",
+                          display: "block",
+                          fontWeight: "500",
+                          border: "1px solid #7d668b",
+                          marginRight: "20px",
+                        }}
+                      >
+                        Log out
+                      </button>
                     </div>
                   </div>
                 </p>

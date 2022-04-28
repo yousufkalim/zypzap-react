@@ -48,7 +48,7 @@ const Video = ({ video, setShowVideo }) => {
       <div className="curriculumLiDiv">
         <img src={CurriculumIcon} alt="" className="curriculumIMG" />
         <li className="curriculumLi">
-          Class no one: Introduction to {video?.title ? video.title : "CS Go"}
+          Class no one: {video?.title ? video.title : "CS Go"}
         </li>
         <p className="curriculumTime">
           {video?.duration ? secondToTime(video.duration) : "1:00 min"}

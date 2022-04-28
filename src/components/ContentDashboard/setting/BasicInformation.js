@@ -5,6 +5,7 @@ import api from "../../../api";
 import { Store, UpdateStore } from "../../../StoreContext";
 const BasicInformation = () => {
   const { user } = Store();
+  const updateStore = UpdateStore();
   const [formData, setFormData] = useState({
     username: user?.username ? user.username : "",
     email: user?.email ? user.email[0] : "",
@@ -27,7 +28,9 @@ const BasicInformation = () => {
   };
   const SubmitEvent = async (e) => {
     e.preventDefault();
-
+    if (username == "") {
+      return toast.error("Enter your user name");
+    }
     if (email == "") {
       return toast.error("Enter your email");
     }
@@ -36,10 +39,10 @@ const BasicInformation = () => {
     }
     let res = await api("post", `/users/basicInfo/${user?._id}`, formData);
     if (res) {
+      updateStore({ user: res.data.user });
       toast.success("Modifier le profil avec succès");
       setFormData({
-        first_name: "",
-        last_name: "",
+        username: "",
         email: "",
         phone_number: "",
       });

@@ -22,6 +22,9 @@ import PrivacyPolicy from "../containers/PrivacyPolicy";
 import Team from "../containers/Team";
 import CreatorProfile from "../containers/CreatorProfile";
 
+import UserDashboard from "../containers/UserDashboard";
+import SettingCreatorProfile from "../containers/SettingCreatorProfile.js";
+
 const index = () => {
   return (
     <Switch>
@@ -50,8 +53,15 @@ const index = () => {
       <Route exact path="/LegalNotice" component={LegalNotice} />
       <Route exact path="/Team" component={Team} />
       <Route exact path="/PrivacyPolicy" component={PrivacyPolicy} />
-      <Route exact path="/CreatorProfile" component={CreatorProfile} />
+      {/* <Route exact path="/CreatorProfile" component={CreatorProfile} /> */}
+      <Route path="/CreatorProfile/:id" render={() => <CreatorProfile />} />
       <Route exact path="/*" render={() => <ProtectedRoutes />} />
+      {/* <Route exact path="/CreatorProfile" component={CreatorProfile} /> */}
+      <Route
+        exact
+        path="/SettingCreatorProfile"
+        component={SettingCreatorProfile}
+      />
     </Switch>
   );
 };

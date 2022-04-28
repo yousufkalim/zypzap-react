@@ -123,11 +123,19 @@ function TopCoursesComponent({ item }) {
           alt="img"
         />
       </Grid>
-      <Grid item xs={12} sm={8} className="topcourseTextGrid">
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        className="topcourseTextGrid"
+        justifyContent="space-between"
+      >
         <Grid container spacing={2}>
-          <Grid item xs={8} md={8}>
+          <Grid item xs={8} md={10}>
             <h3 className="h3heading">
-              {item?.name ? item.name : "PUBG gameplay full course"}
+              {item?.name
+                ? item.name + "gameplay full course"
+                : "PUBG gameplay full course"}
             </h3>
             <p className="topcourseText">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa
@@ -137,9 +145,9 @@ function TopCoursesComponent({ item }) {
               arcu sapien magna.
             </p>
           </Grid>
-          <Grid item xs={4} md={4}>
-            {/* <h3 style={{ textAlign: "right" }}>{item?.price + " $"}</h3> */}
-          </Grid>
+          {/* <Grid item xs={4} md={4}>
+            <h3 style={{ textAlign: "right" }}>{item?.price + " $"}</h3>
+          </Grid> */}
         </Grid>
         <Grid container spacing={2} className="topcourseuserGrid">
           <Grid item xs={6} md={6}>
@@ -157,7 +165,7 @@ function TopCoursesComponent({ item }) {
                 <p className="p1">{item?.creator?.user_id?.username}</p>
                 <p className="p2">{item?.course_name + " player"}</p>
                 <p className="p2">
-                  {item?.rating ? item.rating : "0.0"} &nbsp;
+                  {item?.rating ? item.rating : <></>} &nbsp;
                   {[1, 2, 3, 4, 5].map((i) => (
                     <Star1
                       className="starID"
@@ -180,10 +188,13 @@ function TopCoursesComponent({ item }) {
               <span className="marginRight">
                 {item?.level ? item.level : "inital level"}
               </span>
-              <span className="marginRight">|</span>
-              <span className="marginRight">
-                {countTime(item) ? countTime(item) + "min" : "0 min"}
-              </span>
+              {item?.videos?.length > 0 && (
+                <>
+                  <span className="marginRight">|</span>
+                  <span className="marginRight">{countTime(item)}</span>
+                </>
+              )}
+
               <span className="marginRight">|</span>
               <span className="marginRight">
                 {item?.student

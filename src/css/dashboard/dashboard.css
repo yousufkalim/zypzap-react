@@ -28,6 +28,10 @@
   margin-top: 0px;
   /* width: 12px; */
 }
+.CourseDownArrow{
+  position: absolute;
+  right: 20px;
+}
 .dashboard {
   border-right: 3px solid #fff;
   background: #1e1e38;
@@ -132,10 +136,11 @@
     font-size: 14px !important;
   }
   .ActiveLine {
-    font-size: 14px;
+    font-size: 8px;
   }
   .upload-courses-headings {
-    font-size: 14px;
+    font-size: 10px;
+    margin: 0 4px -5px 0;
   }
 }
 

@@ -1,16 +1,18 @@
 import { Button } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import InstructorIcon from "../../assets/icons/InstructorIcon.svg";
 // import overViewIcon1 from "../../assets/icons/overViewIcon1.svg";
 import overViewIcon2 from "../../assets/icons/overViewIcon2.svg";
 import overViewIcon3 from "../../assets/icons/overViewIcon3.svg";
 import { Store, UpdateStore } from "../../StoreContext";
+
 import api from "../../api";
 import overViewIcon4 from "../../assets/icons/overViewIcon4.svg";
 const Instructor = (props) => {
   const { singlCourse } = props;
   const [follow, setFollow] = useState(false);
+  const [id, setId] = useState(singlCourse?.creator?.user_id?._id);
   const updateStore = UpdateStore();
   const { user } = Store();
   const totalStudent = (courses) => {
@@ -20,16 +22,20 @@ const Instructor = (props) => {
     });
     return total;
   };
-  const followMe = async (creator) => {
-    const data = { user_id: user?._id, creator_id: creator?._id };
-    let res = await api("post", "/creators/addFollower", data);
-    if (res) {
-      setFollow(true);
-    }
-  };
-  const showFollowButton = (creator) => {
-    return user?.following?.includes(creator?.user_id?._id) ? true : false;
-  };
+  useEffect(() => {
+    setId(singlCourse?.creator?.user_id?._id);
+  }, [singlCourse]);
+
+  // const followMe = async (creator) => {
+  //   const data = { user_id: user?._id, creator_id: creator?._id };
+  //   let res = await api("post", "/creators/addFollower", data);
+  //   if (res) {
+  //     setFollow(true);
+  //   }
+  // };
+  // const showFollowButton = (creator) => {
+  //   return user?.following?.includes(creator?.user_id?._id) ? true : false;
+  // };
   return (
     <div>
       <div className="overView_description">
@@ -40,9 +46,17 @@ const Instructor = (props) => {
           </div> */}
           <div className="Instructor">
             <div className="instructor-co1">
-              <div className="instructor-image">
-                <img src={InstructorIcon} alt="" className="instructorLogo" />
-              </div>
+              <Link
+                to={{
+                  pathname: `/CreatorProfile/${id}`,
+                }}
+                className="requestBt"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                <div className="instructor-image">
+                  <img src={InstructorIcon} alt="" className="instructorLogo" />
+                </div>
+              </Link>
               <div className="instructor-heading">
                 <h3 className="instructorH2">
                   {singlCourse?.creator?.user_id?.username
@@ -121,9 +135,12 @@ const Instructor = (props) => {
                 <li className="overViewLi">
                   <img src={overViewIcon4} alt="" className="overViewIcon" />
                   <p className="overViewIconP">
-                    {singlCourse?.creator?.courses
+                    {/* {singlCourse?.creator?.courses
                       ? totalStudent(singlCourse.creator.courses) + " Students"
-                      : "0 Students"}
+                      : "0 Students"} */}
+                    {singlCourse?.student?.length
+                      ? `${singlCourse.student.length} Student`
+                      : "0 Student"}
                   </p>
                 </li>
               </div>

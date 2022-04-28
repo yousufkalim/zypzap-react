@@ -21,6 +21,7 @@ body {
 }
 .overIMG {
   width: 100%;
+  /* background-color:rgb(44, 35, 44); */
 }
 .overView_heading {
   position: absolute;
@@ -122,17 +123,16 @@ body {
   border: 1px solid #fff;
   position: relative;
 }
-.overComming-soonBTN{
+.overComming-soonBTN {
   position: absolute;
   border: none;
   right: 10px;
   top: -10px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-  linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: #fff;
   padding: 2px 3px;
   font-size: 12px;
-
 }
 .overViewCard-content {
   margin: 10px 0;
@@ -311,7 +311,6 @@ body {
 }
 .instructor-aboutH2 {
   font-size: 22px;
-
 }
 .instructor-aboutP {
   padding: 3px 0;
@@ -382,10 +381,10 @@ body {
   padding: 53px 0 0 0;
   margin: 6px;
 }
-.overVeiwSlectBTN{
-  margin: 22px 0px;
+.overVeiwSlectBTN {
+  margin: 30px 0px;
 }
-.overVeiwCS-btn{
+.overVeiwCS-btn {
   color: #fff;
   background: none;
   border: none;
@@ -419,7 +418,7 @@ body {
   }
   .overVeiwSlectBTN {
     margin: 9px 0px;
-}
+  }
   .overViewCard-contentP {
     font-size: 15px;
   }
@@ -459,7 +458,7 @@ body {
     right: inherit;
     width: 100%;
   }
-  .overViewContent{
+  .overViewContent {
     font-size: 12px;
   }
   .curriculum-div {
@@ -570,12 +569,9 @@ body {
   .overViewCard {
     position: inherit;
     right: inherit;
-    width: 70%;
-    display: block;
-    margin: auto;
-    top: 150px;
+    width: 100%;
   }
-  .overViewContent{
+  .overViewContent {
     font-size: 13px;
   }
   .curriculum-div {
