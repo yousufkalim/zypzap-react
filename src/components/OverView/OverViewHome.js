@@ -14,7 +14,6 @@ import OverCardSocialIcon2 from "../../assets/icons/OverCardSocialIcon2.svg";
 import OverCardSocialIcon3 from "../../assets/icons/OverCardSocialIcon3.svg";
 import RatingStarIcon from "../../assets/icons/RatingStarIcon.svg";
 import Star6 from "../../assets/icons/Star6.svg";
-import GuestSignUpPopUp from "../PopupForms/GuestSignUpPopUp";
 
 // import { ReactComponent as Star } from "../../assets/icons/star2.svg";
 // import StarIcon from "@material-ui/icons/Star";
@@ -25,7 +24,6 @@ import GuestSignUpPopUp from "../PopupForms/GuestSignUpPopUp";
 const OverViewHome = (props) => {
   const { user } = Store();
   const updateStore = UpdateStore();
-  const [openGuestPopUp, setOpenGuestPopUp] = useState(false);
   const { singlCourse } = props;
   const [openGuestPopUp, setOpenGuestPopUp] = useState(false);
   const calTotalSecInVideos = (videos) => {
