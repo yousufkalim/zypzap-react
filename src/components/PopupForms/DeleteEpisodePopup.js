@@ -5,11 +5,10 @@ import ClearIcon from "@mui/icons-material/Clear";
 import DeleteFullCoursePopup from "./DeleteFullCoursePopup";
 const DeleteEpisodePopup = ({ open, setOpen, course, setOpenEpisode }) => {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
-  const [showCancleDeletePopup, setShowCancleDeletePopup] = useState(false);
 
   const handleClick = () => {
-    setOpenEpisode(true);
     setOpen(false);
+    setOpenEpisode(true);
   };
   const handleClick2 = () => {
     setShowDeletePopup(true);

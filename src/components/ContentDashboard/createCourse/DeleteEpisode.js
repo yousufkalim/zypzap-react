@@ -145,7 +145,7 @@ const DeleteEpisode = ({ open, setOpen, course }) => {
             );
           })}
           <div className="coursDetailBtn">
-            <button className="continueBtn">
+            <button className="continueBtn" onClick={handleClose}>
               {lodding ? "lodding" : "Continue"}
             </button>
           </div>

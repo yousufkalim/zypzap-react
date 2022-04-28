@@ -70,7 +70,7 @@ const DashboardUploadCourses = ({ pageName }) => {
                   <div className="cardGrid-dashboard">
                     <div className="favourite-icon-position">
                       <img
-                        src={item.thumbnail}
+                        src={item?.thumbnail ? item.thumbnail : Course1}
                         className="dashboardcourseimg"
                         alt="img"
                       />
