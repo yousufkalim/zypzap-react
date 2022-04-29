@@ -106,8 +106,8 @@ const DashboardRightSideBar = ({
           setDefaultCompState={setDefaultCompState}
         />
       )}
-      {defaultCompState === "Performance" ? <Performance /> : null}
-      {defaultCompState === "Earning" ? <Earning /> : null}
+      {/* {defaultCompState === "Performance" ? <Performance /> : null}
+      {defaultCompState === "Earning" ? <Earning /> : null} */}
       {defaultCompState === "Setting" ? <Setting /> : null}
     </>
   );

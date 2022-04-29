@@ -44,8 +44,8 @@ const Dashboard = ({ id }) => {
   };
   const items = [
     { name: "Course", img: youtube },
-    { name: "Performance", img: performance },
-    { name: "Earning", img: dollar },
+    // { name: "Performance", img: performance },
+    // { name: "Earning", img: dollar },
     { name: "Setting", img: settings },
   ];
   const onSideBtnClick = (e) => {
