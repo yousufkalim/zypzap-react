@@ -29,7 +29,7 @@
   border: 1px solid #7d668b;
 }
 .requestButton:hover {
-  background: none;
+  /* background: none; */
 }
 
 /* for mobile */

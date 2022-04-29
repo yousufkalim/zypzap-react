@@ -184,17 +184,19 @@ function TopCoursesComponent({ item }) {
               </div>
             </div>
           </Grid>
+
           <Grid item xs={6} md={6} className="topcourseuserRightGrid">
             <div style={{ textAlign: "right" }}>
               <span className="marginRight">
                 {item?.level ? item.level : "inital level"}
               </span>
-              {item?.videos?.length > 0 && (
-                <>
-                  <span className="marginRight">|</span>
-                  <span className="marginRight">{countTime(item)}</span>
-                </>
-              )}
+
+              <>
+                <span className="marginRight">|</span>
+                <span className="marginRight">
+                  {countTime(item) == 0 ? "50 min" : countTime(item) + "min"}
+                </span>
+              </>
 
               <span className="marginRight">|</span>
               <span className="marginRight">
