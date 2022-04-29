@@ -63,7 +63,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "pink" : "gray",
     borderRadius: 20 / 2,
     position: "relative",
-    left: "-25px"
+    left: "-21px"
   }
 }));
 
