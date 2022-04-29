@@ -184,7 +184,7 @@ function TopCoursesComponent({ item }) {
               </div>
             </div>
           </Grid>
-          {console.log("item", item.level)}
+
           <Grid item xs={6} md={6} className="topcourseuserRightGrid">
             <div style={{ textAlign: "right" }}>
               <span className="marginRight">
