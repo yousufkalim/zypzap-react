@@ -27,7 +27,8 @@ const DeleteEpisodePUBG = ({ open, setOpen, text }) => {
           <div className="uploadSuccess-centerDiv">
             <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />
             <p className="uploadSuccessP">
-              Episode {text.title} GamePlay Course {text.index}/2 deleted
+              Episode {text.title} GamePlay Course {text.index + 1}/
+              {text.length} deleted
             </p>
           </div>
         </div>
