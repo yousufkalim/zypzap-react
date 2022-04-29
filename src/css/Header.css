@@ -7,6 +7,9 @@
 
   -webkit-text-fill-color:white !important
 }
+.css-qiwgdb.Mui-disabled {
+  -webkit-text-fill-color:white !important
+}
 .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
   background-color: rgba(25, 118, 210, 0.08);
   padding: 9px 4px !important;
