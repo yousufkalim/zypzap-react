@@ -194,7 +194,7 @@ function TopCoursesComponent({ item }) {
               <>
                 <span className="marginRight">|</span>
                 <span className="marginRight">
-                  {countTime(item) == 0 ? "50 min" : countTime(item) + "min"}
+                  {countTime(item) == 0 ? "50 min" : "50 min"}
                 </span>
               </>
 

@@ -11,6 +11,11 @@
   overflow: hidden !important;
   max-width: 600px !important;
 }
+
+.css-1ycxvqq-MuiSwitch-root {
+  width: 45px !important;
+}
+
 .MuiInput-underline:before {
   border-bottom: none !important;
 }
