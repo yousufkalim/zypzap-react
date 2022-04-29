@@ -44,6 +44,7 @@ tr {
   padding: 17px 0px 0 0px;
   display: block;
   margin: 0 auto;
+  object-fit: cover;
   
 }
 .latestcourseh5 {

@@ -37,6 +37,7 @@
   width: 100%;
   padding: 10px;
   height: 326px !important;
+  object-fit: cover;
 }
 .topcourseTextGrid {
   padding: 30px 20px 30px 20px;

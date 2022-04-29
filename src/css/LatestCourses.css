@@ -39,6 +39,7 @@
   height: 390px;
   margin: auto;
   display: block;
+  object-fit: cover;
 
 }
 .startcourseimg{
