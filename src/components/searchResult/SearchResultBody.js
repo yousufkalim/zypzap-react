@@ -694,7 +694,7 @@ const SearchResultBody = () => {
               <Box className="cards-container">
                 <div className="cards-box">
                   <div className="cards-header-text">
-                    <h2>{`${searchInput} GAMES`}</h2>
+                    {/* <h2>{`${searchInput} GAMES`}</h2> */}
                     <span>{searchCourse.length + " course result"}</span>
                   </div>
                   <div>
