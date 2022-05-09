@@ -44,15 +44,15 @@ const Search = styled("div")(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25)
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
   width: "100%",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
-    width: "auto"
-  }
+    width: "auto",
+  },
 }));
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
@@ -62,7 +62,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   pointerEvents: "none",
   display: "flex",
   alignItems: "center",
-  justifyContent: "center"
+  justifyContent: "center",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -74,9 +74,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      width: "20ch"
-    }
-  }
+      width: "20ch",
+    },
+  },
 }));
 
 export default function PrimarySearchAppBar({
@@ -86,7 +86,7 @@ export default function PrimarySearchAppBar({
   setOpenSignup,
   openBecomeCreatorPopup,
   setOpenBecomeCreatorPopup,
-  games
+  games,
 }) {
   const updateStore = UpdateStore();
   const { user, creator, searchState, searchInput } = Store();
@@ -111,14 +111,7 @@ export default function PrimarySearchAppBar({
   // const showLogoutFormPopup = () => {
 
   // };
-  const handleLogout = async () => {
-    let res = await api("post", "/users/logout/all");
-    if (res) {
-      updateStore({ user: null, creator: null });
-      localStorage.removeItem("token");
-      history.push("/home");
-    }
-  };
+
   const handleClose = () => {
     setOpenProfile(false);
   };
@@ -183,13 +176,13 @@ export default function PrimarySearchAppBar({
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: "top",
-        horizontal: "right"
+        horizontal: "right",
       }}
       id={menuId}
       keepMounted
       transformOrigin={{
         vertical: "top",
-        horizontal: "right"
+        horizontal: "right",
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
@@ -209,13 +202,13 @@ export default function PrimarySearchAppBar({
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
         vertical: "top",
-        horizontal: "right"
+        horizontal: "right",
       }}
       id={mobileMenuId}
       keepMounted
       transformOrigin={{
         vertical: "top",
-        horizontal: "right"
+        horizontal: "right",
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
@@ -323,13 +316,13 @@ export default function PrimarySearchAppBar({
               sx={{
                 display: { xs: "none", sm: "block" },
                 fontFamily: "Mulish",
-                paddingLeft: "5px"
+                paddingLeft: "5px",
               }}
             >
               {/* Categories */}
               <div
                 style={{
-                  cursor: "pointer"
+                  cursor: "pointer",
                 }}
               >
                 <a
@@ -420,7 +413,7 @@ export default function PrimarySearchAppBar({
               sx={{
                 display: { xs: "none", md: "flex" },
                 justifyContent: { xs: "none", md: "space-between" },
-                width: { xs: "auto", md: "30%" }
+                width: { xs: "auto", md: "30%" },
               }}
             >
               {creator ? (
@@ -458,7 +451,7 @@ export default function PrimarySearchAppBar({
                       <Link
                         to={{
                           pathname: "/UserDashboard",
-                          state: { user: `${user}` }
+                          state: { user: `${user}` },
                         }}
                         style={{ color: "white", textDecoration: "none" }}
                       >
@@ -472,31 +465,6 @@ export default function PrimarySearchAppBar({
                 <p className="sgnBtn">
                   <div class="dropdown">
                     <img src={HeaderLogoutIcon} alt="" />
-                    <div id="myDropdown" class="dropdown-content">
-                      <button
-                        className="formbtn2"
-                        type="submit"
-                        onClick={handleLogout}
-                        style={{
-                          padding: "5px",
-                          border: "none",
-                          background:
-                            "linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)",
-                          color: "white",
-                          fontWeight: "900",
-                          borderRadius: " 2px",
-                          cursor: "pointer",
-                          width: " 35%",
-                          fontSize: "16px",
-                          display: "block",
-                          fontWeight: "500",
-                          border: "1px solid #7d668b",
-                          marginRight: "20px"
-                        }}
-                      >
-                        Log out
-                      </button>
-                    </div>
                   </div>
                 </p>
               ) : (
