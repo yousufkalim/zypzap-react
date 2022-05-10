@@ -333,7 +333,8 @@ const SearchResultBody = () => {
             sx={{
               textAlign: "left",
               backgroundColor: "#0E0F1E",
-              color: "#fff"
+              color: "#fff",
+              padding: "10px 20px 20px 40px"
             }}
           >
             <h4>Filter By</h4>
@@ -602,7 +603,7 @@ const SearchResultBody = () => {
                     name="active"
                     value="10"
                   />
-                  <label for="10€">-10 €</label>
+                  <label for="10€">10 €</label>
                 </div>
                 <div class="radio-item">
                   <input
@@ -612,7 +613,7 @@ const SearchResultBody = () => {
                     name="active"
                     value="20"
                   />
-                  <label for="20€">-20 €</label>
+                  <label for="20€">20 €</label>
                 </div>
                 <div class="radio-item">
                   <input
@@ -622,7 +623,7 @@ const SearchResultBody = () => {
                     name="active"
                     value="30"
                   />
-                  <label for="30€">-30 €</label>
+                  <label for="30€">30 €</label>
                 </div>
                 <div class="radio-item">
                   <input
@@ -632,7 +633,7 @@ const SearchResultBody = () => {
                     name="active"
                     value="40"
                   />
-                  <label for="40€">-40 €</label>
+                  <label for="40€">40 €</label>
                 </div>
                 <div class="radio-item">
                   <input
@@ -642,7 +643,7 @@ const SearchResultBody = () => {
                     name="active"
                     value="50"
                   />
-                  <label for="50€">-50 €</label>
+                  <label for="50€">50 €</label>
                 </div>
                 <div class="radio-item">
                   <input
@@ -652,7 +653,7 @@ const SearchResultBody = () => {
                     name="active"
                     value="100"
                   />
-                  <label for="100€">-100 €</label>
+                  <label for="100€">100 €</label>
                 </div>
                 <div class="radio-item">
                   <input
@@ -662,7 +663,7 @@ const SearchResultBody = () => {
                     name="active"
                     value="all"
                   />
-                  <label for="all">- +100 €</label>
+                  <label for="all">+100 €</label>
                 </div>
               </form>
             ) : null}
@@ -693,7 +694,7 @@ const SearchResultBody = () => {
               <Box className="cards-container">
                 <div className="cards-box">
                   <div className="cards-header-text">
-                    <h2>{`${searchInput} GAMES`}</h2>
+                    {/* <h2>{`${searchInput} GAMES`}</h2> */}
                     <span>{searchCourse.length + " course result"}</span>
                   </div>
                   <div>

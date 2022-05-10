@@ -18,13 +18,62 @@ import Input from "@material-ui/core/Input";
 import api from "../../api";
 import { useHistory } from "react-router-dom";
 
+import FormControlLabel from "@mui/material/FormControlLabel";
+import { styled } from "@mui/material/styles";
+import Switch from "@mui/material/Switch";
+
+const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+  width: 82,
+  height: 34,
+  padding: 7,
+  "& .MuiSwitch-switchBase": {
+    margin: 1,
+    padding: 0,
+    transform: "translateX(6px)",
+    "&.Mui-checked": {
+      color: "red",
+      transform: "translateX(22px)",
+
+      "& + .MuiSwitch-track": {
+        opacity: 1,
+        backgroundColor: theme.palette.mode === "dark" ? "green" : "black"
+      }
+    }
+  },
+  "& .MuiSwitch-thumb": {
+    background:
+      theme.palette.mode === "dark"
+        ? "red"
+        : "linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)",
+    width: 28,
+    height: 28,
+    "&:before": {
+      content: "''",
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      left: 0,
+      top: 0,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center"
+    }
+  },
+  "& .MuiSwitch-track": {
+    opacity: 1,
+    backgroundColor: theme.palette.mode === "dark" ? "pink" : "gray",
+    borderRadius: 20 / 2,
+    position: "relative",
+    left: "-21px"
+  }
+}));
+
 export default function LoginFormPopup({ open, setOpen, setSignup }) {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [values, setValues] = React.useState({
     email: "",
     password: "",
-    showPassword: false,
+    showPassword: false
   });
   const { email, password, showPassword } = values;
   const showSignUpFormPopup = () => {
@@ -47,7 +96,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
   const onChangeEvent = (e) => {
     setValues({
       ...values,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
   const submitForm = async (event) => {
@@ -61,7 +110,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
     }
     let formdata = {
       email,
-      password,
+      password
     };
     try {
       let res = await api("post", "/users/login", formdata);
@@ -78,6 +127,14 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
       setLoading(false);
     }
   };
+  const label = {
+    inputProps: {
+      "aria-label": "Switch demo"
+    }
+  };
+  const handleCheck = (e) => {
+    console.log("e", e.target.checked);
+  };
 
   return (
     <div>
@@ -87,6 +144,14 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
             <h1 className="loginH1">Login to your account</h1>
             <ClearIcon className="clearIcon" onClick={handleClose} />
             <p className="login_pera">Welcome back</p>
+            <div>
+              Creator
+              <MaterialUISwitch
+                sx={{ m: 1 }}
+                defaultChecked
+                onClick={handleCheck}
+              />
+            </div>
             <form action="">
               <label htmlFor="email" className="loginFH1">
                 Email
