@@ -11,10 +11,13 @@ import Blog from "./Blog";
 import ContentRequest from "../components/PopupForms/ContentRequest";
 import { Store, UpdateStore } from "../StoreContext";
 import api from "../api";
+import { useHistory } from "react-router-dom";
+
 export default function Body({ setOpenSignup }) {
   const [loading, setLoading] = useState(false);
   const [openContentRequest, setOpenContentRequest] = useState(false);
   const updateStore = UpdateStore();
+  const history = useHistory();
   const { courses, user } = Store();
 
   let getTopCourses = async () => {
@@ -28,6 +31,15 @@ export default function Body({ setOpenSignup }) {
     // get top courses
     getTopCourses();
   }, []);
+  const handleviewTopCourses = () => {
+    history.push({
+      pathname: "/searchResult",
+      param: {
+        name: "Top 10 Games",
+        value: "1",
+      },
+    });
+  };
   return (
     <>
       <ContentRequest
@@ -55,6 +67,7 @@ export default function Body({ setOpenSignup }) {
               <button
                 className="textonImgbutton"
                 // onClick={() => setOpenSignup(true)}
+                onClick={handleviewTopCourses}
               >
                 Explore Courses
               </button>
