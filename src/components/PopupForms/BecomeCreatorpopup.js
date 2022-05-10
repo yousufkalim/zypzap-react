@@ -136,7 +136,7 @@ const BecomeCreatorpopup = ({
             creator: res?.data?.creator,
           });
           setOpen(false);
-          setOpen2(true);
+          // setOpen2(true);
           // window.location.reload();
         }
       } else {
