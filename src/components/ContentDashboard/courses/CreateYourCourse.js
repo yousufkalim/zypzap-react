@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import Box from "@mui/material/Box";
 import createcourse from "../../../assets/img/createcourse.png";
 import CreateACoursePopup from "../../PopupForms/CreateACoursePopup";
@@ -14,6 +15,11 @@ const CreateYourCourse = ({ setcreateCourse, setDefaultCompState }) => {
   // const handleClose = () => {
   //   setAnchorEl(null);
   // };
+
+  // useEffect(() => {
+  //   // get top courses
+  //   if (location.state) setcreateCourse(true);
+  // }, []);
 
   // const open = Boolean(anchorEl);
   // const id = open ? "simple-popover" : undefined;
