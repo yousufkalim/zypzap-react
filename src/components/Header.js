@@ -108,9 +108,9 @@ export default function PrimarySearchAppBar({
     setAge(event.target.value);
   };
 
-  // const showLogoutFormPopup = () => {
-
-  // };
+  const openProfilePg = () => {
+    history.push("/userprofile");
+  };
 
   const handleClose = () => {
     setOpenProfile(false);
@@ -464,7 +464,11 @@ export default function PrimarySearchAppBar({
               {user ? (
                 <p className="sgnBtn">
                   <div class="dropdown">
-                    <img src={HeaderLogoutIcon} alt="" />
+                    <img
+                      src={HeaderLogoutIcon}
+                      onClick={openProfilePg}
+                      alt=""
+                    />
                   </div>
                 </p>
               ) : (
