@@ -51,7 +51,9 @@ const CreatorProfileHome = (props) => {
     let res = await api("get", `/users/${id}`);
     if (res) {
       setUser(res?.data);
-      setCourses(res?.data?.creator?.courses);
+      const courses = res?.data?.creator?.courses;
+      courses.length = 4;
+      setCourses(courses);
     }
   };
   const handleClickOpen = () => {

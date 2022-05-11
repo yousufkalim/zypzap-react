@@ -11,6 +11,8 @@ import DeleteIcon from "../../../assets/icons/DeleteIcon.svg";
 import IIcon from "../../../assets/icons/IIcon.svg";
 import { CompressOutlined } from "@mui/icons-material";
 import api from "../../../api";
+import { Link } from "react-router-dom";
+import { Store, UpdateStore } from "../../../StoreContext";
 const calTotalSecInVideos = (videos) => {
   let timeInSecond = 1;
   videos?.map((videos) => (timeInSecond += parseInt(videos.duration)));
@@ -35,17 +37,14 @@ const formated = (date) => {
   }/${newDate.getFullYear()}`;
   return format;
 };
-const DashboardUploadCourses = ({ pageName, creator }) => {
-  const [star, setstar] = useState();
-  const [course, setCourse] = useState([]);
+const DashboardUploadCourses = ({ pageName }) => {
+  const { creator } = Store();
   useEffect(() => {
     // getCourses();
   }, [creator]);
-  const getCourses = async () => {
-    let res = await api("get", `/courses`);
-    if (res) {
-      setCourse(res.data);
-    }
+  const hanldleClick = (e, item) => {
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
   };
   return (
     <>
@@ -55,67 +54,101 @@ const DashboardUploadCourses = ({ pageName, creator }) => {
         spacing={{ xs: 1, md: 1, lg: 0 }}
         columns={{ xs: 12, sm: 12, md: 12, lg: 12 }}
       >
-        {creator?.courses?.map((item) => (
-          <Grid item xs={12} sm={12} md={4} lg={3} className="card_grids">
-            <div className="cardGrid-dashboard">
-              <div className="favourite-icon-position">
-                <img
-                  src={item.thumbnail}
-                  className="dashboardcourseimg"
-                  alt="img"
-                />
-              </div>
-              <div className="dashbordHeading-div">
-                <h5 className="latestcourseh5">{item.course_name}</h5>
-                <div className="dashbordIconsDiv">
-                  {pageName === "publish" || pageName === "draft" ? (
-                    <>
-                      <img className="deleteIcon1" src={EditIcon} alt="" />
-                      &nbsp;&nbsp;&nbsp;
-                      <img className="editIcon1" src={DeleteIcon} alt="" />
-                    </>
-                  ) : (
-                    <></>
-                  )}
-                </div>
-              </div>
-              <p className="latestcoursep1">{creator?.user_id?.username}</p>
-              <p className="latestcoursep1">
-                {" "}
-                {item?.rating === 0 ? item?.rating + ".0" : item?.rating} &nbsp;
-                {[1, 2, 3, 4, 5].map((item) => (
-                  <Star1 className="star-icon" />
-                ))}
-                &nbsp;{" "}
-                {`(${
-                  item?.student?.length > 0 ? item?.student?.length : ` 0 `
-                })`}
-              </p>
-              <h6
-                className="dashboardlatestcourseh6"
-                style={{ display: "inline-block" }}
-              >
-                {"$" + item.price} &nbsp; | &nbsp;{" "}
-                {calTotalSecInVideos(item?.videos)}
-              </h6>
-              <p
-                className="dashboardlatestcourseh6"
-                style={{
-                  display: "inline-block",
-                  marginLeft: "auto",
-                  float: "right",
-                  opacity: "0.5",
-                }}
-              >
-                {pageName === "publish" || pageName === "draft" ? (
-                  <> {formated(item?.createdAt)}</>
-                ) : (
-                  <img src={IIcon} alt="" />
-                )}
-              </p>
-            </div>
-          </Grid>
-        ))}
+        {pageName === "publish" ? (
+          <>
+            {" "}
+            {creator?.courses?.map((item) => (
+              <Grid item xs={12} sm={12} md={4} lg={3} className="card_grids">
+                <Link
+                  to={{
+                    pathname: `OverView/${item?._id}`,
+                    state: { course: `${item}` },
+                  }}
+                  className="requestBt"
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  <div className="cardGrid-dashboard">
+                    <div className="favourite-icon-position">
+                      <img
+                        src={item?.thumbnail ? item.thumbnail : Course1}
+                        className="dashboardcourseimg"
+                        alt="img"
+                      />
+                    </div>
+                    <div className="dashbordHeading-div">
+                      <h5 className="latestcourseh5">{item.course_name}</h5>
+                      <div className="dashbordIconsDiv">
+                        {pageName === "publish" || pageName === "draft" ? (
+                          <>
+                            <img
+                              className="deleteIcon1"
+                              src={EditIcon}
+                              alt=""
+                            />
+                            &nbsp;&nbsp;&nbsp;
+                            <img
+                              className="editIcon1"
+                              src={DeleteIcon}
+                              alt=""
+                              // onClick={(e) => hanldleClick(e, item)}
+                            />
+                          </>
+                        ) : (
+                          <></>
+                        )}
+                      </div>
+                    </div>
+                    <p className="latestcoursep1">
+                      {creator?.user_id?.username}
+                    </p>
+                    <p className="latestcoursep1">
+                      {" "}
+                      {item?.rating === 0
+                        ? item?.rating + ".0"
+                        : item?.rating}{" "}
+                      &nbsp;
+                      {[1, 2, 3, 4, 5].map((item) => (
+                        <Star1 className="star-icon" />
+                      ))}
+                      &nbsp;{" "}
+                      {`(${
+                        item?.student?.length > 0
+                          ? item?.student?.length
+                          : ` 0 `
+                      })`}
+                    </p>
+                    <h6
+                      className="dashboardlatestcourseh6"
+                      style={{ display: "inline-block" }}
+                    >
+                      {"$" + item.price} &nbsp; | &nbsp;{" "}
+                      {calTotalSecInVideos(item?.videos)}
+                    </h6>
+                    <p
+                      className="dashboardlatestcourseh6"
+                      style={{
+                        display: "inline-block",
+                        marginLeft: "auto",
+                        float: "right",
+                        opacity: "0.5",
+                      }}
+                    >
+                      {pageName === "publish" || pageName === "draft" ? (
+                        <> {formated(item?.createdAt)}</>
+                      ) : (
+                        <img src={IIcon} alt="" />
+                      )}
+                    </p>
+                  </div>
+                </Link>
+              </Grid>
+            ))}{" "}
+          </>
+        ) : (
+          <div className="request-data">
+            <p className="request-data-p">{pageName} course not aviliable </p>
+          </div>
+        )}
       </Grid>
     </>
   );

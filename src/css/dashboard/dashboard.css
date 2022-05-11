@@ -28,7 +28,7 @@
   margin-top: 0px;
   /* width: 12px; */
 }
-.CourseDownArrow{
+.CourseDownArrow {
   position: absolute;
   right: 20px;
 }
@@ -58,6 +58,14 @@
 .request-data {
   width: 93%;
   height: 60vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.request-data1 {
+  width: 93%;
+  height: 30vh;
   margin: auto;
   display: flex;
   justify-content: center;

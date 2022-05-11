@@ -33,148 +33,149 @@ import CreatorResult from "./CreatorResult";
 const categories = [
   {
     name: "Top 10 Games",
-    value: "1",
+    value: "1"
   },
   {
     name: "Top 10 Trendy Games",
-    value: "1",
+    value: "1"
   },
   {
     name: "Top 10 NFT Games",
-    value: "4",
+    value: "3"
   },
   {
     name: "Top 10 Metaverse Games",
-    value: "3",
+    value: "4"
   },
   {
     name: "Latest Courses",
-    value: "2",
-  },
-  {
-    name: "Top Courses",
-    value: "5",
+    value: "2"
   },
   {
     name: "Top Rated Content Creators",
-    value: "6",
+    value: "5"
+  },
+  {
+    name: "Top Courses",
+    value: "1"
   },
   {
     name: "Top New Games",
-    value: "7",
+    value: "6"
   },
   {
     name: "Top Reality Games",
-    value: "8",
-  },
+    value: "7"
+  }
 ];
+
 const GameTypes = [
   {
     name: "Action",
-    value: "name",
+    value: "name"
   },
   {
     name: "Adventure",
-    value: "class",
+    value: "class"
   },
   {
     name: "Metaverse",
-    value: "age",
+    value: "age"
   },
   {
     name: "MMOG",
-    value: "subjects",
+    value: "subjects"
   },
   {
     name: "Car Racing",
-    value: "school",
+    value: "school"
   },
   {
     name: "Versus Fighting",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "FPS",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "RTS",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "RPG",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "Turn by Turn Strategy",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "Simulation",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "Sport",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "Trading card",
-    value: "schooltwo",
+    value: "schooltwo"
   },
   {
     name: "Puzzle",
-    value: "schooltwo",
-  },
+    value: "schooltwo"
+  }
 ];
 const PlateformsAry = [
   {
     name: "Retro Consoles",
-    value: "name",
+    value: "name"
   },
   {
     name: "PS1/2/3/4/5",
-    value: "class",
+    value: "class"
   },
   {
     name: "Xbox/360/One/X",
-    value: "age",
+    value: "age"
   },
   {
     name: "PC",
-    value: "subjects",
+    value: "subjects"
   },
   {
     name: "Portable Consoles",
-    value: "school",
+    value: "school"
   },
   {
     name: "Mobile Games",
-    value: "schooltwo",
-  },
+    value: "schooltwo"
+  }
 ];
 const levelAry = [
   {
     name: "Casual",
-    value: "Casual",
+    value: "Casual"
   },
   {
     name: "Confirmed",
-    value: "Confirmed",
+    value: "Confirmed"
   },
   {
     name: "Hardcore",
-    value: "Hardcore",
+    value: "Hardcore"
   },
   {
     name: "Esporter",
-    value: "Esporter",
-  },
+    value: "Esporter"
+  }
 ];
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(2),
   textAlign: "center",
-  color: theme.palette.text.secondary,
+  color: theme.palette.text.secondary
 }));
 
 const SearchResultBody = () => {
@@ -198,11 +199,10 @@ const SearchResultBody = () => {
   const [selectedlevelBtn, setselectedlevelBtn] = useState("");
   const [radioBtnValue, setRadioBtnValue] = useState("");
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
-  const [courses, setCourses] = useState([]);
   // recieving context __data
 
   const { searchCreator, searchCourse, searchState, searchInput } = Store();
-
+  useEffect(() => {}, [searchState, searchCourse, searchCreator]);
   const updateStore = UpdateStore();
 
   //sidebar list togle
@@ -239,10 +239,24 @@ const SearchResultBody = () => {
     const value = e.value;
     let res = await api("get", `/courses/topGames?type=${value}`);
     if (res) {
-      // setCourse(res?.data);
-      updateStore({ searchCourse: res?.data });
-      //updateStore({ create: res?.data });
-      setSelectedActiveButton("");
+      if (value == "5") {
+        updateStore({
+          searchState: "creator",
+          searchCourse: [],
+          searchCreator: res?.data,
+          searchInput: name
+        });
+        setSelectedActiveButton("");
+      }
+      if (value !== "5") {
+        updateStore({
+          searchState: "course",
+          searchCourse: res.data,
+          searchCreator: [],
+          searchInput: name
+        });
+        setSelectedActiveButton("");
+      }
     }
     setSelectedActiveButton(name);
   };
@@ -262,7 +276,7 @@ const SearchResultBody = () => {
   let countViews = (course) => {
     const Videos = course?.videos;
     let count = 0;
-    Videos.map((video) => {
+    Videos?.map((video) => {
       count += video.views;
     });
     return count;
@@ -303,7 +317,6 @@ const SearchResultBody = () => {
       `/courses/filteredCourses?&&gameType=${selectedGameBtn}&&plateForm=${selectedPlateformsBtn}&&level=${selectedlevelBtn}&&mode=${radioBtnValue}&&price=${sliderValue}`
     );
     if (res) {
-      setCourses(res.data);
       const course = res?.data.filter((c, index) => c.index < 12);
       updateStore({ searchCourse: res?.data });
     }
@@ -321,6 +334,7 @@ const SearchResultBody = () => {
               textAlign: "left",
               backgroundColor: "#0E0F1E",
               color: "#fff",
+              padding: "10px 20px 20px 40px"
             }}
           >
             <h4>Filter By</h4>
@@ -336,9 +350,8 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="1"
                   onClick={onClickSideBarHeaders}
@@ -348,9 +361,8 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="1"
                   onClick={onClickSideBarHeaders}
@@ -375,9 +387,9 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="2"
                   onClick={onClickSideBarHeaders}
@@ -387,9 +399,9 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="2"
                   onClick={onClickSideBarHeaders}
@@ -414,9 +426,9 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="3"
                   onClick={onClickSideBarHeaders}
@@ -426,9 +438,9 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="3"
                   onClick={onClickSideBarHeaders}
@@ -452,25 +464,24 @@ const SearchResultBody = () => {
             >
               Gameplay Level
               {!selectedLevel ? (
-                <KeyboardArrowDownIcon
+                <KeyboardArrowUpIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="6"
                   onClick={onClickSideBarHeaders}
                 />
               ) : (
-                <KeyboardArrowUpIcon
+                <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="6"
                   onClick={onClickSideBarHeaders}
@@ -497,9 +508,8 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="4"
                   onClick={onClickSideBarHeaders}
@@ -509,9 +519,8 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="4"
                   onClick={onClickSideBarHeaders}
@@ -555,9 +564,8 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="5"
                   onClick={onClickSideBarHeaders}
@@ -567,9 +575,8 @@ const SearchResultBody = () => {
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-                    opacity: "0.6",
-                    width: "2px",
-                    height: "1em !important",
+                    width: "30px",
+                    height: "1em !important"
                   }}
                   id="5"
                   onClick={onClickSideBarHeaders}
@@ -596,7 +603,7 @@ const SearchResultBody = () => {
                     name="active"
                     value="10"
                   />
-                  <label for="10€">-10 €</label>
+                  <label for="10€">10 €</label>
                 </div>
                 <div class="radio-item">
                   <input
@@ -606,7 +613,7 @@ const SearchResultBody = () => {
                     name="active"
                     value="20"
                   />
-                  <label for="20€">-20 €</label>
+                  <label for="20€">20 €</label>
                 </div>
                 <div class="radio-item">
                   <input
@@ -616,7 +623,7 @@ const SearchResultBody = () => {
                     name="active"
                     value="30"
                   />
-                  <label for="30€">-30 €</label>
+                  <label for="30€">30 €</label>
                 </div>
                 <div class="radio-item">
                   <input
@@ -626,7 +633,7 @@ const SearchResultBody = () => {
                     name="active"
                     value="40"
                   />
-                  <label for="40€">-40 €</label>
+                  <label for="40€">40 €</label>
                 </div>
                 <div class="radio-item">
                   <input
@@ -636,7 +643,7 @@ const SearchResultBody = () => {
                     name="active"
                     value="50"
                   />
-                  <label for="50€">-50 €</label>
+                  <label for="50€">50 €</label>
                 </div>
                 <div class="radio-item">
                   <input
@@ -646,7 +653,7 @@ const SearchResultBody = () => {
                     name="active"
                     value="100"
                   />
-                  <label for="100€">-100 €</label>
+                  <label for="100€">100 €</label>
                 </div>
                 <div class="radio-item">
                   <input
@@ -656,14 +663,14 @@ const SearchResultBody = () => {
                     name="active"
                     value="all"
                   />
-                  <label for="all">- +100 €</label>
+                  <label for="all">+100 €</label>
                 </div>
               </form>
             ) : null}
             {/* 111111 */}
-            <h4 className="didnt-find-text">
+            {/* <h4 className="didnt-find-text">
               Didn't found the <br /> course
-            </h4>
+            </h4> */}
             <Box>
               <Button
                 className="reqstStateBTN"
@@ -687,7 +694,7 @@ const SearchResultBody = () => {
               <Box className="cards-container">
                 <div className="cards-box">
                   <div className="cards-header-text">
-                    <h2>{`${searchInput} GAMES`}</h2>
+                    {/* <h2>{`${searchInput} GAMES`}</h2> */}
                     <span>{searchCourse.length + " course result"}</span>
                   </div>
                   <div>
@@ -763,7 +770,7 @@ const SearchResultBody = () => {
                               />
                               <p className="latestCourse-p">
                                 {" "}
-                                {`(${countViews(item)})`}
+                                {item?.videos ? `(${countViews(item)})` : ""}
                               </p>
                             </div>
                             <div className="latestCourse-colmn-centerDiv">

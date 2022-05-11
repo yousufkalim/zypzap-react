@@ -35,10 +35,12 @@
 .courseimg {
   width: 100%;
   padding: 17px;
-  border-radius: 18%;
+  border-radius: 10%;
   height: 390px;
   margin: auto;
   display: block;
+  object-fit: cover;
+
 }
 .startcourseimg{
   
@@ -123,6 +125,8 @@
   /* font-size: 18px; */
   font-family: Mulish;
   font-size: 14px !important;
+  font-weight: 900 !important;
+  text-transform: capitalize;
 }
 /* -------------------------------- new card --------------------------------   */
 /* -------------------------------- wishlist --------------------------------   */

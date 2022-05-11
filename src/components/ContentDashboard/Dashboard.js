@@ -44,8 +44,8 @@ const Dashboard = ({ id }) => {
   };
   const items = [
     { name: "Course", img: youtube },
-    { name: "Performance", img: performance },
-    { name: "Earning", img: dollar },
+    // { name: "Performance", img: performance },
+    // { name: "Earning", img: dollar },
     { name: "Setting", img: settings },
   ];
   const onSideBtnClick = (e) => {
@@ -67,6 +67,7 @@ const Dashboard = ({ id }) => {
               items={items}
               activeButton={activeButton}
               trigerOnClickEmpSideBtn={onSideBtnClick}
+              setDefaultCompState={setDefaultCompState}
             />
           </Grid>
         </Box>
@@ -78,6 +79,7 @@ const Dashboard = ({ id }) => {
           createCourse={createCourse}
           games={games}
           creator={creator}
+          setDefaultCompState={setDefaultCompState}
         />
       </Box>
     </>

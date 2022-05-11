@@ -139,6 +139,7 @@
   font-weight: 500;
   border: 1px solid #7d668b;
 }
+
 .create_container .formbtn2:hover {
   background: none;
 }
@@ -358,7 +359,7 @@
 }
 .userProfileSelectInput2 {
   display: flex;
-  width: 70%;
+  width: 100%;
   /* justify-content: space-between; */
 }
 .selectInput-userProfile2 {

@@ -1,20 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
-import Select from "@mui/material/Select";
+// import Select from "@mui/material/Select";
+import Select from "react-select";
 import { toast } from "react-toastify";
 const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
   const [game, setGame] = useState(games ? games : []);
-  useEffect(() => {
-    setGame(games ? games : []);
-  }, []);
-  const chnageEvent = (e) => {
-    setformDataOne({
-      ...formDataOne,
-      [e.target.name]: e.target.value,
-    });
-  };
   const {
-    gamedetails,
+    course_name,
     gameName,
     gameLevel,
     gameType,
@@ -22,28 +14,42 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
     gamePlateForm,
     description,
   } = formDataOne;
+  useEffect(() => {
+    setGame(games ? games : []);
+    setformDataOne({
+      ...formDataOne,
+      ["gameName"]: games[0]._id,
+    });
+  }, []);
+  const chnageEvent = (e) => {
+    setformDataOne({
+      ...formDataOne,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const handleContinue = () => {
-    if (gamedetails == "") {
+    if (course_name === "") {
       return toast.error("Veuillez saisir le nom de votre cours");
     }
-    if (gameName == "") {
+    if (gameName === "") {
       return toast.error("Veuillez entrer votre nom du jeu");
     }
-    if (gameLevel == "") {
+    if (gameLevel === "") {
       return toast.error("Veuillez saisir le nom de votre niveau de jeu");
     }
-    if (gameType == "") {
+    if (gameType === "") {
       return toast.error("Veuillez entrer votre type de jeu");
     }
-    if (gameMood == "") {
+    if (gameMood === "") {
       return toast.error("Veuillez entrer votre ambiance de jeu");
     }
-    if (gamePlateForm == "") {
+    if (gamePlateForm === "") {
       return toast.error(
         "Veuillez saisir le nom de votre forme de plateau de jeu"
       );
     }
-    if (description == "") {
+    if (description === "") {
       return toast.error("Veuillez entrer votre description");
     }
     setStep(2);
@@ -52,7 +58,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
     <>
       <div className="formStepOneDiv">
         <p>Step {step}/6</p>
-        <h2 className="coursedetail1">Course Details</h2>
+        <h2 className="coursedetail1">COURSE DETAILS</h2>
         <div className="hrLine1" />
         <div className="courseDivContainer">
           {/* /* -------------------------------- main div --------------------------------  */}
@@ -66,8 +72,8 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                     type="text"
                     className="coursInput"
                     placeholder="learn how to play minacraft"
-                    value={gamedetails}
-                    name="gamedetails"
+                    value={course_name}
+                    name="course_name"
                     onChange={chnageEvent}
                   />
                 </div>
@@ -75,12 +81,12 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
             </div>
             <Grid xs={12} sm={6}>
               <div>
-                <p className="stepLabel">Game Name</p>
+                <p className="stepLabel">GAME NAME</p>
                 <select
                   id="gameName"
                   name="gameName"
                   className="coursInput"
-                  value={gameName}
+                  value={gameName ? gameName : games[0]._id}
                   onChange={chnageEvent}
                 >
                   {games?.map((g, index) => {
@@ -91,12 +97,23 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                     );
                   })}
                 </select>
+                {/* <Select
+                  name="gameName"
+                  className="coursInput"
+                  isMulti
+                  className="form-control-alternative"
+                  // defaultValue={["1", "2", "3"]}
+                  options={games?.map((game) => ({
+                    value: game?._id,
+                    label: game.game_name,
+                  }))}
+                /> */}
               </div>
             </Grid>
             <Grid container spacing={2}>
               <Grid xs={12} sm={6}>
                 <div>
-                  <p className="stepLabel">Gameplay level</p>
+                  <p className="stepLabel">GAMEPLAY LEVEL</p>
                   <select
                     id="gameLevel"
                     name="gameLevel"
@@ -105,16 +122,16 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                     onChange={chnageEvent}
                   >
                     <option value="Casual" className="setepOption">
-                      Casual
+                      CASUAL
                     </option>
                     <option value="Confirmed" className="setepOption">
-                      Confirmed
+                      CONFIRMED
                     </option>
                     <option value="Hardcore" className="setepOption">
-                      Hardcore
+                      HARDCORE
                     </option>
                     <option value="Esporter" className="setepOption">
-                      Esporter
+                      ESPORTER
                     </option>
                   </select>
                 </div>
@@ -129,7 +146,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
               <Grid container spacing={2}>
                 <Grid xs={12} sm={6}>
                   <div>
-                    <p className="stepLabel">Game Type</p>
+                    <p className="stepLabel">GAME TYPE</p>
                     <select
                       id="gameType"
                       name="gameType"
@@ -138,28 +155,28 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                       onChange={chnageEvent}
                     >
                       <option value="Action" className="setepOption">
-                        Action
+                        ACTION
                       </option>
                       <option value="Adventure" className="setepOption">
-                        Adventure
+                        ADVENTURE
                       </option>
                       <option value="Multiplayer game" className="setepOption">
-                        Multiplayer game
+                        MULTIPLAYER GAME
                       </option>
                       <option value="Car Racing" className="setepOption">
-                        Car Racing
+                        CAR RACING
                       </option>
                       <option value="FPS" className="setepOption">
                         FPS
                       </option>
                       <option value="Simulation" className="setepOption">
-                        Simulation
+                        SIMULATION
                       </option>
                       <option value="Sports" className="setepOption">
-                        Sports
+                        SPORTS
                       </option>
                       <option value="Puzzle" className="setepOption">
-                        Puzzle
+                        PUZZLE
                       </option>
                       <option value="RPG" className="setepOption">
                         RPG
@@ -172,7 +189,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                 </Grid>
                 <Grid xs={12} sm={6}>
                   <div>
-                    <p className="stepLabel">Gaming Mode</p>
+                    <p className="stepLabel">GAMING MODE</p>
                     <select
                       id="gameMood"
                       name="gameMood"
@@ -181,20 +198,20 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                       onChange={chnageEvent}
                     >
                       <option value="Single" className="setepOption">
-                        Single
+                        SINGLE
                       </option>
                       <option value="Multiplayer" className="setepOption">
-                        Multiplayer
+                        MULTIPLAYER
                       </option>
                       <option value="Both" className="setepOption">
-                        Both
+                        BOTH
                       </option>
                     </select>
                   </div>
                 </Grid>
                 <Grid xs={12} sm={6}>
                   <div>
-                    <p className="stepLabel">Gaming Platform</p>
+                    <p className="stepLabel">GAMING PLAYTFORM</p>
                     <select
                       id="gamePlateForm"
                       name="gamePlateForm"
@@ -203,19 +220,19 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                       onChange={chnageEvent}
                     >
                       <option value="Retro Consoles" className="setepOption">
-                        Retro Consoles
+                        RETRO CONSOLES
                       </option>
                       <option value="PS1/2/3/4/5" className="setepOption">
                         PS1/2/3/4/5
                       </option>
                       <option value="Xbox/360/One/X" className="setepOption">
-                        Xbox/360/One/X
+                        XBOX/360/ONE/X
                       </option>
                       <option value="Mobile Games" className="setepOption">
-                        Mobile Games
+                        MOBILE GAMES
                       </option>
                       <option value="Portable Consoles" className="setepOption">
-                        Portable Consoles
+                        PORTABLE CONSOLE
                       </option>
                       <option value="PC" className="setepOption">
                         PC
@@ -229,7 +246,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
           {/* /* -------------------------------- main div --------------------------------  */}
         </div>
         <label htmlFor="" className="stepLabel">
-          Course description
+          COURSE DISCRIPTION
         </label>
         <textarea
           name="description"
@@ -243,12 +260,12 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
         ></textarea>
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button
+          {/* <button
             className="drafBtn"
             style={{ background: "none", border: "1px solid #662F88" }}
           >
             Previous
-          </button>
+          </button> */}
           <button onClick={handleContinue} className="continueBtn">
             Continue
           </button>

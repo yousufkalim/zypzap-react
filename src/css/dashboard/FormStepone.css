@@ -25,6 +25,9 @@
   color: #fff;
   margin-top: 8px;
 }
+.mainEpisodeDiv {
+  width: 80% !important;
+}
 .stepSelect {
   width: 93%;
   background: none;

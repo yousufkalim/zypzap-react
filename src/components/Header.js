@@ -22,6 +22,8 @@ import { useHistory } from "react-router-dom";
 import CreateFormPopup from "./PopupForms/CreateFormPopup";
 import PropfileInformation from "./PopupForms/PropfileInformation";
 import LoginFormPopup from "./PopupForms/LoginFormPopup";
+import LogoutForm from "./PopupForms/LogoutForm";
+
 import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
 import DoYouWant from "./PopupForms/DoYouWant";
 import CongratsPopup from "./PopupForms/CongratsPopup";
@@ -95,22 +97,21 @@ export default function PrimarySearchAppBar({
   const [Option, setOption] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
   const [openCongratulation, setCongratulation] = useState(false);
+  const [searchFlag, setSearchFlag] = useState(false);
   const [age, setAge] = React.useState("");
-  const [showLogoutBtn, setShowLogoutBtn] = useState(false);
+
   const [open, setOpen] = useState(false);
+
   const [open2, setOpen2] = useState(false);
   const [open3, setOpen3] = useState(false);
   const handleChange = (event) => {
     setAge(event.target.value);
   };
-  const handleLogout = async () => {
-    let res = await api("post", "/users/logout/all");
-    if (res) {
-      updateStore({ user: null, creator: null });
-      localStorage.removeItem("token");
-      history.push("/home");
-    }
-  };
+
+  // const showLogoutFormPopup = () => {
+
+  // };
+
   const handleClose = () => {
     setOpenProfile(false);
   };
@@ -157,10 +158,12 @@ export default function PrimarySearchAppBar({
   };
   const handleCreatorSearch = (e) => {
     e.preventDefault();
+    setSearchFlag(false);
     updateStore({ searchState: "creator" });
   };
   const handleCourseSearch = (e) => {
     e.preventDefault();
+    setSearchFlag(false);
     updateStore({ searchState: "course" });
   };
   const handleChangeInput = (e) => {
@@ -367,7 +370,6 @@ export default function PrimarySearchAppBar({
         signup={opensignup}
         setSignup={setOpenSignup}
       />
-
       <BecomeCreatorpopup
         open={openBecomeCreatorPopup}
         setOpen={setOpenBecomeCreatorPopup}
@@ -435,38 +437,45 @@ export default function PrimarySearchAppBar({
 
               <div className="dropdown">
                 {/* <button className="dropbtn"> */}
-                <img src={DownArrow} alt="img" className="downarrow" />
+                <img
+                  src={DownArrow}
+                  alt="img"
+                  className="downarrow"
+                  onClick={() => setSearchFlag(!searchFlag)}
+                />
                 {/* </button> */}
-                <div className="dropdown-content">
-                  <div className="drowp1">
-                    <a
-                      href="#"
-                      className={`${
-                        searchState == "creator" && "activeserchis"
-                      } `}
-                      onClick={handleCreatorSearch}
-                    >
-                      <img className="UserIcons" src={UserIcon} alt="" />
-                      Content Creators
-                      <p className="drowpP">
-                        Top gamers who create content for you
-                      </p>
-                    </a>
+                {searchFlag && (
+                  <div className="dropdown-content">
+                    <div className="drowp1">
+                      <a
+                        href="#"
+                        className={`${
+                          searchState == "creator" && "activeserchis"
+                        } `}
+                        onClick={handleCreatorSearch}
+                      >
+                        <img className="UserIcons" src={UserIcon} alt="" />
+                        Content Creators
+                        <p className="drowpP">
+                          Top gamers who create content for you
+                        </p>
+                      </a>
+                    </div>
+                    <div className=" drowp1">
+                      <a
+                        href="#"
+                        className={`${
+                          searchState == "course" && "activeserchis"
+                        } `}
+                        onClick={handleCourseSearch}
+                      >
+                        <img className="UserIcons" src={CourseIcon} alt="" />
+                        Courses
+                        <p className="drowpP">Browse and buy courses</p>
+                      </a>
+                    </div>
                   </div>
-                  <div className=" drowp1">
-                    <a
-                      href="#"
-                      className={`${
-                        searchState == "course" && "activeserchis"
-                      } `}
-                      onClick={handleCourseSearch}
-                    >
-                      <img className="UserIcons" src={CourseIcon} alt="" />
-                      Courses
-                      <p className="drowpP">Browse and buy courses</p>
-                    </a>
-                  </div>
-                </div>
+                )}
               </div>
               <StyledInputBase
                 placeholder="Type your search here"
@@ -511,7 +520,7 @@ export default function PrimarySearchAppBar({
 
                   <Link
                     to={{
-                      pathname: "dashboard",
+                      pathname: "/dashboard",
                       state: { creator: `${creator}` },
                     }}
                     style={{ color: "white", textDecoration: "none" }}
@@ -547,13 +556,8 @@ export default function PrimarySearchAppBar({
               )}
               {user ? (
                 <p className="sgnBtn">
-                  <div class="dropdown" onClick={handleLogout}>
+                  <div class="dropdown">
                     <img src={HeaderLogoutIcon} alt="" />
-                    <div id="myDropdown" class="dropdown-content">
-                      <a className="LogoutBTN" href="#home">
-                        Logout
-                      </a>
-                    </div>
                   </div>
                 </p>
               ) : (
@@ -572,6 +576,7 @@ export default function PrimarySearchAppBar({
                           className="select_form_header"
                           value={age}
                           onChange={handleChange}
+                          disabled
                           displayEmpty
                         >
                           <MenuItem value="" className="walletInputMenu">

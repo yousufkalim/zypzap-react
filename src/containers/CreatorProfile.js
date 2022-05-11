@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import CreatorProfileHome from "../components/CreatorProfile/CreatorProfileHome";
 import Footer from "../components/blog/BlogFooter";
 import { useParams } from "react-router-dom";
-import api from "../api";
 const CreatorProfile = () => {
   const { id } = useParams();
   const [overView, setOverView] = useState(false);

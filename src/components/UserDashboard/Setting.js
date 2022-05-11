@@ -8,8 +8,11 @@ import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
 import { Store, UpdateStore } from "../../StoreContext";
+import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
 function Setting({ openProfile, setOpenProfile }) {
   const { user } = Store();
+  const updateStore = UpdateStore();
+  const [openCongratulation, setCongratulation] = useState(false);
   const [favouritGame, setFavouritGame] = useState(
     user?.prefrence_games?.favourite_games
       ? user.prefrence_games.favourite_games
@@ -79,7 +82,7 @@ function Setting({ openProfile, setOpenProfile }) {
       ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index),
     ]);
   };
-  const changePlayPeriodHandler = (e) => {
+  const ChangeLearningRhythm = (e) => {
     setLearningRethem(e.target.value);
   };
 
@@ -150,7 +153,8 @@ function Setting({ openProfile, setOpenProfile }) {
           formdata
         );
         if (res) {
-          toast.success("Modifier le profil avec succès");
+          updateStore({ user: res.data });
+          setCongratulation(true);
         }
       } else {
         toast.success("Profil non modifié");
@@ -186,38 +190,44 @@ function Setting({ openProfile, setOpenProfile }) {
   ];
 
   return (
-    <div className="dashboardSetting">
-      <div className="userProfile_conteiner2">
-        <div className="tags-input">
-          <div>
-            <p className="tags-input-FGames">Favorite Games</p>
+    <>
+      <RegisterSuccessfully
+        open={openCongratulation}
+        setOpen={setCongratulation}
+        text="Your Profile Edit Successfully !"
+      />
+      <div className="dashboardSetting">
+        <div className="userProfile_conteiner2">
+          <div className="tags-input">
+            <div>
+              <p className="tags-input-FGames">Favorite Games</p>
+            </div>
+            <div className="tags-input-ul tags-input2 ">
+              <ul className="tags-input-ul2">
+                {favouritGame.map((tag, index) => (
+                  <li key={index} className="userProfileLi">
+                    <i
+                      className="material-icons"
+                      onClick={() => removeTags(index)}
+                    >
+                      <span className="userProfileLiSpan">{tag}</span>
+                    </i>
+                  </li>
+                ))}
+                <input
+                  className="userProfile_inputTags"
+                  type="text"
+                  onKeyUp={(event) => addTags(event)}
+                  placeholder="Add here..."
+                />
+              </ul>
+            </div>
           </div>
-          <div className="tags-input-ul tags-input2 ">
-            <ul className="tags-input-ul2">
-              {favouritGame.map((tag, index) => (
-                <li key={index} className="userProfileLi">
-                  <i
-                    className="material-icons"
-                    onClick={() => removeTags(index)}
-                  >
-                    <span className="userProfileLiSpan">{tag}</span>
-                  </i>
-                </li>
-              ))}
-              <input
-                className="userProfile_inputTags"
-                type="text"
-                onKeyUp={(event) => addTags(event)}
-                placeholder="Add here..."
-              />
-            </ul>
-          </div>
-        </div>
-        <div className="userButtonGroup">
-          <p className="userButton-heading">Game Type</p>
-          <div className="allButtons">
-            <>
-              {/* {gametypebtn.map((tag) => {
+          <div className="userButtonGroup">
+            <p className="userButton-heading">Game Type</p>
+            <div className="allButtons">
+              <>
+                {/* {gametypebtn.map((tag) => {
                 return gameType?.includes(tag.name) ? (
                   <button
                     className="activetypebtn"
@@ -238,28 +248,28 @@ function Setting({ openProfile, setOpenProfile }) {
                   </button>
                 );
               })} */}
-              {gametypebtn.map((tag) => {
-                return (
-                  <button
-                    className={
-                      gameType?.includes(tag)
-                        ? "activetypebtn"
-                        : "userTagsAllButton"
-                    }
-                    value={tag}
-                    onClick={selectGameType}
-                  >
-                    {tag}
-                  </button>
-                );
-              })}
-            </>
+                {gametypebtn.map((tag) => {
+                  return (
+                    <button
+                      className={
+                        gameType?.includes(tag)
+                          ? "activetypebtn"
+                          : "userTagsAllButton"
+                      }
+                      value={tag}
+                      onClick={selectGameType}
+                    >
+                      {tag}
+                    </button>
+                  );
+                })}
+              </>
+            </div>
           </div>
-        </div>
-        <div className="userButtonGroup">
-          <p className="userButton-heading">Gaming Plateforms</p>
-          <div className="allButtons2">
-            {/* {gametypebtn2.map((tag, i) => {
+          <div className="userButtonGroup">
+            <p className="userButton-heading">Gaming Plateforms</p>
+            <div className="allButtons2">
+              {/* {gametypebtn2.map((tag, i) => {
               return plateForm?.includes(tag.name) ? (
                 <button
                   key={i}
@@ -282,123 +292,154 @@ function Setting({ openProfile, setOpenProfile }) {
                 </button>
               );
             })} */}
-            {gamePlateform.map((tag, i) => {
-              return (
-                <button
-                  key={i}
-                  className={
-                    plateForm?.includes(tag)
-                      ? "activetypebtn"
-                      : "userTagsAllButton"
-                  }
-                  value={tag}
-                  onClick={selectplateForm}
-                >
-                  {tag}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-        <div className="userProfileGamingMode">
-          <FormControl>
-            <p className="gamingModeP">Favorite Gaming Mode</p>
-            <div className="gamingModeSelect">
-              <RadioGroup
-                aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue={gameMood}
-                name="radio-buttons-group"
-                style={{ display: "inline" }}
-              >
-                &nbsp; &nbsp;
-                <FormControlLabel
-                  value="Single"
-                  control={<Radio />}
-                  label="Single Player Mode"
-                  onClick={onChangeRadioBtn}
-                />
-                <FormControlLabel
-                  value="MultiPlayer"
-                  control={<Radio />}
-                  label="MultiPlayer Mode"
-                  onClick={onChangeRadioBtn}
-                />
-              </RadioGroup>
+              {gamePlateform.map((tag, i) => {
+                return (
+                  <button
+                    key={i}
+                    className={
+                      plateForm?.includes(tag)
+                        ? "activetypebtn"
+                        : "userTagsAllButton"
+                    }
+                    value={tag}
+                    onClick={selectplateForm}
+                  >
+                    {tag}
+                  </button>
+                );
+              })}
             </div>
-          </FormControl>
-        </div>
-        <div>
-          <label for="Learning">Learning Rhythm</label>
-        </div>
-        <div className="userProfileSelectInput">
-          <select
-            id="Select"
-            name="Select"
-            onChange={changePlayPeriodHandler}
-            className="selectInput-userProfile selectInput2"
-          >
-            <option value="Per Week" className="selectInput-option">
-              Select
-            </option>
-            <option value="Per Week" className="selectInput-option">
-              Select
-            </option>
-            <option value="Per Week" className="selectInput-option">
-              Select
-            </option>
-            {/* <option value="Per Month">10h to 20h Per Week</option>
-            <option value="Per Year">20h to 30h Per Week</option>
-            <option value="Per Month">30h to 40h Per Week</option>
-            <option value="Per Year">40h to 50h Per Week</option>
-            <option value="Per Month">50h to 60h Per Week</option>
-            <option value="Per Year">60h to 70h Per Week</option> */}
-          </select>
-        </div>
-        <div className="userProfileSelectInput">
-          <label for="Learning">Current Gameplay Level</label>
-          <br />
-          <select
-            id="Select"
-            name="Select"
-            onChange={changeCurrentLevelHandler}
-            className="selectInput-userProfile selectInput2"
-            defaultValue={currentLevel}
-          >
-            <option value="Casual" className="selectInput-option">
-              Medium
-            </option>
-            <option value="Confirmed">Medium</option>
-            <option value="Hardcore">Medium</option>
-            <option value="Esporter">Medium</option>
-          </select>
-        </div>
-        <div className="userProfileSelectInput">
-          <label for="Learning">Target Gameplay Level</label>
-          <br />
+          </div>
+          <div className="userProfileGamingMode">
+            <FormControl>
+              <p className="gamingModeP">Favorite Gaming Mode</p>
+              <div className="gamingModeSelect">
+                <RadioGroup
+                  aria-labelledby="demo-radio-buttons-group-label"
+                  defaultValue={gameMood}
+                  name="radio-buttons-group"
+                  style={{ display: "inline" }}
+                >
+                  &nbsp; &nbsp;
+                  <FormControlLabel
+                    value="Single"
+                    control={<Radio />}
+                    label="Single Player Mode"
+                    onClick={onChangeRadioBtn}
+                  />
+                  <FormControlLabel
+                    value="MultiPlayer"
+                    control={<Radio />}
+                    label="MultiPlayer Mode"
+                    onClick={onChangeRadioBtn}
+                  />
+                </RadioGroup>
+              </div>
+            </FormControl>
+          </div>
+          <div>
+            <label for="Learning">Learning Rhythm</label>
+          </div>
+          <div className="userProfileSelectInput">
+            <select
+              id="Select"
+              name="Select"
+              onChange={ChangeLearningRhythm}
+              className="selectInput-userProfile selectInput2"
+            >
+              <option
+                value="10h To 20h Per Week"
+                className="selectInput-option"
+              >
+                {learningRethem === "10h To 20h Per Week"
+                  ? learningRethem
+                  : "10h To 20h Per Week"}
+              </option>
+              <option value="20h To 30h Per Week">
+                {learningRethem === "20h To 30h Per Week"
+                  ? learningRethem
+                  : "20h To 30h Per Week"}
+              </option>
+              <option value="30h To 40h Per Week">
+                {learningRethem === "30h To 40h Per Week"
+                  ? learningRethem
+                  : "30h To 40h Per Week"}
+              </option>
+              <option value="40h To 50h Per Week">
+                {learningRethem === "40h To 50h Per Week"
+                  ? learningRethem
+                  : "40h To 50h Per Week"}
+              </option>
+              <option value="50h To 60h Per Week">
+                {learningRethem === "50h To 60h Per Week"
+                  ? learningRethem
+                  : "50h To 60h Per Week"}
+              </option>
+              <option value="60h To 70h Per Week">
+                {learningRethem === "60h To 70h Per Week"
+                  ? learningRethem
+                  : "60h To 70h Per Week"}
+              </option>
+            </select>
+          </div>
+          <div className="userProfileSelectInput">
+            <label for="Learning">Current Gameplay Level</label>
+            <br />
+            <select
+              id="Select"
+              name="Select"
+              onChange={changeCurrentLevelHandler}
+              className="selectInput-userProfile selectInput2"
+              defaultValue={currentLevel}
+            >
+              <option value="Casual" className="selectInput-option">
+                Casual (5h - 7h Of Play Per Week)
+              </option>
+              <option value="Confirmed">
+                Confirmed (8 Hours - 15 Hours Of Play Per Week)
+              </option>
+              <option value="Hardcore">
+                Hardcore (16 Hours - 28 Hours Of Play Per Week)
+              </option>
+              <option value="Esporter">
+                Esporter (More than 30 Hours Of Play Per Week)
+              </option>
+            </select>
+          </div>
+          <div className="userProfileSelectInput">
+            <label for="Learning">Target Gameplay Level</label>
+            <br />
 
-          <select
-            id="Select"
-            name="Select"
-            onChange={changeTargetLevelHandler}
-            className="selectInput-userProfile selectInput2"
-            defaultValue={target_level}
+            <select
+              id="Select"
+              name="Select"
+              onChange={changeTargetLevelHandler}
+              className="selectInput-userProfile selectInput2"
+              defaultValue={target_level}
+            >
+              <option value="Casual" className="selectInput-option">
+                Casual (5h - 7h Of Play Per Week)
+              </option>
+              <option value="Confirmed">
+                Confirmed (8 Hours - 15 Hours Of Play Per Week)
+              </option>
+              <option value="Hardcore">
+                Hardcore (16 Hours - 28 Hours Of Play Per Week)
+              </option>
+              <option value="Esporter">
+                Esporter (More than 30 Hours Of Play Per Week)
+              </option>
+            </select>
+          </div>
+          <button
+            className="userProfileButton userProfileButton2"
+            onClick={submitProfile}
           >
-            <option value="Casual" className="selectInput-option">
-              Pro
-            </option>
-            <option value="Confirmed">Pro</option>
-            <option value="Hardcore">Pro</option>
-            <option value="Esporter">Pro</option>
-          </select>
+            Continue
+          </button>
         </div>
-        <button
-          className="userProfileButton userProfileButton2"
-          onClick={submitProfile}
-        >
-          Continue
-        </button>
       </div>
-    </div>
+    </>
   );
 }
 

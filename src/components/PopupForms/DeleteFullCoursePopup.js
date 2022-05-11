@@ -3,13 +3,20 @@ import Dialog from "@mui/material/Dialog";
 import "../../css/form/UploadSuccessfulPopup.css";
 import DeletedFullCoursePopup from "./DeletedFullCoursePopup";
 import DeleteCourseIcon from "../../assets/icons/DeleteCourseIcon.svg";
+import api from "../../api";
+import { useHistory } from "react-router-dom";
 
-const DeleteFullCoursePopup = ({ open, setOpen }) => {
+const DeleteFullCoursePopup = ({ open, setOpen, course }) => {
+  const history = useHistory();
   const [showDeletePopup, setShowDeletePopup] = useState(false);
 
-  const handleClick = () => {
-    setShowDeletePopup(true);
-    setOpen(false);
+  const handleClick = async () => {
+    let res = await api("delete", `/courses/${course._id}`);
+    if (res) {
+      setShowDeletePopup(true);
+      setOpen(false);
+    } else {
+    }
   };
 
   const handleClose = () => {
@@ -21,6 +28,7 @@ const DeleteFullCoursePopup = ({ open, setOpen }) => {
         open={showDeletePopup}
         setOpen={setShowDeletePopup}
       />
+
       <Dialog
         open={open}
         setOpe={setOpen}

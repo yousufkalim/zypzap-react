@@ -22,16 +22,16 @@ export default function TopCourses(props) {
   var items = [
     {
       name: "PUBG gameplay full course",
-      description: "Probably the most random thing you have ever seen!",
+      description: "Probably the most random thing you have ever seen!"
     },
     {
       name: "Taken gameplay full course2",
-      description: "Hello World!",
+      description: "Hello World!"
     },
     {
       name: "Speed3",
-      description: "Hello World!",
-    },
+      description: "Hello World!"
+    }
   ];
 
   const handleviewTopCourses = () => {
@@ -39,8 +39,8 @@ export default function TopCourses(props) {
       pathname: "/searchResult",
       param: {
         name: "Top 10 Games",
-        value: "1",
-      },
+        value: "1"
+      }
     });
   };
   return (
@@ -53,14 +53,15 @@ export default function TopCourses(props) {
         style={{
           display: "inline-block",
           cursor: "Pointer",
-          float: "right",
+          float: "right"
         }}
         onClick={handleviewTopCourses}
       >
         View All
       </p>
       <Carousel
-        autoPlay={false}
+        autoPlay={true}
+        interval={3000}
         animation={"fade"}
         activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
         className="topcoursecarousal"
@@ -70,7 +71,7 @@ export default function TopCourses(props) {
           <Link
             to={{
               pathname: `OverView/${item?._id}`,
-              state: { course: `${item}` },
+              state: { course: `${item}` }
             }}
             className="requestBt"
             style={{ textDecoration: "none", color: "white" }}
@@ -173,7 +174,7 @@ function TopCoursesComponent({ item }) {
                         width: "15px",
                         height: "15px",
                         // color: "red",
-                        top: "3px",
+                        top: "3px"
                       }}
                     />
                   ))}
@@ -183,17 +184,19 @@ function TopCoursesComponent({ item }) {
               </div>
             </div>
           </Grid>
+
           <Grid item xs={6} md={6} className="topcourseuserRightGrid">
             <div style={{ textAlign: "right" }}>
               <span className="marginRight">
                 {item?.level ? item.level : "inital level"}
               </span>
-              {item?.videos?.length > 0 && (
-                <>
-                  <span className="marginRight">|</span>
-                  <span className="marginRight">{countTime(item)}</span>
-                </>
-              )}
+
+              <>
+                <span className="marginRight">|</span>
+                <span className="marginRight">
+                  {countTime(item) == 0 ? "50 min" : "50 min"}
+                </span>
+              </>
 
               <span className="marginRight">|</span>
               <span className="marginRight">

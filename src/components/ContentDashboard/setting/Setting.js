@@ -11,8 +11,8 @@ const Setting = () => {
   const items = [
     { name: "Personal Information" },
     { name: "Password" },
-    { name: "Notification" },
-    { name: "Payments" },
+    // { name: "Notification" },
+    // { name: "Payments" },
   ];
   const clickEvent = (item) => {
     setActive(item);

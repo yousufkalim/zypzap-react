@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import InstructorIcon from "../../assets/icons/InstructorIcon.svg";
 // import overViewIcon1 from "../../assets/icons/overViewIcon1.svg";
@@ -12,6 +12,7 @@ import overViewIcon4 from "../../assets/icons/overViewIcon4.svg";
 const Instructor = (props) => {
   const { singlCourse } = props;
   const [follow, setFollow] = useState(false);
+  const [id, setId] = useState(singlCourse?.creator?.user_id?._id);
   const updateStore = UpdateStore();
   const { user } = Store();
   const totalStudent = (courses) => {
@@ -21,6 +22,10 @@ const Instructor = (props) => {
     });
     return total;
   };
+  useEffect(() => {
+    setId(singlCourse?.creator?.user_id?._id);
+  }, [singlCourse]);
+
   // const followMe = async (creator) => {
   //   const data = { user_id: user?._id, creator_id: creator?._id };
   //   let res = await api("post", "/creators/addFollower", data);
@@ -43,8 +48,7 @@ const Instructor = (props) => {
             <div className="instructor-co1">
               <Link
                 to={{
-                  pathname: `/CreatorProfile/${singlCourse?.creator?.user_id?._id}`,
-                  // state: { course: `${item}` },
+                  pathname: `/CreatorProfile/${id}`,
                 }}
                 className="requestBt"
                 style={{ textDecoration: "none", color: "white" }}

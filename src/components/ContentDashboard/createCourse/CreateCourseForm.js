@@ -6,11 +6,11 @@ import FormStepFour from "./FormStepFour";
 import FormStepFive from "./FormStepFive";
 import FormStepSix from "./FormStepSix";
 import { Store, UpdateStore } from "../../../StoreContext";
-const CreateCourseForm = ({ games }) => {
+const CreateCourseForm = ({ games, setDefaultCompState }) => {
   const [step, setStep] = useState(1);
   const [formDataOne, setformDataOne] = useState({
-    gamedetails: "",
-    gameName: "PUBG",
+    course_name: "",
+    gameName: "",
     gameLevel: "Casual",
     gameType: "Action",
     gameMood: "Single",
@@ -18,7 +18,8 @@ const CreateCourseForm = ({ games }) => {
     description: "",
   });
   const [formDataTwo, setformDataTwo] = useState([]);
-  const [formDataSix, setformDataSix] = useState({});
+  const [formDataFive, setformDataFive] = useState([]);
+  const [formDataSix, setformDataSix] = useState();
   const { creator } = Store();
 
   return (
@@ -32,6 +33,7 @@ const CreateCourseForm = ({ games }) => {
             formDataOne={formDataOne}
             setformDataOne={setformDataOne}
             games={games}
+            setDefaultCompState={setDefaultCompState}
           />
         )}
         {step == 2 && (
@@ -50,18 +52,23 @@ const CreateCourseForm = ({ games }) => {
             setStep={setStep}
             formDataTwo={formDataTwo}
             setformDataTwo={setformDataTwo}
+            formDataFive={formDataFive}
+            setformDataFive={setformDataFive}
           />
         )}
         {step == 6 && (
           <FormStepSix
             step={step}
+            setStep={setStep}
             formDataOne={formDataOne}
-            formDataTwo={formDataTwo}
+            formDataFive={formDataFive}
             formDataSix={formDataSix}
             setformDataOne={setformDataOne}
-            setformDataTwo={setformDataTwo}
+            formDataFive={formDataFive}
+            setformDataFive={setformDataFive}
             setformDataSix={setformDataSix}
             creator={creator}
+            setDefaultCompState={setDefaultCompState}
           />
         )}
       </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import OverViewImg from "../../assets/img/OverviewImg.svg";
 import OverViewCardImg from "../../assets/img/OverViewCardImg.svg";
 import overViewIcon1 from "../../assets/icons/overViewIcon1.svg";
@@ -14,15 +14,18 @@ import OverCardSocialIcon2 from "../../assets/icons/OverCardSocialIcon2.svg";
 import OverCardSocialIcon3 from "../../assets/icons/OverCardSocialIcon3.svg";
 import RatingStarIcon from "../../assets/icons/RatingStarIcon.svg";
 import Star6 from "../../assets/icons/Star6.svg";
+
 // import { ReactComponent as Star } from "../../assets/icons/star2.svg";
 // import StarIcon from "@material-ui/icons/Star";
 import { NavLink } from "react-router-dom";
 import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
+import GuestSignUpPopUp from "../PopupForms/GuestSignUpPopUp";
 const OverViewHome = (props) => {
   const { user } = Store();
   const updateStore = UpdateStore();
   const { singlCourse } = props;
+  const [openGuestPopUp, setOpenGuestPopUp] = useState(false);
   const calTotalSecInVideos = (videos) => {
     let timeInSecond = 1;
     videos.map((videos) => (timeInSecond += parseInt(videos.duration)));
@@ -84,6 +87,7 @@ const OverViewHome = (props) => {
                 ipsum dolor sit amet, consectetur adipiscing
               </p>
             </div>
+
             <div className="overViewTags">
               <li className="overViewLi">
                 <img src={overViewIcon1} alt="" className="overViewIcon-1" />
@@ -124,7 +128,10 @@ const OverViewHome = (props) => {
               </li>
             </div>
             <div className="overVeiwSlectBTN">
-              <button className="overVeiwCS-btn">CS:GO course</button>
+              <button className="overVeiwCS-btn">
+                {singlCourse?.course_name ? singlCourse.course_name : "CS GO"}{" "}
+                course
+              </button>
               <button className="overVeiwCS-btn">
                 Created by Jordan Gilbert
               </button>
@@ -145,35 +152,64 @@ const OverViewHome = (props) => {
                       : "$0.00"}
                   </p> */}
                   {/* <p className="cardP2">$39.99</p> */}
-                  <img src={OverCardHurtLogo} alt="" className="cardHurtLogo" />
+                  {user?.role === "User" && (
+                    <img
+                      src={OverCardHurtLogo}
+                      alt=""
+                      className="cardHurtLogo"
+                    />
+                  )}
                 </div>
-                <NavLink
-                  to="#"
-                  className="CardBuyBtn"
-                  onClick={() => {
-                    if (user) {
-                      handleClick(user, singlCourse);
-                      props.setShowVideo(true);
-                    } else {
-                      props.setOpenSignup(true);
-                    }
-                  }}
-                >
-                  Start
-                </NavLink>
-                <NavLink
-                  to="#"
-                  className="CardBuyBtn"
-                  onClick={() => {
-                    if (user) {
-                      handleEnrolled(user, singlCourse);
-                    } else {
-                      props.setOpenSignup(true);
-                    }
-                  }}
-                >
-                  Enroll Now
-                </NavLink>
+                {user?.role === "Creator" ? (
+                  <NavLink
+                    to="#"
+                    className="CardBuyBtn"
+                    onClick={() => {
+                      if (user) {
+                        handleClick(user, singlCourse);
+                        props.setShowVideo(true);
+                      } else {
+                        props.setOpenSignup(true);
+                      }
+                    }}
+                  >
+                    View
+                  </NavLink>
+                ) : (
+                  <>
+                    {" "}
+                    <NavLink
+                      to="#"
+                      className="CardBuyBtn"
+                      onClick={() => {
+                        if (user) {
+                          handleClick(user, singlCourse);
+                          props.setShowVideo(true);
+                        } else {
+                          setOpenGuestPopUp(true);
+                          // props.setOpenSignup(true);
+                        }
+                      }}
+                    >
+                      Start
+                    </NavLink>
+                    <NavLink
+                      to="#"
+                      className="CardBuyBtn"
+                      onClick={() => {
+                        if (user) {
+                          handleEnrolled(user, singlCourse);
+                        } else {
+                          setOpenGuestPopUp(true);
+
+                          // props.setOpenSignup(true);
+                        }
+                      }}
+                    >
+                      Enroll Now
+                    </NavLink>
+                  </>
+                )}
                 {/* <NavLink to="#" className="CardBuyBtn2">
                   Stock It In The Caddy
                   <button className="overComming-soonBTN">Comming Soon</button>
@@ -230,6 +266,11 @@ const OverViewHome = (props) => {
             </div>
           </div>
         </div>
+        <GuestSignUpPopUp
+          open={openGuestPopUp}
+          setOpen={setOpenGuestPopUp}
+          setOpenSignup={props.setOpenSignup}
+        />
       </div>
     </>
   );

@@ -18,10 +18,10 @@ let btns = [
   { text: "Overview" },
   { text: "Cursus" },
   { text: "Instructor" },
-  { text: "Feedback" }
+  { text: "Feedback" },
 ];
 const OverView = (props) => {
-  const { id, value } = useParams();
+  const { id } = useParams();
   const [overView, setOverView] = useState(false);
   const [activebtn, setActivebtn] = useState("Overview");
   const [course, setCourse] = useState();
@@ -35,7 +35,7 @@ const OverView = (props) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 1,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
   useEffect(() => {
@@ -47,6 +47,7 @@ const OverView = (props) => {
 
   let getSingleCourses = async () => {
     let res = await api("get", `/courses/${id}`);
+
     if (res) {
       setCourse(res?.data);
     }
@@ -83,6 +84,7 @@ const OverView = (props) => {
         btns={btns}
         setActivebtn={setActivebtn}
         activebtn={activebtn}
+        course={course}
       />
       {activebtn == "Overview" && <OverviewButton singlCourse={course} />}
 

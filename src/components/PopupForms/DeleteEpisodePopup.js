@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import "../../css/form/UploadSuccessfulPopup.css";
 import ClearIcon from "@mui/icons-material/Clear";
-import DeleteEpisodePUBG from "./DeleteEpisodePUBG";
 import DeleteFullCoursePopup from "./DeleteFullCoursePopup";
-
-const DeleteEpisodePopup = ({ open, setOpen }) => {
+const DeleteEpisodePopup = ({ open, setOpen, course, setOpenEpisode }) => {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
 
   const handleClick = () => {
-    setShowDeletePopup(true);
     setOpen(false);
+    setOpenEpisode(true);
   };
   const handleClick2 = () => {
     setShowDeletePopup(true);
@@ -22,10 +20,11 @@ const DeleteEpisodePopup = ({ open, setOpen }) => {
   };
   return (
     <div>
-      <DeleteEpisodePUBG open={showDeletePopup} setOpen={setShowDeletePopup} />
       <DeleteFullCoursePopup
         open={showDeletePopup}
         setOpen={setShowDeletePopup}
+        course={course}
+        setOpenEpisode={setOpenEpisode}
       />
       <Dialog
         open={open}
