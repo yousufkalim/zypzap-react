@@ -8,8 +8,7 @@
   width: 95% !important;
   margin: 4% auto 4% auto !important;
   padding: 4% 0px 4% 0px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: mulish;
 }
 .requestHeading {
   padding: 5px;
@@ -24,12 +23,9 @@
   margin: 15px 0px 10px 0px;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
-  font-weight: 500;
-  
-  border: 1px solid #7d668b;
-}
-.requestButton:hover {
-  /* background: none; */
+  font-family: mulish;
+  font-weight: 700;
+  font-size: 15px;
 }
 
 /* for mobile */

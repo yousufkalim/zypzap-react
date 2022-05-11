@@ -134,6 +134,25 @@ body {
 .ol {
   padding: 10px 0;
 }
+.congtratsYouP {
+  font-size: 24px;
+  font-family: "Mulish", sans-serif;
+  padding: 10px 0;
+}
+.congtratsYouP2 {
+  font-family: "Mulish", sans-serif;
+  padding: 0px 0 15px 0;
+}
+.congtratsYouPopup {
+  padding-bottom: 20px;
+  color: #662f88 !important;
+}
+.congratsStarBar {
+  color: #fff !important;
+}
+.css-1c99szj-MuiRating-icon {
+  color: #662f88 !important;
+}
 @media only screen and (min-width: 320px) and (max-width: 600px) {
   .landingpageLeftimg {
     /* display: block; */

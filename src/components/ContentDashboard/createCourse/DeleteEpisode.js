@@ -15,7 +15,11 @@ const DeleteEpisode = ({ open, setOpen, course }) => {
   const [videos, setVideos] = useState(course?.videos ? course.videos : []);
   const [successPopup, setsuccessPopup] = useState(false);
   const [errorPupop, seterrorPupop] = useState(false);
-  const [deletedFile, setDeletedFile] = useState({ file: "", index: 0 });
+  const [deletedFile, setDeletedFile] = useState({
+    file: "",
+    index: 0,
+    length: 0,
+  });
   const [showCancleDeletePopup, setShowCancleDeletePopup] = useState(false);
   //   const [uploadedVideos, setUploadedVideos] = useState([]);
   //   // const [newVideos, setNewVideos] = useState([]);
@@ -82,7 +86,7 @@ const DeleteEpisode = ({ open, setOpen, course }) => {
     console.log("res", res);
     if (res) {
       course = res.data;
-      setDeletedFile({ file: file, index: index });
+      setDeletedFile({ file: file, index: index, length: videos.length });
       const newChapter = videos?.filter((a) => a !== file);
       setVideos(newChapter);
       setsuccessPopup(true);
@@ -116,6 +120,13 @@ const DeleteEpisode = ({ open, setOpen, course }) => {
         <div className="formStepOneDiv">
           <h2 className="coursedetail1">Delete Episode</h2>
           <div className="hrLine1" />
+          {videos.length === 0 && (
+            <div className="request-data1">
+              <p className="request-data-p">
+                No video found please add some video for user...
+              </p>
+            </div>
+          )}
           {videos?.map((file, index) => {
             return (
               <div className="step3_container">
