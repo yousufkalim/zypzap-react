@@ -230,9 +230,13 @@ export default function PrimarySearchAppBar({
 
         {creator ? (
           <>
-            {window.location.pathname === "contentHome" && (
+            {window.location.pathname === "contentHome" ? (
               <Link to="/home" style={{ color: "white", textDecoration: "none" }}>
                 <p className="sgnBtn">Switch to Learner</p>
+              </Link>
+            ) : (
+              <Link to="/contentHome" style={{ color: "white", textDecoration: "none" }}>
+                <p className="sgnBtn">Go to creator home</p>
               </Link>
             )}
 
@@ -492,7 +496,9 @@ export default function PrimarySearchAppBar({
                       <p className="sgnBtn">Switch to Learner</p>
                     </Link>
                   ) : (
-                    <div></div>
+                    <Link to="/contentHome" style={{ color: "white", textDecoration: "none" }}>
+                      <p className="sgnBtn">Go to creator home</p>
+                    </Link>
                   )}
 
                   <Link
