@@ -329,8 +329,15 @@ const SearchResultBody = () => {
     >
       <Box className="side-bar-filter">
         <Grid>
-          <Item className="side-bar-container">
-            <h3>Filter By</h3>
+          <Item
+            sx={{
+              textAlign: "left",
+              backgroundColor: "#0E0F1E",
+              color: "#fff",
+              padding: "10px 20px 20px 40px",
+            }}
+          >
+            <h4>Filter By</h4>
             <hr className="filterby-divider" />
             <div
               id="1"
@@ -691,7 +698,11 @@ const SearchResultBody = () => {
                 <div className="cards-box">
                   <div className="cards-header-text">
                     {/* <h2>{`${searchInput} GAMES`}</h2> */}
-                    <span>{searchCourse.length + " course result"}</span>
+                    <span>
+                      {searchCourse.length +
+                        " course result for " +
+                        ` ${searchInput} `}
+                    </span>
                   </div>
                   <div>
                     {searchCourse.length != 0 && (

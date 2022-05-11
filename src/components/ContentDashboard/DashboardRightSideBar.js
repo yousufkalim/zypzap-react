@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DashboardUploadCourses from "./courses/DashboardUploadCourses";
 import CreateYourCourse from "./courses/CreateYourCourse";
 import Earning from "./earning/Earning";
@@ -100,7 +100,7 @@ const DashboardRightSideBar = ({
           </Box>
         </Box>
       ) : null}
-      {defaultCompState == "" && createCourse && (
+      {defaultCompState == "" && createCourse && games.length > 0 && (
         <CreateCourseForm
           games={games}
           setDefaultCompState={setDefaultCompState}

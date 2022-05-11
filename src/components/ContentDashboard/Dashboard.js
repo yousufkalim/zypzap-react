@@ -9,7 +9,7 @@ import performance from "../../assets/img/performance.png";
 import youtube from "../../assets/img/youtube.png";
 import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 const Dashboard = ({ id }) => {
   const history = useHistory();
   useEffect(() => {
@@ -24,9 +24,18 @@ const Dashboard = ({ id }) => {
     history?.location?.param ? history.location.param.value : "Course"
   );
   const [createCourse, setcreateCourse] = useState(false);
-  const [games, setGames] = useState();
+  const [games, setGames] = useState([]);
+
+  const location = useLocation();
+
   useEffect(() => {
     getGames();
+    if (location.state.createCourse) {
+      setcreateCourse(true);
+      setDefaultCompState("");
+      console.log("LOCATION Course-----------", location.state.createCourse);
+    }
+
     // getCreator();
   }, []);
   const getCreator = async () => {
