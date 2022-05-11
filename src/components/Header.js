@@ -6,12 +6,12 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-import Badge from "@mui/material/Badge";
+// import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+// import AccountCircle from "@mui/icons-material/AccountCircle";
+// import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import UserHeaderIcon from "../assets/icons/UserHeaderIcon.svg";
 import CourseIcon from "../assets/icons/CourseIcon.svg";
@@ -22,8 +22,7 @@ import { useHistory } from "react-router-dom";
 import CreateFormPopup from "./PopupForms/CreateFormPopup";
 import PropfileInformation from "./PopupForms/PropfileInformation";
 import LoginFormPopup from "./PopupForms/LoginFormPopup";
-import LogoutForm from "./PopupForms/LogoutForm";
-
+// import LogoutForm from "./PopupForms/LogoutForm";
 import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
 import DoYouWant from "./PopupForms/DoYouWant";
 import CongratsPopup from "./PopupForms/CongratsPopup";
@@ -36,6 +35,8 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 // import NewLogo from "../assets/icons/NewLogo.png";
 import HomePageLogo from "../assets/icons/HomePageLogo.svg";
+import PlusVideo from "../assets/icons/PlusVideo.svg";
+import GiftCard from "../assets/icons/GiftCard.svg";
 
 import { Store, UpdateStore } from "../StoreContext";
 
@@ -274,7 +275,10 @@ export default function PrimarySearchAppBar({
         )}
         {user ? (
           <p className="sgnBtn">
-            <div class="dropdown" onClick={handleLogout}>
+            <div
+              class="dropdown"
+              // onClick={handleLogout}
+            >
               <img src={HeaderLogoutIcon} alt="" />
               <div id="myDropdown" class="dropdown-content">
                 <a className="LogoutBTN" href="#home">
@@ -496,8 +500,21 @@ export default function PrimarySearchAppBar({
               <Link to="/userprofile" className="requestBt">
                 {/* User Profile */}
                 <button className="requestBtn">
-                  {" "}
                   <img src={UserHeaderIcon} alt="" />
+                </button>
+              </Link>
+            )}
+            {(user?.role == "User" || user?.role == "Creator") && (
+              <Link to="#" className="requestBt">
+                <button className="requestBtn">
+                  <img src={PlusVideo} alt="" />
+                </button>
+              </Link>
+            )}
+            {(user?.role == "User" || user?.role == "Creator") && (
+              <Link to="#" className="requestBt">
+                <button className="requestBtn">
+                  <img src={GiftCard} alt="" />
                 </button>
               </Link>
             )}
@@ -541,6 +558,7 @@ export default function PrimarySearchAppBar({
                       >
                         Become a Creater
                       </p>
+
                       <Link
                         to={{
                           pathname: "/UserDashboard",

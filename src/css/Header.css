@@ -3,12 +3,11 @@
 .css-hip9hq-MuiPaper-root-MuiAppBar-root {
   background-color: black !important;
 }
-.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled{
-
-  -webkit-text-fill-color:white !important
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {
+  -webkit-text-fill-color: white !important;
 }
 .css-qiwgdb.Mui-disabled {
-  -webkit-text-fill-color:white !important
+  -webkit-text-fill-color: white !important;
 }
 .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
   background-color: rgba(25, 118, 210, 0.08);
@@ -47,6 +46,10 @@
 }
 .css-96uuyl {
   background-color: #202342 !important;
+}
+.css-1km1ehz {
+  min-height: 35px !important;
+  padding: 0 !important;
 }
 .iconseperate {
   padding: 0px 10px 0px 10px;
@@ -94,7 +97,7 @@
 .requestBtn {
   padding: 10px 13px;
   border: none;
-  margin: 8px 13px 8px 0;
+  margin: 8px 13px 8px 14px;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: #fff;
   font-weight: bold;
@@ -182,7 +185,7 @@
   background-color: #202342;
   text-decoration: none;
   display: block;
-  font-family:"Mulish"
+  font-family: "Mulish";
 }
 
 .dropdown:hover .dropdown-content {
@@ -394,7 +397,7 @@
 }
 @media only screen and (min-width: 601px) and (max-width: 899px) {
   .searchBar {
-    width: 100% !important;
+    width: 53% !important;
     margin-left: 27px !important;
   }
   .downarrow {
@@ -450,7 +453,7 @@
     margin-top: 12px !important;
   }
   .dropdown {
-    left: 0;
+    left: 15px;
   }
 }
 @media only screen and (min-width: 300px) and (max-width: 600px) {
@@ -483,7 +486,7 @@
     margin-left: -28px !important;
   }
   .requestBtn {
-    /* padding: 10px 7px; */
+    padding: 5px 7px;
     margin: 0px 4px 0px 3px;
     font-size: 8px;
     text-decoration: none;
@@ -494,7 +497,7 @@
     height: 1.1em !important;
   }
   .css-1kcggdq-MuiInputBase-root .MuiInputBase-input {
-    padding-left: calc(-0em + 28px) !important;
+    padding-left: calc(-0em + 11px) !important;
   }
   .MuiSvgIcon-root {
     width: 1em !important;
@@ -530,7 +533,7 @@
     margin-top: 12px !important;
   }
   .dropdown {
-    left: 0;
+    left: 5px;
   }
   /* .css-l2l88c {
     display: flex !important;
