@@ -6,12 +6,12 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-import Badge from "@mui/material/Badge";
+// import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+// import AccountCircle from "@mui/icons-material/AccountCircle";
+// import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import UserHeaderIcon from "../assets/icons/UserHeaderIcon.svg";
 import CourseIcon from "../assets/icons/CourseIcon.svg";
@@ -22,8 +22,7 @@ import { useHistory } from "react-router-dom";
 import CreateFormPopup from "./PopupForms/CreateFormPopup";
 import PropfileInformation from "./PopupForms/PropfileInformation";
 import LoginFormPopup from "./PopupForms/LoginFormPopup";
-import LogoutForm from "./PopupForms/LogoutForm";
-
+// import LogoutForm from "./PopupForms/LogoutForm";
 import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
 import DoYouWant from "./PopupForms/DoYouWant";
 import CongratsPopup from "./PopupForms/CongratsPopup";
@@ -36,6 +35,8 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 // import NewLogo from "../assets/icons/NewLogo.png";
 import HomePageLogo from "../assets/icons/HomePageLogo.svg";
+import PlusVideo from "../assets/icons/PlusVideo.svg";
+import GiftCard from "../assets/icons/GiftCard.svg";
 
 import { Store, UpdateStore } from "../StoreContext";
 
@@ -214,8 +215,8 @@ export default function PrimarySearchAppBar({
       onClose={handleMobileMenuClose}
     >
       {/* <ClearIcon className="closeMenu" /> */}
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
+      <MenuItem>
+        {/* <IconButton
           size="large"
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
@@ -224,10 +225,106 @@ export default function PrimarySearchAppBar({
         >
           <AccountCircle />
         </IconButton>
-        <p>User</p>
+        <p>User</p> */}
+        {/* /* -------------------------------- res menu --------------------------------  */}
+
+        {creator ? (
+          <>
+            <Link
+              to="/contentHome"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <p className="sgnBtn">Switch to Learner</p>
+            </Link>
+
+            <Link
+              to={{
+                pathname: "dashboard",
+                state: { creator: `${creator}` },
+              }}
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <p className="sgnBtn">Dashboard</p>
+            </Link>
+          </>
+        ) : (
+          <>
+            {user?.role != "Creator" && user?.role == "User" && (
+              <>
+                <p
+                  className="sgnBtn"
+                  onClick={() => {
+                    // setOpenBecomeCreatorPopup(true);
+                    setOpen(true);
+                  }}
+                >
+                  Become a Creater
+                </p>
+                <Link
+                  to={{
+                    pathname: "/UserDashboard",
+                    state: { user: `${user}` },
+                  }}
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  <p className="sgnBtn">My Dashboard</p>
+                </Link>
+              </>
+            )}
+          </>
+        )}
+        {user ? (
+          <p className="sgnBtn">
+            <div
+              class="dropdown"
+              // onClick={handleLogout}
+            >
+              <img src={HeaderLogoutIcon} alt="" />
+              <div id="myDropdown" class="dropdown-content">
+                <a className="LogoutBTN" href="#home">
+                  Logout
+                </a>
+              </div>
+            </div>
+          </p>
+        ) : (
+          <>
+            <p className="sgnBtn" onClick={() => setOpenSignup(true)}>
+              Sign Up
+            </p>
+            <p className="sgnBtn" onClick={() => setOpenLogin(true)}>
+              Login
+            </p>
+            <div>
+              <FormControl className="form_Control_header">
+                <button className="comming-soon3">Coming Soon</button>
+                <MenuItem>
+                  <Select
+                    className="select_form_header"
+                    value={age}
+                    onChange={handleChange}
+                    displayEmpty
+                  >
+                    <MenuItem value="" className="walletInputMenu">
+                      Connect Wallet
+                    </MenuItem>
+                    <MenuItem value={10} className="walletInputMenu">
+                      Metamask
+                    </MenuItem>
+                    <MenuItem value={20} className="walletInputMenu">
+                      Coinbase
+                    </MenuItem>
+                  </Select>
+                </MenuItem>
+              </FormControl>
+            </div>
+          </>
+        )}
+
+        {/* /* -------------------------------- res menu --------------------------------  */}
       </MenuItem>
       <MenuItem>
-        <IconButton
+        {/* <IconButton
           size="large"
           aria-label="show 17 new notifications"
           color="inherit"
@@ -236,17 +333,17 @@ export default function PrimarySearchAppBar({
             <NotificationsIcon />
           </Badge>
         </IconButton>
-        <p>My Courses</p>
+        <p>My Courses</p> */}
       </MenuItem>
 
-      <MenuItem>
-        <IconButton
+      {/* <MenuItem> */}
+      {/* <IconButton
           size="large"
           aria-label="show 4 new mails"
           color="inherit"
         ></IconButton>
-        <p onClick={showBecomePopup}>Become a Creater</p>
-      </MenuItem>
+        <p onClick={showBecomePopup}>Become a Creater</p> */}
+      {/* </MenuItem> */}
     </Menu>
   );
 
@@ -403,8 +500,21 @@ export default function PrimarySearchAppBar({
               <Link to="/userprofile" className="requestBt">
                 {/* User Profile */}
                 <button className="requestBtn">
-                  {" "}
                   <img src={UserHeaderIcon} alt="" />
+                </button>
+              </Link>
+            )}
+            {(user?.role == "User" || user?.role == "Creator") && (
+              <Link to="#" className="requestBt">
+                <button className="requestBtn">
+                  <img src={PlusVideo} alt="" />
+                </button>
+              </Link>
+            )}
+            {(user?.role == "User" || user?.role == "Creator") && (
+              <Link to="#" className="requestBt">
+                <button className="requestBtn">
+                  <img src={GiftCard} alt="" />
                 </button>
               </Link>
             )}
@@ -448,6 +558,7 @@ export default function PrimarySearchAppBar({
                       >
                         Become a Creater
                       </p>
+
                       <Link
                         to={{
                           pathname: "/UserDashboard",

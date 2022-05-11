@@ -40,12 +40,9 @@
   margin: auto;
   display: block;
   object-fit: cover;
-
 }
-.startcourseimg{
-  
-  height: 290px !important
-  
+.startcourseimg {
+  height: 290px !important;
 }
 
 .dashbordHeading-div {
@@ -110,7 +107,7 @@
 }
 .latestCourse-colmn-centerDiv {
   display: flex;
-  padding: 5px 4px;
+  padding: 8px 4px;
   align-items: center;
 }
 .latestCourse-h4 {
@@ -169,9 +166,11 @@
   width: 30%;
   margin: auto;
 }
-.startcourse2{ text-decoration: none;
+.startcourse2 {
+  text-decoration: none;
   width: 100%;
-  margin: auto;}
+  margin: auto;
+}
 .wishListh4 {
   font-size: 28px;
 }

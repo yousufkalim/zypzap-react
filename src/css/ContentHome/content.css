@@ -119,10 +119,10 @@
 }
 @media only screen and (min-width: 813px) and (max-width: 1212px) {
   .textH1 {
-    font-size: 2.8em;
+    font-size: 2.4em;
   }
   .textonP {
     font-size: 17px;
-    margin: 12px 0px 40px 0px;
+    margin: 12px 0px 8px 0px;
   }
 }
