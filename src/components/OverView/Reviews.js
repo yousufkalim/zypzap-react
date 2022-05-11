@@ -4,10 +4,10 @@ import Box from "@mui/material/Box";
 // import avatar from "../../assets/img/avatar.png";
 import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
 import ReviewStarList from "./ReviewStarList";
-
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
+import CongratsYouDidPopup from "../PopupForms/CongratsYouDidPopup";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -30,6 +30,7 @@ const Reviews = (props) => {
   const [fourStar, setFourStar] = useState(0);
   const [fiveStar, setFiveStar] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
+  const [showPopup, setShowPopup] = useState(false);
   useEffect(() => {
     calculateStarRating();
   }, [rating]);
@@ -82,12 +83,20 @@ const Reviews = (props) => {
   };
   return (
     <div>
+      <CongratsYouDidPopup showPopup={showPopup} setShowPopup={setShowPopup} />
       <div className="overView_description">
         <div className="overView-descripiton-centerDiv">
           <div className="reviews">
             {/* 1Div */}
             <div className="studentFeedBack">
               <p className="student-feedback-h3">Student feedback</p>
+              <button
+                onClick={() => {
+                  setShowPopup(true);
+                }}
+              >
+                pop
+              </button>
               <div className="courseRating">
                 <h1 className="courseRatingH1">
                   {singlCourse?.rating ? singlCourse.rating : "0.0"}

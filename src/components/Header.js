@@ -211,8 +211,8 @@ export default function PrimarySearchAppBar({
       onClose={handleMobileMenuClose}
     >
       {/* <ClearIcon className="closeMenu" /> */}
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
+      <MenuItem>
+        {/* <IconButton
           size="large"
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
@@ -221,10 +221,103 @@ export default function PrimarySearchAppBar({
         >
           <AccountCircle />
         </IconButton>
-        <p>User</p>
+        <p>User</p> */}
+        {/* /* -------------------------------- res menu --------------------------------  */}
+
+        {creator ? (
+          <>
+            <Link
+              to="/contentHome"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <p className="sgnBtn">Switch to Learner</p>
+            </Link>
+
+            <Link
+              to={{
+                pathname: "dashboard",
+                state: { creator: `${creator}` },
+              }}
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <p className="sgnBtn">Dashboard</p>
+            </Link>
+          </>
+        ) : (
+          <>
+            {user?.role != "Creator" && user?.role == "User" && (
+              <>
+                <p
+                  className="sgnBtn"
+                  onClick={() => {
+                    // setOpenBecomeCreatorPopup(true);
+                    setOpen(true);
+                  }}
+                >
+                  Become a Creater
+                </p>
+                <Link
+                  to={{
+                    pathname: "/UserDashboard",
+                    state: { user: `${user}` },
+                  }}
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  <p className="sgnBtn">My Dashboard</p>
+                </Link>
+              </>
+            )}
+          </>
+        )}
+        {user ? (
+          <p className="sgnBtn">
+            <div class="dropdown" onClick={handleLogout}>
+              <img src={HeaderLogoutIcon} alt="" />
+              <div id="myDropdown" class="dropdown-content">
+                <a className="LogoutBTN" href="#home">
+                  Logout
+                </a>
+              </div>
+            </div>
+          </p>
+        ) : (
+          <>
+            <p className="sgnBtn" onClick={() => setOpenSignup(true)}>
+              Sign Up
+            </p>
+            <p className="sgnBtn" onClick={() => setOpenLogin(true)}>
+              Login
+            </p>
+            <div>
+              <FormControl className="form_Control_header">
+                <button className="comming-soon3">Coming Soon</button>
+                <MenuItem>
+                  <Select
+                    className="select_form_header"
+                    value={age}
+                    onChange={handleChange}
+                    displayEmpty
+                  >
+                    <MenuItem value="" className="walletInputMenu">
+                      Connect Wallet
+                    </MenuItem>
+                    <MenuItem value={10} className="walletInputMenu">
+                      Metamask
+                    </MenuItem>
+                    <MenuItem value={20} className="walletInputMenu">
+                      Coinbase
+                    </MenuItem>
+                  </Select>
+                </MenuItem>
+              </FormControl>
+            </div>
+          </>
+        )}
+
+        {/* /* -------------------------------- res menu --------------------------------  */}
       </MenuItem>
       <MenuItem>
-        <IconButton
+        {/* <IconButton
           size="large"
           aria-label="show 17 new notifications"
           color="inherit"
@@ -233,17 +326,17 @@ export default function PrimarySearchAppBar({
             <NotificationsIcon />
           </Badge>
         </IconButton>
-        <p>My Courses</p>
+        <p>My Courses</p> */}
       </MenuItem>
 
-      <MenuItem>
-        <IconButton
+      {/* <MenuItem> */}
+      {/* <IconButton
           size="large"
           aria-label="show 4 new mails"
           color="inherit"
         ></IconButton>
-        <p onClick={showBecomePopup}>Become a Creater</p>
-      </MenuItem>
+        <p onClick={showBecomePopup}>Become a Creater</p> */}
+      {/* </MenuItem> */}
     </Menu>
   );
 
