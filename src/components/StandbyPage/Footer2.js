@@ -5,13 +5,14 @@ import email from "../../assets/icons/email.svg";
 import location from "../../assets/icons/location.svg";
 import fDiscord from "../../assets/img/fDiscord.svg";
 import fTwitter from "../../assets/img/fTwitter.svg";
-import fReddit from "../../assets/img/fReddit.svg";
-import fFacebook from "../../assets/img/fFacebook.svg";
+// import fReddit from "../../assets/img/fReddit.svg";
+// import fFacebook from "../../assets/img/fFacebook.svg";
 import fLinkedin from "../../assets/img/fLinkedin.svg";
 // import Discord from "../../assets/img/Discord.svg";
 // import Twitter from "../../assets/img/Twitter.svg";
 // import Reddit from "../../assets/img/Reddit.svg";
 // import Facebook from "../../assets/img/Facebook.svg";
+import Globel from "../../assets/icons/Globle.svg";
 
 import { Link } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
@@ -42,7 +43,7 @@ const Footer2 = ({ openContentRequest, setOpenContentRequest }) => {
                       <td>
                         <img src={email} height={15} className="emailicon" />
                       </td>
-                      <td className="infoTd"> contact@zypzap.com</td>
+                      <td className="infoTd">@zypzap.com </td>
                     </div>
                     <div className="tdDiv">
                       <td>
@@ -76,7 +77,7 @@ const Footer2 = ({ openContentRequest, setOpenContentRequest }) => {
               </div>
             </div>
           </Grid>
-          <Grid item xs={12} sm={3} className="footer_menu">
+          <Grid item xs={12} sm={6} className="footer_menu">
             <div className="f2div">
               <Link
                 to="/about"
@@ -88,7 +89,7 @@ const Footer2 = ({ openContentRequest, setOpenContentRequest }) => {
                 to="/LegalNotice"
                 style={{ color: "white", textDecoration: "none" }}
               >
-                <p className="pmargin">Informations légales</p>
+                <p className="pmargin">Mentions légales</p>
               </Link>
               <Link
                 to="/Team"
@@ -116,12 +117,19 @@ const Footer2 = ({ openContentRequest, setOpenContentRequest }) => {
               </Link>
             </div>
           </Grid>
-          <button
-            className="languageButton"
-            onClick={() => changeLanguage(`${language == "en" ? "fr" : "en"}`)}
-          >
-            {language == "fr" ? "English" : "French"}
-          </button>
+          <Grid item xs={12} sm={3} className="footer_language">
+            <div className="languagebuttondiv">
+              <button
+                className="languageButton"
+                onClick={() =>
+                  changeLanguage(`${language == "en" ? "fr" : "en"}`)
+                }
+              >
+                <img src={Globel} className="languageIcon" />
+                {language == "fr" ? "English" : "French"}
+              </button>
+            </div>
+          </Grid>
         </Grid>
       </div>
       <div className="divforsign" style={{ width: "100%" }}>

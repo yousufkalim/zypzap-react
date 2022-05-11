@@ -62,29 +62,29 @@ export default function LatestCourses(props) {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 4
+      items: 4,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
-      slidesToSlide: 3
+      slidesToSlide: 3,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
+      breakpoint: { max: 1024, min: 800 },
+      items: 2,
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
+      breakpoint: { max: 800, min: 0 },
+      items: 1,
+    },
   };
   const handleLatestCourses = () => {
     history.push({
       pathname: "/searchResult",
       param: {
         name: "Latest Courses",
-        value: "2"
-      }
+        value: "2",
+      },
     });
   };
   return (
@@ -108,7 +108,7 @@ export default function LatestCourses(props) {
             <Link
               to={{
                 pathname: `OverView/${item?._id}`,
-                state: { course: `${item}` }
+                state: { course: `${item}` },
               }}
               className="requestBt"
               style={{ textDecoration: "none", color: "white" }}
@@ -118,7 +118,7 @@ export default function LatestCourses(props) {
                 style={{
                   backgroundColor: " #202342",
                   margin: "12px",
-                  borderRadius: "35px"
+                  borderRadius: "35px",
                 }}
               >
                 <img

@@ -671,6 +671,9 @@ const SearchResultBody = () => {
             {/* <h4 className="didnt-find-text">
               Didn't found the <br /> course
             </h4> */}
+            <label for="Multiplayer" className="dropdown-headers">
+              Didn’t found the <br /> course
+            </label>
             <Box>
               <Button
                 className="reqstStateBTN"

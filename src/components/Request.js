@@ -3,7 +3,7 @@ import React from "react";
 import { Store, UpdateStore } from "../StoreContext";
 export default function Construction({
   openContentRequest,
-  setOpenContentRequest
+  setOpenContentRequest,
 }) {
   const { user } = Store();
   return (
@@ -15,27 +15,27 @@ export default function Construction({
         <br className="br" /> Rutrum non vitae id urna nunc, egestas. Tempus
         aliquam, at fus
       </p>
-      {user ? (
-        <button
-          className="requestButton"
-          // onClick={() => {
-          //   setOpenContentRequest(true);
-          // }}
-          disabled
-        >
-          Comming Soon
-        </button>
-      ) : (
-        <button
-          className="requestButton"
-          // onClick={() => {
-          //   setOpenContentRequest(true);
-          // }}
-          disabled
-        >
-          Comming Soon
-        </button>
-      )}
+
+      <button
+        className="requestButton"
+        onClick={() => {
+          setOpenContentRequest(true);
+        }}
+      >
+        {/* Request Now */}
+        Comming Soon
+      </button>
+      {/* {/* {user ? ( */}
+      {/* ) : (
+      <button
+        className="requestButton"
+        // onClick={() => {
+        //   setOpenContentRequest(true);
+        // }}
+      >
+        Comming Soon
+      </button>
+      )} */}
     </div>
   );
 }

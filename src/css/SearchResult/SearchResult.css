@@ -1,6 +1,13 @@
 .side-bar-filter {
   width: 25%;
 }
+.side-bar-container {
+  text-align: left !important;
+  background-color: black !important;
+  color: #fff !important;
+  padding: 10px 20px 20px 30% !important;
+  font-family: mulish !important;
+}
 .cards-box {
   display: flex;
   justify-content: space-between;
@@ -17,9 +24,13 @@
   overflow-y: hidden;
   border-radius: 5px;
 }
-.searchcard{
-  background-color: #171930;
-  border-radius: 50px;
+.searchcard {
+  background: linear-gradient(
+    90.12deg,
+    #202342 22.77%,
+    rgba(38, 38, 72, 0) 129.88%
+  );
+  border-radius: 33.2787px;
   margin: 5px;
 }
 
@@ -63,6 +74,7 @@
   color: #fff;
   width: 85%;
   padding: 0px;
+  margin: 0 50px 0 0;
 }
 .cards-container2 {
   background-color: #14162c;
@@ -116,25 +128,25 @@
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: #fff;
   font-weight: 600 !important;
-  font-family: "Poppins", sans-serif !important;
+  font-family: "Mulish", sans-serif;
   border-radius: 5px;
   cursor: pointer;
   font-size: 0.9rem !important;
   padding: 5px 12px !important;
-  font-size: 13px !important;
+  font-size: 16px !important;
   margin: 10px 0 !important;
 }
 .btn-Research {
   border: none;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: #fff;
-  font-weight: 600 !important;
+  font-weight: 400 !important;
   font-family: "Poppins", sans-serif !important;
   border-radius: 5px;
   cursor: pointer;
   font-size: 0.9rem !important;
   padding: 5px 12px !important;
-  font-size: 13px !important;
+  font-size: 16px !important;
   margin-left: auto !important;
 }
 
@@ -165,10 +177,10 @@
   font-family: "Poppins", sans-serif !important;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 0.9rem !important;
-  padding: 5px 12px !important;
-  font-size: 13px !important;
+  padding: 10px 16px !important;
+  font-size: 16px !important;
   margin: 10px 0 !important;
+  text-transform: capitalize !important;
 }
 .categories-text {
   font-size: 16px;
@@ -292,6 +304,9 @@
   }
   .cards-container {
     width: 100%;
+  }
+  .side-bar-container {
+    padding: 10px !important;
   }
 }
 

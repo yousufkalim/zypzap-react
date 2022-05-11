@@ -5,8 +5,14 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Visa from "../../assets/icons/Visa.svg";
 import MasterCard from "../../assets/icons/MasterCard.svg";
 import Switch from "@mui/material/Switch";
-
+import HeaderLogoutIcon from "../../assets/icons/HeaderLogoutIcon.svg";
+import api from "../../api";
+import { useHistory } from "react-router-dom";
+import { Store, UpdateStore } from "../../StoreContext";
 const MyPrifileSetting = () => {
+  const history = useHistory();
+  const updateStore = UpdateStore();
+  const { user, creator, searchState, searchInput } = Store();
   const [values, setValues] = React.useState(false);
 
   const handleClickShowPassword = () => {
@@ -15,6 +21,14 @@ const MyPrifileSetting = () => {
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
+  };
+  const handleLogout = async () => {
+    let res = await api("post", "/users/logout/all");
+    if (res) {
+      updateStore({ user: null, creator: null });
+      localStorage.removeItem("token");
+      history.push("/home");
+    }
   };
   const label = { inputProps: { "aria-label": "Switch demo" } };
 
@@ -60,6 +74,39 @@ const MyPrifileSetting = () => {
                 className="profileInputs"
                 placeholder="example@gmail.com"
               />
+            </div>
+            <div>
+              {" "}
+              <p className="sgnBtn">
+                {/* <div class="dropdown">
+                  <img src={HeaderLogoutIcon} alt="" />
+                  <div id="myDropdown" class="dropdown-content"> */}
+                <button
+                  className="formbtn2"
+                  type="submit"
+                  onClick={handleLogout}
+                  style={{
+                    padding: "5px",
+                    border: "none",
+                    background:
+                      "linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)",
+                    color: "white",
+                    fontWeight: "900",
+                    borderRadius: " 2px",
+                    cursor: "pointer",
+                    width: " 35%",
+                    fontSize: "16px",
+                    display: "block",
+                    fontWeight: "500",
+                    border: "1px solid #7d668b",
+                    marginRight: "20px",
+                  }}
+                >
+                  Log out
+                </button>
+                {/* </div>
+                </div> */}
+              </p>
             </div>
           </div>
           {/* /* ---------------------------------- col2 ----------------------------------  */}

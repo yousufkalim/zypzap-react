@@ -9,10 +9,10 @@
   background-color: #000000;
   color: white;
   text-align: center;
-  padding-top: 90px;
+  padding-top: 50px;
 }
 .footerLogo {
-  margin-left: 59px;
+  /* margin-left: 59px; */
   margin-bottom: 5px;
 }
 .footerText {
@@ -22,17 +22,18 @@
 }
 .f1div {
   padding: 15px 0px 15px 0px;
+  text-align: left;
+  margin-left: 50px;
 }
 .f2div {
   padding: 40px 0px 15px 115px;
   text-align: left;
 }
 .infotable1 {
-  margin: auto;
-  padding-left: 80px;
+  /* margin: auto; */
 }
 .tdDiv {
-  margin: 5px 0px 10px 0px;
+  margin: 5px 0px 0px 0px;
 }
 .emailicon {
   margin-right: 12px;
@@ -45,7 +46,7 @@
   padding-bottom: 10px;
 }
 .isocialcondiv {
-  margin: 60px 0 0 100px;
+  margin: 35px 0 0 0px;
 }
 .pmargin {
   margin-bottom: 17px;
@@ -62,21 +63,20 @@
 }
 .languageButton {
   margin-top: 42px;
-  padding: 10px 15px 10px 15px;
+  padding: 5px 15px 10px 15px;
   background: transparent;
   border: 2px solid white;
   color: white;
   font-weight: bolder;
   cursor: pointer;
-  opacity: 0.7;
   height: 38px;
   margin-left: auto;
-  margin-right: 101px;
 }
 .languageIcon {
   position: relative;
-  left: 30px;
-  top: 4px;
+  left: 0px;
+  top: 3px;
+  padding-right: 5px;
 }
 
 .sign {
