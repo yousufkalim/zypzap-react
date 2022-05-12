@@ -1,13 +1,13 @@
 // Init
 import React from "react";
 import Course1 from "../assets/img/course1.png";
-import Course2 from "../assets/img/course2.png";
-import Course3 from "../assets/img/course3.png";
-import Course4 from "../assets/img/course4.png";
-import StarIcon from "@material-ui/icons/Star";
+// import Course2 from "../assets/img/course2.png";
+// import Course3 from "../assets/img/course3.png";
+// import Course4 from "../assets/img/course4.png";
+// import StarIcon from "@material-ui/icons/Star";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { ReactComponent as Star1 } from "../assets/icons/star2.svg";
+// import { ReactComponent as Star1 } from "../assets/icons/star2.svg";
 import { Link } from "react-router-dom";
 import LatestCourseGameIcon from "../assets/icons/LatestCourseGameIcon.svg";
 import LatestCourseStarBadgeIcon from "../assets/icons/LatestCourseStarBadgeIcon.svg";
@@ -98,9 +98,9 @@ export default function LatestCourses(props) {
       <div className="carousalOuterDiv">
         <Carousel
           responsive={responsive}
-          autoPlay={true}
+          // autoPlay={true}
           autoPlaySpeed={3000}
-          transitionDuration={3000}
+          // transitionDuration={3000}
           infinite={true}
           className="latestcourseCarousel"
         >
@@ -137,11 +137,19 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      <p className="latestCourse-p">
-                        {item?.creator?.user_id?.username}
+                      <p
+                        className="latestCourse-pHeading"
+                        style={{
+                          fontSize: "15px",
+                          fontWeight: "700",
+                          paddingLeft: "5px",
+                        }}
+                      >
+                        {item?.creator?.user_id?.username} <br />
                       </p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
+                      &nbsp;
                       <img
                         src={LatestCourseStarIcon}
                         alt=""
@@ -155,6 +163,7 @@ export default function LatestCourses(props) {
                   {/* ------------------------------- copy colmn -------------------------------  */}
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
+                      &nbsp;{" "}
                       <img
                         src={LatestCourseStarBadgeIcon}
                         alt=""

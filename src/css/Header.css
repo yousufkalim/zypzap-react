@@ -498,6 +498,7 @@
   }
   .css-1kcggdq-MuiInputBase-root .MuiInputBase-input {
     padding-left: calc(-0em + 11px) !important;
+    font-size: 9px !important;
   }
   .MuiSvgIcon-root {
     width: 1em !important;

@@ -445,7 +445,7 @@ export default function PrimarySearchAppBar({
                 )}
               </div>
               <StyledInputBase
-                placeholder="Type your search here"
+                placeholder="Search for course"
                 inputProps={{ "aria-label": "search" }}
                 onChange={handleChangeInput}
                 value={searchInput}
@@ -508,7 +508,7 @@ export default function PrimarySearchAppBar({
                     }}
                     style={{ color: "white", textDecoration: "none" }}
                   >
-                    <p className="sgnBtn">Dashboard</p>
+                    <p className="sgnBtn">My Dashboard</p>
                   </Link>
                 </>
               ) : (

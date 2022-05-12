@@ -179,9 +179,9 @@ export default function TopRatedContent() {
       <div className="TopRatedcarousalOuterDiv">
         <Carousel
           responsive={responsive}
-          autoPlay={true}
+          // autoPlay={true}
           autoPlaySpeed={3000}
-          transitionDuration={3000}
+          // transitionDuration={3000}
           infinite={true}
           className="latestcourseCarousel"
         >
@@ -213,7 +213,16 @@ export default function TopRatedContent() {
                       alt=""
                       className="LatestCourse-IMG"
                     />
-                    <p className="latestCourse-p">Pro Player of...</p>
+                    <h1
+                      className="latestCourse-pHeading"
+                      style={{
+                        fontSize: "15px",
+                        fontWeight: "700",
+                        paddingLeft: "5px",
+                      }}
+                    >
+                      Pro Player of...
+                    </h1>
                   </div>
                   <div className="latestCourse-colmn-centerDiv">
                     <img

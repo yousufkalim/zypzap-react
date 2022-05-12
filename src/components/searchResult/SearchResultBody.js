@@ -332,7 +332,7 @@ const SearchResultBody = () => {
           <Item
             sx={{
               textAlign: "left",
-              backgroundColor: "#0E0F1E",
+              backgroundColor: "black",
               color: "#fff",
               padding: "10px 20px 20px 40px",
             }}
@@ -346,7 +346,7 @@ const SearchResultBody = () => {
             >
               Categories
               {selectedCategories ? (
-                <KeyboardArrowDownIcon
+                <KeyboardArrowUpIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -357,7 +357,7 @@ const SearchResultBody = () => {
                   onClick={onClickSideBarHeaders}
                 />
               ) : (
-                <KeyboardArrowUpIcon
+                <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -383,7 +383,7 @@ const SearchResultBody = () => {
             >
               Game Type
               {selectedGame ? (
-                <KeyboardArrowDownIcon
+                <KeyboardArrowUpIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -395,7 +395,7 @@ const SearchResultBody = () => {
                   onClick={onClickSideBarHeaders}
                 />
               ) : (
-                <KeyboardArrowUpIcon
+                <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -422,7 +422,7 @@ const SearchResultBody = () => {
             >
               Plateforms
               {selectedPlateforms ? (
-                <KeyboardArrowDownIcon
+                <KeyboardArrowUpIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -434,7 +434,7 @@ const SearchResultBody = () => {
                   onClick={onClickSideBarHeaders}
                 />
               ) : (
-                <KeyboardArrowUpIcon
+                <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -464,10 +464,11 @@ const SearchResultBody = () => {
             >
               Gameplay Level
               {!selectedLevel ? (
-                <KeyboardArrowUpIcon
+                <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
+
                     width: "30px",
                     height: "1em !important",
                   }}
@@ -475,11 +476,10 @@ const SearchResultBody = () => {
                   onClick={onClickSideBarHeaders}
                 />
               ) : (
-                <KeyboardArrowDownIcon
+                <KeyboardArrowUpIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-
                     width: "30px",
                     height: "1em !important",
                   }}
@@ -504,7 +504,7 @@ const SearchResultBody = () => {
             >
               Gameplay mode
               {selectedGameplay ? (
-                <KeyboardArrowDownIcon
+                <KeyboardArrowUpIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -515,7 +515,7 @@ const SearchResultBody = () => {
                   onClick={onClickSideBarHeaders}
                 />
               ) : (
-                <KeyboardArrowUpIcon
+                <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -560,7 +560,7 @@ const SearchResultBody = () => {
             >
               Price
               {selectedPrice ? (
-                <KeyboardArrowDownIcon
+                <KeyboardArrowUpIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -571,7 +571,7 @@ const SearchResultBody = () => {
                   onClick={onClickSideBarHeaders}
                 />
               ) : (
-                <KeyboardArrowUpIcon
+                <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -749,11 +749,19 @@ const SearchResultBody = () => {
                                 alt=""
                                 className="LatestCourse-IMG"
                               />
-                              <p className="latestCourse-p">
+                              <h1
+                                className="latestCourse-pHeading"
+                                style={{
+                                  fontSize: "15px",
+                                  fontWeight: "700",
+                                  paddingLeft: "5px",
+                                }}
+                              >
                                 {item?.creator?.user_id?.username}
-                              </p>
+                              </h1>
                             </div>
                             <div className="latestCourse-colmn-centerDiv">
+                              &nbsp;{" "}
                               <img
                                 src={LatestCourseStarIcon}
                                 alt=""
@@ -770,6 +778,7 @@ const SearchResultBody = () => {
                           {/* ------------------------------- copy colmn -------------------------------  */}
                           <div className="latestCouse-colmn">
                             <div className="latestCourse-colmn-centerDiv">
+                              &nbsp;{" "}
                               <img
                                 src={LatestCourseStarBadgeIcon}
                                 alt=""
