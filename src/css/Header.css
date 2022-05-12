@@ -490,6 +490,10 @@
     margin: 0px 4px 0px 3px;
     font-size: 8px;
     text-decoration: none;
+    display: none;
+  }
+  .css-8iv0is .MuiInputBase-input {
+    padding: 8px 8px 8px calc(1em + 0px) !important;
   }
   .css-yz9k0d-MuiInputBase-input {
     font-size: 11px !important;
@@ -501,10 +505,10 @@
     font-size: 9px !important;
   }
   .MuiSvgIcon-root {
-    width: 1em !important;
+    /* width: 1em !important; */
     margin: 0px 0 0 -8px !important;
     color: white !important;
-    height: 30px !important;
+    height: 100% !important;
   }
   .css-1t29gy6-MuiToolbar-root {
     justify-content: space-around;
