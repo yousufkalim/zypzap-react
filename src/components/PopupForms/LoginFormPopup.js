@@ -36,9 +36,9 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 
       "& + .MuiSwitch-track": {
         opacity: 1,
-        backgroundColor: theme.palette.mode === "dark" ? "green" : "black"
-      }
-    }
+        backgroundColor: theme.palette.mode === "dark" ? "green" : "black",
+      },
+    },
   },
   "& .MuiSwitch-thumb": {
     background:
@@ -55,16 +55,16 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       left: 0,
       top: 0,
       backgroundRepeat: "no-repeat",
-      backgroundPosition: "center"
-    }
+      backgroundPosition: "center",
+    },
   },
   "& .MuiSwitch-track": {
     opacity: 1,
     backgroundColor: theme.palette.mode === "dark" ? "pink" : "gray",
     borderRadius: 20 / 2,
     position: "relative",
-    left: "-21px"
-  }
+    left: "-21px",
+  },
 }));
 
 export default function LoginFormPopup({ open, setOpen, setSignup }) {
@@ -73,8 +73,10 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
   const [values, setValues] = React.useState({
     email: "",
     password: "",
-    showPassword: false
+    showPassword: false,
   });
+  const [creatorSwitch, setCreatorSwitch] = useState(false);
+
   const { email, password, showPassword } = values;
   const showSignUpFormPopup = () => {
     setOpen(false);
@@ -96,7 +98,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
   const onChangeEvent = (e) => {
     setValues({
       ...values,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
   const submitForm = async (event) => {
@@ -110,11 +112,15 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
     }
     let formdata = {
       email,
-      password
+      password,
     };
     try {
       let res = await api("post", "/users/login", formdata);
       if (res) {
+        if (creatorSwitch && res?.data?.user?.role !== "Creator") {
+          setLoading(false);
+          return toast.error("You are not a creator");
+        }
         localStorage.setItem("token", res?.data?.token);
         setOpen(false);
         setLoading(false);
@@ -129,10 +135,11 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
   };
   const label = {
     inputProps: {
-      "aria-label": "Switch demo"
-    }
+      "aria-label": "Switch demo",
+    },
   };
   const handleCheck = (e) => {
+    setCreatorSwitch(!creatorSwitch);
     console.log("e", e.target.checked);
   };
 
@@ -148,7 +155,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
               Creator
               <MaterialUISwitch
                 sx={{ m: 1 }}
-                defaultChecked
+                defaultChecked={creatorSwitch}
                 onClick={handleCheck}
               />
             </div>
