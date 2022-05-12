@@ -445,7 +445,6 @@ export default function PrimarySearchAppBar({
                 )}
               </div>
               <StyledInputBase
-                style={{ fontSize: "5px" }}
                 placeholder="Search for course"
                 inputProps={{ "aria-label": "search" }}
                 onChange={handleChangeInput}
