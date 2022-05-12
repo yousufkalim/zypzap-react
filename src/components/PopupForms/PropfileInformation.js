@@ -257,6 +257,7 @@ export default function PropfileInformation({
             </div>
             <div className="tags-input-ul">
               <ul className="tags-input-ul2">
+                {console.log("Fav games ---> ", favouritGame)}
                 {favouritGame.map((tag, index) => (
                   <li key={index} className="userProfileLi">
                     <i

@@ -199,10 +199,13 @@ const SearchResultBody = () => {
   const [selectedlevelBtn, setselectedlevelBtn] = useState("");
   const [radioBtnValue, setRadioBtnValue] = useState("");
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
+  const [paginatedCourses, setPaginatedCourses] = useState([]);
   // recieving context __data
 
   const { searchCreator, searchCourse, searchState, searchInput } = Store();
-  useEffect(() => {}, [searchState, searchCourse, searchCreator]);
+  useEffect(() => {
+    setPaginatedCourses(searchCourse.slice(0, 6));
+  }, [searchCourse]);
   const updateStore = UpdateStore();
 
   //sidebar list togle
@@ -721,7 +724,7 @@ const SearchResultBody = () => {
                   columns={{ xs: 2, sm: 8, md: 12 }}
                 >
                   {/* course search ..data */}
-                  {searchCourse?.map((item) => (
+                  {paginatedCourses?.map((item) => (
                     <Grid item xs={12} sm={6} md={4}>
                       <div className="cardGrid searchcard">
                         <div className="favourite-icon-position">
@@ -818,9 +821,18 @@ const SearchResultBody = () => {
                     </Grid>
                   ))}
                 </Grid>
-                {searchCourse.length != 0 && (
+                {searchCourse.length !== paginatedCourses.length && (
                   <Box textAlign="center">
-                    <button className="btn-search-result">View more</button>
+                    <button
+                      className="btn-search-result"
+                      onClick={() =>
+                        setPaginatedCourses(
+                          searchCourse.slice(0, paginatedCourses.length + 6)
+                        )
+                      }
+                    >
+                      View more
+                    </button>
                   </Box>
                 )}
               </Box>
