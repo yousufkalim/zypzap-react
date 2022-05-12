@@ -300,9 +300,11 @@
   font-size: 14px;
 }
 .userButton-heading {
-  font-size: 14px;
+  font-size: 16px;
   padding-bottom: 5px;
   padding-top: 10px;
+  font-weight: 400;
+  font-family: mulish;
 }
 .allButtons {
   flex-wrap: wrap;
