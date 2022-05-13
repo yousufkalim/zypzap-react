@@ -39,7 +39,7 @@
   height: 390px;
   margin: auto;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
 .startcourseimg {
   height: 290px !important;

@@ -121,89 +121,39 @@ export default function LatestCourses(props) {
                   borderRadius: "35px",
                 }}
               >
-                <img
-                  src={item?.thumbnail ? item.thumbnail : Course1}
-                  className="courseimg"
-                  alt="img"
-                />
-                <h4 className="latestCourse-h4">
-                  {item?.course_name ? item.course_name : "Fight Course"}
-                </h4>
+                <img src={item?.thumbnail ? item.thumbnail : Course1} className="courseimg" alt="img" />
+                <h4 className="latestCourse-h4">{item?.course_name ? item.course_name : "Fight Course"}</h4>
                 <div className="latestCourseMain-Div">
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
-                      <img
-                        src={LatestCourseGameIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
-                      <p
-                        className="latestCourse-pHeading"
-                        style={{
-                          fontSize: "15px",
-                          fontWeight: "700",
-                          paddingLeft: "5px",
-                        }}
-                      >
-                        {item?.creator?.user_id?.username} <br />
-                      </p>
+                      <img src={LatestCourseGameIcon} alt="" className="LatestCourse-IMG" />
+                      <p className="latestCourse-p">{item?.creator?.user_id?.username}</p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
-                      &nbsp;
-                      <img
-                        src={LatestCourseStarIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
-                      <p className="latestCourse-p">
-                        {item?.rating ? `${item.rating} Rating` : "No Rating"}
-                      </p>
+                      <img src={LatestCourseStarIcon} alt="" className="LatestCourse-IMG" />
+                      <p className="latestCourse-p">{item?.rating ? `${item.rating} Rating` : "No Rating"}</p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
-                      &nbsp;{" "}
-                      <img
-                        src={LatestCourseStarBadgeIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
-                      <p className="latestCourse-p">
-                        {" "}
-                        {`(${countViews(item)})`}
-                      </p>
+                      <img src={LatestCourseStarBadgeIcon} alt="" className="LatestCourse-IMG" />
+                      <p className="latestCourse-p"> {`(${countViews(item)})`}</p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
-                      <img
-                        src={LatestCourseVideoIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
-                      <p className="latestCourse-p">
-                        {calTotalSecInVideos(item?.videos)}
-                      </p>
+                      <img src={LatestCourseVideoIcon} alt="" className="LatestCourse-IMG" />
+                      <p className="latestCourse-p">{calTotalSecInVideos(item?.videos)}</p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
-                      <img
-                        src={LatestCourseLavelIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
+                      <img src={LatestCourseLavelIcon} alt="" className="LatestCourse-IMG" />
                       <p className="latestCourse-p">{item?.level}</p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
-                      <img
-                        src={LatestCourseTimingIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
-                      <p className="latestCourse-p">{`${postedTime(
-                        item
-                      )} Days ago`}</p>
+                      <img src={LatestCourseTimingIcon} alt="" className="LatestCourse-IMG" />
+                      <p className="latestCourse-p">{`${postedTime(item)} Days ago`}</p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}
