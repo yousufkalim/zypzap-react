@@ -90,9 +90,9 @@ const UserProfile = (props) => {
             </div>
             <div className="following-content">
               <p className="followingP">
-                Following:
+                Following:&nbsp;
                 <span className="follo-span">
-                  {creator?.followers ? creator.followers.length : " 0"}
+                  {creator?.followers ? creator.followers.length : " 10"}
                 </span>
               </p>
             </div>
