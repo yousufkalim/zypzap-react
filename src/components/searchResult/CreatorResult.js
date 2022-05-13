@@ -6,8 +6,10 @@ import { Link } from "react-router-dom";
 import CustomizedMenus from "./CustomizedMenus";
 import { Store, UpdateStore } from "../../StoreContext";
 import Box from "@mui/material/Box";
+import { CircularProgress } from "@material-ui/core";
+
 const CreatorResult = ({ input, creator }) => {
-  const { searchCreator } = Store();
+  const { searchCreator, searchLoader } = Store();
   const [_myCreators, set_MyRatingCreators] = useState([]);
   useMemo(() => {
     let myCreator = [];
@@ -30,7 +32,7 @@ const CreatorResult = ({ input, creator }) => {
 
   return (
     <>
-      <div className="followList">
+      <div className="followList" style={{ position: "relative" }}>
         <div className="followCenerDiv">
           {/* div col 1 */}
           <div className="followCol1">
@@ -42,50 +44,63 @@ const CreatorResult = ({ input, creator }) => {
           {/* div col 2 */}
           <div className="followCol2">
             <div className="following-div">
-              {_myCreators?.map((item, i) => (
-                <Link to="#" className="following-link" course={item}>
-                  <a className="followingAnker" key={i}>
-                    <div className="following-card">
-                      <div className="followingImgDiv">
-                        <img
-                          src={ArslanAshIMG}
-                          className="followingIMG"
-                          alt="img"
-                        />
-                      </div>
-                      <div className="following-container">
-                        <p className="followingh4">{item.username}</p>
+              {searchLoader ? (
+                <CircularProgress
+                  size={70}
+                  thickness={3.5}
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    color: "white",
+                  }}
+                />
+              ) : (
+                _myCreators?.map((item, i) => (
+                  <Link to="#" className="following-link" course={item}>
+                    <a className="followingAnker" key={i}>
+                      <div className="following-card">
+                        <div className="followingImgDiv">
+                          <img
+                            src={ArslanAshIMG}
+                            className="followingIMG"
+                            alt="img"
+                          />
+                        </div>
+                        <div className="following-container">
+                          <p className="followingh4">{item.username}</p>
 
-                        <p className="following_P">
-                          {item?.course_name
-                            ? item.course_name
-                            : "fighting game player of Tekken"}
-                        </p>
-                        <p className="followingP2">
-                          {item?.creator?.user_id?.username}
-                        </p>
-                        <p className="followingP3">
-                          {item._avgRating ?? 0} &nbsp;
-                          {[1, 2, 3, 4, 5].map((item) => (
-                            <Star1
-                              className="wishCardStar"
-                              style={{
-                                key: { item }
-                              }}
-                            />
-                          ))}
-                          <br />
-                          {/* todo avg  */}
-                          {`${item._avgStudent} Students` ?? 0}
-                        </p>
-                      </div>
-                      {/* <div className="followingButtonDiv">
+                          <p className="following_P">
+                            {item?.course_name
+                              ? item.course_name
+                              : "fighting game player of Tekken"}
+                          </p>
+                          <p className="followingP2">
+                            {item?.creator?.user_id?.username}
+                          </p>
+                          <p className="followingP3">
+                            {item._avgRating ?? 0} &nbsp;
+                            {[1, 2, 3, 4, 5].map((item) => (
+                              <Star1
+                                className="wishCardStar"
+                                style={{
+                                  key: { item },
+                                }}
+                              />
+                            ))}
+                            <br />
+                            {/* todo avg  */}
+                            {`${item._avgStudent} Students` ?? 0}
+                          </p>
+                        </div>
+                        {/* <div className="followingButtonDiv">
                         <button className="followingBtn">Follow</button>
                       </div> */}
-                    </div>
-                  </a>
-                </Link>
-              ))}
+                      </div>
+                    </a>
+                  </Link>
+                ))
+              )}
             </div>
           </div>
         </div>

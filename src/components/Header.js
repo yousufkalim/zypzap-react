@@ -38,6 +38,8 @@ import HomePageLogo from "../assets/icons/HomePageLogo.svg";
 import PlusVideo from "../assets/icons/PlusVideo.svg";
 import GiftCard from "../assets/icons/GiftCard.svg";
 
+import { CircularProgress } from "@material-ui/core";
+
 import { Store, UpdateStore } from "../StoreContext";
 
 const Search = styled("div")(({ theme }) => ({
@@ -138,8 +140,10 @@ export default function PrimarySearchAppBar({
     e.preventDefault();
 
     if (searchInput) {
+      updateStore({ searchLoader: true });
       if (searchState === "course") {
         let res = await api("get", `/courses/search?name=${searchInput}`);
+
         if (res) {
           updateStore({ searchCourse: res?.data, searchCreator: [] });
           const courses = res?.data;
@@ -155,6 +159,7 @@ export default function PrimarySearchAppBar({
           history.push("/searchResult");
         }
       }
+      updateStore({ searchLoader: false });
     }
   };
   const handleCreatorSearch = (e) => {
