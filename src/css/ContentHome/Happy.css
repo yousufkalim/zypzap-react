@@ -103,6 +103,7 @@
   }
   .topcoursecarousal2 {
     margin-bottom: -150px;
+    position: fixed;
   }
   .Carousel-indicatorIcon-4 {
     font-size: 31px !important;

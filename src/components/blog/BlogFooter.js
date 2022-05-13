@@ -59,23 +59,23 @@ export default function Footer({ openContentRequest, setOpenContentRequest }) {
                 </table>
                 <div className="isocialcondiv">
                   <a href="https://discord.gg/GtsvfSV79U" target="_blank">
-                    <img src={fDiscord} height={40} className="imgIcon" />
+                    <img src={fDiscord} className="imgIcon" />
                   </a>
                   <a href="https://twitter.com/ZypZapCommunity" target="_blank">
-                    <img src={fTwitter} height={40} className="imgIcon" />
+                    <img src={fTwitter} className="imgIcon" />
                   </a>
-                  <img src={fReddit} height={40} className="imgIcon" />
+                  <img src={fReddit} className="imgIcon" />
                   <a
                     href="https://www.facebook.com/zypzap.media"
                     target="_blank"
                   >
-                    <img src={fFacebook} height={40} className="imgIcon" />
+                    <img src={fFacebook} className="imgIcon" />
                   </a>
                   <a
                     href="https://www.linkedin.com/company/zypzap"
                     target="_blank"
                   >
-                    <img src={fLinkedin} height={40} className="imgIcon" />
+                    <img src={fLinkedin} className="imgIcon" />
                   </a>
                 </div>
               </div>
