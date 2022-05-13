@@ -332,7 +332,7 @@ const SearchResultBody = () => {
           <Item
             sx={{
               textAlign: "left",
-              backgroundColor: "#0E0F1E",
+              backgroundColor: "black",
               color: "#fff",
               padding: "10px 20px 20px 40px",
             }}
@@ -342,7 +342,7 @@ const SearchResultBody = () => {
             <div id="1" onClick={onClickSideBarHeaders} className="dropdown-headers">
               Categories
               {selectedCategories ? (
-                <KeyboardArrowDownIcon
+                <KeyboardArrowUpIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -353,7 +353,7 @@ const SearchResultBody = () => {
                   onClick={onClickSideBarHeaders}
                 />
               ) : (
-                <KeyboardArrowUpIcon
+                <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -371,7 +371,7 @@ const SearchResultBody = () => {
             <div id="2" onClick={onClickSideBarHeaders} className="dropdown-headers">
               Game Type
               {selectedGame ? (
-                <KeyboardArrowDownIcon
+                <KeyboardArrowUpIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -383,7 +383,7 @@ const SearchResultBody = () => {
                   onClick={onClickSideBarHeaders}
                 />
               ) : (
-                <KeyboardArrowUpIcon
+                <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -402,7 +402,7 @@ const SearchResultBody = () => {
             <div id="3" onClick={onClickSideBarHeaders} className="dropdown-headers">
               Plateforms
               {selectedPlateforms ? (
-                <KeyboardArrowDownIcon
+                <KeyboardArrowUpIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -414,7 +414,7 @@ const SearchResultBody = () => {
                   onClick={onClickSideBarHeaders}
                 />
               ) : (
-                <KeyboardArrowUpIcon
+                <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -440,10 +440,11 @@ const SearchResultBody = () => {
             <div id="6" onClick={onClickSideBarHeaders} className="dropdown-headers">
               Gameplay Level
               {!selectedLevel ? (
-                <KeyboardArrowUpIcon
+                <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
+
                     width: "30px",
                     height: "1em !important",
                   }}
@@ -451,11 +452,10 @@ const SearchResultBody = () => {
                   onClick={onClickSideBarHeaders}
                 />
               ) : (
-                <KeyboardArrowDownIcon
+                <KeyboardArrowUpIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
-
                     width: "30px",
                     height: "1em !important",
                   }}
@@ -472,7 +472,7 @@ const SearchResultBody = () => {
             <div id="4" onClick={onClickSideBarHeaders} className="dropdown-headers">
               Gameplay mode
               {selectedGameplay ? (
-                <KeyboardArrowDownIcon
+                <KeyboardArrowUpIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -483,7 +483,7 @@ const SearchResultBody = () => {
                   onClick={onClickSideBarHeaders}
                 />
               ) : (
-                <KeyboardArrowUpIcon
+                <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -512,7 +512,7 @@ const SearchResultBody = () => {
             <div id="5" onClick={onClickSideBarHeaders} className="dropdown-headers">
               Price
               {selectedPrice ? (
-                <KeyboardArrowDownIcon
+                <KeyboardArrowUpIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",
@@ -523,7 +523,7 @@ const SearchResultBody = () => {
                   onClick={onClickSideBarHeaders}
                 />
               ) : (
-                <KeyboardArrowUpIcon
+                <KeyboardArrowDownIcon
                   sx={{
                     color: "#fff",
                     marginTop: "5px",

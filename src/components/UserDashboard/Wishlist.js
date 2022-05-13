@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import Course1 from "../../assets/img/course1.png";
 import Course2 from "../../assets/img/course2.png";
 import Course3 from "../../assets/img/course3.png";
-import Course4 from "../../assets/img/course4.png";
-import StarIcon from "@material-ui/icons/Star";
-import Carousel from "react-multi-carousel";
+// import Course4 from "../../assets/img/course4.png";
+// import StarIcon from "@material-ui/icons/Star";
+// import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
 import { Store, UpdateStore } from "../../StoreContext";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 var items = [
   {
     title: "CS-GO Ep 2 Complete Course 1",
@@ -21,7 +21,7 @@ var items = [
   {
     title: "PUBG GamePlay Course",
     img: Course2,
-    name: "Ifaf ghori",
+    name: "Ifaf ghori ",
     rating: "rating",
     price: "19.99 | 50 min",
     test: "2",

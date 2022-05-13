@@ -22,7 +22,7 @@ var items = [
   {
     title: "PUBG GamePlay Course",
     img: Course2,
-    name: "Ifaf ghori",
+    name: "Ifaf ghori ",
     rating: "rating",
     // price: "19.99 | 50 min",
     test: "2",

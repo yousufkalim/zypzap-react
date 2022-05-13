@@ -9,7 +9,7 @@ const ResearchFaild = () => {
       <Box className="cards-container2">
         <div className="cards-box">
           <div className="cards-header-text">
-            <h2> Pokemon 3</h2>
+            <h3 className="card-header-text-h3">Pokemon 3</h3>
             <span>0 Result Found</span>
           </div>
         </div>
