@@ -173,8 +173,6 @@ function TopCoursesComponent({ item }) {
                       style={{
                         width: "15px",
                         height: "15px",
-                        // color: "red",
-                        top: "3px",
                       }}
                     />
                   ))}

@@ -119,7 +119,6 @@
 }
 
 @media only screen and (min-width: 901px) and (max-width: 1200px) {
-
   .comming-soon {
     margin: -34px 0 0 11px !important;
     font-size: 9px !important;
@@ -145,7 +144,7 @@
   .courseimg {
     height: 300px !important;
   }
-  .topRatedcourseimg{
-    height: 300px !important;
+  .topRatedcourseimg {
+    /* height: 300px !important; */
   }
 }

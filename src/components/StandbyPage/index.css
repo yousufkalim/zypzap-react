@@ -270,7 +270,7 @@
     width: 80%;
     padding-top: 27px;
   }
- 
+
   .followSocialBox {
     width: inherit;
     flex-direction: column;
@@ -292,12 +292,12 @@
   .ourMissionsH1 {
     font-size: 25px;
   }
-  .offerdivleft {
+  /* .offerdivleft {
     margin: 0 auto 64px auto !important;
-  }
-  .offerdivright {
+  } */
+  /* .offerdivright {
     margin: 0 auto 64px auto !important;
-  }
+  } */
   .followDiv {
     display: flex;
     justify-content: space-around;

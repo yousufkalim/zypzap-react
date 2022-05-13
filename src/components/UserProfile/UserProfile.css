@@ -46,7 +46,7 @@ body {
   width: 244px;
   height: 250px;
 }
-.editprofileIcon{
+.editprofileIcon {
   position: relative;
   bottom: 25px;
   right: 20%;
@@ -83,7 +83,7 @@ body {
   font-size: 100;
 }
 .pofileP {
-  margin: 8px 0 14px 0;
+  margin: 8px 0 18px 0;
 }
 .creatorLogos {
   padding-left: 20px;
@@ -387,7 +387,7 @@ body {
   }
   .editprofileIcon {
     right: 14%;
-}
+  }
 }
 @media only screen and (min-width: 701px) and (max-width: 900px) {
   .profile-container {
@@ -454,7 +454,7 @@ body {
   }
   .editprofileIcon {
     right: 13%;
-}
+  }
 }
 @media only screen and (min-width: 501px) and (max-width: 700px) {
   .profile-container {
@@ -463,11 +463,11 @@ body {
     width: 73%;
   }
   .DP-img {
-       /* width: 30%; */
-       border: 6px solid #14162c;
-       /* height: 40%; */
-       width: 94px;
-       height: 102px;
+    /* width: 30%; */
+    border: 6px solid #14162c;
+    /* height: 40%; */
+    width: 94px;
+    height: 102px;
   }
   .profile-name {
     font-size: 14px;
@@ -541,11 +541,9 @@ body {
     margin-bottom: 50px;
   }
   .editprofileIcon {
-
     bottom: 13px;
     right: 28%;
-
-}
+  }
 }
 @media only screen and (max-width: 500px) {
   .profile-container {
@@ -639,5 +637,5 @@ body {
   .editprofileIcon {
     bottom: 14px;
     right: 10%;
-}
+  }
 }

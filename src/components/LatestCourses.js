@@ -121,8 +121,21 @@ export default function LatestCourses(props) {
                   borderRadius: "35px",
                 }}
               >
+
+                <div className="topRatedcardGrid-image">
+                  <img
+                    src={item?.thumbnail ? item.thumbnail : Course1}
+                    className="topRatedcourseimg"
+                    alt="img"
+                  />
+                </div>
+                <h4 className="latestCourse-h4">
+                  {item?.course_name ? item.course_name : "Fight Course"}
+                </h4>
+
                 <img src={item?.thumbnail ? item.thumbnail : Course1} className="courseimg" alt="img" />
                 <h4 className="latestCourse-h4">{item?.course_name ? item.course_name : "Fight Course"}</h4>
+
                 <div className="latestCourseMain-Div">
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">

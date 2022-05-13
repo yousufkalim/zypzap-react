@@ -46,7 +46,14 @@
   padding-bottom: 10px;
 }
 .isocialcondiv {
-  margin: 35px 0 0 0px;
+  /* margin: auto 0 0 0px !important;
+  display: block; */
+  /* height: 100%; */
+  /* display: flex;
+  align-items: center; */
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 10px;
 }
 .pmargin {
   margin-bottom: 17px;
@@ -61,6 +68,10 @@
   margin-bottom: 17px;
   font-weight: bolder;
 }
+.languagebuttondiv {
+  text-align: right;
+  margin-right: 10%;
+}
 .languageButton {
   margin-top: 42px;
   padding: 5px 15px 10px 15px;
@@ -69,8 +80,6 @@
   color: white;
   font-weight: bolder;
   cursor: pointer;
-  height: 38px;
-  margin-left: auto;
 }
 .languageIcon {
   position: relative;
@@ -82,7 +91,7 @@
 .sign {
   background-color: black !important;
   color: #fff;
-  padding: 13px 160px;
+  padding: 13px 65px;
   width: 100%;
   display: flex;
   justify-content: right;
@@ -90,9 +99,7 @@
 }
 .imgIcon {
   cursor: pointer;
-  width: 40px;
-  height: 20px;
-  /* margin-right: 6px; */
+  margin-right: 20px;
 }
 .imgIcon2 {
   cursor: pointer;
@@ -101,11 +108,16 @@
   margin-left: 5px;
   height: 20px;
 }
+.footer_container {
+  position: relative;
+}
 
 /* for mobile */
 @media only screen and (min-width: 320px) and (max-width: 812px) {
   .footerLogo {
-    margin-left: -15px;
+    /* margin-left: -15px; */
+    /* text-align: center;
+    margin: auto; */
   }
 
   .footerDiv {
@@ -113,6 +125,8 @@
   }
   .infotable1 {
     padding-left: 0px;
+
+    margin: auto;
   }
   .footer_container {
     padding: 20px 0 0 0 !important;
@@ -130,8 +144,8 @@
     font-size: 12px;
   }
   .isocialcondiv {
-    margin-left: 0px;
-    margin-top: 0;
+    position: inherit;
+    padding-top: 10px;
   }
   .footer_menu {
     padding: 20px 0 0 0 !important;
@@ -144,6 +158,8 @@
   }
   .f1div {
     padding: 0px 0px 15px 0px;
+    margin-left: 0;
+    text-align: center;
   }
   .f2div {
     padding: 0px 0px 15px 0px;
@@ -157,6 +173,10 @@
     margin: auto;
     margin-bottom: 17px;
   }
+  .languagebuttondiv {
+    margin: inherit;
+    text-align: inherit;
+  }
 }
 @media only screen and (min-width: 813px) and (max-width: 1212px) {
   .footerLogo {
@@ -166,13 +186,13 @@
     padding: 40px 0px 0px 48px;
     font-size: 14px;
   }
-  .isocialcondiv {
+  /* .isocialcondiv {
     margin-left: 70px !important;
-  }
-  .imgIcon {
+  } */
+  /* .imgIcon {
     height: 16px !important;
     width: 33px;
-  }
+  } */
   .sign {
     right: 22px;
   }
@@ -186,20 +206,20 @@
     margin-left: 0px;
     /* height: 16px; */
   }
-  .languageButton {
+  /* .languageButton {
     margin-top: 0px;
     margin-right: 0px;
-  }
+  } */
   .languageButton {
     margin-top: 42px;
-    margin-right: 70px;
+    /* margin-right: 70px; */
   }
 }
 @media only screen and (min-width: 1213px) and (max-width: 1500px) {
-  .imgIcon {
+  /* .imgIcon {
     margin-top: 40px;
-    /* margin-right: -127px; */
-  }
+    margin-right: -127px;
+  } */
   .languageButton {
     margin-top: 19px;
   }

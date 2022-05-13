@@ -187,7 +187,9 @@ export default function TopRatedContent() {
         >
           {items.map((item, i) => (
             <div className="topRatedcardGrid" style={{ width: "500px" }}>
-              <img src={item.img} className="topRatedcourseimg" alt="img" />
+              <div className="topRatedcardGrid-image">
+                <img src={item.img} className="topRatedcourseimg" alt="img" />
+              </div>
               <h4 className="latestCourse-h4">
                 <img
                   src={LatestCourseGameIcon}
@@ -216,12 +218,12 @@ export default function TopRatedContent() {
                     <h1
                       className="latestCourse-pHeading"
                       style={{
-                        fontSize: "15px",
+                        fontSize: "16px",
                         fontWeight: "700",
                         paddingLeft: "5px",
                       }}
                     >
-                      Pro Player of...
+                      Pro Player Of...
                     </h1>
                   </div>
                   <div className="latestCourse-colmn-centerDiv">

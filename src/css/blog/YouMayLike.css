@@ -56,7 +56,7 @@
 }
 .MuiGrid-spacing-xs-4 > .MuiGrid-item {
   padding: 0px !important;
-  margin-bottom: 39px;
+  /* margin-bottom: 39px; */
 }
 
 /* for mobile */

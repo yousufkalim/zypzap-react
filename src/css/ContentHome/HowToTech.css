@@ -1,13 +1,20 @@
 .getStartedContainer2 {
   /* margin-top: 10%; */
-  position: relative;
+  position: absolute;
   color: white;
   width: 100%;
   text-align: center;
-  background: url("../../assets/TeachBg.png") no-repeat center center/cover;
+  /* background: url("../../assets/TeachBg.png") no-repeat center center/cover; */
+  top: 0;
+  left: 0;
+}
+.HowToTeach-container {
+  position: relative;
+
+  height: 100vh;
 }
 .getStartedHeading2 {
-  padding: 48px 0px 15px 0px;
+  padding: 88px 0px 15px 0px;
   font-size: 33px;
   opacity: 0.9;
 }
@@ -89,7 +96,7 @@
   }
   .getStartedHeading2 {
     font-size: 40px;
-    padding-bottom: 67px;
+    padding-bottom: 105px;
   }
   .Stepperdisc2 {
     font-size: 20px;
