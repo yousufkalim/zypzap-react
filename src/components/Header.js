@@ -169,6 +169,13 @@ export default function PrimarySearchAppBar({
   };
   const handleChangeInput = (e) => {
     updateStore({ searchInput: e.target.value });
+    // e.addEventListener("keypress", function (event) {
+    //   if (event.key === "Enter") {
+    //     event.preventDefault();
+    //     handleSearchButtonClick();
+    //     // document.getElementById("myBtn").click();
+    //   }
+    // });
   };
 
   const menuId = "primary-search-account-menu";
@@ -231,11 +238,17 @@ export default function PrimarySearchAppBar({
         {creator ? (
           <>
             {window.location.pathname === "contentHome" ? (
-              <Link to="/home" style={{ color: "white", textDecoration: "none" }}>
+              <Link
+                to="/home"
+                style={{ color: "white", textDecoration: "none" }}
+              >
                 <p className="sgnBtn">Switch to Learner</p>
               </Link>
             ) : (
-              <Link to="/contentHome" style={{ color: "white", textDecoration: "none" }}>
+              <Link
+                to="/contentHome"
+                style={{ color: "white", textDecoration: "none" }}
+              >
                 <p className="sgnBtn">Go to creator home</p>
               </Link>
             )}
@@ -302,7 +315,12 @@ export default function PrimarySearchAppBar({
               <FormControl className="form_Control_header">
                 <button className="comming-soon3">Coming Soon</button>
                 <MenuItem>
-                  <Select className="select_form_header" value={age} onChange={handleChange} displayEmpty>
+                  <Select
+                    className="select_form_header"
+                    value={age}
+                    onChange={handleChange}
+                    displayEmpty
+                  >
                     <MenuItem value="" className="walletInputMenu">
                       Connect Wallet
                     </MenuItem>
@@ -347,7 +365,11 @@ export default function PrimarySearchAppBar({
 
   return (
     <>
-      <RegisterSuccessfully open={openCongratulation} setOpen={setCongratulation} text="You Are Successfully Registered !" />
+      <RegisterSuccessfully
+        open={openCongratulation}
+        setOpen={setCongratulation}
+        text="You Are Successfully Registered !"
+      />
       <CreateFormPopup
         open={opensignup}
         setOpen={setOpenSignup}
@@ -362,7 +384,12 @@ export default function PrimarySearchAppBar({
         user={user}
         setCongratulation={setCongratulation}
       />
-      <LoginFormPopup open={openlogin} setOpen={setOpenLogin} signup={opensignup} setSignup={setOpenSignup} />
+      <LoginFormPopup
+        open={openlogin}
+        setOpen={setOpenLogin}
+        signup={opensignup}
+        setSignup={setOpenSignup}
+      />
       <BecomeCreatorpopup
         open={openBecomeCreatorPopup}
         setOpen={setOpenBecomeCreatorPopup}
@@ -373,7 +400,11 @@ export default function PrimarySearchAppBar({
         setOpen3={setOpen3}
         // setCongratulation={setCongratulation}
       />
-      <DoYouWant open={open} setOpen={setOpen} setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup} />
+      <DoYouWant
+        open={open}
+        setOpen={setOpen}
+        setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
+      />
       <CongratsPopup open={open2} setOpen={setOpen2} />
       <OopsPopup open={open3} setOpen={setOpen3} />
       <OptionPopup open={Option} setOpen={setOption} />
@@ -415,7 +446,10 @@ export default function PrimarySearchAppBar({
               </div>
             </Typography>
             <Search className="searchBar">
-              <div onClick={handleSearchButtonClick} style={{ cursor: "pointer" }}>
+              <div
+                onClick={handleSearchButtonClick}
+                style={{ cursor: "pointer" }}
+              >
                 {" "}
                 <SearchIcon className="searchBarIcon" />
                 <SearchIconWrapper></SearchIconWrapper>
@@ -423,19 +457,38 @@ export default function PrimarySearchAppBar({
 
               <div className="dropdown">
                 {/* <button className="dropbtn"> */}
-                <img src={DownArrow} alt="img" className="downarrow" onClick={() => setSearchFlag(!searchFlag)} />
+                <img
+                  src={DownArrow}
+                  alt="img"
+                  className="downarrow"
+                  onClick={() => setSearchFlag(!searchFlag)}
+                />
                 {/* </button> */}
                 {searchFlag && (
                   <div className="dropdown-content">
                     <div className="drowp1">
-                      <a href="#" className={`${searchState == "creator" && "activeserchis"} `} onClick={handleCreatorSearch}>
+                      <a
+                        href="#"
+                        className={`${
+                          searchState == "creator" && "activeserchis"
+                        } `}
+                        onClick={handleCreatorSearch}
+                      >
                         <img className="UserIcons" src={UserIcon} alt="" />
                         Content Creators
-                        <p className="drowpP">Top gamers who create content for you</p>
+                        <p className="drowpP">
+                          Top gamers who create content for you
+                        </p>
                       </a>
                     </div>
                     <div className=" drowp1">
-                      <a href="#" className={`${searchState == "course" && "activeserchis"} `} onClick={handleCourseSearch}>
+                      <a
+                        href="#"
+                        className={`${
+                          searchState == "course" && "activeserchis"
+                        } `}
+                        onClick={handleCourseSearch}
+                      >
                         <img className="UserIcons" src={CourseIcon} alt="" />
                         Courses
                         <p className="drowpP">Browse and buy courses</p>
@@ -448,7 +501,11 @@ export default function PrimarySearchAppBar({
                 placeholder="Search for course"
                 inputProps={{ "aria-label": "search" }}
                 onChange={handleChangeInput}
+                // onSubmit={handleSearchButtonClick}
                 value={searchInput}
+                onKeyPress={(e) =>
+                  e.key === "Enter" && handleSearchButtonClick(e)
+                }
               />
             </Search>
             {/* <Link to="" className="requestBt">
@@ -492,11 +549,17 @@ export default function PrimarySearchAppBar({
               {creator ? (
                 <>
                   {window.location.pathname !== "/home" ? (
-                    <Link to="/home" style={{ color: "white", textDecoration: "none" }}>
+                    <Link
+                      to="/home"
+                      style={{ color: "white", textDecoration: "none" }}
+                    >
                       <p className="sgnBtn">Switch to Learner</p>
                     </Link>
                   ) : (
-                    <Link to="/contentHome" style={{ color: "white", textDecoration: "none" }}>
+                    <Link
+                      to="/contentHome"
+                      style={{ color: "white", textDecoration: "none" }}
+                    >
                       <p className="sgnBtn">Go to creator home</p>
                     </Link>
                   )}
@@ -541,7 +604,11 @@ export default function PrimarySearchAppBar({
               {user ? (
                 <p className="sgnBtn">
                   <div class="dropdown">
-                    <img src={HeaderLogoutIcon} onClick={openProfilePg} alt="" />
+                    <img
+                      src={HeaderLogoutIcon}
+                      onClick={openProfilePg}
+                      alt=""
+                    />
                   </div>
                 </p>
               ) : (
@@ -556,7 +623,13 @@ export default function PrimarySearchAppBar({
                     <FormControl className="form_Control_header">
                       <button className="comming-soon3">Coming Soon</button>
                       <MenuItem>
-                        <Select className="select_form_header" value={age} onChange={handleChange} disabled displayEmpty>
+                        <Select
+                          className="select_form_header"
+                          value={age}
+                          onChange={handleChange}
+                          disabled
+                          displayEmpty
+                        >
                           <MenuItem value="" className="walletInputMenu">
                             Connect Wallet
                           </MenuItem>
