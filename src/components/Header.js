@@ -498,7 +498,11 @@ export default function PrimarySearchAppBar({
                 )}
               </div>
               <StyledInputBase
-                placeholder="Search for course"
+                placeholder={
+                  searchState == "course"
+                    ? "Search for: courses"
+                    : "Search for: content creators"
+                }
                 inputProps={{ "aria-label": "search" }}
                 onChange={handleChangeInput}
                 // onSubmit={handleSearchButtonClick}
