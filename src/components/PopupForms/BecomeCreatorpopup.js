@@ -14,31 +14,14 @@ import { Store, UpdateStore } from "../../StoreContext";
 
 // import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
 
-const BecomeCreatorpopup = ({
-  open,
-  setOpen,
-  user,
-  creator,
-  setOpen3,
-  setOpen2,
-}) => {
+const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }) => {
   const history = useHistory();
   const updateStore = UpdateStore();
-  const [profile_photo, setImageURL] = useState(
-    user?.profile_photo ? user.profile_photo : Course1
-  );
-  const [favouritGame, setFavouritGame] = useState(
-    user?.prefrence_games?.favourite_games
-      ? user.prefrence_games.favourite_games
-      : []
-  );
+  const [profile_photo, setImageURL] = useState(user?.profile_photo ? user.profile_photo : Course1);
+  const [favouritGame, setFavouritGame] = useState(user?.expertiseGame || []);
   const [gameType, setGameType] = useState(user?.gameType ? user.gameType : []);
-  const [plateForm, setPlateForm] = useState(
-    user?.plateForm ? user.plateForm : []
-  );
-  const [gameMood, setGameMood] = useState(
-    user?.gameMood ? user.gameMood : "Single"
-  );
+  const [plateForm, setPlateForm] = useState(user?.plateForm ? user.plateForm : []);
+  const [gameMood, setGameMood] = useState(user?.gameMood ? user.gameMood : "Single");
 
   useEffect(() => {
     setCurrentSate();
@@ -49,11 +32,7 @@ const BecomeCreatorpopup = ({
   };
   const setCurrentSate = () => {
     setImageURL(user?.profile_photo ? user.profile_photo : Course1);
-    setFavouritGame(
-      user?.prefrence_games?.favourite_games
-        ? user.prefrence_games.favourite_games
-        : []
-    );
+    setFavouritGame(user?.expertiseGame || []);
     setGameType(user?.gameType ? user.gameType : []);
     setPlateForm(user?.plateForm ? user.plateForm : []);
     setGameMood(user?.gameMood ? user.gameMood : "Single");
@@ -73,14 +52,10 @@ const BecomeCreatorpopup = ({
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
   const removeTags = (index) => {
-    setFavouritGame([
-      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index),
-    ]);
+    setFavouritGame([...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index)]);
   };
   const removeTagsPlateForm = (index) => {
-    setPlateForm([
-      ...plateForm.filter((tag) => plateForm.indexOf(tag) !== index),
-    ]);
+    setPlateForm([...plateForm.filter((tag) => plateForm.indexOf(tag) !== index)]);
   };
   const selectplateForm = (e) => {
     if (e.target.className === "activetypebtn") {
@@ -112,12 +87,7 @@ const BecomeCreatorpopup = ({
   };
 
   const submitProfile = async (e) => {
-    if (
-      favouritGame === "" &&
-      gameType === "" &&
-      plateForm === "" &&
-      gameMood === ""
-    ) {
+    if (favouritGame === "" && gameType === "" && plateForm === "" && gameMood === "") {
       return toast.error("Veuillez saisir le nom de votre cours");
     } else {
       const formdata = {
@@ -162,15 +132,7 @@ const BecomeCreatorpopup = ({
     "Versus Fighting",
     "Trading card and Board games",
   ];
-  const gamePlateform = [
-    "PC",
-    "Mobile Games",
-    "PS1/2/3/4/5",
-    "Xbox/360/One/X",
-    "Retro Consoles",
-    "Portable Consoles",
-    "Tablet",
-  ];
+  const gamePlateform = ["PC", "Mobile Games", "PS1/2/3/4/5", "Xbox/360/One/X", "Retro Consoles", "Portable Consoles", "Tablet"];
 
   const handleImageSelect = async (e) => {
     const formdata = new FormData();
@@ -202,10 +164,7 @@ const BecomeCreatorpopup = ({
                     event.target.value = null;
                   }}
                 />
-                <img
-                  src={profile_photo ? profile_photo : Course1}
-                  className="userProfileInput"
-                />
+                <img src={profile_photo ? profile_photo : Course1} className="userProfileInput" />
               </label>
             </div>
             <div>
@@ -222,22 +181,15 @@ const BecomeCreatorpopup = ({
             </div>
             <div className="tags-input-ul">
               <ul className="tags-input-ul2">
+                {console.log(favouritGame, "-", user?.expertiseGame)}
                 {favouritGame.map((tag, index) => (
                   <li key={index} className="userProfileLi">
-                    <i
-                      className="material-icons"
-                      onClick={() => removeTags(index)}
-                    >
+                    <i className="material-icons" onClick={() => removeTags(index)}>
                       <span className="userProfileLiSpan">{tag}</span>
                     </i>
                   </li>
                 ))}
-                <input
-                  className="userProfile_inputTags"
-                  type="text"
-                  onKeyUp={(event) => addTags(event)}
-                  placeholder=""
-                />
+                <input className="userProfile_inputTags" type="text" onKeyUp={(event) => addTags(event)} placeholder="" />
               </ul>
             </div>
           </div>
@@ -248,11 +200,7 @@ const BecomeCreatorpopup = ({
                 {gametypebtn.map((tag) => {
                   return (
                     <button
-                      className={
-                        gameType?.includes(tag)
-                          ? "activetypebtn"
-                          : "userTagsAllButton"
-                      }
+                      className={gameType?.includes(tag) ? "activetypebtn" : "userTagsAllButton"}
                       value={tag}
                       onClick={selectGameType}
                     >
@@ -270,11 +218,7 @@ const BecomeCreatorpopup = ({
                 return (
                   <button
                     key={i}
-                    className={
-                      plateForm?.includes(tag)
-                        ? "activetypebtn"
-                        : "userTagsAllButton"
-                    }
+                    className={plateForm?.includes(tag) ? "activetypebtn" : "userTagsAllButton"}
                     value={tag}
                     onClick={selectplateForm}
                   >
@@ -294,24 +238,9 @@ const BecomeCreatorpopup = ({
                   name="radio-buttons-group"
                   style={{ display: "inline" }}
                 >
-                  <FormControlLabel
-                    value="Single"
-                    control={<Radio />}
-                    label="Single Mode"
-                    onClick={onChangeRadioBtn}
-                  />
-                  <FormControlLabel
-                    value="MultiPlayer"
-                    control={<Radio />}
-                    label="MultiPlayer Mode"
-                    onClick={onChangeRadioBtn}
-                  />
-                  <FormControlLabel
-                    value="Both"
-                    control={<Radio />}
-                    label="Both"
-                    onClick={onChangeRadioBtn}
-                  />
+                  <FormControlLabel value="Single" control={<Radio />} label="Single Mode" onClick={onChangeRadioBtn} />
+                  <FormControlLabel value="MultiPlayer" control={<Radio />} label="MultiPlayer Mode" onClick={onChangeRadioBtn} />
+                  <FormControlLabel value="Both" control={<Radio />} label="Both" onClick={onChangeRadioBtn} />
                 </RadioGroup>
               </div>
             </FormControl>

@@ -45,6 +45,7 @@ const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup }) => {
                 className="formbtn2"
                 onClick={() => {
                   setOpenSignup(true);
+                  handleClose();
                 }}
                 style={{
                   width: "50%",
