@@ -38,11 +38,7 @@ var items = [
     test: "3",
   },
 ];
-const DashboardRightSideBar2 = ({
-  defaultCompState,
-  setDefaultCompState,
-  defaultCompStatedrop,
-}) => {
+const DashboardRightSideBar2 = ({ defaultCompState, setDefaultCompState, defaultCompStatedrop }) => {
   const [activeUploadButton, setActiveUploadButton] = useState(1);
   const handleActiveUploadButton = (i) => {
     setActiveUploadButton(i);
