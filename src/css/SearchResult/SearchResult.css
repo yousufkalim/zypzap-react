@@ -177,6 +177,7 @@
   background-color: #1b1d39;
   border-radius: 2px;
   padding: 10px 20px;
+  color: #fff;
 }
 .filterby-divider {
   width: 98%;
@@ -222,13 +223,12 @@
 .categories-tegs {
   font-size: 14px;
 }
-.categories-tegs2:checked {
+/* .categories-tegs2:checked {
   color: #20bf55 !important;
 }
 .categories-tegs2 {
   color: #20bf55 !important;
-  /* background-color: red !important; */
-}
+} */
 
 .categories-text:hover {
   background-color: #14167c;
