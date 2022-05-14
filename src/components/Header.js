@@ -38,6 +38,8 @@ import HomePageLogo from "../assets/icons/HomePageLogo.svg";
 import PlusVideo from "../assets/icons/PlusVideo.svg";
 import GiftCard from "../assets/icons/GiftCard.svg";
 
+import { CircularProgress } from "@material-ui/core";
+
 import { Store, UpdateStore } from "../StoreContext";
 
 const Search = styled("div")(({ theme }) => ({
@@ -138,8 +140,10 @@ export default function PrimarySearchAppBar({
     e.preventDefault();
 
     if (searchInput) {
+      updateStore({ searchLoader: true });
       if (searchState === "course") {
         let res = await api("get", `/courses/search?name=${searchInput}`);
+
         if (res) {
           updateStore({ searchCourse: res?.data, searchCreator: [] });
           const courses = res?.data;
@@ -155,6 +159,7 @@ export default function PrimarySearchAppBar({
           history.push("/searchResult");
         }
       }
+      updateStore({ searchLoader: false });
     }
   };
   const handleCreatorSearch = (e) => {
@@ -169,6 +174,13 @@ export default function PrimarySearchAppBar({
   };
   const handleChangeInput = (e) => {
     updateStore({ searchInput: e.target.value });
+    // e.addEventListener("keypress", function (event) {
+    //   if (event.key === "Enter") {
+    //     event.preventDefault();
+    //     handleSearchButtonClick();
+    //     // document.getElementById("myBtn").click();
+    //   }
+    // });
   };
 
   const menuId = "primary-search-account-menu";
@@ -230,12 +242,21 @@ export default function PrimarySearchAppBar({
 
         {creator ? (
           <>
-            <Link
-              to="/contentHome"
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              <p className="sgnBtn">Switch to Learner</p>
-            </Link>
+            {window.location.pathname === "contentHome" ? (
+              <Link
+                to="/home"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                <p className="sgnBtn">Switch to Learner</p>
+              </Link>
+            ) : (
+              <Link
+                to="/contentHome"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                <p className="sgnBtn">Go to creator home</p>
+              </Link>
+            )}
 
             <Link
               to={{
@@ -482,10 +503,18 @@ export default function PrimarySearchAppBar({
                 )}
               </div>
               <StyledInputBase
-                placeholder="Search for course"
+                placeholder={
+                  searchState == "course"
+                    ? "Search for: courses"
+                    : "Search for: content creators"
+                }
                 inputProps={{ "aria-label": "search" }}
                 onChange={handleChangeInput}
+                // onSubmit={handleSearchButtonClick}
                 value={searchInput}
+                onKeyPress={(e) =>
+                  e.key === "Enter" && handleSearchButtonClick(e)
+                }
               />
             </Search>
             {/* <Link to="" className="requestBt">
@@ -528,12 +557,21 @@ export default function PrimarySearchAppBar({
             >
               {creator ? (
                 <>
-                  <Link
-                    to="/contentHome"
-                    style={{ color: "white", textDecoration: "none" }}
-                  >
-                    <p className="sgnBtn">Switch to Learner</p>
-                  </Link>
+                  {window.location.pathname !== "/home" ? (
+                    <Link
+                      to="/home"
+                      style={{ color: "white", textDecoration: "none" }}
+                    >
+                      <p className="sgnBtn">Switch to Learner</p>
+                    </Link>
+                  ) : (
+                    <Link
+                      to="/contentHome"
+                      style={{ color: "white", textDecoration: "none" }}
+                    >
+                      <p className="sgnBtn">Go to creator home</p>
+                    </Link>
+                  )}
 
                   <Link
                     to={{

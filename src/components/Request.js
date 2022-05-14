@@ -18,6 +18,7 @@ export default function Construction({
 
       <button
         className="requestButton"
+        disabled
         onClick={() => {
           setOpenContentRequest(true);
         }}

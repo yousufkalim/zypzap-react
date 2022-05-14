@@ -131,6 +131,7 @@ export default function LatestCourses(props) {
                 <h4 className="latestCourse-h4">
                   {item?.course_name ? item.course_name : "Fight Course"}
                 </h4>
+
                 <div className="latestCourseMain-Div">
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
@@ -139,19 +140,11 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      <p
-                        className="latestCourse-pHeading"
-                        style={{
-                          fontSize: "15px",
-                          fontWeight: "700",
-                          paddingLeft: "5px",
-                        }}
-                      >
-                        {item?.creator?.user_id?.username} <br />
+                      <p className="latestCourse-p">
+                        {item?.creator?.user_id?.username}
                       </p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
-                      &nbsp;
                       <img
                         src={LatestCourseStarIcon}
                         alt=""
@@ -165,7 +158,6 @@ export default function LatestCourses(props) {
                   {/* ------------------------------- copy colmn -------------------------------  */}
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
-                      &nbsp;{" "}
                       <img
                         src={LatestCourseStarBadgeIcon}
                         alt=""
