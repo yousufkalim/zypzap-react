@@ -28,6 +28,7 @@ export function StoreProvider({ children }) {
     searchState: "course",
     searchInput: "",
     Games: [],
+    searchLoader: false,
   });
 
   const updateStore = (data) => {
