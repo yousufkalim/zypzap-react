@@ -34,12 +34,10 @@
 
 .courseimg {
   width: 100%;
-  padding: 17px;
+  height: 100%;
   border-radius: 10%;
-  height: 390px;
   margin: auto;
   display: block;
-  object-fit: contain;
 }
 .startcourseimg {
   height: 290px !important;

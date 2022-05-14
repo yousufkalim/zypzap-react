@@ -1,4 +1,5 @@
 import React from "react";
+import Checkbox from "@mui/material/Checkbox";
 
 const GameType = ({ GameTypes, gameBtn, trigerOnClickEmpSideBtn2 }) => {
   return (
@@ -12,7 +13,14 @@ const GameType = ({ GameTypes, gameBtn, trigerOnClickEmpSideBtn2 }) => {
             className={`categories-text ${className}`}
             sx={{ display: "flex", flexDirection: "column" }}
           >
-            <span>{item.name}</span>
+            <span className="categories-tegs">
+              <Checkbox
+                // checked={checked}
+                // onChange={handleChange}
+                inputProps={{ "aria-label": "controlled" }}
+              />
+              &nbsp;{item.name}
+            </span>
           </div>
         );
       })}

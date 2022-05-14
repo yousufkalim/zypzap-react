@@ -346,15 +346,15 @@ const SearchResultBody = () => {
     >
       <Box className="side-bar-filter">
         <Grid>
-          <Item
-            sx={{
-              textAlign: "left",
-              backgroundColor: "black",
-              color: "#fff",
-              padding: "10px 20px 20px 40px",
-            }}
-          >
-            <h4>Filter By</h4>
+          <Item className="filterby-container">
+            <h4 className="filterby-container-h4">Filter By</h4>
+            <div className="searchInputItem">
+              <input
+                type="text"
+                placeholder="CS⎸Go Game"
+                className="searchInputItem-input"
+              />
+            </div>
             <hr className="filterby-divider" />
             <div
               id="1"

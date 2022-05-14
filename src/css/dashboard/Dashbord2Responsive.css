@@ -25,9 +25,9 @@
   .wishlistP3 {
     padding: 0 0 !important;
   }
-  .courseimg {
+  /* .courseimg {
     height: 300px !important;
-  }
+  } */
   .creatorCard2 {
     flex-direction: column !important;
   }
@@ -81,9 +81,9 @@
   .wishlistP3 {
     padding: 0 0 !important;
   }
-  .courseimg {
+  /* .courseimg {
     height: 300px !important;
-  }
+  } */
   .creatorCard2 {
     flex-direction: column !important;
   }
@@ -141,9 +141,9 @@
   .courseimg2 {
     width: 100%;
   }
-  .courseimg {
+  /* .courseimg {
     height: 300px !important;
-  }
+  } */
   .topRatedcourseimg {
     /* height: 300px !important; */
   }
