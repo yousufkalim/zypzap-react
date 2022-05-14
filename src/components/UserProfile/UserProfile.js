@@ -25,15 +25,7 @@ const UserProfile = (props) => {
       setOpenProfile(true);
     }
   };
-  const handleSwitch = () => {
-    history.push({
-      pathname: "/dashboard",
-      param: {
-        name: "Setting",
-        value: "Setting",
-      },
-    });
-  };
+
   return (
     <>
       <RegisterSuccessfully
@@ -41,12 +33,14 @@ const UserProfile = (props) => {
         setOpen={setCongratulation}
         text="Your Profile Edit Successfully !"
       />
+
       <PropfileInformation
         openProfile={openProfile}
         setOpenProfile={setOpenProfile}
         user={user}
         setCongratulation={setCongratulation}
       />
+
       <BecomeCreatorpopup open={open} setOpen={setOpen} user={user} />
       <div className="userProfileDiv">
         <div className="userProfile-centerDiv">
@@ -64,13 +58,13 @@ const UserProfile = (props) => {
               alt=""
               className="DP-img"
             />
-            {user?.role === "Creator" && (
-              <img
-                src={editIcon}
-                className="editprofileIcon"
-                onClick={handleSwitch}
-              />
-            )}
+            {/* {user?.role === "Creator" && ( */}
+            <img
+              src={editIcon}
+              className="editprofileIcon"
+              onClick={handleClickOpen}
+            />
+            {/* )} */}
           </div>
           {/* profile Div */}
           <div className="profile-container">

@@ -260,12 +260,27 @@ export default function PropfileInformation({
                 {console.log("Fav games ---> ", favouritGame)}
                 {favouritGame.map((tag, index) => (
                   <li key={index} className="userProfileLi">
-                    <i
-                      className="material-icons"
-                      onClick={() => removeTags(index)}
+                    <span
+                      style={{
+                        border: "1px solide grey",
+                        borderRadius: "2px",
+                        padding: "5px",
+                        paddingTop: "5px",
+                        paddingBottom: "5px",
+                      }}
+                      className="userProfileLiSpan"
                     >
-                      <span className="userProfileLiSpan">{tag}</span>
-                    </i>
+                      {tag}
+                      <i
+                        style={{
+                          color: "white",
+                          height: "50%",
+                          marginLeft: "11px",
+                        }}
+                        class="fa-solid fa-xmark"
+                        onClick={() => removeTags(index)}
+                      ></i>
+                    </span>
                   </li>
                 ))}
                 <input
