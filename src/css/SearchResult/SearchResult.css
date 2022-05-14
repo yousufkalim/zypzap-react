@@ -170,6 +170,9 @@
 .searchInputItem {
   margin: 10px 0;
 }
+.css-vubbuv {
+  color: #fff !important;
+}
 .searchInputItem-input {
   width: 100%;
   background: none;
