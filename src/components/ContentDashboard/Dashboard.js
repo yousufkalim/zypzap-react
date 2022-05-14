@@ -33,7 +33,10 @@ const Dashboard = ({ id }) => {
     if (location.state.createCourse) {
       setcreateCourse(true);
       setDefaultCompState("");
-      console.log("LOCATION Course-----------", location.state.createCourse);
+    }
+    if (location.state.openSettings) {
+      setDefaultCompState("Setting");
+      setActiveButton("Setting");
     }
 
     // getCreator();

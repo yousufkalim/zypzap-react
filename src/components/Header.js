@@ -41,6 +41,7 @@ import GiftCard from "../assets/icons/GiftCard.svg";
 import { CircularProgress } from "@material-ui/core";
 
 import { Store, UpdateStore } from "../StoreContext";
+import Setting from "./UserDashboard/Setting";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -101,6 +102,8 @@ export default function PrimarySearchAppBar({
   const [openProfile, setOpenProfile] = useState(false);
   const [openCongratulation, setCongratulation] = useState(false);
   const [searchFlag, setSearchFlag] = useState(false);
+  // const [settingOpen, setSettingOpen] = useState(false);
+
   const [age, setAge] = React.useState("");
 
   const [open, setOpen] = useState(false);
@@ -115,6 +118,19 @@ export default function PrimarySearchAppBar({
     history.push("/userprofile");
   };
 
+  const handleSettings = () => {
+    {
+      user?.role == "User"
+        ? history.push({
+            pathname: "/UserDashboard",
+            state: { openSettings: true },
+          })
+        : history.push({
+            pathname: "/dashboard",
+            state: { openSettings: true },
+          });
+    }
+  };
   const handleClose = () => {
     setOpenProfile(false);
   };
@@ -254,7 +270,7 @@ export default function PrimarySearchAppBar({
                 to="/contentHome"
                 style={{ color: "white", textDecoration: "none" }}
               >
-                <p className="sgnBtn">Go to creator home</p>
+                <p className="sgnBtn">Switch to Creator</p>
               </Link>
             )}
 
@@ -526,12 +542,11 @@ export default function PrimarySearchAppBar({
             </Link> */}
 
             {(user?.role == "User" || user?.role == "Creator") && (
-              <Link to="/userprofile" className="requestBt">
-                {/* User Profile */}
-                <button className="requestBtn">
+              <div>
+                <button className="requestBtn" onClick={handleSettings}>
                   <img src={UserHeaderIcon} alt="" />
                 </button>
-              </Link>
+              </div>
             )}
             {(user?.role == "User" || user?.role == "Creator") && (
               <Link to="#" className="requestBt">
@@ -569,11 +584,11 @@ export default function PrimarySearchAppBar({
                       to="/contentHome"
                       style={{ color: "white", textDecoration: "none" }}
                     >
-                      <p className="sgnBtn">Go to creator home</p>
+                      <p className="sgnBtn">Switch to Creator</p>
                     </Link>
                   )}
 
-                  <Link
+                  <Link //btao b
                     to={{
                       pathname: "/dashboard",
                       state: { creator: `${creator}` },
