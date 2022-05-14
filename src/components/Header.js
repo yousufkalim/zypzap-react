@@ -127,7 +127,7 @@ export default function PrimarySearchAppBar({
           })
         : history.push({
             pathname: "/dashboard",
-            state: { openSettings: true },
+            state: { openSetting: true },
           });
     }
   };

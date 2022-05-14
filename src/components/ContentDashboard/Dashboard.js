@@ -34,12 +34,10 @@ const Dashboard = ({ id }) => {
       setcreateCourse(true);
       setDefaultCompState("");
     }
-    if (location.state.openSettings) {
+    if (location.state.openSetting) {
       setDefaultCompState("Setting");
       setActiveButton("Setting");
     }
-
-    // getCreator();
   }, []);
   const getCreator = async () => {
     let res = await api("get", `/creators/${creator._id}`);
