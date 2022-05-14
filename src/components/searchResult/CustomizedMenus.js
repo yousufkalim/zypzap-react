@@ -134,8 +134,7 @@ export default function CustomizedMenus(props) {
         endIcon={<KeyboardArrowDownIcon />}
       >
         <div className="btn-icon-container">
-          {" "}
-          <span> Sort by: </span>{" "}
+          <span> Sort by &#11167; </span>{" "}
           <KeyboardArrowDownIcon
             sx={{
               color: "#fff !important",

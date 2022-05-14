@@ -56,6 +56,7 @@ tr {
 .latestcourseh5 {
   padding-left: 25px;
   font-size: 18px;
+  padding-top: 5px;
 }
 .topRatedContentcourseh6 {
   font-size: 15px;
@@ -78,7 +79,12 @@ tr {
   .topRatedcardGrid {
     text-align: left;
   }
-  .topRatedcourseimg {
-    /* height: 300px; */
+  .topRatedcardGrid-image {
+    height: 250px;
+  }
+}
+@media only screen and (min-width: 813px) and (max-width: 212px) {
+  .topRatedcardGrid-image {
+    height: 250px;
   }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import Checkbox from "@mui/material/Checkbox";
 
 const Level = ({ PlateformsAry, PlateformsBtn, trigerOnClickEmpSideBtn3 }) => {
   return (
@@ -12,7 +13,14 @@ const Level = ({ PlateformsAry, PlateformsBtn, trigerOnClickEmpSideBtn3 }) => {
             className={`categories-text ${className}`}
             sx={{ display: "flex", flexDirection: "column" }}
           >
-            <span>{item.name}</span>
+            <span className="categories-tegs">
+              <Checkbox
+                // checked={checked}
+                // onChange={handleChange}
+                inputProps={{ "aria-label": "controlled" }}
+              />
+              &nbsp;{item.name}
+            </span>
           </div>
         );
       })}

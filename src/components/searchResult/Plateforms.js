@@ -1,4 +1,5 @@
 import React from "react";
+import Checkbox from "@mui/material/Checkbox";
 
 const Plateforms = ({
   PlateformsAry,
@@ -16,7 +17,14 @@ const Plateforms = ({
             className={`categories-text ${className}`}
             sx={{ display: "flex", flexDirection: "column" }}
           >
-            <span>{item.name}</span>
+            <span className="categories-tegs">
+              <Checkbox
+                // checked={checked}
+                // onChange={handleChange}
+                inputProps={{ "aria-label": "controlled" }}
+              />
+              &nbsp;{item.name}
+            </span>
           </div>
         );
       })}

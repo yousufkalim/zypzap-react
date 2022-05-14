@@ -329,15 +329,15 @@ const SearchResultBody = () => {
     >
       <Box className="side-bar-filter">
         <Grid>
-          <Item
-            sx={{
-              textAlign: "left",
-              backgroundColor: "black",
-              color: "#fff",
-              padding: "10px 20px 20px 40px",
-            }}
-          >
-            <h4>Filter By</h4>
+          <Item className="filterby-container">
+            <h4 className="filterby-container-h4">Filter By</h4>
+            <div className="searchInputItem">
+              <input
+                type="text"
+                placeholder="CS⎸Go Game"
+                className="searchInputItem-input"
+              />
+            </div>
             <hr className="filterby-divider" />
             <div
               id="1"
@@ -722,18 +722,20 @@ const SearchResultBody = () => {
                 >
                   {/* course search ..data */}
                   {searchCourse?.map((item) => (
-                    <Grid item xs={12} sm={6} md={4}>
+                    <Grid item xs={12} sm={6} md={6} lg={4}>
                       <div className="cardGrid searchcard">
                         <div className="favourite-icon-position">
-                          <img
-                            src={item?.thumbnail ? item.thumbnail : Course1}
-                            className="courseimg"
-                            alt="img"
-                          />
-                          <HeartIcon
+                          <div className="topRatedcardGrid-image">
+                            <img
+                              src={item?.thumbnail ? item.thumbnail : Course1}
+                              className="courseimg"
+                              alt="img"
+                            />
+                          </div>
+                          {/* <HeartIcon
                             id={item.id}
                             FvrtIconCount={FvrtIconCount}
-                          />
+                          /> */}
                         </div>
                         <h5 className="latestcourseh5">
                           {" "}

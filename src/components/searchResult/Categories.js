@@ -1,5 +1,6 @@
 import React from "react";
-
+import Checkbox from "@mui/material/Checkbox";
+import { pink } from "@mui/material/colors";
 const Categories = ({ categories, activeButton, trigerOnClickEmpSideBtn }) => {
   return (
     <>
@@ -11,7 +12,17 @@ const Categories = ({ categories, activeButton, trigerOnClickEmpSideBtn }) => {
             className={`categories-text ${className}`}
             sx={{ display: "flex", flexDirection: "column" }}
           >
-            <span>{item.name}</span>
+            <span className="categories-tegs">
+              <Checkbox
+                className="categories-tegs2"
+
+                // checked={checked}
+                // onChange={handleChange}
+                // inputProps={{ "aria-label": "controlled" }}
+              />{" "}
+              &nbsp;
+              {item.name}
+            </span>
           </div>
         );
       })}
