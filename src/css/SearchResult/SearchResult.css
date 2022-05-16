@@ -96,6 +96,8 @@
 }
 .favourite-icon-position {
   position: relative;
+  height: 250px;
+  padding: 15px;
 }
 .favourite-icon-container {
   position: absolute;
@@ -239,7 +241,7 @@
 .active {
   background-color: #14164c;
   width: 100%;
-  font-weight: 900;
+  font-weight: 400;
 }
 .radio-item {
   position: relative;
@@ -329,7 +331,6 @@
 .follow-P {
   font-size: 13px;
 }
-
 .followingBtn {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Maven+Pro:wght@400;800&family=Mulish&family=Poppins:wght@500&display=swap");
+
 .dashboard_setting {
   width: 100%;
   margin: auto;
@@ -34,6 +36,8 @@
   width: 78%;
   cursor: pointer;
   font-size: 17px;
+  /* font-weight: 600; */
+  font-family: "Poppins", sans-serif;
 }
 .actvieClassOne {
   background-color: #e7411b;
@@ -44,9 +48,8 @@
   margin-bottom: 20px;
 }
 .desh_profilePic {
-  width: 85px;
-  height: 85px;
-  border-radius: 45%;
+  width: 100px;
+  border-radius: 50%;
   margin-bottom: 12px;
 }
 .dashInput {
@@ -58,6 +61,7 @@
   opacity: 0.6;
   padding: 0 10px;
   color: #fff;
+  font-family: "Poppins", sans-serif;
 }
 .dashInput::placeholder {
   color: #fff !important;

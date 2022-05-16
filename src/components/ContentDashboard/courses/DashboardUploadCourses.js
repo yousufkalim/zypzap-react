@@ -71,7 +71,7 @@ const DashboardUploadCourses = ({ pageName }) => {
                     <div className="favourite-icon-position">
                       <img
                         src={item?.thumbnail ? item.thumbnail : Course1}
-                        className="dashboardcourseimg"
+                        className="courseimg"
                         alt="img"
                       />
                     </div>

@@ -34,7 +34,7 @@ const FormStepFive = ({
     }
     setlodding(true);
     let newArray = [...formDataFive];
-    for (let i = formDataFive?.length; i < formDataTwo.length; i++) {
+    for (let i = formDataFive?.length; i <= formDataTwo.length; i++) {
       if (formDataTwo[i].name === "") {
         formDataTwo[i].name = formDataTwo[i]?.file?.name;
       }
@@ -71,12 +71,12 @@ const FormStepFive = ({
     <>
       <div className="formStepOneDiv">
         <p>Step {step}/6</p>
-        <h2 className="coursedetail1">Uploaded Episode</h2>
+        <h2 className="coursedetail">Uploaded Episode</h2>
         <div className="hrLine1" />
         {formDataTwo?.map((file, index) => {
           return (
             <div className="step3_container">
-              <div className="step3Counting">{index}-</div>
+              <div className="step3Counting">{index + 1}-</div>
               <div className="step3Img">
                 <img src={Fireicon} alt="" />
               </div>

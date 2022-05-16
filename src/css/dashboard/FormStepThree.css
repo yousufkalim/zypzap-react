@@ -5,7 +5,7 @@
   display: flex;
 }
 .step3Input {
-  width: 93%;
+  width: 100%;
   margin-right: 0px;
   position: relative;
 }
@@ -18,7 +18,7 @@
   padding-top: 5px !important;
 }
 .step3_inputs {
-  width: 100%;
+  width: 99%;
   background: none;
   border: 1px solid white;
   height: 31px;
@@ -27,7 +27,8 @@
   padding: 0 10px;
   color: #fff;
   margin-top: 8px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
+  float: right;
 }
 .editIcon,
 .deleteIcon {

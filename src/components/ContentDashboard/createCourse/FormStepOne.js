@@ -58,7 +58,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
     <>
       <div className="formStepOneDiv">
         <p>Step {step}/6</p>
-        <h2 className="coursedetail1">COURSE DETAILS</h2>
+        <h2 className="coursedetail1">Course Details </h2>
         <div className="hrLine1" />
         <div className="courseDivContainer">
           {/* /* -------------------------------- main div --------------------------------  */}
@@ -71,7 +71,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                   <input
                     type="text"
                     className="coursInput"
-                    placeholder="learn how to play minacraft"
+                    placeholder="Learn how to play minacraft"
                     value={course_name}
                     name="course_name"
                     onChange={chnageEvent}
@@ -81,7 +81,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
             </div>
             <Grid xs={12} sm={6}>
               <div>
-                <p className="stepLabel">GAME NAME</p>
+                <p className="stepLabel">Game Name</p>
                 <select
                   id="gameName"
                   name="gameName"
@@ -113,7 +113,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
             <Grid container spacing={2}>
               <Grid xs={12} sm={6}>
                 <div>
-                  <p className="stepLabel">GAMEPLAY LEVEL</p>
+                  <p className="stepLabel">Gameplay Level</p>
                   <select
                     id="gameLevel"
                     name="gameLevel"
@@ -121,6 +121,9 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                     value={gameLevel}
                     onChange={chnageEvent}
                   >
+                    <option value="Casual" className="setepOption">
+                      select level
+                    </option>
                     <option value="Casual" className="setepOption">
                       CASUAL
                     </option>
@@ -146,7 +149,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
               <Grid container spacing={2}>
                 <Grid xs={12} sm={6}>
                   <div>
-                    <p className="stepLabel">GAME TYPE</p>
+                    <p className="stepLabel">Game Type</p>
                     <select
                       id="gameType"
                       name="gameType"
@@ -154,6 +157,9 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                       value={gameType}
                       onChange={chnageEvent}
                     >
+                      <option value="Action" className="setepOption">
+                        select category
+                      </option>
                       <option value="Action" className="setepOption">
                         ACTION
                       </option>
@@ -189,7 +195,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                 </Grid>
                 <Grid xs={12} sm={6}>
                   <div>
-                    <p className="stepLabel">GAMING MODE</p>
+                    <p className="stepLabel">Gaming Mode</p>
                     <select
                       id="gameMood"
                       name="gameMood"
@@ -197,6 +203,9 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                       className="stepSelect"
                       onChange={chnageEvent}
                     >
+                      <option value="Single" className="setepOption">
+                        Select Mode
+                      </option>
                       <option value="Single" className="setepOption">
                         SINGLE
                       </option>
@@ -211,7 +220,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                 </Grid>
                 <Grid xs={12} sm={6}>
                   <div>
-                    <p className="stepLabel">GAMING PLAYTFORM</p>
+                    <p className="stepLabel">Gaming Platform</p>
                     <select
                       id="gamePlateForm"
                       name="gamePlateForm"
@@ -219,8 +228,11 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                       value={gamePlateForm}
                       onChange={chnageEvent}
                     >
+                      {/* <option value="Mobile Games" className="setepOption">
+                        MOBILE GAMES
+                      </option> */}
                       <option value="Retro Consoles" className="setepOption">
-                        RETRO CONSOLES
+                        Retro Consoles
                       </option>
                       <option value="PS1/2/3/4/5" className="setepOption">
                         PS1/2/3/4/5
@@ -228,9 +240,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                       <option value="Xbox/360/One/X" className="setepOption">
                         XBOX/360/ONE/X
                       </option>
-                      <option value="Mobile Games" className="setepOption">
-                        MOBILE GAMES
-                      </option>
+
                       <option value="Portable Consoles" className="setepOption">
                         PORTABLE CONSOLE
                       </option>
@@ -246,14 +256,14 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
           {/* /* -------------------------------- main div --------------------------------  */}
         </div>
         <label htmlFor="" className="stepLabel">
-          COURSE DISCRIPTION
+          Course Description
         </label>
         <textarea
           name="description"
           id=""
           cols="200"
           rows="20"
-          placeholder="300 characters maximum"
+          placeholder="300 Characters Maximum"
           className="courstexarea"
           value={description}
           onChange={chnageEvent}
