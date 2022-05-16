@@ -9,16 +9,22 @@ import performance from "../../assets/img/performance.png";
 import youtube from "../../assets/img/youtube.png";
 import ProgressionIcon from "../../assets/img/ProgressionIcon.svg";
 import { Store, UpdateStore } from "../../StoreContext";
+import { useHistory, useLocation } from "react-router-dom";
 
 import api from "../../api";
 const Dashboard2 = () => {
   const updateStore = UpdateStore();
   const [activeButton, setActiveButton] = useState("Course");
+  const location = useLocation();
   const [defaultCompState, setDefaultCompState] = useState("Course");
   const [defaultCompStatedrop, setDefaultCompStatedrop] = useState("");
   const { user } = Store();
   useEffect(() => {
     getUser();
+    if (location.state.openSettings) {
+      setDefaultCompState("Setting");
+      setActiveButton("Setting");
+    }
   }, []);
   const getUser = async () => {
     if (user) {
@@ -46,6 +52,7 @@ const Dashboard2 = () => {
     },
     { name: "Setting", img: settings },
   ];
+
   const onSideBtnClick = (e) => {
     const course = e?.target?.textContent;
     if (!course) {

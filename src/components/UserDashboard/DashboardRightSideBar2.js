@@ -38,7 +38,11 @@ var items = [
     test: "3",
   },
 ];
-const DashboardRightSideBar2 = ({ defaultCompState, setDefaultCompState, defaultCompStatedrop }) => {
+const DashboardRightSideBar2 = ({
+  defaultCompState,
+  setDefaultCompState,
+  defaultCompStatedrop,
+}) => {
   const [activeUploadButton, setActiveUploadButton] = useState(1);
   const handleActiveUploadButton = (i) => {
     setActiveUploadButton(i);
@@ -95,7 +99,10 @@ const DashboardRightSideBar2 = ({ defaultCompState, setDefaultCompState, default
       {defaultCompState == "Wishlist" && <Wishlist />}
       {defaultCompState == "My Walle" && <MyWallet />}
       {defaultCompState == "Progression Roadma" && <ProgressionRoadmap />}
-      {defaultCompState == "Setting" && <Setting />}
+      {defaultCompState == "Setting" && (
+        <Setting />
+        //
+      )}
     </>
   );
 };

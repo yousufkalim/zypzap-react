@@ -33,10 +33,11 @@ const Dashboard = ({ id }) => {
     if (location.state.createCourse) {
       setcreateCourse(true);
       setDefaultCompState("");
-      console.log("LOCATION Course-----------", location.state.createCourse);
     }
-
-    // getCreator();
+    if (location.state.openSetting) {
+      setDefaultCompState("Setting");
+      setActiveButton("Setting");
+    }
   }, []);
   const getCreator = async () => {
     let res = await api("get", `/creators/${creator._id}`);

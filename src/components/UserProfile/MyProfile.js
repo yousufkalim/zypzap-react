@@ -8,6 +8,7 @@ import api from "../../api/index";
 
 const MyProfile = (props) => {
   const { user } = props;
+
   const updateStore = UpdateStore();
   const history = useHistory();
 
@@ -73,14 +74,18 @@ const MyProfile = (props) => {
             >
               My Profile
             </NavLink>
-            <NavLink
-              activeClassName="active_profile"
-              to="#"
-              className={profileBtn == 2 ? "myProfileNames" : null}
-              onClick={() => handeClick(2)}
-            >
-              Setting
-            </NavLink>
+            {user?.role == "User" ? (
+              " "
+            ) : (
+              <NavLink
+                activeClassName="active_profile"
+                to="#"
+                className={profileBtn == 2 ? "myProfileNames" : null}
+                onClick={() => handeClick(2)}
+              >
+                Setting
+              </NavLink>
+            )}
           </div>
           {profileBtn == 1 ? (
             <>
