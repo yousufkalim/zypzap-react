@@ -212,7 +212,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
                     or
                   </p>
                   <div className="step2">
-                    <p className="stapPr2">Upload chapters</p>
+                    <p className="stapPr2">Upload Chapters</p>
                     <VideoInput
                       id="2"
                       text="Select Chapter"

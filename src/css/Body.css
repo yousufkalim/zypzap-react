@@ -9,13 +9,15 @@
 }
 .textonImg {
   position: absolute;
-  top: 5%;
-  left: 8%;
+  top: 4.6%;
+  left: 7%;
   text-align: left;
 }
 
 .textimgH1 {
-  font-size: 60px;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 66px;
   font-family: "mulish";
 }
 .textonImgP {

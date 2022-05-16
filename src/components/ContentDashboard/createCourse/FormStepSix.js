@@ -158,7 +158,7 @@ const FormStepsix = ({
               <div className="step_container">
                 <div className="step1">
                   <p className="step1-p">Upload Course Introduction</p>
-                  <ImageInput text="Select Video" onChange={handleSubmit} />
+                  <VideoInput text="Select Video" onChange={handleSubmit} />
                 </div>
               </div>
             </Grid>

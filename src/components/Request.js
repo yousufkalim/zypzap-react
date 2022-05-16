@@ -24,7 +24,7 @@ export default function Construction({
         }}
       >
         {/* Request Now */}
-        Comming Soon
+        Request Now
       </button>
       {/* {/* {user ? ( */}
       {/* ) : (
