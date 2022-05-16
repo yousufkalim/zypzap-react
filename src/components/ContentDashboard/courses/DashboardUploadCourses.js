@@ -146,7 +146,7 @@ const DashboardUploadCourses = ({ pageName }) => {
           </>
         ) : (
           <div className="request-data">
-            <p className="request-data-p">{pageName} course not aviliable </p>
+            <p className="request-data-p">{pageName} course not available </p>
           </div>
         )}
       </Grid>
