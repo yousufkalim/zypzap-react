@@ -22,7 +22,7 @@ const CongratulationPopup1 = ({ open, setOpen, text }) => {
           <div className="uploadSuccess-centerDiv">
             <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />
             <p className="uploadSuccessP">
-              Congradulation !
+              Congratulations !
               <br />
               {text}
             </p>

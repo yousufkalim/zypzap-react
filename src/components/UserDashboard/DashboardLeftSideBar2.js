@@ -81,6 +81,11 @@ const DashboardLeftSideBar2 = ({
                 </div>
               )}
             </div>
+            {item.name == "My Wallet" || item.name == "Progression Roadmap" ? (
+              <button className="comming-soon3">Coming Soon</button>
+            ) : (
+              ""
+            )}
           </>
         );
       })}
