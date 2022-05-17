@@ -68,7 +68,7 @@
 
   .textH1 {
     font-weight: 900;
-    font-size: 3.2em;
+    font-size: 4em;
   }
   .textonP {
     font-size: 23px;
@@ -105,11 +105,15 @@
 /* for Tablet  */
 @media only screen and (min-width: 481px) and (max-width: 812px) {
   .textH1 {
-    font-size: 1.8em;
+    font-size: 1.1em;
   }
   .textonP {
     font-size: 15px;
     margin: 12px 0px 12px 0px;
+  }
+  .textonbutton {
+    padding: 8px 14px;
+    margin: 0px auto 0px auto;
   }
 }
 @media only screen and (min-width: 813px) and (max-width: 1212px) {

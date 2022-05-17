@@ -11,7 +11,7 @@
 .HowToTeach-container {
   position: relative;
 
-  height: 100vh;
+  /* height: 100vh; */
 }
 .getStartedHeading2 {
   padding: 88px 0px 15px 0px;
@@ -116,7 +116,7 @@
     width: 100%;
     margin: auto;
     margin: -4px;
-    flex-direction: column;
+    /* flex-direction: column; */
   }
   .MuiGrid-spacing-xs-1 > .MuiGrid-item {
     width: 100%;
@@ -125,6 +125,7 @@
   .Getstarted22 {
     /* margin-top: 50px; */
     /* margin-left: 0 !important; */
+    width: 70%;
   }
   .Getstaredgrid22 {
     display: flex;
@@ -133,7 +134,7 @@
   .StepMain2 {
     position: relative;
     width: 100%;
-    right: 90px;
+    right: 0px;
     padding: 0;
   }
   .Steppera {
@@ -176,7 +177,7 @@
     background-color: #fff;
     margin-top: 4px;
     margin-left: 4px;
-    height: 126px !important;
+    height: 28px !important;
   }
   .Steppera {
     text-align: left;

@@ -215,16 +215,7 @@ export default function TopRatedContent() {
                       alt=""
                       className="LatestCourse-IMG"
                     />
-                    <h1
-                      className="latestCourse-pHeading"
-                      style={{
-                        fontSize: "16px",
-                        fontWeight: "700",
-                        paddingLeft: "5px",
-                      }}
-                    >
-                      Pro Player Of...
-                    </h1>
+                    <h1 className="latestCourse-pHeading">Pro Player Of...</h1>
                   </div>
                   <div className="latestCourse-colmn-centerDiv">
                     <img
