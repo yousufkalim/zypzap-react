@@ -39,7 +39,7 @@ const Dashboard2 = () => {
     {
       name: "Course",
       img: youtube,
-      drop: ["Started courses", "Enrolled courses"],
+      drop: ["Started Courses", "Enrolled Courses"],
     },
     {
       name: "Wishlist",
