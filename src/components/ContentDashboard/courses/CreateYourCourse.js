@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
-
+import React from "react";
 import Box from "@mui/material/Box";
-import createcourse from "../../../assets/img/createcourse.png";
+import createcourse from "../../../assets/img/createcourse.svg";
 import CreateACoursePopup from "../../PopupForms/CreateACoursePopup";
-import Tooltip from "@mui/material/Tooltip";
-import CreatePlushIcon from "../../../assets/icons/CreatePlushIcon.svg";
-import ClearIcon from "@mui/icons-material/Clear";
+// import Tooltip from "@mui/material/Tooltip";
+// import CreatePlushIcon from "../../../assets/icons/CreatePlushIcon.svg";
+// import ClearIcon from "@mui/icons-material/Clear";
 import "../../../css/form/CreateACourse.css";
-import Popover from "@mui/material/Popover";
+// import Popover from "@mui/material/Popover";
 
 const CreateYourCourse = ({ setcreateCourse, setDefaultCompState }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);

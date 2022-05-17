@@ -98,9 +98,9 @@ const DashboardUploadCourses = ({ pageName }) => {
                         )}
                       </div>
                     </div>
-                    <p className="latestcoursep1">
+                    {/* <p className="latestcoursep1">
                       {creator?.user_id?.username}
-                    </p>
+                    </p> */}
                     <p className="latestcoursep1">
                       {" "}
                       {item?.rating === 0
@@ -124,7 +124,7 @@ const DashboardUploadCourses = ({ pageName }) => {
                       {"$" + item.price} &nbsp; | &nbsp;{" "}
                       {calTotalSecInVideos(item?.videos)}
                     </h6>
-                    <p
+                    {/* <p
                       className="dashboardlatestcourseh6"
                       style={{
                         display: "inline-block",
@@ -138,7 +138,7 @@ const DashboardUploadCourses = ({ pageName }) => {
                       ) : (
                         <img src={IIcon} alt="" />
                       )}
-                    </p>
+                    </p> */}
                   </div>
                 </Link>
               </Grid>
