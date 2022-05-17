@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Course1 from "../../assets/img/course1.png";
 import Course2 from "../../assets/img/course2.png";
-import Course3 from "../../assets/img/course3.png";
-import Course4 from "../../assets/img/course4.png";
-import StarIcon from "@material-ui/icons/Star";
-import Carousel from "react-multi-carousel";
+// import Course3 from "../../assets/img/course3.png";
+// import Course4 from "../../assets/img/course4.png";
+// import StarIcon from "@material-ui/icons/Star";
+// import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
 import { Link } from "react-router-dom";
