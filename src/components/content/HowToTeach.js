@@ -10,15 +10,15 @@ const HowToTeach = () => {
         <img src={HowToTeachBG} alt="" />
         <div className="getStartedContainer2">
           <p className="getStartedHeading2">How To Teach</p>
-          <Grid container spacing={1}>
-            <Grid item xs={12} sm={7}>
+          <Grid container>
+            <Grid item xs={12} md={6} sm={4}>
               <div className="Getstaredgrid12">
                 <div className="leftdiv22">
                   <img src={TeachPlan} className="Getstarted22" />
                 </div>
               </div>
             </Grid>
-            <Grid item xs={12} sm={5}>
+            <Grid item xs={12} md={6} sm={4}>
               <div className="Getstaredgrid22">
                 <div className="StepMain2">
                   <div className="Stepper12">

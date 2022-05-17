@@ -140,14 +140,7 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      <p
-                        className="latestCourse-pHeading"
-                        style={{
-                          fontSize: "16px",
-                          fontWeight: "700",
-                          paddingLeft: "5px",
-                        }}
-                      >
+                      <p className="latestCourse-pHeading">
                         {item?.creator?.user_id?.username}
                       </p>
                     </div>
