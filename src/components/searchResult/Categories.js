@@ -1,6 +1,6 @@
 import React from "react";
 import Checkbox from "@mui/material/Checkbox";
-import { pink } from "@mui/material/colors";
+// import { pink } from "@mui/material/colors";
 const Categories = ({ categories, activeButton, trigerOnClickEmpSideBtn }) => {
   return (
     <>

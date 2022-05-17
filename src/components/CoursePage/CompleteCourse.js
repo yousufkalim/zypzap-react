@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import GameVideo from "../../assets/GameVideo.mp4";
+// import GameVideo from "../../assets/GameVideo.mp4";
 import "./CoursePage.css";
 // import "../../";
 // import VideoPlayIcon from "../../assets/icons/VideoPlayIcon.png";
@@ -26,7 +26,14 @@ const CompleteCourse = ({ singlCourse }) => {
               Course
             </h2>
             {/* <ReactPlayer src={playVideo?.src_url} /> */}
-            <ReactPlayer url={playVideo?.src_url} controls autoplay />
+            <ReactPlayer
+              url={playVideo?.src_url}
+              controls
+              autoplay
+              className="completeCourse-Video"
+              width="100%"
+              // height="100%"
+            />
             {/* <video
               className="completeCourse-Video"
               src={playVideo?.src_url}

@@ -2,7 +2,7 @@
 import React from "react";
 import { Store, UpdateStore } from "../StoreContext";
 export default function Construction({
-  openContentRequest,
+  // openContentRequest,
   setOpenContentRequest,
 }) {
   const { user } = Store();

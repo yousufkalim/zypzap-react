@@ -3,10 +3,10 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import DashboardLeftSideBar from "./DashboardLeftSideBar";
 import DashboardRightSideBar from "./DashboardRightSideBar";
-import settings from "../../assets/img/settings.png";
+import settings from "../../assets/img/settings.svg";
 import dollar from "../../assets/img/dollar.png";
 import performance from "../../assets/img/performance.png";
-import youtube from "../../assets/img/youtube.png";
+import Youtube from "../../assets/img/youtube.svg";
 import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
 import { useHistory, useLocation } from "react-router-dom";
@@ -53,7 +53,7 @@ const Dashboard = ({ id }) => {
     }
   };
   const items = [
-    { name: "Course", img: youtube },
+    { name: "Course", img: Youtube },
     // { name: "Performance", img: performance },
     // { name: "Earning", img: dollar },
     { name: "Setting", img: settings },
@@ -89,7 +89,7 @@ const Dashboard = ({ id }) => {
           createCourse={createCourse}
           games={games}
           creator={creator}
-          setDefaultCompState={setDefaultCompState}
+          // setDefaultCompState={setDefaultCompState}
         />
       </Box>
     </>
