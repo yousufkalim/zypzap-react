@@ -438,8 +438,13 @@ export default function PrimarySearchAppBar({
               alt="img"
               style={{ cursor: "pointer" }}
               onClick={() => {
-                history.push("/");
-                window.location.reload();
+                if (user?.role == "User") {
+                  history.push("/home");
+                } else if (user?.role == "Creator") {
+                  history.push("/contenthome");
+                } else history.push("/");
+
+                // window.location.reload();
               }}
             />
 
