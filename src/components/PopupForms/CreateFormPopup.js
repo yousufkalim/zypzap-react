@@ -19,6 +19,8 @@ import { Store, UpdateStore } from "../../StoreContext";
 const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
   // const [opens, setOpens] = React.useState(false);
   const [loading, setLoading] = useState(false);
+  const [allMembers, setAllMembers] = useState(0);
+
   const [values, setValues] = React.useState({
     username: "",
     email: "",
@@ -29,6 +31,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
   });
   const updateStore = UpdateStore();
   useEffect(() => {
+    // setMembers();
     if (!open) {
       setValues({ username: "", email: "", password: "", CnfrmPassword: "" });
     }
@@ -69,6 +72,13 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
       [e.target.name]: e.target.value,
     });
   };
+
+  // const setMembers = async () => {
+  //   let res = await api("get", "/newsletters/all");
+  //   if (res) {
+  //     setAllMembers(res.data.allMembers);
+  //   }
+  // };
   const submitForm = async (event) => {
     event.preventDefault();
     if (values.username == "") {

@@ -81,7 +81,7 @@ const MyPrifileSetting = () => {
                 {/* <div class="dropdown">
                   <img src={HeaderLogoutIcon} alt="" />
                   <div id="myDropdown" class="dropdown-content"> */}
-                <button
+                {/* <button
                   className="formbtn2"
                   type="submit"
                   onClick={handleLogout}
@@ -103,7 +103,7 @@ const MyPrifileSetting = () => {
                   }}
                 >
                   Log out
-                </button>
+                </button> */}
                 {/* </div>
                 </div> */}
               </p>

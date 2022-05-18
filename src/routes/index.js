@@ -22,8 +22,9 @@ import PrivacyPolicy from "../containers/PrivacyPolicy";
 import Team from "../containers/Team";
 import CreatorProfile from "../containers/CreatorProfile";
 
-import UserDashboard from "../containers/UserDashboard";
+// import UserDashboard from "../containers/UserDashboard";
 import SettingCreatorProfile from "../containers/SettingCreatorProfile.js";
+import Setting from "../components/ContentDashboard/setting/Setting";
 
 const index = () => {
   return (
@@ -45,6 +46,8 @@ const index = () => {
         path="/contentcreator"
         component={ContentCreatorLandingPage}
       />
+      <Route exact path="/settings" component={Setting} />
+
       {/* content creator */}
       <Route exact path="/contenthome" component={Contenthome} />
       <Route exact path="/searchresult" component={SearchResult} />
