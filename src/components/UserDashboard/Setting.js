@@ -338,7 +338,9 @@ function Setting({ openProfile, setOpenProfile }) {
             </FormControl>
           </div>
           <div>
-            <label for="Learning">Learning Rhythm</label>
+            <label className="setting-label" for="Learning">
+              Learning Rhythm
+            </label>
           </div>
           <div className="userProfileSelectInput">
             <select
@@ -383,7 +385,9 @@ function Setting({ openProfile, setOpenProfile }) {
             </select>
           </div>
           <div className="userProfileSelectInput">
-            <label for="Learning">Current Gameplay Level</label>
+            <label className="setting-label" for="Learning">
+              Current Gameplay Level
+            </label>
             <br />
             <select
               id="Select"
@@ -407,7 +411,9 @@ function Setting({ openProfile, setOpenProfile }) {
             </select>
           </div>
           <div className="userProfileSelectInput">
-            <label for="Learning">Target Gameplay Level</label>
+            <label className="setting-label" for="Learning">
+              Target Gameplay Level
+            </label>
             <br />
 
             <select

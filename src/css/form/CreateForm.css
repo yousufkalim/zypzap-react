@@ -263,7 +263,7 @@
 }
 .tags-input-ul {
   display: flex;
-  border: 1px solid #717171;
+border: none;
   margin: 8px 0;
 }
 .tags-input-ul2 {
@@ -297,10 +297,10 @@
   outline: none;
 }
 .tags-input-FGames {
-  font-size: 14px;
+  font-size: 18px;
 }
 .userButton-heading {
-  font-size: 16px;
+  font-size: 18px;
   padding-bottom: 5px;
   padding-top: 10px;
   font-weight: 400;
@@ -334,9 +334,13 @@
 } */
 .gamingModeP {
   padding: 9px 0 0 0;
+  font-size: 18px;
 }
 .userProfileSelectInput {
   padding: 5px 0 0 0;
+}
+.setting-label{
+  font-size: 18px;
 }
 
 .gamingModeSelect {

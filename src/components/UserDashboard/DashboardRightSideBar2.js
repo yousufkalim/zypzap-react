@@ -1,59 +1,59 @@
-import React, { useState } from "react";
-import DashboardUploadCourses from "../ContentDashboard/courses/DashboardUploadCourses";
-import CreateCourseForm from "../ContentDashboard/createCourse/CreateCourseForm";
-import Box from "@mui/material/Box";
+import React from "react";
+// import DashboardUploadCourses from "../ContentDashboard/courses/DashboardUploadCourses";
+// import CreateCourseForm from "../ContentDashboard/createCourse/CreateCourseForm";
+// import Box from "@mui/material/Box";
 import StartedCourse from "./StartedCourse";
 import EnrolledCourse from "./EnrolledCourse";
 import Wishlist from "./Wishlist";
 import ProgressionRoadmap from "./ProgressionRoadmap";
 import MyWallet from "./MyWallet";
 import Setting from "./Setting";
-import Course1 from "../../assets/img/course1.png";
-import Course2 from "../../assets/img/course2.png";
-import Course3 from "../../assets/img/course3.png";
-import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
-var items = [
-  {
-    title: "CS-GO Ep 2 Complete Course 1",
-    img: Course1,
-    name: "James Wiik",
-    rating: "rating",
-    price: "19.99 | 50 min",
-    test: "1",
-  },
-  {
-    title: "PUBG GamePlay Course",
-    img: Course2,
-    name: "Ifaf ghori",
-    rating: "rating",
-    price: "19.99 | 50 min",
-    test: "2",
-  },
-  {
-    title: "Taken 5 Fight Course",
-    img: Course3,
-    name: "Arslan Ash",
-    rating: "rating",
-    price: "19.99 | 50 min",
-    test: "3",
-  },
-];
+// import Course1 from "../../assets/img/course1.png";
+// import Course2 from "../../assets/img/course2.png";
+// import Course3 from "../../assets/img/course3.png";
+// import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
+// var items = [
+//   {
+//     title: "CS-GO Ep 2 Complete Course 1",
+//     img: Course1,
+//     name: "James Wiik",
+//     rating: "rating",
+//     price: "19.99 | 50 min",
+//     test: "1",
+//   },
+//   {
+//     title: "PUBG GamePlay Course",
+//     img: Course2,
+//     name: "Ifaf ghori",
+//     rating: "rating",
+//     price: "19.99 | 50 min",
+//     test: "2",
+//   },
+//   {
+//     title: "Taken 5 Fight Course",
+//     img: Course3,
+//     name: "Arslan Ash",
+//     rating: "rating",
+//     price: "19.99 | 50 min",
+//     test: "3",
+//   },
+// ];
 const DashboardRightSideBar2 = ({
   defaultCompState,
   setDefaultCompState,
   defaultCompStatedrop,
 }) => {
-  const [activeUploadButton, setActiveUploadButton] = useState(1);
-  const handleActiveUploadButton = (i) => {
-    setActiveUploadButton(i);
-  };
+  // const [activeUploadButton, setActiveUploadButton] = useState(1);
+  // const handleActiveUploadButton = (i) => {
+  //   setActiveUploadButton(i);
+  // };
   return (
     <>
-      {defaultCompState == "Course" && (
+      {/* {defaultCompState == "Course" && (
         <div className="wishlistDiv">
           <h3 className="wishCardh3">Courses</h3>
           <div className="">
-            {/* <h3 className="creatorProfileH3">Courses</h3> */}
+      
             <div className="">
               <div1 className="creatorCard2">
                 {items.map((item, i) => (
@@ -93,9 +93,11 @@ const DashboardRightSideBar2 = ({
             </div>
           </div>
         </div>
-      )}
-      {defaultCompState == "Started courses" && <StartedCourse />}
-      {defaultCompState == "Enrolled courses" && <EnrolledCourse />}
+      )} */}
+
+      {defaultCompState == "Courses" && <StartedCourse />}
+      {defaultCompState == "Started Courses" && <StartedCourse />}
+      {defaultCompState == "Enrolled Courses" && <EnrolledCourse />}
       {defaultCompState == "Wishlist" && <Wishlist />}
       {defaultCompState == "My Walle" && <MyWallet />}
       {defaultCompState == "Progression Roadma" && <ProgressionRoadmap />}

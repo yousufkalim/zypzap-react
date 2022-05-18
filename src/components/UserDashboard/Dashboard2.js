@@ -37,9 +37,9 @@ const Dashboard2 = () => {
 
   const items = [
     {
-      name: "Course",
+      name: "Courses",
       img: youtube,
-      drop: ["Started courses", "Enrolled courses"],
+      drop: ["Started Courses", "Enrolled Courses"],
     },
     {
       name: "Wishlist",
