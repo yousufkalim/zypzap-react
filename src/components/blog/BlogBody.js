@@ -64,8 +64,8 @@ export default function BlogBody() {
             <Carousel
               className="topcoursecarousal"
               indicators={false}
-              interval={3000}
-              autoPlay={true}
+              // interval={3000}
+              // autoPlay={true}
               animation={"fade"}
             >
               {blogs?.map((item, i) => (

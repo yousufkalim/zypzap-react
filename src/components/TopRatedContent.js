@@ -182,7 +182,7 @@ export default function TopRatedContent() {
           // autoPlay={true}
           autoPlaySpeed={3000}
           // transitionDuration={3000}
-          infinite={true}
+          // infinite={true}
           className="latestcourseCarousel"
         >
           {items.map((item, i) => (

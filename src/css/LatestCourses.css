@@ -290,4 +290,7 @@
   .cardGrid2 {
     flex-direction: column;
   }
+  .wishCarImgDiv {
+    width: 93%;
+  }
 }

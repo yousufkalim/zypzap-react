@@ -42,4 +42,14 @@
   .br {
     display: none;
   }
+  .requestButton {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  .requestContent {
+    padding: 0 10px;
+  }
+  .requestContainer {
+    border-radius: 15px !important;
+  }
 }
