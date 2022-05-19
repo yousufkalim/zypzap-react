@@ -553,7 +553,7 @@ export default function PrimarySearchAppBar({
                 </button>
               </div>
             )}
-            {(user?.role == "User" || user?.role == "Creator") && (
+            {/* {(user?.role == "User" || user?.role == "Creator") && (
               <Link to="#" className="requestBt">
                 <button className="requestBtn">
                   <img src={PlusVideo} alt="" />
@@ -566,7 +566,7 @@ export default function PrimarySearchAppBar({
                   <img src={GiftCard} alt="" />
                 </button>
               </Link>
-            )}
+            )} */}
             <Box
               className={`${creator ? "headerLinkbox" : "headerLinkbox2"}`}
               sx={{
