@@ -42,7 +42,7 @@ const EnrolledCourse = () => {
   }, []);
   return (
     <div className="wishlistDiv">
-      <h3 className="wishCardh3"> Enrolled Courses</h3>
+      <p className="wishCardh3"> Enrolled Courses</p>
       <div className="carousalOuterDiv2 ">
         {User?.enrolled_courses?.length !== 0 ? (
           <>

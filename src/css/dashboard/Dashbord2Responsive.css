@@ -7,18 +7,16 @@
   .wishListh4 {
     font-size: 20px !important;
   }
-  .wishlistP2{
+  .wishlistP2 {
     font-size: 16px !important;
   }
   .wishListBtn {
     font-size: 10px !important;
     padding: 10px 20px !important;
   }
-  .wishButtonDiv{
+  .wishButtonDiv {
     margin-left: inherit !important;
     margin: 20px 0 !important;
-
-
   }
   .wishlistDiv {
     width: 100% !important;
@@ -53,7 +51,7 @@
     width: 100% !important;
   }
   .comming-soon {
-    margin: -56px 0 0 39px !important;
+    margin: -56px 0 0 45px !important;
     padding: 3px 2px !important;
     font-size: 8px !important;
   }
@@ -68,7 +66,7 @@
   .fa-solid {
     margin-left: 32px !important;
   }
-  .wishButtonDiv{
+  .wishButtonDiv {
     margin-left: inherit !important;
     margin: 20px 0 !important;
   }

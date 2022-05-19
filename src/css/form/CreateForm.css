@@ -263,7 +263,7 @@
 }
 .tags-input-ul {
   display: flex;
-border: none;
+  border: none;
   margin: 8px 0;
 }
 .tags-input-ul2 {
@@ -318,7 +318,7 @@ border: none;
 .userTagsAllButton {
   background: #282a49;
   border-radius: 4px;
-  margin: 3px;
+  margin: 6px;
   font-size: 15px;
   padding: 7px 15px;
   color: #fff;
@@ -339,7 +339,7 @@ border: none;
 .userProfileSelectInput {
   padding: 5px 0 0 0;
 }
-.setting-label{
+.setting-label {
   font-size: 18px;
 }
 
