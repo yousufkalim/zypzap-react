@@ -68,8 +68,12 @@
   .fa-solid {
     margin-left: 32px !important;
   }
+  .wishButtonDiv{
+    margin-left: inherit !important;
+    margin: 20px 0 !important;
+  }
   .wishListh4 {
-    font-size: 14px !important;
+    font-size: 22px !important;
   }
   .wishListBtn {
     font-size: 10px !important;
@@ -128,7 +132,7 @@
 
 @media only screen and (min-width: 901px) and (max-width: 1200px) {
   .comming-soon {
-    margin: -34px 0 0 11px !important;
+    margin: -8px 0 0 26px !important;
     font-size: 9px !important;
   }
   .fa-solid {
