@@ -139,9 +139,12 @@
   height: 300px;
 }
 .dashboardlatestcourseh6 {
-  font-size: 13px;
+  font-size: 11px;
   margin-bottom: 10px;
   padding: 10px 20px 15px 24px;
+  color: #ffeae5 !important;
+  font-family: "mulish";
+  font-weight: 400;
 }
 
 @media all and (max-width: 992px) {
