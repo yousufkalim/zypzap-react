@@ -152,7 +152,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
             <ClearIcon className="clearIcon" onClick={handleClose} />
             <p className="login_pera">Welcome back</p>
             <div>
-              Creator
+              {creatorSwitch ? "Creator" : "User"}
               <MaterialUISwitch
                 sx={{ m: 1 }}
                 defaultChecked={creatorSwitch}

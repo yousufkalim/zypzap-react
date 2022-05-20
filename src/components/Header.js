@@ -438,8 +438,13 @@ export default function PrimarySearchAppBar({
               alt="img"
               style={{ cursor: "pointer" }}
               onClick={() => {
-                history.push("/");
-                window.location.reload();
+                if (user?.role == "User") {
+                  history.push("/home");
+                } else if (user?.role == "Creator") {
+                  history.push("/contenthome");
+                } else history.push("/");
+
+                // window.location.reload();
               }}
             />
 
@@ -548,7 +553,7 @@ export default function PrimarySearchAppBar({
                 </button>
               </div>
             )}
-            {(user?.role == "User" || user?.role == "Creator") && (
+            {/* {(user?.role == "User" || user?.role == "Creator") && (
               <Link to="#" className="requestBt">
                 <button className="requestBtn">
                   <img src={PlusVideo} alt="" />
@@ -561,7 +566,7 @@ export default function PrimarySearchAppBar({
                   <img src={GiftCard} alt="" />
                 </button>
               </Link>
-            )}
+            )} */}
             <Box
               className={`${creator ? "headerLinkbox" : "headerLinkbox2"}`}
               sx={{

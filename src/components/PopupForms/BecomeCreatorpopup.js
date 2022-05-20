@@ -119,6 +119,7 @@ const BecomeCreatorpopup = ({
         plateForm: plateForm,
         gameMood: gameMood,
       };
+
       if (user) {
         let res = await api("post", `/creators/${user?._id}`, formdata);
 
