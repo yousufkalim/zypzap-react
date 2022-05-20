@@ -68,7 +68,7 @@ const DashboardUploadCourses = ({ pageName }) => {
                   style={{ textDecoration: "none", color: "white" }}
                 >
                   <div className="cardGrid-dashboard">
-                    <div className="favourite-icon-position">
+                    <div className="favourite-icon-position2">
                       <img
                         src={item?.thumbnail ? item.thumbnail : Course1}
                         className="courseimg"
@@ -121,8 +121,7 @@ const DashboardUploadCourses = ({ pageName }) => {
                       className="dashboardlatestcourseh6"
                       style={{ display: "inline-block" }}
                     >
-                      {"$" + item.price} &nbsp; | &nbsp;{" "}
-                      {calTotalSecInVideos(item?.videos)}
+                      {"50 min"} &nbsp; | &nbsp; {"5 Days Ago"}
                     </h6>
                     {/* <p
                       className="dashboardlatestcourseh6"

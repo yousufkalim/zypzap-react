@@ -325,12 +325,13 @@
 .userTagsAllButton {
   background: #282a49;
   border-radius: 4px;
-  margin: 6px;
+  margin: 3px;
   font-size: 15px;
   padding: 7px 15px;
   color: #fff;
   border: none;
   display: inline-block;
+  border-radius: 4px;
 }
 .css-1a5icme {
   color: #fff !important;

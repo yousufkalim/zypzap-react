@@ -244,11 +244,7 @@ export default function PropfileInformation({
               </label>
             </div>
             <div>
-              <p className="uploadHeading">
-                Upload
-                <br />
-                Picture
-              </p>
+              <p className="uploadHeading">Upload Picture</p>
             </div>
           </div>
           <div className="tags-input">
