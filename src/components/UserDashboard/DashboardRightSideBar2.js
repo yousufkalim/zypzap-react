@@ -40,8 +40,8 @@ import Setting from "./Setting";
 // ];
 const DashboardRightSideBar2 = ({
   defaultCompState,
-  // setDefaultCompState,
-  // defaultCompStatedrop,
+  setDefaultCompState,
+  defaultCompStatedrop,
 }) => {
   // const [activeUploadButton, setActiveUploadButton] = useState(1);
   // const handleActiveUploadButton = (i) => {
@@ -95,7 +95,7 @@ const DashboardRightSideBar2 = ({
         </div>
       )} */}
 
-      {defaultCompState == "Course" && <StartedCourse />}
+      {defaultCompState == "Courses" && <StartedCourse />}
       {defaultCompState == "Started Courses" && <StartedCourse />}
       {defaultCompState == "Enrolled Courses" && <EnrolledCourse />}
       {defaultCompState == "Wishlist" && <Wishlist />}

@@ -13,6 +13,7 @@ import SearchIcon from "@mui/icons-material/Search";
 // import AccountCircle from "@mui/icons-material/AccountCircle";
 // import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import Hamburger from "../assets/icons/Hamburger.svg";
 import UserHeaderIcon from "../assets/icons/UserHeaderIcon.svg";
 import CourseIcon from "../assets/icons/CourseIcon.svg";
 import DownArrow from "../assets/icons/downarrow.svg";
@@ -316,12 +317,12 @@ export default function PrimarySearchAppBar({
               class="dropdown"
               // onClick={handleLogout}
             >
-              <img src={HeaderLogoutIcon} alt="" />
-              <div id="myDropdown" class="dropdown-content">
+              <img src={HeaderLogoutIcon} alt="" onClick={openProfilePg} />
+              {/* <div id="myDropdown" class="dropdown-content">
                 <a className="LogoutBTN" href="#home">
                   Logout
                 </a>
-              </div>
+              </div> */}
             </div>
           </p>
         ) : (
@@ -684,7 +685,12 @@ export default function PrimarySearchAppBar({
                 onClick={handleMobileMenuOpen}
                 color="inherit"
               >
-                <MoreIcon />
+                <img
+                  src={Hamburger}
+                  // onClick={openProfilePg}
+                  alt=""
+                />
+                {/* <Hamburger /> */}
               </IconButton>
             </Box>
           </Toolbar>

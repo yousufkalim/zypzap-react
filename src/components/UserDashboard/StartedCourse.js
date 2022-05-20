@@ -5,6 +5,7 @@ import Course2 from "../../assets/img/course2.png";
 // import Course4 from "../../assets/img/course4.png";
 // import StarIcon from "@material-ui/icons/Star";
 // import Carousel from "react-multi-carousel";
+import Box from "@mui/material/Box";
 import "react-multi-carousel/lib/styles.css";
 import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
 import { Link } from "react-router-dom";
@@ -17,7 +18,7 @@ import LinearProgress, {
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 5,
   borderRadius: 5,
-  width: "40%",
+  width: "80%",
   [`&.${linearProgressClasses.colorPrimary}`]: {
     backgroundColor: "#17192D",
   },
@@ -66,7 +67,7 @@ const StartedCourse = () => {
   };
   return (
     <div className="wishlistDiv">
-      <h3 className="wishCardh3">Sarted Courses</h3>
+      <p className="wishCardh3">Started Courses</p>
       <div className="carousalOuterDiv2 ">
         {User?.enrolled_courses?.length !== 0 ? (
           <>
@@ -82,17 +83,16 @@ const StartedCourse = () => {
                               ? item.course_id.thumbnail
                               : Course1
                           }
-                          className="courseimg startcourseimg"
+                          className="startcourseimg"
                           alt="img"
                         />
                       </div>
                       <div className="wishList-container">
-                        <h4 className="wishListh4">
+                        <p className="wishListh4">
                           {item?.course_id?.course_name
                             ? item.course_id.course_name
                             : "Fight Course"}
-                        </h4>
-                        <br />
+                        </p>
 
                         <p className="wishlistP2">
                           {item?.course_id?.creator?.user_id?.username}
@@ -115,7 +115,17 @@ const StartedCourse = () => {
                             ? `( ${item.course_id.student.length} )`
                             : `( 0 )`}
                         </p>
+                        <div className="wishCard-progrss">
+                          <BorderLinearProgress
+                            variant="determinate"
+                            value={30}
+                          />
+                        </div>
+                        <div className="wishCard-progrss-prsntage">
+                          16% Complete
+                        </div>
                       </div>
+
                       <div className="wishButtonDiv">
                         <button
                           className="wishListBtn"
@@ -123,7 +133,7 @@ const StartedCourse = () => {
                             handleStartCourses(item?.course_id?._id)
                           }
                         >
-                          Start Now
+                          Continue the course
                         </button>
                       </div>
                     </div>

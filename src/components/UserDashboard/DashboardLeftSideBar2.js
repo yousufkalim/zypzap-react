@@ -47,11 +47,7 @@ const DashboardLeftSideBar2 = ({
                 <div>
                   {item.drop.map((i) => (
                     <div
-                      style={{
-                        marginLeft: "40px",
-                        paddingBottom: "10px",
-                        cursor: "pointer",
-                      }}
+                      className="DashboardLeftSideBar2-dropdown"
                       onClick={() => handleClick2(i)}
                     >
                       {i}
@@ -82,6 +78,9 @@ const DashboardLeftSideBar2 = ({
               )}
             </div>
             {item.name == "My Wallet" || item.name == "Progression Roadmap" ? (
+
+              <button className="comming-soon">(Coming Soon)</button>
+
               <p
                 style={{
                   color: "grey",
@@ -92,6 +91,7 @@ const DashboardLeftSideBar2 = ({
               >
                 (Coming Soon)
               </p>
+
             ) : (
               ""
             )}

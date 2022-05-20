@@ -22,7 +22,7 @@ import PrivacyPolicy from "../containers/PrivacyPolicy";
 import Team from "../containers/Team";
 import CreatorProfile from "../containers/CreatorProfile";
 
-import UserDashboard from "../containers/UserDashboard";
+// import UserDashboard from "../containers/UserDashboard";
 import SettingCreatorProfile from "../containers/SettingCreatorProfile.js";
 import Setting from "../components/ContentDashboard/setting/Setting";
 

@@ -17,7 +17,7 @@
 .textimgH1 {
   font-size: 56px;
   font-weight: 800;
-  line-height: 66px;
+  /* line-height: 66px; */
   font-family: "mulish";
 }
 .textonImgP {
