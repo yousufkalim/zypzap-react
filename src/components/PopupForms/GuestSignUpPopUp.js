@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import api from "../../api";
 import { Store, UpdateStore } from "../../StoreContext";
 import Dialog from "@mui/material/Dialog";
+import ClearIcon from "@mui/icons-material/Clear";
 
 const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup }) => {
   const updateStore = UpdateStore();
@@ -37,8 +38,8 @@ const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup }) => {
                 marginTop: "2%",
               }}
             >
-              {" "}
-              You must be a registered user to continue{" "}
+              <ClearIcon className="clearIcon2" onClick={handleClose} /> You
+              must be a registered user to continue{" "}
             </h1>
             <div style={{ display: "flex", paddingTop: "3%" }}>
               <button
