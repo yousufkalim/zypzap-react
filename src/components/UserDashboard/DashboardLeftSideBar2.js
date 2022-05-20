@@ -78,7 +78,9 @@ const DashboardLeftSideBar2 = ({
               )}
             </div>
             {item.name == "My Wallet" || item.name == "Progression Roadmap" ? (
-              <button className="comming-soon">(Coming Soon)</button>
+              <>
+                <button className="comming-soon">(Coming Soon)</button>
+              </>
             ) : (
               ""
             )}
