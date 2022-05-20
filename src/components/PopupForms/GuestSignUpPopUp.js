@@ -29,18 +29,10 @@ const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup }) => {
       <div>
         <Dialog open={open} onClose={handleClose}>
           <div className="create_container" style={{ padding: "6%" }}>
-            <h1
-              className="text-center"
-              style={{
-                color: "white",
-                letterSpacing: "1px",
-                textAlign: "center",
-                marginTop: "2%",
-              }}
-            >
-              <ClearIcon className="clearIcon2" onClick={handleClose} /> You
-              must be a registered user to continue{" "}
-            </h1>
+            <ClearIcon className="clearIcon3" onClick={handleClose} />
+            <p className="text-center">
+              You must be a registered user <br /> to continue
+            </p>
             <div style={{ display: "flex", paddingTop: "3%" }}>
               <button
                 className="formbtn2"
@@ -52,7 +44,6 @@ const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup }) => {
                   width: "50%",
                   marginLeft: "17%",
                   marginTop: "6%",
-                  padding: "1%",
                   marginBottom: "6%",
                   borderRadius: "8px",
                 }}
@@ -60,6 +51,7 @@ const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup }) => {
                 Sign Up Now
               </button>
               <button
+                className="formbtn2"
                 type="submit"
                 onClick={handleClose}
                 style={{
@@ -67,16 +59,13 @@ const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup }) => {
                   marginLeft: "3%",
                   marginRight: "20%",
                   marginTop: "6%",
-                  padding: "1%",
-                  fontSize: "20px",
                   marginBottom: "6%",
                   borderRadius: "8px",
-                  border: "none",
-                  background: "rgba(128, 128, 128, 0.562)",
+                  // background: "rgba(128, 128, 128, 0.562)",
                   color: "white",
                 }}
               >
-                Close
+                Log in Now
               </button>
             </div>
           </div>
