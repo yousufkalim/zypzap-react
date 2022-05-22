@@ -9,75 +9,38 @@ import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
 import ClearIcon from "@mui/icons-material/Clear";
 import { Store, UpdateStore } from "../../StoreContext";
-export default function PropfileInformation({
-  openProfile,
-  setOpenProfile,
-  user,
-  setCongratulation,
-}) {
+export default function PropfileInformation({ openProfile, setOpenProfile, user, setCongratulation }) {
   const updateStore = UpdateStore();
-  const [profile_photo, setImageURL] = useState(
-    user?.profile_photo ? user.profile_photo : Course1
-  );
+  const [profile_photo, setImageURL] = useState(user?.profile_photo ? user.profile_photo : Course1);
   const [favouritGame, setFavouritGame] = useState(
-    user?.prefrence_games?.favourite_games
-      ? user.prefrence_games.favourite_games
-      : []
+    user?.prefrence_games?.favourite_games ? user.prefrence_games.favourite_games : []
   );
 
   const [gameType, setGameType] = useState(user?.gameType ? user.gameType : []);
-  const [plateForm, setPlateForm] = useState(
-    user?.plateForm ? user.plateForm : []
-  );
-  const [gameMood, setGameMood] = useState(
-    user?.gameMood ? user.gameMood : "Single"
-  );
+  const [plateForm, setPlateForm] = useState(user?.plateForm ? user.plateForm : []);
+  const [gameMood, setGameMood] = useState(user?.gameMood ? user.gameMood : "Single");
   const [learningRethem, setLearningRethem] = useState(
-    user?.prefrence_games?.learningRethem
-      ? user.prefrence_games.learningRethem
-      : "10h To 20h Per Week"
+    user?.prefrence_games?.learningRethem ? user.prefrence_games.learningRethem : "10h To 20h Per Week"
   );
   const [currentLevel, setCurrentLevel] = useState(
-    user?.prefrence_games?.current_level
-      ? user.prefrence_games.current_level
-      : "initial"
+    user?.prefrence_games?.current_level ? user.prefrence_games.current_level : "initial"
   );
-  const [LearningRhythm, setLearningRhythm] = useState(
-    user?.learning_rhythm || "initial"
-  );
+  const [LearningRhythm, setLearningRhythm] = useState(user?.learning_rhythm || "initial");
   const [target_level, setTargetLevel] = useState(
-    user?.prefrence_games?.target_level
-      ? user.prefrence_games.target_level
-      : "initial"
+    user?.prefrence_games?.target_level ? user.prefrence_games.target_level : "initial"
   );
   useEffect(() => {
     setCurrentSate();
   }, [user]);
   const setCurrentSate = () => {
     setImageURL(user?.profile_photo ? user.profile_photo : Course1);
-    setFavouritGame(
-      user?.prefrence_games?.favourite_games
-        ? user.prefrence_games.favourite_games
-        : []
-    );
+    setFavouritGame(user?.prefrence_games?.favourite_games ? user.prefrence_games.favourite_games : []);
     setGameType(user?.gameType ? user.gameType : []);
     setPlateForm(user?.plateForm ? user.plateForm : []);
     setGameMood(user?.gameMood ? user.gameMood : "Single");
-    setLearningRethem(
-      user?.prefrence_games?.learningRethem
-        ? user.prefrence_games.learningRethem
-        : "Per Week"
-    );
-    setCurrentLevel(
-      user?.prefrence_games?.current_level
-        ? user.prefrence_games.current_level
-        : "initial"
-    );
-    setTargetLevel(
-      user?.prefrence_games?.target_level
-        ? user.prefrence_games.target_level
-        : "initial"
-    );
+    setLearningRethem(user?.prefrence_games?.learningRethem ? user.prefrence_games.learningRethem : "Per Week");
+    setCurrentLevel(user?.prefrence_games?.current_level ? user.prefrence_games.current_level : "initial");
+    setTargetLevel(user?.prefrence_games?.target_level ? user.prefrence_games.target_level : "initial");
   };
 
   const addTags = (event) => {
@@ -94,9 +57,7 @@ export default function PropfileInformation({
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
   const removeTags = (index) => {
-    setFavouritGame([
-      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index),
-    ]);
+    setFavouritGame([...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index)]);
   };
 
   const changeCurrentLevelHandler = (e) => {
@@ -158,11 +119,7 @@ export default function PropfileInformation({
     ) {
     } else {
       if (user) {
-        let res = await api(
-          "put",
-          `/users/addProfileInfo/${user?._id}`,
-          formdata
-        );
+        let res = await api("put", `/users/addProfileInfo/${user?._id}`, formdata);
         if (res) {
           updateStore({ user: res.data });
           setOpenProfile(false);
@@ -207,17 +164,12 @@ export default function PropfileInformation({
       <Dialog
         className="userProfile-box"
         open={openProfile}
-        onClose={() => setOpenProfile(false)}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
         <div className="userProfile_conteiner">
           <div className="userProfile_heading">
-            <ClearIcon
-              className="clearIcon"
-              onClick={() => setOpenProfile(false)}
-              style={{ margin: "10px 0" }}
-            />
+            <ClearIcon className="clearIcon" onClick={() => setOpenProfile(false)} style={{ margin: "10px 0" }} />
             <h2 className="userProfileH1">Profile Information</h2>
             <p className="userProfileP">Input your details</p>
           </div>
@@ -237,10 +189,7 @@ export default function PropfileInformation({
                     event.target.value = null;
                   }}
                 />
-                <img
-                  src={profile_photo ? profile_photo : Course1}
-                  className="userProfileInput"
-                />
+                <img src={profile_photo ? profile_photo : Course1} className="userProfileInput" />
               </label>
             </div>
             <div>
@@ -279,12 +228,7 @@ export default function PropfileInformation({
                     </span>
                   </li>
                 ))}
-                <input
-                  className="userProfile_inputTags"
-                  type="text"
-                  onKeyUp={(event) => addTags(event)}
-                  placeholder=""
-                />
+                <input className="userProfile_inputTags" type="text" onKeyUp={(event) => addTags(event)} placeholder="" />
               </ul>
             </div>
           </div>
@@ -354,18 +298,8 @@ export default function PropfileInformation({
                   name="radio-buttons-group"
                   style={{ display: "inline" }}
                 >
-                  <FormControlLabel
-                    value="Single"
-                    control={<Radio />}
-                    label="Single Player Mode"
-                    onClick={onChangeRadioBtn}
-                  />
-                  <FormControlLabel
-                    value="MultiPlayer"
-                    control={<Radio />}
-                    label="MultiPlayer Mode"
-                    onClick={onChangeRadioBtn}
-                  />
+                  <FormControlLabel value="Single" control={<Radio />} label="Single Player Mode" onClick={onChangeRadioBtn} />
+                  <FormControlLabel value="MultiPlayer" control={<Radio />} label="MultiPlayer Mode" onClick={onChangeRadioBtn} />
                 </RadioGroup>
               </div>
             </FormControl>
@@ -375,44 +309,24 @@ export default function PropfileInformation({
           </div>
           <div className="userProfileSelectInput2">
             <br />
-            <select
-              id="Select"
-              name="Select"
-              onChange={ChangeLearningRhythm}
-              className="selectInput-userProfile2"
-            >
-              <option
-                value="10h To 20h Per Week"
-                className="selectInput-option"
-              >
-                {learningRethem === "10h To 20h Per Week"
-                  ? learningRethem
-                  : "10h To 20h Per Week"}
+            <select id="Select" name="Select" onChange={ChangeLearningRhythm} className="selectInput-userProfile2">
+              <option value="10h To 20h Per Week" className="selectInput-option">
+                {learningRethem === "10h To 20h Per Week" ? learningRethem : "10h To 20h Per Week"}
               </option>
               <option value="20h To 30h Per Week">
-                {learningRethem === "20h To 30h Per Week"
-                  ? learningRethem
-                  : "20h To 30h Per Week"}
+                {learningRethem === "20h To 30h Per Week" ? learningRethem : "20h To 30h Per Week"}
               </option>
               <option value="30h To 40h Per Week">
-                {learningRethem === "30h To 40h Per Week"
-                  ? learningRethem
-                  : "30h To 40h Per Week"}
+                {learningRethem === "30h To 40h Per Week" ? learningRethem : "30h To 40h Per Week"}
               </option>
               <option value="40h To 50h Per Week">
-                {learningRethem === "40h To 50h Per Week"
-                  ? learningRethem
-                  : "40h To 50h Per Week"}
+                {learningRethem === "40h To 50h Per Week" ? learningRethem : "40h To 50h Per Week"}
               </option>
               <option value="50h To 60h Per Week">
-                {learningRethem === "50h To 60h Per Week"
-                  ? learningRethem
-                  : "50h To 60h Per Week"}
+                {learningRethem === "50h To 60h Per Week" ? learningRethem : "50h To 60h Per Week"}
               </option>
               <option value="60h To 70h Per Week">
-                {learningRethem === "60h To 70h Per Week"
-                  ? learningRethem
-                  : "60h To 70h Per Week"}
+                {learningRethem === "60h To 70h Per Week" ? learningRethem : "60h To 70h Per Week"}
               </option>
             </select>
           </div>
@@ -431,15 +345,9 @@ export default function PropfileInformation({
               </option>
 
               {/* <option value="saab">Pro</option> */}
-              <option value="Confirmed">
-                Confirmed (8 Hours - 15 Hours Of Play Per Week)
-              </option>
-              <option value="Hardcore">
-                Hardcore (16 Hours - 28 Hours Of Play Per Week)
-              </option>
-              <option value="Esporter">
-                Esporter (More than 30 Hours Of Play Per Week)
-              </option>
+              <option value="Confirmed">Confirmed (8 Hours - 15 Hours Of Play Per Week)</option>
+              <option value="Hardcore">Hardcore (16 Hours - 28 Hours Of Play Per Week)</option>
+              <option value="Esporter">Esporter (More than 30 Hours Of Play Per Week)</option>
             </select>
           </div>
           <div className="userProfileSelectInput">
@@ -456,15 +364,9 @@ export default function PropfileInformation({
               <option value="Casual" className="selectInput-option">
                 Casual (5h - 7h Of Play Per Week)
               </option>
-              <option value="Confirmed">
-                Confirmed (8 Hours - 15 Hours Of Play Per Week)
-              </option>
-              <option value="Hardcore">
-                Hardcore (16 Hours - 28 Hours Of Play Per Week)
-              </option>
-              <option value="Esporter">
-                Esporter (More than 30 Hours Of Play Per Week)
-              </option>
+              <option value="Confirmed">Confirmed (8 Hours - 15 Hours Of Play Per Week)</option>
+              <option value="Hardcore">Hardcore (16 Hours - 28 Hours Of Play Per Week)</option>
+              <option value="Esporter">Esporter (More than 30 Hours Of Play Per Week)</option>
             </select>
           </div>
           <button className="userProfileButton" onClick={submitProfile}>

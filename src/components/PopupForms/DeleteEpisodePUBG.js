@@ -11,24 +11,14 @@ const DeleteEpisodePUBG = ({ open, setOpen, text }) => {
   };
   return (
     <div>
-      <DeletedEpisodeCourse
-        open={showDeletePopup}
-        setOpen={setShowDeletePopup}
-      />
-      <Dialog
-        open={open}
-        setOpe={setOpen}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
+      <DeletedEpisodeCourse open={showDeletePopup} setOpen={setShowDeletePopup} />
+      <Dialog open={open} setOpe={setOpen} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
         <div className="uploadSuccessDiv">
           <ClearIcon className="subsclearIcon" onClick={handleClose} />
           <div className="uploadSuccess-centerDiv">
             <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />
             <p className="uploadSuccessP">
-              Episode {text.title} GamePlay Course {text.index + 1}/
-              {text.length} deleted
+              Episode {text.title} GamePlay Course {text.index + 1}/{text.length} deleted
             </p>
           </div>
         </div>

@@ -16,17 +16,8 @@ const UploadCancalled = ({ open, setOpen }) => {
   };
   return (
     <div>
-      <UploadedEpisodePopup
-        open={showDeletePopup}
-        setOpen={setShowDeletePopup}
-      />
-      <Dialog
-        open={open}
-        setOpe={setOpen}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
+      <UploadedEpisodePopup open={showDeletePopup} setOpen={setShowDeletePopup} />
+      <Dialog open={open} setOpe={setOpen} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv">
             <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />

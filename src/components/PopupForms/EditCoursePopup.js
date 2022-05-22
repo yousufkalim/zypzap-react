@@ -205,7 +205,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
       />
       {/* <RequestSuccessfullyPopup open={open} setOpen={setOpen} /> */}
       <div>
-        <Dialog fullWidth="true" maxWidth="md" open={open} onClose={handleClose} className="editCoursePopup">
+        <Dialog fullWidth="true" maxWidth="md" open={open} className="editCoursePopup">
           {/* /* -------------------------------- main div --------------------------------  */}
           <div className="formStepOneDiv">
             <p className="coursedetail2">Edit the course</p>
