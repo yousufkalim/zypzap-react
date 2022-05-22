@@ -77,6 +77,11 @@ export default function PropfileInformation({ openProfile, setOpenProfile, user,
       setPlateForm(data);
     }
   };
+  const removePlatform = (name) => {
+    setPlateForm((prev) => {
+      return prev.filter((a) => a !== name);
+    });
+  };
   const selectGameType = (name) => {
     if (!gameType) {
       setGameType(name);
@@ -85,6 +90,12 @@ export default function PropfileInformation({ openProfile, setOpenProfile, user,
       setGameType(data);
     }
   };
+  const removeGameType = (name) => {
+    setGameType((prev) => {
+      return prev.filter((a) => a !== name);
+    });
+  };
+
   const handleImageSelect = async (e) => {
     const formdata = new FormData();
     formdata.append(`files`, e.target.files[0]);
@@ -241,7 +252,7 @@ export default function PropfileInformation({ openProfile, setOpenProfile, user,
                     <button
                       className="activetypebtn"
                       onClick={() => {
-                        selectGameType(tag.name);
+                        removeGameType(tag.name);
                       }}
                     >
                       {tag.name}
@@ -269,7 +280,7 @@ export default function PropfileInformation({ openProfile, setOpenProfile, user,
                     key={i}
                     className="activetypebtn"
                     onClick={() => {
-                      selectplateForm(tag.name);
+                      removePlatform(tag.name);
                     }}
                   >
                     {tag.name}
