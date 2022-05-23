@@ -36,11 +36,11 @@ const EnrolledCourse = () => {
   const history = useHistory();
   useEffect(() => {
     setUser(user ? user : {});
-    setEnrolledCourses(user?.enrolled_courses?.filter((courses) => courses.started === false));
+    setEnrolledCourses(user?.enrolled_courses);
   }, []);
   return (
     <div className="wishlistDiv">
-      <h3 className="wishCardh3"> Enrolled Courses</h3>
+      <p className="wishCardh3"> Enrolled Courses</p>
       <div className="carousalOuterDiv2 ">
         {User?.enrolled_courses?.length !== 0 ? (
           <>
@@ -60,7 +60,6 @@ const EnrolledCourse = () => {
                         <h4 className="wishListh4">
                           {item?.course_id?.course_name ? item.course_id.course_name : "Fight Course"}
                         </h4>
-                        <br />
 
                         <p className="wishlistP2">{item?.course_id?.creator?.user_id?.username}</p>
                         <p className="wishlistP3">
@@ -79,7 +78,7 @@ const EnrolledCourse = () => {
                       </div>
                       <div className="wishButtonDiv">
                         <button
-                          className="wishListBtn"
+                          className="wishListBtn2"
                           onClick={() =>
                             history.push({
                               pathname: `/OverView/${item?.course_id?._id}`,

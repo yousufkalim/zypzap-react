@@ -21,8 +21,9 @@ import LegalNotice from "../containers/LegalNotice";
 import PrivacyPolicy from "../containers/PrivacyPolicy";
 import Team from "../containers/Team";
 import CreatorProfile from "../containers/CreatorProfile";
+import ResetPassword from "../components/PopupForms/ResetPassword";
 
-import UserDashboard from "../containers/UserDashboard";
+// import UserDashboard from "../containers/UserDashboard";
 import SettingCreatorProfile from "../containers/SettingCreatorProfile.js";
 import Setting from "../components/ContentDashboard/setting/Setting";
 
@@ -41,11 +42,7 @@ const index = () => {
       <Route exact path="/userlanding" component={UserLandingPage} />
 
       <Route exact path="/policy" component={Policy} />
-      <Route
-        exact
-        path="/contentcreator"
-        component={ContentCreatorLandingPage}
-      />
+      <Route exact path="/contentcreator" component={ContentCreatorLandingPage} />
       <Route exact path="/settings" component={Setting} />
 
       {/* content creator */}
@@ -58,13 +55,13 @@ const index = () => {
       <Route exact path="/PrivacyPolicy" component={PrivacyPolicy} />
       {/* <Route exact path="/CreatorProfile" component={CreatorProfile} /> */}
       <Route path="/CreatorProfile/:id" render={() => <CreatorProfile />} />
-      <Route exact path="/*" render={() => <ProtectedRoutes />} />
       {/* <Route exact path="/CreatorProfile" component={CreatorProfile} /> */}
-      <Route
-        exact
-        path="/SettingCreatorProfile"
-        component={SettingCreatorProfile}
-      />
+      <Route exact path="/SettingCreatorProfile" component={SettingCreatorProfile} />
+
+      {/* Forget Password Routes */}
+      <Route exact path="/reset-password/:token" component={ResetPassword} />
+
+      <Route exact path="/*" render={() => <ProtectedRoutes />} />
     </Switch>
   );
 };

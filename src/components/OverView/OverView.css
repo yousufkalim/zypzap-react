@@ -26,7 +26,7 @@ body {
 .overView_heading {
   position: absolute;
   top: 34%;
-  left: 4%;
+  left: 3%;
   width: 100%;
 }
 .overViewH1 {
@@ -548,13 +548,16 @@ body {
     width: 95%;
   }
   .overViewTags {
-    margin-top: 14px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* padding-top: 10px; */
   }
   .overViewMenu {
     text-align: center;
   }
   .overViewH1 {
-    font-size: 20px;
+    font-size: 12px;
     margin-bottom: 10px;
   }
   .overViewP {
@@ -578,7 +581,7 @@ body {
     width: 100%;
   }
   .overViewContent {
-    font-size: 13px;
+    font-size: 10px;
   }
   .curriculum-div {
     width: 100%;
@@ -632,7 +635,7 @@ body {
     width: 100%;
   }
   .overViewCardIMG {
-    width: 82%;
+    width: 100%;
     display: block;
     margin: 14px auto;
   }
@@ -666,5 +669,11 @@ body {
   }
   .overView-descripiton-centerDiv {
     height: inherit;
+  }
+  .overViewImage {
+    height: 220px;
+  }
+  .overViewLi {
+    margin-top: 12px;
   }
 }

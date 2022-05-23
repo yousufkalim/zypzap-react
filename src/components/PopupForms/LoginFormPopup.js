@@ -18,6 +18,7 @@ import Input from "@material-ui/core/Input";
 import api from "../../api";
 import { useHistory } from "react-router-dom";
 
+import ForgetPassword from "./ForgetPassword";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { styled } from "@mui/material/styles";
 import Switch from "@mui/material/Switch";
@@ -41,10 +42,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     },
   },
   "& .MuiSwitch-thumb": {
-    background:
-      theme.palette.mode === "dark"
-        ? "red"
-        : "linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)",
+    background: theme.palette.mode === "dark" ? "red" : "linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)",
     width: 28,
     height: 28,
     "&:before": {
@@ -76,6 +74,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
     showPassword: false,
   });
   const [creatorSwitch, setCreatorSwitch] = useState(false);
+  const [forgetPasswordPopup, setForgetPasswordPopup] = useState(false);
 
   const { email, password, showPassword } = values;
   const showSignUpFormPopup = () => {
@@ -152,12 +151,8 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
             <ClearIcon className="clearIcon" onClick={handleClose} />
             <p className="login_pera">Welcome back</p>
             <div>
-              Creator
-              <MaterialUISwitch
-                sx={{ m: 1 }}
-                defaultChecked={creatorSwitch}
-                onClick={handleCheck}
-              />
+              {creatorSwitch ? "Creator" : "User"}
+              <MaterialUISwitch sx={{ m: 1 }} defaultChecked={creatorSwitch} onClick={handleCheck} />
             </div>
             <form action="">
               <label htmlFor="email" className="loginFH1">
@@ -173,11 +168,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                 required
               />
               <br />
-              <label
-                htmlFor="password"
-                style={{ marginTop: "30px" }}
-                className="loginFH1"
-              >
+              <label htmlFor="password" style={{ marginTop: "30px" }} className="loginFH1">
                 Password
               </label>
 
@@ -190,20 +181,24 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                 name="password"
                 endAdornment={
                   <InputAdornment position="end">
-                    <IconButton
-                      className="showPass"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                    >
+                    <IconButton className="showPass" onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>
                       {values.showPassword ? <Visibility /> : <VisibilityOff />}
                     </IconButton>
                   </InputAdornment>
                 }
               />
 
-              <a href="" className="for_get">
-                <p className="forget">Forget password?</p>
-              </a>
+              <p
+                className="forget"
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  setForgetPasswordPopup(true);
+                  setOpen(false);
+                }}
+              >
+                Forget password?
+              </p>
+
               <button className="formbtns" type="submit" onClick={submitForm}>
                 Log in
               </button>
@@ -217,30 +212,22 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                   <Grid item xs={12}>
                     <div className="social">
                       <span>
-                        <a
-                          href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}
-                        >
+                        <a href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}>
                           <img src={Discord1} alt="" />
                         </a>
                       </span>
                       <span>
-                        <a
-                          href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}
-                        >
+                        <a href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}>
                           <img src={ChatIcon} alt="" />
                         </a>
                       </span>
                       <span>
-                        <a
-                          href={`${process.env.REACT_APP_baseURL}/users/auth/google`}
-                        >
+                        <a href={`${process.env.REACT_APP_baseURL}/users/auth/google`}>
                           <img src={Google} alt="" />
                         </a>
                       </span>
                       <span>
-                        <a
-                          href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}
-                        >
+                        <a href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}>
                           <img src={Facebook} alt="" />
                         </a>
                       </span>
@@ -258,6 +245,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
           </div>
         </div>
       </Dialog>
+      <ForgetPassword open={forgetPasswordPopup} setOpen={setForgetPasswordPopup} />
     </div>
   );
 }

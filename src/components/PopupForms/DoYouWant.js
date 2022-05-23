@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import "../../css/form/UploadSuccessfulPopup.css";
 import ClearIcon from "@mui/icons-material/Clear";
+import { useHistory } from "react-router-dom";
 
 const DoYouWant = ({ open, setOpen, setOpenBecomeCreatorPopup }) => {
+  const history = useHistory();
+
   const handleClose = () => {
     setOpen(false);
   };

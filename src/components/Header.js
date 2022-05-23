@@ -13,6 +13,7 @@ import SearchIcon from "@mui/icons-material/Search";
 // import AccountCircle from "@mui/icons-material/AccountCircle";
 // import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import Hamburger from "../assets/icons/Hamburger.svg";
 import UserHeaderIcon from "../assets/icons/UserHeaderIcon.svg";
 import CourseIcon from "../assets/icons/CourseIcon.svg";
 import DownArrow from "../assets/icons/downarrow.svg";
@@ -316,12 +317,12 @@ export default function PrimarySearchAppBar({
               class="dropdown"
               // onClick={handleLogout}
             >
-              <img src={HeaderLogoutIcon} alt="" />
-              <div id="myDropdown" class="dropdown-content">
+              <img src={HeaderLogoutIcon} alt="" onClick={openProfilePg} />
+              {/* <div id="myDropdown" class="dropdown-content">
                 <a className="LogoutBTN" href="#home">
                   Logout
                 </a>
-              </div>
+              </div> */}
             </div>
           </p>
         ) : (
@@ -438,8 +439,13 @@ export default function PrimarySearchAppBar({
               alt="img"
               style={{ cursor: "pointer" }}
               onClick={() => {
-                history.push("/");
-                window.location.reload();
+                if (user?.role == "User") {
+                  history.push("/home");
+                } else if (user?.role == "Creator") {
+                  history.push("/contenthome");
+                } else history.push("/");
+
+                // window.location.reload();
               }}
             />
 
@@ -548,7 +554,7 @@ export default function PrimarySearchAppBar({
                 </button>
               </div>
             )}
-            {(user?.role == "User" || user?.role == "Creator") && (
+            {/* {(user?.role == "User" || user?.role == "Creator") && (
               <Link to="#" className="requestBt">
                 <button className="requestBtn">
                   <img src={PlusVideo} alt="" />
@@ -561,7 +567,7 @@ export default function PrimarySearchAppBar({
                   <img src={GiftCard} alt="" />
                 </button>
               </Link>
-            )}
+            )} */}
             <Box
               className={`${creator ? "headerLinkbox" : "headerLinkbox2"}`}
               sx={{
@@ -679,7 +685,12 @@ export default function PrimarySearchAppBar({
                 onClick={handleMobileMenuOpen}
                 color="inherit"
               >
-                <MoreIcon />
+                <img
+                  src={Hamburger}
+                  // onClick={openProfilePg}
+                  alt=""
+                />
+                {/* <Hamburger /> */}
               </IconButton>
             </Box>
           </Toolbar>

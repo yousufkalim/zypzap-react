@@ -246,7 +246,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                     onChange={chnageEvent}
                   >
                     <option value="Casual" className="setepOption">
-                      select level
+                      Select Level
                     </option>
                     <option value="Casual" className="setepOption">
                       CASUAL
@@ -282,7 +282,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                       onChange={chnageEvent}
                     >
                       <option value="Action" className="setepOption">
-                        select category
+                        Select Sategory
                       </option>
                       <option value="Action" className="setepOption">
                         ACTION

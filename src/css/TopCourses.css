@@ -145,7 +145,13 @@
   .topcourseText {
     font-size: 15px;
   }
-}
-.topcourseheading {
-  font-size: 28px;
+  .topcourseheading {
+    font-size: 28px;
+  }
+  .topCourseGrid {
+    border-radius: 15px !important;
+  }
+  .topcourseimg {
+    border-radius: 15px;
+  }
 }

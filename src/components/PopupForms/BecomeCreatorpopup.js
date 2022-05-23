@@ -119,6 +119,7 @@ const BecomeCreatorpopup = ({
         plateForm: plateForm,
         gameMood: gameMood,
       };
+
       if (user) {
         let res = await api("post", `/creators/${user?._id}`, formdata);
 
@@ -128,6 +129,7 @@ const BecomeCreatorpopup = ({
             creator: res?.data?.creator,
           });
           setOpen(false);
+          history.push("/contentHome");
           // setOpen2(true);
           // window.location.reload();
         }
@@ -201,11 +203,7 @@ const BecomeCreatorpopup = ({
               </label>
             </div>
             <div>
-              <p className="uploadHeading">
-                Upload
-                <br />
-                Picture
-              </p>
+              <p className="uploadHeading">Upload Picture</p>
             </div>
           </div>
           <div className="tags-input">

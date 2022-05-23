@@ -82,7 +82,7 @@
   border-radius: 8px;
   color: #fff;
   width: 80%;
-  padding: 0px;
+  padding: 0 0px 50px 0;
   margin: 0 50px 0 0;
 }
 .cards-container2 {
@@ -97,6 +97,11 @@
 .favourite-icon-position {
   position: relative;
   height: 250px;
+  padding: 15px;
+}
+.favourite-icon-position2 {
+  position: relative;
+  height: 350px;
   padding: 15px;
 }
 .favourite-icon-container {
@@ -145,7 +150,7 @@
   cursor: pointer;
   font-size: 16px !important;
   padding: 12px 15px !important;
-  margin: 40px 0 !important;
+  margin: 40px 0 0 0 !important;
 }
 .btn-Research {
   border: none;
@@ -164,7 +169,7 @@
   text-align: left !important;
   background-color: black !important;
   color: #fff !important;
-  padding: 10px 20px 20px 25% !important;
+  padding: 10px 20px 20px 37% !important;
 }
 .filterby-container-h4 {
   font-family: "Poppins", sans-serif !important;
@@ -194,7 +199,6 @@
   justify-content: space-between;
   margin-bottom: 15px;
   cursor: pointer;
-  font-size: 15px;
   font-family: mulish;
 }
 .dropdown-headers > * {
@@ -378,5 +382,12 @@
   }
   .filterby-container {
     padding: 20px !important;
+  }
+}
+@media only screen and (min-width: 1900px) {
+  .favourite-icon-position2 {
+    position: relative;
+    height: 350px;
+    padding: 15px;
   }
 }
