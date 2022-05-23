@@ -1,38 +1,73 @@
 import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 // import Select from "@mui/material/Select";
+import axios from "axios";
+import { makeStyles } from "@mui/styles";
 import Select from "react-select";
 import { toast } from "react-toastify";
+import TextField from "@mui/material/TextField";
+import Paper from "@mui/material/Paper";
+
+import Autocomplete from "@mui/material/Autocomplete";
 const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
   const [game, setGame] = useState(games ? games : []);
+    
+  const [values, setValues] = useState([]);
   const {
     course_name,
     gameName,
+    selectedGamename,
     gameLevel,
     gameType,
     gameMood,
     gamePlateForm,
-    description,
+    description
   } = formDataOne;
   useEffect(() => {
     setGame(games ? games : []);
     setformDataOne({
       ...formDataOne,
-      ["gameName"]: games[0]._id,
+      ["gameName"]: games[0]._id
     });
   }, []);
   const chnageEvent = (e) => {
     setformDataOne({
       ...formDataOne,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
+  const useStyles = makeStyles({
+    customTextField: {
+      "& input": { color: "white" },
+      "&:hover": {
+        border: "red !important"
+      },
+      "& input::placeholder": {
+        color: "white",
+        "@media (max-width: 780px)": {
+          paddingLeft: "-2px"
+        }
+      }
+    },
+    option: {
+      background: "#242635 ",
+      color: "white",
+      "&:hover": {
+        backgroundColor: "#9198a5 !important"
+      }
+    },
+    noOptions: {
+      display: `${"inherit"}`,
+      color: "white"
+    }
+  });
+  const classes = useStyles();
 
   const handleContinue = () => {
     if (course_name === "") {
       return toast.error("Veuillez saisir le nom de votre cours");
     }
-    if (gameName === "") {
+    if (selectedGamename === "") {
       return toast.error("Veuillez entrer votre nom du jeu");
     }
     if (gameLevel === "") {
@@ -54,6 +89,65 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
     }
     setStep(2);
   };
+  const getAllGames = async (e) => {
+    console.log("e isss", e.target.value);
+    setformDataOne({
+      ...formDataOne,
+      [e.target.name]: e.target.value
+    });
+    
+
+    let res = await axios.get(
+      "https://api.rawg.io/api/games?key=ae53737c7487406e94245666268a1bd6&search=" +
+        e.target.value +
+        "&page=1&page_size=10",
+      {
+        withCredentials: false,
+      }
+    );
+    console.log("res is ,",res?.data?.results)
+
+
+    var gamesToSet = []; // //debugger;
+    for (var i = 0; i < res?.data?.results?.length; i++) {
+      gamesToSet.push({
+        id: i,
+        label: res?.data?.results[i].name,
+    
+        img: res?.data?.results[i].background_image,
+    
+      });
+    }
+    if (gamesToSet.length === res?.data?.results.length) {
+      setValues(gamesToSet);
+    }
+  };
+  
+   // Set selected game in  setAddressValue State
+  const setGamefiled = async (item) => {
+    if (item.target.textContent) {
+      const selectedItem = item.target.textContent;
+      for (var i = 0; i < values.length; i++) {
+        if (values[i].label === selectedItem) {
+          var label = values[i].label;
+          var img = values[i].img;
+          
+          const city = values[i].city;
+            setformDataOne({
+      ...formDataOne,
+      ["selectedGamename"]: values[i].label
+    })
+         
+        }
+      }
+    } else {
+      await setformDataOne({
+      ...formDataOne,
+      ["selectedGamename"]: values[i].label
+    })
+    }
+  };
+console.log("formDataOne",formDataOne)
   return (
     <>
       <div className="formStepOneDiv">
@@ -82,7 +176,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
             <Grid xs={12} sm={6}>
               <div>
                 <p className="stepLabel">Game Name</p>
-                <select
+                {/* <select
                   id="gameName"
                   name="gameName"
                   className="coursInput"
@@ -96,7 +190,42 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                       </option>
                     );
                   })}
-                </select>
+                </select> */}
+                <Autocomplete
+                  options={values}
+                  classes={{
+                    option: classes.option
+                  }}
+                  className="coursInputAutofiled"
+                  noOptionsText={
+                    <div style={{ color: "white", fontSize: "12px" }}>
+                      {" "}
+                      no option{" "}
+                    </div>
+                  }
+                  PaperComponent={({ children }) => (
+                    <Paper style={{ background: "#242635" }}>{children}</Paper>
+                  )}
+                  getOptionLabel={(option) => option.label || ""}
+                  onChange={setGamefiled}
+                  hiddenLabel="true"
+                  style={{
+                    margin: "auto"
+                  }}
+                  renderInput={(params) => (
+                    <TextField
+                      classes={{ root: classes.customTextField }}
+                      {...params}
+                      
+                      placeholder="Game Name"
+                      style={{ color: "white" }}
+                      variant="outlined"
+                      onChange={getAllGames}
+                      value={gameName}
+                      name="gameName"
+                    />
+                  )}
+                />
                 {/* <Select
                   name="gameName"
                   className="coursInput"

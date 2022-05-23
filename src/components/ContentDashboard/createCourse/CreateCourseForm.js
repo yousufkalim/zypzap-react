@@ -11,6 +11,7 @@ const CreateCourseForm = ({ games, setDefaultCompState }) => {
   const [formDataOne, setformDataOne] = useState({
     course_name: "",
     gameName: "",
+    selectedGamename:"",
     gameLevel: "Casual",
     gameType: "Action",
     gameMood: "Single",
