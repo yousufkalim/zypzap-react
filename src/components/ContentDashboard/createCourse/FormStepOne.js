@@ -11,7 +11,7 @@ import Paper from "@mui/material/Paper";
 import Autocomplete from "@mui/material/Autocomplete";
 const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
   const [game, setGame] = useState(games ? games : []);
-    
+
   const [values, setValues] = useState([]);
   const {
     course_name,
@@ -95,35 +95,32 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
       ...formDataOne,
       [e.target.name]: e.target.value
     });
-    
 
     let res = await axios.get(
-      "https://api.rawg.io/api/games?key=ae53737c7487406e94245666268a1bd6&search=" +
+      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
         e.target.value +
         "&page=1&page_size=10",
       {
-        withCredentials: false,
+        withCredentials: false
       }
     );
-    console.log("res is ,",res?.data?.results)
-
+    console.log("res is ,", res?.data?.results);
 
     var gamesToSet = []; // //debugger;
     for (var i = 0; i < res?.data?.results?.length; i++) {
       gamesToSet.push({
         id: i,
         label: res?.data?.results[i].name,
-    
-        img: res?.data?.results[i].background_image,
-    
+
+        img: res?.data?.results[i].background_image
       });
     }
     if (gamesToSet.length === res?.data?.results.length) {
       setValues(gamesToSet);
     }
   };
-  
-   // Set selected game in  setAddressValue State
+
+  // Set selected game in  setAddressValue State
   const setGamefiled = async (item) => {
     if (item.target.textContent) {
       const selectedItem = item.target.textContent;
@@ -131,23 +128,22 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
         if (values[i].label === selectedItem) {
           var label = values[i].label;
           var img = values[i].img;
-          
+
           const city = values[i].city;
-            setformDataOne({
-      ...formDataOne,
-      ["selectedGamename"]: values[i].label
-    })
-         
+          setformDataOne({
+            ...formDataOne,
+            ["selectedGamename"]: values[i].label
+          });
         }
       }
     } else {
       await setformDataOne({
-      ...formDataOne,
-      ["selectedGamename"]: values[i].label
-    })
+        ...formDataOne,
+        ["selectedGamename"]: values[i].label
+      });
     }
   };
-console.log("formDataOne",formDataOne)
+  console.log("formDataOne", formDataOne);
   return (
     <>
       <div className="formStepOneDiv">
@@ -216,7 +212,6 @@ console.log("formDataOne",formDataOne)
                     <TextField
                       classes={{ root: classes.customTextField }}
                       {...params}
-                      
                       placeholder="Game Name"
                       style={{ color: "white" }}
                       variant="outlined"
