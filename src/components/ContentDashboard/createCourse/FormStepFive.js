@@ -12,10 +12,10 @@ const FormStepFive = ({
   setformDataTwo,
   formDataTwo,
   formDataFive,
-  setformDataFive,
+  setformDataFive
 }) => {
   const { creator } = Store();
-  const [creatorId, setCreatorId] = useState(creator ? creator._id : null);
+  const [creatorId, setCreatorId] = useState(creator ? creator?._id : null);
   const [lodding, setlodding] = useState(false);
   const [uploadedVideos, setUploadedVideos] = useState([]);
   // const [newVideos, setNewVideos] = useState([]);
@@ -25,6 +25,7 @@ const FormStepFive = ({
     setformDataTwo(newChapter);
   };
   const handleSubmit = async () => {
+    console.log("stepnumber 5 ", formDataTwo);
     if (formDataTwo.length === 0) {
       if (formDataFive.length === 0) {
         toast.error("Veuillez sélectionner une vidéo pour ce cours");
@@ -33,11 +34,15 @@ const FormStepFive = ({
       setStep(6);
     }
     setlodding(true);
+    console.log("ormDataFive?.length  ", formDataFive?.length);
+    console.log("ormDataFive?.length  ", formDataTwo?.length);
+
     let newArray = [...formDataFive];
-    for (let i = formDataFive?.length; i <= formDataTwo.length; i++) {
-      if (formDataTwo[i].name === "") {
+    for (let i = formDataFive?.length; i < formDataTwo?.length; i++) {
+      if (formDataTwo[i]?.name === "") {
         formDataTwo[i].name = formDataTwo[i]?.file?.name;
       }
+      console.log("fiformDataTwole", formDataTwo[i]);
       let file = await handleSingleVideo(formDataTwo[i]);
       // setUploadedVideos([...uploadedVideos, formDataTwo[i]]);
       newArray = [...newArray, file._id];
@@ -50,6 +55,7 @@ const FormStepFive = ({
   };
   const handleSingleVideo = async (file) => {
     return new Promise(async (resolve, reject) => {
+      console.log("file", file);
       file.creator = creatorId;
       let res = await api("post", "/videos", file);
       if (res) {

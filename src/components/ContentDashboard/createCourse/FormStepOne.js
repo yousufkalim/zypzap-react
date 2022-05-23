@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
-// import Select from "@mui/material/Select";
 import axios from "axios";
 import { makeStyles } from "@mui/styles";
 import Select from "react-select";
@@ -9,9 +8,7 @@ import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
 
 import Autocomplete from "@mui/material/Autocomplete";
-const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
-  const [game, setGame] = useState(games ? games : []);
-
+const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
   const [values, setValues] = useState([]);
   const {
     course_name,
@@ -23,13 +20,6 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
     gamePlateForm,
     description
   } = formDataOne;
-  useEffect(() => {
-    setGame(games ? games : []);
-    setformDataOne({
-      ...formDataOne,
-      ["gameName"]: games[0]._id
-    });
-  }, []);
   const chnageEvent = (e) => {
     setformDataOne({
       ...formDataOne,
@@ -143,7 +133,6 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
       });
     }
   };
-  console.log("formDataOne", formDataOne);
   return (
     <>
       <div className="formStepOneDiv">
@@ -221,17 +210,6 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                     />
                   )}
                 />
-                {/* <Select
-                  name="gameName"
-                  className="coursInput"
-                  isMulti
-                  className="form-control-alternative"
-                  // defaultValue={["1", "2", "3"]}
-                  options={games?.map((game) => ({
-                    value: game?._id,
-                    label: game.game_name,
-                  }))}
-                /> */}
               </div>
             </Grid>
             <Grid container spacing={2}>

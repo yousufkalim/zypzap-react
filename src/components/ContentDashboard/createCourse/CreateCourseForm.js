@@ -11,12 +11,12 @@ const CreateCourseForm = ({ games, setDefaultCompState }) => {
   const [formDataOne, setformDataOne] = useState({
     course_name: "",
     gameName: "",
-    selectedGamename:"",
+    selectedGamename: "",
     gameLevel: "Casual",
     gameType: "Action",
     gameMood: "Single",
     gamePlateForm: "Mobile Games",
-    description: "",
+    description: ""
   });
   const [formDataTwo, setformDataTwo] = useState([]);
   const [formDataFive, setformDataFive] = useState([]);
@@ -33,8 +33,6 @@ const CreateCourseForm = ({ games, setDefaultCompState }) => {
             setStep={setStep}
             formDataOne={formDataOne}
             setformDataOne={setformDataOne}
-            games={games}
-            setDefaultCompState={setDefaultCompState}
           />
         )}
         {step == 2 && (

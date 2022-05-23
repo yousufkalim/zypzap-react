@@ -10,24 +10,16 @@ import { getStorage } from "firebase/storage";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 
 //      todo later---->
-// const firebaseConfig = {
-//   apiKey: process.env.FIREBASE_APP_API_KEY,
-//   authDomain: process.env.FIREBASE_APP_AUTH_DOMAIN,
-//   projectId: process.env.FIREBASE_APP_PROJECT_ID,
-//   storageBucket: process.env.FIREBASE_APP_STORAGE_BUCKET,
-//   messagingSenderId: process.env.FIREBASE_APP_MESSAGING_SENDER_ID,
-//   appId: process.env.FIREBASE_APP_ID,
-//   measurementId: process.env.FIREBASE_APP_MEASURMENT_ID,
-// };
 const firebaseConfig = {
-  apiKey: "GOOGLE_API_KEY_REDACTED", 
-  authDomain: "video-storage-3769b.firebaseapp.com",
-  projectId: "video-storage-3769b",
-  storageBucket: "video-storage-3769b.appspot.com",
-  messagingSenderId: "674858504046",
-  appId: "1:674858504046:web:dc91ec7bc28e23342c3b7f",
-  measurementId: "G-TRTYFM0GKT",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASURMENT_ID
 };
+
 export const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
@@ -59,10 +51,14 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   };
 
   const singlefileUpload = (file) => {
+    console.log("file in singlefileUpload ", file);
     return new Promise((resolve, reject) => {
       setVideoName(file.name);
       if (!file) return;
+      console.log("storage ", storage);
       const storageRef = ref(storage, `files/${file.name}`);
+
+      console.log("storageRef ", storageRef);
       const uploadTask = uploadBytesResumable(storageRef, file);
       // file upload speed code
       let lastBytesTransfered = null;
@@ -133,16 +129,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   const handleActiveUploadButton = (i) => {
     setActiveUploadButton(i);
   };
-  // const handleFileChange = async (event) => {
-  //   const files = [...event.target.files];
-  //   let formdata = new FormData();
-  //   files.map((item) => formdata.append("video", item));
-  //   if (files) {
-  //     let res = await api("post", "/videos", formdata);
-  //     setUploading(true);
-  //     setformDataTwo(files);
-  //   }
-  // };
+
   const handleFileChange1 = (event) => {
     const files = [...event.target.files];
     if (files) {
