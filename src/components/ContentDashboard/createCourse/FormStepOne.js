@@ -6,20 +6,20 @@ import Select from "react-select";
 import { toast } from "react-toastify";
 import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
-
 import Autocomplete from "@mui/material/Autocomplete";
-const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
+
+const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
   const [values, setValues] = useState([]);
-  const {
-    course_name,
-    gameName,
-    selectedGamename,
-    gameLevel,
-    gameType,
-    gameMood,
-    gamePlateForm,
-    description
-  } = formDataOne;
+  const [game, setGame] = useState(games ? games : []);
+  const { course_name, gameName, gameLevel, gameType, gameMood, gamePlateForm, description } = formDataOne;
+  useEffect(() => {
+    setGame(games ? games : []);
+    setformDataOne({
+      ...formDataOne,
+      ["gameName"]: games[0]._id,
+    });
+  }, []);
+
   const chnageEvent = (e) => {
     setformDataOne({
       ...formDataOne,
@@ -70,9 +70,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
       return toast.error("Veuillez entrer votre ambiance de jeu");
     }
     if (gamePlateForm === "") {
-      return toast.error(
-        "Veuillez saisir le nom de votre forme de plateau de jeu"
-      );
+      return toast.error("Veuillez saisir le nom de votre forme de plateau de jeu");
     }
     if (description === "") {
       return toast.error("Veuillez entrer votre description");
@@ -216,13 +214,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
               <Grid xs={12} sm={6}>
                 <div>
                   <p className="stepLabel">Gameplay Level</p>
-                  <select
-                    id="gameLevel"
-                    name="gameLevel"
-                    className="stepSelect"
-                    value={gameLevel}
-                    onChange={chnageEvent}
-                  >
+                  <select id="gameLevel" name="gameLevel" className="stepSelect" value={gameLevel} onChange={chnageEvent}>
                     <option value="Casual" className="setepOption">
                       Select Level
                     </option>
@@ -252,45 +244,51 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                 <Grid xs={12} sm={6}>
                   <div>
                     <p className="stepLabel">Game Type</p>
-                    <select
-                      id="gameType"
-                      name="gameType"
-                      className="stepSelect"
-                      value={gameType}
-                      onChange={chnageEvent}
-                    >
+                    <select id="gameType" name="gameType" className="stepSelect" value={gameType} onChange={chnageEvent}>
                       <option value="Action" className="setepOption">
                         Select Sategory
                       </option>
                       <option value="Action" className="setepOption">
-                        ACTION
+                        Action
                       </option>
                       <option value="Adventure" className="setepOption">
-                        ADVENTURE
+                        Adventure
                       </option>
-                      <option value="Multiplayer game" className="setepOption">
-                        MULTIPLAYER GAME
+                      <option value="Metaverse" className="setepOption">
+                        MetaVerse
+                      </option>
+                      <option value="MMOG" className="setepOption">
+                        MMOG
                       </option>
                       <option value="Car Racing" className="setepOption">
-                        CAR RACING
+                        Car Racing
+                      </option>
+                      <option value="Versus Fighting" className="setepOption">
+                        Versus Fighting
                       </option>
                       <option value="FPS" className="setepOption">
                         FPS
                       </option>
-                      <option value="Simulation" className="setepOption">
-                        SIMULATION
-                      </option>
-                      <option value="Sports" className="setepOption">
-                        SPORTS
-                      </option>
-                      <option value="Puzzle" className="setepOption">
-                        PUZZLE
+                      <option value="RTS" className="setepOption">
+                        RTS
                       </option>
                       <option value="RPG" className="setepOption">
                         RPG
                       </option>
-                      <option value="RTS" className="setepOption">
-                        RTS
+                      <option value="Turn by Turn Strategy" className="setepOption">
+                        Turn by Turn Strategy
+                      </option>
+                      <option value="Simulation" className="setepOption">
+                        Simulation
+                      </option>
+                      <option value="Sports" className="setepOption">
+                        Sport
+                      </option>
+                      <option value="Trading Card" className="setepOption">
+                        Trading Card
+                      </option>
+                      <option value="Puzzle" className="setepOption">
+                        Puzzle
                       </option>
                     </select>
                   </div>
@@ -298,13 +296,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                 <Grid xs={12} sm={6}>
                   <div>
                     <p className="stepLabel">Gaming Mode</p>
-                    <select
-                      id="gameMood"
-                      name="gameMood"
-                      value={gameMood}
-                      className="stepSelect"
-                      onChange={chnageEvent}
-                    >
+                    <select id="gameMood" name="gameMood" value={gameMood} className="stepSelect" onChange={chnageEvent}>
                       <option value="Single" className="setepOption">
                         Select Mode
                       </option>

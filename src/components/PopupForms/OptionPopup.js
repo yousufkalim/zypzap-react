@@ -8,7 +8,7 @@ const OptionPopup = ({ open, setOpen }) => {
   };
   return (
     <>
-      <Dialog open={open} onClose={handleClose} className="option_data">
+      <Dialog open={open} className="option_data">
         <div className="option_Details">
           <div className="option_container">
             <h1 className="optionH1">Contnue</h1>

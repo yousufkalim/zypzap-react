@@ -76,7 +76,7 @@ export default function ForgetPassword({ open, setOpen, setSignup }) {
   };
 
   return (
-    <Dialog open={open} onClose={handleClose}>
+    <Dialog open={open}>
       <div className="login_form" style={{ paddingBottom: "25px" }}>
         <div className="form_container">
           <h1 className="loginH1">Forget Password</h1>
