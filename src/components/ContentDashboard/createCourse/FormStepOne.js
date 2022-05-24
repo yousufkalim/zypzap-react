@@ -11,12 +11,21 @@ import Autocomplete from "@mui/material/Autocomplete";
 const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
   const [values, setValues] = useState([]);
   const [game, setGame] = useState(games ? games : []);
-  const { course_name, gameName, gameLevel, gameType, gameMood, gamePlateForm, description } = formDataOne;
+  const {
+    course_name,
+    gameName,
+    selectedGamename,
+    gameLevel,
+    gameType,
+    gameMood,
+    gamePlateForm,
+    description
+  } = formDataOne;
   useEffect(() => {
     setGame(games ? games : []);
     setformDataOne({
       ...formDataOne,
-      ["gameName"]: games[0]._id,
+      ["gameName"]: games[0]._id
     });
   }, []);
 
@@ -70,7 +79,9 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
       return toast.error("Veuillez entrer votre ambiance de jeu");
     }
     if (gamePlateForm === "") {
-      return toast.error("Veuillez saisir le nom de votre forme de plateau de jeu");
+      return toast.error(
+        "Veuillez saisir le nom de votre forme de plateau de jeu"
+      );
     }
     if (description === "") {
       return toast.error("Veuillez entrer votre description");
@@ -214,7 +225,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
               <Grid xs={12} sm={6}>
                 <div>
                   <p className="stepLabel">Gameplay Level</p>
-                  <select id="gameLevel" name="gameLevel" className="stepSelect" value={gameLevel} onChange={chnageEvent}>
+                  <select
+                    id="gameLevel"
+                    name="gameLevel"
+                    className="stepSelect"
+                    value={gameLevel}
+                    onChange={chnageEvent}
+                  >
                     <option value="Casual" className="setepOption">
                       Select Level
                     </option>
@@ -244,7 +261,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                 <Grid xs={12} sm={6}>
                   <div>
                     <p className="stepLabel">Game Type</p>
-                    <select id="gameType" name="gameType" className="stepSelect" value={gameType} onChange={chnageEvent}>
+                    <select
+                      id="gameType"
+                      name="gameType"
+                      className="stepSelect"
+                      value={gameType}
+                      onChange={chnageEvent}
+                    >
                       <option value="Action" className="setepOption">
                         Select Sategory
                       </option>
@@ -275,7 +298,10 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                       <option value="RPG" className="setepOption">
                         RPG
                       </option>
-                      <option value="Turn by Turn Strategy" className="setepOption">
+                      <option
+                        value="Turn by Turn Strategy"
+                        className="setepOption"
+                      >
                         Turn by Turn Strategy
                       </option>
                       <option value="Simulation" className="setepOption">
@@ -296,7 +322,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
                 <Grid xs={12} sm={6}>
                   <div>
                     <p className="stepLabel">Gaming Mode</p>
-                    <select id="gameMood" name="gameMood" value={gameMood} className="stepSelect" onChange={chnageEvent}>
+                    <select
+                      id="gameMood"
+                      name="gameMood"
+                      value={gameMood}
+                      className="stepSelect"
+                      onChange={chnageEvent}
+                    >
                       <option value="Single" className="setepOption">
                         Select Mode
                       </option>
