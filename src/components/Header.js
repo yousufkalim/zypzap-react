@@ -131,19 +131,23 @@ export default function PrimarySearchAppBar({
   const handleSwitch = () => {
     updateStore({ learner: !learner });
   };
+  const creatorDashboard = () => {
+    updateStore({ contentDashboardButton: "Setting" });
+    history.push({
+      pathname: "/dashboard",
+      state: { openSetting: true }
+    });
+  };
 
   const handleSettings = () => {
+    console.log("user?.role ", user?.role);
     {
-      user?.role == "User"
+      user?.role === "User"
         ? history.push({
             pathname: "/UserDashboard",
             state: { openSettings: true }
           })
-        : updateStore({ contentDashboardButton: "Setting" });
-      history.push({
-        pathname: "/dashboard",
-        state: { openSetting: true }
-      });
+        : creatorDashboard();
     }
   };
   const handleClose = () => {
