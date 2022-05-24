@@ -50,9 +50,7 @@ const SubscriptionPopup = ({
 
     if (content) {
       if (!values.checkBoxOne) {
-        return toast.error(
-          "Merci d'accepter les conditions pour démarrer le test"
-        );
+        return toast.error("Merci d'accepter les conditions pour démarrer le test");
       }
     }
     const tester = values.checkBoxTwo;
@@ -78,17 +76,9 @@ const SubscriptionPopup = ({
   };
   return (
     <>
-      <CongratulationPopup1
-        open={showPopup}
-        setOpen={() => setShowPopup(!showPopup)}
-        closeModal={handleClose}
-      />
-      <ConfirmationPopup2
-        open={showPopup2}
-        setOpen={() => setShowPopup2(!showPopup2)}
-        closeModal={handleClose}
-      />
-      <Dialog open={open} onClose={handleClose}>
+      <CongratulationPopup1 open={showPopup} setOpen={() => setShowPopup(!showPopup)} closeModal={handleClose} />
+      <ConfirmationPopup2 open={showPopup2} setOpen={() => setShowPopup2(!showPopup2)} closeModal={handleClose} />
+      <Dialog open={open}>
         <div className="login_form">
           <div className="subs_container">
             <div className="form-header-block">

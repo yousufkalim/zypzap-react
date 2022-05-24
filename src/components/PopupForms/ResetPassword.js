@@ -110,7 +110,7 @@ export default function ForgetPassword() {
     <>
       <Home />
 
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open}>
         <div className="login_form" style={{ paddingBottom: "25px" }}>
           <div className="form_container">
             <h1 className="loginH1">Create a new password</h1>

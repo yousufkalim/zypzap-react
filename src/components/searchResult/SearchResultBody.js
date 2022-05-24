@@ -210,13 +210,7 @@ const SearchResultBody = () => {
   const [paginatedCourses, setPaginatedCourses] = useState([]);
   // recieving context __data
 
-  const {
-    searchCreator,
-    searchCourse,
-    searchState,
-    searchInput,
-    searchLoader,
-  } = Store();
+  const { searchCreator, searchCourse, searchState, searchInput, searchLoader } = Store();
   useEffect(() => {
     setPaginatedCourses(searchCourse.slice(0, 6));
   }, [searchCourse]);
@@ -340,27 +334,16 @@ const SearchResultBody = () => {
   };
   // To get slider value
   return (
-    <Box
-      className="search-result-container"
-      sx={{ flexGrow: 1, display: "flex" }}
-    >
+    <Box className="search-result-container" sx={{ flexGrow: 1, display: "flex" }}>
       <Box className="side-bar-filter">
         <Grid>
           <Item className="filterby-container">
             <p className="filterby-container-h4">Filter By</p>
             <div className="searchInputItem">
-              <input
-                type="text"
-                placeholder="CS⎸Go Game"
-                className="searchInputItem-input"
-              />
+              <input type="text" placeholder="CS⎸Go Game" className="searchInputItem-input" />
             </div>
             <hr className="filterby-divider" />
-            <div
-              id="1"
-              onClick={onClickSideBarHeaders}
-              className="dropdown-headers"
-            >
+            <div id="1" onClick={onClickSideBarHeaders} className="dropdown-headers">
               Categories
               {selectedCategories ? (
                 <KeyboardArrowUpIcon
@@ -387,17 +370,9 @@ const SearchResultBody = () => {
               )}
             </div>
             {selectedCategories ? (
-              <Categories
-                categories={categories}
-                activeButton={selectedActiveButton}
-                trigerOnClickEmpSideBtn={onSideBtnClick}
-              />
+              <Categories categories={categories} activeButton={selectedActiveButton} trigerOnClickEmpSideBtn={onSideBtnClick} />
             ) : null}
-            <div
-              id="2"
-              onClick={onClickSideBarHeaders}
-              className="dropdown-headers"
-            >
+            <div id="2" onClick={onClickSideBarHeaders} className="dropdown-headers">
               Game Type
               {selectedGame ? (
                 <KeyboardArrowUpIcon
@@ -426,17 +401,9 @@ const SearchResultBody = () => {
               )}
             </div>
             {selectedGame ? (
-              <GameType
-                GameTypes={GameTypes}
-                gameBtn={selectedGameBtn}
-                trigerOnClickEmpSideBtn2={onSideBtnClick2}
-              />
+              <GameType GameTypes={GameTypes} gameBtn={selectedGameBtn} trigerOnClickEmpSideBtn2={onSideBtnClick2} />
             ) : null}
-            <div
-              id="3"
-              onClick={onClickSideBarHeaders}
-              className="dropdown-headers"
-            >
+            <div id="3" onClick={onClickSideBarHeaders} className="dropdown-headers">
               Plateforms
               {selectedPlateforms ? (
                 <KeyboardArrowUpIcon
@@ -474,11 +441,7 @@ const SearchResultBody = () => {
             ) : null}
             {/* ////////////////////
              */}
-            <div
-              id="6"
-              onClick={onClickSideBarHeaders}
-              className="dropdown-headers"
-            >
+            <div id="6" onClick={onClickSideBarHeaders} className="dropdown-headers">
               Gameplay Level
               {!selectedLevel ? (
                 <KeyboardArrowDownIcon
@@ -506,19 +469,11 @@ const SearchResultBody = () => {
               )}
             </div>
             {selectedLevel ? (
-              <Level
-                PlateformsAry={levelAry}
-                PlateformsBtn={selectedlevelBtn}
-                trigerOnClickEmpSideBtn3={onSideBtnClick6}
-              />
+              <Level PlateformsAry={levelAry} PlateformsBtn={selectedlevelBtn} trigerOnClickEmpSideBtn3={onSideBtnClick6} />
             ) : null}
 
             {/*  */}
-            <div
-              id="4"
-              onClick={onClickSideBarHeaders}
-              className="dropdown-headers"
-            >
+            <div id="4" onClick={onClickSideBarHeaders} className="dropdown-headers">
               Gameplay mode
               {selectedGameplay ? (
                 <KeyboardArrowUpIcon
@@ -548,29 +503,17 @@ const SearchResultBody = () => {
               <div>
                 <form>
                   <div class="radio-item">
-                    <input
-                      type="radio"
-                      onChange={onChangeRadioBtn}
-                      id="Single"
-                      name="active"
-                      value="Single"
-                    />
+                    <input type="radio" onChange={onChangeRadioBtn} id="Single" name="active" value="Single" />
                     <label for="Single">Single mode</label>
                   </div>
                   <div class="radio-item">
-                    <input
-                      type="radio"
-                      onChange={onChangeRadioBtn}
-                      id="Multiplayer"
-                      name="active"
-                      value="Multiplayer"
-                    />
+                    <input type="radio" onChange={onChangeRadioBtn} id="Multiplayer" name="active" value="Multiplayer" />
                     <label for="Multiplayer">Multiplayer mode</label>
                   </div>
                 </form>
               </div>
             ) : null}
-            <div
+            {/* <div
               id="5"
               onClick={onClickSideBarHeaders}
               className="dropdown-headers"
@@ -683,7 +626,7 @@ const SearchResultBody = () => {
                   <label for="all">+100 €</label>
                 </div>
               </form>
-            ) : null}
+            ) : null} */}
             {/* 111111 */}
             {/* <h4 className="didnt-find-text">
               Didn't found the <br /> course
@@ -691,6 +634,7 @@ const SearchResultBody = () => {
             <label for="Multiplayer" className="dropdown-headers">
               Didn’t found the <br /> course
             </label>
+
             <Box style={{ position: "relative" }}>
               <p className="req-coming-soon">Coming soon</p>
               <Button
@@ -698,6 +642,7 @@ const SearchResultBody = () => {
                 onClick={RequestClikEvent}
                 variant="contained"
               >
+
                 Request now
               </Button>
             </Box>
@@ -715,12 +660,17 @@ const SearchResultBody = () => {
               <Box className="cards-container" style={{ position: "relative" }}>
                 <div className="cards-box">
                   <div className="cards-header-text">
+
                     <p className="card-header-text-h3">{`${searchInput}`}</p>
                     <span className="card-header-text-span">
                       {searchCourse.length +
                         " course result for " +
                         ` ${searchInput} `}
                     </span>
+
+                    {/* <h2>{`${searchInput} GAMES`}</h2> */}
+                    <span>{searchCourse.length + " course result for " + ` ${searchInput} `}</span>
+
                   </div>
                   <div>
                     {searchCourse.length != 0 && (
@@ -732,12 +682,7 @@ const SearchResultBody = () => {
                     )}
                   </div>
                 </div>
-                <Grid
-                  sx={{ padding: "0 20px" }}
-                  container
-                  spacing={{ xs: 1, md: 1 }}
-                  columns={{ xs: 2, sm: 8, md: 12 }}
-                >
+                <Grid sx={{ padding: "0 20px" }} container spacing={{ xs: 1, md: 1 }} columns={{ xs: 2, sm: 8, md: 12 }}>
                   {/* course search ..data */}
                   {searchLoader ? (
                     <CircularProgress
@@ -754,101 +699,47 @@ const SearchResultBody = () => {
                   ) : (
                     paginatedCourses?.map((item) => (
                       <Grid item xs={12} sm={6} md={6} lg={4}>
-                        <Link
-                          to={`/OverView/${item._id}`}
-                          style={{ color: "inherit", textDecoration: "none" }}
-                        >
+                        <Link to={`/OverView/${item._id}`} style={{ color: "inherit", textDecoration: "none" }}>
                           <div className="cardGrid searchcard">
                             <div className="favourite-icon-position">
-                              <img
-                                src={item?.thumbnail ? item.thumbnail : Course1}
-                                className="courseimg"
-                                alt="img"
-                              />
+                              <img src={item?.thumbnail ? item.thumbnail : Course1} className="courseimg" alt="img" />
                               {/* <HeartIcon
                                 id={item.id}
                                 FvrtIconCount={FvrtIconCount}
                               /> */}
                             </div>
-                            <h5 className="latestcourseh5">
-                              {" "}
-                              {item?.course_name
-                                ? item.course_name
-                                : "Fight Course"}
-                            </h5>
+                            <h5 className="latestcourseh5"> {item?.course_name ? item.course_name : "Fight Course"}</h5>
                             <div className="latestCourseMain-Div">
                               <div className="latestCouse-colmn">
                                 <div className="latestCourse-colmn-centerDiv">
-                                  <img
-                                    src={LatestCourseGameIcon}
-                                    alt=""
-                                    className="LatestCourse-IMG"
-                                  />
-                                  <p className="latestCourse-p">
-                                    {item?.creator?.user_id?.username}
-                                  </p>
+                                  <img src={LatestCourseGameIcon} alt="" className="LatestCourse-IMG" />
+                                  <p className="latestCourse-p">{item?.creator?.user_id?.username}</p>
                                 </div>
                                 <div className="latestCourse-colmn-centerDiv">
-                                  <img
-                                    src={LatestCourseStarIcon}
-                                    alt=""
-                                    className="LatestCourse-IMG"
-                                  />
-                                  <p className="latestCourse-p">
-                                    {" "}
-                                    {item?.rating
-                                      ? `${item.rating} Ratting`
-                                      : "0 Rattig"}
-                                  </p>
+                                  <img src={LatestCourseStarIcon} alt="" className="LatestCourse-IMG" />
+                                  <p className="latestCourse-p"> {item?.rating ? `${item.rating} Ratting` : "0 Rattig"}</p>
                                 </div>
                               </div>
                               {/* ------------------------------- copy colmn -------------------------------  */}
                               <div className="latestCouse-colmn">
                                 <div className="latestCourse-colmn-centerDiv">
-                                  <img
-                                    src={LatestCourseStarBadgeIcon}
-                                    alt=""
-                                    className="LatestCourse-IMG"
-                                  />
-                                  <p className="latestCourse-p">
-                                    {" "}
-                                    {item?.videos
-                                      ? `(${countViews(item)})`
-                                      : ""}
-                                  </p>
+                                  <img src={LatestCourseStarBadgeIcon} alt="" className="LatestCourse-IMG" />
+                                  <p className="latestCourse-p"> {item?.videos ? `(${countViews(item)})` : ""}</p>
                                 </div>
                                 <div className="latestCourse-colmn-centerDiv">
-                                  <img
-                                    src={LatestCourseVideoIcon}
-                                    alt=""
-                                    className="LatestCourse-IMG"
-                                  />
-                                  <p className="latestCourse-p">
-                                    {calTotalSecInVideos(item?.videos)}
-                                  </p>
+                                  <img src={LatestCourseVideoIcon} alt="" className="LatestCourse-IMG" />
+                                  <p className="latestCourse-p">{calTotalSecInVideos(item?.videos)}</p>
                                 </div>
                               </div>
                               {/* ------------------------------- copy colmn -------------------------------  */}
                               <div className="latestCouse-colmn">
                                 <div className="latestCourse-colmn-centerDiv">
-                                  <img
-                                    src={LatestCourseLavelIcon}
-                                    alt=""
-                                    className="LatestCourse-IMG"
-                                  />
-                                  <p className="latestCourse-p">
-                                    {item?.level}
-                                  </p>
+                                  <img src={LatestCourseLavelIcon} alt="" className="LatestCourse-IMG" />
+                                  <p className="latestCourse-p">{item?.level}</p>
                                 </div>
                                 <div className="latestCourse-colmn-centerDiv">
-                                  <img
-                                    src={LatestCourseTimingIcon}
-                                    alt=""
-                                    className="LatestCourse-IMG"
-                                  />
-                                  <p className="latestCourse-p">{`${postedTime(
-                                    item
-                                  )} days ago`}</p>
+                                  <img src={LatestCourseTimingIcon} alt="" className="LatestCourse-IMG" />
+                                  <p className="latestCourse-p">{`${postedTime(item)} days ago`}</p>
                                 </div>
                               </div>
                               {/* ------------------------------- copy colmn -------------------------------  */}
@@ -863,11 +754,7 @@ const SearchResultBody = () => {
                   <Box textAlign="center">
                     <button
                       className="btn-search-result"
-                      onClick={() =>
-                        setPaginatedCourses(
-                          searchCourse.slice(0, paginatedCourses.length + 6)
-                        )
-                      }
+                      onClick={() => setPaginatedCourses(searchCourse.slice(0, paginatedCourses.length + 6))}
                     >
                       View more
                     </button>

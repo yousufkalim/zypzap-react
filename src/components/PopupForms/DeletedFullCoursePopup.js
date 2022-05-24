@@ -22,22 +22,11 @@ const DeletedFullCoursePopup = ({ open, setOpen }) => {
   };
   return (
     <div>
-      <Dialog
-        open={open}
-        setOpe={setOpen}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
+      <Dialog open={open} setOpe={setOpen} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv">
             <ClearIcon className="subsclearIcon" onClick={handleClose} />
-            <img
-              src={UploadSuccessLog}
-              alt=""
-              className="uloadSuccessIMG"
-              onClick={hanldleClick}
-            />
+            <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" onClick={hanldleClick} />
             <p className="uploadSuccessP">CS-GO Ep 1 Complete Course Deleted</p>
           </div>
         </div>

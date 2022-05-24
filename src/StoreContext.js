@@ -29,13 +29,15 @@ export function StoreProvider({ children }) {
     searchInput: "",
     Games: [],
     searchLoader: false,
+    learner: false,
+    contentDashboardButton: "Course"
   });
 
   const updateStore = (data) => {
     setStore((prev) => {
       return {
         ...prev,
-        ...data,
+        ...data
       };
     });
   };
