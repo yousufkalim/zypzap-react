@@ -36,7 +36,7 @@ export default function LatestCourses(props) {
   };
   const calTotalSecInVideos = (videos) => {
     let timeInSecond = 0;
-    videos.map((videos) => (timeInSecond += parseInt(videos.duration)));
+    videos?.map((videos) => (timeInSecond += parseInt(videos.duration)));
     var hrs = ~~(timeInSecond / 3600);
     var mins = ~~((timeInSecond % 3600) / 60);
     var secs = ~~timeInSecond % 60;

@@ -76,37 +76,78 @@ const MyPrifileSetting = () => {
               />
             </div>
             <div>
-              {" "}
-              <p className="sgnBtn">
-                {/* <div class="dropdown">
-                  <img src={HeaderLogoutIcon} alt="" />
-                  <div id="myDropdown" class="dropdown-content"> */}
-                {/* <button
-                  className="formbtn2"
-                  type="submit"
-                  onClick={handleLogout}
+              <p
+                style={{
+                  marginTop: "10px",
+                }}
+              >
+                Subscription Status
+              </p>{" "}
+              <div className="membrship-card">
+                <p style={{ color: "#979797", margin: "10px 0px" }}>Monthly</p>
+                <h2 style={{ marginBottom: "10px" }}>Active</h2>
+                <span
                   style={{
-                    padding: "5px",
-                    border: "none",
-                    background:
-                      "linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)",
-                    color: "white",
-                    fontWeight: "900",
-                    borderRadius: " 2px",
-                    cursor: "pointer",
-                    width: " 35%",
-                    fontSize: "16px",
-                    display: "block",
-                    fontWeight: "500",
-                    border: "1px solid #7d668b",
-                    marginRight: "20px",
+                    fontSize: "12px",
+                    color: "#979797",
+                    marginTop: "10px",
                   }}
                 >
-                  Log out
-                </button> */}
-                {/* </div>
-                </div> */}
-              </p>
+                  Expires soon 31 march, 2022
+                </span>
+
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    margin: "15px 0px",
+                  }}
+                >
+                  {" "}
+                  <button
+                    className="formbtnbtn"
+                    type="submit"
+                    style={{ width: "100px" }}
+                  >
+                    Renew
+                  </button>
+                  <button className="formbtn-o" style={{ width: "160px" }}>
+                    Suspend Subscription
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p
+                style={{
+                  marginTop: "10px",
+                }}
+              >
+                Gift Card
+              </p>{" "}
+              <div className="membrship-card">
+                <p style={{ color: "#979797", margin: "10px 0px" }}>You Have</p>
+                <h2 style={{ marginBottom: "10px" }}>$10.00</h2>
+                <span
+                  style={{
+                    fontSize: "12px",
+                    color: "#979797",
+                    marginTop: "10px",
+                  }}
+                >
+                  Expires soon 31 march, 2022
+                </span>
+
+                <div
+                  style={{
+                    margin: "15px 0px",
+                  }}
+                >
+                  <button className="formbtnbtn" style={{ width: "100px" }}>
+                    Bye More
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
           {/* /* ---------------------------------- col2 ----------------------------------  */}
@@ -171,6 +212,25 @@ const MyPrifileSetting = () => {
               <p className="profileSetting-label">CVV</p>
               <input type="text" className="empirydata" placeholder="123" />
             </div>
+            <button
+              className="formbtn2"
+              type="submit"
+              style={{
+                background: "linear-gradient(326deg, #662F88 8%, #20BF55 132%)",
+                color: "white",
+                fontWeight: "400",
+                borderRadius: " 4px",
+                cursor: "pointer",
+                border: "none",
+                width: " 100px",
+                height: "39px",
+                fontSize: "14px",
+                marginLeft: "4px",
+                marginTop: "14px",
+              }}
+            >
+              Save
+            </button>
           </div>
           {/* /* ---------------------------------- col3 ----------------------------------  */}
           <div className="profileSetting-Col">
