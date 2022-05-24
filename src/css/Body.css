@@ -69,6 +69,9 @@
 }
 .setting_C_Container {
   display: flex;
+  margin-left: -7%;
+  margin-bottom: 3%;
+  margin-top: -3%;
 }
 .setting_C_Colmn {
   /* border: 1px solid blue; */
