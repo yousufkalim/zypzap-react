@@ -33,8 +33,7 @@ const FormStepsix = ({
   setformDataSix,
   formDataFive,
   setStep,
-  setformDataFive,
-  setDefaultCompState
+  setformDataFive
 }) => {
   const history = useHistory();
   const updateStore = UpdateStore();
@@ -60,7 +59,9 @@ const FormStepsix = ({
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
       },
       (error) => {
         alert(error);
@@ -81,16 +82,6 @@ const FormStepsix = ({
       return toast.error("Veuillez entrer la vignette du cours");
     }
     setBtnState(1);
-    // let video = [...formDataTwo, formDataSix];
-    const {
-      course_name,
-      gameName,
-      gameLevel,
-      gameType,
-      gameMood,
-      gamePlateForm,
-      description
-    } = formDataOne;
 
     let data = { formDataOne, formDataFive, formDataSix, id: creator._id };
     let res = await api("post", "/courses", data);
@@ -109,7 +100,6 @@ const FormStepsix = ({
       setformDataSix("");
       setBtnState(2);
       toast.success("Profil non modifié");
-      // setDefaultCompState("Course");
       setOpens(true);
       // setStep("");
 
@@ -128,7 +118,6 @@ const FormStepsix = ({
         open={opens}
         setOpen={setOpens}
         closeModal={handleClose}
-        setDefaultCompState={setDefaultCompState}
         setStep={setStep}
         text=""
       />
@@ -163,15 +152,25 @@ const FormStepsix = ({
             </Grid>
           </div>
         ) : (
-          <p className="success">Thumnail Upload Successfully Now Submit Course</p>
+          <p className="success">
+            Thumnail Upload Successfully Now Submit Course
+          </p>
         )}
 
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button className="drafBtn" style={{ background: "none", border: "1px solid #662F88" }} onClick={() => setStep(5)}>
+          <button
+            className="drafBtn"
+            style={{ background: "none", border: "1px solid #662F88" }}
+            onClick={() => setStep(5)}
+          >
             Previous
           </button>
-          <button className="continueBtn" onClick={handleClick} disabled={btnState == 0 ? false : true}>
+          <button
+            className="continueBtn"
+            onClick={handleClick}
+            disabled={btnState == 0 ? false : true}
+          >
             {btnState === 0
               ? "Submit For Approval"
               : btnState === 1

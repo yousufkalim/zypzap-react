@@ -6,7 +6,7 @@ import FormStepFour from "./FormStepFour";
 import FormStepFive from "./FormStepFive";
 import FormStepSix from "./FormStepSix";
 import { Store, UpdateStore } from "../../../StoreContext";
-const CreateCourseForm = ({ games, setDefaultCompState }) => {
+const CreateCourseForm = () => {
   const [step, setStep] = useState(1);
   const [formDataOne, setformDataOne] = useState({
     course_name: "",
@@ -67,7 +67,6 @@ const CreateCourseForm = ({ games, setDefaultCompState }) => {
             setformDataFive={setformDataFive}
             setformDataSix={setformDataSix}
             creator={creator}
-            setDefaultCompState={setDefaultCompState}
           />
         )}
       </div>
