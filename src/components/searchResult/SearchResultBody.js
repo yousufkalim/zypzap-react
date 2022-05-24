@@ -215,7 +215,7 @@ const SearchResultBody = () => {
     searchCourse,
     searchState,
     searchInput,
-    searchLoader
+    searchLoader,
   } = Store();
   useEffect(() => {
     setPaginatedCourses(searchCourse.slice(0, 6));
@@ -255,6 +255,8 @@ const SearchResultBody = () => {
     const name = e.name;
     const value = e.value;
     let res = await api("get", `/courses/topGames?type=${value}`);
+    // let r = [res.data];
+    // console.log("SLcted===============", r);
     if (res) {
       if (value == "5") {
         updateStore({
@@ -300,7 +302,7 @@ const SearchResultBody = () => {
   };
   const calTotalSecInVideos = (videos) => {
     let timeInSecond = 0;
-    videos.map((videos) => (timeInSecond += parseInt(videos.duration)));
+    videos?.map((videos) => (timeInSecond += parseInt(videos.duration)));
     var hrs = ~~(timeInSecond / 3600);
     var mins = ~~((timeInSecond % 3600) / 60);
     var secs = ~~timeInSecond % 60;
@@ -691,7 +693,6 @@ const SearchResultBody = () => {
             <label for="Multiplayer" className="dropdown-headers">
               Didn’t found the <br /> course
             </label>
-
             <Box style={{ position: "relative" }}>
               <p className="req-coming-soon">Coming soon</p>
               <Button

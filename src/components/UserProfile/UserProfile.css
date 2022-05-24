@@ -143,6 +143,9 @@ body {
   border-bottom: 1px solid gray;
   padding-bottom: 10px;
 }
+.myProfileC {
+  display: none;
+}
 .myProfileNames {
   border: none;
   display: inline;
@@ -296,7 +299,42 @@ body {
 .profile-notificaitonDiv {
   margin-top: 5px;
 }
+.membrship-card {
+  background-color: #16172d;
+  height: 197.8300018310547px;
+  width: 100%;
+  margin-top: 10px;
+  padding: 3%;
+  /* // left: 67px;
+    // top: 964.322998046875px; */
+  border-radius: 5px;
+}
 
+.formbtnbtn {
+  background: linear-gradient(326deg, #662f88 8%, #20bf55 132%);
+  color: white;
+  font-weight: 400;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  width: 133.93px;
+  height: 44px;
+  font-size: 14px;
+  margin-left: 4px;
+}
+.formbtn-o {
+  border: 1px solid;
+  background-color: #16172d;
+  border-image: linear-gradient(326deg, #662f88 8%, #20bf55 132%);
+  border-image-slice: 1;
+  color: white;
+  font-weight: 400;
+  cursor: pointer;
+  width: 133.93px;
+  height: 41px;
+  font-size: 14px;
+  margin-left: 4px;
+}
 /* -------------------------- PofileSetting -------------------------- */
 
 /* All Media Quaries */
