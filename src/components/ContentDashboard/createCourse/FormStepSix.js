@@ -11,14 +11,15 @@ import { useHistory } from "react-router-dom";
 import { getStorage } from "firebase/storage";
 import CourseAproved from "../../PopupForms/CourseAproved";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+
 const firebaseConfig = {
-  apiKey: "GOOGLE_API_KEY_REDACTED",
-  authDomain: "video-storage-3769b.firebaseapp.com",
-  projectId: "video-storage-3769b",
-  storageBucket: "video-storage-3769b.appspot.com",
-  messagingSenderId: "674858504046",
-  appId: "1:674858504046:web:dc91ec7bc28e23342c3b7f",
-  measurementId: "G-TRTYFM0GKT",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASURMENT_ID
 };
 export const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
@@ -33,7 +34,7 @@ const FormStepsix = ({
   formDataFive,
   setStep,
   setformDataFive,
-  setDefaultCompState,
+  setDefaultCompState
 }) => {
   const history = useHistory();
   const updateStore = UpdateStore();
@@ -81,7 +82,15 @@ const FormStepsix = ({
     }
     setBtnState(1);
     // let video = [...formDataTwo, formDataSix];
-    const { course_name, gameName, gameLevel, gameType, gameMood, gamePlateForm, description } = formDataOne;
+    const {
+      course_name,
+      gameName,
+      gameLevel,
+      gameType,
+      gameMood,
+      gamePlateForm,
+      description
+    } = formDataOne;
 
     let data = { formDataOne, formDataFive, formDataSix, id: creator._id };
     let res = await api("post", "/courses", data);
@@ -94,7 +103,7 @@ const FormStepsix = ({
         gameType: "",
         gameMood: "",
         gamePlateForm: "",
-        description: "",
+        description: ""
       });
       setformDataFive([]);
       setformDataSix("");
