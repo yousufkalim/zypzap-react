@@ -18,7 +18,6 @@ const SuccessfullyVerified = ({ open, setOpen }) => {
       <Dialog
         open={open}
         setOpe={setOpen}
-        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         // maxWidth="md"

@@ -29,6 +29,7 @@ export function StoreProvider({ children }) {
     searchInput: "",
     Games: [],
     searchLoader: false,
+    learner: false,
   });
 
   const updateStore = (data) => {
@@ -43,9 +44,7 @@ export function StoreProvider({ children }) {
   // Render
   return (
     <storeContext.Provider value={store}>
-      <storeUpdateContext.Provider value={updateStore}>
-        {children}
-      </storeUpdateContext.Provider>
+      <storeUpdateContext.Provider value={updateStore}>{children}</storeUpdateContext.Provider>
     </storeContext.Provider>
   );
 }

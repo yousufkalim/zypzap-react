@@ -16,21 +16,14 @@ const EmailVarificaiton = ({ open, setOpen }) => {
   return (
     <div>
       <SuccessfullyVerified open={openPopup} setOpen={setOpenPopup} />
-      <Dialog
-        open={open}
-        setOpe={setOpen}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
+      <Dialog open={open} setOpe={setOpen} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv">
             {/* <img src={DeleteCourseIcon} alt="" className="uloadSuccessIMG" /> */}
             <h1 className="emailVarificationH1">Email Verification</h1>
             <div className="deletePupop-content">
               <p className="deletePupopP">
-                We have sended you a confirmation <br /> email. check your email
-                box please
+                We have sended you a confirmation <br /> email. check your email box please
               </p>
               <div className="deletePupop-button">
                 <button className="deletePupopBtn">Later</button>

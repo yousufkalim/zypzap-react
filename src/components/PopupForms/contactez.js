@@ -39,7 +39,7 @@ const Contactez = ({ openContentRequest, setOpenContentRequest }) => {
   };
   return (
     <div>
-      <Dialog open={openContentRequest} onClose={handleClose}>
+      <Dialog open={openContentRequest}>
         <div className="requestMainDiv">
           <div className="contactezDiv">
             {/* /* --------------------------------- oneDiv --------------------------------- */}

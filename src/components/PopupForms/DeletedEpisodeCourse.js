@@ -10,20 +10,12 @@ const DeletedEpisodeCourse = ({ open, setOpen }) => {
   };
   return (
     <div>
-      <Dialog
-        open={open}
-        setOpe={setOpen}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
+      <Dialog open={open} setOpe={setOpen} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
         <div className="uploadSuccessDiv">
           <ClearIcon className="subsclearIcon" onClick={handleClose} />
           <div className="uploadSuccess-centerDiv">
             <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />
-            <p className="uploadSuccessP">
-              Delete Episode PUBG GamePlay Course 1/2
-            </p>
+            <p className="uploadSuccessP">Delete Episode PUBG GamePlay Course 1/2</p>
           </div>
         </div>
       </Dialog>

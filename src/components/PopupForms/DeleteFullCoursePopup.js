@@ -24,18 +24,9 @@ const DeleteFullCoursePopup = ({ open, setOpen, course }) => {
   };
   return (
     <div>
-      <DeletedFullCoursePopup
-        open={showDeletePopup}
-        setOpen={setShowDeletePopup}
-      />
+      <DeletedFullCoursePopup open={showDeletePopup} setOpen={setShowDeletePopup} />
 
-      <Dialog
-        open={open}
-        setOpe={setOpen}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
+      <Dialog open={open} setOpe={setOpen} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv">
             <img src={DeleteCourseIcon} alt="" className="uloadSuccessIMG" />

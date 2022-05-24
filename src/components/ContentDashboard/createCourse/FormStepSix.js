@@ -60,9 +60,7 @@ const FormStepsix = ({
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
+        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
       },
       (error) => {
         alert(error);
@@ -115,7 +113,7 @@ const FormStepsix = ({
       setOpens(true);
       // setStep("");
 
-      // window.location.reload();
+      window.location.reload();
       // setStep(1);  --todo change url
     } else {
       toast.error("Enter your email");
@@ -165,25 +163,15 @@ const FormStepsix = ({
             </Grid>
           </div>
         ) : (
-          <p className="success">
-            Thumnail Upload Successfully Now Submit Course
-          </p>
+          <p className="success">Thumnail Upload Successfully Now Submit Course</p>
         )}
 
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button
-            className="drafBtn"
-            style={{ background: "none", border: "1px solid #662F88" }}
-            onClick={() => setStep(5)}
-          >
+          <button className="drafBtn" style={{ background: "none", border: "1px solid #662F88" }} onClick={() => setStep(5)}>
             Previous
           </button>
-          <button
-            className="continueBtn"
-            onClick={handleClick}
-            disabled={btnState == 0 ? false : true}
-          >
+          <button className="continueBtn" onClick={handleClick} disabled={btnState == 0 ? false : true}>
             {btnState === 0
               ? "Submit For Approval"
               : btnState === 1
