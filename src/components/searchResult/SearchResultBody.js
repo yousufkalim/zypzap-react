@@ -347,7 +347,7 @@ const SearchResultBody = () => {
       <Box className="side-bar-filter">
         <Grid>
           <Item className="filterby-container">
-            <h4 className="filterby-container-h4">Filter By</h4>
+            <p className="filterby-container-h4">Filter By</p>
             <div className="searchInputItem">
               <input
                 type="text"
@@ -691,7 +691,8 @@ const SearchResultBody = () => {
             <label for="Multiplayer" className="dropdown-headers">
               Didn’t found the <br /> course
             </label>
-            <Box>
+            <Box style={{ position: "relative" }}>
+              <p className="req-coming-soon">Coming soon</p>
               <Button
                 className="reqstStateBTN"
                 onClick={RequestClikEvent}
@@ -714,8 +715,8 @@ const SearchResultBody = () => {
               <Box className="cards-container" style={{ position: "relative" }}>
                 <div className="cards-box">
                   <div className="cards-header-text">
-                    {/* <h2>{`${searchInput} GAMES`}</h2> */}
-                    <span>
+                    <p className="card-header-text-h3">{`${searchInput}`}</p>
+                    <span className="card-header-text-span">
                       {searchCourse.length +
                         " course result for " +
                         ` ${searchInput} `}

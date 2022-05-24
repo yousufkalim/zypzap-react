@@ -46,24 +46,40 @@ const EnrolledCourse = () => {
           <>
             {enrolled_courses?.map((item, i) => (
               <>
-                <Link to="#" className="courseDetail2" course={item} style={{ textDecoration: "none" }}>
+                <Link
+                  to="#"
+                  className="courseDetail2"
+                  course={item}
+                  style={{ textDecoration: "none" }}
+                >
                   <a className="courseDetail2" key={i}>
                     <div className="cardGrid2">
                       <div className="wishCarImgDiv">
                         <img
-                          src={item?.course_id?.thumbnail ? item.course_id.thumbnail : Course1}
+                          src={
+                            item?.course_id?.thumbnail
+                              ? item.course_id.thumbnail
+                              : Course1
+                          }
                           className="courseimg startcourseimg"
                           alt="img"
                         />
                       </div>
                       <div className="wishList-container">
                         <h4 className="wishListh4">
-                          {item?.course_id?.course_name ? item.course_id.course_name : "Fight Course"}
+                          {item?.course_id?.course_name
+                            ? item.course_id.course_name
+                            : "Fight Course"}
                         </h4>
 
-                        <p className="wishlistP2">{item?.course_id?.creator?.user_id?.username}</p>
+                        <p className="wishlistP2">
+                          {item?.course_id?.creator?.user_id?.username}
+                        </p>
                         <p className="wishlistP3">
-                          {item?.course_id?.rating ? item.course_id.rating : "0.0"} &nbsp;
+                          {item?.course_id?.rating
+                            ? item.course_id.rating
+                            : "0.0"}{" "}
+                          &nbsp;
                           {[1, 2, 3, 4, 5].map((item) => (
                             <Star1
                               className="wishCardStar"
@@ -73,7 +89,9 @@ const EnrolledCourse = () => {
                             />
                           ))}
                           &nbsp; &nbsp; &nbsp;
-                          {item?.course_id?.student ? `( ${item.course_id.student.length} )` : `( 0 )`}
+                          {item?.course_id?.student
+                            ? `( ${item.course_id.student.length} )`
+                            : `( 0 )`}
                         </p>
                       </div>
                       <div className="wishButtonDiv">

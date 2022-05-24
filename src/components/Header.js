@@ -38,6 +38,7 @@ import Select from "@mui/material/Select";
 import HomePageLogo from "../assets/icons/HomePageLogo.svg";
 import PlusVideo from "../assets/icons/PlusVideo.svg";
 import GiftCard from "../assets/icons/GiftCard.svg";
+import PaymentOptionPopup from "./PopupForms/PaymentOptionPopup";
 
 import { CircularProgress } from "@material-ui/core";
 
@@ -102,6 +103,7 @@ export default function PrimarySearchAppBar({
   const [Option, setOption] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
   const [openCongratulation, setCongratulation] = useState(false);
+  const [openCongratulation1, setCongratulation1] = useState(false);
   const [searchFlag, setSearchFlag] = useState(false);
   // const [settingOpen, setSettingOpen] = useState(false);
 
@@ -387,6 +389,10 @@ export default function PrimarySearchAppBar({
 
   return (
     <>
+      <PaymentOptionPopup
+        open={openCongratulation1}
+        setOpen={setCongratulation1}
+      />
       <RegisterSuccessfully
         open={openCongratulation}
         setOpen={setCongratulation}
@@ -448,7 +454,7 @@ export default function PrimarySearchAppBar({
                 // window.location.reload();
               }}
             />
-
+            {/* <button onClick={() => setCongratulation1(true)}>click me</button> */}
             <Typography
               variant="h6"
               noWrap

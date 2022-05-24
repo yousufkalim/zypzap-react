@@ -74,7 +74,7 @@ body {
 }
 .completeCourse-playVideo {
   width: 23%;
-
+  max-height: 100px;
   cursor: pointer;
 }
 .playVideoHeading {
