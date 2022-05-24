@@ -32,7 +32,11 @@
   border: 1px solid #555770;
   opacity: 0.6;
   color: #fff;
+  height: 40px;
   
+}
+.css-segi59{
+  padding: 0px !important;
 }
 .coursInput::placeholder,
 .courstexarea::placeholder {
