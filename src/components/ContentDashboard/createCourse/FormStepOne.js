@@ -8,9 +8,9 @@ import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
 import Autocomplete from "@mui/material/Autocomplete";
 
-const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
+const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
   const [values, setValues] = useState([]);
-  const [game, setGame] = useState(games ? games : []);
+
   const {
     course_name,
     gameName,
@@ -21,13 +21,6 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne, games }) => {
     gamePlateForm,
     description
   } = formDataOne;
-  useEffect(() => {
-    setGame(games ? games : []);
-    setformDataOne({
-      ...formDataOne,
-      ["gameName"]: games[0]._id
-    });
-  }, []);
 
   const chnageEvent = (e) => {
     setformDataOne({
