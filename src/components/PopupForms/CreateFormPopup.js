@@ -38,7 +38,14 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
   }, []);
   // init
 
-  const { username, email, password, showPassword, CnfrmPassword, showConfirPassword } = values;
+  const {
+    username,
+    email,
+    password,
+    showPassword,
+    CnfrmPassword,
+    showConfirPassword,
+  } = values;
   const showLoginFormPopup = () => {
     setLogin(true);
     setOpen(false);
@@ -152,7 +159,11 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                   required
                 />
                 <br />
-                <label htmlFor="password" style={{ marginTop: "30px" }} className="createLbl">
+                <label
+                  htmlFor="password"
+                  style={{ marginTop: "30px" }}
+                  className="createLbl"
+                >
                   Password
                 </label>
                 <Input
@@ -169,12 +180,20 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                         onClick={handleClickShowPassword}
                         onMouseDown={handleMouseDownPassword}
                       >
-                        {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                        {values.showPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
                       </IconButton>
                     </InputAdornment>
                   }
                 />
-                <label htmlFor="password" style={{ marginTop: "30px" }} className="createLbl">
+                <label
+                  htmlFor="password"
+                  style={{ marginTop: "30px" }}
+                  className="createLbl"
+                >
                   Confirm Password
                 </label>
                 <Input
@@ -191,12 +210,21 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                         onClick={handleClickShowCofirmPassword}
                         onMouseDown={handleMouseDownPassword}
                       >
-                        {values.showConfirPassword ? <Visibility /> : <VisibilityOff />}
+                        {values.showConfirPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
                       </IconButton>
                     </InputAdornment>
                   }
                 />
-                <button className="formbtn2" type="submit" disabled={loading} onClick={submitForm}>
+                <button
+                  className="formbtn2"
+                  type="submit"
+                  disabled={loading}
+                  onClick={submitForm}
+                >
                   {loading ? "loading" : "Sign Up"}
                 </button>
                 <div className="lines-container">
@@ -209,22 +237,30 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                     <Grid item xs={12}>
                       <div className="social_accoount">
                         <span>
-                          <a href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}>
+                          <a
+                            href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}
+                          >
                             <img src={Discord1} alt="" />
                           </a>
                         </span>
                         <span>
-                          <a href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}>
+                          <a
+                            href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}
+                          >
                             <img src={ChatIcon} alt="" />
                           </a>
                         </span>
                         <span>
-                          <a href={`${process.env.REACT_APP_baseURL}/users/auth/google`}>
+                          <a
+                            href={`${process.env.REACT_APP_baseURL}/users/auth/google`}
+                          >
                             <img src={Google} alt="" />
                           </a>
                         </span>
                         <span>
-                          <a href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}>
+                          <a
+                            href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}
+                          >
                             <img src={Facebook} alt="" />
                           </a>
                         </span>
@@ -245,7 +281,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                 By Registering for this website, you accept our
                 <span className="condition">
                   Terms <br /> Of Use
-                </span>{" "}
+                </span>
                 and our <span className="condition">Privacy Policy.</span>
               </p>
             </div>

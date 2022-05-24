@@ -338,7 +338,7 @@ const SearchResultBody = () => {
       <Box className="side-bar-filter">
         <Grid>
           <Item className="filterby-container">
-            <h4 className="filterby-container-h4">Filter By</h4>
+            <p className="filterby-container-h4">Filter By</p>
             <div className="searchInputItem">
               <input type="text" placeholder="CS⎸Go Game" className="searchInputItem-input" />
             </div>
@@ -634,8 +634,15 @@ const SearchResultBody = () => {
             <label for="Multiplayer" className="dropdown-headers">
               Didn’t found the <br /> course
             </label>
-            <Box>
-              <Button className="reqstStateBTN" onClick={RequestClikEvent} variant="contained">
+
+            <Box style={{ position: "relative" }}>
+              <p className="req-coming-soon">Coming soon</p>
+              <Button
+                className="reqstStateBTN"
+                onClick={RequestClikEvent}
+                variant="contained"
+              >
+
                 Request now
               </Button>
             </Box>
@@ -653,8 +660,17 @@ const SearchResultBody = () => {
               <Box className="cards-container" style={{ position: "relative" }}>
                 <div className="cards-box">
                   <div className="cards-header-text">
+
+                    <p className="card-header-text-h3">{`${searchInput}`}</p>
+                    <span className="card-header-text-span">
+                      {searchCourse.length +
+                        " course result for " +
+                        ` ${searchInput} `}
+                    </span>
+
                     {/* <h2>{`${searchInput} GAMES`}</h2> */}
                     <span>{searchCourse.length + " course result for " + ` ${searchInput} `}</span>
+
                   </div>
                   <div>
                     {searchCourse.length != 0 && (
