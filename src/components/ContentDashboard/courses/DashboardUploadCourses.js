@@ -57,12 +57,12 @@ const DashboardUploadCourses = ({ pageName }) => {
         {pageName === "publish" ? (
           <>
             {" "}
-            {creator?.courses?.map((item) => (
+            {creator?.courses?.reverse().map((item) => (
               <Grid item xs={12} sm={12} md={4} lg={3} className="card_grids">
                 <Link
                   to={{
                     pathname: `OverView/${item?._id}`,
-                    state: { course: `${item}` },
+                    state: { course: `${item}` }
                   }}
                   className="requestBt"
                   style={{ textDecoration: "none", color: "white" }}

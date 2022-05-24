@@ -2,26 +2,14 @@ import React from "react";
 import Box from "@mui/material/Box";
 import createcourse from "../../../assets/img/createcourse.svg";
 import CreateACoursePopup from "../../PopupForms/CreateACoursePopup";
-// import Tooltip from "@mui/material/Tooltip";
-// import CreatePlushIcon from "../../../assets/icons/CreatePlushIcon.svg";
-// import ClearIcon from "@mui/icons-material/Clear";
 import "../../../css/form/CreateACourse.css";
+import { Store, UpdateStore } from "../../../StoreContext";
 // import Popover from "@mui/material/Popover";
 
-const CreateYourCourse = ({ setcreateCourse, setDefaultCompState }) => {
+const CreateYourCourse = ({ setcreateCourse }) => {
+  const { contentDashboardButton } = Store();
+  const updateStore = UpdateStore();
   const [anchorEl, setAnchorEl] = React.useState(null);
-
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
-
-  // useEffect(() => {
-  //   // get top courses
-  //   if (location.state) setcreateCourse(true);
-  // }, []);
-
-  // const open = Boolean(anchorEl);
-  // const id = open ? "simple-popover" : undefined;
 
   return (
     <>
@@ -63,7 +51,7 @@ const CreateYourCourse = ({ setcreateCourse, setDefaultCompState }) => {
               className="create-course-btn"
               onClick={() => {
                 setcreateCourse(true);
-                setDefaultCompState("");
+                updateStore({ contentDashboardButton: "" });
               }}
             >
               Create Your Course

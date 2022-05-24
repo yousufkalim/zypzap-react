@@ -1,0 +1,80 @@
+.paymentOption-mainDiv {
+  color: #fff;
+  padding: 20px 35px;
+  font-family: "mulish";
+}
+.paymentOption-heading {
+  font-size: 28px;
+  font-weight: 700;
+}
+.payment-BankP,
+.payment-label,
+.payment-label2,
+.card-info-label {
+  color: #eeeeee;
+  font-size: 14px;
+  padding: 0 0 8px 0;
+}
+.payment-bank-div {
+  padding: 25px 0 0 0;
+}
+.payment-bank-cetagory {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 25px 0;
+}
+.payment-bank-colm {
+  /* width: 100px; */
+  /* height: 48px; */
+}
+.payment-bank-colm2,
+.payment-bank-colm3,
+.payment-bank-colm4 {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 18px 0;
+}
+
+.payment-input,
+.card-info-input,
+.card-info-input2,
+.card-info-input3 {
+  width: 100%;
+  background: none;
+  border: 1px solid #a7a7a7;
+  padding: 15px 10px;
+  color: #fff;
+}
+
+.card-Info-colmn {
+  display: flex;
+  justify-content: space-between;
+}
+.card-info-input2,
+.card-info-input3 {
+  width: 49%;
+  color: #fff;
+  margin: 10px 0 0 0;
+}
+.payment-purchase-btn {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 4px;
+  font-size: 18px;
+  font-family: 700;
+  color: #ffffff;
+  width: 100%;
+  padding: 18px;
+  border: none;
+  margin: 30px 0 20px 0;
+}
+.payment-skip-btn {
+  background: none;
+  border: none;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 400;
+  margin: auto;
+  display: block;
+  font-size: 16px;
+}
