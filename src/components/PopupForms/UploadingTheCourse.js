@@ -3,9 +3,7 @@ import Dialog from "@mui/material/Dialog";
 import Box from "@mui/material/Box";
 import "../../css/form/UploadingTheCourse.css";
 import { styled } from "@mui/material/styles";
-import LinearProgress, {
-  linearProgressClasses,
-} from "@mui/material/LinearProgress";
+import LinearProgress, { linearProgressClasses } from "@mui/material/LinearProgress";
 import UploadCancalled from "./UploadCancalled";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -52,21 +50,13 @@ const UploadingTheCourse = ({
   return (
     <div>
       <UploadCancalled open={showPopup} setOpen={setShowPopup} />
-      <Dialog
-        open={open}
-        setOpe={setOpen}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
+      <Dialog open={open} setOpe={setOpen} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
         <p className="uploadingtheCourse-p">Uploading The Course</p>
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv">
             <div className="uploadTheCourse-mainDiv">
               <div className="uploadTheCourse-Heading">
-                <p className="uploadTheCourse-content">
-                  Lorem ipsum dolor sit amet, {videoName}
-                </p>
+                <p className="uploadTheCourse-content">Lorem ipsum dolor sit amet, {videoName}</p>
                 <span className="uploadTheCourse-span">{progress}%</span>
               </div>
               <Box sx={{ flexGrow: 1 }}>
@@ -74,25 +64,15 @@ const UploadingTheCourse = ({
                 <BorderLinearProgress variant="determinate" value={progress} />
               </Box>
               <div className="uploadTheCourse-Headings">
-                <p className="uploadTheCourse-content">
-                  Speed: {mbPerSecond} MB/s
-                </p>
-                <span className="uploadTheCourse-span">
-                  Time: {timeUploadRemaining}
-                </span>
+                <p className="uploadTheCourse-content">Speed: {mbPerSecond} MB/s</p>
+                <span className="uploadTheCourse-span">Time: {timeUploadRemaining}</span>
               </div>
               {progress === 100 && uploading ? (
-                <button
-                  className="uploadTheCourseBTN"
-                  onClick={CloseHandleClick}
-                >
+                <button className="uploadTheCourseBTN" onClick={CloseHandleClick}>
                   Done
                 </button>
               ) : (
-                <button
-                  className="uploadTheCourseBTN"
-                  onClick={CancelHandleClick}
-                >
+                <button className="uploadTheCourseBTN" onClick={CancelHandleClick}>
                   Cancel
                 </button>
               )}

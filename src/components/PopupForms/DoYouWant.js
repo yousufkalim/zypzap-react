@@ -16,15 +16,11 @@ const DoYouWant = ({ open, setOpen, setOpenBecomeCreatorPopup }) => {
       <Dialog
         open={open}
         setOpen={setOpen}
-        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         style={{ maxWidth: "500px", margin: "auto" }}
       >
-        <div
-          className="uploadSuccess-centerDiv"
-          style={{ color: "#fff", textAlign: "center" }}
-        >
+        <div className="uploadSuccess-centerDiv" style={{ color: "#fff", textAlign: "center" }}>
           <p className="uploadSuccessP">
             Do you Want to keep your profile <br /> preferences information?
             <ClearIcon className="clearIconss" onClick={handleClose} />

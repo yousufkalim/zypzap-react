@@ -144,7 +144,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
 
   return (
     <div>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open}>
         <div className="login_form">
           <div className="form_container">
             <h1 className="loginH1">Login to your account</h1>
