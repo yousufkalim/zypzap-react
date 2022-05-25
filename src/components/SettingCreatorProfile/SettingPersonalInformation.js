@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import IconButton from "@mui/material/IconButton";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { toast } from "react-toastify";
+import api from "../../api/index";
+import { Store, UpdateStore } from "../../StoreContext";
 
 const SettingPersonalInformation = () => {
+  const updateStore = UpdateStore();
   const [values, setValues] = React.useState({
     password: "",
     password2: "",
@@ -14,9 +18,46 @@ const SettingPersonalInformation = () => {
     showPassword2: false,
     showPassword3: false,
   });
+  const { user } = Store();
+  const [formData, setFormData] = useState({
+    username: user?.username ? user.username : "",
+    email: user?.email ? user.email[0] : "",
+    phone_number: user?.phone_number ? user.phone_number : "",
+    iban: user?.iban ? user.iban : "",
+    country: user?.country ? user.country : "",
+    account_number: user?.account_number ? user.account_number : "",
+    bank_identifier: user?.bank_identifier ? user.bank_identifier : "",
+  });
+  const {
+    username,
+    email,
+    phone_number,
+    iban,
+    country,
+    account_number,
+    bank_identifier,
+  } = formData;
+  useEffect(() => {
+    setFormData({
+      username: user?.username ? user.username : "",
+      email: user?.email ? user.email[0] : "",
+      phone_number: user?.phone_number ? user.phone_number : "",
+      iban: user?.iban ? user.iban : "",
+      country: user?.country ? user.country : "",
+      account_number: user?.account_number ? user.account_number : "",
+      bank_identifier: user?.bank_identifier ? user.bank_identifier : "",
+    });
+  }, [user]);
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handlechange1 = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const handleClickShowPassword = () => {
@@ -37,7 +78,19 @@ const SettingPersonalInformation = () => {
       showPassword3: !values.showPassword3,
     });
   };
-
+  const SubmitEvent = async (e) => {
+    let res = await api("post", `/users/basicInfo/${user?._id}`, formData);
+    if (res) {
+      updateStore({ user: res.data.user });
+      toast.success("Modifier le profil avec succès");
+      setFormData({
+        username: "",
+        email: "",
+        phone_number: "",
+        iban: "",
+      });
+    }
+  };
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
@@ -55,7 +108,10 @@ const SettingPersonalInformation = () => {
               <input
                 className="setting_C_inpt"
                 type="text"
-                placeholder="@arslanash"
+                value={username}
+                onChange={handlechange1}
+                placeholder={"@arslanash"}
+                name="username"
               />
             </div>
             <div className="setting_C_Inputs">
@@ -65,7 +121,10 @@ const SettingPersonalInformation = () => {
               <input
                 className="setting_C_inpt"
                 type="email"
+                value={email}
                 placeholder="arskanash@gmail.com"
+                onChange={handlechange1}
+                name="email"
               />
             </div>
             <div className="setting_C_Inputs">
@@ -75,7 +134,10 @@ const SettingPersonalInformation = () => {
               <input
                 className="setting_C_inpt"
                 type="number"
+                value={phone_number}
+                onChange={handlechange1}
                 placeholder="+33 755 556 674"
+                name="phone_number"
               />
             </div>
             {/* /* ------------------------------- 1 colmn div part2 -------------------------------  */}
@@ -89,7 +151,7 @@ const SettingPersonalInformation = () => {
                 disabledPadding
                 type={values.showPassword ? "text" : "password"}
                 value={values.password}
-                onChange={handleChange("password")}
+                // onChange={handleChange("password")}
                 placeholder="Arslan@123"
                 endAdornment={
                   <InputAdornment position="end">
@@ -166,7 +228,7 @@ const SettingPersonalInformation = () => {
             </div>
           </div1>
           {/* /* ------------------------------- clmn div 2 -------------------------------  */}
-          <div className="setting_C_Colmn">
+          <div className="setting_C_Colmn2">
             <p className="setting_C_Heading">Payment Method</p>
 
             <div className="setting_C_Inputs">
@@ -176,7 +238,10 @@ const SettingPersonalInformation = () => {
               <input
                 className="setting_C_inpt"
                 type="text"
+                value={iban}
+                onChange={handlechange1}
                 placeholder="FR14 2004 1010 0505 0001 3M02 606"
+                name="iban"
               />
             </div>
             <div className="setting_C_Inputs">
@@ -187,6 +252,9 @@ const SettingPersonalInformation = () => {
                 className="setting_C_inpt"
                 type="email"
                 placeholder="20041"
+                value={bank_identifier}
+                onChange={handlechange1}
+                name="bank_identifier"
               />
             </div>
             <div className="setting_C_Inputs">
@@ -197,6 +265,9 @@ const SettingPersonalInformation = () => {
                 className="setting_C_inpt"
                 type="number"
                 placeholder="0500013M026"
+                value={account_number}
+                onChange={handlechange1}
+                name="account_number"
               />
             </div>
             <div className="setting_C_Inputs">
@@ -208,7 +279,13 @@ const SettingPersonalInformation = () => {
                 type="number"
                 placeholder="+33 755 556 674"
               /> */}
-              <select className="setting_C_inpt" style={{ appearance: "none" }}>
+              <select
+                className="setting_C_inpt"
+                style={{ appearance: "none" }}
+                value={country}
+                onChange={handlechange1}
+                name="country"
+              >
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
                 <option value="Algeria">Algeria</option>
@@ -502,6 +579,26 @@ const SettingPersonalInformation = () => {
                 <option value="Zimbabwe">Zimbabwe</option>
               </select>
             </div>
+            <button
+              className="formbtn2"
+              type="submit"
+              onClick={SubmitEvent}
+              style={{
+                background: "linear-gradient(326deg, #662F88 8%, #20BF55 132%)",
+                color: "white",
+                fontWeight: "400",
+                borderRadius: " 4px",
+                cursor: "pointer",
+                border: "none",
+                width: " 100px",
+                height: "39px",
+                fontSize: "14px",
+                marginLeft: "4px",
+                marginTop: "16px",
+              }}
+            >
+              Save
+            </button>
           </div>
           <div className="setting_C_Colmn"></div>
         </div>
