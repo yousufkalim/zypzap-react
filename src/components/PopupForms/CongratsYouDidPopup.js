@@ -14,7 +14,6 @@ const CongratsYouDidPopup = ({ showPopup, setShowPopup }) => {
       <Dialog
         open={showPopup}
         setOpen={setShowPopup}
-        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >

@@ -11,13 +11,7 @@ const CongratulationPopup2 = ({ open, setOpen, closeModal }) => {
   };
   return (
     <div>
-      <Dialog
-        open={open}
-        setOpen={setOpen}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
+      <Dialog open={open} setOpen={setOpen} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
         <div className="uploadSuccessDiv">
           <ClearIcon className="subsclearIcon" onClick={handleClose} />
           <div className="uploadSuccess-centerDiv">

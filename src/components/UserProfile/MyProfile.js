@@ -5,6 +5,7 @@ import MyPrifileSetting from "./MyPrifileSetting";
 import { Store, UpdateStore } from "../../StoreContext";
 import { useHistory } from "react-router-dom";
 import api from "../../api/index";
+import SettingPersonalInformation from "../SettingCreatorProfile/SettingPersonalInformation";
 
 const MyProfile = (props) => {
   const { user } = props;
@@ -64,50 +65,29 @@ const MyProfile = (props) => {
     <>
       <div className="myProfile">
         <div className="myProfile-CenterDiv">
-          <div className="myPofileContents myProfileName">
+          <div
+            className={
+              user?.role == "User"
+                ? "myPofileContents myProfileName"
+                : "myProfileC"
+            }
+          >
             <NavLink
               exact
               activeClassName="active_profile"
               to="#"
               className={profileBtn == 1 ? "myProfileNames" : null}
-              onClick={() => handeClick(1)}
+              onClick={() => handeClick(2)}
             >
-              My Profile
+              {user?.role == "Creator" ? "" : "My Profile"}
             </NavLink>
-            {user?.role == "User" ? (
-              " "
-            ) : (
-              <NavLink
-                activeClassName="active_profile"
-                to="#"
-                className={profileBtn == 2 ? "myProfileNames" : null}
-                onClick={() => handeClick(2)}
-              >
-                Setting
-              </NavLink>
-            )}
           </div>
-          {profileBtn == 1 ? (
-            <>
-              <MyProfileData
-                user={user}
-                btnTags="btnTags"
-                gametypebtn="gametypebtn"
-                gametypebtn2="gametypebtn2"
-                seta="seta"
-              />
-            </>
-          ) : (
-            <></>
-          )}
-          {profileBtn == 2 ? (
-            <>
-              <MyPrifileSetting />
-            </>
-          ) : (
-            <></>
-          )}
 
+          {user?.role == "User" ? (
+            <MyPrifileSetting />
+          ) : (
+            <SettingPersonalInformation />
+          )}
           <button
             className="formbtn2"
             type="submit"

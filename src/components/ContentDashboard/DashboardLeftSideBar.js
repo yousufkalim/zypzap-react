@@ -1,14 +1,18 @@
 import React from "react";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import { Store, UpdateStore } from "../../StoreContext";
 const DashboardLeftSideBar = ({
   items,
   activeButton,
-  trigerOnClickEmpSideBtn,
+  trigerOnClickEmpSideBtn
 }) => {
+  const { contentDashboardButton } = Store();
+  const updateStore = UpdateStore();
   return (
     <>
       {items.map((item, i) => {
-        const className = activeButton === item.name ? "dashboard" : "";
+        const className =
+          contentDashboardButton === item.name ? "dashboard" : "";
         return (
           <div
             key={item.course}

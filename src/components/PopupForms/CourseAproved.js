@@ -3,14 +3,11 @@ import Dialog from "@mui/material/Dialog";
 import "../../css/form/UploadSuccessfulPopup.css";
 import UploadSuccessLog from "../../assets/icons/UploadSuccessLog.svg";
 import ClearIcon from "@mui/icons-material/Clear";
+import { Store, UpdateStore } from "../../StoreContext";
 
-const CourseAproved = ({
-  open,
-  setOpen,
-  setDefaultCompState,
-  setStep,
-  text,
-}) => {
+const CourseAproved = ({ open, setOpen, setStep, text }) => {
+  const { creator, contentDashboardButton } = Store();
+  const updateStore = UpdateStore();
   const handleClose = () => {
     setOpen(false);
   };
@@ -19,7 +16,6 @@ const CourseAproved = ({
       <Dialog
         open={open}
         setOpen={setOpen}
-        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -51,7 +47,7 @@ const CourseAproved = ({
               <button
                 className="uploadSuccessBTN"
                 onClick={() => {
-                  setDefaultCompState("Course");
+                  updateStore({ contentDashboardButton: "Course" });
                   setStep("");
                 }}
               >

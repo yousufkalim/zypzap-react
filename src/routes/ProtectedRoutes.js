@@ -29,6 +29,7 @@ const ProtectedRoutes = () => {
           {creator ? (
             <Switch>
               <Route exact path="/dashboard" component={ContentDashboard} />
+              <Route exact path="/UserDashboard" component={UserDashboard} />
             </Switch>
           ) : (
             <Switch>
