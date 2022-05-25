@@ -146,7 +146,13 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
 
   return (
     <div>
-      <Dialog open={open}>
+
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        style={{ maxWidth: "480px", margin: "auto" }}
+      >
+
         <div className="login_form">
           <div className="form_container">
             <h1 className="loginH1">Login to your account</h1>
@@ -174,11 +180,11 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                 required
               />
               <br />
-              <label
-                htmlFor="password"
-                style={{ marginTop: "30px" }}
-                className="loginFH1"
-              >
+
+              <label htmlFor="password" className="loginFH1">
+
+             
+
                 Password
               </label>
 

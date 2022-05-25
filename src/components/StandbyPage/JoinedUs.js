@@ -31,7 +31,7 @@ const JoinedUs = () => {
       {" "}
       <div className="FollowUs">
         <div className="FollowUs_container">
-          <h2 className="followUsH2">Ils nous ont rejoint</h2>
+          <h2 className="followUsH2-div2">Ils nous ont rejoint</h2>
           <div className="followSocialBox">
             <div1 className="followDiv">
               <div className="followUs-box2">
@@ -58,7 +58,9 @@ const JoinedUs = () => {
                   style={{ marginTop: "7px" }}
                 />
                 <div className="followSocialHeading2">
-                  <p className="followSocialP">0</p>
+                  <p className="followSocialP" style={{ padding: "6px" }}>
+                    0
+                  </p>
                   <p className="followSocialP2">Jeux traités</p>
                 </div>
               </div>

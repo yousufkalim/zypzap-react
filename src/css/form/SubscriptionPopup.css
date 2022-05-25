@@ -118,4 +118,7 @@
   .subsLabel {
     font-size: 12px;
   }
+  .subsclearIcon {
+    height: 22px !important;
+  }
 }

@@ -110,6 +110,7 @@
 .offerGrid {
   width: auto !important;
   margin-bottom: -300px !important;
+  padding-top: 40px !important;
 }
 
 .whatweoffercontainer {
@@ -244,6 +245,7 @@
   }
   .landingpagetextonImg {
     left: 34%;
+    top: 52%;
   }
   .frlandingpagetextonImg {
     left: 34%;
@@ -268,7 +270,7 @@
     right: 45%;
   }
   .landingpagetextonImg {
-    left: 39%;
+    left: 36%;
   }
   .frlandingpagetextonImg {
     left: 38%;
@@ -282,7 +284,7 @@
     text-shadow: 0px 4px 3px #662f88;
   }
   .landingpagetextimgH1 {
-    font-size: 2.6em;
+    font-size: 3em;
   }
   .landingpagetextonImgP {
     font-size: 8px;

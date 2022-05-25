@@ -42,6 +42,7 @@
   cursor: pointer;
   font-size: 16px;
   border: 1px solid #662f88;
+  font-family: "mulish";
 }
 .textonbutton:hover {
   background: none;
