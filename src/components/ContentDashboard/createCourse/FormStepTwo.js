@@ -51,14 +51,11 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   };
 
   const singlefileUpload = (file) => {
-    console.log("file in singlefileUpload ", file);
     return new Promise((resolve, reject) => {
       setVideoName(file.name);
       if (!file) return;
-      console.log("storage ", storage);
       const storageRef = ref(storage, `files/${file.name}`);
 
-      console.log("storageRef ", storageRef);
       const uploadTask = uploadBytesResumable(storageRef, file);
       // file upload speed code
       let lastBytesTransfered = null;

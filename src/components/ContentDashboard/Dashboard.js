@@ -14,30 +14,20 @@ const Dashboard = ({ id }) => {
   const { creator, contentDashboardButton } = Store();
   const updateStore = UpdateStore();
   const [activeButton, setActiveButton] = useState("Course");
-
-  console.log("history?.location?.param ", history?.location?.param);
   const [createCourse, setcreateCourse] = useState(false);
   const [games, setGames] = useState([]);
 
   const location = useLocation();
 
   useEffect(() => {
+    getCreator();
     getGames();
-    if (location.state.createCourse) {
-      setcreateCourse(true);
-
-      setActiveButton("");
-      updateStore({ contentDashboardButton: "" });
-    }
-    if (location.state.openSetting) {
-      setActiveButton("Setting");
-      updateStore({ contentDashboardButton: "Setting" });
-    }
-  }, []);
+  }, [contentDashboardButton]);
   const getCreator = async () => {
-    let res = await api("get", `/creators/${creator._id}`);
+    let res = await api("get", `/creators/${creator?._id}`);
+
     if (res) {
-      updateStore({ creator: res.data });
+      updateStore({ creator: res?.data?.creator });
     }
   };
   const getGames = async () => {

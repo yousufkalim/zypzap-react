@@ -15,6 +15,7 @@ const DashboardRightSideBar = ({
 }) => {
   const { contentDashboardButton } = Store();
   const [activeUploadButton, setActiveUploadButton] = useState(1);
+
   const handleActiveUploadButton = (i) => {
     setActiveUploadButton(i);
   };

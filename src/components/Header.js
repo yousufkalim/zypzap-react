@@ -134,8 +134,7 @@ export default function PrimarySearchAppBar({
   const creatorDashboard = () => {
     updateStore({ contentDashboardButton: "Setting" });
     history.push({
-      pathname: "/dashboard",
-      state: { openSetting: true }
+      pathname: "/dashboard"
     });
   };
 
@@ -144,8 +143,7 @@ export default function PrimarySearchAppBar({
     {
       user?.role === "User"
         ? history.push({
-            pathname: "/UserDashboard",
-            state: { openSettings: true }
+            pathname: "/UserDashboard"
           })
         : creatorDashboard();
     }
@@ -336,7 +334,7 @@ export default function PrimarySearchAppBar({
         {user ? (
           <p className="sgnBtn">
             <div
-              class="dropdown"
+              className="dropdown"
               // onClick={handleLogout}
             >
               <img src={HeaderLogoutIcon} alt="" onClick={openProfilePg} />
@@ -666,7 +664,7 @@ export default function PrimarySearchAppBar({
               )}
               {user ? (
                 <p className="sgnBtn">
-                  <div class="dropdown">
+                  <div className="dropdown">
                     <img
                       src={HeaderLogoutIcon}
                       onClick={openProfilePg}

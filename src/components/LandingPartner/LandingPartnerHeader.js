@@ -13,7 +13,7 @@ const LandingPartnerHeader = () => {
           className="landing-partner-header-img"
           src={landingpartnerheaderimg}
         />
-        <div class=" container">
+        <div className="container">
           <div class="landing-partner-text-container">
             <h1 className="landing-partner-header">
               {t("Devenez partenaires")}
