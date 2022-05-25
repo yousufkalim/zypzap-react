@@ -4,9 +4,11 @@ import SubscriptionPopup from "../PopupForms/SubscriptionPopup";
 import AboutLandingPageImg from "../../assets/img/AboutLandingPageImg.svg";
 import StandbyBg from "../../assets/img/StandbyBg.svg";
 import { useTranslation, Trans } from "react-i18next";
+import LandingPopup from "../PopupForms/LandingPopup";
 
 export default function Body() {
   const [open, setOpen] = useState(false);
+  const [opens, setOpens] = useState(false);
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
@@ -25,6 +27,7 @@ export default function Body() {
 
   return (
     <>
+      <LandingPopup open={opens} setOpen={setOpens} />
       {open && <SubscriptionPopup open={open} setOpen={setOpen} />}
       <div className="landingpagecontainer">
         <div className="landingpageimgcontainer">

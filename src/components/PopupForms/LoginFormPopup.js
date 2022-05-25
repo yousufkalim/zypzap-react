@@ -42,7 +42,10 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     },
   },
   "& .MuiSwitch-thumb": {
-    background: theme.palette.mode === "dark" ? "red" : "linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)",
+    background:
+      theme.palette.mode === "dark"
+        ? "red"
+        : "linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)",
     width: 28,
     height: 28,
     "&:before": {
@@ -144,7 +147,11 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
 
   return (
     <div>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        style={{ maxWidth: "480px", margin: "auto" }}
+      >
         <div className="login_form">
           <div className="form_container">
             <h1 className="loginH1">Login to your account</h1>
@@ -152,7 +159,11 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
             <p className="login_pera">Welcome back</p>
             <div>
               {creatorSwitch ? "Creator" : "User"}
-              <MaterialUISwitch sx={{ m: 1 }} defaultChecked={creatorSwitch} onClick={handleCheck} />
+              <MaterialUISwitch
+                sx={{ m: 1 }}
+                defaultChecked={creatorSwitch}
+                onClick={handleCheck}
+              />
             </div>
             <form action="">
               <label htmlFor="email" className="loginFH1">
@@ -168,7 +179,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                 required
               />
               <br />
-              <label htmlFor="password" style={{ marginTop: "30px" }} className="loginFH1">
+              <label htmlFor="password" className="loginFH1">
                 Password
               </label>
 
@@ -181,7 +192,11 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                 name="password"
                 endAdornment={
                   <InputAdornment position="end">
-                    <IconButton className="showPass" onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>
+                    <IconButton
+                      className="showPass"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
                       {values.showPassword ? <Visibility /> : <VisibilityOff />}
                     </IconButton>
                   </InputAdornment>
@@ -212,22 +227,30 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                   <Grid item xs={12}>
                     <div className="social">
                       <span>
-                        <a href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}>
+                        <a
+                          href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}
+                        >
                           <img src={Discord1} alt="" />
                         </a>
                       </span>
                       <span>
-                        <a href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}>
+                        <a
+                          href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}
+                        >
                           <img src={ChatIcon} alt="" />
                         </a>
                       </span>
                       <span>
-                        <a href={`${process.env.REACT_APP_baseURL}/users/auth/google`}>
+                        <a
+                          href={`${process.env.REACT_APP_baseURL}/users/auth/google`}
+                        >
                           <img src={Google} alt="" />
                         </a>
                       </span>
                       <span>
-                        <a href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}>
+                        <a
+                          href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}
+                        >
                           <img src={Facebook} alt="" />
                         </a>
                       </span>
@@ -245,7 +268,10 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
           </div>
         </div>
       </Dialog>
-      <ForgetPassword open={forgetPasswordPopup} setOpen={setForgetPasswordPopup} />
+      <ForgetPassword
+        open={forgetPasswordPopup}
+        setOpen={setForgetPasswordPopup}
+      />
     </div>
   );
 }

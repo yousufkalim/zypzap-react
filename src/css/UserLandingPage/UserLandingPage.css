@@ -19,9 +19,9 @@
 .MuiInput-underline:before {
   border-bottom: none !important;
 }
-/* .form_container {
-  padding: 0px 10px;
-} */
+.form_container {
+  font-family: "mulish";
+}
 .login_form {
   padding: 0px 10px 0px 10px;
   display: flex;

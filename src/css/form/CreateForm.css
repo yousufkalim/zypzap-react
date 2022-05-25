@@ -42,9 +42,9 @@
   padding: 15px 30px;
 }
 .create_container .createH1 {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 500;
-  margin: 8px 0px;
+  margin: 6px 0px;
   display: inline-block;
   opacity: 0.9;
 }
@@ -62,12 +62,12 @@
 }
 
 .create_pera {
-  font-size: 18px;
+  font-size: 15px;
   margin-bottom: 25px;
   opacity: 0.8;
 }
 .createLbl {
-  font-size: 16px;
+  font-size: 13px;
   display: block;
   padding-bottom: 5px;
   opacity: 0.7;
@@ -141,7 +141,7 @@
   width: 100%;
   font-size: 15px;
   display: block;
-  margin-top: 20px;
+  margin-top: 30px;
   font-weight: 500;
   border: 1px solid #7d668b;
 }
@@ -157,7 +157,7 @@
   opacity: 0.8;
 }
 .lines-container {
-  margin-top: 27px;
+  margin-top: 18px;
   color: gray;
 }
 .lines1 {
@@ -202,12 +202,16 @@
   margin-bottom: 20px;
   font-size: 13px;
   color: #20bf55;
+  background: linear-gradient(30.06deg, #662f88 9.05%, #20bf55 55.69%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   /* opacity: 0.7; */
 }
 .terms {
   display: block;
   opacity: 0.6;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
   font-size: 11px;
 }
 .condition {
