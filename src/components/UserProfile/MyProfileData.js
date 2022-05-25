@@ -20,14 +20,18 @@ const MyProfileData = ({ user, btnTags, gametypebtn, gametypebtn2, seta }) => {
           <div className="profile-allButtons">
             {user?.role == "Creator" &&
               (user?.expertiseGame
-                ? user.expertiseGame.map((tegs) => (
-                    <button className="activetypebtn">{tegs}</button>
+                ? user.expertiseGame.map((tegs, i) => (
+                    <button key={i} className="activetypebtn">
+                      {tegs}
+                    </button>
                   ))
                 : "No favourit Courses")}
             {user?.role == "User" &&
               (user?.prefrence_games?.favourite_games
-                ? user.prefrence_games.favourite_games.map((tegs) => (
-                    <button className="activetypebtn">{tegs}</button>
+                ? user.prefrence_games.favourite_games.map((tegs, i) => (
+                    <button key={i} className="activetypebtn">
+                      {tegs}
+                    </button>
                   ))
                 : "No favourit Courses")}
           </div>
@@ -35,8 +39,10 @@ const MyProfileData = ({ user, btnTags, gametypebtn, gametypebtn2, seta }) => {
         <div className="userButtonGroup">
           <p className="userButton-heading">Game type</p>
           <div className="profile-allButtons">
-            {user?.gameType.map((tegs) => (
-              <button className="activetypebtn">{tegs}</button>
+            {user?.gameType.map((tegs, i) => (
+              <button key={i} className="activetypebtn">
+                {tegs}
+              </button>
             ))}
           </div>
         </div>
@@ -44,8 +50,10 @@ const MyProfileData = ({ user, btnTags, gametypebtn, gametypebtn2, seta }) => {
           <p className="userButton-heading">Gaming Plateforms</p>
           <div className="profile-allButtons">
             <div className="profile-allButtons">
-              {user?.plateForm?.map((tegs2) => (
-                <button className="activetypebtn">{tegs2}</button>
+              {user?.plateForm?.map((tegs2, i) => (
+                <button key={i} className="activetypebtn">
+                  {tegs2}
+                </button>
               ))}
             </div>
           </div>

@@ -77,7 +77,7 @@ const FormStepsix = ({
     );
   };
 
-  const handleClick = async () => {
+  const handleSubmitCourse = async () => {
     if (imgUrl == "") {
       return toast.error("Veuillez entrer la vignette du cours");
     }
@@ -99,12 +99,9 @@ const FormStepsix = ({
       setformDataFive([]);
       setformDataSix("");
       setBtnState(2);
-      toast.success("Profil non modifié");
       setOpens(true);
-      // setStep("");
-
-      window.location.reload();
-      // setStep(1);  --todo change url
+      updateStore({ contentDashboardButton: "Course" });
+      history.push("/dashboard");
     } else {
       toast.error("Enter your email");
     }
@@ -168,7 +165,7 @@ const FormStepsix = ({
           </button>
           <button
             className="continueBtn"
-            onClick={handleClick}
+            onClick={handleSubmitCourse}
             disabled={btnState == 0 ? false : true}
           >
             {btnState === 0

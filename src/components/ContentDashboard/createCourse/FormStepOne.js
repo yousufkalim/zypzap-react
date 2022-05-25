@@ -82,7 +82,6 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
     setStep(2);
   };
   const getAllGames = async (e) => {
-    console.log("e isss", e.target.value);
     setformDataOne({
       ...formDataOne,
       [e.target.name]: e.target.value
@@ -96,7 +95,6 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
         withCredentials: false
       }
     );
-    console.log("res is ,", res?.data?.results);
 
     var gamesToSet = []; // //debugger;
     for (var i = 0; i < res?.data?.results?.length; i++) {
