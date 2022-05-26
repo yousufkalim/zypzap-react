@@ -113,14 +113,7 @@ export default function LatestCourses(props) {
               className="requestBt"
               style={{ textDecoration: "none", color: "white" }}
             >
-              <div
-                className="cardGrid"
-                style={{
-                  backgroundColor: " #202342",
-                  margin: "12px",
-                  borderRadius: "35px",
-                }}
-              >
+              <div className="cardGrid">
                 <div className="topRatedcardGrid-image">
                   <img
                     src={item?.thumbnail ? item.thumbnail : Course1}
