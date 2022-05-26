@@ -5,6 +5,8 @@ import overViewIcon1 from "../../assets/icons/overViewIcon1.svg";
 import overViewIcon2 from "../../assets/icons/overViewIcon2.svg";
 import overViewIcon3 from "../../assets/icons/overViewIcon3.svg";
 import overViewIcon4 from "../../assets/icons/overViewIcon4.svg";
+import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
+
 // import OverCardLogo1 from "../../assets/icons/OverCardLogo1.svg";
 // import OverCardLogo2 from "../../assets/icons/OverCardLogo2.svg";
 // import OverCardLogo3 from "../../assets/icons/OverCardLogo3.svg";
@@ -23,6 +25,7 @@ import api from "../../api";
 import GuestSignUpPopUp from "../PopupForms/GuestSignUpPopUp";
 const OverViewHome = (props) => {
   const { user, Games } = Store();
+  const [openCongratulation, setCongratulation] = useState(false);
   const updateStore = UpdateStore();
   const { singlCourse } = props;
   const [openGuestPopUp, setOpenGuestPopUp] = useState(false);
@@ -58,13 +61,18 @@ const OverViewHome = (props) => {
     let res = await api("post", "/users/enrolledCourse", data);
     if (res) {
       updateStore({ user: res.data?.user });
-      handleClick(res.data?.user, res.data?.course);
-      props.setShowVideo(true);
+      setCongratulation(true);
     }
   };
 
   return (
     <>
+      <RegisterSuccessfully
+        open={openCongratulation}
+        setOpen={setCongratulation}
+        text="You have been enrolled successfully !"
+      />
+
       <div className="OverView">
         <div className="center_overViewDiv">
           <div className="overViewImage">
