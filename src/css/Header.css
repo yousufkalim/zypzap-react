@@ -113,11 +113,7 @@
   font-size: 18px;
   text-decoration: none !important;
 }
-.requestBtn:hover {
-  border: 1px solid gray;
-  background: none;
-  padding: 7px 12px;
-}
+
 .requestBtn2 {
   border: none;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
