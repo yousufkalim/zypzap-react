@@ -5,6 +5,11 @@ import overViewIcon1 from "../../assets/icons/overViewIcon1.svg";
 import overViewIcon2 from "../../assets/icons/overViewIcon2.svg";
 import overViewIcon3 from "../../assets/icons/overViewIcon3.svg";
 import overViewIcon4 from "../../assets/icons/overViewIcon4.svg";
+import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
+
+// import OverCardLogo1 from "../../assets/icons/OverCardLogo1.svg";
+// import OverCardLogo2 from "../../assets/icons/OverCardLogo2.svg";
+// import OverCardLogo3 from "../../assets/icons/OverCardLogo3.svg";
 import OverCardHurtLogo from "../../assets/icons/OverCardHurtLogo.svg";
 import RatingStarIcon from "../../assets/icons/RatingStarIcon.svg";
 import Star6 from "../../assets/icons/Star6.svg";
@@ -15,7 +20,8 @@ import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
 import GuestSignUpPopUp from "../PopupForms/GuestSignUpPopUp";
 const OverViewHome = (props) => {
-  const { user } = Store();
+  const { user, Games } = Store();
+  const [openCongratulation, setCongratulation] = useState(false);
   const updateStore = UpdateStore();
   const { singlCourse } = props;
   const [openGuestPopUp, setOpenGuestPopUp] = useState(false);
@@ -36,7 +42,7 @@ const OverViewHome = (props) => {
   const handleClick = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id
+      userId: u?._id,
     };
     let res = await api("post", "/users/enrolledCourseAndStarted", data);
     if (res) {
@@ -46,17 +52,23 @@ const OverViewHome = (props) => {
   const handleEnrolled = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id
+      userId: u?._id,
     };
     let res = await api("post", "/users/enrolledCourse", data);
     if (res) {
       updateStore({ user: res.data?.user });
-      handleClick(res.data?.user, res.data?.course);
-      props.setShowVideo(true);
+      setCongratulation(true);
     }
   };
+
   return (
     <>
+      <RegisterSuccessfully
+        open={openCongratulation}
+        setOpen={setCongratulation}
+        text="You have been enrolled successfully !"
+      />
+
       <div className="OverView">
         <div className="center_overViewDiv">
           <div className="overViewImage">
@@ -135,10 +147,17 @@ const OverViewHome = (props) => {
           </div>
 
           {/* ratting div */}
-          <div className="overViewCard">
+          <div className="overViewCard" style={{ width: "24%" }}>
             <div className="overViewCenterdiv">
               <div className="overViewCarImage">
-                <img src={OverViewCardImg} alt="" className="overViewCardIMG" />
+                <img
+                  style={{ maxWidth: "100%" }}
+                  src={
+                    singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg
+                  }
+                  alt=""
+                  className="overViewCardIMG"
+                />
               </div>
               <div className="overViewBuy">
                 <div className="overViewRateContent">
