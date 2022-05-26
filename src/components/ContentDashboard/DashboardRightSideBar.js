@@ -6,26 +6,25 @@ import Performance from "./performance/Performance";
 import CreateCourseForm from "./createCourse/CreateCourseForm";
 import Setting from "./setting/Setting";
 import Box from "@mui/material/Box";
+import { Store, UpdateStore } from "../../StoreContext";
 const DashboardRightSideBar = ({
-  defaultCompState,
   createCourse,
   setcreateCourse,
-  setDefaultCompState,
   games,
-  creator,
+  creator
 }) => {
+  const { contentDashboardButton } = Store();
   const [activeUploadButton, setActiveUploadButton] = useState(1);
+
   const handleActiveUploadButton = (i) => {
     setActiveUploadButton(i);
   };
+
   return (
     <>
-      {defaultCompState === "Course" ? (
+      {contentDashboardButton === "Course" ? (
         <Box className="upload-courses-container">
-          <CreateYourCourse
-            setcreateCourse={setcreateCourse}
-            setDefaultCompState={setDefaultCompState}
-          />
+          <CreateYourCourse setcreateCourse={setcreateCourse} />
           <Box>
             <div className="uploadBtnDiv">
               <h2
@@ -100,15 +99,12 @@ const DashboardRightSideBar = ({
           </Box>
         </Box>
       ) : null}
-      {defaultCompState == "" && createCourse && games.length > 0 && (
-        <CreateCourseForm
-          games={games}
-          setDefaultCompState={setDefaultCompState}
-        />
+      {contentDashboardButton == "" && createCourse && games.length > 0 && (
+        <CreateCourseForm />
       )}
       {/* {defaultCompState === "Performance" ? <Performance /> : null}
       {defaultCompState === "Earning" ? <Earning /> : null} */}
-      {defaultCompState === "Setting" ? <Setting /> : null}
+      {contentDashboardButton === "Setting" ? <Setting /> : null}
     </>
   );
 };

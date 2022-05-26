@@ -6,16 +6,17 @@ import FormStepFour from "./FormStepFour";
 import FormStepFive from "./FormStepFive";
 import FormStepSix from "./FormStepSix";
 import { Store, UpdateStore } from "../../../StoreContext";
-const CreateCourseForm = ({ games, setDefaultCompState }) => {
+const CreateCourseForm = () => {
   const [step, setStep] = useState(1);
   const [formDataOne, setformDataOne] = useState({
     course_name: "",
     gameName: "",
+    selectedGamename: "",
     gameLevel: "Casual",
     gameType: "Action",
     gameMood: "Single",
     gamePlateForm: "Mobile Games",
-    description: "",
+    description: ""
   });
   const [formDataTwo, setformDataTwo] = useState([]);
   const [formDataFive, setformDataFive] = useState([]);
@@ -32,8 +33,6 @@ const CreateCourseForm = ({ games, setDefaultCompState }) => {
             setStep={setStep}
             formDataOne={formDataOne}
             setformDataOne={setformDataOne}
-            games={games}
-            setDefaultCompState={setDefaultCompState}
           />
         )}
         {step == 2 && (
@@ -68,7 +67,6 @@ const CreateCourseForm = ({ games, setDefaultCompState }) => {
             setformDataFive={setformDataFive}
             setformDataSix={setformDataSix}
             creator={creator}
-            setDefaultCompState={setDefaultCompState}
           />
         )}
       </div>

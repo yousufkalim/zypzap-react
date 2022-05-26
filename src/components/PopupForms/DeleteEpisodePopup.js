@@ -26,13 +26,7 @@ const DeleteEpisodePopup = ({ open, setOpen, course, setOpenEpisode }) => {
         course={course}
         setOpenEpisode={setOpenEpisode}
       />
-      <Dialog
-        open={open}
-        setOpe={setOpen}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
+      <Dialog open={open} setOpe={setOpen} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv"></div>
           <ClearIcon className="subsclearIcon" onClick={handleClose} />

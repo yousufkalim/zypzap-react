@@ -16,7 +16,6 @@ const SplitEpisodes = ({ open, setOpen }) => {
       <Dialog
         open={open}
         setOpen={setOpen}
-        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         maxWidth="md"
@@ -29,23 +28,10 @@ const SplitEpisodes = ({ open, setOpen }) => {
                 <div className="split-Col1">
                   <div className="splitInto">
                     <FormControl component="fieldset">
-                      <RadioGroup
-                        aria-label="gender"
-                        defaultValue="female"
-                        name="radio-buttons-group"
-                      >
-                        <FormControlLabel
-                          value="SplitInto"
-                          control={<Radio />}
-                          label="Split Into"
-                          className="splitAddSpace"
-                        />
+                      <RadioGroup aria-label="gender" defaultValue="female" name="radio-buttons-group">
+                        <FormControlLabel value="SplitInto" control={<Radio />} label="Split Into" className="splitAddSpace" />
                         <br />
-                        <FormControlLabel
-                          value="SplitByDuration"
-                          control={<Radio />}
-                          label="Split By Duration"
-                        />
+                        <FormControlLabel value="SplitByDuration" control={<Radio />} label="Split By Duration" />
                       </RadioGroup>
                     </FormControl>
                   </div>
@@ -58,33 +44,16 @@ const SplitEpisodes = ({ open, setOpen }) => {
                   <br />
                   <div className="splitPart-contrainer">
                     <div1 className="splitParts">
-                      <input
-                        type="number"
-                        className="partsInput2"
-                        name=""
-                        id=""
-                      />
-                      :
+                      <input type="number" className="partsInput2" name="" id="" />:
                       <div>
                         <p className="PartsInputLabel">Horse</p>
                       </div>
                     </div1>
                     <div1 className="splitParts">
-                      <input
-                        type="number"
-                        name=""
-                        id=""
-                        className="partsInput2"
-                      />
-                      :<p className="PartsInputLabel">Min.</p>
+                      <input type="number" name="" id="" className="partsInput2" />:<p className="PartsInputLabel">Min.</p>
                     </div1>
                     <div1 className="splitParts">
-                      <input
-                        type="number"
-                        name=""
-                        id=""
-                        className="partsInput2"
-                      />
+                      <input type="number" name="" id="" className="partsInput2" />
                       <p className="PartsInputLabel">Sec.</p>
                     </div1>
                   </div>

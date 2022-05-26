@@ -99,20 +99,11 @@ const DeleteEpisode = ({ open, setOpen, course }) => {
   return (
     <>
       {/* <div className="mainEpisodeDiv"> */}
-      <DeleteEpisodePUBG
-        open={successPopup}
-        setOpen={setsuccessPopup}
-        text={deletedFile}
-      />
-      <CancleDelete
-        open={showCancleDeletePopup}
-        setOpen={setShowCancleDeletePopup}
-        text={deletedFile}
-      />
+      <DeleteEpisodePUBG open={successPopup} setOpen={setsuccessPopup} text={deletedFile} />
+      <CancleDelete open={showCancleDeletePopup} setOpen={setShowCancleDeletePopup} text={deletedFile} />
       <Dialog
         open={open}
         setOpen={setOpen}
-        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         className="mainEpisodeDiv"
@@ -122,9 +113,7 @@ const DeleteEpisode = ({ open, setOpen, course }) => {
           <div className="hrLine1" />
           {videos.length === 0 && (
             <div className="request-data1">
-              <p className="request-data-p">
-                No video found please add some video for user...
-              </p>
+              <p className="request-data-p">No video found please add some video for user...</p>
             </div>
           )}
           {videos?.map((file, index) => {
@@ -145,10 +134,7 @@ const DeleteEpisode = ({ open, setOpen, course }) => {
                   />
                 </div>
                 <div className="step3Img1">
-                  <button
-                    className="continueBtn"
-                    onClick={() => handleSubmit(file, index)}
-                  >
+                  <button className="continueBtn" onClick={() => handleSubmit(file, index)}>
                     Delete Episode
                   </button>
                 </div>
