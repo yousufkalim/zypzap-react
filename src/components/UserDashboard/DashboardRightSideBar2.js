@@ -6,6 +6,8 @@ import StartedCourse from "./StartedCourse";
 import EnrolledCourse from "./EnrolledCourse";
 import Wishlist from "./Wishlist";
 import ProgressionRoadmap from "./ProgressionRoadmap";
+import { Store, UpdateStore } from "../../StoreContext";
+
 import MyWallet from "./MyWallet";
 import Setting from "./Setting";
 // import Course1 from "../../assets/img/course1.png";
@@ -38,15 +40,13 @@ import Setting from "./Setting";
 //     test: "3",
 //   },
 // ];
-const DashboardRightSideBar2 = ({
-  defaultCompState,
-  setDefaultCompState,
-  defaultCompStatedrop,
-}) => {
+const DashboardRightSideBar2 = ({ defaultCompState }) => {
   // const [activeUploadButton, setActiveUploadButton] = useState(1);
   // const handleActiveUploadButton = (i) => {
   //   setActiveUploadButton(i);
   // };
+  const { contentDashboardButton } = Store();
+
   return (
     <>
       {/* {defaultCompState == "Course" && (
@@ -105,6 +105,7 @@ const DashboardRightSideBar2 = ({
         <Setting />
         //
       )}
+      {contentDashboardButton === "Setting" ? <Setting /> : null}
     </>
   );
 };
