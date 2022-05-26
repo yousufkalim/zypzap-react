@@ -22,7 +22,7 @@ import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
 import GuestSignUpPopUp from "../PopupForms/GuestSignUpPopUp";
 const OverViewHome = (props) => {
-  const { user } = Store();
+  const { user, Games } = Store();
   const updateStore = UpdateStore();
   const { singlCourse } = props;
   const [openGuestPopUp, setOpenGuestPopUp] = useState(false);
@@ -62,6 +62,7 @@ const OverViewHome = (props) => {
       props.setShowVideo(true);
     }
   };
+
   return (
     <>
       <div className="OverView">
@@ -142,10 +143,17 @@ const OverViewHome = (props) => {
           </div>
 
           {/* ratting div */}
-          <div className="overViewCard">
+          <div className="overViewCard" style={{ width: "24%" }}>
             <div className="overViewCenterdiv">
               <div className="overViewCarImage">
-                <img src={OverViewCardImg} alt="" className="overViewCardIMG" />
+                <img
+                  style={{ maxWidth: "100%" }}
+                  src={
+                    singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg
+                  }
+                  alt=""
+                  className="overViewCardIMG"
+                />
               </div>
               <div className="overViewBuy">
                 <div className="overViewRateContent">
