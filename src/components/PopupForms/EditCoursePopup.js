@@ -27,6 +27,7 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
+  console.log("edit course for edit it", course);
   const { Games, creator } = Store();
   const [showPopup, setShowPopup] = React.useState(false);
   const [opens, setOpens] = React.useState(false);
@@ -41,7 +42,8 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   const [formDataFive, setformDataFive] = useState([]);
   const [formDataOne, setformDataOne] = useState({
     course_name: course?.course_name,
-    gameName: course?.game_id?._id,
+    // gameName: course?.game_id?._id,
+    selectedGamename: course?.selectedGamename,
     gameLevel: course?.gameLevel,
     gameType: course?.game_id?.category,
     gameMood: course?.gameMood,
@@ -50,18 +52,20 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   });
   const {
     course_name,
-    gameName,
+    // gameName,
+    selectedGamename,
     gameLevel,
     gameType,
     gameMood,
     gamePlateForm,
     description
   } = formDataOne;
-  
+
   useEffect(() => {
     setformDataOne({
       course_name: course?.course_name,
       gameName: course?.game_id?._id,
+      selectedGamename: course?.selectedGamename,
       gameLevel: course?.level,
       gameType: course?.game_id?.category,
       gameMood: course?.mode,
@@ -86,7 +90,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
       setformDataTwo([]);
       setformDataFive([]);
       setOpen(false);
-      setOpenS(true);
+      // setOpens(true);
     } else {
       return toast.error("Courses not update try again");
     }
@@ -152,7 +156,9 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
             let now = new Date().getTime();
             let _duration = now - lastBytesTransferedTime;
             if (_duration > updateDurationThreshold) {
-              let bytesPerSecond = (snapshot.bytesTransferred - lastBytesTransfered) / updateDurationThreshold;
+              let bytesPerSecond =
+                (snapshot.bytesTransferred - lastBytesTransfered) /
+                updateDurationThreshold;
 
               lastBytesTransfered = snapshot.bytesTransferred;
 
@@ -160,7 +166,10 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
               let newbytesPerSecond = bytesPerSecond / 1024;
               setmbPerSecond(newbytesPerSecond.toFixed(3));
               let remTime =
-                (((snapshot.totalBytes - snapshot.bytesTransferred) / bytesPerSecond) * 2) / (updateDurationThreshold - 1000);
+                (((snapshot.totalBytes - snapshot.bytesTransferred) /
+                  bytesPerSecond) *
+                  2) /
+                (updateDurationThreshold - 1000);
               totaltransferedBytes += lastBytesTransfered;
               remTime = remTime.toFixed(0);
               if (remTime <= 60) remTime = `${remTime} sec left`;
@@ -176,7 +185,9 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
               setTimeUploadRemaining(remTime);
             }
           }
-          const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
           setProgress(progress);
         },
         (error) => {
@@ -206,7 +217,12 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
       />
       {/* <RequestSuccessfullyPopup open={open} setOpen={setOpen} /> */}
       <div>
-        <Dialog fullWidth="true" maxWidth="md" open={open} className="editCoursePopup">
+        <Dialog
+          fullWidth="true"
+          maxWidth="md"
+          open={open}
+          className="editCoursePopup"
+        >
           {/* /* -------------------------------- main div --------------------------------  */}
           <div className="formStepOneDiv">
             <p className="coursedetail2">Edit the course</p>
@@ -233,7 +249,13 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                 <Grid xs={12} sm={6}>
                   <div>
                     <p className="stepLabel">Game Name</p>
-                    <select id="gameName" name="gameName" className="coursInput" value={gameName} onChange={chnageEvent}>
+                    <select
+                      id="gameName"
+                      name="selectedGamename"
+                      className="coursInput"
+                      value={selectedGamename}
+                      onChange={chnageEvent}
+                    >
                       {game?.map((g, index) => {
                         return (
                           <option value={g._id} className="setepOption">
@@ -248,7 +270,13 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                   <Grid xs={12} sm={6}>
                     <div>
                       <p className="stepLabel">Gameplay level</p>
-                      <select id="gameLevel" name="gameLevel" className="stepSelect" value={gameLevel} onChange={chnageEvent}>
+                      <select
+                        id="gameLevel"
+                        name="gameLevel"
+                        className="stepSelect"
+                        value={gameLevel}
+                        onChange={chnageEvent}
+                      >
                         <option value="Casual" className="setepOption">
                           Casual
                         </option>
@@ -276,7 +304,13 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                       <div>
                         <p className="stepLabel">Game Type</p>
 
-                        <select id="gameType" name="gameType" className="stepSelect" value={gameType} onChange={chnageEvent}>
+                        <select
+                          id="gameType"
+                          name="gameType"
+                          className="stepSelect"
+                          value={gameType}
+                          onChange={chnageEvent}
+                        >
                           <option value="Action" className="setepOption">
                             Action
                           </option>
@@ -292,7 +326,10 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                           <option value="Car Racing" className="setepOption">
                             Car Racing
                           </option>
-                          <option value="Versus Fighting" className="setepOption">
+                          <option
+                            value="Versus Fighting"
+                            className="setepOption"
+                          >
                             Versus Fighting
                           </option>
                           <option value="FPS" className="setepOption">
@@ -304,7 +341,10 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                           <option value="RPG" className="setepOption">
                             RPG
                           </option>
-                          <option value="Turn by Turn Strategy" className="setepOption">
+                          <option
+                            value="Turn by Turn Strategy"
+                            className="setepOption"
+                          >
                             Turn by Turn Strategy
                           </option>
                           <option value="Simulation" className="setepOption">
@@ -325,7 +365,13 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                     <Grid xs={12} sm={6}>
                       <div>
                         <p className="stepLabel">Gaming Mode</p>
-                        <select id="gameMood" name="gameMood" className="stepSelect" value={gameMood} onChange={chnageEvent}>
+                        <select
+                          id="gameMood"
+                          name="gameMood"
+                          className="stepSelect"
+                          value={gameMood}
+                          onChange={chnageEvent}
+                        >
                           <option value="Single" className="setepOption">
                             Single
                           </option>
@@ -348,19 +394,28 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                           value={gamePlateForm}
                           onChange={chnageEvent}
                         >
-                          <option value="Retro Consoles" className="setepOption">
+                          <option
+                            value="Retro Consoles"
+                            className="setepOption"
+                          >
                             Retro Consoles
                           </option>
                           <option value="PS1/2/3/4/5" className="setepOption">
                             PS1/2/3/4/5
                           </option>
-                          <option value="Xbox/360/One/X" className="setepOption">
+                          <option
+                            value="Xbox/360/One/X"
+                            className="setepOption"
+                          >
                             Xbox/360/One/X
                           </option>
                           <option value="Mobile Games" className="setepOption">
                             Mobile Games
                           </option>
-                          <option value="Portable Consoles" className="setepOption">
+                          <option
+                            value="Portable Consoles"
+                            className="setepOption"
+                          >
                             Portable Consoles
                           </option>
                           <option value="PC" className="setepOption">
@@ -387,11 +442,15 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
               value={description}
               onChange={chnageEvent}
             ></textarea>
-            <Grid container spacing={2}>
+            {/* <Grid container spacing={2}>
               <div className="step_container2">
                 <div className="step1">
                   <p className="stapPr">Re-upload full course</p>
-                  <VideoInput id="1" text="Select Video" onChange={handleSubmit} />
+                  <VideoInput
+                    id="1"
+                    text="Select Video"
+                    onChange={handleSubmit}
+                  />
                 </div>
                 <p className="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                 <div className="step2">
@@ -399,7 +458,8 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                   <VideoInput text="Select Video" />
                 </div>
               </div>
-            </Grid>
+            </Grid> */}
+
             <div className="coursDetailBtn">
               <button className="drafBtn" onClick={handleClose}>
                 Cancel

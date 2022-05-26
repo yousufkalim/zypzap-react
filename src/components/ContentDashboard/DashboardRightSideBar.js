@@ -7,12 +7,7 @@ import CreateCourseForm from "./createCourse/CreateCourseForm";
 import Setting from "./setting/Setting";
 import Box from "@mui/material/Box";
 import { Store, UpdateStore } from "../../StoreContext";
-const DashboardRightSideBar = ({
-  createCourse,
-  setcreateCourse,
-  games,
-  creator
-}) => {
+const DashboardRightSideBar = ({ createCourse, setcreateCourse, games }) => {
   const { contentDashboardButton } = Store();
   const [activeUploadButton, setActiveUploadButton] = useState(1);
 
@@ -75,7 +70,7 @@ const DashboardRightSideBar = ({
             </div>
             {/* <h1 className="upload-courses-heading"> My Uploaded Courses</h1> */}
             {activeUploadButton == 1 ? (
-              <DashboardUploadCourses pageName={"publish"} creator={creator} />
+              <DashboardUploadCourses pageName={"publish"} />
             ) : null}
             {activeUploadButton == 2 ? (
               <DashboardUploadCourses pageName={"draft"} />

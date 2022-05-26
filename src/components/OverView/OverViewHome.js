@@ -38,10 +38,11 @@ const OverViewHome = (props) => {
       courseId: course?._id,
       userId: u?._id
     };
-    let res = await api("post", "/users/enrolledCourseAndStarted", data);
-    if (res) {
-      updateStore({ user: res.data });
-    }
+    console.log("u,course", u, course);
+    // let res = await api("post", "/users/enrolledCourseAndStarted", data);
+    // if (res) {
+    //   updateStore({ user: res.data });
+    // }
   };
   const handleEnrolled = async (u, course) => {
     const data = {
