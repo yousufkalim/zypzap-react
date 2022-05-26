@@ -115,7 +115,7 @@ body {
   font-weight: 900 !important;
   padding: 8px 0;
   margin: 15px 2px;
-  font-family: "Poppins";
+  font-family: "mulish" !important;
 }
 .CardBuyBtn2 {
   margin-top: 10px;
@@ -129,6 +129,13 @@ body {
   background-color: #14162c !important;
   border: 1px solid #fff;
   position: relative;
+  font-family: "mulish" !important;
+}
+.CardBuyBtn:hover,
+.CardBuyBtn2:hover {
+  background: none;
+  border: 1px solid gray;
+  padding: 7px 0;
 }
 .overComming-soonBTN {
   position: absolute;
