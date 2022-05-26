@@ -37,9 +37,9 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 
       "& + .MuiSwitch-track": {
         opacity: 1,
-        backgroundColor: theme.palette.mode === "dark" ? "green" : "black"
-      }
-    }
+        backgroundColor: theme.palette.mode === "dark" ? "green" : "black",
+      },
+    },
   },
   "& .MuiSwitch-thumb": {
     background:
@@ -56,16 +56,16 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       left: 0,
       top: 0,
       backgroundRepeat: "no-repeat",
-      backgroundPosition: "center"
-    }
+      backgroundPosition: "center",
+    },
   },
   "& .MuiSwitch-track": {
     opacity: 1,
     backgroundColor: theme.palette.mode === "dark" ? "pink" : "gray",
     borderRadius: 20 / 2,
     position: "relative",
-    left: "-21px"
-  }
+    left: "-21px",
+  },
 }));
 
 export default function LoginFormPopup({ open, setOpen, setSignup }) {
@@ -74,7 +74,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
   const [values, setValues] = React.useState({
     email: "",
     password: "",
-    showPassword: false
+    showPassword: false,
   });
   const [creatorSwitch, setCreatorSwitch] = useState(false);
   const [forgetPasswordPopup, setForgetPasswordPopup] = useState(false);
@@ -100,7 +100,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
   const onChangeEvent = (e) => {
     setValues({
       ...values,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
   const submitForm = async (event) => {
@@ -114,7 +114,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
     }
     let formdata = {
       email,
-      password
+      password,
     };
     try {
       let res = await api("post", "/users/login", formdata);
@@ -137,8 +137,8 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
   };
   const label = {
     inputProps: {
-      "aria-label": "Switch demo"
-    }
+      "aria-label": "Switch demo",
+    },
   };
   const handleCheck = (e) => {
     setCreatorSwitch(!creatorSwitch);
@@ -146,13 +146,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
 
   return (
     <div>
-
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        style={{ maxWidth: "480px", margin: "auto" }}
-      >
-
+      <Dialog open={open} style={{ maxWidth: "480px", margin: "auto" }}>
         <div className="login_form">
           <div className="form_container">
             <h1 className="loginH1">Login to your account</h1>
@@ -182,9 +176,6 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
               <br />
 
               <label htmlFor="password" className="loginFH1">
-
-             
-
                 Password
               </label>
 

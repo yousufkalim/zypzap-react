@@ -37,11 +37,14 @@
   border-radius: 4px;
   cursor: pointer;
   box-sizing: border-box;
-  border: 1px solid #7d668b;
   font-family: "mulish";
+  position: relative;
 }
 .textonImgbutton:hover {
+  position: absolute;
+  border: 1px solid #7d668b;
   background: none;
+  padding: 8px 21px;
 }
 .bodyImage {
   width: 93%;

@@ -102,10 +102,11 @@
   display: block;
   margin-top: 35px;
   font-weight: 500;
-  border: 1px solid #7d668b;
 }
 .form_container .formbtns:hover {
+  border: 1px solid #7d668b;
   background: none;
+  padding: 6px;
 }
 .form_container .or {
   display: inline;

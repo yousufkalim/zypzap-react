@@ -26,16 +26,15 @@
   margin-top: 8px;
 }
 .coursInputAutofiled {
-  margin:10px 0px !important;
+  margin: 10px 0px !important;
   width: 93% !important;
   background: none;
   border: 1px solid #555770;
   opacity: 0.6;
   color: #fff;
   height: 40px;
-  
 }
-.css-segi59{
+.css-segi59 {
   padding: 0px !important;
 }
 .coursInput::placeholder,
@@ -91,6 +90,7 @@
   padding: 20px 150px;
 }
 .drafBtn {
+  font-family: "mulish" !important;
   padding: 8px 25px;
   border: none;
   margin: 10px 13px 30px 0px;
@@ -103,6 +103,7 @@
   font-size: 16px;
 }
 .continueBtn {
+  font-family: "mulish" !important;
   padding: 8px 25px;
   border: none;
   margin: 10px 13px 30px 0px;
@@ -114,6 +115,12 @@
   font-family: "Poppins";
   cursor: pointer;
   font-size: 16px;
+}
+.drafBtn:hover,
+.continueBtn:hover {
+  background: none;
+  border: 1px solid gray;
+  padding: 7px 24px;
 }
 .coming-SoonBYN {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),

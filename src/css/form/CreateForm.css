@@ -143,11 +143,12 @@
   display: block;
   margin-top: 30px;
   font-weight: 500;
-  border: 1px solid #7d668b;
 }
 
 .create_container .formbtn2:hover {
+  border: 1px solid #7d668b;
   background: none;
+  padding: 11px 0px !important;
 }
 .create_container .or2 {
   display: inline;
@@ -406,10 +407,11 @@
   border-radius: 4px;
   cursor: pointer;
   box-sizing: border-box;
-  border: 1px solid #7d668b;
 }
 .userProfileButton:hover {
   background: none;
+  border: 1px solid #7d668b;
+  padding: 8px 21px;
 }
 .emailVarificationH1 {
   font-size: 24px;
