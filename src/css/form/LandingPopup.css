@@ -1,11 +1,14 @@
 .css-2rbg70-MuiPaper-root-MuiDialog-paper {
   background: none !important;
 }
+.css-hppdow {
+  background: none !important;
+}
 
 .landingPopup {
   color: #fff;
   font-family: "mulish";
-  width: 750px !important;
+  width: 655px !important;
   overflow: scroll !important;
   border-radius: 13px;
 }
@@ -14,7 +17,7 @@
 }
 
 .landingPopup_container {
-  padding: 25px 25px;
+  padding: 25px 30px;
 }
 .landingPopup_logo_and_heading {
   text-align: center;
@@ -23,10 +26,10 @@
   padding: 5px 0;
 }
 .landingheading {
-  padding: 5px 0 25px 0;
+  padding: 5px 0 30px 0;
 }
 .landing_heading_P {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 100;
   font-family: "AMCAP ETERNAL";
 }
@@ -37,7 +40,7 @@
 .landing_gamers_colmn_1 {
   border: 1.01731px solid #a7a7a7;
   border-radius: 12.7252px;
-  width: 49%;
+  width: 48.5%;
 }
 
 /* ////////// gamers ///////// */
@@ -59,17 +62,17 @@
   height: 1px;
   width: 100px;
   background-color: #ffffff;
-  margin: 9px auto 20px auto;
+  margin: 11px auto 20px auto;
 }
 .gratuit_p1 {
-  font-size: 15px;
+  font-size: 13px;
   background: #662f88;
   display: inline-block;
   padding: 5px 10px;
   margin: 9px 0px;
 }
 .gratuit_p2 {
-  font-size: 14px;
+  font-size: 13px;
   padding: 0 0 28px 0;
   opacity: 0.8;
 }
@@ -93,14 +96,14 @@
 }
 .loffer-p {
   padding: 0 0 45px 0;
-  font-size: 12px;
+  font-size: 11px;
   font-style: italic;
 }
 .loffer_heading {
-  font-size: 22px;
+  font-size: 18px;
   font-family: AMCAP Eternal;
   text-shadow: 0px 4px 3px #662f88;
-  padding: 0 0 20px 0;
+  padding: 0 0 21px 0;
 }
 .L_offer_boxe {
   display: flex;
@@ -109,20 +112,19 @@
 .L_offer_Colmn {
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   border-radius: 3.39339px;
-  width: 144.22px;
-  height: 124.71px;
+  width: 120px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .L_offer_numbers {
-  font-size: 38px;
+  font-size: 30px;
   font-family: AMCAP Eternal;
   text-shadow: 0px 4px 3px #662f88;
 }
 .L_offer_Times {
-  font-size: 18px;
-  font-size: 18px;
+  font-size: 15px;
   font-family: "Myriad Pro-REGULAR";
 }
 .landingLogo2 {
@@ -130,7 +132,7 @@
 }
 .gratuit_p2_2ind {
   padding: 25px 0 0 0;
-  font-size: 15px;
+  font-size: 13px;
 }
 .gratuit_p2_2 {
   font-size: 15px;
@@ -139,7 +141,7 @@
 .L_offer_btn {
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   border-radius: 3.39339px;
-  padding: 10px 20px;
+  padding: 10px 32px;
   color: #fff;
   border: none;
   font-size: 15px;
