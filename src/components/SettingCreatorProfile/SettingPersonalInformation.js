@@ -20,13 +20,13 @@ const SettingPersonalInformation = () => {
   });
   const { user } = Store();
   const [formData, setFormData] = useState({
-    username: user?.username ? user.username : "",
+    username: user?.username || "",
     email: user?.email ? user.email[0] : "",
-    phone_number: user?.phone_number ? user.phone_number : "",
-    iban: user?.iban ? user.iban : "",
-    country: user?.country ? user.country : "",
-    account_number: user?.account_number ? user.account_number : "",
-    bank_identifier: user?.bank_identifier ? user.bank_identifier : "",
+    phone_number: user?.phone_number || "",
+    iban: user?.iban || "",
+    country: user?.country || "",
+    account_number: user?.account_number || "",
+    bank_identifier: user?.bank_identifier || "",
   });
   const {
     username,
@@ -39,13 +39,13 @@ const SettingPersonalInformation = () => {
   } = formData;
   useEffect(() => {
     setFormData({
-      username: user?.username ? user.username : "",
+      username: user?.username || "",
       email: user?.email ? user.email[0] : "",
-      phone_number: user?.phone_number ? user.phone_number : "",
-      iban: user?.iban ? user.iban : "",
-      country: user?.country ? user.country : "",
-      account_number: user?.account_number ? user.account_number : "",
-      bank_identifier: user?.bank_identifier ? user.bank_identifier : "",
+      phone_number: user?.phone_number || "",
+      iban: user?.iban || "",
+      country: user?.country || "",
+      account_number: user?.account_number || "",
+      bank_identifier: user?.bank_identifier || "",
     });
   }, [user]);
 
@@ -83,12 +83,6 @@ const SettingPersonalInformation = () => {
     if (res) {
       updateStore({ user: res.data.user });
       toast.success("Modifier le profil avec succès");
-      setFormData({
-        username: "",
-        email: "",
-        phone_number: "",
-        iban: "",
-      });
     }
   };
   const handleMouseDownPassword = (event) => {

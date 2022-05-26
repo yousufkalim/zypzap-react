@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -7,6 +7,8 @@ import MasterCard from "../../assets/icons/MasterCard.svg";
 import Switch from "@mui/material/Switch";
 import HeaderLogoutIcon from "../../assets/icons/HeaderLogoutIcon.svg";
 import api from "../../api";
+import { toast } from "react-toastify";
+
 import { useHistory } from "react-router-dom";
 import { Store, UpdateStore } from "../../StoreContext";
 const MyPrifileSetting = () => {
@@ -14,20 +16,68 @@ const MyPrifileSetting = () => {
   const updateStore = UpdateStore();
   const { user, creator, searchState, searchInput } = Store();
   const [values, setValues] = React.useState(false);
+  const [formData, setFormData] = useState({
+    username: user?.username || "",
+    email: user?.email ? user.email[0] : "",
+    // password: user?.password || "",
+    card_number: user?.card_number || "",
+    expiry_month: user?.expiry_date?.month || "",
+    expiry_year: user?.expiry_date?.year || "",
+    cvv: user?.cvv || "",
+    card_holder_name: user?.card_holder_name || "",
+  });
 
+  const {
+    username,
+    email,
+    password,
+    card_number,
+    expiry_month,
+    expiry_year,
+    cvv,
+    card_holder_name,
+  } = formData;
+  useEffect(() => {
+    setFormData({
+      username: user?.username || "",
+      email: user?.email ? user.email[0] : "",
+      // password: user?.password || "",
+      card_number: user?.card_number || "",
+      expiry_month: user?.expiry_date?.month || "",
+      expiry_year: user?.expiry_date?.year || "",
+      cvv: user?.cvv || "",
+      card_holder_name: user?.card_holder_name || "",
+    });
+  }, [user]);
   const handleClickShowPassword = () => {
     setValues(!values);
   };
-
+  console.log("first");
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  const handleLogout = async () => {
-    let res = await api("post", "/users/logout/all");
+
+  const handlechange1 = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+  const SubmitEvent = async (e) => {
+    const d = {
+      ...formData,
+      expiry_date: {
+        month: expiry_month,
+        year: expiry_year,
+      },
+    };
+    delete d.expiry_month;
+    delete d.expiry_year;
+    let res = await api("post", `/users/basicInfo/${user?._id}`, d);
     if (res) {
-      updateStore({ user: null, creator: null });
-      localStorage.removeItem("token");
-      history.push("/home");
+      updateStore({ user: res.data.user });
+      console.log("USER", email, password);
+      toast.success("Modifier le profil avec succès");
     }
   };
   const label = { inputProps: { "aria-label": "Switch demo" } };
@@ -45,8 +95,11 @@ const MyPrifileSetting = () => {
                 type="text"
                 className="profileInputs"
                 placeholder="@johnsmith1"
+                value={username}
+                onChange={handlechange1}
+                name="username"
               />
-              <p className="profileInput-p">This email is already taken</p>
+              {/* <p className="profileInput-p">This email is already taken</p> */}
             </div>
             <div className="profileSetting_Input passIcon">
               <label htmlFor="" className="profileSetting-label">
@@ -56,6 +109,9 @@ const MyPrifileSetting = () => {
                 type={values ? "text" : "password"}
                 className="profileInputs "
                 placeholder="*************"
+                value={password}
+                onChange={handlechange1}
+                name="password"
               />
               <button
                 className="paswordIcon"
@@ -73,6 +129,9 @@ const MyPrifileSetting = () => {
                 type="gmail"
                 className="profileInputs"
                 placeholder="example@gmail.com"
+                value={email}
+                onChange={handlechange1}
+                name="email"
               />
             </div>
             <div>
@@ -166,6 +225,9 @@ const MyPrifileSetting = () => {
                 type="text"
                 className="profileInputs"
                 placeholder="Walter White"
+                name="card_holder_name"
+                onChange={handlechange1}
+                value={card_holder_name}
               />
             </div>
             <div className="profileSetting_Input">
@@ -176,45 +238,69 @@ const MyPrifileSetting = () => {
                 type="text"
                 className="profileInputs"
                 placeholder="XXXX  XXXX  XXXX  1234"
+                onChange={handlechange1}
+                value={card_number}
+                name="card_number"
               />
             </div>
             <div className="empiryDiv">
               <p className="profileSetting-label">Expiry Date</p>
               <div className="empiryColmn">
-                <select name="cars" id="cars" className="empirydata">
-                  <option value="">January</option>
-                  <option value="">February</option>
-                  <option value="">March</option>
-                  <option value="">April</option>
-                  <option value="">May</option>
-                  <option value="">June</option>
-                  <option value="">July</option>
-                  <option value="">August</option>
-                  <option value="">September</option>
-                  <option value="">October</option>
-                  <option value="">November</option>
-                  <option value="">December</option>
+                <select
+                  id="cars"
+                  className="empirydata"
+                  value={expiry_month}
+                  onChange={handlechange1}
+                  name="expiry_month"
+                >
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
                 </select>
 
-                <select name="cars" id="cars" className="empirydata">
-                  <option value="">2022</option>
-                  <option value="">2023</option>
-                  <option value="">2024</option>
-                  <option value="">2025</option>
-                  <option value="">2026</option>
-                  <option value="">2028</option>
-                  <option value="">2029</option>
-                  <option value="">2030</option>
+                <select
+                  id="cars"
+                  className="empirydata"
+                  value={expiry_year}
+                  onChange={handlechange1}
+                  name="expiry_year"
+                >
+                  <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                  <option value="2025">2025</option>
+                  <option value="2026">2026</option>
+                  <option value="2027">2027</option>
+                  <option value="2028">2028</option>
+                  <option value="2029">2029</option>
+                  <option value="2030">2030</option>
                 </select>
               </div>
             </div>
             <div className="cvvDiv">
               <p className="profileSetting-label">CVV</p>
-              <input type="text" className="empirydata" placeholder="123" />
+              <input
+                type="text"
+                className="empirydata"
+                placeholder="123"
+                name="cvv"
+                onChange={handlechange1}
+                value={cvv}
+              />
             </div>
             <button
               className="formbtn2"
               type="submit"
+              onClick={SubmitEvent}
               style={{
                 background: "linear-gradient(326deg, #662F88 8%, #20BF55 132%)",
                 color: "white",
