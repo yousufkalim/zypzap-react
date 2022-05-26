@@ -24,7 +24,7 @@
 }
 .login_form {
   width: 100%;
-  padding: 30px 30px 0 30px;
+  padding: 5px 30px 0 30px;
   display: flex;
   background-color: #15162c;
   color: #fff;
@@ -49,14 +49,15 @@
 }
 .login_pera {
   font-size: 14px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   opacity: 0.8;
 }
 .loginFH1 {
   display: block;
   padding-bottom: 5px;
   font-size: 13px;
-  font-family: 'Mulish';
+  font-family: "Mulish";
+  padding-top: 5px;
 }
 .form_container .inputForm {
   padding-left: 10px;
@@ -94,17 +95,18 @@
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
   font-family: "Poppins", sans-serif;
-  border-radius: 2px;
+  border-radius: 4px;
   cursor: pointer;
   width: 100%;
   font-size: 16px;
   display: block;
   margin-top: 35px;
   font-weight: 500;
-  border: 1px solid #7d668b;
 }
 .form_container .formbtns:hover {
+  border: 1px solid #7d668b;
   background: none;
+  padding: 6px;
 }
 .form_container .or {
   display: inline;
@@ -141,10 +143,7 @@
   display: flex;
   margin-top: 30px;
   margin-bottom: 25px;
-  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 55.69%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #fff;
 }
 .sgnUpBtn {
   display: inline;
@@ -154,6 +153,11 @@
   font-weight: 600;
   cursor: pointer;
   font-size: 15px;
+  background: linear-gradient(30.06deg, #662f88 9.05%, #20bf55 55.69%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: "mulish";
 }
 @media only screen and (min-width: 300px) and (max-width: 768px) {
   .social span {

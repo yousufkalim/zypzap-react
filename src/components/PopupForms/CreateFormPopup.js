@@ -126,7 +126,8 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
     <>
       <div>
         {/* <EmailVarificaiton open={opens} setOpen={setOpens} /> */}
-        <Dialog open={open}>
+
+        <Dialog open={open} maxWidth={"sm"}>
           <div className="create_form">
             <div className="create_container">
               <h1 className="createH1">Create an Account</h1>

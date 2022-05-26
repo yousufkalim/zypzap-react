@@ -227,6 +227,15 @@
   font-weight: 600;
   font-family: "mulish" !important;
 }
+.wishListBtn:hover,
+.wishListBtn2:hover {
+  background: none;
+  border: 1px solid gray;
+  padding: 9px 19px;
+}
+.wishListBtn2:hover {
+  padding: 9px 39px;
+}
 .wishlistP {
   font-size: 22px;
 }

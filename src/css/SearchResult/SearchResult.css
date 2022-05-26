@@ -136,6 +136,7 @@
   display: flex;
   margin-top: 18px;
   font-size: 15px;
+  font-family: "mulish";
 }
 .star-icon {
   width: 15px !important;
@@ -156,6 +157,11 @@
   font-size: 16px !important;
   padding: 12px 15px !important;
   margin: 25px 0 0 0 !important;
+}
+.btn-search-result:hover {
+  background: none;
+  border: 1px solid gray;
+  padding: 11px 14px !important;
 }
 .btn-Research {
   border: none;
@@ -261,7 +267,8 @@
 .active {
   background-color: #14164c;
   width: 100%;
-  font-weight: 400;
+  font-weight: 500;
+  font-family: "mulish";
 }
 .radio-item {
   position: relative;

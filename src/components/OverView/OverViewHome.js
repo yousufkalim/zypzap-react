@@ -5,19 +5,18 @@ import overViewIcon1 from "../../assets/icons/overViewIcon1.svg";
 import overViewIcon2 from "../../assets/icons/overViewIcon2.svg";
 import overViewIcon3 from "../../assets/icons/overViewIcon3.svg";
 import overViewIcon4 from "../../assets/icons/overViewIcon4.svg";
+<<<<<<< HEAD
 import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
 
 // import OverCardLogo1 from "../../assets/icons/OverCardLogo1.svg";
 // import OverCardLogo2 from "../../assets/icons/OverCardLogo2.svg";
 // import OverCardLogo3 from "../../assets/icons/OverCardLogo3.svg";
+=======
+>>>>>>> dda1dade9396af341019553f9fb1e74aafd57dac
 import OverCardHurtLogo from "../../assets/icons/OverCardHurtLogo.svg";
-// import OverCardSocialIcon1 from "../../assets/icons/OverCardSocialIcon1.svg";
-// import OverCardSocialIcon2 from "../../assets/icons/OverCardSocialIcon2.svg";
-// import OverCardSocialIcon3 from "../../assets/icons/OverCardSocialIcon3.svg";
 import RatingStarIcon from "../../assets/icons/RatingStarIcon.svg";
 import Star6 from "../../assets/icons/Star6.svg";
 
-// import { ReactComponent as Star } from "../../assets/icons/star2.svg";
 // import StarIcon from "@material-ui/icons/Star";
 import { NavLink } from "react-router-dom";
 import { Store, UpdateStore } from "../../StoreContext";
@@ -46,7 +45,7 @@ const OverViewHome = (props) => {
   const handleClick = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id,
+      userId: u?._id
     };
     let res = await api("post", "/users/enrolledCourseAndStarted", data);
     if (res) {
@@ -56,7 +55,7 @@ const OverViewHome = (props) => {
   const handleEnrolled = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id,
+      userId: u?._id
     };
     let res = await api("post", "/users/enrolledCourse", data);
     if (res) {
