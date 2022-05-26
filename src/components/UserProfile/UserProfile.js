@@ -76,20 +76,20 @@ const UserProfile = (props) => {
                 {user ? user.email[0] : "johnsmith1@gmail.com"}
               </p>
               <p className="prfile-lavelP">
-                Level:
+                Level:&nbsp;
                 <span className="level-span">
                   {creator?.gameLevel ? creator.gameLevel : "Semi-Pro"}
                 </span>
               </p>
             </div>
-            <div className="following-content">
+            {/* <div className="following-content">
               <p className="followingP">
                 Following:&nbsp;
                 <span className="follo-span">
                   {creator?.followers ? creator.followers.length : " 10"}
                 </span>
               </p>
-            </div>
+            </div> */}
 
             <div className="profileEditButton">
               <a to="">

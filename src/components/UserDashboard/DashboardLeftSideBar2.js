@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Store, UpdateStore } from "../../StoreContext";
 
 // import YouTubeIcon from "@mui/icons-material/YouTube";
 const DashboardLeftSideBar2 = ({
@@ -8,7 +9,8 @@ const DashboardLeftSideBar2 = ({
   setDefaultCompStatedrop,
 }) => {
   const [flag, setFlag] = useState(false);
-
+  const { contentDashboardButton } = Store();
+  const updateStore = UpdateStore();
   const handelClick = () => {
     setFlag(!flag);
   };
