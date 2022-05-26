@@ -11,7 +11,7 @@ const LandingPopup = ({ open, setOpen }) => {
   };
 
   useEffect(() => {
-    setOpen(true);
+    // setOpen(true);
   }, []);
 
   return (
