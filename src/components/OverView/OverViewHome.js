@@ -44,10 +44,22 @@ const OverViewHome = (props) => {
       courseId: course?._id,
       userId: u?._id,
     };
+    console.log("u,course", u, course);
     let res = await api("post", "/users/enrolledCourseAndStarted", data);
     if (res) {
       updateStore({ user: res.data });
     }
+  };
+  const handleClickViewCourse = async (u, course) => {
+    // const data = {
+    //   courseId: course?._id,
+    //   userId: u?._id
+    // };
+    // console.log("u,course", u, course);
+    // let res = await api("post", "/users/enrolledCourseAndStarted", data);
+    // if (res) {
+    //   updateStore({ user: res.data });
+    // }
   };
   const handleEnrolled = async (u, course) => {
     const data = {
@@ -181,7 +193,7 @@ const OverViewHome = (props) => {
                     className="CardBuyBtn"
                     onClick={() => {
                       if (user) {
-                        handleClick(user, singlCourse);
+                        handleClickViewCourse(user, singlCourse);
                         props.setShowVideo(true);
                       } else {
                         props.setOpenSignup(true);

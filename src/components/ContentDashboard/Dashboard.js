@@ -71,7 +71,6 @@ const Dashboard = ({ id }) => {
           setcreateCourse={setcreateCourse}
           createCourse={createCourse}
           games={games}
-          creator={creator}
         />
       </Box>
     </>

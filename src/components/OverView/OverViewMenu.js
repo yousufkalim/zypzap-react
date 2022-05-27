@@ -62,7 +62,7 @@ const OverViewMenu = ({ setActivebtn, btns, activebtn, course }) => {
               </NavLink>
             </>
           ))}
-          {userRole === "Creator" ? (
+          {/* {userRole === "Creator" ? (
             <span className="overViewMenuLogos">
               <img
                 className="deleteIcon2"
@@ -79,7 +79,7 @@ const OverViewMenu = ({ setActivebtn, btns, activebtn, course }) => {
             </span>
           ) : (
             <></>
-          )}
+          )} */}
         </div>
       </div>
     </>

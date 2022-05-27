@@ -9,14 +9,14 @@ import BecomeCreatorpopup from "../PopupForms/BecomeCreatorpopup";
 import { Store, UpdateStore } from "../../StoreContext";
 import { useHistory } from "react-router-dom";
 const UserProfile = (props) => {
-  const { user } = props;
+  const { user, creator } = props;
   const history = useHistory();
   const [openProfile, setOpenProfile] = useState(false);
   const [openCongratulation, setCongratulation] = useState(false);
   const [open, setOpen] = useState(false);
 
   const updateStore = UpdateStore();
-  const { creator } = Store;
+  // const { creator } = Store;
 
   const handleClickOpen = () => {
     if (user?.role == "Creator") {
@@ -25,6 +25,7 @@ const UserProfile = (props) => {
       setOpenProfile(true);
     }
   };
+  console.log("createor profile", creator, user);
 
   return (
     <>
@@ -86,7 +87,7 @@ const UserProfile = (props) => {
               <p className="followingP">
                 Following:&nbsp;
                 <span className="follo-span">
-                  {creator?.followers ? creator.followers.length : " 10"}
+                  {creator?.followers ? creator.followers.length : " 0"}
                 </span>
               </p>
             </div>

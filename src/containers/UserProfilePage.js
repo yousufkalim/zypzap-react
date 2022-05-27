@@ -7,7 +7,7 @@ import { Store, UpdateStore } from "../StoreContext";
 
 const UserProfilePage = () => {
   const updateStore = UpdateStore();
-  const { user } = Store();
+  const { user, creator } = Store();
   const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] = useState(false);
   useEffect(() => {}, [user]);
   return (
@@ -16,7 +16,7 @@ const UserProfilePage = () => {
         openBecomeCreatorPopup={openBecomeCreatorPopup}
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
       />
-      <UserProfile user={user} />
+      <UserProfile user={user} creator={creator} />
       <MyProfile user={user} />
       <Footer />
     </>

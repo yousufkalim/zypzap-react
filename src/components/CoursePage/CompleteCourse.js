@@ -28,6 +28,13 @@ const CompleteCourse = ({ singlCourse }) => {
             {/* <ReactPlayer src={playVideo?.src_url} /> */}
             <ReactPlayer
               url={playVideo?.src_url}
+              config={{
+                file: {
+                  attributes: {
+                    controlsList: "nodownload"
+                  }
+                }
+              }}
               controls
               autoplay
               className="completeCourse-Video"
