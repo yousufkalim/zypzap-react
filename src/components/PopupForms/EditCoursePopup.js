@@ -224,7 +224,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
           className="editCoursePopup"
         >
           {/* /* -------------------------------- main div --------------------------------  */}
-          <div className="formStepOneDiv">
+          <div className="formStepOneDiv" style={{ margin: "0px" }}>
             <p className="coursedetail2">Edit the course</p>
             <div className="hrLine1" />
             <div className="courseDivContainer">
