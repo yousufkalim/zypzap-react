@@ -4,14 +4,18 @@ import CreateYourCourse from "./courses/CreateYourCourse";
 import Earning from "./earning/Earning";
 import Performance from "./performance/Performance";
 import CreateCourseForm from "./createCourse/CreateCourseForm";
-import Setting from "./setting/Setting";
+// import Setting from "./setting/Setting";
+// import Setting from "./Setting";
+
 import Box from "@mui/material/Box";
 import { Store, UpdateStore } from "../../StoreContext";
+import MyProfileData from "../UserProfile/MyProfileData";
+import Setting from "../UserDashboard/Setting";
 const DashboardRightSideBar = ({
   createCourse,
   setcreateCourse,
   games,
-  creator
+  creator,
 }) => {
   const { contentDashboardButton } = Store();
   const [activeUploadButton, setActiveUploadButton] = useState(1);
