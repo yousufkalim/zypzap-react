@@ -21,10 +21,6 @@ const Dashboard2 = () => {
   const { user } = Store();
   useEffect(() => {
     getUser();
-    if (location.state.openSettings) {
-      setDefaultCompState("Setting");
-      setActiveButton("Setting");
-    }
   }, []);
   const getUser = async () => {
     if (user) {

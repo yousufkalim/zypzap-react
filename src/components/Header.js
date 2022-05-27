@@ -50,15 +50,15 @@ const Search = styled("div")(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25)
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
   width: "100%",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
-    width: "auto"
-  }
+    width: "auto",
+  },
 }));
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
@@ -68,7 +68,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   pointerEvents: "none",
   display: "flex",
   alignItems: "center",
-  justifyContent: "center"
+  justifyContent: "center",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -80,9 +80,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      width: "20ch"
-    }
-  }
+      width: "20ch",
+    },
+  },
 }));
 
 export default function PrimarySearchAppBar({
@@ -92,7 +92,7 @@ export default function PrimarySearchAppBar({
   setOpenSignup,
   openBecomeCreatorPopup,
   setOpenBecomeCreatorPopup,
-  games
+  games,
 }) {
   const updateStore = UpdateStore();
   const {
@@ -101,7 +101,7 @@ export default function PrimarySearchAppBar({
     searchState,
     searchInput,
     learner,
-    contentDashboardButton
+    contentDashboardButton,
   } = Store();
 
   const history = useHistory();
@@ -134,18 +134,20 @@ export default function PrimarySearchAppBar({
   const creatorDashboard = () => {
     updateStore({ contentDashboardButton: "Setting" });
     history.push({
-      pathname: "/dashboard"
+      pathname: "/dashboard",
+    });
+  };
+  const UserDashboard = () => {
+    updateStore({ contentDashboardButton: "Setting" });
+    history.push({
+      pathname: "/UserDashboard",
     });
   };
 
   const handleSettings = () => {
     console.log("user?.role ", user?.role);
     {
-      user?.role === "User"
-        ? history.push({
-            pathname: "/UserDashboard"
-          })
-        : creatorDashboard();
+      user?.role === "User" ? UserDashboard() : creatorDashboard();
     }
   };
   const handleClose = () => {
@@ -222,13 +224,13 @@ export default function PrimarySearchAppBar({
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: "top",
-        horizontal: "right"
+        horizontal: "right",
       }}
       id={menuId}
       keepMounted
       transformOrigin={{
         vertical: "top",
-        horizontal: "right"
+        horizontal: "right",
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
@@ -248,13 +250,13 @@ export default function PrimarySearchAppBar({
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
         vertical: "top",
-        horizontal: "right"
+        horizontal: "right",
       }}
       id={mobileMenuId}
       keepMounted
       transformOrigin={{
         vertical: "top",
-        horizontal: "right"
+        horizontal: "right",
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
@@ -298,7 +300,7 @@ export default function PrimarySearchAppBar({
             <Link
               to={{
                 pathname: learner ? "UserDashboard" : "dashboard",
-                state: { creator: `${creator}` }
+                state: { creator: `${creator}` },
               }}
               style={{ color: "white", textDecoration: "none" }}
             >
@@ -321,7 +323,7 @@ export default function PrimarySearchAppBar({
                 <Link
                   to={{
                     pathname: learner ? "UserDashboard" : "dashboard",
-                    state: { user: `${user}` }
+                    state: { user: `${user}` },
                   }}
                   style={{ color: "white", textDecoration: "none" }}
                 >
@@ -480,13 +482,13 @@ export default function PrimarySearchAppBar({
               sx={{
                 display: { xs: "none", sm: "block" },
                 fontFamily: "Mulish",
-                paddingLeft: "5px"
+                paddingLeft: "5px",
               }}
             >
               {/* Categories */}
               <div
                 style={{
-                  cursor: "pointer"
+                  cursor: "pointer",
                 }}
               >
                 <a
@@ -597,7 +599,7 @@ export default function PrimarySearchAppBar({
               sx={{
                 display: { xs: "none", md: "flex" },
                 justifyContent: { xs: "none", md: "space-between" },
-                width: { xs: "auto", md: "30%" }
+                width: { xs: "auto", md: "30%" },
               }}
             >
               {creator ? (
@@ -625,7 +627,7 @@ export default function PrimarySearchAppBar({
                   <Link
                     to={{
                       pathname: learner ? "UserDashboard" : "dashboard",
-                      state: { creator: `${creator}` }
+                      state: { creator: `${creator}` },
                     }}
                     onClick={() => {
                       !learner && history.push("/dashboard");
@@ -653,7 +655,7 @@ export default function PrimarySearchAppBar({
                       <Link
                         to={{
                           pathname: "/UserDashboard",
-                          state: { user: `${user}` }
+                          state: { user: `${user}` },
                         }}
                         style={{ color: "white", textDecoration: "none" }}
                       >
