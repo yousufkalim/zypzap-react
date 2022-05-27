@@ -37,7 +37,10 @@
   cursor: pointer;
   font-size: 17px;
   /* font-weight: 600; */
-  font-family: "Poppins", sans-serif;
+  font-family: "mulish";
+}
+.deshli:hover {
+  padding: 6px 4px 6px 12px;
 }
 .actvieClassOne {
   background-color: #e7411b;

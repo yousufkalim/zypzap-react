@@ -79,7 +79,7 @@ const DashboardRightSideBar = ({
             </div>
             {/* <h1 className="upload-courses-heading"> My Uploaded Courses</h1> */}
             {activeUploadButton == 1 ? (
-              <DashboardUploadCourses pageName={"publish"} creator={creator} />
+              <DashboardUploadCourses pageName={"publish"} />
             ) : null}
             {activeUploadButton == 2 ? (
               <DashboardUploadCourses pageName={"draft"} />

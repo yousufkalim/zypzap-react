@@ -629,9 +629,10 @@ export default function PrimarySearchAppBar({
                       pathname: learner ? "UserDashboard" : "dashboard",
                       state: { creator: `${creator}` },
                     }}
-                    onClick={() =>
-                      updateStore({ contentDashboardButton: "Course" })
-                    }
+                    onClick={() => {
+                      !learner && history.push("/dashboard");
+                      updateStore({ contentDashboardButton: "Course" });
+                    }}
                     style={{ color: "white", textDecoration: "none" }}
                   >
                     <p className="sgnBtn">My Dashboard</p>
