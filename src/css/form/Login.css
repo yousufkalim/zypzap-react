@@ -31,7 +31,7 @@
   margin: auto;
   flex-direction: column-reverse;
   /* font-family: "Myriad Pro"; */
-  opacity: 0.8;
+  /* opacity: 0.8; */
   border-radius: 20px !important;
 }
 .loginH1 {
