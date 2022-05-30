@@ -185,7 +185,9 @@ const LandingPopup = ({ open, setOpen }) => {
               <div className="landingLogo2">
                 <img src={NewLogo} alt="" />
               </div>
-              <button className="L_offer_btn">Close</button>
+              <button className="L_offer_btn" onClick={handleClose}>
+                Close
+              </button>
             </div>
             {/* L'offre se termine dans */}
           </div>
