@@ -46,7 +46,7 @@ export default function WhatWeOffer() {
           pera="S'abonner à la Newsletter"
           title="Accédez à des avantages uniques ! "
           // title2="avantages uniques"
-          content="Offre reservée aux 1000 premiers inscrits"
+          content="Offre reservée aux 100 premiers inscrits"
           check="false"
           type="creator"
         />
@@ -60,7 +60,7 @@ export default function WhatWeOffer() {
           setSuccessPopup={setSuccessPopup}
           title="Bénéficiez d’un an de services offerts !"
           // title2=" services offerts !"
-          content="Offre reservée aux 10 000 premiers inscrits"
+          content="Offre reservée aux 1000 premiers inscrits"
           pera="S'abonner à la Newsletter"
           check="true"
           type="user"

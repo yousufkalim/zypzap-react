@@ -27,6 +27,7 @@
 .preparingP {
   font-size: 18px;
   /* margin: 10px 0; */
+  font-family: "Myriad Pro-REGULAR";
 }
 .preparingP2 {
   display: none;
@@ -81,16 +82,17 @@
   border: none;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   font-weight: 600;
-  font-family: " Myriad Pro", sans-serif;
+  font-family: "mulish";
   border-radius: 5px;
   cursor: pointer;
   font-size: 18px;
-  border: 1px solid #662f88;
   display: block;
   margin: auto;
 }
 .preparingPrsntageBtn:hover {
   background: none;
+  border: 1px solid #662f88;
+  padding: 9px 0px !important;
 }
 .offerimg1-1 {
   margin-top: 20px;
