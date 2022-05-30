@@ -14,6 +14,15 @@ const UserProfile = (props) => {
   const [openProfile, setOpenProfile] = useState(false);
   const [openCongratulation, setCongratulation] = useState(false);
   const [open, setOpen] = useState(false);
+  const [showImg, setShowImg] = useState(false);
+
+  const handleShowImage = () => {
+    if (user?.role == "Creator") {
+      setOpen(true);
+    } else {
+      setShowImg(true);
+    }
+  };
 
   const updateStore = UpdateStore();
   const { creator } = Store;
@@ -45,11 +54,15 @@ const UserProfile = (props) => {
       <div className="userProfileDiv">
         <div className="userProfile-centerDiv">
           <div className="profile-image">
+            {/* {showImg ? null : (
+              <> */}
             <img
               src={UserHomeProfleImg}
               alt=""
               className="profileBackgroun-Image"
             />
+            {/* </>
+            )} */}
           </div>
 
           <div className="Profile-DP">
@@ -93,8 +106,8 @@ const UserProfile = (props) => {
 
             <div className="profileEditButton">
               <a to="">
-                <button className="editProfiel-btn" onClick={handleClickOpen}>
-                  Edit Profile
+                <button className="editProfiel-btn" onClick={handleShowImage}>
+                  Add Cover Photo
                 </button>
               </a>
             </div>

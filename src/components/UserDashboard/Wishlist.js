@@ -61,7 +61,7 @@ const Wishlist = () => {
   };
   return (
     <div className="wishlistDiv">
-      <h3 className="wishCardh3">Wishlist</h3>
+      <p className="wishCardh3">Wishlist</p>
       <div className="">
         {/* <h3 className="creatorProfileH3">Courses</h3> */}
         <div className="">
