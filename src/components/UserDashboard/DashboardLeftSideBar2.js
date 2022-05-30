@@ -1,27 +1,31 @@
+import zIndex from "@mui/material/styles/zIndex";
 import React, { useState } from "react";
 import { Store, UpdateStore } from "../../StoreContext";
 
 // import YouTubeIcon from "@mui/icons-material/YouTube";
 const DashboardLeftSideBar2 = ({
   items,
-  activeButton,
   trigerOnClickEmpSideBtn,
   setDefaultCompStatedrop,
+  defaultCompStatedrop
 }) => {
   const [flag, setFlag] = useState(false);
   const { contentDashboardButton } = Store();
+
   const updateStore = UpdateStore();
   const handelClick = () => {
     setFlag(!flag);
   };
   const handleClick2 = (i) => {
     setDefaultCompStatedrop(i);
+    updateStore({ contentDashboardButton: i });
   };
 
   return (
     <>
       {items.map((item, i) => {
-        const className = activeButton === item.name ? "dashboard" : "";
+        const className =
+          contentDashboardButton === item.name ? "dashboard" : "";
         return (
           <>
             <div
@@ -49,7 +53,9 @@ const DashboardLeftSideBar2 = ({
                 <div>
                   {item.drop.map((i) => (
                     <div
-                      className="DashboardLeftSideBar2-dropdown "
+                      className={`DashboardLeftSideBar2-dropdown ${
+                        contentDashboardButton == i && "dashboard"
+                      }`}
                       onClick={() => handleClick2(i)}
                     >
                       {i}
@@ -69,7 +75,7 @@ const DashboardLeftSideBar2 = ({
                         cursor: "pointer",
                         position: "absolute",
                         marginTop: "-12px",
-                        fontSize: "10px",
+                        fontSize: "10px"
                       }}
                       // onClick={() => handleClick2(i)}
                     >

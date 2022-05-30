@@ -573,7 +573,7 @@ const SettingPersonalInformation = () => {
                 <option value="Zimbabwe">Zimbabwe</option>
               </select>
             </div>
-            <button
+            {/* <button
               className="formbtn2"
               type="submit"
               onClick={SubmitEvent}
@@ -592,11 +592,35 @@ const SettingPersonalInformation = () => {
               }}
             >
               Save
-            </button>
+            </button> */}
           </div>
           <div className="setting_C_Colmn"></div>
         </div>
       </div>
+      <div>
+          <button
+            className="formbtn2"
+            type="submit"
+            onClick={SubmitEvent}
+            style={{
+              background: "linear-gradient(326deg, #662F88 8%, #20BF55 132%)",
+              color: "white",
+              fontWeight: "600",
+              borderRadius: " 4px",
+              cursor: "pointer",
+              border: "none",
+              width: " 133.93px",
+              height: "44px",
+              fontSize: "14px",
+              display: "bl8ck",
+              margin: "15px 4px",
+
+            }}
+          >
+            Save
+          </button>
+            </div>
+            
     </>
   );
 };

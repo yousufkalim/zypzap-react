@@ -17,7 +17,7 @@ const DashboardLeftSideBar = ({
           <div
             key={item.course}
             onClick={trigerOnClickEmpSideBtn}
-            className={`sidebar-course-opt ${className}`}
+            className={`sidebar-course-opt ${className} paddingClass`}
           >
             <div className="img-text-container">
               <img src={item.img} />

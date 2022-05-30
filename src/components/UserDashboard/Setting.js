@@ -144,7 +144,7 @@ function Setting({ openProfile, setOpenProfile }) {
       currentLevel === "" ||
       favouritGame === ""
     ) {
-      return toast.error("Give your complete details!");
+      return toast.error("Give your complete details!"); 
     } else {
       if (user) {
         let res = await api(

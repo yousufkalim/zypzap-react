@@ -141,13 +141,14 @@
 }
 .comming-soon {
   position: absolute;
-  margin: -10px 0 0 30px;
-  font-weight: bold;
+  margin: -20px 0 0 35px;
+  /* font-weight: bold; */
   border: none;
-  padding: 2px 7px;
+  padding: 4px 7px;
   font-size: 12px;
   color: #616161;
   background: none;
+  z-index: 1;
 }
 .comming-soon3 {
   position: absolute;

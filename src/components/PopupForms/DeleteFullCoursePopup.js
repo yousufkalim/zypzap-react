@@ -12,17 +12,14 @@ const DeleteFullCoursePopup = ({ open, setOpen, course }) => {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
 
   const handleDeleteCourse = async () => {
-    console.log("delete course", course);
     let res = await api("delete", `/courses/${course._id}`);
     if (res) {
-      console.log("creator", res.data);
       // updateStore({ creator: res?.data?.creator });
       setShowDeletePopup(true);
       setOpen(false);
     } else {
     }
   };
-
   const handleClose = () => {
     setOpen(false);
   };
@@ -45,7 +42,7 @@ const DeleteFullCoursePopup = ({ open, setOpen, course }) => {
             <img src={DeleteCourseIcon} alt="" className="uloadSuccessIMG" />
             <div className="deletePupop-content">
               <p className="deletePupopP">
-                Will You want to Delete {course?.course_name} Complete Course
+                Are you sure you want to delete {course?.course_name} Course ?
               </p>
               <div className="deletePupop-buttons">
                 <button className="deletePupopBtn" onClick={handleDeleteCourse}>

@@ -9,24 +9,26 @@ import { Store, UpdateStore } from "../../StoreContext";
 import MyWallet from "./MyWallet";
 import Setting from "./Setting";
 
-const DashboardRightSideBar2 = ({ defaultCompState, setDefaultCompState }) => {
+const DashboardRightSideBar2 = ({}) => {
   const { contentDashboardButton } = Store();
+  const updateStore = UpdateStore();
 
   useEffect(() => {
     if (contentDashboardButton == "Setting") {
-      setDefaultCompState("Setting");
+      updateStore({ contentDashboardButton: "Setting" });
     }
   }, []);
+  console.log("contentDashboardButton", contentDashboardButton);
 
   return (
     <>
-      {defaultCompState == "Courses" && <StartedCourse />}
-      {defaultCompState == "Started Courses" && <StartedCourse />}
-      {defaultCompState == "Enrolled Courses" && <EnrolledCourse />}
-      {defaultCompState == "Wishlist" && <Wishlist />}
-      {defaultCompState == "My Walle" && <MyWallet />}
-      {defaultCompState == "Progression Roadma" && <ProgressionRoadmap />}
-      {defaultCompState == "Setting" && <Setting />}
+      {contentDashboardButton == "Courses" && <StartedCourse />}
+      {contentDashboardButton == "Started Courses" && <StartedCourse />}
+      {contentDashboardButton == "Enrolled Courses" && <EnrolledCourse />}
+      {contentDashboardButton == "Wishlist" && <Wishlist />}
+      {contentDashboardButton == "My Walle" && <MyWallet />}
+      {contentDashboardButton == "Progression Roadma" && <ProgressionRoadmap />}
+      {contentDashboardButton == "Setting" && <Setting />}
 
       {/* {contentDashboardButton === "Setting" ? <Setting /> : null} */}
     </>

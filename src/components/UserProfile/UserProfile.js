@@ -8,24 +8,18 @@ import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
 import BecomeCreatorpopup from "../PopupForms/BecomeCreatorpopup";
 import { Store, UpdateStore } from "../../StoreContext";
 import { useHistory } from "react-router-dom";
+import api from "../../api";
 const UserProfile = (props) => {
   const { user, creator } = props;
   const history = useHistory();
   const [openProfile, setOpenProfile] = useState(false);
   const [openCongratulation, setCongratulation] = useState(false);
   const [open, setOpen] = useState(false);
-  const [showImg, setShowImg] = useState(false);
 
-  const handleShowImage = () => {
-    if (user?.role == "Creator") {
-      setOpen(true);
-    } else {
-      setShowImg(true);
-    }
-  };
+  const [cover_photo, setCoverImageURL] = useState("");
+
 
   const updateStore = UpdateStore();
-  // const { creator } = Store;
 
   const handleClickOpen = () => {
     if (user?.role == "Creator") {
@@ -35,6 +29,28 @@ const UserProfile = (props) => {
     }
   };
   console.log("createor profile", creator, user);
+  const handleImageSelect = async (e) => {
+    const formdata = new FormData();
+    formdata.append(`files`, e.target.files[0]);
+    let res = await api("post", "/uploadImage", formdata);
+    setCoverImageURL(res.data.file[0].location);
+  };
+  const saveCoverPhoto = async () => {
+    if (user?.role == "Creator") {
+      let res = await api("post", `/creators/${user?._id}`, { cover_photo });
+      if (res) {
+        console.log("res.data for creator", res.data);
+      }
+    } else {
+      let res = await api("put", `/users/addProfileInfo/${user?._id}`, {
+        cover_photo
+      });
+      if (res) {
+        console.log("res.data for user", res.data);
+      }
+    }
+  };
+  console.log("user", user);
 
   return (
     <>
@@ -58,7 +74,13 @@ const UserProfile = (props) => {
             {/* {showImg ? null : (
               <> */}
             <img
-              src={UserHomeProfleImg}
+              src={
+                user?.cover_photo
+                  ? user.cover_photo
+                  : cover_photo
+                  ? cover_photo
+                  : UserHomeProfleImg
+              }
               alt=""
               className="profileBackgroun-Image"
             />
@@ -106,11 +128,36 @@ const UserProfile = (props) => {
             </div> */}
 
             <div className="profileEditButton">
-              <a to="">
-                <button className="editProfiel-btn" onClick={handleShowImage}>
-                  Add Cover Photo
-                </button>
-              </a>
+
+              {cover_photo ? (
+                <div className="editProfiel-btn" onClick={saveCoverPhoto}>
+                  Save Cover Photo
+                </div>
+              ) : (
+                <a to="">
+                  <label>
+                    <input
+                      style={{
+                        display: "none",
+                        cursor: "none"
+                      }}
+                      type="file"
+                      accept="image/*"
+                      // placeholder="Ref."
+                      onChange={handleImageSelect}
+                      onClick={(event) => {
+                        event.target.value = null;
+                      }}
+                    />
+                    <div className="editProfiel-btn">Add Cover Photo</div>
+                    {/* <img
+                  src={profile_photo ? profile_photo : Course1}
+                  className="userProfileInput"
+                /> */}
+                  </label>
+                </a>
+              )}
+
             </div>
           </div>
           {/* profile Div */}

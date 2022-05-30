@@ -14,11 +14,11 @@ import { useHistory, useLocation } from "react-router-dom";
 import api from "../../api";
 const Dashboard2 = () => {
   const updateStore = UpdateStore();
-  const [activeButton, setActiveButton] = useState("Course");
+
   const location = useLocation();
   const [defaultCompState, setDefaultCompState] = useState("Course");
   const [defaultCompStatedrop, setDefaultCompStatedrop] = useState("");
-  const { user } = Store();
+  const { user, contentDashboardButton } = Store();
   useEffect(() => {
     getUser();
   }, []);
@@ -35,28 +35,27 @@ const Dashboard2 = () => {
     {
       name: "Courses",
       img: youtube,
-      drop: ["Started Courses", "Enrolled Courses"],
+      drop: ["Started Courses", "Enrolled Courses"]
     },
     {
       name: "Wishlist",
-      img: performance,
+      img: performance
     },
     { name: "My Wallet", img: dollar },
     {
       name: "Progression Roadmap",
-      img: ProgressionIcon,
+      img: ProgressionIcon
     },
-    { name: "Setting", img: settings },
+    { name: "Setting", img: settings }
   ];
 
   const onSideBtnClick = (e) => {
     const course = e?.target?.textContent;
     if (!course) {
-      setDefaultCompState("Course");
+      updateStore({ contentDashboardButton: "Course" });
     } else {
-      setDefaultCompState(course);
+      updateStore({ contentDashboardButton: course });
     }
-    setActiveButton(course);
   };
   return (
     <>
@@ -69,16 +68,16 @@ const Dashboard2 = () => {
           <Grid>
             <DashboardLeftSideBar2
               items={items}
-              activeButton={activeButton}
               trigerOnClickEmpSideBtn={onSideBtnClick}
-              setDefaultCompStatedrop={setDefaultCompState}
+              setDefaultCompStatedrop={setDefaultCompStatedrop}
+              defaultCompStatedrop={defaultCompStatedrop}
             />
           </Grid>
         </Box>
         {/* dashboardBody */}
         <DashboardRightSideBar2
-          defaultCompState={defaultCompState}
-          setDefaultCompState={setDefaultCompState}
+          defaultCompStatedrop={defaultCompStatedrop}
+          setDefaultCompStatedrop={setDefaultCompStatedrop}
           defaultCompStatedrop={defaultCompStatedrop}
         />
       </Box>
