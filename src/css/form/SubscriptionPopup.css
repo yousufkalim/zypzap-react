@@ -30,7 +30,7 @@
   padding-top: 33px;
   padding-bottom: 27px;
   font-size: 15px;
-  font-family: "Myriad Pro", Reguler !important;
+  /* font-family: "Myriad Pro", Reguler !important; */
   font-weight: 400;
 }
 .css-uhb5lp {
@@ -39,6 +39,7 @@
   max-width: inherit !important;
   width: 650px !important;
   margin: 0 !important;
+  border-radius: 20px !important;
 }
 .subsclearIcon {
   float: right;
