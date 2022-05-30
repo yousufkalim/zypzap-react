@@ -22,7 +22,7 @@
   font-size: 22px !important;
   font-weight: 600;
   /* text-transform: capitalize; */
-  font-family: "Myriad Pro", Reguler !important;
+  /* font-family: "Myriad Pro", Reguler !important; */
   /* font-family: "mulish"; */
   letter-spacing: 1.1px;
 }
@@ -54,14 +54,14 @@
   padding-top: 33px;
   padding-bottom: 27px;
   font-size: 15px;
-  font-family: "Myriad Pro", Reguler !important;
+  /* font-family: "Myriad Pro", Reguler !important; */
   font-weight: 100;
 }
 .subsLabel {
   padding-top: 0px;
   padding-bottom: 27px;
   font-size: 15px;
-  font-family: "Myriad Pro", Reguler !important;
+  /* font-family: "Myriad Pro", Reguler !important; */
   font-weight: 100;
 }
 .subsBold {
@@ -84,7 +84,7 @@
   display: block;
   margin-top: 8px;
   margin-bottom: 20px;
-  font-weight: 600;
+  font-weight: 500;
   border: 1px solid #662f88;
 }
 .subsformbtn:hover {

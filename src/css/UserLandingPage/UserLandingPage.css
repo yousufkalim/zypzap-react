@@ -29,6 +29,7 @@
   color: #fff;
   margin: auto;
   flex-direction: column-reverse;
+  border-radius: 30px;
 }
 .communt_container {
   margin-top: 25px;
