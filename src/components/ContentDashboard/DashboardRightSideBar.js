@@ -15,7 +15,7 @@ const DashboardRightSideBar = ({
   createCourse,
   setcreateCourse,
   games,
-  creator,
+  creator
 }) => {
   const { contentDashboardButton } = Store();
   const [activeUploadButton, setActiveUploadButton] = useState(1);
@@ -26,7 +26,7 @@ const DashboardRightSideBar = ({
 
   return (
     <>
-      {contentDashboardButton === "Course" ? (
+      {contentDashboardButton === "Courses" ? (
         <Box className="upload-courses-container">
           <CreateYourCourse setcreateCourse={setcreateCourse} />
           <Box>

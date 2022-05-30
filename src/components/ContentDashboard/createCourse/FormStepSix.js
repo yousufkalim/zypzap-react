@@ -100,7 +100,7 @@ const FormStepsix = ({
       setformDataSix("");
       setBtnState(2);
       setOpens(true);
-      updateStore({ contentDashboardButton: "Course" });
+      updateStore({ contentDashboardButton: "Courses" });
       history.push("/dashboard");
     } else {
       toast.error("Enter your email");

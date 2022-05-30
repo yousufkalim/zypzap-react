@@ -38,7 +38,7 @@ const Dashboard = ({ id }) => {
     }
   };
   const items = [
-    { name: "Course", img: Youtube },
+    { name: "Courses", img: Youtube },
     // { name: "Performance", img: performance },
     // { name: "Earning", img: dollar },
     { name: "Setting", img: settings }

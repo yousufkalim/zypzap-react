@@ -1,18 +1,62 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "../../css/form/LandingPopup.css";
 import Dialog from "@mui/material/Dialog";
 import ClearIcon from "@mui/icons-material/Clear";
 import NewLogo from "../../assets/icons/NewLogo.png";
 import GamerLogo from "../../assets/icons/GamerLogo.svg";
+import Countdown from "react-countdown";
+import moment from "moment";
 
 const LandingPopup = ({ open, setOpen }) => {
+  const [timeLeft, setTimeLeft] = useState(30);
+  var countDownDate = new Date("June 26, 2022").getTime();
+  const [state, setState] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
   const handleClose = () => {
     setOpen(false);
   };
 
   useEffect(() => {
-    // setOpen(true);
+    setOpen(true);
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+      // Get today's date and time
+      var now = new Date().getTime();
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      setState({
+        days,
+        hours,
+        minutes,
+        seconds
+      });
+
+      // If the count down is over, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        setState({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0
+        });
+      }
+    }, 1000);
   }, []);
+
+  // console.log("timer,", state);
 
   return (
     <div>
@@ -121,19 +165,19 @@ const LandingPopup = ({ open, setOpen }) => {
               {/* L_offer_boxe */}
               <div className="L_offer_boxe">
                 <div className="L_offer_Colmn">
-                  <p className="L_offer_numbers">00</p>
+                  <p className="L_offer_numbers">{state?.days}</p>
                   <p className="L_offer_Times">DAYS</p>
                 </div>
                 <div className="L_offer_Colmn">
-                  <p className="L_offer_numbers">00</p>
+                  <p className="L_offer_numbers">{state?.hours}</p>
                   <p className="L_offer_Times">HOURS</p>
                 </div>
                 <div className="L_offer_Colmn">
-                  <p className="L_offer_numbers">00</p>
+                  <p className="L_offer_numbers">{state?.minutes}</p>
                   <p className="L_offer_Times">MINUTES</p>
                 </div>
                 <div className="L_offer_Colmn">
-                  <p className="L_offer_numbers">00</p>
+                  <p className="L_offer_numbers">{state?.seconds}</p>
                   <p className="L_offer_Times">SECONDS</p>
                 </div>
               </div>

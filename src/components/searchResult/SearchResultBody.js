@@ -3,6 +3,7 @@ import Categories from "./Categories";
 import GameType from "./GameType";
 import Plateforms from "./Plateforms";
 import Level from "./gameLevel";
+import moment from "moment";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -215,7 +216,7 @@ const SearchResultBody = () => {
     searchCourse,
     searchState,
     searchInput,
-    searchLoader,
+    searchLoader
   } = Store();
   useEffect(() => {
     setPaginatedCourses(searchCourse.slice(0, 6));
@@ -339,6 +340,11 @@ const SearchResultBody = () => {
       const course = res?.data.filter((c, index) => c.index < 12);
       updateStore({ searchCourse: res?.data });
     }
+  };
+
+  const getDateIs = (d) => {
+    var date = new Date(d);
+    return moment(date).fromNow();
   };
   // To get slider value
   return (
@@ -788,6 +794,7 @@ const SearchResultBody = () => {
                                     alt=""
                                     className="LatestCourse-IMG"
                                   />
+                                  {console.log("item is", item)}
                                   <p className="latestCourse-p">
                                     {item?.creator?.user_id?.username}
                                   </p>
@@ -850,9 +857,12 @@ const SearchResultBody = () => {
                                     alt=""
                                     className="LatestCourse-IMG"
                                   />
-                                  <p className="latestCourse-p">{`${postedTime(
+                                  <p className="latestCourse-p">
+                                    {getDateIs(item?.createdAt)}
+                                    {/* {`${postedTime(
                                     item
-                                  )} days ago`}</p>
+                                  )} days ago`} */}
+                                  </p>
                                 </div>
                               </div>
                               {/* ------------------------------- copy colmn -------------------------------  */}

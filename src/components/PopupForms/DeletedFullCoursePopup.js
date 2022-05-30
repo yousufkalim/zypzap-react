@@ -37,9 +37,7 @@ const DeletedFullCoursePopup = ({ open, setOpen, course }) => {
               className="uloadSuccessIMG"
               onClick={hanldleClick}
             />
-            <p className="uploadSuccessP">
-              {course?.course_name} Complete Course Deleted Successfullly
-            </p>
+            <p className="uploadSuccessP">Course Deleted Successfullly</p>
           </div>
         </div>
       </Dialog>
