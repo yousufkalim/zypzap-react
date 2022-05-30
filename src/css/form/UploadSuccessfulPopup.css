@@ -20,11 +20,13 @@ body {
   padding: 12px 30px;
   color: #fff;
   font-weight: 600;
-  border: 1px solid #20bf55;
+
   text-transform: capitalize;
   font-size: 18px;
-  font-family: 'mulish';
+  font-family: "mulish";
 }
 .uploadSuccessBTN:hover {
   background: none;
+  border: 1px solid #20bf55;
+  padding: 11px 29px;
 }

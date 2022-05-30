@@ -15,7 +15,9 @@ const UserProfile = (props) => {
   const [openProfile, setOpenProfile] = useState(false);
   const [openCongratulation, setCongratulation] = useState(false);
   const [open, setOpen] = useState(false);
+
   const [cover_photo, setCoverImageURL] = useState("");
+
 
   const updateStore = UpdateStore();
 
@@ -69,6 +71,8 @@ const UserProfile = (props) => {
       <div className="userProfileDiv">
         <div className="userProfile-centerDiv">
           <div className="profile-image">
+            {/* {showImg ? null : (
+              <> */}
             <img
               src={
                 user?.cover_photo
@@ -80,6 +84,8 @@ const UserProfile = (props) => {
               alt=""
               className="profileBackgroun-Image"
             />
+            {/* </>
+            )} */}
           </div>
 
           <div className="Profile-DP">
@@ -122,6 +128,7 @@ const UserProfile = (props) => {
             </div> */}
 
             <div className="profileEditButton">
+
               {cover_photo ? (
                 <div className="editProfiel-btn" onClick={saveCoverPhoto}>
                   Save Cover Photo
@@ -150,6 +157,7 @@ const UserProfile = (props) => {
                   </label>
                 </a>
               )}
+
             </div>
           </div>
           {/* profile Div */}

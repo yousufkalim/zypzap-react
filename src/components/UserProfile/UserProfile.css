@@ -8,6 +8,7 @@
 .css-uhb5lp {
   background-color: #1d1f38 !important;
   margin: 0 !important;
+  border-radius: 20px !important;
 }
 .css-i4bv87-MuiSvgIcon-root {
   height: 1.3rem !important;
@@ -128,6 +129,7 @@ body {
   font-size: 18px;
   padding: 10px 10px;
   border-radius: 4px;
+  font-family: "mulish";
 }
 /* My Profile component */
 .myProfile {

@@ -30,8 +30,9 @@
   color: #fff;
   margin: auto;
   flex-direction: column-reverse;
-  font-family: "Myriad Pro";
+  /* font-family: "Myriad Pro"; */
   opacity: 0.8;
+  border-radius: 20px !important;
 }
 .loginH1 {
   font-size: 1.4rem;
