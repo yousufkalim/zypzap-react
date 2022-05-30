@@ -512,7 +512,7 @@
   }
 
   .landingpagetextimgH1 {
-    font-size: 22px;
+    font-size: 23px;
     line-height: 1.5;
   }
   .landingpagetextonImgP {
@@ -530,11 +530,12 @@
     margin: 7px 13px 8px 0px;
   }
   .offerdivleft {
-    margin: 0 auto 35% auto;
+    margin: 0 auto 0% auto !important;
+    width: 90%;
   }
   .offerdivright {
-    margin: auto;
-    margin-bottom: 8px;
+    margin: 0 auto 0% auto !important;
+    width: 90%;
   }
   .offerh1 {
     margin: 17px 0 15px 0;
@@ -552,10 +553,11 @@
     font-size: 14px;
     padding: 6px 0px 10px 0;
   }
-  .whatweofferButton {
+  .whatweofferButton,
+  .whatweofferButton2 {
     margin: 13px 0px 30px 0px;
     font-size: 12px;
-    padding: 7px 14px;
+    padding: 13px 14px;
   }
   .MuiGrid-grid-sm-4 {
     margin-bottom: 20px !important;
@@ -571,15 +573,14 @@
   .offerheading5 {
     font-size: 20px;
   }
-  .offerText22 {
+  /* .offerText22 {
     display: block;
     z-index: 5;
     font-size: 10px;
     padding-top: 10px;
-  }
+  } */
   .offerText2 {
-    display: none;
-    font-size: 10px;
+    font-size: 14px;
     padding: 10px 0px 10px 0;
   }
   .landingpageLeftimg {
