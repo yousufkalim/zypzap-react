@@ -70,14 +70,14 @@ const OverView = (props) => {
         openBecomeCreatorPopup={openBecomeCreatorPopup}
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
       />
-      {!showVideo ? (
+      {showVideo ? (
+        <CompleteCourse singlCourse={course} />
+      ) : (
         <OverViewHome
           singlCourse={course}
           setShowVideo={setShowVideo}
           setOpenSignup={setOpenSignup}
         />
-      ) : (
-        <CompleteCourse singlCourse={course} />
       )}
 
       <OverViewMenu

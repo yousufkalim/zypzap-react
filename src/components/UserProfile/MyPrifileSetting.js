@@ -24,7 +24,7 @@ const MyPrifileSetting = () => {
     expiry_month: user?.expiry_date?.month || "",
     expiry_year: user?.expiry_date?.year || "",
     cvv: user?.cvv || "",
-    card_holder_name: user?.card_holder_name || "",
+    card_holder_name: user?.card_holder_name || ""
   });
 
   const {
@@ -35,7 +35,7 @@ const MyPrifileSetting = () => {
     expiry_month,
     expiry_year,
     cvv,
-    card_holder_name,
+    card_holder_name
   } = formData;
   useEffect(() => {
     setFormData({
@@ -46,7 +46,7 @@ const MyPrifileSetting = () => {
       expiry_month: user?.expiry_date?.month || "",
       expiry_year: user?.expiry_date?.year || "",
       cvv: user?.cvv || "",
-      card_holder_name: user?.card_holder_name || "",
+      card_holder_name: user?.card_holder_name || ""
     });
   }, [user]);
   const handleClickShowPassword = () => {
@@ -60,7 +60,7 @@ const MyPrifileSetting = () => {
   const handlechange1 = (event) => {
     setFormData({
       ...formData,
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     });
   };
   const SubmitEvent = async (e) => {
@@ -68,8 +68,8 @@ const MyPrifileSetting = () => {
       ...formData,
       expiry_date: {
         month: expiry_month,
-        year: expiry_year,
-      },
+        year: expiry_year
+      }
     };
     delete d.expiry_month;
     delete d.expiry_year;
@@ -137,7 +137,7 @@ const MyPrifileSetting = () => {
             <div>
               <p
                 style={{
-                  marginTop: "10px",
+                  marginTop: "10px"
                 }}
               >
                 Subscription Status
@@ -149,7 +149,7 @@ const MyPrifileSetting = () => {
                   style={{
                     fontSize: "12px",
                     color: "#979797",
-                    marginTop: "10px",
+                    marginTop: "10px"
                   }}
                 >
                   Expires soon 31 march, 2022
@@ -159,7 +159,7 @@ const MyPrifileSetting = () => {
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
-                    margin: "15px 0px",
+                    margin: "15px 0px"
                   }}
                 >
                   {" "}
@@ -179,7 +179,7 @@ const MyPrifileSetting = () => {
             <div>
               <p
                 style={{
-                  marginTop: "10px",
+                  marginTop: "10px"
                 }}
               >
                 Gift Card
@@ -191,7 +191,7 @@ const MyPrifileSetting = () => {
                   style={{
                     fontSize: "12px",
                     color: "#979797",
-                    marginTop: "10px",
+                    marginTop: "10px"
                   }}
                 >
                   Expires soon 31 march, 2022
@@ -199,7 +199,7 @@ const MyPrifileSetting = () => {
 
                 <div
                   style={{
-                    margin: "15px 0px",
+                    margin: "15px 0px"
                   }}
                 >
                   <button className="formbtnbtn" style={{ width: "100px" }}>
@@ -327,29 +327,28 @@ const MyPrifileSetting = () => {
           </div>
         </div>
       </div>
-         <div>
-          <button
-            className="formbtn2"
-            type="submit"
-            onClick={SubmitEvent}
-            style={{
-              background: "linear-gradient(326deg, #662F88 8%, #20BF55 132%)",
-              color: "white",
-              fontWeight: "600",
-              borderRadius: " 4px",
-              cursor: "pointer",
-              border: "none",
-              width: " 133.93px",
-              height: "44px",
-              fontSize: "14px",
-              display: "bl8ck",
-              margin: "15px 4px",
-
-            }}
-          >
-            Save
-          </button>
-            </div>
+      <div>
+        <button
+          className="formbtn2"
+          type="submit"
+          onClick={SubmitEvent}
+          style={{
+            background: "linear-gradient(326deg, #662F88 8%, #20BF55 132%)",
+            color: "white",
+            fontWeight: "600",
+            borderRadius: " 4px",
+            cursor: "pointer",
+            border: "none",
+            width: " 133.93px",
+            height: "44px",
+            fontSize: "14px",
+            display: "bl8ck",
+            margin: "25px 4px"
+          }}
+        >
+          Save
+        </button>
+      </div>
     </>
   );
 };

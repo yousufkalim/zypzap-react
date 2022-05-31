@@ -7,9 +7,6 @@ import overViewIcon3 from "../../assets/icons/overViewIcon3.svg";
 import overViewIcon4 from "../../assets/icons/overViewIcon4.svg";
 import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
 
-// import OverCardLogo1 from "../../assets/icons/OverCardLogo1.svg";
-// import OverCardLogo2 from "../../assets/icons/OverCardLogo2.svg";
-// import OverCardLogo3 from "../../assets/icons/OverCardLogo3.svg";
 import OverCardHurtLogo from "../../assets/icons/OverCardHurtLogo.svg";
 import RatingStarIcon from "../../assets/icons/RatingStarIcon.svg";
 import Star6 from "../../assets/icons/Star6.svg";
@@ -39,32 +36,20 @@ const OverViewHome = (props) => {
     if (days > 7) week = days / 7;
     return week;
   };
-  const handleClick = async (u, course) => {
+  const handleStartCourse = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id,
+      userId: u?._id
     };
-    console.log("u,course", u, course);
     let res = await api("post", "/users/enrolledCourseAndStarted", data);
     if (res) {
       updateStore({ user: res.data });
     }
   };
-  const handleClickViewCourse = async (u, course) => {
-    // const data = {
-    //   courseId: course?._id,
-    //   userId: u?._id
-    // };
-    // console.log("u,course", u, course);
-    // let res = await api("post", "/users/enrolledCourseAndStarted", data);
-    // if (res) {
-    //   updateStore({ user: res.data });
-    // }
-  };
   const handleEnrolled = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id,
+      userId: u?._id
     };
     let res = await api("post", "/users/enrolledCourse", data);
     if (res) {
@@ -72,6 +57,8 @@ const OverViewHome = (props) => {
       setCongratulation(true);
     }
   };
+  console.log("overview user", user);
+  console.log("overview singlCourse", singlCourse);
 
   return (
     <>
@@ -84,12 +71,7 @@ const OverViewHome = (props) => {
       <div className="OverView">
         <div className="center_overViewDiv">
           <div className="overViewImage">
-            <img
-              className="overIMG"
-              // singlCourse?.thumbnail ? singlCourse.thumbnail :  it is use for dynamic course thumbnail
-              src={OverViewImg}
-              alt=""
-            />
+            <img className="overIMG" src={OverViewImg} alt="" />
           </div>
           <div className="overView_heading">
             <div className="overViewContent">
@@ -99,11 +81,7 @@ const OverViewHome = (props) => {
                 &nbsp;Gameplay
               </h1>
               <p className="overViewContent">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
-                aliquam, purus sit amet luctus venenatis,Lorem
-              </p>
-              <p className="overViewContent">
-                ipsum dolor sit amet, consectetur adipiscing
+                {singlCourse?.description ? singlCourse.description : ""}
               </p>
             </div>
 
@@ -149,16 +127,19 @@ const OverViewHome = (props) => {
             </div>
             <div className="overVeiwSlectBTN">
               <button className="overVeiwCS-btn">
-                {singlCourse?.course_name ? singlCourse.course_name : "CS GO"}{" "}
-                course
+                <b>
+                  {" "}
+                  {singlCourse?.course_name
+                    ? singlCourse.course_name
+                    : "CS GO"}{" "}
+                </b>
               </button>
               <button className="overVeiwCS-btn">
-                Created by Jordan Gilbert
+                Created By <b>{singlCourse?.creator?.user_id?.username}</b>
               </button>
             </div>
           </div>
 
-          {/* ratting div */}
           <div className="overViewCard" style={{ width: "24%" }}>
             <div className="overViewCenterdiv">
               <div className="overViewCarImage">
@@ -172,13 +153,8 @@ const OverViewHome = (props) => {
                 />
               </div>
               <div className="overViewBuy">
-                <div className="overViewRateContent">
-                  {/* <p className="cardP1">
-                    {singlCourse?.price >= 0
-                      ? "$" + singlCourse.price
-                      : "$0.00"}
-                  </p> */}
-                  {/* <p className="cardP2">$39.99</p> */}
+                {/* start heart icon for wish list */}
+                {/* <div className="overViewRateContent">
                   {user?.role === "User" && (
                     <img
                       src={OverCardHurtLogo}
@@ -186,14 +162,15 @@ const OverViewHome = (props) => {
                       className="cardHurtLogo"
                     />
                   )}
-                </div>
+                </div> */}
+                {/* end heart icon for wish list */}
+
                 {user?.role === "Creator" ? (
                   <NavLink
                     to="#"
                     className="CardBuyBtn"
                     onClick={() => {
                       if (user) {
-                        handleClickViewCourse(user, singlCourse);
                         props.setShowVideo(true);
                       } else {
                         props.setOpenSignup(true);
@@ -210,7 +187,7 @@ const OverViewHome = (props) => {
                       className="CardBuyBtn"
                       onClick={() => {
                         if (user) {
-                          handleClick(user, singlCourse);
+                          handleStartCourse(user, singlCourse);
                           props.setShowVideo(true);
                         } else {
                           setOpenGuestPopUp(true);
