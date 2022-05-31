@@ -7,7 +7,7 @@ const DashboardLeftSideBar2 = ({
   items,
   trigerOnClickEmpSideBtn,
   setDefaultCompStatedrop,
-  defaultCompStatedrop
+  defaultCompStatedrop,
 }) => {
   const [flag, setFlag] = useState(false);
   const { contentDashboardButton } = Store();
@@ -75,7 +75,7 @@ const DashboardLeftSideBar2 = ({
                         cursor: "pointer",
                         position: "absolute",
                         marginTop: "-12px",
-                        fontSize: "10px"
+                        fontSize: "10px",
                       }}
                       // onClick={() => handleClick2(i)}
                     >
@@ -85,7 +85,9 @@ const DashboardLeftSideBar2 = ({
                 </div>
               )}
             </div>
-            {item.name == "My Wallet" || item.name == "Progression Roadmap" ? (
+            {item.name == "My Wallet" ||
+            item.name == "Progression Roadmap" ||
+            item.name == "Wishlist" ? (
               <>
                 <button className="comming-soon">(Coming Soon)</button>
               </>
