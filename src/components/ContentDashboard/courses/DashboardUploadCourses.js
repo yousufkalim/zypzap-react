@@ -207,13 +207,13 @@ const DashboardUploadCourses = ({ pageName }) => {
           </>
         ) : (
           <div className="request-data">
-            <button
+            {/* <button
               onClick={() => {
                 setNudityPop(true);
               }}
             >
               click me
-            </button>
+            </button> */}
             <p className="request-data-p">{pageName} course not available </p>
           </div>
         )}
