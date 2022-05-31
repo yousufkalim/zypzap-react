@@ -59,10 +59,11 @@ const Preparing = () => {
                 <p className="preparingPrsntageCounting">20%</p>
                 <p className="preparingPrsntageCounting">50%</p>
                 <p className="preparingPrsntageCounting">70%</p>
+                <p className="preparingPrsntageCounting">80%</p>
                 <p className="preparingPrsntageCounting">100%</p>
               </div>
               <Box sx={{ flexGrow: 0 }}>
-                <BorderLinearProgress variant="determinate" value={75} />
+                <BorderLinearProgress variant="determinate" value={80} />
               </Box>
               <div className="preparingPrsntageInput">
                 <p className="PreparingPrnstageP">

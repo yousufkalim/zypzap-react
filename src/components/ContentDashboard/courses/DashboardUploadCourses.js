@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { Store, UpdateStore } from "../../../StoreContext";
 import DeleteFullCoursePopup from "../../PopupForms/DeleteFullCoursePopup";
 import EditCoursePopup from "../../PopupForms/EditCoursePopup";
+import NudityPopup from "../../PopupForms/NudityPopup";
 const calTotalSecInVideos = (videos) => {
   let timeInSecond = 1;
   videos?.map((videos) => (timeInSecond += parseInt(videos.duration)));
@@ -41,6 +42,7 @@ const DashboardUploadCourses = ({ pageName }) => {
   const [openEditPopup, setOpenEditePopup] = useState(false);
   const [courseforDelete, setCourseForDelete] = useState("");
   const [courseforEdit, setCourseForEdit] = useState("");
+  const [nudityPop, setNudityPop] = React.useState(false);
   const { creator } = Store();
   useEffect(() => {
     getCreator();
@@ -90,6 +92,7 @@ const DashboardUploadCourses = ({ pageName }) => {
   };
   return (
     <>
+      <NudityPopup nudityPop={nudityPop} setNudityPop={setNudityPop} />
       <DeleteFullCoursePopup
         open={openDeletePopup}
         setOpen={setOpenDeletePopup}
@@ -117,7 +120,7 @@ const DashboardUploadCourses = ({ pageName }) => {
                     <Link
                       to={{
                         pathname: `OverView/${item?._id}`,
-                        state: { course: `${item}` }
+                        state: { course: `${item}` },
                       }}
                       className="requestBt"
                       style={{ textDecoration: "none", color: "white" }}
@@ -204,6 +207,13 @@ const DashboardUploadCourses = ({ pageName }) => {
           </>
         ) : (
           <div className="request-data">
+            <button
+              onClick={() => {
+                setNudityPop(true);
+              }}
+            >
+              click me
+            </button>
             <p className="request-data-p">{pageName} course not available </p>
           </div>
         )}

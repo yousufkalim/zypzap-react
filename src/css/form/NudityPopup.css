@@ -1,0 +1,53 @@
+.nudity_mainDiv {
+  background-color: #0a0a14 !important;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-family: "mulish";
+}
+.nudity_titleDiv {
+  margin: 20px 0;
+}
+.nudity_contentDiv {
+  height: 130px;
+  overflow-y: scroll;
+}
+.nudity_contentDiv::-webkit-scrollbar {
+  width: 5px;
+}
+.nudity_contentDiv::-webkit-scrollbar-track {
+  background-color: #0e0f1e;
+  width: 5px;
+}
+.nudity_contentDiv::-webkit-scrollbar-thumb {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 4px;
+  width: 5px;
+}
+.nudity_btnDiv {
+  margin: 18px 0 0 0;
+}
+.nudity_title {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 18px;
+}
+.nudity_content {
+  font-size: 14px;
+  padding: 4px 0;
+}
+.nudity_btn {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 4px;
+  font-size: 13px;
+  display: inline-block;
+  color: #fff;
+  font-weight: 500;
+  padding: 7px 18px;
+  letter-spacing: 0.5px;
+}
