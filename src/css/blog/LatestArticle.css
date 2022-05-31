@@ -13,7 +13,7 @@
   margin-right: 10px;
 }
 .MuiGrid-spacing-xs-2 > .MuiGrid-item {
-  padding: 8px;
+  padding: 0px !important;
   display: flex;
   flex-direction: column;
 }

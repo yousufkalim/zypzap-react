@@ -2,7 +2,7 @@
   font-family: Myriad Pro;
   src: url(../../assets/MYRIADPRO-REGULAR.OTF);
 }
-
+/* @import url("https://fonts.googleapis.com/css2?family=Mulish:ital@1&display=swap"); */
 .landingpageimgcontainer {
   display: flex;
   width: 93%;
@@ -163,7 +163,7 @@
   text-transform: uppercase;
 }
 .offerheading2 {
-  font-size: 25px;
+  font-size: 26px;
   padding: 10px 0 0 0;
   font-family: Myriad Pro;
   font-weight: 900;
@@ -182,43 +182,42 @@
 .offerText2 {
   font-size: 18px;
   padding: 10px 70px 10px 70px;
-  font-weight: 400;
+  font-weight: 100;
   width: 82%;
   margin: auto;
   line-height: 1.4;
   color: #ffffff;
   font-style: normal;
+  font-family: "Myriad Pro-REGULAR";
 }
 .whatweofferButton {
-  padding: 11px 25px;
+  padding: 10px 25px;
   border: none;
-  margin: 13px 13px 30px 0px;
+  margin: 15px 0px 30px 0px;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
-  font-weight: 600;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  font-family: "Mulish";
   border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
-  border: 1px solid #662f88;
+  font-size: 16px;
 }
 .whatweofferButton2 {
-  padding: 11px 25px;
+  padding: 10px 25px;
   border: none;
-  margin: 13px 13px 22px 0px;
+  margin: 15px 0px 18px 0px;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
-  font-weight: 600;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  font-family: "mulish";
   border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
-  border: 1px solid #662f88;
+  font-size: 16px;
 }
 .whatweofferButton:hover {
   background: none;
+  border: 1px solid #662f88;
+  padding: 9px 24px;
 }
 .myStyleWhat {
   animation: MovesZoom 0.8s ease-in;
@@ -513,7 +512,7 @@
   }
 
   .landingpagetextimgH1 {
-    font-size: 22px;
+    font-size: 23px;
     line-height: 1.5;
   }
   .landingpagetextonImgP {
@@ -531,11 +530,12 @@
     margin: 7px 13px 8px 0px;
   }
   .offerdivleft {
-    margin: 0 auto 35% auto;
+    margin: 0 auto 0% auto !important;
+    width: 90%;
   }
   .offerdivright {
-    margin: auto;
-    margin-bottom: 8px;
+    margin: 0 auto 0% auto !important;
+    width: 90%;
   }
   .offerh1 {
     margin: 17px 0 15px 0;
@@ -553,10 +553,11 @@
     font-size: 14px;
     padding: 6px 0px 10px 0;
   }
-  .whatweofferButton {
+  .whatweofferButton,
+  .whatweofferButton2 {
     margin: 13px 0px 30px 0px;
     font-size: 12px;
-    padding: 7px 14px;
+    padding: 13px 14px;
   }
   .MuiGrid-grid-sm-4 {
     margin-bottom: 20px !important;
@@ -572,15 +573,14 @@
   .offerheading5 {
     font-size: 20px;
   }
-  .offerText22 {
+  /* .offerText22 {
     display: block;
     z-index: 5;
     font-size: 10px;
     padding-top: 10px;
-  }
+  } */
   .offerText2 {
-    display: none;
-    font-size: 10px;
+    font-size: 14px;
     padding: 10px 0px 10px 0;
   }
   .landingpageLeftimg {
