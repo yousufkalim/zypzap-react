@@ -21,10 +21,10 @@ const FollowUs = () => {
                   className="followUsLinks"
                 >
                   <img src={Discord} alt="" className="followUsImg" />
-                  <div className="followSocialHeading2">
+                  {/* <div className="followSocialHeading2">
                     <p className="followSocialP">0</p>
                     <p className="followSocialP2">Membres</p>
-                  </div>
+                  </div> */}
                 </a>
               </div>
               <div className="followUs-box2">
@@ -34,10 +34,10 @@ const FollowUs = () => {
                   className="followUsLinks"
                 >
                   <img src={Twitter} alt="" className="followUsImg" />
-                  <div className="followSocialHeading2">
+                  {/* <div className="followSocialHeading2">
                     <p className="followSocialP">0</p>
                     <p className="followSocialP2">Followers</p>
-                  </div>
+                  </div> */}
                 </a>
               </div>
             </div>

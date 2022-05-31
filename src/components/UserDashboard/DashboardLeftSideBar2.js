@@ -13,10 +13,10 @@ const DashboardLeftSideBar2 = ({
   const { contentDashboardButton } = Store();
 
   const updateStore = UpdateStore();
-  const handelClick = () => {
+  const handelOpenCourseDropdown = () => {
     setFlag(!flag);
   };
-  const handleClick2 = (i) => {
+  const handleSelectCourseType = (i) => {
     setDefaultCompStatedrop(i);
     updateStore({ contentDashboardButton: i });
   };
@@ -38,7 +38,10 @@ const DashboardLeftSideBar2 = ({
                 <img src={item.img} />
                 {item.name}
                 {item?.drop && (
-                  <div style={{ color: "white" }} onClick={() => handelClick()}>
+                  <div
+                    style={{ color: "white" }}
+                    onClick={() => handelOpenCourseDropdown()}
+                  >
                     <i
                       // style={{ marginLeft: "auto" }}
                       class=" CourseDownArrow fa-solid fa-angle-down "
@@ -56,7 +59,7 @@ const DashboardLeftSideBar2 = ({
                       className={`DashboardLeftSideBar2-dropdown ${
                         contentDashboardButton == i && "dashboard"
                       }`}
-                      onClick={() => handleClick2(i)}
+                      onClick={() => handleSelectCourseType(i)}
                     >
                       {i}
                     </div>

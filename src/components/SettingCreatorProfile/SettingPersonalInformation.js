@@ -16,7 +16,7 @@ const SettingPersonalInformation = () => {
     password3: "",
     showPassword: false,
     showPassword2: false,
-    showPassword3: false,
+    showPassword3: false
   });
   const { user } = Store();
   const [formData, setFormData] = useState({
@@ -26,7 +26,7 @@ const SettingPersonalInformation = () => {
     iban: user?.iban || "",
     country: user?.country || "",
     account_number: user?.account_number || "",
-    bank_identifier: user?.bank_identifier || "",
+    bank_identifier: user?.bank_identifier || ""
   });
   const {
     username,
@@ -35,7 +35,7 @@ const SettingPersonalInformation = () => {
     iban,
     country,
     account_number,
-    bank_identifier,
+    bank_identifier
   } = formData;
   useEffect(() => {
     setFormData({
@@ -45,7 +45,7 @@ const SettingPersonalInformation = () => {
       iban: user?.iban || "",
       country: user?.country || "",
       account_number: user?.account_number || "",
-      bank_identifier: user?.bank_identifier || "",
+      bank_identifier: user?.bank_identifier || ""
     });
   }, [user]);
 
@@ -56,26 +56,26 @@ const SettingPersonalInformation = () => {
   const handlechange1 = (event) => {
     setFormData({
       ...formData,
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     });
   };
 
   const handleClickShowPassword = () => {
     setValues({
       ...values,
-      showPassword: !values.showPassword,
+      showPassword: !values.showPassword
     });
   };
   const handleClickShowPassword2 = () => {
     setValues({
       ...values,
-      showPassword2: !values.showPassword2,
+      showPassword2: !values.showPassword2
     });
   };
   const handleClickShowPassword3 = () => {
     setValues({
       ...values,
-      showPassword3: !values.showPassword3,
+      showPassword3: !values.showPassword3
     });
   };
   const SubmitEvent = async (e) => {
@@ -598,29 +598,27 @@ const SettingPersonalInformation = () => {
         </div>
       </div>
       <div>
-          <button
-            className="formbtn2"
-            type="submit"
-            onClick={SubmitEvent}
-            style={{
-              background: "linear-gradient(326deg, #662F88 8%, #20BF55 132%)",
-              color: "white",
-              fontWeight: "600",
-              borderRadius: " 4px",
-              cursor: "pointer",
-              border: "none",
-              width: " 133.93px",
-              height: "44px",
-              fontSize: "14px",
-              display: "bl8ck",
-              margin: "15px 4px",
-
-            }}
-          >
-            Save
-          </button>
-            </div>
-            
+        <button
+          className="formbtn2"
+          type="submit"
+          onClick={SubmitEvent}
+          style={{
+            background: "linear-gradient(326deg, #662F88 8%, #20BF55 132%)",
+            color: "white",
+            fontWeight: "600",
+            borderRadius: " 4px",
+            cursor: "pointer",
+            border: "none",
+            width: " 133.93px",
+            height: "44px",
+            fontSize: "14px",
+            display: "bl8ck",
+            margin: "25px 4px"
+          }}
+        >
+          Save
+        </button>
+      </div>
     </>
   );
 };

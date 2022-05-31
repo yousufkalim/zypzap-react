@@ -10,6 +10,7 @@ import FormControl from "@mui/material/FormControl";
 import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
+import ClearIcon from "@mui/icons-material/Clear";
 import { Store, UpdateStore } from "../../StoreContext";
 
 // import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
@@ -176,11 +177,12 @@ const BecomeCreatorpopup = ({
     <>
       <Dialog open={open} className="login_data">
         <div className="userProfile_conteiner">
+          <ClearIcon className="subsclearIcon" onClick={handleClose} />
           <div className="userProfile_heading">
             <h2 className="userProfileH1">Profile Information</h2>
             <p className="userProfileP">Input your details</p>
           </div>
-          <div className="userProfile-uploadData">
+          {/* <div className="userProfile-uploadData">
             <div>
               <label>
                 <input
@@ -205,7 +207,7 @@ const BecomeCreatorpopup = ({
             <div>
               <p className="uploadHeading">Upload Picture</p>
             </div>
-          </div>
+          </div> */}
           <div className="tags-input">
             <div>
               <p className="tags-input-FGames">Expertise Games</p>
@@ -324,9 +326,9 @@ const BecomeCreatorpopup = ({
           <button className="userProfileButton" onClick={submitProfile}>
             Continue1
           </button>
-          <button className="backBTN" onClick={handleClose}>
+          {/* <button className="backBTN" onClick={handleClose}>
             Back
-          </button>{" "}
+          </button>{" "} */}
         </div>
       </Dialog>
     </>
