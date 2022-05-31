@@ -130,6 +130,7 @@ body {
   padding: 10px 10px;
   border-radius: 4px;
   font-family: "mulish";
+  cursor: pointer;
 }
 /* My Profile component */
 .myProfile {

@@ -17,13 +17,11 @@
 }
 .nudity_contentDiv::-webkit-scrollbar-track {
   background-color: #0e0f1e;
-  width: 5px;
 }
 .nudity_contentDiv::-webkit-scrollbar-thumb {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   border-radius: 4px;
-  width: 5px;
 }
 .nudity_btnDiv {
   margin: 18px 0 0 0;
