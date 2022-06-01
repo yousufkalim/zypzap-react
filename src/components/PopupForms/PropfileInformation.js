@@ -231,7 +231,7 @@ export default function PropfileInformation({
             <h2 className="userProfileH1">Profile Information</h2>
             <p className="userProfileP">Input your details</p>
           </div>
-          <div className="userProfile-uploadData">
+          {/* <div className="userProfile-uploadData">
             <div>
               <label>
                 <input
@@ -256,7 +256,7 @@ export default function PropfileInformation({
             <div>
               <p className="uploadHeading">Upload Picture</p>
             </div>
-          </div>
+          </div> */}
           <div className="tags-input">
             <div>
               <p className="tags-input-FGames">Favorite Games</p>

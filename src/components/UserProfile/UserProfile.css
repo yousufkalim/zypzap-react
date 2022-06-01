@@ -63,6 +63,7 @@ body {
   left: 24.5%;
   z-index: 5;
   align-items: flex-end;
+  padding-right: 30px;
 }
 .profile-container2 {
   width: 70%;

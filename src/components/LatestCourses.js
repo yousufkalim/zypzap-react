@@ -114,7 +114,7 @@ export default function LatestCourses(props) {
       <div className="carousalOuterDiv">
         <Carousel
           responsive={responsive}
-          // autoPlay={true}
+          autoPlay={true}
           autoPlaySpeed={3000}
           // transitionDuration={3000}
           infinite={true}
