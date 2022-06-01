@@ -25,7 +25,7 @@
 }
 .clearIconss {
   float: right;
-  margin: -25px 21px;
+  margin: -13px 21px;
   cursor: pointer;
   font-weight: 900 !important;
   width: 25px !important;
@@ -95,7 +95,6 @@
   font-weight: 600;
   margin-right: 70px;
   border: 1px solid #20bf55;
-
 }
 .uploadSuccessBTNs:hover {
   background: none;

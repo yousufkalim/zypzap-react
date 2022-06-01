@@ -35,18 +35,18 @@ const Dashboard2 = () => {
     {
       name: "Courses",
       img: youtube,
-      drop: ["Started Courses", "Enrolled Courses"]
+      drop: ["Started Courses", "Enrolled Courses"],
     },
     {
       name: "Wishlist",
-      img: performance
+      img: performance,
     },
     { name: "My Wallet", img: dollar },
     {
       name: "Progression Roadmap",
-      img: ProgressionIcon
+      img: ProgressionIcon,
     },
-    { name: "Setting", img: settings }
+    { name: "Setting", img: settings },
   ];
 
   const onSideBtnClick = (e) => {
@@ -78,7 +78,6 @@ const Dashboard2 = () => {
         <DashboardRightSideBar2
           defaultCompStatedrop={defaultCompStatedrop}
           setDefaultCompStatedrop={setDefaultCompStatedrop}
-          defaultCompStatedrop={defaultCompStatedrop}
         />
       </Box>
     </>

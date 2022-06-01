@@ -60,7 +60,7 @@ export default function TopCourses(props) {
         View All
       </p>
       <Carousel
-        autoPlay={true}
+        autoPlay={false}
         interval={3000}
         animation={"fade"}
         activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
@@ -150,7 +150,12 @@ function TopCoursesComponent({ item }) {
             <h3 style={{ textAlign: "right" }}>{item?.price + " $"}</h3>
           </Grid> */}
         </Grid>
-        <Grid container spacing={2} className="topcourseuserGrid">
+        <Grid
+          container
+          spacing={2}
+          className="topcourseuserGrid"
+          style={{ paddingBottom: "10px" }}
+        >
           <Grid item xs={6} md={6}>
             <div className="userprofilediv">
               <img
