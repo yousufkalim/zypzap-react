@@ -276,6 +276,7 @@ const OverViewHome = (props) => {
           open={openGuestPopUp}
           setOpen={setOpenGuestPopUp}
           setOpenSignup={props.setOpenSignup}
+          setOpenLogin={props.setOpenLogin}
         />
       </div>
     </>

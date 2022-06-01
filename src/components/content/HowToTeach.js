@@ -2,8 +2,13 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import TeachPlan from "../../assets/TeachPlan.svg";
 import HowToTeachBG from "../../assets/img/HowToTeachBG.svg";
+import { useHistory, useLocation } from "react-router-dom";
 
 const HowToTeach = () => {
+  const history = useHistory();
+  const openCourse = () => {
+    history.push({ pathname: "/dashboard", state: { createCourse: true } });
+  };
   return (
     <>
       <div className="HowToTeach-container">
@@ -78,7 +83,9 @@ const HowToTeach = () => {
             </Grid>
           </Grid>
           <div className="howTeachBtn">
-            <button className="textonbutton">Create a Course</button>
+            <button className="textonbutton" onClick={openCourse}>
+              Create a Course
+            </button>
           </div>
         </div>
       </div>
