@@ -32,6 +32,7 @@
     rgba(38, 38, 72, 0) 129.88%
   ) !important;
   border-radius: 50px !important;
+  padding: 5px;
 }
 .topcourseimg {
   width: 100%;
@@ -41,7 +42,7 @@
   object-fit: cover;
 }
 .topcourseTextGrid {
-  padding: 30px 20px 30px 20px;
+  padding: 30px 20px 30px 20px !important;
 }
 .topcourseText {
   padding-top: 10px;
