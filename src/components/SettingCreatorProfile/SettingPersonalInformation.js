@@ -11,13 +11,14 @@ import { Store, UpdateStore } from "../../StoreContext";
 const SettingPersonalInformation = () => {
   const updateStore = UpdateStore();
   const [values, setValues] = React.useState({
+    currentPassword: "",
     password: "",
-    password2: "",
-    password3: "",
+    confirmPassword: "",
     showPassword: false,
     showPassword2: false,
     showPassword3: false
   });
+  const { currentPassword, password, confirmPassword } = values;
   const { user } = Store();
   const [formData, setFormData] = useState({
     username: user?.username || "",
@@ -79,7 +80,15 @@ const SettingPersonalInformation = () => {
     });
   };
   const SubmitEvent = async (e) => {
-    let res = await api("post", `/users/basicInfo/${user?._id}`, formData);
+    let newformData = formData;
+    if (password && currentPassword && confirmPassword) {
+      if (password != confirmPassword) {
+        return toast.success("Confirm password Not match");
+      }
+      newformData = { ...formData, password, currentPassword };
+    }
+    console.log("newformData", newformData);
+    let res = await api("post", `/users/basicInfo/${user?._id}`, newformData);
     if (res) {
       updateStore({ user: res.data.user });
       toast.success("Modifier le profil avec succès");
@@ -144,9 +153,9 @@ const SettingPersonalInformation = () => {
                 className="setting_C_inpt2"
                 disabledPadding
                 type={values.showPassword ? "text" : "password"}
-                value={values.password}
-                // onChange={handleChange("password")}
-                placeholder="Arslan@123"
+                value={values.currentPassword}
+                onChange={handleChange("currentPassword")}
+                placeholder="********"
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
@@ -172,9 +181,9 @@ const SettingPersonalInformation = () => {
                 className="setting_C_inpt2"
                 disabledPadding
                 type={values.showPassword2 ? "text" : "password"}
-                value={values.password2}
-                onChange={handleChange("password2")}
-                placeholder="Arslan@123"
+                value={values.password}
+                onChange={handleChange("password")}
+                placeholder="********"
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
@@ -200,9 +209,9 @@ const SettingPersonalInformation = () => {
                 className="setting_C_inpt2"
                 disabledPadding
                 type={values.showPassword3 ? "text" : "password"}
-                value={values.password3}
-                onChange={handleChange("password3")}
-                placeholder="Arslan@123"
+                value={values.confirmPassword}
+                onChange={handleChange("confirmPassword")}
+                placeholder="********"
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton

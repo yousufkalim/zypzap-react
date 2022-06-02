@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Dialog from "@mui/material/Dialog";
+import axios from "axios";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -9,7 +10,12 @@ import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
 import { Store, UpdateStore } from "../../StoreContext";
 import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
+import { makeStyles } from "@mui/styles";
+import TextField from "@mui/material/TextField";
+import Paper from "@mui/material/Paper";
+import Autocomplete from "@mui/material/Autocomplete";
 function Setting({ openProfile, setOpenProfile }) {
+  const [values, setValues] = useState([]);
   const { user } = Store();
   const updateStore = UpdateStore();
   const [openCongratulation, setCongratulation] = useState(false);
@@ -70,6 +76,12 @@ function Setting({ openProfile, setOpenProfile }) {
       event.target.value = "";
     }
   };
+  const addTagsByapi = (event) => {
+    if (event !== "") {
+      setFavouritGame([...favouritGame, event]);
+      event = "";
+    }
+  };
   const onChangeRadioBtn = (e) => {
     const value = e.target.value;
     setGameMood(e.target.value);
@@ -79,7 +91,7 @@ function Setting({ openProfile, setOpenProfile }) {
 
   const removeTags = (index) => {
     setFavouritGame([
-      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index),
+      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index)
     ]);
   };
   const ChangeLearningRhythm = (e) => {
@@ -127,13 +139,13 @@ function Setting({ openProfile, setOpenProfile }) {
       favourite_games: favouritGame,
       learningRethem: learningRethem,
       current_level: currentLevel,
-      target_level: target_level,
+      target_level: target_level
     };
     const formdata = {
       prefrence_games,
       gameType,
       plateForm,
-      gameMood,
+      gameMood
     };
     if (
       prefrence_games === "" ||
@@ -144,7 +156,7 @@ function Setting({ openProfile, setOpenProfile }) {
       currentLevel === "" ||
       favouritGame === ""
     ) {
-      return toast.error("Give your complete details!"); 
+      return toast.error("Give your complete details!");
     } else {
       if (user) {
         let res = await api(
@@ -177,7 +189,7 @@ function Setting({ openProfile, setOpenProfile }) {
     "Trading card",
     "Puzzle",
     "Versus Fighting",
-    "Trading card and Board games",
+    "Trading card and Board games"
   ];
   const gamePlateform = [
     "PC",
@@ -186,7 +198,7 @@ function Setting({ openProfile, setOpenProfile }) {
     "Xbox/360/One/X",
     "Retro Consoles",
     "Portable Consoles",
-    "Tablet",
+    "Tablet"
   ];
 
   return (
@@ -214,6 +226,7 @@ function Setting({ openProfile, setOpenProfile }) {
                     </i>
                   </li>
                 ))}
+
                 <input
                   className="userProfile_inputTags"
                   type="text"

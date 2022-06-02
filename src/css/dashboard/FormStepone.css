@@ -34,6 +34,18 @@
   color: #fff;
   height: 40px;
 }
+.coursInputAutofiledgameExperties {
+  margin: 10px 10px !important;
+  width: 100% !important;
+  background: none;
+  border: none;
+  opacity: 0.6;
+  color: #fff;
+  height: 40px;
+}
+.coursInputAutofiledgameExperties:active{
+  border: none !important;
+}
 .css-segi59 {
   padding: 0px !important;
 }

@@ -345,7 +345,6 @@ const MyPrifileSetting = () => {
             display: "bl8ck",
 
             margin: "25px 4px"
-
           }}
         >
           Save
