@@ -469,9 +469,9 @@ export default function PrimarySearchAppBar({
               alt="img"
               style={{ cursor: "pointer" }}
               onClick={() => {
-                if (user?.role == "User") {
+                if (user && learner) {
                   history.push("/home");
-                } else if (user?.role == "Creator") {
+                } else if (user && !learner) {
                   history.push("/contenthome");
                 } else history.push("/");
 

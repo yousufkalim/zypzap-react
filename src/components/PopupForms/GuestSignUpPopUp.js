@@ -5,14 +5,14 @@ import { Store, UpdateStore } from "../../StoreContext";
 import Dialog from "@mui/material/Dialog";
 import ClearIcon from "@mui/icons-material/Clear";
 
-const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup }) => {
+const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup, setOpenLogin }) => {
   const updateStore = UpdateStore();
   const { user } = Store();
   //   const { singlCourse } = props;
   const handleClick = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id,
+      userId: u?._id
     };
     let res = await api("post", "/users/enrolledCourseAndStarted", data);
     if (res) {
@@ -45,7 +45,7 @@ const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup }) => {
                   marginLeft: "17%",
                   marginTop: "6%",
                   marginBottom: "6%",
-                  borderRadius: "8px",
+                  borderRadius: "8px"
                 }}
               >
                 Sign Up Now
@@ -53,7 +53,10 @@ const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup }) => {
               <button
                 className="formbtn2"
                 type="submit"
-                onClick={handleClose}
+                onClick={() => {
+                  setOpenLogin(true);
+                  handleClose();
+                }}
                 style={{
                   width: "45%",
                   marginLeft: "3%",
@@ -62,7 +65,7 @@ const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup }) => {
                   marginBottom: "6%",
                   borderRadius: "8px",
                   // background: "rgba(128, 128, 128, 0.562)",
-                  color: "white",
+                  color: "white"
                 }}
               >
                 Log in Now

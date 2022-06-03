@@ -23,6 +23,13 @@ const Dashboard = ({ id }) => {
     getCreator();
     getGames();
   }, [contentDashboardButton]);
+  useEffect(() => {
+    if (history.location.state.createCourse) {
+      console.log("aaa");
+      setcreateCourse(true);
+      updateStore({ contentDashboardButton: "" });
+    }
+  }, []);
   const getCreator = async () => {
     let res = await api("get", `/creators/${creator?._id}`);
 
@@ -44,6 +51,7 @@ const Dashboard = ({ id }) => {
     { name: "Setting", img: settings }
   ];
   const onSideBtnClick = (e) => {
+    console.log("aa");
     const course = e.target.textContent;
 
     setcreateCourse(false);

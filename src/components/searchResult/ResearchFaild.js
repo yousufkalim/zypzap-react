@@ -3,13 +3,13 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import NotFound from "../../assets/img/NotFound.svg";
 
-const ResearchFaild = () => {
+const ResearchFaild = ({ searchInput }) => {
   return (
     <>
       <Box className="cards-container2">
         <div className="cards-box">
           <div className="cards-header-text">
-            <h3 className="card-header-text-h3">Pokemon 3</h3>
+            <h3 className="card-header-text-h3"> {searchInput}</h3>
             <span>0 Result Found</span>
           </div>
         </div>

@@ -77,6 +77,7 @@ const OverView = (props) => {
           singlCourse={course}
           setShowVideo={setShowVideo}
           setOpenSignup={setOpenSignup}
+          setOpenLogin={setOpenLogin}
         />
       )}
 

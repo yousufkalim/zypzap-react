@@ -10,9 +10,6 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Course1 from "../../assets/img/course1.png";
-// import Course2 from "../../assets/img/course2.png";
-// import Course3 from "../../assets/img/course3.png";
-// import Course4 from "../../assets/img/course4.png";
 import StarIcon from "@material-ui/icons/Star";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -700,13 +697,13 @@ const SearchResultBody = () => {
               Didn’t found the <br /> course
             </label>
             <Box style={{ position: "relative" }}>
-              <p className="req-coming-soon">Coming soon</p>
+              {/* <p className="req-coming-soon">Coming soon</p> */}
               <Button
                 className="reqstStateBTN"
                 onClick={RequestClikEvent}
                 variant="contained"
               >
-                Request now
+                Search Now
               </Button>
             </Box>
           </Item>
@@ -717,7 +714,7 @@ const SearchResultBody = () => {
         <>
           {" "}
           {searchCourse?.length === 0 ? (
-            <ResearchFaild />
+            <ResearchFaild searchInput={searchInput} />
           ) : (
             <>
               <Box className="cards-container" style={{ position: "relative" }}>
@@ -896,7 +893,7 @@ const SearchResultBody = () => {
       )}
       {searchState === "creator" ? (
         searchCreator?.length === 0 ? (
-          <ResearchFaild />
+          <ResearchFaild searchInput={searchInput} />
         ) : (
           <>
             {/* <CreatorResult input={input} /> */}
