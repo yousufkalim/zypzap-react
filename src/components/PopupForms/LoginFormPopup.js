@@ -229,34 +229,29 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                 <Grid container spacing={0}>
                   <Grid item xs={12}>
                     <div className="social">
-                      <span>
-                        <a
-                          href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}
-                        >
-                          <img src={Discord1} alt="" />
-                        </a>
-                      </span>
-                      <span>
-                        <a
-                          href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}
-                        >
-                          <img src={ChatIcon} alt="" />
-                        </a>
-                      </span>
-                      <span>
-                        <a
-                          href={`${process.env.REACT_APP_baseURL}/users/auth/google`}
-                        >
-                          <img src={Google} alt="" />
-                        </a>
-                      </span>
-                      <span>
-                        <a
-                          href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}
-                        >
-                          <img src={Facebook} alt="" />
-                        </a>
-                      </span>
+                      <a
+                        href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}
+                      >
+                        <img src={Discord1} alt="" />
+                      </a>
+
+                      <a
+                        href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}
+                      >
+                        <img src={ChatIcon} alt="" />
+                      </a>
+
+                      <a
+                        href={`${process.env.REACT_APP_baseURL}/users/auth/google`}
+                      >
+                        <img src={Google} alt="" />
+                      </a>
+
+                      <a
+                        href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}
+                      >
+                        <img src={Facebook} alt="" />
+                      </a>
                     </div>
                   </Grid>
                 </Grid>

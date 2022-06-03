@@ -10,10 +10,22 @@ import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
 import { Store, UpdateStore } from "../../StoreContext";
 import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
-import { makeStyles } from "@mui/styles";
-import TextField from "@mui/material/TextField";
-import Paper from "@mui/material/Paper";
-import Autocomplete from "@mui/material/Autocomplete";
+import { Select } from "antd";
+import "antd/dist/antd.css";
+const Option = Select.Option;
+
+let gamelist = [
+  { value: "ocean", label: "Ocean", color: "#00B8D9", isFixed: true },
+  { value: "blue", label: "Blue", color: "#0052CC", isDisabled: true },
+  { value: "purple", label: "Purple", color: "#5243AA" },
+  { value: "red", label: "Red", color: "#FF5630", isFixed: true },
+  { value: "orange", label: "Orange", color: "#FF8B00" },
+  { value: "yellow", label: "Yellow", color: "#FFC400" },
+  { value: "green", label: "Green", color: "#36B37E" },
+  { value: "forest", label: "Forest", color: "#00875A" },
+  { value: "slate", label: "Slate", color: "#253858" },
+  { value: "silver", label: "Silver", color: "#666666" }
+];
 function Setting({ openProfile, setOpenProfile }) {
   const [values, setValues] = useState([]);
   const { user } = Store();
@@ -200,6 +212,12 @@ function Setting({ openProfile, setOpenProfile }) {
     "Portable Consoles",
     "Tablet"
   ];
+  const handleSelectedGames = (e) => {
+    console.log("selected", e);
+  };
+  const onSearch = (e) => {
+    console.log("onsearch", e);
+  };
 
   return (
     <>
@@ -214,8 +232,23 @@ function Setting({ openProfile, setOpenProfile }) {
             <div>
               <p className="tags-input-FGames">Favorite Games</p>
             </div>
-            <div className="tags-input-ul tags-input2 ">
-              <ul className="tags-input-ul2">
+
+            <div className="tags-input-ul tags-input2 favGameDiv">
+              <Select
+                // className="form-control-alternative text-default"
+                mode="multiple"
+                allowClear
+                style={{ width: "100%" }}
+                placeholder="Select candidate's skill"
+                defaultValue={[gamelist[0].value]}
+                onChange={handleSelectedGames}
+                onSearch={onSearch}
+              >
+                {gamelist.map((skill) => (
+                  <Option key={skill.value}>{skill.label}</Option>
+                ))}
+              </Select>
+              {/* <ul className="tags-input-ul2">
                 {favouritGame.map((tag, index) => (
                   <li key={index} className="userProfileLi">
                     <i
@@ -233,7 +266,7 @@ function Setting({ openProfile, setOpenProfile }) {
                   onKeyUp={(event) => addTags(event)}
                   placeholder="Add here..."
                 />
-              </ul>
+              </ul> */}
             </div>
           </div>
           <div className="userButtonGroup">
