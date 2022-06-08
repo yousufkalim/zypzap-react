@@ -232,25 +232,33 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                       <a
                         href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}
                       >
-                        <img src={Discord1} alt="" />
+                        <span>
+                          <img src={Discord1} alt="" />
+                        </span>
                       </a>
 
                       <a
                         href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}
                       >
-                        <img src={ChatIcon} alt="" />
+                        <span>
+                          <img src={ChatIcon} alt="" />
+                        </span>
                       </a>
 
                       <a
                         href={`${process.env.REACT_APP_baseURL}/users/auth/google`}
                       >
-                        <img src={Google} alt="" />
+                        <span>
+                          <img src={Google} alt="" />
+                        </span>
                       </a>
 
                       <a
                         href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}
                       >
-                        <img src={Facebook} alt="" />
+                        <span>
+                          <img src={Facebook} alt="" />
+                        </span>
                       </a>
                     </div>
                   </Grid>

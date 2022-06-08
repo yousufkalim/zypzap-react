@@ -174,7 +174,7 @@ const FormStepsix = ({
               ? "Loading"
               : btnState === 2
               ? "Submited"
-              : "uploading thumnail"}
+              : "Uploading Thumnail"}
           </button>
         </div>
       </div>

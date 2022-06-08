@@ -10,9 +10,9 @@ import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
 import { Store, UpdateStore } from "../../StoreContext";
 import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
-import { Select } from "antd";
-import "antd/dist/antd.css";
-const Option = Select.Option;
+// import { Select } from "antd";
+// import "antd/dist/antd.css";
+// const Option = Select.Option;
 
 let gamelist = [
   { value: "ocean", label: "Ocean", color: "#00B8D9", isFixed: true },
@@ -234,7 +234,7 @@ function Setting({ openProfile, setOpenProfile }) {
             </div>
 
             <div className="tags-input-ul tags-input2 favGameDiv">
-              <Select
+              {/* <Select
                 // className="form-control-alternative text-default"
                 mode="multiple"
                 allowClear
@@ -247,8 +247,8 @@ function Setting({ openProfile, setOpenProfile }) {
                 {gamelist.map((skill) => (
                   <Option key={skill.value}>{skill.label}</Option>
                 ))}
-              </Select>
-              {/* <ul className="tags-input-ul2">
+              </Select> */}
+              <ul className="tags-input-ul2">
                 {favouritGame.map((tag, index) => (
                   <li key={index} className="userProfileLi">
                     <i
@@ -266,7 +266,7 @@ function Setting({ openProfile, setOpenProfile }) {
                   onKeyUp={(event) => addTags(event)}
                   placeholder="Add here..."
                 />
-              </ul> */}
+              </ul>
             </div>
           </div>
           <div className="userButtonGroup">

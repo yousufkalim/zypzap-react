@@ -116,7 +116,7 @@ const FormStepFive = ({
             Previous
           </button>
           <button onClick={handleSubmit} className="continueBtn">
-            {lodding ? "lodding" : "Continue"}
+            {lodding ? "Loading" : "Continue"}
           </button>
         </div>
       </div>

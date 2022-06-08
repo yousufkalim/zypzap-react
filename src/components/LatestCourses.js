@@ -16,7 +16,7 @@ import { useHistory } from "react-router-dom";
 export default function LatestCourses(props) {
   const history = useHistory();
   const { courses } = props;
-  const items = courses.sort(function (a, b) {
+  const items = courses?.sort(function (a, b) {
     var c = new Date(a.createdAt);
     var d = new Date(b.createdAt);
     return d - c;
@@ -114,13 +114,13 @@ export default function LatestCourses(props) {
       <div className="carousalOuterDiv">
         <Carousel
           responsive={responsive}
-          autoPlay={true}
+          // autoPlay={true}
           autoPlaySpeed={3000}
           // transitionDuration={3000}
           infinite={true}
           className="latestcourseCarousel"
         >
-          {items.map((item, i) => (
+          {items?.map((item, i) => (
             <Link
               to={{
                 pathname: `OverView/${item?._id}`,
