@@ -13,7 +13,7 @@ const Dashboard = ({ id }) => {
 
   const { creator, contentDashboardButton } = Store();
   const updateStore = UpdateStore();
-  const [activeButton, setActiveButton] = useState("Course");
+  const [activeButton, setActiveButton] = useState("Courses");
   const [createCourse, setcreateCourse] = useState(false);
   const [games, setGames] = useState([]);
 

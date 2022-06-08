@@ -12,10 +12,11 @@ import LatestCourseTimingIcon from "../assets/icons/LatestCourseTimingIcon.svg";
 import LatestCourseProPlayerIcon from "../assets/icons/LatestCourseProPlayerIcon.svg";
 import LatestCourseStudentsIcon from "../assets/icons/LatestCourseStudentsIcon.svg";
 import LatestCourseRatingIcon from "../assets/icons/LatestCourseRatingIcon.svg";
+import { Link } from "react-router-dom";
 import "react-multi-carousel/lib/styles.css";
 import { useHistory } from "react-router-dom";
 
-export default function TopRatedContent() {
+export default function TopRatedContent({ topRatedContentCreator }) {
   const history = useHistory();
   var items = [
     {
@@ -26,7 +27,7 @@ export default function TopRatedContent() {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "1",
+      test: "1"
     },
     {
       title: "Undefeated PUBG player",
@@ -36,7 +37,7 @@ export default function TopRatedContent() {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "2",
+      test: "2"
     },
     {
       title: "Mincraft Expert",
@@ -46,7 +47,7 @@ export default function TopRatedContent() {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "3",
+      test: "3"
     },
     {
       title: "Pro player of CS:GO",
@@ -56,7 +57,7 @@ export default function TopRatedContent() {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "4",
+      test: "4"
     },
     {
       title: "GTA 5 Expert",
@@ -66,7 +67,7 @@ export default function TopRatedContent() {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "5",
+      test: "5"
     },
     {
       title: "6Minicraft Full Course",
@@ -76,7 +77,7 @@ export default function TopRatedContent() {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "6",
+      test: "6"
     },
     {
       title: "7Minicraft Full Course",
@@ -86,7 +87,7 @@ export default function TopRatedContent() {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "7",
+      test: "7"
     },
     {
       title: "8Minicraft Full Course",
@@ -96,7 +97,7 @@ export default function TopRatedContent() {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "8",
+      test: "8"
     },
     {
       title: "9Minicraft Full Course",
@@ -106,7 +107,7 @@ export default function TopRatedContent() {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "3",
+      test: "3"
     },
     {
       title: "10Minicraft Full Course",
@@ -116,7 +117,7 @@ export default function TopRatedContent() {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "3",
+      test: "3"
     },
     {
       title: "11Minicraft Full Course",
@@ -126,7 +127,7 @@ export default function TopRatedContent() {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "3",
+      test: "3"
     },
     {
       title: "12Minicraft Full Course",
@@ -136,36 +137,36 @@ export default function TopRatedContent() {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "3",
-    },
+      test: "3"
+    }
   ];
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 4,
+      items: 4
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
-      slidesToSlide: 3,
+      slidesToSlide: 3
     },
     tablet: {
       breakpoint: { max: 1024, min: 800 },
-      items: 2,
+      items: 2
     },
     mobile: {
       breakpoint: { max: 800, min: 0 },
-      items: 1,
-    },
+      items: 1
+    }
   };
   const handleTopRatedCourses = () => {
     history.push({
       pathname: "/searchResult",
       param: {
         name: "Top 10 NFT Games",
-        value: "2",
-      },
+        value: "2"
+      }
     });
   };
   return (
@@ -185,71 +186,85 @@ export default function TopRatedContent() {
           // infinite={true}
           className="latestcourseCarousel"
         >
-          {items.map((item, i) => (
-            <div className="topRatedcardGrid" style={{ width: "500px" }}>
-              <div className="topRatedcardGrid-image">
-                <img src={item.img} className="topRatedcourseimg" alt="img" />
-              </div>
-              <h4 className="latestCourse-h4">
-                <img
-                  src={LatestCourseGameIcon}
-                  alt=""
-                  className="LatestCourse-IMG"
-                />
-                &nbsp;
-                {item.name}
-              </h4>
-              {/* <p className="latestcoursep1">{item.title}</p>
+          {topRatedContentCreator?.map((item, i) => (
+            <Link
+              to={{
+                pathname: `/CreatorProfile/${item._id}`
+              }}
+              className="requestBt"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <div className="topRatedcardGrid" style={{ width: "500px" }}>
+                <div className="topRatedcardGrid-image">
+                  <img
+                    src={item.profile_photo ? item.profile_photo : Game2}
+                    className="topRatedcourseimg"
+                    alt="img"
+                  />
+                </div>
+                <h4 className="latestCourse-h4">
+                  <img
+                    src={LatestCourseGameIcon}
+                    alt=""
+                    className="LatestCourse-IMG"
+                  />
+                  &nbsp;
+                  {item.username}
+                </h4>
+                {/* <p className="latestcoursep1">{item.title}</p>
               <p className="latestcoursep1">
                 {" "}
                 Level :<span style={{ color: "red" }}>{item.level}</span>
               </p>
               <p className="topRatedContentcourseh6">{item.students}</p> */}
-              {/* /* -------------------------------- new card --------------------------------  */}
-              <div className="latestCourseMain-Div">
-                {/* /* ------------------------------- copy colmn -------------------------------  */}
-                <div className="latestCouse-colmn">
-                  <div className="latestCourse-colmn-centerDiv">
-                    <img
-                      src={LatestCourseProPlayerIcon}
-                      alt=""
-                      className="LatestCourse-IMG"
-                    />
-                    <h1 className="latestCourse-pHeading">Pro Player Of...</h1>
+                {/* /* -------------------------------- new card --------------------------------  */}
+                <div className="latestCourseMain-Div">
+                  {/* /* ------------------------------- copy colmn -------------------------------  */}
+                  <div className="latestCouse-colmn">
+                    <div className="latestCourse-colmn-centerDiv">
+                      <img
+                        src={LatestCourseProPlayerIcon}
+                        alt=""
+                        className="LatestCourse-IMG"
+                      />
+                      <h1 className="latestCourse-pHeading">
+                        Pro Player Of...
+                      </h1>
+                    </div>
+                    <div className="latestCourse-colmn-centerDiv">
+                      <img
+                        src={LatestCourseStudentsIcon}
+                        alt=""
+                        className="LatestCourse-IMG"
+                      />
+                      <p className="latestCourse-p">500000+ Students</p>
+                    </div>
                   </div>
-                  <div className="latestCourse-colmn-centerDiv">
-                    <img
-                      src={LatestCourseStudentsIcon}
-                      alt=""
-                      className="LatestCourse-IMG"
-                    />
-                    <p className="latestCourse-p">500000+ Students</p>
-                  </div>
-                </div>
 
-                {/* ------------------------------- copy colmn -------------------------------  */}
-                <div className="latestCouse-colmn">
-                  <div className="latestCourse-colmn-centerDiv">
-                    <img
-                      src={LatestCourseLavelIcon}
-                      alt=""
-                      className="LatestCourse-IMG"
-                    />
-                    <p className="latestCourse-p">All Levels</p>
+                  {/* ------------------------------- copy colmn -------------------------------  */}
+                  <div className="latestCouse-colmn">
+                    <div className="latestCourse-colmn-centerDiv">
+                      <img
+                        src={LatestCourseLavelIcon}
+                        alt=""
+                        className="LatestCourse-IMG"
+                      />
+                      <p className="latestCourse-p">{item?.gameMood}</p>
+                    </div>
+                    <div className="latestCourse-colmn-centerDiv">
+                      <img
+                        src={LatestCourseRatingIcon}
+                        alt=""
+                        className="LatestCourse-IMG"
+                      />
+                      <p className="latestCourse-p">5.0 Rating</p>
+                    </div>
                   </div>
-                  <div className="latestCourse-colmn-centerDiv">
-                    <img
-                      src={LatestCourseRatingIcon}
-                      alt=""
-                      className="LatestCourse-IMG"
-                    />
-                    <p className="latestCourse-p">5.0 Rating</p>
-                  </div>
+                  {/* ------------------------------- copy colmn -------------------------------  */}
                 </div>
-                {/* ------------------------------- copy colmn -------------------------------  */}
+                {/* /* -------------------------------- new card --------------------------------  */}
               </div>
-              {/* /* -------------------------------- new card --------------------------------  */}
-            </div>
+            </Link>
           ))}
         </Carousel>
       </div>

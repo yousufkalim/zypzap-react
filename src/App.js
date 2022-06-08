@@ -8,6 +8,7 @@ import api from "./api";
 
 // Files
 import Index from "./routes/index";
+
 import "./css/index.css";
 
 import SetAuthToken from "./utils/SetAuthToken";

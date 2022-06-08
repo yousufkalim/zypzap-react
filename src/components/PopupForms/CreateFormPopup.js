@@ -27,7 +27,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
     password: "",
     CnfrmPassword: "",
     showPassword: false,
-    showConfirPassword: false,
+    showConfirPassword: false
   });
   const updateStore = UpdateStore();
   useEffect(() => {
@@ -44,7 +44,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
     password,
     showPassword,
     CnfrmPassword,
-    showConfirPassword,
+    showConfirPassword
   } = values;
   const showLoginFormPopup = () => {
     setLogin(true);
@@ -69,7 +69,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
   const onChangeEvent = (e) => {
     setValues({
       ...values,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
@@ -103,7 +103,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
       email,
       password,
       CnfrmPassword,
-      role: "User",
+      role: "User"
     };
     try {
       let res = await api("post", "/users", formdata);
@@ -237,34 +237,37 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                   <Grid container spacing={0}>
                     <Grid item xs={12}>
                       <div className="social_accoount">
-                        <span>
-                          <a
-                            href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}
-                          >
+                        <a
+                          href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}
+                        >
+                          <span>
                             <img src={Discord1} alt="" />
-                          </a>
-                        </span>
-                        <span>
-                          <a
-                            href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}
-                          >
+                          </span>
+                        </a>
+
+                        <a
+                          href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}
+                        >
+                          <span>
                             <img src={ChatIcon} alt="" />
-                          </a>
-                        </span>
-                        <span>
-                          <a
-                            href={`${process.env.REACT_APP_baseURL}/users/auth/google`}
-                          >
+                          </span>
+                        </a>
+
+                        <a
+                          href={`${process.env.REACT_APP_baseURL}/users/auth/google`}
+                        >
+                          <span>
                             <img src={Google} alt="" />
-                          </a>
-                        </span>
-                        <span>
-                          <a
-                            href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}
-                          >
+                          </span>
+                        </a>
+
+                        <a
+                          href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}
+                        >
+                          <span>
                             <img src={Facebook} alt="" />
-                          </a>
-                        </span>
+                          </span>
+                        </a>
                       </div>
                     </Grid>
                   </Grid>

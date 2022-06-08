@@ -229,34 +229,37 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                 <Grid container spacing={0}>
                   <Grid item xs={12}>
                     <div className="social">
-                      <span>
-                        <a
-                          href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}
-                        >
+                      <a
+                        href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}
+                      >
+                        <span>
                           <img src={Discord1} alt="" />
-                        </a>
-                      </span>
-                      <span>
-                        <a
-                          href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}
-                        >
+                        </span>
+                      </a>
+
+                      <a
+                        href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}
+                      >
+                        <span>
                           <img src={ChatIcon} alt="" />
-                        </a>
-                      </span>
-                      <span>
-                        <a
-                          href={`${process.env.REACT_APP_baseURL}/users/auth/google`}
-                        >
+                        </span>
+                      </a>
+
+                      <a
+                        href={`${process.env.REACT_APP_baseURL}/users/auth/google`}
+                      >
+                        <span>
                           <img src={Google} alt="" />
-                        </a>
-                      </span>
-                      <span>
-                        <a
-                          href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}
-                        >
+                        </span>
+                      </a>
+
+                      <a
+                        href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}
+                      >
+                        <span>
                           <img src={Facebook} alt="" />
-                        </a>
-                      </span>
+                        </span>
+                      </a>
                     </div>
                   </Grid>
                 </Grid>
