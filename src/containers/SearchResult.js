@@ -15,7 +15,7 @@ const SearchResult = () => {
         backgroundColor: "black",
         minHeight: "100vh",
         overflowX: "hidden",
-        overflowY: "hidden",
+        overflowY: "hidden"
       }}
     >
       <Header
