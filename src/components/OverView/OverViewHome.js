@@ -152,9 +152,10 @@ const OverViewHome = (props) => {
                   className="overViewCardIMG"
                 />
               </div>
-              <div className="overViewBuy">
-                {/* start heart icon for wish list */}
-                {/* <div className="overViewRateContent">
+              {singlCourse?.videos.length >= 1 && (
+                <div className="overViewBuy">
+                  {/* start heart icon for wish list */}
+                  {/* <div className="overViewRateContent">
                   {user?.role === "User" && (
                     <img
                       src={OverCardHurtLogo}
@@ -163,64 +164,65 @@ const OverViewHome = (props) => {
                     />
                   )}
                 </div> */}
-                {/* end heart icon for wish list */}
+                  {/* end heart icon for wish list */}
 
-                {user?.role === "Creator" ? (
-                  <NavLink
-                    to="#"
-                    className="CardBuyBtn"
-                    onClick={() => {
-                      if (user) {
-                        props.setShowVideo(true);
-                      } else {
-                        props.setOpenSignup(true);
-                      }
-                    }}
-                  >
-                    View
-                  </NavLink>
-                ) : (
-                  <>
-                    {" "}
+                  {user?.role === "Creator" ? (
                     <NavLink
                       to="#"
                       className="CardBuyBtn"
                       onClick={() => {
                         if (user) {
-                          handleStartCourse(user, singlCourse);
                           props.setShowVideo(true);
                         } else {
-                          setOpenGuestPopUp(true);
-                          // props.setOpenSignup(true);
+                          props.setOpenSignup(true);
                         }
                       }}
                     >
-                      Start
+                      View
                     </NavLink>
-                    {!singlCourse?.student?.includes(user?._id) && (
+                  ) : (
+                    <>
+                      {" "}
                       <NavLink
                         to="#"
                         className="CardBuyBtn"
                         onClick={() => {
                           if (user) {
-                            handleEnrolled(user, singlCourse);
+                            handleStartCourse(user, singlCourse);
+                            props.setShowVideo(true);
                           } else {
                             setOpenGuestPopUp(true);
-
                             // props.setOpenSignup(true);
                           }
                         }}
                       >
-                        Enroll Now
+                        Start
                       </NavLink>
-                    )}
-                  </>
-                )}
-                {/* <NavLink to="#" className="CardBuyBtn2">
+                      {!singlCourse?.student?.includes(user?._id) && (
+                        <NavLink
+                          to="#"
+                          className="CardBuyBtn"
+                          onClick={() => {
+                            if (user) {
+                              handleEnrolled(user, singlCourse);
+                            } else {
+                              setOpenGuestPopUp(true);
+
+                              // props.setOpenSignup(true);
+                            }
+                          }}
+                        >
+                          Enroll Now
+                        </NavLink>
+                      )}
+                    </>
+                  )}
+                  {/* <NavLink to="#" className="CardBuyBtn2">
                   Stock It In The Caddy
                   <button className="overComming-soonBTN">Comming Soon</button>
                 </NavLink> */}
-              </div>
+                </div>
+              )}
               {/* <div1 className="overViewCard-content">
                 <p className="overViewCard-contentP">The course includes</p>
                 <li className="overContentLi">
