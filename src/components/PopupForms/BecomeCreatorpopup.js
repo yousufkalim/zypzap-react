@@ -324,7 +324,7 @@ const BecomeCreatorpopup = ({
             </FormControl>
           </div>
           <button className="userProfileButton" onClick={submitProfile}>
-            Continue1
+            Continue
           </button>
           {/* <button className="backBTN" onClick={handleClose}>
             Back
