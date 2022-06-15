@@ -7,6 +7,7 @@ import BlogFooter from "./BlogFooter";
 import api from "../../api";
 import { Store, UpdateStore } from "../../StoreContext";
 import Carousel from "react-material-ui-carousel";
+import { baseUrl } from "../../config";
 
 export default function BlogBody() {
   const [loading, setLoading] = useState(false);
@@ -70,10 +71,7 @@ export default function BlogBody() {
             >
               {blogs?.map((item, i) => (
                 <>
-                  <img
-                    src={process.env.REACT_APP_baseURL + item.blog_images}
-                    className="BlogbodyImage"
-                  />
+                  <img src={baseUrl + item.blog_images} className="BlogbodyImage" />
                   <items key={i} item={item} />
                 </>
               ))}

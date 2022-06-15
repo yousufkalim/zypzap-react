@@ -16,6 +16,8 @@ import Input from "@material-ui/core/Input";
 import api from "../../api";
 import EmailVarificaiton from "./EmailVarificaiton";
 import { Store, UpdateStore } from "../../StoreContext";
+import { baseUrl } from "../../config";
+
 const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
   // const [opens, setOpens] = React.useState(false);
   const [loading, setLoading] = useState(false);
@@ -209,22 +211,22 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                     <Grid item xs={12}>
                       <div className="social_accoount">
                         <span>
-                          <a href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}>
+                          <a href={`${baseUrl}/users/auth/discord`}>
                             <img src={Discord1} alt="" />
                           </a>
                         </span>
                         <span>
-                          <a href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}>
+                          <a href={`${baseUrl}/users/auth/twitch`}>
                             <img src={ChatIcon} alt="" />
                           </a>
                         </span>
                         <span>
-                          <a href={`${process.env.REACT_APP_baseURL}/users/auth/google`}>
+                          <a href={`${baseUrl}/users/auth/google`}>
                             <img src={Google} alt="" />
                           </a>
                         </span>
                         <span>
-                          <a href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}>
+                          <a href={`${baseUrl}/users/auth/facebook`}>
                             <img src={Facebook} alt="" />
                           </a>
                         </span>

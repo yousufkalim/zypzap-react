@@ -22,6 +22,7 @@ import ForgetPassword from "./ForgetPassword";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { styled } from "@mui/material/styles";
 import Switch from "@mui/material/Switch";
+import { baseUrl } from "../../config";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 82,
@@ -212,22 +213,22 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                   <Grid item xs={12}>
                     <div className="social">
                       <span>
-                        <a href={`${process.env.REACT_APP_baseURL}/users/auth/discord`}>
+                        <a href={`${baseUrl}/users/auth/discord`}>
                           <img src={Discord1} alt="" />
                         </a>
                       </span>
                       <span>
-                        <a href={`${process.env.REACT_APP_baseURL}/users/auth/twitch`}>
+                        <a href={`${baseUrl}/users/auth/twitch`}>
                           <img src={ChatIcon} alt="" />
                         </a>
                       </span>
                       <span>
-                        <a href={`${process.env.REACT_APP_baseURL}/users/auth/google`}>
+                        <a href={`${baseUrl}/users/auth/google`}>
                           <img src={Google} alt="" />
                         </a>
                       </span>
                       <span>
-                        <a href={`${process.env.REACT_APP_baseURL}/users/auth/facebook`}>
+                        <a href={`${baseUrl}/users/auth/facebook`}>
                           <img src={Facebook} alt="" />
                         </a>
                       </span>

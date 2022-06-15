@@ -1,5 +1,17 @@
 {
   "projects": {
-    "default": "passtotrip-demo"
+    "default": "zypzap-demo"
+  },
+  "targets": {
+    "passtotrip-demo": {
+      "hosting": {
+        "dev": [
+          "zypzap-demo"
+        ],
+        "prod": [
+          "passtotrip-demo"
+        ]
+      }
+    }
   }
 }

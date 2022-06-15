@@ -12,6 +12,7 @@ import YouMayLike from "./YouMayLike";
 import BlogFoote from "../blog/BlogFooter";
 import TwitterIcon2 from "../../assets/icons/TwitterIcon2.svg";
 import moment from "moment";
+import { baseUrl } from "../../config";
 
 export default function ArticleBody({ singlBlog, loading, blogs }) {
   function htmlfile() {
@@ -40,7 +41,7 @@ export default function ArticleBody({ singlBlog, loading, blogs }) {
         <div className="articleBodycontainer">
           <img
             // src={ArticleBodyimg}
-            src={process.env.REACT_APP_baseURL + singlBlog?.blog_images}
+            src={baseUrl + singlBlog?.blog_images}
             className="articleimg"
             alt="img"
           />
@@ -58,9 +59,7 @@ export default function ArticleBody({ singlBlog, loading, blogs }) {
                     ZypZap
                   </p>
                   {/* <p className="articlep2">May 15・1 min read</p> */}
-                  <p className="articlep2">
-                    {moment(singlBlog?.createdAt).format("MMMM DD HH:s")}
-                  </p>
+                  <p className="articlep2">{moment(singlBlog?.createdAt).format("MMMM DD HH:s")}</p>
                 </div>
               </div>
               {/* <div className="articleavatardiv2">
@@ -77,22 +76,10 @@ export default function ArticleBody({ singlBlog, loading, blogs }) {
             </Grid>
             <Grid item xs={3} sm={3}>
               <div className="articleSocialicon">
-                <img
-                  src={TwitterIcon2}
-                  className="articlesocialicon"
-                  alt="img"
-                />
-                <img
-                  src={LinkedinIcon}
-                  className="articlesocialicon"
-                  alt="img"
-                />
+                <img src={TwitterIcon2} className="articlesocialicon" alt="img" />
+                <img src={LinkedinIcon} className="articlesocialicon" alt="img" />
                 <img src={FbIcon} className="articlesocialicon" alt="img" />
-                <img
-                  src={PintrestIcon}
-                  className="articlesocialicon"
-                  alt="img"
-                />
+                <img src={PintrestIcon} className="articlesocialicon" alt="img" />
                 <img src={Dot} className="articlesocialicon" alt="img" />
               </div>
             </Grid>
