@@ -34,12 +34,6 @@ const SettingCreatorProfileHomePage = () => {
                 <span className="level-span">Semi-Pro</span>
               </p>
             </div>
-            <div className="following-content">
-              <p className="followingP">
-                Following: &nbsp;
-                <span className="follo-span"> 0</span>
-              </p>
-            </div>
           </div>
           {/* profile Div */}
         </div>

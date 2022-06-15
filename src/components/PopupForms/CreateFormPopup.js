@@ -121,7 +121,8 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
     <>
       <div>
         {/* <EmailVarificaiton open={opens} setOpen={setOpens} /> */}
-        <Dialog open={open} onClose={handleClose}>
+
+        <Dialog open={open} maxWidth={"sm"}>
           <div className="create_form">
             <div className="create_container">
               <h1 className="createH1">Create an Account</h1>
@@ -210,26 +211,29 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                   <Grid container spacing={0}>
                     <Grid item xs={12}>
                       <div className="social_accoount">
-                        <span>
-                          <a href={`${baseUrl}/users/auth/discord`}>
+                        <a href={`${baseUrl}/users/auth/discord`}>
+                          <span>
                             <img src={Discord1} alt="" />
-                          </a>
-                        </span>
-                        <span>
-                          <a href={`${baseUrl}/users/auth/twitch`}>
+                          </span>
+                        </a>
+
+                        <a href={`${baseUrl}/users/auth/twitch`}>
+                          <span>
                             <img src={ChatIcon} alt="" />
-                          </a>
-                        </span>
-                        <span>
-                          <a href={`${baseUrl}/users/auth/google`}>
+                          </span>
+                        </a>
+
+                        <a href={`${baseUrl}/users/auth/google`}>
+                          <span>
                             <img src={Google} alt="" />
-                          </a>
-                        </span>
-                        <span>
-                          <a href={`${baseUrl}/users/auth/facebook`}>
+                          </span>
+                        </a>
+
+                        <a href={`${baseUrl}/users/auth/facebook`}>
+                          <span>
                             <img src={Facebook} alt="" />
-                          </a>
-                        </span>
+                          </span>
+                        </a>
                       </div>
                     </Grid>
                   </Grid>
@@ -247,7 +251,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                 By Registering for this website, you accept our
                 <span className="condition">
                   Terms <br /> Of Use
-                </span>{" "}
+                </span>
                 and our <span className="condition">Privacy Policy.</span>
               </p>
             </div>

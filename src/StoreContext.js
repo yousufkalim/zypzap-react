@@ -20,6 +20,8 @@ export function StoreProvider({ children }) {
   let [store, setStore] = useState({
     loggedIn: false,
     user: null,
+    courses: [],
+    topRatedContentCreator: [],
     blogs: [],
     singleBlog: {},
     creator: null,
@@ -29,13 +31,15 @@ export function StoreProvider({ children }) {
     searchInput: "",
     Games: [],
     searchLoader: false,
+    learner: false,
+    contentDashboardButton: "Courses"
   });
 
   const updateStore = (data) => {
     setStore((prev) => {
       return {
         ...prev,
-        ...data,
+        ...data
       };
     });
   };

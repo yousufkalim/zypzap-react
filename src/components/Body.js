@@ -18,26 +18,36 @@ export default function Body({ setOpenSignup }) {
   const [openContentRequest, setOpenContentRequest] = useState(false);
   const updateStore = UpdateStore();
   const history = useHistory();
-  const { courses, user } = Store();
+  const { courses, user, topRatedContentCreator } = Store();
 
   let getTopCourses = async () => {
+    setLoading(true);
     let res = await api("get", "/courses");
     if (res) {
       updateStore({ courses: res?.data });
     }
-    setLoading(true);
+    setLoading(false);
   };
+  let getTopRatedContentCreator = async () => {
+    let res = await api("get", "/creators/topRatedCreator");
+    if (res) {
+      console.log("res.data c", res?.data);
+      updateStore({ topRatedContentCreator: res?.data });
+    }
+  };
+  console.log("topRatedContentCreator", topRatedContentCreator);
   useEffect(() => {
     // get top courses
     getTopCourses();
+    getTopRatedContentCreator();
   }, []);
   const handleviewTopCourses = () => {
     history.push({
       pathname: "/searchResult",
       param: {
         name: "Top 10 Games",
-        value: "1",
-      },
+        value: "1"
+      }
     });
   };
   return (
@@ -46,7 +56,7 @@ export default function Body({ setOpenSignup }) {
         openContentRequest={openContentRequest}
         setOpenContentRequest={setOpenContentRequest}
       />
-      {!loading ? (
+      {loading ? (
         <h1>Loading...</h1>
       ) : (
         <div className="Bodycontainer">
@@ -82,7 +92,7 @@ export default function Body({ setOpenSignup }) {
           </div>
           <TopCourses courses={courses} user={user} />
           <LatestCourses courses={courses} user={user} />
-          <TopRatedContent />
+          <TopRatedContent topRatedContentCreator={topRatedContentCreator} />
           <Request
             openContentRequest={openContentRequest}
             setOpenContentRequest={setOpenContentRequest}

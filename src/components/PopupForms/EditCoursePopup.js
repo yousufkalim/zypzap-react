@@ -14,27 +14,20 @@ import UploadingTheCourse from "../PopupForms/UploadingTheCourse";
 
 import api from "../../api";
 //      todo later---->
-// const firebaseConfig = {
-//   apiKey: process.env.FIREBASE_APP_API_KEY,
-//   authDomain: process.env.FIREBASE_APP_AUTH_DOMAIN,
-//   projectId: process.env.FIREBASE_APP_PROJECT_ID,
-//   storageBucket: process.env.FIREBASE_APP_STORAGE_BUCKET,
-//   messagingSenderId: process.env.FIREBASE_APP_MESSAGING_SENDER_ID,
-//   appId: process.env.FIREBASE_APP_ID,
-//   measurementId: process.env.FIREBASE_APP_MEASURMENT_ID,
-// };
 const firebaseConfig = {
-  apiKey: "GOOGLE_API_KEY_REDACTED",
-  authDomain: "video-storage-3769b.firebaseapp.com",
-  projectId: "video-storage-3769b",
-  storageBucket: "video-storage-3769b.appspot.com",
-  messagingSenderId: "674858504046",
-  appId: "1:674858504046:web:dc91ec7bc28e23342c3b7f",
-  measurementId: "G-TRTYFM0GKT",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASURMENT_ID
 };
+
 export const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
+  console.log("edit course for edit it", course);
   const { Games, creator } = Store();
   const [showPopup, setShowPopup] = React.useState(false);
   const [opens, setOpens] = React.useState(false);
@@ -49,31 +42,35 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   const [formDataFive, setformDataFive] = useState([]);
   const [formDataOne, setformDataOne] = useState({
     course_name: course?.course_name,
-    gameName: course?.game_id?._id,
+    // gameName: course?.game_id?._id,
+    selectedGamename: course?.selectedGamename,
     gameLevel: course?.gameLevel,
     gameType: course?.game_id?.category,
     gameMood: course?.gameMood,
     gamePlateForm: course?.gamePlateForm,
-    description: course?.description,
+    description: course?.description
   });
   const {
     course_name,
-    gameName,
+    // gameName,
+    selectedGamename,
     gameLevel,
     gameType,
     gameMood,
     gamePlateForm,
-    description,
+    description
   } = formDataOne;
+
   useEffect(() => {
     setformDataOne({
       course_name: course?.course_name,
       gameName: course?.game_id?._id,
+      selectedGamename: course?.selectedGamename,
       gameLevel: course?.level,
       gameType: course?.game_id?.category,
       gameMood: course?.mode,
       gamePlateForm: course?.plateform,
-      description: course?.description,
+      description: course?.description
     });
   }, [course]);
   useEffect(() => {
@@ -82,7 +79,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   const chnageEvent = (e) => {
     setformDataOne({
       ...formDataOne,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
   const handleSave = async () => {
@@ -93,7 +90,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
       setformDataTwo([]);
       setformDataFive([]);
       setOpen(false);
-      setOpenS(true);
+      // setOpens(true);
     } else {
       return toast.error("Courses not update try again");
     }
@@ -224,11 +221,10 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
           fullWidth="true"
           maxWidth="md"
           open={open}
-          onClose={handleClose}
           className="editCoursePopup"
         >
           {/* /* -------------------------------- main div --------------------------------  */}
-          <div className="formStepOneDiv">
+          <div className="formStepOneDiv" style={{ margin: "0px" }}>
             <p className="coursedetail2">Edit the course</p>
             <div className="hrLine1" />
             <div className="courseDivContainer">
@@ -255,9 +251,9 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                     <p className="stepLabel">Game Name</p>
                     <select
                       id="gameName"
-                      name="gameName"
+                      name="selectedGamename"
                       className="coursInput"
-                      value={gameName}
+                      value={selectedGamename}
                       onChange={chnageEvent}
                     >
                       {game?.map((g, index) => {
@@ -321,32 +317,47 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                           <option value="Adventure" className="setepOption">
                             Adventure
                           </option>
-                          <option
-                            value="Multiplayer game"
-                            className="setepOption"
-                          >
-                            Multiplayer game
+                          <option value="Metaverse" className="setepOption">
+                            MetaVerse
+                          </option>
+                          <option value="MMOG" className="setepOption">
+                            MMOG
                           </option>
                           <option value="Car Racing" className="setepOption">
                             Car Racing
                           </option>
+                          <option
+                            value="Versus Fighting"
+                            className="setepOption"
+                          >
+                            Versus Fighting
+                          </option>
                           <option value="FPS" className="setepOption">
                             FPS
+                          </option>
+                          <option value="RTS" className="setepOption">
+                            RTS
+                          </option>
+                          <option value="RPG" className="setepOption">
+                            RPG
+                          </option>
+                          <option
+                            value="Turn by Turn Strategy"
+                            className="setepOption"
+                          >
+                            Turn by Turn Strategy
                           </option>
                           <option value="Simulation" className="setepOption">
                             Simulation
                           </option>
                           <option value="Sports" className="setepOption">
-                            Sports
+                            Sport
+                          </option>
+                          <option value="Trading Card" className="setepOption">
+                            Trading Card
                           </option>
                           <option value="Puzzle" className="setepOption">
                             Puzzle
-                          </option>
-                          <option value="RPG" className="setepOption">
-                            RPG
-                          </option>
-                          <option value="RTS" className="setepOption">
-                            RTS
                           </option>
                         </select>
                       </div>
@@ -431,7 +442,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
               value={description}
               onChange={chnageEvent}
             ></textarea>
-            <Grid container spacing={2}>
+            {/* <Grid container spacing={2}>
               <div className="step_container2">
                 <div className="step1">
                   <p className="stapPr">Re-upload full course</p>
@@ -447,7 +458,8 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                   <VideoInput text="Select Video" />
                 </div>
               </div>
-            </Grid>
+            </Grid> */}
+
             <div className="coursDetailBtn">
               <button className="drafBtn" onClick={handleClose}>
                 Cancel

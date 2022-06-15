@@ -46,7 +46,7 @@ export default function WhatWeOffer() {
           pera="S'abonner à la Newsletter"
           title="Accédez à des avantages uniques ! "
           // title2="avantages uniques"
-          content="Offre reservée aux 1000 premiers inscrits"
+          content="Offre reservée aux 100 premiers inscrits"
           check="false"
           type="creator"
         />
@@ -60,41 +60,12 @@ export default function WhatWeOffer() {
           setSuccessPopup={setSuccessPopup}
           title="Bénéficiez d’un an de services offerts !"
           // title2=" services offerts !"
-          content="Offre reservée aux 10 000 premiers inscrits"
+          content="Offre reservée aux 1000 premiers inscrits"
           pera="S'abonner à la Newsletter"
           check="true"
           type="user"
         />
       )}
-      <div className="whatweoffercontainer ">
-        <div className="offerh1">
-          <h1
-            className="offerh1-1"
-            style={{ fontWeight: "100", fontSize: "28px" }}
-          ></h1>
-          {/* <div className="offerdashline"></div> */}
-        </div>
-        <div className="preparingHeading">
-          <h1 className="preparingH1">Nous prÉparons le lancement</h1>
-          <p className="preparingP">
-            Nous avons hâte de vous faire découvrir la plateforme ZypZap.
-          </p>
-          <p className="preparingP">
-            Toute notre équipe est mobilisée sur le développement de ses
-            fonctionnalités inédites et innovantes.
-          </p>
-          <p className="preparingP">
-            Inscrivez-vous dès maintenant pour participer au développement de
-            notre communauté.
-          </p>
-          <p className="preparingP2">
-            Nous avons hâte de vous faire découvrir la plateforme ZypZap. Toute
-            notre équipe est mobilisée sur le développement de ses
-            fonctionnalités inédites et innovantes. Inscrivez-vous dès
-            maintenant pour participer au développement de notre communauté.
-          </p>
-        </div>
-      </div>
       <Grid container spacing={2} className="offerGrid ">
         <Grid item xs={12} sm={6}>
           <div className="offerdivleft">
@@ -108,9 +79,9 @@ export default function WhatWeOffer() {
                 <br />
                 {t(" et commencez à scorer")}
               </p>
-              <p className="offerText22">
+              {/* <p className="offerText22">
                 Suivez les cours de votre choix et commencez à scorer
-              </p>
+              </p> */}
               <Link to="#">
                 <button
                   className="whatweofferButton"
@@ -150,6 +121,35 @@ export default function WhatWeOffer() {
           </div>
         </Grid>
       </Grid>
+      <div className="whatweoffercontainer ">
+        <div className="offerh1">
+          <h1
+            className="offerh1-1"
+            style={{ fontWeight: "100", fontSize: "28px" }}
+          ></h1>
+          {/* <div className="offerdashline"></div> */}
+        </div>
+        <div className="preparingHeading">
+          <h1 className="preparingH1">Nous prÉparons le lancement</h1>
+          <p className="preparingP">
+            Nous avons hâte de vous faire découvrir la plateforme ZypZap.
+          </p>
+          <p className="preparingP">
+            Toute notre équipe est mobilisée sur le développement de ses
+            fonctionnalités inédites et innovantes.
+          </p>
+          <p className="preparingP">
+            Inscrivez-vous dès maintenant pour participer au développement de
+            notre communauté.
+          </p>
+          <p className="preparingP2">
+            Nous avons hâte de vous faire découvrir la plateforme ZypZap. Toute
+            notre équipe est mobilisée sur le développement de ses
+            fonctionnalités inédites et innovantes. Inscrivez-vous dès
+            maintenant pour participer au développement de notre communauté.
+          </p>
+        </div>
+      </div>
     </>
   );
 }

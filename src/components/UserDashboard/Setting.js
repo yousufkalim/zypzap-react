@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Dialog from "@mui/material/Dialog";
+import axios from "axios";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -9,7 +10,24 @@ import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
 import { Store, UpdateStore } from "../../StoreContext";
 import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
+// import { Select } from "antd";
+// import "antd/dist/antd.css";
+// const Option = Select.Option;
+
+let gamelist = [
+  { value: "ocean", label: "Ocean", color: "#00B8D9", isFixed: true },
+  { value: "blue", label: "Blue", color: "#0052CC", isDisabled: true },
+  { value: "purple", label: "Purple", color: "#5243AA" },
+  { value: "red", label: "Red", color: "#FF5630", isFixed: true },
+  { value: "orange", label: "Orange", color: "#FF8B00" },
+  { value: "yellow", label: "Yellow", color: "#FFC400" },
+  { value: "green", label: "Green", color: "#36B37E" },
+  { value: "forest", label: "Forest", color: "#00875A" },
+  { value: "slate", label: "Slate", color: "#253858" },
+  { value: "silver", label: "Silver", color: "#666666" }
+];
 function Setting({ openProfile, setOpenProfile }) {
+  const [values, setValues] = useState([]);
   const { user } = Store();
   const updateStore = UpdateStore();
   const [openCongratulation, setCongratulation] = useState(false);
@@ -70,6 +88,12 @@ function Setting({ openProfile, setOpenProfile }) {
       event.target.value = "";
     }
   };
+  const addTagsByapi = (event) => {
+    if (event !== "") {
+      setFavouritGame([...favouritGame, event]);
+      event = "";
+    }
+  };
   const onChangeRadioBtn = (e) => {
     const value = e.target.value;
     setGameMood(e.target.value);
@@ -79,7 +103,7 @@ function Setting({ openProfile, setOpenProfile }) {
 
   const removeTags = (index) => {
     setFavouritGame([
-      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index),
+      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index)
     ]);
   };
   const ChangeLearningRhythm = (e) => {
@@ -127,13 +151,13 @@ function Setting({ openProfile, setOpenProfile }) {
       favourite_games: favouritGame,
       learningRethem: learningRethem,
       current_level: currentLevel,
-      target_level: target_level,
+      target_level: target_level
     };
     const formdata = {
       prefrence_games,
       gameType,
       plateForm,
-      gameMood,
+      gameMood
     };
     if (
       prefrence_games === "" ||
@@ -177,7 +201,7 @@ function Setting({ openProfile, setOpenProfile }) {
     "Trading card",
     "Puzzle",
     "Versus Fighting",
-    "Trading card and Board games",
+    "Trading card and Board games"
   ];
   const gamePlateform = [
     "PC",
@@ -186,8 +210,14 @@ function Setting({ openProfile, setOpenProfile }) {
     "Xbox/360/One/X",
     "Retro Consoles",
     "Portable Consoles",
-    "Tablet",
+    "Tablet"
   ];
+  const handleSelectedGames = (e) => {
+    console.log("selected", e);
+  };
+  const onSearch = (e) => {
+    console.log("onsearch", e);
+  };
 
   return (
     <>
@@ -202,7 +232,22 @@ function Setting({ openProfile, setOpenProfile }) {
             <div>
               <p className="tags-input-FGames">Favorite Games</p>
             </div>
-            <div className="tags-input-ul tags-input2 ">
+
+            <div className="tags-input-ul tags-input2 favGameDiv">
+              {/* <Select
+                // className="form-control-alternative text-default"
+                mode="multiple"
+                allowClear
+                style={{ width: "100%" }}
+                placeholder="Select candidate's skill"
+                defaultValue={[gamelist[0].value]}
+                onChange={handleSelectedGames}
+                onSearch={onSearch}
+              >
+                {gamelist.map((skill) => (
+                  <Option key={skill.value}>{skill.label}</Option>
+                ))}
+              </Select> */}
               <ul className="tags-input-ul2">
                 {favouritGame.map((tag, index) => (
                   <li key={index} className="userProfileLi">
@@ -214,6 +259,7 @@ function Setting({ openProfile, setOpenProfile }) {
                     </i>
                   </li>
                 ))}
+
                 <input
                   className="userProfile_inputTags"
                   type="text"

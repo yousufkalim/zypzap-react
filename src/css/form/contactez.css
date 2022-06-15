@@ -60,6 +60,15 @@ body {
   padding: 10px 20px;
   border: none;
 }
+.contactezBtn:hover,
+.contactezBtn2:hover {
+  background: none;
+  border: 1px solid gray;
+  padding: 9px 0;
+}
+.contactezBtn2:hover {
+  padding: 9px 19px;
+}
 
 .requestDivIcon {
   cursor: pointer;

@@ -88,13 +88,13 @@ const SubscriptionPopup = ({
         setOpen={() => setShowPopup2(!showPopup2)}
         closeModal={handleClose}
       />
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open}>
         <div className="login_form">
           <div className="subs_container">
             <div className="form-header-block">
-              <h1 className="subH1">{title}</h1>
+              <p className="subH1">{title}</p>
               <ClearIcon className="subsclearIcon" onClick={handleClose} />
-              <h1 className="subH1">{title2}</h1>
+              <p className="subH1">{title2}</p>
 
               <p className="subP">{isThreeLine ? content : ""}</p>
             </div>

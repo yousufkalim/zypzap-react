@@ -3,6 +3,7 @@ import DeshProfile from "../../../assets/icons/deshProfile.png";
 import { toast } from "react-toastify";
 import api from "../../../api";
 import { Store, UpdateStore } from "../../../StoreContext";
+
 const BasicInformation = () => {
   const { user } = Store();
   const updateStore = UpdateStore();

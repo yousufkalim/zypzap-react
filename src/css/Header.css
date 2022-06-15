@@ -113,6 +113,7 @@
   font-size: 18px;
   text-decoration: none !important;
 }
+
 .requestBtn2 {
   border: none;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
@@ -140,13 +141,14 @@
 }
 .comming-soon {
   position: absolute;
-  margin: -10px 0 0 30px;
-  font-weight: bold;
+  margin: -20px 0 0 35px;
+  /* font-weight: bold; */
   border: none;
-  padding: 2px 7px;
+  padding: 4px 7px;
   font-size: 12px;
   color: #616161;
   background: none;
+  z-index: 1;
 }
 .comming-soon3 {
   position: absolute;
@@ -167,11 +169,17 @@
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: #fff;
   font-weight: 600;
-  font-family: "Poppins", sans-serif;
+  font-family: "mulish" !important;
   border-radius: 5px;
   cursor: pointer;
   font-size: 12px;
   text-decoration: none !important;
+}
+.basicProfile:hover {
+  border: 1px solid gray;
+  background: none;
+  padding: 6px 12px;
+  /* margin: 12px 12px 7px 0; */
 }
 .dropbtn {
   color: white;
@@ -275,6 +283,50 @@
 .show {
   display: block;
 }
+
+/* Notification dropdown */
+.notification_dropdown_title {
+  color: #fff;
+  background: none;
+  font-family: "mulish";
+}
+.notification_dropdown {
+  color: #fff;
+  width: 200px !important;
+}
+.noti_dropdown_clmn {
+  display: flex;
+  /* border: 1px solid red; */
+  margin: 10px 5px;
+  font-family: "mulish";
+}
+/* .noti_dropdownIMg {
+  border: 1px solid rgb(255, 238, 0);
+} */
+.noti_dropdown_logo {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+.noti_dropdown_content {
+  /* border: 1px solid rgb(55, 0, 255); */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px 10px;
+}
+.dropdown_userName {
+  color: #ececec;
+  font-size: 12px;
+}
+.dropdown_minuts {
+  color: #737373;
+  font-size: 11px;
+}
+.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+  background: none !important;
+}
+/* Notification dropdown */
 
 /* for big screens */
 @media only screen and (min-width: 1900px) {
@@ -528,7 +580,7 @@
   }
   .css-1t29gy6-MuiToolbar-root {
     justify-content: space-around;
-    padding-left: 16px !important;
+    padding-left: 0px !important;
   }
 
   .css-1pz7awu-MuiButtonBase-root-MuiIconButton-root {

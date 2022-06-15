@@ -7,6 +7,8 @@
 }
 .css-uhb5lp {
   background-color: #1d1f38 !important;
+  margin: 0 !important;
+  border-radius: 20px !important;
 }
 .css-i4bv87-MuiSvgIcon-root {
   height: 1.3rem !important;
@@ -61,6 +63,7 @@ body {
   left: 24.5%;
   z-index: 5;
   align-items: flex-end;
+  padding-right: 30px;
 }
 .profile-container2 {
   width: 70%;
@@ -127,6 +130,8 @@ body {
   font-size: 18px;
   padding: 10px 10px;
   border-radius: 4px;
+  font-family: "mulish";
+  cursor: pointer;
 }
 /* My Profile component */
 .myProfile {
@@ -142,6 +147,9 @@ body {
   line-height: 25px;
   border-bottom: 1px solid gray;
   padding-bottom: 10px;
+}
+.myProfileC {
+  display: none;
 }
 .myProfileNames {
   border: none;
@@ -183,7 +191,7 @@ body {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   border-radius: 4px;
-  margin: 3px;
+  margin: 4px;
   font-size: 15px;
   padding: 7px 15px;
   color: #fff;
@@ -296,7 +304,47 @@ body {
 .profile-notificaitonDiv {
   margin-top: 5px;
 }
+.membrship-card {
+  background-color: #16172d;
+  height: 197.8300018310547px;
+  width: 100%;
+  margin-top: 10px;
+  padding: 3%;
+  /* // left: 67px;
+    // top: 964.322998046875px; */
+  border-radius: 5px;
+}
 
+.formbtnbtn {
+  background: linear-gradient(326deg, #662f88 8%, #20bf55 132%);
+  color: white;
+  font-weight: 400;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  width: 133.93px;
+  height: 44px;
+  font-size: 14px;
+  margin-left: 4px;
+  font-family: "mulish";
+}
+/* .formbtnbtn:hover {
+  border: 1px solid gray;
+  background: none;
+} */
+.formbtn-o {
+  border: 1px solid;
+  background-color: #16172d;
+  border-image: linear-gradient(326deg, #662f88 8%, #20bf55 132%);
+  border-image-slice: 1;
+  color: white;
+  font-weight: 400;
+  cursor: pointer;
+  width: 133.93px;
+  height: 41px;
+  font-size: 14px;
+  margin-left: 4px;
+}
 /* -------------------------- PofileSetting -------------------------- */
 
 /* All Media Quaries */

@@ -1,10 +1,7 @@
 // Init
 import React from "react";
 import Course1 from "../assets/img/course1.png";
-// import Course2 from "../assets/img/course2.png";
-// import Course3 from "../assets/img/course3.png";
-// import Course4 from "../assets/img/course4.png";
-// import StarIcon from "@material-ui/icons/Star";
+import moment from "moment";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 // import { ReactComponent as Star1 } from "../assets/icons/star2.svg";
@@ -19,7 +16,7 @@ import { useHistory } from "react-router-dom";
 export default function LatestCourses(props) {
   const history = useHistory();
   const { courses } = props;
-  const items = courses.sort(function (a, b) {
+  const items = courses?.sort(function (a, b) {
     var c = new Date(a.createdAt);
     var d = new Date(b.createdAt);
     return d - c;
@@ -34,9 +31,28 @@ export default function LatestCourses(props) {
 
     return count;
   };
+  const getDateIs = (d) => {
+    var date = new Date(d);
+    return moment(date).fromNow();
+  };
+  const secondToTime = (second) => {
+    // Hours, minutes and seconds
+    var hrs = ~~(second / 3600);
+    var mins = ~~((second % 3600) / 60);
+    var secs = ~~second % 60;
+
+    // Output like "1:01" or "4:03:59" or "123:03:59"
+    var ret = "";
+    if (hrs > 0) {
+      ret += "" + hrs + "." + (mins < 10 ? "0" : "");
+    }
+    ret += "" + mins + "." + (secs < 10 ? "0" : "");
+    ret += "" + secs;
+    return ret;
+  };
   const calTotalSecInVideos = (videos) => {
     let timeInSecond = 0;
-    videos.map((videos) => (timeInSecond += parseInt(videos.duration)));
+    videos?.map((videos) => (timeInSecond += parseInt(videos.duration)));
     var hrs = ~~(timeInSecond / 3600);
     var mins = ~~((timeInSecond % 3600) / 60);
     var secs = ~~timeInSecond % 60;
@@ -62,29 +78,29 @@ export default function LatestCourses(props) {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 4,
+      items: 4
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
-      slidesToSlide: 3,
+      slidesToSlide: 3
     },
     tablet: {
       breakpoint: { max: 1024, min: 800 },
-      items: 2,
+      items: 2
     },
     mobile: {
       breakpoint: { max: 800, min: 0 },
-      items: 1,
-    },
+      items: 1
+    }
   };
   const handleLatestCourses = () => {
     history.push({
       pathname: "/searchResult",
       param: {
         name: "Latest Courses",
-        value: "2",
-      },
+        value: "2"
+      }
     });
   };
   return (
@@ -104,23 +120,16 @@ export default function LatestCourses(props) {
           infinite={true}
           className="latestcourseCarousel"
         >
-          {items.map((item, i) => (
+          {items?.map((item, i) => (
             <Link
               to={{
                 pathname: `OverView/${item?._id}`,
-                state: { course: `${item}` },
+                state: { course: `${item}` }
               }}
               className="requestBt"
               style={{ textDecoration: "none", color: "white" }}
             >
-              <div
-                className="cardGrid"
-                style={{
-                  backgroundColor: " #202342",
-                  margin: "12px",
-                  borderRadius: "35px",
-                }}
-              >
+              <div className="cardGrid">
                 <div className="topRatedcardGrid-image">
                   <img
                     src={item?.thumbnail ? item.thumbnail : Course1}
@@ -175,7 +184,9 @@ export default function LatestCourses(props) {
                         className="LatestCourse-IMG"
                       />
                       <p className="latestCourse-p">
-                        {calTotalSecInVideos(item?.videos)}
+                        {/* {calTotalSecInVideos(item?.videos)} */}
+                        {item?.videos &&
+                          secondToTime(item?.videos[0]?.duration)}
                       </p>
                     </div>
                   </div>
@@ -195,9 +206,9 @@ export default function LatestCourses(props) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      <p className="latestCourse-p">{`${postedTime(
-                        item
-                      )} Days ago`}</p>
+                      <p className="latestCourse-p">
+                        {getDateIs(item?.createdAt)}
+                      </p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}

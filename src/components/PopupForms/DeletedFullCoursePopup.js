@@ -5,7 +5,7 @@ import UploadSuccessLog from "../../assets/icons/UploadSuccessLog.svg";
 // import UploadedEpisodePopup from "./UploadedEpisodePopup";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useHistory } from "react-router-dom";
-const DeletedFullCoursePopup = ({ open, setOpen }) => {
+const DeletedFullCoursePopup = ({ open, setOpen, course }) => {
   const history = useHistory();
   const [showDeletePopup, setShowDeletePopup] = useState(false);
 
@@ -25,7 +25,6 @@ const DeletedFullCoursePopup = ({ open, setOpen }) => {
       <Dialog
         open={open}
         setOpe={setOpen}
-        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -38,7 +37,7 @@ const DeletedFullCoursePopup = ({ open, setOpen }) => {
               className="uloadSuccessIMG"
               onClick={hanldleClick}
             />
-            <p className="uploadSuccessP">CS-GO Ep 1 Complete Course Deleted</p>
+            <p className="uploadSuccessP">Course Deleted Successfullly</p>
           </div>
         </div>
       </Dialog>

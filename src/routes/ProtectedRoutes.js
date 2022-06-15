@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { Store, UpdateStore } from "../StoreContext";
 import ContentDashboard from "../containers/ContentDashboard";
 import UserDashboard from "../containers/UserDashboard";
+import UserProfile from "../containers/UserProfilePage";
 
 import api from "../api";
 
@@ -24,20 +25,23 @@ const ProtectedRoutes = () => {
 
   return (
     <>
-      {user ? (
+      {user && (
         <>
           {creator ? (
             <Switch>
               <Route exact path="/dashboard" component={ContentDashboard} />
+              <Route exact path="/UserDashboard" component={UserDashboard} />
+              <Route exact path="/userprofile" component={UserProfile} />
+              <Redirect to="/home" />
             </Switch>
           ) : (
             <Switch>
               <Route exact path="/UserDashboard" component={UserDashboard} />
+              <Route exact path="/userprofile" component={UserProfile} />
+              <Redirect to="/home" />
             </Switch>
           )}
         </>
-      ) : (
-        <>{(window.location = "/home")}</>
       )}
     </>
   );

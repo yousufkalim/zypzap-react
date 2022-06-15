@@ -1,0 +1,177 @@
+.css-2rbg70-MuiPaper-root-MuiDialog-paper {
+  background: none !important;
+}
+.css-hppdow {
+  background: none !important;
+}
+
+.landingPopup {
+  color: #fff;
+  font-family: "mulish";
+  width: 655px !important;
+  overflow: scroll !important;
+  border-radius: 13px;
+}
+.landingPopup::-webkit-scrollbar {
+  width: 0px !important;
+}
+
+.landingPopup_container {
+  padding: 25px 30px;
+}
+.landingPopup_logo_and_heading {
+  text-align: center;
+}
+.landingLogo {
+  padding: 5px 0;
+}
+.landingheading {
+  padding: 5px 0 30px 0;
+}
+.landing_heading_P {
+  font-size: 18px;
+  font-weight: 100;
+  font-family: "AMCAP ETERNAL";
+}
+.landing_gamers_mainDiv {
+  display: flex;
+  justify-content: space-between;
+}
+.landing_gamers_colmn_1 {
+  border: 1.01731px solid #a7a7a7;
+  border-radius: 12.7252px;
+  width: 48.5%;
+}
+
+/* ////////// gamers ///////// */
+.landing_gamers_mainDiv {
+  text-align: center;
+}
+.landing_gamers_colmn_1 {
+  padding: 20px 0;
+}
+.gamers_title {
+  font-size: 16px;
+  font-weight: 500;
+}
+.gamer_tite_p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+.gamer_line {
+  height: 1px;
+  width: 100px;
+  background-color: #ffffff;
+  margin: 11px auto 20px auto;
+}
+.gratuit_p1 {
+  font-size: 13px;
+  background: #662f88;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 9px 0px;
+}
+.gratuit_p2 {
+  font-size: 13px;
+  padding: 0 0 28px 0;
+  opacity: 0.8;
+}
+.gamer_tite_p {
+  padding: 10px 0;
+}
+.gamer_Logo {
+  padding: 0 0 7px 0;
+}
+.gamer_Logo2 {
+  padding: 40px 0 0 0;
+}
+.gamer_Logo2_culm_2 {
+  padding: 22px 0 0 0;
+}
+
+/* /////// L'offer////// */
+.Loffer_mainDiv {
+  text-align: center;
+  padding: 40px 0 0 0;
+}
+.loffer-p {
+  padding: 0 0 45px 0;
+  font-size: 11px;
+  font-style: italic;
+}
+.loffer_heading {
+  font-size: 18px;
+  font-family: AMCAP Eternal;
+  text-shadow: 0px 4px 3px #662f88;
+  padding: 0 0 21px 0;
+}
+.L_offer_boxe {
+  display: flex;
+  justify-content: space-between;
+}
+.L_offer_Colmn {
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 3.39339px;
+  width: 120px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.L_offer_numbers {
+  font-size: 30px;
+  font-family: AMCAP Eternal;
+  text-shadow: 0px 4px 3px #662f88;
+}
+.L_offer_Times {
+  font-size: 15px;
+  font-family: "Myriad Pro-REGULAR";
+}
+.landingLogo2 {
+  padding: 40px 0;
+}
+.gratuit_p2_2ind {
+  padding: 25px 0 0 0;
+  font-size: 13px;
+}
+.gratuit_p2_2 {
+  font-size: 15px;
+  opacity: 0.8;
+}
+.L_offer_btn {
+  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+  border-radius: 3.39339px;
+  padding: 10px 32px;
+  color: #fff;
+  border: none;
+  font-size: 15px;
+}
+.L_offer_btn:hover {
+  border: 1px solid #a7a7a7;
+  padding: 9px 31px;
+  background: none;
+}
+@media only screen and (max-width: 800px) {
+  .landing_gamers_mainDiv {
+    flex-direction: column;
+  }
+  .L_offer_boxe {
+    flex-direction: column;
+  }
+  .landingPopup {
+    width: 100% !important;
+  }
+  .L_offer_Colmn {
+    margin: 10px auto;
+  }
+  .landing_gamers_colmn_1 {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+  .landing_heading_P {
+    font-size: 14px;
+  }
+  .loffer_heading {
+    font-size: 18px;
+  }
+}

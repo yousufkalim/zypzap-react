@@ -10,6 +10,7 @@ import FormControl from "@mui/material/FormControl";
 import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
+import ClearIcon from "@mui/icons-material/Clear";
 import { Store, UpdateStore } from "../../StoreContext";
 
 // import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
@@ -20,7 +21,7 @@ const BecomeCreatorpopup = ({
   user,
   creator,
   setOpen3,
-  setOpen2,
+  setOpen2
 }) => {
   const history = useHistory();
   const updateStore = UpdateStore();
@@ -66,12 +67,12 @@ const BecomeCreatorpopup = ({
 
   const removeTags = (index) => {
     setFavouritGame([
-      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index),
+      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index)
     ]);
   };
   const removeTagsPlateForm = (index) => {
     setPlateForm([
-      ...plateForm.filter((tag) => plateForm.indexOf(tag) !== index),
+      ...plateForm.filter((tag) => plateForm.indexOf(tag) !== index)
     ]);
   };
   const selectplateForm = (e) => {
@@ -117,7 +118,7 @@ const BecomeCreatorpopup = ({
         profile_photo,
         gameType: gameType,
         plateForm: plateForm,
-        gameMood: gameMood,
+        gameMood: gameMood
       };
 
       if (user) {
@@ -126,7 +127,7 @@ const BecomeCreatorpopup = ({
         if (res) {
           updateStore({
             user: res?.data?.newUsers,
-            creator: res?.data?.creator,
+            creator: res?.data?.creator
           });
           setOpen(false);
           history.push("/contentHome");
@@ -154,7 +155,7 @@ const BecomeCreatorpopup = ({
     "Trading card",
     "Puzzle",
     "Versus Fighting",
-    "Trading card and Board games",
+    "Trading card and Board games"
   ];
   const gamePlateform = [
     "PC",
@@ -163,7 +164,7 @@ const BecomeCreatorpopup = ({
     "Xbox/360/One/X",
     "Retro Consoles",
     "Portable Consoles",
-    "Tablet",
+    "Tablet"
   ];
 
   const handleImageSelect = async (e) => {
@@ -174,19 +175,20 @@ const BecomeCreatorpopup = ({
   };
   return (
     <>
-      <Dialog open={open} onClose={handleClose} className="login_data">
+      <Dialog open={open} className="login_data">
         <div className="userProfile_conteiner">
+          <ClearIcon className="subsclearIcon" onClick={handleClose} />
           <div className="userProfile_heading">
             <h2 className="userProfileH1">Profile Information</h2>
             <p className="userProfileP">Input your details</p>
           </div>
-          <div className="userProfile-uploadData">
+          {/* <div className="userProfile-uploadData">
             <div>
               <label>
                 <input
                   style={{
                     display: "none",
-                    cursor: "none",
+                    cursor: "none"
                   }}
                   type="file"
                   accept="image/*"
@@ -205,14 +207,13 @@ const BecomeCreatorpopup = ({
             <div>
               <p className="uploadHeading">Upload Picture</p>
             </div>
-          </div>
+          </div> */}
           <div className="tags-input">
             <div>
               <p className="tags-input-FGames">Expertise Games</p>
             </div>
             <div className="tags-input-ul">
               <ul className="tags-input-ul2">
-                {console.log(favouritGame, "-", user?.expertiseGame)}
                 {favouritGame.map((tag, index) => (
                   <li key={index} className="userProfileLi">
                     <span
@@ -221,7 +222,7 @@ const BecomeCreatorpopup = ({
                         borderRadius: "2px",
                         padding: "5px",
                         paddingTop: "5px",
-                        paddingBottom: "5px",
+                        paddingBottom: "5px"
                       }}
                       className="userProfileLiSpan"
                     >
@@ -230,7 +231,7 @@ const BecomeCreatorpopup = ({
                         style={{
                           color: "white",
                           height: "50%",
-                          marginLeft: "11px",
+                          marginLeft: "11px"
                         }}
                         class="fa-solid fa-xmark"
                         onClick={() => removeTags(index)}
@@ -323,11 +324,11 @@ const BecomeCreatorpopup = ({
             </FormControl>
           </div>
           <button className="userProfileButton" onClick={submitProfile}>
-            Continue
+            Continue1
           </button>
-          <button className="backBTN" onClick={handleClose}>
+          {/* <button className="backBTN" onClick={handleClose}>
             Back
-          </button>{" "}
+          </button>{" "} */}
         </div>
       </Dialog>
     </>

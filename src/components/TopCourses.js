@@ -14,7 +14,7 @@ export default function TopCourses(props) {
 
   const { courses } = props;
 
-  const Courses = courses.sort(function (a, b) {
+  const Courses = courses?.sort(function (a, b) {
     var c = a.rating;
     var d = b.rating;
     return d - c;
@@ -22,16 +22,16 @@ export default function TopCourses(props) {
   var items = [
     {
       name: "PUBG gameplay full course",
-      description: "Probably the most random thing you have ever seen!",
+      description: "Probably the most random thing you have ever seen!"
     },
     {
       name: "Taken gameplay full course2",
-      description: "Hello World!",
+      description: "Hello World!"
     },
     {
       name: "Speed3",
-      description: "Hello World!",
-    },
+      description: "Hello World!"
+    }
   ];
 
   const handleviewTopCourses = () => {
@@ -39,8 +39,8 @@ export default function TopCourses(props) {
       pathname: "/searchResult",
       param: {
         name: "Top 10 Games",
-        value: "1",
-      },
+        value: "1"
+      }
     });
   };
   return (
@@ -53,14 +53,14 @@ export default function TopCourses(props) {
         style={{
           display: "inline-block",
           cursor: "Pointer",
-          float: "right",
+          float: "right"
         }}
         onClick={handleviewTopCourses}
       >
         View All
       </p>
       <Carousel
-        autoPlay={true}
+        autoPlay={false}
         interval={3000}
         animation={"fade"}
         activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
@@ -71,7 +71,7 @@ export default function TopCourses(props) {
           <Link
             to={{
               pathname: `OverView/${item?._id}`,
-              state: { course: `${item}` },
+              state: { course: `${item}` }
             }}
             className="requestBt"
             style={{ textDecoration: "none", color: "white" }}
@@ -150,7 +150,12 @@ function TopCoursesComponent({ item }) {
             <h3 style={{ textAlign: "right" }}>{item?.price + " $"}</h3>
           </Grid> */}
         </Grid>
-        <Grid container spacing={2} className="topcourseuserGrid">
+        <Grid
+          container
+          spacing={2}
+          className="topcourseuserGrid"
+          style={{ paddingBottom: "10px" }}
+        >
           <Grid item xs={6} md={6}>
             <div className="userprofilediv">
               <img
@@ -172,7 +177,7 @@ function TopCoursesComponent({ item }) {
                       className="starID"
                       style={{
                         width: "15px",
-                        height: "15px",
+                        height: "15px"
                       }}
                     />
                   ))}

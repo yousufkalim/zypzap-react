@@ -4,45 +4,37 @@ import Box from "@mui/material/Box";
 import DashboardLeftSideBar from "./DashboardLeftSideBar";
 import DashboardRightSideBar from "./DashboardRightSideBar";
 import settings from "../../assets/img/settings.svg";
-// import dollar from "../../assets/img/dollar.png";
-// import performance from "../../assets/img/performance.png";
 import Youtube from "../../assets/img/youtube.svg";
 import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
 import { useHistory, useLocation } from "react-router-dom";
 const Dashboard = ({ id }) => {
   const history = useHistory();
-  useEffect(() => {
-    if (history.location.param) {
-      setDefaultCompState(history.location?.param.value);
-    }
-  }, []);
-  const { creator } = Store();
+
+  const { creator, contentDashboardButton } = Store();
   const updateStore = UpdateStore();
-  const [activeButton, setActiveButton] = useState("Course");
-  const [defaultCompState, setDefaultCompState] = useState(
-    history?.location?.param ? history.location.param.value : "Course"
-  );
+  const [activeButton, setActiveButton] = useState("Courses");
   const [createCourse, setcreateCourse] = useState(false);
   const [games, setGames] = useState([]);
 
   const location = useLocation();
 
   useEffect(() => {
+    getCreator();
     getGames();
-    if (location.state.createCourse) {
+  }, [contentDashboardButton]);
+  useEffect(() => {
+    if (history.location.state.createCourse) {
+      console.log("aaa");
       setcreateCourse(true);
-      setDefaultCompState("");
-    }
-    if (location.state.openSetting) {
-      setDefaultCompState("Setting");
-      setActiveButton("Setting");
+      updateStore({ contentDashboardButton: "" });
     }
   }, []);
   const getCreator = async () => {
-    let res = await api("get", `/creators/${creator._id}`);
+    let res = await api("get", `/creators/${creator?._id}`);
+
     if (res) {
-      updateStore({ creator: res.data });
+      updateStore({ creator: res?.data?.creator });
     }
   };
   const getGames = async () => {
@@ -53,16 +45,18 @@ const Dashboard = ({ id }) => {
     }
   };
   const items = [
-    { name: "Course", img: Youtube },
+    { name: "Courses", img: Youtube },
     // { name: "Performance", img: performance },
     // { name: "Earning", img: dollar },
-    { name: "Setting", img: settings },
+    { name: "Setting", img: settings }
   ];
   const onSideBtnClick = (e) => {
+    console.log("aa");
     const course = e.target.textContent;
-    setDefaultCompState(course);
+
     setcreateCourse(false);
     setActiveButton(course);
+    updateStore({ contentDashboardButton: course });
   };
   return (
     <>
@@ -77,19 +71,14 @@ const Dashboard = ({ id }) => {
               items={items}
               activeButton={activeButton}
               trigerOnClickEmpSideBtn={onSideBtnClick}
-              setDefaultCompState={setDefaultCompState}
             />
           </Grid>
         </Box>
         {/* dashboardBody */}
         <DashboardRightSideBar
-          defaultCompState={defaultCompState}
-          setDefaultCompState={setDefaultCompState}
           setcreateCourse={setcreateCourse}
           createCourse={createCourse}
           games={games}
-          creator={creator}
-          // setDefaultCompState={setDefaultCompState}
         />
       </Box>
     </>

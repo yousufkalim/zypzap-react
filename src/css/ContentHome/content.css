@@ -41,11 +41,12 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  border: 1px solid #662f88;
+  font-family: "mulish";
 }
 .textonbutton:hover {
   background: none;
   border: 1px solid gray;
+  padding: 9px 15px;
 }
 .content_Image {
   width: 93%;

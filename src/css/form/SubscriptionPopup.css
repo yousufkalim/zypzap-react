@@ -14,26 +14,32 @@
   height: 347px;
   margin: auto;
 }
+.form-header-block {
+  padding: 42px 0 0 0;
+}
 .subH1 {
   padding: 0px 0px 0px 0px;
   font-size: 22px !important;
-  font-weight: 400;
+  font-weight: 600;
   /* text-transform: capitalize; */
-  /* font-family: "Myriad Pro" ; */
-  font-family: "Myriad Pro", sans-serif !important;
+  /* font-family: "Myriad Pro", Reguler !important; */
+  /* font-family: "mulish"; */
+  letter-spacing: 1.1px;
 }
 .subP {
-  padding-top: 20px;
+  padding-top: 33px;
   padding-bottom: 27px;
-  font-size: 14px;
-  font-family: "Myriad Pro-REGULAR" !important;
-  font-weight: 500;
+  font-size: 15px;
+  /* font-family: "Myriad Pro", Reguler !important; */
+  font-weight: 400;
 }
 .css-uhb5lp {
   overflow-y: inherit !important;
   max-height: calc(100% - 0px) !important;
   max-width: inherit !important;
   width: 650px !important;
+  margin: 0 !important;
+  border-radius: 20px !important;
 }
 .subsclearIcon {
   float: right;
@@ -46,14 +52,18 @@
   right: 46px;
 }
 .email-label {
-  font-size: 16px;
-  padding: 0px 0 10px 0 !important;
-  font-family: "Myriad Pro-REGULAR" !important;
+  padding-top: 33px;
+  padding-bottom: 27px;
+  font-size: 15px;
+  /* font-family: "Myriad Pro", Reguler !important; */
+  font-weight: 100;
 }
 .subsLabel {
-  padding-bottom: 0 !important;
+  padding-top: 0px;
+  padding-bottom: 27px;
   font-size: 15px;
-  font-family: "Myriad Pro-REGULAR" !important;
+  /* font-family: "Myriad Pro", Reguler !important; */
+  font-weight: 100;
 }
 .subsBold {
   text-decoration: none;
@@ -74,7 +84,6 @@
   font-size: 21px;
   display: block;
   margin-top: 8px;
-  font-weight: 700;
   margin-bottom: 20px;
   font-weight: 500;
   border: 1px solid #662f88;
@@ -83,9 +92,8 @@
   background: none;
 }
 .subsinputForm {
-  padding-left: 10px;
   margin-bottom: 0;
-  margin-top: 5px;
+  margin-top: 8px;
   width: 100%;
   height: 40px;
   background: none;
@@ -93,7 +101,8 @@
   border-radius: 3px;
   font: inherit;
   color: currentColor;
-  font-size: 13px;
+  font-size: 15px;
+  padding: 22px 12px;
 }
 
 .toppdding {
@@ -117,5 +126,8 @@
   }
   .subsLabel {
     font-size: 12px;
+  }
+  .subsclearIcon {
+    height: 22px !important;
   }
 }

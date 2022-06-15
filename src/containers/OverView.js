@@ -18,7 +18,7 @@ let btns = [
   { text: "Overview" },
   { text: "Cursus" },
   { text: "Instructor" },
-  { text: "Feedback" },
+  { text: "Feedback" }
 ];
 const OverView = (props) => {
   const { id } = useParams();
@@ -35,7 +35,7 @@ const OverView = (props) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 1,
-      behavior: "smooth",
+      behavior: "smooth"
     });
   };
   useEffect(() => {
@@ -70,14 +70,15 @@ const OverView = (props) => {
         openBecomeCreatorPopup={openBecomeCreatorPopup}
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
       />
-      {!showVideo ? (
+      {showVideo ? (
+        <CompleteCourse singlCourse={course} />
+      ) : (
         <OverViewHome
           singlCourse={course}
           setShowVideo={setShowVideo}
           setOpenSignup={setOpenSignup}
+          setOpenLogin={setOpenLogin}
         />
-      ) : (
-        <CompleteCourse singlCourse={course} />
       )}
 
       <OverViewMenu

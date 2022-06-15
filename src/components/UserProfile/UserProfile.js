@@ -8,15 +8,20 @@ import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
 import BecomeCreatorpopup from "../PopupForms/BecomeCreatorpopup";
 import { Store, UpdateStore } from "../../StoreContext";
 import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
+import api from "../../api";
 const UserProfile = (props) => {
-  const { user } = props;
+  const { user, creator } = props;
   const history = useHistory();
   const [openProfile, setOpenProfile] = useState(false);
   const [openCongratulation, setCongratulation] = useState(false);
   const [open, setOpen] = useState(false);
 
+  const [cover_photo, setCoverImageURL] = useState("");
+  const [profile_photo, setProfileimg] = useState("");
+
+
   const updateStore = UpdateStore();
-  const { creator } = Store;
 
   const handleClickOpen = () => {
     if (user?.role == "Creator") {
@@ -25,6 +30,66 @@ const UserProfile = (props) => {
       setOpenProfile(true);
     }
   };
+  const handleImageSelect = async (e) => {
+    const formdata = new FormData();
+    formdata.append(`files`, e.target.files[0]);
+    let res = await api("post", "/uploadImage", formdata);
+    setCoverImageURL(res.data.file[0].location);
+  };
+  const handleIProfilemageSelect = async (e) => {
+    const formdata = new FormData();
+    formdata.append(`files`, e.target.files[0]);
+    let res = await api("post", "/uploadImage", formdata);
+    if (res) {
+      saveProfilePhoto(res.data.file[0].location);
+      setProfileimg(res.data.file[0].location);
+    }
+  };
+  const saveCoverPhoto = async () => {
+    if (user?.role == "Creator") {
+      let res = await api("post", `/creators/${user?._id}`, { cover_photo });
+      if (res) {
+        setCoverImageURL("");
+        updateStore({
+          user: res?.data?.newUsers,
+          creator: res?.data?.creator
+        });
+        console.log("res.data for creator", res.data);
+      }
+    } else {
+      let res = await api("put", `/users/addProfileInfo/${user?._id}`, {
+        cover_photo
+      });
+      if (res) {
+        setCoverImageURL("");
+        updateStore({ user: res.data });
+        console.log("res.data for user", res.data);
+      }
+    }
+  };
+  const saveProfilePhoto = async (profile_photo) => {
+    if (user?.role == "Creator") {
+      let res = await api("post", `/creators/${user?._id}`, { profile_photo });
+      if (res) {
+        setProfileimg("");
+        updateStore({
+          user: res?.data?.newUsers,
+          creator: res?.data?.creator
+        });
+        console.log("res.data for creator", res.data);
+      }
+    } else {
+      let res = await api("put", `/users/addProfileInfo/${user?._id}`, {
+        profile_photo
+      });
+      if (res) {
+        setProfileimg("");
+        updateStore({ user: res.data });
+        console.log("res.data for user", res.data);
+      }
+    }
+  };
+  console.log("user", user);
 
   return (
     <>
@@ -45,26 +110,57 @@ const UserProfile = (props) => {
       <div className="userProfileDiv">
         <div className="userProfile-centerDiv">
           <div className="profile-image">
+            {/* {showImg ? null : (
+              <> */}
             <img
-              src={UserHomeProfleImg}
+              src={
+                cover_photo
+                  ? cover_photo
+                  : user?.cover_photo
+                  ? user?.cover_photo
+                  : UserHomeProfleImg
+              }
               alt=""
               className="profileBackgroun-Image"
             />
+            {/* </>
+            )} */}
           </div>
 
           <div className="Profile-DP">
             <img
-              src={user?.profile_photo ? user.profile_photo : ProfileDp}
+              src={
+                profile_photo
+                  ? profile_photo
+                  : user?.profile_photo
+                  ? user?.profile_photo
+                  : ProfileDp
+              }
               alt=""
               className="DP-img"
             />
-            {/* {user?.role === "Creator" && ( */}
-            <img
-              src={editIcon}
-              className="editprofileIcon"
-              onClick={handleClickOpen}
-            />
-            {/* )} */}
+            <a to="">
+              <label>
+                <input
+                  style={{
+                    display: "none",
+                    cursor: "none"
+                  }}
+                  type="file"
+                  accept="image/*"
+                  // placeholder="Ref."
+                  onChange={handleIProfilemageSelect}
+                  onClick={(event) => {
+                    event.target.value = null;
+                  }}
+                />
+                <img
+                  src={editIcon}
+                  className="editprofileIcon"
+                  // onClick={handleClickOpen}
+                />
+              </label>
+            </a>
           </div>
           {/* profile Div */}
           <div className="profile-container">
@@ -76,27 +172,52 @@ const UserProfile = (props) => {
                 {user ? user.email[0] : "johnsmith1@gmail.com"}
               </p>
               <p className="prfile-lavelP">
-                Level:
+                Level:&nbsp;
                 <span className="level-span">
                   {creator?.gameLevel ? creator.gameLevel : "Semi-Pro"}
                 </span>
               </p>
             </div>
-            <div className="following-content">
+            {/* <div className="following-content">
               <p className="followingP">
                 Following:&nbsp;
                 <span className="follo-span">
-                  {creator?.followers ? creator.followers.length : " 10"}
+                  {creator?.followers ? creator.followers.length : " 0"}
                 </span>
               </p>
-            </div>
+            </div> */}
 
             <div className="profileEditButton">
-              <a to="">
-                <button className="editProfiel-btn" onClick={handleClickOpen}>
-                  Edit Profile
-                </button>
-              </a>
+
+              {cover_photo ? (
+                <div className="editProfiel-btn" onClick={saveCoverPhoto}>
+                  Save Cover Photo
+                </div>
+              ) : (
+                <a to="">
+                  <label>
+                    <input
+                      style={{
+                        display: "none",
+                        cursor: "none"
+                      }}
+                      type="file"
+                      accept="image/*"
+                      // placeholder="Ref."
+                      onChange={handleImageSelect}
+                      onClick={(event) => {
+                        event.target.value = null;
+                      }}
+                    />
+                    <div className="editProfiel-btn">Add Cover Photo</div>
+                    {/* <img
+                  src={profile_photo ? profile_photo : Course1}
+                  className="userProfileInput"
+                /> */}
+                  </label>
+                </a>
+              )}
+
             </div>
           </div>
           {/* profile Div */}

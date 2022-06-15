@@ -42,13 +42,17 @@ const index = () => {
       <Route exact path="/userlanding" component={UserLandingPage} />
 
       <Route exact path="/policy" component={Policy} />
-      <Route exact path="/contentcreator" component={ContentCreatorLandingPage} />
+      <Route
+        exact
+        path="/contentcreator"
+        component={ContentCreatorLandingPage}
+      />
       <Route exact path="/settings" component={Setting} />
 
       {/* content creator */}
       <Route exact path="/contenthome" component={Contenthome} />
       <Route exact path="/searchresult" component={SearchResult} />
-      <Route exact path="/userprofile" component={UserProfile} />
+      {/* <Route exact path="/userprofile" component={UserProfile} /> */}
       <Route exact path="/OverView/:id" component={OverView} />
       <Route exact path="/LegalNotice" component={LegalNotice} />
       <Route exact path="/Team" component={Team} />
@@ -56,7 +60,11 @@ const index = () => {
       {/* <Route exact path="/CreatorProfile" component={CreatorProfile} /> */}
       <Route path="/CreatorProfile/:id" render={() => <CreatorProfile />} />
       {/* <Route exact path="/CreatorProfile" component={CreatorProfile} /> */}
-      <Route exact path="/SettingCreatorProfile" component={SettingCreatorProfile} />
+      <Route
+        exact
+        path="/SettingCreatorProfile"
+        component={SettingCreatorProfile}
+      />
 
       {/* Forget Password Routes */}
       <Route exact path="/reset-password/:token" component={ResetPassword} />

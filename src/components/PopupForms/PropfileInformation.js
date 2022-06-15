@@ -116,6 +116,11 @@ export default function PropfileInformation({
       setPlateForm(data);
     }
   };
+  const removePlatform = (name) => {
+    setPlateForm((prev) => {
+      return prev.filter((a) => a !== name);
+    });
+  };
   const selectGameType = (name) => {
     if (!gameType) {
       setGameType(name);
@@ -124,6 +129,12 @@ export default function PropfileInformation({
       setGameType(data);
     }
   };
+  const removeGameType = (name) => {
+    setGameType((prev) => {
+      return prev.filter((a) => a !== name);
+    });
+  };
+
   const handleImageSelect = async (e) => {
     const formdata = new FormData();
     formdata.append(`files`, e.target.files[0]);
@@ -207,7 +218,6 @@ export default function PropfileInformation({
       <Dialog
         className="userProfile-box"
         open={openProfile}
-        onClose={() => setOpenProfile(false)}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -221,7 +231,7 @@ export default function PropfileInformation({
             <h2 className="userProfileH1">Profile Information</h2>
             <p className="userProfileP">Input your details</p>
           </div>
-          <div className="userProfile-uploadData">
+          {/* <div className="userProfile-uploadData">
             <div>
               <label>
                 <input
@@ -246,14 +256,13 @@ export default function PropfileInformation({
             <div>
               <p className="uploadHeading">Upload Picture</p>
             </div>
-          </div>
+          </div> */}
           <div className="tags-input">
             <div>
               <p className="tags-input-FGames">Favorite Games</p>
             </div>
             <div className="tags-input-ul">
               <ul className="tags-input-ul2">
-                {console.log("Fav games ---> ", favouritGame)}
                 {favouritGame.map((tag, index) => (
                   <li key={index} className="userProfileLi">
                     <span
@@ -297,7 +306,7 @@ export default function PropfileInformation({
                     <button
                       className="activetypebtn"
                       onClick={() => {
-                        selectGameType(tag.name);
+                        removeGameType(tag.name);
                       }}
                     >
                       {tag.name}
@@ -325,7 +334,7 @@ export default function PropfileInformation({
                     key={i}
                     className="activetypebtn"
                     onClick={() => {
-                      selectplateForm(tag.name);
+                      removePlatform(tag.name);
                     }}
                   >
                     {tag.name}

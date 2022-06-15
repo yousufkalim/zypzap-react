@@ -12,10 +12,10 @@ const FormStepFive = ({
   setformDataTwo,
   formDataTwo,
   formDataFive,
-  setformDataFive,
+  setformDataFive
 }) => {
   const { creator } = Store();
-  const [creatorId, setCreatorId] = useState(creator ? creator._id : null);
+  const [creatorId, setCreatorId] = useState(creator ? creator?._id : null);
   const [lodding, setlodding] = useState(false);
   const [uploadedVideos, setUploadedVideos] = useState([]);
   // const [newVideos, setNewVideos] = useState([]);
@@ -33,9 +33,10 @@ const FormStepFive = ({
       setStep(6);
     }
     setlodding(true);
+
     let newArray = [...formDataFive];
-    for (let i = formDataFive?.length; i <= formDataTwo.length; i++) {
-      if (formDataTwo[i].name === "") {
+    for (let i = formDataFive?.length; i < formDataTwo?.length; i++) {
+      if (formDataTwo[i]?.name === "") {
         formDataTwo[i].name = formDataTwo[i]?.file?.name;
       }
       let file = await handleSingleVideo(formDataTwo[i]);
@@ -115,7 +116,7 @@ const FormStepFive = ({
             Previous
           </button>
           <button onClick={handleSubmit} className="continueBtn">
-            {lodding ? "lodding" : "Continue"}
+            {lodding ? "Loading" : "Continue"}
           </button>
         </div>
       </div>

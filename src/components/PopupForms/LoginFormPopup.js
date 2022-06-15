@@ -17,6 +17,7 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import api from "../../api";
 import { useHistory } from "react-router-dom";
+import { Store, UpdateStore } from "../../StoreContext";
 
 import ForgetPassword from "./ForgetPassword";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -67,6 +68,8 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 export default function LoginFormPopup({ open, setOpen, setSignup }) {
+  const updateStore = UpdateStore();
+  const { learner } = Store();
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [values, setValues] = React.useState({
@@ -124,10 +127,14 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
         localStorage.setItem("token", res?.data?.token);
         setOpen(false);
         setLoading(false);
-        if (res?.data?.user?.role == "Creator") {
+        if (creatorSwitch) {
+          updateStore({ learner: false });
           history.push("/contenthome");
+        } else {
+          updateStore({ learner: true });
+          history.push("/home");
         }
-        window.location.reload();
+        // window.location.reload();
       }
     } catch (error) {
       setLoading(false);
@@ -140,12 +147,11 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
   };
   const handleCheck = (e) => {
     setCreatorSwitch(!creatorSwitch);
-    console.log("e", e.target.checked);
   };
 
   return (
     <div>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} style={{ maxWidth: "480px", margin: "auto" }}>
         <div className="login_form">
           <div className="form_container">
             <h1 className="loginH1">Login to your account</h1>
@@ -169,7 +175,8 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                 required
               />
               <br />
-              <label htmlFor="password" style={{ marginTop: "30px" }} className="loginFH1">
+
+              <label htmlFor="password" className="loginFH1">
                 Password
               </label>
 
@@ -212,26 +219,29 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                 <Grid container spacing={0}>
                   <Grid item xs={12}>
                     <div className="social">
-                      <span>
-                        <a href={`${baseUrl}/users/auth/discord`}>
+                      <a href={`${baseUrl}/users/auth/discord`}>
+                        <span>
                           <img src={Discord1} alt="" />
-                        </a>
-                      </span>
-                      <span>
-                        <a href={`${baseUrl}/users/auth/twitch`}>
+                        </span>
+                      </a>
+
+                      <a href={`${baseUrl}/users/auth/twitch`}>
+                        <span>
                           <img src={ChatIcon} alt="" />
-                        </a>
-                      </span>
-                      <span>
-                        <a href={`${baseUrl}/users/auth/google`}>
+                        </span>
+                      </a>
+
+                      <a href={`${baseUrl}/users/auth/google`}>
+                        <span>
                           <img src={Google} alt="" />
-                        </a>
-                      </span>
-                      <span>
-                        <a href={`${baseUrl}/users/auth/facebook`}>
+                        </span>
+                      </a>
+
+                      <a href={`${baseUrl}/users/auth/facebook`}>
+                        <span>
                           <img src={Facebook} alt="" />
-                        </a>
-                      </span>
+                        </span>
+                      </a>
                     </div>
                   </Grid>
                 </Grid>
