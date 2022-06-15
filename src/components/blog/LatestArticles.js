@@ -7,6 +7,7 @@ import Article2 from "../../assets/img/article2.png";
 import Article3 from "../../assets/img/article3.png";
 import Article4 from "../../assets/img/article4.png";
 import { Link } from "react-router-dom";
+import { baseUrl } from "../../config";
 
 export default function LatestArticle({ blogs, loading, setLoading }) {
   let newdata = [];
@@ -63,10 +64,7 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
                   }}
                   style={{ textDecoration: "none" }}
                 >
-                  <img
-                    src={process.env.REACT_APP_baseURL + blogs[0]?.blog_images}
-                    className="article1img"
-                  />
+                  <img src={baseUrl + blogs[0]?.blog_images} className="article1img" />
                 </Link>
                 <div className="articledetail">
                   <p>
@@ -75,14 +73,10 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
                     <br />
                   </p>
                   <h2 className="articleheading">
-                    {blogs[0]?.blog_title.length > 30
-                      ? blogs[0]?.blog_title.substring(0, 30) + "..."
-                      : blogs[0]?.blog_title}
+                    {blogs[0]?.blog_title.length > 30 ? blogs[0]?.blog_title.substring(0, 30) + "..." : blogs[0]?.blog_title}
                   </h2>
                   <p className="textdescription1">
-                    {blogs[0]?.blog_desc.length > 150
-                      ? blogs[0]?.blog_desc.substring(0, 180) + "..."
-                      : blogs[0]?.blog_desc}
+                    {blogs[0]?.blog_desc.length > 150 ? blogs[0]?.blog_desc.substring(0, 180) + "..." : blogs[0]?.blog_desc}
                     <Link
                       to={{
                         pathname: `blog/${blogs[0]?._id}`,
@@ -108,26 +102,16 @@ export default function LatestArticle({ blogs, loading, setLoading }) {
             <Grid item xs={12} sm={6}>
               {blogs.slice(1, 4).map((item) => (
                 <>
-                  <Link
-                    to={`blog/${item._id}`}
-                    style={{ textDecoration: "none", color: "white" }}
-                  >
+                  <Link to={`blog/${item._id}`} style={{ textDecoration: "none", color: "white" }}>
                     <div className="latestArticleRight">
                       {" "}
-                      <img
-                        src={process.env.REACT_APP_baseURL + item.blog_images}
-                        className="article2img"
-                      />
+                      <img src={baseUrl + item.blog_images} className="article2img" />
                       <div className="articleText">
                         <h3 className="articH3" style={{ fontSize: "20px" }}>
-                          {item.blog_title.length > 40
-                            ? item.blog_title.substring(0, 40) + "..."
-                            : item?.blog_title}
+                          {item.blog_title.length > 40 ? item.blog_title.substring(0, 40) + "..." : item?.blog_title}
                         </h3>
                         <p className="textdescription">
-                          {item?.blog_desc.length > 186
-                            ? item?.blog_desc.substring(0, 186) + ".."
-                            : item?.blog_desc}
+                          {item?.blog_desc.length > 186 ? item?.blog_desc.substring(0, 186) + ".." : item?.blog_desc}
                         </p>
 
                         <p className="author1">

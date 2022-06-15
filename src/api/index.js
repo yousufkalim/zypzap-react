@@ -1,11 +1,12 @@
 // Init
 import axios from "axios";
 import { toast } from "react-toastify";
+import { baseUrl } from "../config";
 
 const api = async (method = "get", uri, body) => {
   // Default setting for production
 
-  axios.defaults.baseURL = process.env.REACT_APP_baseURL;
+  axios.defaults.baseURL = baseUrl;
   axios.defaults.withCredentials = true;
 
   // axios.defaults.baseURL = "http://localhost:5000/api/";
@@ -18,11 +19,7 @@ const api = async (method = "get", uri, body) => {
         if (err?.response?.status === 401) {
           //  window.location = "/login";
         } else {
-          toast.error(
-            err?.response?.data?.message
-              ? err.response.data.message
-              : err?.message
-          );
+          toast.error(err?.response?.data?.message ? err.response.data.message : err?.message);
           reject(err);
         }
       });

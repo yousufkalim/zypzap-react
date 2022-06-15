@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import api from "../../api";
 import { Store, UpdateStore } from "../../StoreContext";
 import { useTranslation, Trans } from "react-i18next";
+import { baseUrl } from "../../config";
 
 const UserLandingPageBlog = () => {
   const { t, i18n } = useTranslation();
@@ -88,41 +89,21 @@ const UserLandingPageBlog = () => {
                   .map((item, i) => (
                     <Grid item xs={12} sm={4}>
                       <>
-                        <Link
-                          to={`blog/${item._id}`}
-                          params={{ testvalue: "hello" }}
-                          style={{ textDecoration: "none" }}
-                        >
+                        <Link to={`blog/${item._id}`} params={{ testvalue: "hello" }} style={{ textDecoration: "none" }}>
                           <div className="User-landing-page-blog-divone">
-                            <img
-                              src={
-                                process.env.REACT_APP_baseURL + item.blog_images
-                              }
-                              className="blogdivimg"
-                            />
+                            <img src={baseUrl + item.blog_images} className="blogdivimg" />
                             <div className="blogdiv1text">
                               <h3 className="blogdiv1heading">
-                                {item?.blog_title.length > 25
-                                  ? item?.blog_title.substring(0, 22) + "..."
-                                  : item?.blog_title}
+                                {item?.blog_title.length > 25 ? item?.blog_title.substring(0, 22) + "..." : item?.blog_title}
                               </h3>
 
                               <p className="bloddiv1detail">
-                                {item?.blog_desc.length > 147
-                                  ? item?.blog_desc.substring(0, 146) + ".."
-                                  : item?.blog_desc}
+                                {item?.blog_desc.length > 147 ? item?.blog_desc.substring(0, 146) + ".." : item?.blog_desc}
                               </p>
                               <p>
-                                <Link
-                                  to={`blog/${item._id}`}
-                                  params={{ testvalue: "hello" }}
-                                  style={{ textDecoration: "none" }}
-                                >
+                                <Link to={`blog/${item._id}`} params={{ testvalue: "hello" }} style={{ textDecoration: "none" }}>
                                   {" "}
-                                  <span className="seemore">
-                                    {" "}
-                                    Lire l’article
-                                  </span>
+                                  <span className="seemore"> Lire l’article</span>
                                 </Link>
                               </p>
                             </div>
@@ -140,15 +121,8 @@ const UserLandingPageBlog = () => {
                 padding: "5px 0 5px 0",
               }}
             >
-              <Link
-                to="/blog"
-                style={{ color: "white", textDecoration: "none" }}
-              >
-                <Typography
-                  className="blog-view-all"
-                  align="center"
-                  variant="h6"
-                >
+              <Link to="/blog" style={{ color: "white", textDecoration: "none" }}>
+                <Typography className="blog-view-all" align="center" variant="h6">
                   {t("View all")}
                 </Typography>
               </Link>
