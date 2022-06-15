@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "zypzap-demo"
+    "default": "passtotrip-demo"
   },
   "targets": {
     "passtotrip-demo": {
