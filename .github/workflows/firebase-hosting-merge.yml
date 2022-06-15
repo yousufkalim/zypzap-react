@@ -18,3 +18,4 @@ jobs:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_PASSTOTRIP_DEMO }}"
           channelId: live
           projectId: passtotrip-demo
+          target: dev

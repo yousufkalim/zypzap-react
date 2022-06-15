@@ -39,6 +39,7 @@
   box-sizing: border-box;
   font-family: "mulish";
   position: relative;
+  font-size: 16px;
 }
 .textonImgbutton:hover {
   position: absolute;

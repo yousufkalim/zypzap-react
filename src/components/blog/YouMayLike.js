@@ -10,6 +10,7 @@ import Maylike6 from "../../assets/img/maylike6.png";
 import Maylike7 from "../../assets/img/maylike7.png";
 import Maylike8 from "../../assets/img/maylike8.png";
 import { Link } from "react-router-dom";
+import { baseUrl } from "../../config";
 
 export default function YouMayLike({ blogs, loading, setLoading }) {
   let newblog = [];
@@ -97,34 +98,19 @@ export default function YouMayLike({ blogs, loading, setLoading }) {
                 <Grid item xs={12} sm={3}>
                   <>
                     <div className="blogdiv1">
-                      <Link
-                        to={`blog/${item._id}`}
-                        params={{ testvalue: "hello" }}
-                        style={{ textDecoration: "none" }}
-                      >
-                        <img
-                          src={process.env.REACT_APP_baseURL + item.blog_images}
-                          className="blogdivimg"
-                        />
+                      <Link to={`blog/${item._id}`} params={{ testvalue: "hello" }} style={{ textDecoration: "none" }}>
+                        <img src={baseUrl + item.blog_images} className="blogdivimg" />
                       </Link>
                       <div className="blogdiv1text">
                         <h3 className="blogdiv1heading">
-                          {item?.blog_title.length > 20
-                            ? item?.blog_title.substring(0, 19) + "..."
-                            : item?.blog_title}
+                          {item?.blog_title.length > 20 ? item?.blog_title.substring(0, 19) + "..." : item?.blog_title}
                         </h3>
 
                         <p className="bloddiv1detail">
-                          {item?.blog_desc.length > 100
-                            ? item?.blog_desc.substring(0, 130) + ".."
-                            : item?.blog_desc}
+                          {item?.blog_desc.length > 100 ? item?.blog_desc.substring(0, 130) + ".." : item?.blog_desc}
                         </p>
                         <p>
-                          <Link
-                            to={`blog/${item._id}`}
-                            params={{ testvalue: "hello" }}
-                            style={{ textDecoration: "none" }}
-                          >
+                          <Link to={`blog/${item._id}`} params={{ testvalue: "hello" }} style={{ textDecoration: "none" }}>
                             {" "}
                             <span className="seemore"> Read More</span>
                           </Link>

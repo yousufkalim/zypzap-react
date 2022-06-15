@@ -6,6 +6,7 @@ import Maylike6 from "../../assets/img/maylike6.png";
 import Maylike7 from "../../assets/img/maylike7.png";
 import Maylike8 from "../../assets/img/maylike8.png";
 import { Link } from "react-router-dom";
+import { baseUrl } from "../../config";
 
 export default function YouMayLike({ blogs, loading }) {
   let newblog = [];
@@ -28,37 +29,20 @@ export default function YouMayLike({ blogs, loading }) {
               <Grid item xs={12} sm={4}>
                 <>
                   <div className="blogdiv1">
-                    <Link
-                      to={`${item._id}`}
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <img
-                        src={process.env.REACT_APP_baseURL + item.blog_images}
-                        className="blogdivimg"
-                        alt="img"
-                      />
+                    <Link to={`${item._id}`} style={{ textDecoration: "none", color: "white" }}>
+                      <img src={baseUrl + item.blog_images} className="blogdivimg" alt="img" />
                     </Link>
                     <div className="blogdiv1text">
                       <h3 className="blogdiv1heading">
-                        {item.blog_title.length > 30
-                          ? item.blog_title.substring(0, 30) + "..."
-                          : item.blog_title}
+                        {item.blog_title.length > 30 ? item.blog_title.substring(0, 30) + "..." : item.blog_title}
                       </h3>
                       <p className="bloddiv1detail">
-                        {item?.blog_desc.length > 130
-                          ? item?.blog_desc.substring(0, 130) + ".."
-                          : item?.blog_desc}
+                        {item?.blog_desc.length > 130 ? item?.blog_desc.substring(0, 130) + ".." : item?.blog_desc}
                       </p>
                       <p>
-                        <Link
-                          to={`${item._id}`}
-                          style={{ textDecoration: "none", color: "white" }}
-                        >
+                        <Link to={`${item._id}`} style={{ textDecoration: "none", color: "white" }}>
                           {" "}
-                          <span
-                            className="seemore"
-                            style={{ color: "#E7411B", color: "#fff" }}
-                          >
+                          <span className="seemore" style={{ color: "#E7411B", color: "#fff" }}>
                             {" "}
                             Lire l’article
                           </span>

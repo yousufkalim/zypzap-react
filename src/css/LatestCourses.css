@@ -23,8 +23,9 @@
 }
 .latestcourseheading {
   padding: 35px 0px 3px 0px;
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: 700 !important;
+  font-family: "mulish";
 }
 .latestcourseheadings {
   padding: 35px 0px 3px 0px;

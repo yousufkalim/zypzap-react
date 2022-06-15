@@ -27,7 +27,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "1"
+      test: "1",
     },
     {
       title: "Undefeated PUBG player",
@@ -37,7 +37,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "2"
+      test: "2",
     },
     {
       title: "Mincraft Expert",
@@ -47,7 +47,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "3"
+      test: "3",
     },
     {
       title: "Pro player of CS:GO",
@@ -57,7 +57,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "4"
+      test: "4",
     },
     {
       title: "GTA 5 Expert",
@@ -67,7 +67,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "5"
+      test: "5",
     },
     {
       title: "6Minicraft Full Course",
@@ -77,7 +77,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "6"
+      test: "6",
     },
     {
       title: "7Minicraft Full Course",
@@ -87,7 +87,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "7"
+      test: "7",
     },
     {
       title: "8Minicraft Full Course",
@@ -97,7 +97,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "8"
+      test: "8",
     },
     {
       title: "9Minicraft Full Course",
@@ -107,7 +107,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "3"
+      test: "3",
     },
     {
       title: "10Minicraft Full Course",
@@ -117,7 +117,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "3"
+      test: "3",
     },
     {
       title: "11Minicraft Full Course",
@@ -127,7 +127,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "3"
+      test: "3",
     },
     {
       title: "12Minicraft Full Course",
@@ -137,36 +137,36 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: "500000+ Students",
       rating: "rating",
       price: "19.99",
-      test: "3"
-    }
+      test: "3",
+    },
   ];
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 4
+      items: 4,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
-      slidesToSlide: 3
+      slidesToSlide: 3,
     },
     tablet: {
       breakpoint: { max: 1024, min: 800 },
-      items: 2
+      items: 2,
     },
     mobile: {
       breakpoint: { max: 800, min: 0 },
-      items: 1
-    }
+      items: 1,
+    },
   };
   const handleTopRatedCourses = () => {
     history.push({
       pathname: "/searchResult",
       param: {
         name: "Top 10 NFT Games",
-        value: "2"
-      }
+        value: "2",
+      },
     });
   };
   return (
@@ -189,7 +189,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
           {topRatedContentCreator?.map((item, i) => (
             <Link
               to={{
-                pathname: `/CreatorProfile/${item._id}`
+                pathname: `/CreatorProfile/${item._id}`,
               }}
               className="requestBt"
               style={{ textDecoration: "none", color: "white" }}
@@ -218,7 +218,10 @@ export default function TopRatedContent({ topRatedContentCreator }) {
               </p>
               <p className="topRatedContentcourseh6">{item.students}</p> */}
                 {/* /* -------------------------------- new card --------------------------------  */}
-                <div className="latestCourseMain-Div">
+                <div
+                  className="latestCourseMain-Div"
+                  style={{ justifyContent: "space-between" }}
+                >
                   {/* /* ------------------------------- copy colmn -------------------------------  */}
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
