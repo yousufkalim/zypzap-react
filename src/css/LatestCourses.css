@@ -98,7 +98,7 @@
   width: 95%;
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 15px 0;
   align-items: center;
   align-items: center;
@@ -113,8 +113,8 @@
   align-items: center;
 }
 .latestCourse-pHeading {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: bolder;
   padding-left: 5px;
   font-family: "mulish";
 }
@@ -122,15 +122,18 @@
   width: 90%;
   margin: auto;
   text-align: center;
-  font-size: 23px;
-  font-family: Mulish;
+  font-size: 28px;
+  font-family: "mulish";
+
+  font-weight: bolder;
 }
 .latestCourse-p {
   padding: 0 0 0 6px;
   /* font-size: 18px; */
-  font-family: Mulish;
-  font-size: 14px !important;
+  font-family: "mulish";
+  font-size: 18px !important;
   font-weight: 400 !important;
+
   text-transform: capitalize;
   color: #e0e0e0;
 }
