@@ -35,8 +35,8 @@
   border-radius: 20px !important;
 }
 .loginH1 {
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-size: 28px;
+  font-weight: 600;
   margin: 8px 0px;
   display: inline-block;
   opacity: 0.9;
@@ -49,14 +49,17 @@
   width: 25px !important;
 }
 .login_pera {
-  font-size: 14px;
+  font-size: 18px;
   margin-bottom: 30px;
+  font-weight: 600;
+
   opacity: 0.8;
 }
 .loginFH1 {
   display: block;
+  font-weight: 400;
   padding-bottom: 5px;
-  font-size: 13px;
+  font-size: 16px;
   font-family: "Mulish";
   padding-top: 5px;
 }
@@ -95,14 +98,14 @@
   border: none;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
-  font-family: "Poppins", sans-serif;
+  font-family: "Mulish";
   border-radius: 4px;
   cursor: pointer;
   width: 100%;
-  font-size: 16px;
+  font-size: 18px;
   display: block;
   margin-top: 35px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .form_container .formbtns:hover {
   border: 1px solid #7d668b;
@@ -145,20 +148,23 @@
   margin-top: 30px;
   margin-bottom: 25px;
   color: #fff;
+  font-weight: 600;
+  font-family: "Mulish";
+  font-size: 15px;
 }
 .sgnUpBtn {
   display: inline;
   background: none;
   border: none;
   margin: 0 5px;
-  font-weight: 600;
+  font-weight: bolder;
   cursor: pointer;
   font-size: 15px;
-  background: linear-gradient(30.06deg, #662f88 9.05%, #20bf55 55.69%);
-  -webkit-background-clip: text;
+  letter-spacing: 0.5px;
+  color: #4997779c;
+  /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-family: "mulish";
+  background-clip: text; */
 }
 @media only screen and (min-width: 300px) and (max-width: 768px) {
   .social span {

@@ -1,5 +1,5 @@
 /* for background color of avbar */
-@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;800&family=Mulish&display=swap");
+
 .css-hip9hq-MuiPaper-root-MuiAppBar-root {
   background-color: black !important;
 }
@@ -70,7 +70,7 @@
   width: 100%;
   color: #fff !important;
   margin: 0 !important;
-  font-size: 12px !important;
+  font-size: 16px !important;
   justify-content: left !important;
   padding: 10px !important;
   cursor: pointer;
@@ -95,7 +95,7 @@
 .sgnBtn {
   cursor: pointer;
   font-family: "Mulish", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
 }
 .headerLinkbox {
   width: 35% !important;
@@ -155,7 +155,7 @@
 .comming-soon3 {
   position: absolute;
   margin: -10px 0 0 70px;
-  font-weight: bold;
+  font-weight: 600;
   z-index: 5;
   border: none;
   padding: 2px 7px;
@@ -163,6 +163,8 @@
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: #fff;
+  font-family: "mulish";
+  font-size: 10px;
 }
 .basicProfile {
   padding: 8px 13px;
@@ -201,7 +203,9 @@
 .dropdown-content {
   display: block;
   position: absolute;
-  min-width: 260px;
+  margin-top: 89%;
+  margin-left: -146%;
+  min-width: 318px;
   z-index: 1;
 }
 
@@ -220,12 +224,23 @@
 .dropdown-content a:hover {
   background-color: #12142b;
 }
+.drowp1 {
+  /* padding-left: 70%; */
+  border-radius: 5px;
+}
 .UserIcons {
   margin-right: 10px;
 }
 .drowpP {
-  font-size: 10px;
+  font-size: 11px;
   margin-left: 24px;
+  font-family: "mulish";
+  font-weight: 400;
+}
+.dropH {
+  font-size: 15px;
+  font-family: "mulish";
+  font-weight: 700;
 }
 .form_Control_header {
   background-color: #202342 !important;
