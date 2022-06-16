@@ -31,6 +31,7 @@ export default function LatestCourses(props) {
 
     return count;
   };
+
   const getDateIs = (d) => {
     var date = new Date(d);
     return moment(date).fromNow();
@@ -74,6 +75,7 @@ export default function LatestCourses(props) {
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays;
   };
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.

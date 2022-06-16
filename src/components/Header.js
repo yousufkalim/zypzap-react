@@ -532,7 +532,10 @@ export default function PrimarySearchAppBar({
                         onClick={handleCreatorSearch}
                       >
                         <img className="UserIcons" src={UserIcon} alt="" />
-                        Content Creators
+                        <span className="dropH" style={{ marginLeft: "-5px" }}>
+                          {" "}
+                          Content Creators
+                        </span>
                         <p className="drowpP">
                           Top gamers who create content for you
                         </p>
@@ -547,7 +550,7 @@ export default function PrimarySearchAppBar({
                         onClick={handleCourseSearch}
                       >
                         <img className="UserIcons" src={CourseIcon} alt="" />
-                        Courses
+                        <span className="dropH">Courses</span>
                         <p className="drowpP">Browse and buy courses</p>
                       </a>
                     </div>

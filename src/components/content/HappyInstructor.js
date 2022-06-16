@@ -54,7 +54,13 @@ const HappyInstructor = () => {
         autoPlay={false}
         // navButtonsAlwaysVisible={true}
         animation={"fade"}
-        activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
+        activeIndicatorIconButtonProps={{
+          className: "activeIndicator",
+          // style: {
+          //   backgroundColor:
+          //     "linearGradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)",
+          // },
+        }}
         className="topcoursecarousal2"
       >
         {items.map((item, i) => (
