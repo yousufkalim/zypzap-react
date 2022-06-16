@@ -23,7 +23,7 @@ const HappyInstructor = () => {
         <div className="happy_container">
           <div className="happy_box">
             <div className="happy_col1">
-              <h2 className="happy_col1h2">Happy Instructor</h2>
+              <h2 className="happy_col1h2">Happy Instructors</h2>
               <p className="happy_col1p">
                 Feedback from these happy customers <br />
                 helps us in reaching the heights

@@ -20,11 +20,11 @@
   text-align: left;
 }
 .textH1 {
-  font-size: 3em;
+  font-size: 56px;
   font-weight: 800;
 }
 .textonP {
-  font-size: 23px;
+  font-size: 22px;
   margin-top: 500px;
   padding: 5px 0px 5px 0px;
   margin: 15px 0px 0px 0px;
@@ -33,7 +33,7 @@
 .textonbutton {
   padding: 10px 16px;
   border: none;
-  margin: 35px auto 30px auto;
+  margin: 107px auto 30px auto;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: #ffffff;
   font-weight: 600;
@@ -41,7 +41,6 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  font-family: "mulish";
 }
 .textonbutton:hover {
   background: none;
