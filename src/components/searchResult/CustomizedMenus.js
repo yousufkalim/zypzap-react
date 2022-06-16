@@ -137,16 +137,16 @@ export default function CustomizedMenus(props) {
         endIcon={<KeyboardArrowDownIcon />}
       >
         <div className="btn-icon-container">
-          <span> Sort by &#11167; </span>{" "}
+          <span> Sort by &nbsp;</span>
           <KeyboardArrowDownIcon
             sx={{
               color: "#fff !important",
               opacity: "0.6",
-              width: "2px",
+              // width: "2px",
               marginTop: "2px",
               height: "0.8em !important",
             }}
-          />{" "}
+          />
           {sortBy || ""}
         </div>
       </button>
@@ -160,7 +160,11 @@ export default function CustomizedMenus(props) {
         onClose={handleClose}
       >
         <MenuItem
-          sx={{ opacity: "0.7", fontFamily: "mulish" }}
+          sx={{
+            fontFamily: "mulish",
+            fontSize: "13px",
+            fontWeight: "700",
+          }}
           onClick={filterByRating}
           value={"Rating"}
           disableRipple
@@ -168,7 +172,7 @@ export default function CustomizedMenus(props) {
           Rating
         </MenuItem>
         <MenuItem
-          sx={{ opacity: "0.7", fontFamily: "mulish" }}
+          sx={{ fontFamily: "mulish", fontSize: "13px", fontWeight: "700" }}
           // style={{ fontFamily: "mulish" }}
           onClick={filterByDate}
           disableRipple
@@ -176,14 +180,14 @@ export default function CustomizedMenus(props) {
           Date Posted
         </MenuItem>
         <MenuItem
-          sx={{ opacity: "0.7", fontFamily: "mulish" }}
+          sx={{ fontFamily: "mulish", fontSize: "13px", fontWeight: "700" }}
           onClick={filterByViews}
           disableRipple
         >
           Number Of Views
         </MenuItem>
         <MenuItem
-          sx={{ opacity: "0.7", fontFamily: "mulish" }}
+          sx={{ fontFamily: "mulish", fontSize: "13px", fontWeight: "700" }}
           onClick={filterByLevel}
           disableRipple
         >

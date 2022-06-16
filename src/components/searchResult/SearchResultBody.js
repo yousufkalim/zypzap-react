@@ -799,11 +799,6 @@ const SearchResultBody = () => {
                                   />
                                   {console.log("item is", item)}
                                   <p className="latestCourse-p">
-                                    {/* {item?.creator?.user_id?.username} */}
-                                    {/* {console.log(
-                                      "abc",
-                                      item.creator.user_id.username.length
-                                    )} */}
                                     {item?.creator?.user_id?.username.length >
                                     10
                                       ? `${item?.creator?.user_id?.username.substring(
