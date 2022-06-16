@@ -296,12 +296,15 @@
   margin: 12px 0;
 }
 .userProfileH1 {
-  font-size: 24px;
-  font-family: mulish;
+  font-size: 28px;
+  font-family: "Mulish";
+  font-weight: 700;
 }
 .userProfileP {
-  font-size: 15px;
+  font-size: 18px;
+  font-weight: 400;
   margin: 4px 0 4px 0;
+  font-family: "Mulish";
 }
 .userProfile-uploadData {
   display: flex;
@@ -355,23 +358,31 @@
   outline: none;
 }
 .tags-input-FGames {
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Mulish";
 }
 .userButton-heading {
-  font-size: 18px;
+  font-size: 16px;
   padding-bottom: 5px;
   padding-top: 10px;
   font-weight: 400;
-  font-family: mulish;
+  font-family: "Mulish";
 }
 .allButtons {
   flex-wrap: wrap;
   display: flex;
   /* justify-content: space-around; */
   margin: 0px 0 8px 0;
+  font-size: 15px;
+  font-family: "Mulish";
+  font-weight: 400;
 }
 .allButtons2 {
   margin: 0px 0 8px 0;
+  font-size: 15px;
+  font-family: "Mulish";
+  font-weight: 400;
 }
 .userTagsAllButton {
   background: #282a49;
@@ -393,7 +404,9 @@
 } */
 .gamingModeP {
   padding: 9px 0 0 0;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Mulish";
 }
 .userProfileSelectInput {
   padding: 5px 0 0 0;
@@ -404,6 +417,9 @@
 
 .gamingModeSelect {
   margin: 5px 0px 0px 10px;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Mulish";
 }
 .userProfileChackbox[type="checkbox"] {
   margin: 0 5px;
@@ -448,8 +464,9 @@
   margin: 8px 0px 20px 0px;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
-  font-weight: 600;
-  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: "Mulish";
   border-radius: 4px;
   cursor: pointer;
   box-sizing: border-box;
