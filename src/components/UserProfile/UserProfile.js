@@ -19,8 +19,6 @@ const UserProfile = (props) => {
 
   const [cover_photo, setCoverImageURL] = useState("");
   const [profile_photo, setProfileimg] = useState("");
-
-
   const updateStore = UpdateStore();
 
   const handleClickOpen = () => {
@@ -188,7 +186,6 @@ const UserProfile = (props) => {
             </div> */}
 
             <div className="profileEditButton">
-
               {cover_photo ? (
                 <div className="editProfiel-btn" onClick={saveCoverPhoto}>
                   Save Cover Photo
@@ -217,7 +214,6 @@ const UserProfile = (props) => {
                   </label>
                 </a>
               )}
-
             </div>
           </div>
           {/* profile Div */}

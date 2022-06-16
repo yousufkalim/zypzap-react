@@ -17,7 +17,7 @@ import { Store, UpdateStore } from "../../StoreContext";
 import api from "../../api";
 import GuestSignUpPopUp from "../PopupForms/GuestSignUpPopUp";
 const OverViewHome = (props) => {
-  const { user, Games } = Store();
+  const { user, Games, learner } = Store();
   const [openCongratulation, setCongratulation] = useState(false);
   const updateStore = UpdateStore();
   const { singlCourse } = props;
@@ -165,8 +165,15 @@ const OverViewHome = (props) => {
                   )}
                 </div> */}
                   {/* end heart icon for wish list */}
+                  {console.log("for view enroll user", user?.creator, user)}
+                  {console.log(
+                    "for view enroll singlCourse",
+                    singlCourse?.creator._id
+                  )}
+                  {console.log("for view enroll learner", learner)}
 
-                  {user?.role === "Creator" ? (
+                  {(user?.role === "Creator" && !learner) ||
+                  user?.creator === singlCourse?.creator?._id ? (
                     <NavLink
                       to="#"
                       className="CardBuyBtn"

@@ -13,7 +13,7 @@ export default function PropfileInformation({
   openProfile,
   setOpenProfile,
   user,
-  setCongratulation,
+  setCongratulation
 }) {
   const updateStore = UpdateStore();
   const [profile_photo, setImageURL] = useState(
@@ -95,7 +95,7 @@ export default function PropfileInformation({
 
   const removeTags = (index) => {
     setFavouritGame([
-      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index),
+      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index)
     ]);
   };
 
@@ -147,7 +147,7 @@ export default function PropfileInformation({
       favourite_games: favouritGame,
       learningRethem: learningRethem,
       current_level: currentLevel,
-      target_level: target_level,
+      target_level: target_level
     };
     const formdata = {
       profile_photo,
@@ -155,7 +155,7 @@ export default function PropfileInformation({
       gameType,
       plateForm,
       gameMood,
-      LearningRhythm,
+      LearningRhythm
     };
     if (
       prefrence_games === "" ||
@@ -199,7 +199,7 @@ export default function PropfileInformation({
     { name: "Turn By Turn Strategy" },
     { name: "Sport" },
     { name: "Tradung Card" },
-    { name: "Puzzle" },
+    { name: "Puzzle" }
   ];
   let gametypebtn2 = [
     { name: "Retro Consoles" },
@@ -207,7 +207,7 @@ export default function PropfileInformation({
     { name: "Xbox/360/One/X" },
     { name: "Mobile Games" },
     { name: "Portable Consoles" },
-    { name: "PC" },
+    { name: "PC" }
   ];
   // const handleClose = () => {
   //   setOpen(false);
@@ -271,7 +271,7 @@ export default function PropfileInformation({
                         borderRadius: "2px",
                         padding: "5px",
                         paddingTop: "5px",
-                        paddingBottom: "5px",
+                        paddingBottom: "5px"
                       }}
                       className="userProfileLiSpan"
                     >
@@ -280,7 +280,7 @@ export default function PropfileInformation({
                         style={{
                           color: "white",
                           height: "50%",
-                          marginLeft: "11px",
+                          marginLeft: "11px"
                         }}
                         class="fa-solid fa-xmark"
                         onClick={() => removeTags(index)}
