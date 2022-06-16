@@ -5,14 +5,15 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
+import Autocomplete from "@mui/material/Autocomplete";
+import { TextField, Paper, Chip } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+
 import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
 import { Store, UpdateStore } from "../../StoreContext";
 import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
-// import { Select } from "antd";
-// import "antd/dist/antd.css";
-// const Option = Select.Option;
 
 let gamelist = [
   { value: "ocean", label: "Ocean", color: "#00B8D9", isFixed: true },
@@ -27,14 +28,44 @@ let gamelist = [
   { value: "silver", label: "Silver", color: "#666666" }
 ];
 function Setting({ openProfile, setOpenProfile }) {
+  const useStyles = makeStyles({
+    customTextField: {
+      "& input": {
+        color: "white",
+        border: "none"
+      },
+      "&:hover": {
+        border: "red !important"
+      },
+      "& input::placeholder": {
+        color: "white",
+        "@media (max-width: 780px)": {
+          paddingLeft: "-2px"
+        }
+      }
+    },
+    option: {
+      background: "#242635 ",
+      color: "white",
+      "&:hover": {
+        backgroundColor: "#9198a5 !important"
+      }
+    },
+    noOptions: {
+      display: `${"inherit"}`,
+      color: "white"
+    }
+  });
+  const classes = useStyles();
   const [values, setValues] = useState([]);
   const { user, learner } = Store();
   const updateStore = UpdateStore();
   const [openCongratulation, setCongratulation] = useState(false);
   const [favouritGame, setFavouritGame] = useState(
-    user?.prefrence_games?.favourite_games
-      ? user.prefrence_games.favourite_games
-      : []
+    []
+    // user?.prefrence_games?.favourite_games
+    //   ? user.prefrence_games.favourite_games
+    //   : []
   );
   const [gameType, setGameType] = useState(user?.gameType ? user.gameType : []);
   const [plateForm, setPlateForm] = useState(
@@ -61,11 +92,11 @@ function Setting({ openProfile, setOpenProfile }) {
     setCurrentSate();
   }, [user]);
   const setCurrentSate = () => {
-    setFavouritGame(
-      user?.prefrence_games?.favourite_games
-        ? user.prefrence_games.favourite_games
-        : []
-    );
+    // setFavouritGame(
+    //   user?.prefrence_games?.favourite_games
+    //     ? user.prefrence_games.favourite_games
+    //     : []
+    // );
     setGameType(user?.gameType ? user.gameType : []);
     setPlateForm(user?.plateForm ? user.plateForm : []);
     setGameMood(user?.gameMood ? user.gameMood : "Single");
@@ -145,6 +176,7 @@ function Setting({ openProfile, setOpenProfile }) {
       }
     }
   };
+  console.log("favouritGame", favouritGame);
 
   const submitProfile = async (e) => {
     const prefrence_games = {
@@ -227,6 +259,39 @@ function Setting({ openProfile, setOpenProfile }) {
     console.log("onsearch", e);
   };
 
+  const getAllGames = async (e) => {
+    // setformDataOne({
+    //   ...formDataOne,
+    //   [e.target.name]: e.target.value
+    // });
+
+    let res = await axios.get(
+      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
+        e.target.value +
+        "&page=1&page_size=10",
+      {
+        withCredentials: false
+      }
+    );
+
+    var gamesToSet = []; // //debugger;
+    for (var i = 0; i < res?.data?.results?.length; i++) {
+      gamesToSet.push({
+        id: i,
+        label: res?.data?.results[i].name,
+
+        img: res?.data?.results[i].background_image
+      });
+    }
+    if (gamesToSet.length === res?.data?.results.length) {
+      setValues(gamesToSet);
+    }
+  };
+  // Set selected game in  setAddressValue State
+  const setGamefiled = async (item, selectedItems, reason) => {
+    setFavouritGame(selectedItems);
+  };
+
   return (
     <>
       <RegisterSuccessfully
@@ -240,68 +305,62 @@ function Setting({ openProfile, setOpenProfile }) {
             <div>
               <p className="tags-input-FGames">Favorite Games</p>
             </div>
-
-            <div className="tags-input-ul tags-input2 favGameDiv">
-              {/* <Select
-                // className="form-control-alternative text-default"
-                mode="multiple"
-                allowClear
-                style={{ width: "100%" }}
-                placeholder="Select candidate's skill"
-                defaultValue={[gamelist[0].value]}
-                onChange={handleSelectedGames}
-                onSearch={onSearch}
-              >
-                {gamelist.map((skill) => (
-                  <Option key={skill.value}>{skill.label}</Option>
-                ))}
-              </Select> */}
-              <ul className="tags-input-ul2">
-                {favouritGame.map((tag, index) => (
-                  <li key={index} className="userProfileLi">
-                    <i
-                      className="material-icons"
-                      onClick={() => removeTags(index)}
-                    >
-                      <span className="userProfileLiSpan">{tag}</span>
-                    </i>
-                  </li>
-                ))}
-
-                <input
-                  className="userProfile_inputTags"
-                  type="text"
-                  onKeyUp={(event) => addTags(event)}
-                  placeholder="Add here..."
-                />
-              </ul>
+            <div>
+              <Autocomplete
+                multiple
+                options={values}
+                classes={{
+                  option: classes.option
+                }}
+                filterSelectedOptions
+                popupIcon={null}
+                disableClearable
+                className="AutofiledgameExperties"
+                noOptionsText={
+                  <div
+                    style={{
+                      color: "white",
+                      fontSize: "12px"
+                    }}
+                  >
+                    {" "}
+                    no option{" "}
+                  </div>
+                }
+                PaperComponent={({ children }) => (
+                  <Paper style={{ background: "#242635" }}>{children}</Paper>
+                )}
+                onChange={setGamefiled}
+                hiddenLabel="true"
+                style={{
+                  margin: "auto"
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    className="userProfile_inputTags"
+                    type="text"
+                    placeholder="Add here..."
+                    classes={{ root: classes.customTextField }}
+                    {...params}
+                    style={{ color: "white" }}
+                    // variant="outlined"
+                    onChange={getAllGames}
+                    sx={{
+                      outline: "none",
+                      width: "80%",
+                      borderRadius: "6px"
+                    }}
+                    // value={gameName}
+                    // name="gameName"
+                  />
+                )}
+              />
             </div>
           </div>
           <div className="userButtonGroup">
             <p className="userButton-heading">Game Type</p>
             <div className="allButtons">
               <>
-                {/* {gametypebtn.map((tag) => {
-                return gameType?.includes(tag.name) ? (
-                  <button
-                    className="activetypebtn"
-                    onClick={() => {
-                      selectGameType(tag.name);
-                    }}
-                  >
-                    {tag.name}
-                  </button>
-                ) : (
-                  <button
-                    className="userTagsAllButton"
-                    onClick={() => {
-                      selectGameType(tag.name);
-                    }}
-                  >
-                    {tag.name}
-                  </button>
-                );
-              })} */}
                 {gametypebtn.map((tag) => {
                   return (
                     <button
@@ -391,7 +450,6 @@ function Setting({ openProfile, setOpenProfile }) {
               </div>
             </FormControl>
           </div>
-          {console.log("userrrr", user, learner)}
           {user?.role === "User" ||
             (learner && (
               <>
