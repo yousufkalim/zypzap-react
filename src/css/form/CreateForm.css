@@ -9,35 +9,46 @@
 }
 
 /* antd design for favroit game design */
-.favGameDiv{
+.favGameDiv {
   padding-bottom: 50px !important;
 }
-.ant-select:not(.ant-select-customize-input) .ant-select-selector{
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
   background-color: transparent !important;
   border: none !important;
 }
-.ant-select-selection-search-input{
+.ant-select-selection-search-input {
   color: white !important;
 }
-.ant-select-item-option-content{
+.ant-select-item-option-content {
   color: white !important;
 }
-.ant-select-dropdown{
-  background-color: #15162c !important
+.ant-select-dropdown {
+  background-color: #15162c !important;
 }
 
-.ant-select-item-option-selected:not(.ant-select-item-option-disabled){
-  background:linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%) !important;
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background: linear-gradient(
+    65.06deg,
+    #662f88 9.05%,
+    #20bf55 131.69%
+  ) !important;
   color: white !important;
 }
-.ant-select-item-option-active:not(.ant-select-item-option-disabled){
-  background:linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%) !important;
+.ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+  background: linear-gradient(
+    65.06deg,
+    #662f88 9.05%,
+    #20bf55 131.69%
+  ) !important;
   color: white !important;
 }
-.ant-select-multiple .ant-select-selection-item{
-  background:linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%) !important;
+.ant-select-multiple .ant-select-selection-item {
+  background: linear-gradient(
+    65.06deg,
+    #662f88 9.05%,
+    #20bf55 131.69%
+  ) !important;
   color: white !important;
-
 }
 .css-agiit5-MuiTypography-root {
   margin: 0;
@@ -74,8 +85,8 @@
   padding: 15px 30px;
 }
 .create_container .createH1 {
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 28px;
+  font-weight: 700;
   margin: 6px 0px;
   display: inline-block;
   opacity: 0.9;
@@ -94,15 +105,17 @@
 }
 
 .create_pera {
-  font-size: 15px;
+  font-size: 18px;
   margin-bottom: 25px;
   opacity: 0.8;
+  font-weight: 600 !important;
 }
 .createLbl {
-  font-size: 13px;
+  font-size: 16px;
   display: block;
   padding-bottom: 5px;
   opacity: 0.7;
+  font-weight: 400 !important;
 }
 .create_container .inputForm2 {
   padding-left: 10px;
@@ -166,12 +179,13 @@
   border: none;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
-  font-weight: 900;
-  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-family: "Mulish";
+
   border-radius: 4px;
   cursor: pointer;
   width: 100%;
-  font-size: 15px;
+  font-size: 18px;
   display: block;
   margin-top: 30px;
   font-weight: 500;
@@ -223,29 +237,29 @@
   margin-top: 24px;
   margin-bottom: -13px;
   opacity: 0.7;
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: "Mulish";
 }
 .logBtn {
   display: inline;
   background: none;
   border: none;
   margin: 0 5px;
-  font-weight: bolder;
+  font-weight: bold;
   cursor: pointer;
   margin-bottom: 20px;
-  font-size: 13px;
-  color: #20bf55;
-  background: linear-gradient(30.06deg, #662f88 9.05%, #20bf55 55.69%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  /* opacity: 0.7; */
+  font-size: 15px;
+  color: #5dcfa09c;
 }
 .terms {
   display: block;
   opacity: 0.6;
   margin-bottom: 4px;
-  font-size: 11px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20.55px;
+  font-family: "Mulish";
 }
 .condition {
   font-size: 13px;

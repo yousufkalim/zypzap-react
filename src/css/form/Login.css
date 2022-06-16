@@ -157,14 +157,11 @@
   background: none;
   border: none;
   margin: 0 5px;
-  font-weight: bolder;
+  font-weight: bold;
   cursor: pointer;
   font-size: 15px;
   letter-spacing: 0.5px;
-  color: #4997779c;
-  /* -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text; */
+  color: #5dcfa09c;
 }
 @media only screen and (min-width: 300px) and (max-width: 768px) {
   .social span {
