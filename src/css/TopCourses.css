@@ -17,9 +17,10 @@
 }
 .topcourseheading {
   padding: 30px 0px 25px 0px;
-  font-weight: bolder;
-  font-size: 22px !important;
+  font-size: 28px !important;
+  font-weight: 700;
 }
+
 .topcourseheadings {
   padding: 30px 0px 25px 0px;
   font-weight: bolder;
@@ -84,6 +85,8 @@
 .activeIndicator {
   /* color: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   background: linear-gradient(65.06deg, #662f88 2.05%, #20bf55 111.69%); */
+  background: linear-gradient(65.06deg, #662f88 2.05%, #20bf55 111.69%);
+  color: linear-gradient(65.06deg, #662f88, #20bf55 131.69%) !important;
 }
 .Carousel-button-11 {
   display: none !important;

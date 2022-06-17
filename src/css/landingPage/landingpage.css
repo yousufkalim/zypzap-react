@@ -43,10 +43,10 @@
 }
 
 .landingpagetextimgH1 {
-  font-size: 3em;
+  font-size: 50px !important;
   margin-bottom: 10px;
   font-family: "AMCAP Eternal", sans-serif;
-  font-weight: 100;
+  font-weight: 400;
   text-shadow: 0px 4px 3px #662f88;
 }
 .landingpagetextonImgP {
@@ -276,15 +276,13 @@
     top: 52%;
   }
   .landingpagetextimgH1 {
-    font-size: 2.6em;
+    font-size: 50px !important;
     margin-bottom: 10px;
     font-family: "AMCAP Eternal", sans-serif;
     font-weight: 100;
     text-shadow: 0px 4px 3px #662f88;
   }
-  .landingpagetextimgH1 {
-    font-size: 3em;
-  }
+
   .landingpagetextonImgP {
     font-size: 8px;
   }

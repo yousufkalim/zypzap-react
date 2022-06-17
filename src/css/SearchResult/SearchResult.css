@@ -23,7 +23,7 @@
 }
 .card-header-text-h3 {
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 600;
   font-family: "mulish";
   padding-bottom: 10px;
 }
@@ -101,7 +101,7 @@
 }
 .favourite-icon-position {
   position: relative;
-  height: 250px;
+  height: 205px;
   padding: 15px;
 }
 .favourite-icon-position2 {

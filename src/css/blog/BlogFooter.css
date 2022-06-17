@@ -93,8 +93,8 @@
   color: #fff;
   padding: 13px 65px;
   width: 100%;
-  display: flex;
-  justify-content: right;
+
+  text-align: right;
   font-family: "Maven Pro", sans-serif;
 }
 .imgIcon {

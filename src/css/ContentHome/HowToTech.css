@@ -22,7 +22,8 @@
   width: 100%;
 }
 .Getstarted22 {
-  /* margin-top: 163px; */
+  margin-top: 140px;
+  margin-left: 23%;
 }
 .Getstaredgrid22 {
   display: flex;
@@ -61,7 +62,8 @@
   position: relative;
   width: 60%;
   padding: 0px 0px 0 0px;
-  right: 98px;
+  right: -41px;
+  top: 91px;
   opacity: 0.9;
 }
 .rightdiv2 {

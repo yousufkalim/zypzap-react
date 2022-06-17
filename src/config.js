@@ -1,7 +1,7 @@
 let baseUrl = "";
 
 if (window.location.host === "zypzap.com") {
-  baseUrl = "https://zypzap.com/api";
+  baseUrl = "https://api.zypzap.com/api";
 } else if (window.location.host === "zypzap-demo.web.app") {
   baseUrl = "https://passtotrip.falconit.com.pk/api";
 } else {

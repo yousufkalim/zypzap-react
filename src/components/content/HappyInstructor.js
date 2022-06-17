@@ -23,7 +23,7 @@ const HappyInstructor = () => {
         <div className="happy_container">
           <div className="happy_box">
             <div className="happy_col1">
-              <h2 className="happy_col1h2">Happy Instructor</h2>
+              <h2 className="happy_col1h2">Happy Instructors</h2>
               <p className="happy_col1p">
                 Feedback from these happy customers <br />
                 helps us in reaching the heights
@@ -54,7 +54,13 @@ const HappyInstructor = () => {
         autoPlay={false}
         // navButtonsAlwaysVisible={true}
         animation={"fade"}
-        activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
+        activeIndicatorIconButtonProps={{
+          className: "activeIndicator",
+          // style: {
+          //   backgroundColor:
+          //     "linearGradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)",
+          // },
+        }}
         className="topcoursecarousal2"
       >
         {items.map((item, i) => (

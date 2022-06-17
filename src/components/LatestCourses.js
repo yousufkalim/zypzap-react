@@ -31,6 +31,7 @@ export default function LatestCourses(props) {
 
     return count;
   };
+
   const getDateIs = (d) => {
     var date = new Date(d);
     return moment(date).fromNow();
@@ -74,33 +75,34 @@ export default function LatestCourses(props) {
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays;
   };
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 4
+      items: 4,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
-      slidesToSlide: 3
+      slidesToSlide: 3,
     },
     tablet: {
       breakpoint: { max: 1024, min: 800 },
-      items: 2
+      items: 2,
     },
     mobile: {
       breakpoint: { max: 800, min: 0 },
-      items: 1
-    }
+      items: 1,
+    },
   };
   const handleLatestCourses = () => {
     history.push({
       pathname: "/searchResult",
       param: {
         name: "Latest Courses",
-        value: "2"
-      }
+        value: "2",
+      },
     });
   };
   return (
@@ -124,7 +126,7 @@ export default function LatestCourses(props) {
             <Link
               to={{
                 pathname: `OverView/${item?._id}`,
-                state: { course: `${item}` }
+                state: { course: `${item}` },
               }}
               className="requestBt"
               style={{ textDecoration: "none", color: "white" }}
@@ -150,7 +152,7 @@ export default function LatestCourses(props) {
                         className="LatestCourse-IMG"
                       />
                       <p className="latestCourse-pHeading">
-                        {item?.creator?.user_id?.username}
+                        <strong> {item?.creator?.user_id?.username}</strong>
                       </p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">

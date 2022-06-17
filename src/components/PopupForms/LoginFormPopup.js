@@ -44,7 +44,10 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     },
   },
   "& .MuiSwitch-thumb": {
-    background: theme.palette.mode === "dark" ? "red" : "linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)",
+    background:
+      theme.palette.mode === "dark"
+        ? "red"
+        : "linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)",
     width: 28,
     height: 28,
     "&:before": {
@@ -157,9 +160,19 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
             <h1 className="loginH1">Login to your account</h1>
             <ClearIcon className="clearIcon" onClick={handleClose} />
             <p className="login_pera">Welcome back</p>
-            <div>
+            <div
+              style={{
+                fontSize: "18px",
+                fontFamily: "Mulish",
+                fontWeight: "700",
+              }}
+            >
               {creatorSwitch ? "Creator" : "User"}
-              <MaterialUISwitch sx={{ m: 1 }} defaultChecked={creatorSwitch} onClick={handleCheck} />
+              <MaterialUISwitch
+                sx={{ m: 1 }}
+                defaultChecked={creatorSwitch}
+                onClick={handleCheck}
+              />
             </div>
             <form action="">
               <label htmlFor="email" className="loginFH1">
@@ -189,7 +202,11 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                 name="password"
                 endAdornment={
                   <InputAdornment position="end">
-                    <IconButton className="showPass" onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>
+                    <IconButton
+                      className="showPass"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
                       {values.showPassword ? <Visibility /> : <VisibilityOff />}
                     </IconButton>
                   </InputAdornment>
@@ -256,7 +273,10 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
           </div>
         </div>
       </Dialog>
-      <ForgetPassword open={forgetPasswordPopup} setOpen={setForgetPasswordPopup} />
+      <ForgetPassword
+        open={forgetPasswordPopup}
+        setOpen={setForgetPasswordPopup}
+      />
     </div>
   );
 }

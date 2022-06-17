@@ -457,7 +457,16 @@ export default function PropfileInformation({
             </FormControl>
           </div>
           <div>
-            <label for="Learning">Learning Rhythm</label>
+            <label
+              for="Learning"
+              style={{
+                fontSize: "16px",
+                fontWeight: "400",
+                fontFamily: "Mulish",
+              }}
+            >
+              Learning Rhythm
+            </label>
           </div>
           <div className="userProfileSelectInput2">
             <br />
@@ -466,6 +475,11 @@ export default function PropfileInformation({
               name="Select"
               onChange={ChangeLearningRhythm}
               className="selectInput-userProfile2"
+              style={{
+                fontSize: "15px",
+                fontWeight: "400",
+                fontFamily: "Mulish",
+              }}
             >
               <option
                 value="10h To 20h Per Week"
@@ -503,7 +517,16 @@ export default function PropfileInformation({
             </select>
           </div>
           <div className="userProfileSelectInput">
-            <label for="Learning">Current Gameplay Level</label>
+            <label
+              for="Learning"
+              style={{
+                fontSize: "16px",
+                fontWeight: "400",
+                fontFamily: "Mulish",
+              }}
+            >
+              Current Gameplay Level
+            </label>
             <br />
             <select
               id="Select"
@@ -511,6 +534,11 @@ export default function PropfileInformation({
               onChange={changeCurrentLevelHandler}
               className="selectInput-userProfile"
               defaultValue={currentLevel}
+              style={{
+                fontSize: "15px",
+                fontWeight: "400",
+                fontFamily: "Mulish",
+              }}
             >
               <option value="Casual" className="selectInput-option">
                 Casual (5h - 7h Of Play Per Week)
@@ -529,7 +557,16 @@ export default function PropfileInformation({
             </select>
           </div>
           <div className="userProfileSelectInput">
-            <label for="Learning">Target Gameplay Level</label>
+            <label
+              for="Learning"
+              style={{
+                fontSize: "16px",
+                fontWeight: "400",
+                fontFamily: "Mulish",
+              }}
+            >
+              Target Gameplay Level
+            </label>
             <br />
 
             <select
@@ -538,6 +575,11 @@ export default function PropfileInformation({
               onChange={changeTargetLevelHandler}
               className="selectInput-userProfile"
               defaultValue={target_level}
+              style={{
+                fontSize: "15px",
+                fontWeight: "400",
+                fontFamily: "Mulish",
+              }}
             >
               <option value="Casual" className="selectInput-option">
                 Casual (5h - 7h Of Play Per Week)
