@@ -24,7 +24,7 @@ const MyPrifileSetting = () => {
     expiry_month: user?.expiry_date?.month || "",
     expiry_year: user?.expiry_date?.year || "",
     cvv: user?.cvv || "",
-    card_holder_name: user?.card_holder_name || ""
+    card_holder_name: user?.card_holder_name || "",
   });
 
   const {
@@ -35,7 +35,7 @@ const MyPrifileSetting = () => {
     expiry_month,
     expiry_year,
     cvv,
-    card_holder_name
+    card_holder_name,
   } = formData;
   useEffect(() => {
     setFormData({
@@ -46,7 +46,7 @@ const MyPrifileSetting = () => {
       expiry_month: user?.expiry_date?.month || "",
       expiry_year: user?.expiry_date?.year || "",
       cvv: user?.cvv || "",
-      card_holder_name: user?.card_holder_name || ""
+      card_holder_name: user?.card_holder_name || "",
     });
   }, [user]);
   const handleClickShowPassword = () => {
@@ -60,7 +60,7 @@ const MyPrifileSetting = () => {
   const handlechange1 = (event) => {
     setFormData({
       ...formData,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
   const SubmitEvent = async (e) => {
@@ -68,8 +68,8 @@ const MyPrifileSetting = () => {
       ...formData,
       expiry_date: {
         month: expiry_month,
-        year: expiry_year
-      }
+        year: expiry_year,
+      },
     };
     delete d.expiry_month;
     delete d.expiry_year;
@@ -134,7 +134,7 @@ const MyPrifileSetting = () => {
                 name="email"
               />
             </div>
-            <div>
+            {/* <div>
               <p
                 style={{
                   marginTop: "10px"
@@ -208,9 +208,10 @@ const MyPrifileSetting = () => {
                 </div>
               </div>
             </div>
+          */}{" "}
           </div>
           {/* /* ---------------------------------- col2 ----------------------------------  */}
-          <div className="profileSetting-Col">
+          {/* <div className="profileSetting-Col">
             <p className="profileSetting-heading">Edit Payment Information</p>
             <div className="cardTypeDiv">
               <p className="cardType-p">Card Type</p>
@@ -297,27 +298,8 @@ const MyPrifileSetting = () => {
                 value={cvv}
               />
             </div>
-            {/* <button
-              className="formbtn2"
-              type="submit"
-              onClick={SubmitEvent}
-              style={{
-                background: "linear-gradient(326deg, #662F88 8%, #20BF55 132%)",
-                color: "white",
-                fontWeight: "400",
-                borderRadius: " 4px",
-                cursor: "pointer",
-                border: "none",
-                width: " 100px",
-                height: "39px",
-                fontSize: "14px",
-                marginLeft: "4px",
-                marginTop: "14px",
-              }}
-            >
-              Save
-            </button> */}
-          </div>
+            
+          </div> */}
           {/* /* ---------------------------------- col3 ----------------------------------  */}
           <div className="profileSetting-Col">
             <div className="profile-notificaitonDiv">
@@ -344,7 +326,7 @@ const MyPrifileSetting = () => {
             fontSize: "14px",
             display: "bl8ck",
 
-            margin: "25px 4px"
+            margin: "25px 4px",
           }}
         >
           Save

@@ -39,7 +39,7 @@ const OverViewHome = (props) => {
   const handleStartCourse = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id
+      userId: u?._id,
     };
     let res = await api("post", "/users/enrolledCourseAndStarted", data);
     if (res) {
@@ -49,7 +49,7 @@ const OverViewHome = (props) => {
   const handleEnrolled = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id
+      userId: u?._id,
     };
     let res = await api("post", "/users/enrolledCourse", data);
     if (res) {
@@ -119,20 +119,21 @@ const OverViewHome = (props) => {
               <li className="overViewLi">
                 <img src={RatingStarIcon} alt="" className="overViewIcon" />
                 <p className="overViewIconP">
-                  {singlCourse?.rating ? singlCourse.rating : <></>}{" "}
+                  {singlCourse?.rating
+                    ? `${singlCourse.rating} Rating`
+                    : " 3.5 Rating"}{" "}
                   {/* <img src={Star6} alt="" /> */}
-                  5.0 Rating
                 </p>
               </li>
             </div>
             <div className="overVeiwSlectBTN">
               <button className="overVeiwCS-btn">
-                <b>
+                <p>
                   {" "}
                   {singlCourse?.course_name
-                    ? singlCourse.course_name
-                    : "CS GO"}{" "}
-                </b>
+                    ? `${singlCourse.course_name} course`
+                    : "CS GO course"}{" "}
+                </p>
               </button>
               <button className="overVeiwCS-btn">
                 Created By <b>{singlCourse?.creator?.user_id?.username}</b>

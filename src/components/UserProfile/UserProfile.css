@@ -10,7 +10,8 @@
 }
 .css-i4bv87-MuiSvgIcon-root {
   height: 1.3rem !important;
-  color: #fff !important;
+  /* color: #5dcfa09c !important; */
+  color: #fff;
 }
 .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
   padding: 0px !important;
