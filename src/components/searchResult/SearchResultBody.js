@@ -693,7 +693,11 @@ const SearchResultBody = () => {
             {/* <h4 className="didnt-find-text">
               Didn't found the <br /> course
             </h4> */}
-            <label for="Multiplayer" className="dropdown-headers">
+            <label
+              for="Multiplayer"
+              className="dropdown-headers"
+              style={{ fontSize: "16px" }}
+            >
               Didn’t found the <br /> course
             </label>
             <Box style={{ position: "relative" }}>
@@ -703,7 +707,7 @@ const SearchResultBody = () => {
                 onClick={RequestClikEvent}
                 variant="contained"
               >
-                Search Now
+                Request Now
               </Button>
             </Box>
           </Item>
@@ -799,8 +803,7 @@ const SearchResultBody = () => {
                                   />
                                   {console.log("item is", item)}
                                   <p className="latestCourse-p">
-                                    {item?.creator?.user_id?.username.length >
-                                    10
+                                    {item?.creator?.user_id?.username.length > 6
                                       ? `${item?.creator?.user_id?.username.substring(
                                           0,
                                           6

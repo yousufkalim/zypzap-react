@@ -8,12 +8,9 @@ export default function Construction({
   const { user } = Store();
   return (
     <div className="requestContainer">
-      <h1 className="requestHeading">Request a Course Content</h1>
+      <h1 className="requestHeading">Request a Content</h1>
       <p className="requestContent">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa semper mi
-        feugiat quis tellus arcu.
-        <br className="br" /> Rutrum non vitae id urna nunc, egestas. Tempus
-        aliquam, at fus
+        Very soon, you will be able to express your needs to the community
       </p>
 
       <button
@@ -24,7 +21,7 @@ export default function Construction({
         }}
       >
         {/* Request Now */}
-        Request Now
+        Coming Soon
       </button>
       {/* {/* {user ? ( */}
       {/* ) : (

@@ -656,7 +656,7 @@ export default function PrimarySearchAppBar({
                           setOpen(true);
                         }}
                       >
-                        Become a Creater
+                        Become a Creator
                       </p>
 
                       <Link
