@@ -6,6 +6,10 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 import { useHistory } from "react-router-dom";
+import Autocomplete from "@mui/material/Autocomplete";
+import axios from "axios";
+import { TextField, Paper } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import FormControl from "@mui/material/FormControl";
 import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
@@ -23,8 +27,38 @@ const BecomeCreatorpopup = ({
   setOpen3,
   setOpen2
 }) => {
+  const useStyles = makeStyles({
+    customTextField: {
+      "& input": {
+        color: "white",
+        border: "none"
+      },
+      "&:hover": {
+        border: "red !important"
+      },
+      "& input::placeholder": {
+        color: "white",
+        "@media (max-width: 780px)": {
+          paddingLeft: "-2px"
+        }
+      }
+    },
+    option: {
+      background: "#242635 ",
+      color: "white",
+      "&:hover": {
+        backgroundColor: "#9198a5 !important"
+      }
+    },
+    noOptions: {
+      display: `${"inherit"}`,
+      color: "white"
+    }
+  });
+  const classes = useStyles();
   const history = useHistory();
   const updateStore = UpdateStore();
+  const [values, setValues] = useState([]);
   const [profile_photo, setImageURL] = useState(
     user?.profile_photo ? user.profile_photo : Course1
   );
@@ -52,12 +86,6 @@ const BecomeCreatorpopup = ({
     setGameMood(user?.gameMood ? user.gameMood : "Single");
   };
 
-  const addTags = (event) => {
-    if (event.key === "Enter" && event.target.value !== "") {
-      setFavouritGame([...favouritGame, event.target.value]);
-      event.target.value = "";
-    }
-  };
   const onChangeRadioBtn = (e) => {
     const value = e.target.value;
     setGameMood(e.target.value);
@@ -65,11 +93,6 @@ const BecomeCreatorpopup = ({
 
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-  const removeTags = (index) => {
-    setFavouritGame([
-      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index)
-    ]);
-  };
   const removeTagsPlateForm = (index) => {
     setPlateForm([
       ...plateForm.filter((tag) => plateForm.indexOf(tag) !== index)
@@ -173,6 +196,29 @@ const BecomeCreatorpopup = ({
     let res = await api("post", "/uploadImage", formdata);
     if (res) setImageURL(res.data.file[0].location);
   };
+  const getAllGames = async (e) => {
+    let res = await axios.get(
+      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
+        e.target.value +
+        "&page=1&page_size=10",
+      {
+        withCredentials: false
+      }
+    );
+
+    var gamesToSet = []; // //debugger;
+    for (var i = 0; i < res?.data?.results?.length; i++) {
+      gamesToSet.push(res?.data?.results[i].name);
+    }
+    if (gamesToSet.length === res?.data?.results.length) {
+      setValues(gamesToSet);
+    }
+  };
+  // Set selected game in  setAddressValue State
+  const setGamefiled = async (item, selectedItems, reason) => {
+    setFavouritGame(selectedItems);
+  };
+
   return (
     <>
       <Dialog open={open} className="login_data">
@@ -212,40 +258,56 @@ const BecomeCreatorpopup = ({
             <div>
               <p className="tags-input-FGames">Expertise Games</p>
             </div>
-            <div className="tags-input-ul">
-              <ul className="tags-input-ul2">
-                {favouritGame.map((tag, index) => (
-                  <li key={index} className="userProfileLi">
-                    <span
-                      style={{
-                        border: "1px solide grey",
-                        borderRadius: "2px",
-                        padding: "5px",
-                        paddingTop: "5px",
-                        paddingBottom: "5px"
-                      }}
-                      className="userProfileLiSpan"
-                    >
-                      {tag}
-                      <i
-                        style={{
-                          color: "white",
-                          height: "50%",
-                          marginLeft: "11px"
-                        }}
-                        class="fa-solid fa-xmark"
-                        onClick={() => removeTags(index)}
-                      ></i>
-                    </span>
-                  </li>
-                ))}
-                <input
-                  className="userProfile_inputTags"
-                  type="text"
-                  onKeyUp={(event) => addTags(event)}
-                  placeholder=""
-                />
-              </ul>
+            <div>
+              <Autocomplete
+                multiple
+                options={values}
+                classes={{
+                  option: classes.option
+                }}
+                filterSelectedOptions
+                popupIcon={null}
+                disableClearable
+                className="AutofiledgameExperties"
+                noOptionsText={
+                  <div
+                    style={{
+                      color: "white",
+                      fontSize: "12px"
+                    }}
+                  >
+                    {" "}
+                    no option{" "}
+                  </div>
+                }
+                PaperComponent={({ children }) => (
+                  <Paper style={{ background: "#242635" }}>{children}</Paper>
+                )}
+                onChange={setGamefiled}
+                hiddenLabel="true"
+                style={{
+                  margin: "auto"
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    className="userProfile_inputTags"
+                    type="text"
+                    placeholder="Add here..."
+                    classes={{ root: classes.customTextField }}
+                    {...params}
+                    style={{ color: "white" }}
+                    // variant="outlined"
+                    onChange={getAllGames}
+                    sx={{
+                      outline: "none",
+                      width: "80%",
+                      borderRadius: "6px"
+                    }}
+                    // value={gameName}
+                    // name="gameName"
+                  />
+                )}
+              />
             </div>
           </div>
           <div className="userButtonGroup">
