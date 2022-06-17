@@ -62,10 +62,9 @@ function Setting({ openProfile, setOpenProfile }) {
   const updateStore = UpdateStore();
   const [openCongratulation, setCongratulation] = useState(false);
   const [favouritGame, setFavouritGame] = useState(
-    []
-    // user?.prefrence_games?.favourite_games
-    //   ? user.prefrence_games.favourite_games
-    //   : []
+    user?.prefrence_games?.favourite_games
+      ? user.prefrence_games.favourite_games
+      : []
   );
   const [gameType, setGameType] = useState(user?.gameType ? user.gameType : []);
   const [plateForm, setPlateForm] = useState(
@@ -92,11 +91,11 @@ function Setting({ openProfile, setOpenProfile }) {
     setCurrentSate();
   }, [user]);
   const setCurrentSate = () => {
-    // setFavouritGame(
-    //   user?.prefrence_games?.favourite_games
-    //     ? user.prefrence_games.favourite_games
-    //     : []
-    // );
+    setFavouritGame(
+      user?.prefrence_games?.favourite_games
+        ? user.prefrence_games.favourite_games
+        : []
+    );
     setGameType(user?.gameType ? user.gameType : []);
     setPlateForm(user?.plateForm ? user.plateForm : []);
     setGameMood(user?.gameMood ? user.gameMood : "Single");
@@ -113,18 +112,12 @@ function Setting({ openProfile, setOpenProfile }) {
     );
   };
 
-  const addTags = (event) => {
-    if (event.key === "Enter" && event.target.value !== "") {
-      setFavouritGame([...favouritGame, event.target.value]);
-      event.target.value = "";
-    }
-  };
-  const addTagsByapi = (event) => {
-    if (event !== "") {
-      setFavouritGame([...favouritGame, event]);
-      event = "";
-    }
-  };
+  // const addTags = (event) => {
+  //   if (event.key === "Enter" && event.target.value !== "") {
+  //     setFavouritGame([...favouritGame, event.target.value]);
+  //     event.target.value = "";
+  //   }
+  // };
   const onChangeRadioBtn = (e) => {
     const value = e.target.value;
     setGameMood(e.target.value);
@@ -132,11 +125,11 @@ function Setting({ openProfile, setOpenProfile }) {
 
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-  const removeTags = (index) => {
-    setFavouritGame([
-      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index)
-    ]);
-  };
+  // const removeTags = (index) => {
+  //   setFavouritGame([
+  //     ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index)
+  //   ]);
+  // };
   const ChangeLearningRhythm = (e) => {
     setLearningRethem(e.target.value);
   };
@@ -276,12 +269,12 @@ function Setting({ openProfile, setOpenProfile }) {
 
     var gamesToSet = []; // //debugger;
     for (var i = 0; i < res?.data?.results?.length; i++) {
-      gamesToSet.push({
-        id: i,
-        label: res?.data?.results[i].name,
+      gamesToSet.push(
+        // id: i,
+        res?.data?.results[i].name
 
-        img: res?.data?.results[i].background_image
-      });
+        // img: res?.data?.results[i].background_image
+      );
     }
     if (gamesToSet.length === res?.data?.results.length) {
       setValues(gamesToSet);
@@ -289,6 +282,7 @@ function Setting({ openProfile, setOpenProfile }) {
   };
   // Set selected game in  setAddressValue State
   const setGamefiled = async (item, selectedItems, reason) => {
+    console.log("selectedItems", selectedItems);
     setFavouritGame(selectedItems);
   };
 

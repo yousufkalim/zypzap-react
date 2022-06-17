@@ -5,6 +5,10 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import api from "../../api";
+import Autocomplete from "@mui/material/Autocomplete";
+import axios from "axios";
+import { TextField, Paper } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import Course1 from "../../assets/img/course1.png";
 import { toast } from "react-toastify";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -15,10 +19,40 @@ export default function PropfileInformation({
   user,
   setCongratulation
 }) {
+  const useStyles = makeStyles({
+    customTextField: {
+      "& input": {
+        color: "white",
+        border: "none"
+      },
+      "&:hover": {
+        border: "red !important"
+      },
+      "& input::placeholder": {
+        color: "white",
+        "@media (max-width: 780px)": {
+          paddingLeft: "-2px"
+        }
+      }
+    },
+    option: {
+      background: "#242635 ",
+      color: "white",
+      "&:hover": {
+        backgroundColor: "#9198a5 !important"
+      }
+    },
+    noOptions: {
+      display: `${"inherit"}`,
+      color: "white"
+    }
+  });
+  const classes = useStyles();
   const updateStore = UpdateStore();
   const [profile_photo, setImageURL] = useState(
     user?.profile_photo ? user.profile_photo : Course1
   );
+  const [values, setValues] = useState([]);
   const [favouritGame, setFavouritGame] = useState(
     user?.prefrence_games?.favourite_games
       ? user.prefrence_games.favourite_games
@@ -212,6 +246,33 @@ export default function PropfileInformation({
   // const handleClose = () => {
   //   setOpen(false);
   // };
+  const getAllGames = async (e) => {
+    // setformDataOne({
+    //   ...formDataOne,
+    //   [e.target.name]: e.target.value
+    // });
+
+    let res = await axios.get(
+      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
+        e.target.value +
+        "&page=1&page_size=10",
+      {
+        withCredentials: false
+      }
+    );
+
+    var gamesToSet = []; // //debugger;
+    for (var i = 0; i < res?.data?.results?.length; i++) {
+      gamesToSet.push(res?.data?.results[i].name);
+    }
+    if (gamesToSet.length === res?.data?.results.length) {
+      setValues(gamesToSet);
+    }
+  };
+  // Set selected game in  setAddressValue State
+  const setGamefiled = async (item, selectedItems, reason) => {
+    setFavouritGame(selectedItems);
+  };
 
   return (
     <div>
@@ -261,40 +322,56 @@ export default function PropfileInformation({
             <div>
               <p className="tags-input-FGames">Favorite Games</p>
             </div>
-            <div className="tags-input-ul">
-              <ul className="tags-input-ul2">
-                {favouritGame.map((tag, index) => (
-                  <li key={index} className="userProfileLi">
-                    <span
-                      style={{
-                        border: "1px solide grey",
-                        borderRadius: "2px",
-                        padding: "5px",
-                        paddingTop: "5px",
-                        paddingBottom: "5px"
-                      }}
-                      className="userProfileLiSpan"
-                    >
-                      {tag}
-                      <i
-                        style={{
-                          color: "white",
-                          height: "50%",
-                          marginLeft: "11px"
-                        }}
-                        class="fa-solid fa-xmark"
-                        onClick={() => removeTags(index)}
-                      ></i>
-                    </span>
-                  </li>
-                ))}
-                <input
-                  className="userProfile_inputTags"
-                  type="text"
-                  onKeyUp={(event) => addTags(event)}
-                  placeholder=""
-                />
-              </ul>
+            <div>
+              <Autocomplete
+                multiple
+                options={values}
+                classes={{
+                  option: classes.option
+                }}
+                filterSelectedOptions
+                popupIcon={null}
+                disableClearable
+                className="AutofiledgameExperties"
+                noOptionsText={
+                  <div
+                    style={{
+                      color: "white",
+                      fontSize: "12px"
+                    }}
+                  >
+                    {" "}
+                    no option{" "}
+                  </div>
+                }
+                PaperComponent={({ children }) => (
+                  <Paper style={{ background: "#242635" }}>{children}</Paper>
+                )}
+                onChange={setGamefiled}
+                hiddenLabel="true"
+                style={{
+                  margin: "auto"
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    className="userProfile_inputTags"
+                    type="text"
+                    placeholder="Add here..."
+                    classes={{ root: classes.customTextField }}
+                    {...params}
+                    style={{ color: "white" }}
+                    // variant="outlined"
+                    onChange={getAllGames}
+                    sx={{
+                      outline: "none",
+                      width: "80%",
+                      borderRadius: "6px"
+                    }}
+                    // value={gameName}
+                    // name="gameName"
+                  />
+                )}
+              />
             </div>
           </div>
           <div className="userButtonGroup">
