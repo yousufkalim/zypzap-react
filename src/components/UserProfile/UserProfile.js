@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import "../../components/UserProfile/UserProfile.css";
 import UserHomeProfleImg from "../../assets/img/UserHomeProfleImg.svg";
 import ProfileDp from "../../assets/img/ProfileDp.jpg";
@@ -9,8 +9,18 @@ import BecomeCreatorpopup from "../PopupForms/BecomeCreatorpopup";
 import { Store, UpdateStore } from "../../StoreContext";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
+import Slider from "@material-ui/core/Slider";
+import Cropper from "react-easy-crop";
+import { getCroppedImg } from "./canvasUtils";
+
 import api from "../../api";
 const UserProfile = (props) => {
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
+  const [croppedImage, setCroppedImage] = useState(null);
+  const [imageSrc, setImageSrc] = React.useState(null);
+
   const { user, creator } = props;
   const history = useHistory();
   const [openProfile, setOpenProfile] = useState(false);
@@ -29,6 +39,13 @@ const UserProfile = (props) => {
     }
   };
   const handleImageSelect = async (e) => {
+    // if (e.target.files && e.target.files.length > 0) {
+    //   const file = e.target.files[0];
+    //   let imageDataUrl = await readFile(file);
+    //   console.log("file", file);
+    //   console.log("imageDataUrl", imageDataUrl);
+    //   setImageSrc(imageDataUrl);
+    // }
     const formdata = new FormData();
     formdata.append(`files`, e.target.files[0]);
     let res = await api("post", "/uploadImage", formdata);
@@ -37,6 +54,7 @@ const UserProfile = (props) => {
   const handleIProfilemageSelect = async (e) => {
     const formdata = new FormData();
     formdata.append(`files`, e.target.files[0]);
+
     let res = await api("post", "/uploadImage", formdata);
     if (res) {
       saveProfilePhoto(res.data.file[0].location);
@@ -87,8 +105,30 @@ const UserProfile = (props) => {
       }
     }
   };
-  console.log("user", user);
 
+  function readFile(file) {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.addEventListener("load", () => resolve(reader.result), false);
+      reader.readAsDataURL(file);
+    });
+  }
+
+  const showCroppedImage = useCallback(async () => {
+    try {
+      console.log("imageSrc", imageSrc);
+      const croppedImage = await getCroppedImg(imageSrc, croppedAreaPixels);
+      console.log("donee", { croppedImage });
+      setCroppedImage(croppedImage);
+      setCoverImageURL(croppedImage);
+      setImageSrc(null);
+    } catch (e) {
+      console.error(e);
+    }
+  }, [imageSrc, croppedAreaPixels]);
+  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+    setCroppedAreaPixels(croppedAreaPixels);
+  }, []);
   return (
     <>
       <RegisterSuccessfully
@@ -106,24 +146,61 @@ const UserProfile = (props) => {
 
       <BecomeCreatorpopup open={open} setOpen={setOpen} user={user} />
       <div className="userProfileDiv">
+        <div>
+          {/* <button onClick={showCroppedImage}>show croped img</button> */}
+        </div>
         <div className="userProfile-centerDiv">
-          <div className="profile-image">
-            {/* {showImg ? null : (
+          {imageSrc ? (
+            <>
+              {" "}
+              <div className="cropperdiv">
+                <Cropper
+                  image={imageSrc}
+                  crop={crop}
+                  zoom={zoom}
+                  aspect={8 / 2}
+                  onCropChange={setCrop}
+                  onCropComplete={onCropComplete}
+                  onZoomChange={setZoom}
+                />
+              </div>
+              <div className="imgzoomer">
+                <p
+
+                // classes={{ root: classes.sliderLabel }}
+                >
+                  Zoom
+                </p>
+                <Slider
+                  value={zoom}
+                  min={1}
+                  max={3}
+                  step={0.1}
+                  aria-labelledby="Zoom"
+                  className="zoomlider"
+                  onChange={(e, zoom) => setZoom(zoom)}
+                />
+              </div>
+            </>
+          ) : (
+            <div className="profile-image">
+              {/* {showImg ? null : (
               <> */}
-            <img
-              src={
-                cover_photo
-                  ? cover_photo
-                  : user?.cover_photo
-                  ? user?.cover_photo
-                  : UserHomeProfleImg
-              }
-              alt=""
-              className="profileBackgroun-Image"
-            />
-            {/* </>
+              <img
+                src={
+                  cover_photo
+                    ? cover_photo
+                    : user?.cover_photo
+                    ? user?.cover_photo
+                    : UserHomeProfleImg
+                }
+                alt=""
+                className="profileBackgroun-Image"
+              />
+              {/* </>
             )} */}
-          </div>
+            </div>
+          )}
 
           <div className="Profile-DP">
             <img
