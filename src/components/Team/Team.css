@@ -54,7 +54,7 @@ body {
 .LinkedInAcound_image {
   width: 90%;
 }
-@media only screen and (min-width: 601px) and (max-width: 900px) {
+/* @media only screen and (min-width: 601px) and (max-width: 900px) {
   .LinkedInAcoundIMG {
     width: 45%;
   }
@@ -80,4 +80,4 @@ body {
   .LinkedInAcoundIMG {
     width: 200px;
   }
-}
+} */

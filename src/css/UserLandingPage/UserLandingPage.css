@@ -520,6 +520,7 @@
   border-radius: 50% !important;
 }
 /* for big screens */
+/* 
 @media only screen and (min-width: 1900px) {
   .trend_container {
     width: 80%;
@@ -565,7 +566,7 @@
     height: 500px;
   }
   .carousalP {
-    /* background-color: rgb(14, 15, 30); */
+    /* background-color: rgb(14, 15, 30); *
     margin-left: 50px;
     margin-top: -43px;
   }
@@ -573,7 +574,7 @@
     margin: 5px 18px;
   }
   .carousalP {
-    /* background-color: rgb(14, 15, 30); */
+    /* background-color: rgb(14, 15, 30); *
     margin-left: 50px;
     margin-top: -43px;
   }
@@ -627,7 +628,7 @@
     height: 500px;
   }
   .carousalP {
-    /* background-color: rgb(14, 15, 30); */
+    /* background-color: rgb(14, 15, 30); *
     margin-left: 50px;
     margin-top: -43px;
   }
@@ -635,7 +636,7 @@
     margin: 5px 18px;
   }
   .carousalP {
-    /* background-color: rgb(14, 15, 30); */
+    /* background-color: rgb(14, 15, 30); *
     margin-left: 39px;
     margin-top: -49px;
   }
@@ -690,7 +691,7 @@
     width: 90%;
   }
 }
-/* Media queries */
+/* Media queries *
 @media all and (min-width: 601px) and (max-width: 820px) {
   .css-1t29gy6-MuiToolbar-root {
     min-height: 64px;
@@ -858,7 +859,7 @@
     width: 90%;
   }
   .carousalP {
-    /* background-color: rgb(14, 15, 30); */
+    /* background-color: rgb(14, 15, 30); *
     margin-left: 40px;
     margin-top: -39px;
   }
@@ -905,4 +906,4 @@
   .community-content-header {
     font-size: 14px;
   }
-}
+} */

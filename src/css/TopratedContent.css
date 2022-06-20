@@ -55,8 +55,9 @@ tr {
 }
 .latestcourseh5 {
   padding-left: 25px;
-  font-size: 21.18px;
+  font-size: 18px;
   text-align: center;
+  text-transform: capitalize;
 }
 .topRatedContentcourseh6 {
   font-size: 15px;
@@ -92,3 +93,9 @@ tr {
     height: 250px;
   }
 } */
+
+@media only screen and (min-width: 1900px) {
+  .topRatedcardGrid-image {
+    height: 360px;
+  }
+}

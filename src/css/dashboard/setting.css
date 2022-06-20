@@ -116,7 +116,7 @@
   margin-top: 18px;
   font-size: 14px;
 }
-@media only screen and (min-width: 320px) and (max-width: 812px) {
+/* @media only screen and (min-width: 320px) and (max-width: 812px) {
   .dashboard_container {
     width: 100%;
     flex-direction: column;
@@ -140,4 +140,4 @@
   .hr_password {
     margin: -5px 0 25px 0;
   }
-}
+} */

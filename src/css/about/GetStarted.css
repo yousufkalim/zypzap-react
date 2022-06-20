@@ -76,7 +76,7 @@
   cursor: pointer;
   font-size: 12px;
 }
-@media only screen and (min-width: 601px) and (max-width: 812px) {
+/*@media only screen and (min-width: 601px) and (max-width: 812px) {
   .get_heading {
     margin-top: 0;
     font-size: 20px;
@@ -123,4 +123,4 @@
   .GetInTech_container {
     width: 80%;
   }
-}
+} */

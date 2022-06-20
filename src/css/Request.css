@@ -44,7 +44,7 @@
 } */
 
 /* for mobile */
-@media only screen and (min-width: 320px) and (max-width: 812px) {
+/* @media only screen and (min-width: 320px) and (max-width: 812px) {
   .requestHeading {
     font-size: 20px;
   }
@@ -64,4 +64,4 @@
   .requestContainer {
     border-radius: 15px !important;
   }
-}
+} */

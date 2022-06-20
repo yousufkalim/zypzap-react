@@ -69,10 +69,10 @@
 }
 
 /* for big screens */
-@media only screen and (min-width: 1500px) and (max-width: 1900px) {
+/* @media only screen and (min-width: 1500px) and (max-width: 1900px) {
 }
 
-/* for mobile */
+/* for mobile *
 @media only screen and (min-width: 320px) and (max-width: 812px) {
   .userReviewavatardiv {
     width: 50%;
@@ -93,4 +93,4 @@
   .reviewHeadingdiv_heading {
     font-size: 20px !important;
   }
-}
+} */

@@ -151,7 +151,7 @@
   padding: 9px 31px;
   background: none;
 }
-@media only screen and (max-width: 800px) {
+/* @media only screen and (max-width: 800px) {
   .landing_gamers_mainDiv {
     flex-direction: column;
   }
@@ -174,4 +174,4 @@
   .loffer_heading {
     font-size: 18px;
   }
-}
+} */

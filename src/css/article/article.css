@@ -130,7 +130,7 @@
 }
 
 /* for mobile */
-@media only screen and (min-width: 813px) and (max-width: 1200px) {
+/* @media only screen and (min-width: 813px) and (max-width: 1200px) {
   .articleimg {
     height: 400px;
   }
@@ -149,4 +149,4 @@
   .articleimg {
     height: 180px;
   }
-}
+} */
