@@ -43,7 +43,7 @@
 }
 
 .landingpagetextimgH1 {
-  font-size: 50px !important;
+  font-size: 49px;
   margin-bottom: 10px;
   font-family: "AMCAP Eternal", sans-serif;
   font-weight: 400;
@@ -264,6 +264,7 @@
     font-size: 16px;
   }
 }
+
 @media only screen and (min-width: 1201px) and (max-width: 1600px) {
   .landingpageRightimg {
     height: 525px;
@@ -296,6 +297,7 @@
     padding: 9px 34px 10px;
   }
 }
+*/
 @media only screen and (min-width: 801px) and (max-width: 1200px) {
   .css-o98hvh {
     padding: 15px 0 0px 0 !important;
@@ -326,7 +328,8 @@
   }
 
   .landingpagetextimgH1 {
-    font-size: 24px;
+    font-size: 25px !important;
+    margin-left: 67px;
   }
   .landingpagetextonImgP {
     font-size: 8px;
@@ -363,6 +366,7 @@
     margin: 29px 0 24px 0;
     font-size: 0.8rem;
   }
+
   .UserLandingPageBlogContainer {
     width: 100% !important;
     margin: 0 auto;
@@ -413,7 +417,16 @@
     left: 40%;
     top: 52%;
   }
-
+  .offerdivleft {
+    width: 80%;
+    margin-bottom: 20px;
+    margin: auto;
+  }
+  .offerdivright {
+    width: 80%;
+    margin-left: 0;
+    margin: auto;
+  }
   .landingpagetextimgH1 {
     font-size: 20px;
   }
@@ -432,20 +445,20 @@
     font-size: 14px;
     padding: 10px 20px 10px 20px;
   }
+  .offerText2 {
+    width: 100%;
+    font-size: 14px;
+    padding: 0 !important;
+  }
+
+  .offerheading2 {
+    font-size: 20px;
+  }
   .whatweofferButton {
     padding: 10px 35px;
     font-size: 12px;
   }
-  .offerdivleft {
-    width: 80%;
-    margin-bottom: 20px;
-    margin: auto;
-  }
-  .offerdivright {
-    width: 80%;
-    margin-left: 0;
-    margin: auto;
-  }
+
   .offerimg2 {
     margin-top: 10px;
   }
@@ -485,7 +498,8 @@
   }
 }
 
-/* for mobile *
+/* for mobile */
+
 @media only screen and (min-width: 320px) and (max-width: 600px) {
   .landingpagetextonImg {
     position: absolute;
@@ -511,8 +525,11 @@
   }
 
   .landingpagetextimgH1 {
-    font-size: 23px;
+    font-size: 30px;
     line-height: 1.5;
+    position: relative;
+    left: 33px;
+    top: 36px;
   }
   .landingpagetextonImgP {
     padding: 5px 0px 5px 0px;
@@ -541,7 +558,7 @@
     font-size: 0.6rem;
   }
   .offerh1-1 {
-    /* margin: 17px 0 15px 0; *
+    /* margin: 17px 0 15px 0; */
     font-size: 20px !important;
   }
   .offerheading {
@@ -577,11 +594,8 @@
     z-index: 5;
     font-size: 10px;
     padding-top: 10px;
-  } *
-  .offerText2 {
-    font-size: 14px;
-    padding: 10px 0px 10px 0;
-  }
+  } */
+
   .landingpageLeftimg {
     display: none;
   }
@@ -589,4 +603,9 @@
     display: block;
     width: 100%;
   }
-} */
+}
+@media all and (min-width: 1201px) and (max-width: 1419px) {
+  .landingpagetextimgH1 {
+    font-size: 41px;
+  }
+}
