@@ -117,12 +117,12 @@
   text-decoration: underline;
   cursor: pointer;
 }
-
-/* for big screens */
+/* 
+/* for big screens *
 @media only screen and (min-width: 1201px) and (max-width: 1600px) {
   /* .article1img {
     height: 294px;
-  } */
+  } *
   .article2img {
     width: 214px;
     height: 160px;
@@ -346,4 +346,4 @@
   .author1 {
     font-size: 20px;
   }
-}
+} */

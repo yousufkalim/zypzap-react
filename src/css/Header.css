@@ -346,7 +346,7 @@
 /* Notification dropdown */
 
 /* for big screens */
-@media only screen and (min-width: 1900px) {
+/* @media only screen and (min-width: 1900px) {
   .searchBar {
     width: 23% !important;
   }
@@ -425,7 +425,7 @@
   }
   .downarrow {
     left: 17%;
-    /* display: none; */
+    /* display: none; *
   }
   .css-6hp17o-MuiList-root-MuiMenu-list {
     background-color: #0e0f1e !important;
@@ -436,7 +436,7 @@
     justify-content: initial !important;
   }
   .closeMenu {
-    /* margin: 0 20px; */
+    /* margin: 0 20px; *
     position: absolute;
     right: 20px;
     top: 10px;
@@ -448,7 +448,7 @@
     margin-left: -16px !important;
   }
   .requestBtn {
-    /* padding: 12px 5px !important; */
+    /* padding: 12px 5px !important; *
     font-size: 10px !important;
     text-decoration: none !important;
   }
@@ -487,7 +487,7 @@
   }
   .downarrow {
     left: 17%;
-    /* display: none; */
+    /* display: none; *
   }
   .css-6hp17o-MuiList-root-MuiMenu-list {
     background-color: #0e0f1e !important;
@@ -498,7 +498,7 @@
     justify-content: initial !important;
   }
   .closeMenu {
-    /* margin: 0 20px; */
+    /* margin: 0 20px; *
     position: absolute;
     right: 20px;
     top: 10px;
@@ -524,7 +524,7 @@
   }
   /* .css-l2l88c {
     display: block !important;
-  } */
+  } *
   .comming-soon3 {
     display: none;
   }
@@ -548,7 +548,7 @@
   }
   .downarrow {
     left: 0px;
-    /* display: none; */
+    /* display: none; *
   }
   .css-6hp17o-MuiList-root-MuiMenu-list {
     background-color: #0e0f1e !important;
@@ -559,7 +559,7 @@
     justify-content: initial !important;
   }
   .closeMenu {
-    /* margin: 0 20px; */
+    /* margin: 0 20px; *
     position: absolute;
     right: 20px;
     top: 10px;
@@ -590,7 +590,7 @@
     font-size: 9px !important;
   }
   .MuiSvgIcon-root {
-    /* width: 1em !important; */
+    /* width: 1em !important; *
     margin: 0px 0 0 -8px !important;
     color: white !important;
     height: 100% !important;
@@ -627,5 +627,5 @@
   }
   /* .css-l2l88c {
     display: flex !important;
-  } */
-}
+  } *
+} */

@@ -10,9 +10,9 @@ const ReviewStarList = (props) => {
           <Star1
             className="starID"
             style={{
-              width: "15px",
-              height: "15px",
-              top: "3px",
+              width: "18px",
+              height: "18px",
+              top: "1px",
             }}
           />
         ))}

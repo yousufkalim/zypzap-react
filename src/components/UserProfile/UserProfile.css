@@ -345,8 +345,8 @@ body {
   margin-left: 4px;
 }
 /* -------------------------- PofileSetting -------------------------- */
-
-/* All Media Quaries */
+/* 
+/* All Media Quaries *
 @media only screen and (min-width: 1900px) {
   .Bio-container {
     width: 32%;
@@ -425,7 +425,7 @@ body {
     margin-top: 40px;
   }
   .profileSetting-centerDiv {
-    /* flex-direction: column; */
+    /* flex-direction: column; *
   }
   .profileSetting-Col {
     width: 30%;
@@ -510,9 +510,9 @@ body {
     width: 73%;
   }
   .DP-img {
-    /* width: 30%; */
+    /* width: 30%; *
     border: 6px solid #14162c;
-    /* height: 40%; */
+    /* height: 40%; *
     width: 94px;
     height: 102px;
   }
@@ -685,4 +685,4 @@ body {
     bottom: 14px;
     right: 10%;
   }
-}
+} */

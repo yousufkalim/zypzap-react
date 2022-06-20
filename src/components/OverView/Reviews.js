@@ -106,8 +106,8 @@ const Reviews = (props) => {
                     <Star1
                       className="starID"
                       style={{
-                        width: "15px",
-                        height: "15px",
+                        width: "21px",
+                        height: "21px",
                         top: "3px",
                       }}
                     />

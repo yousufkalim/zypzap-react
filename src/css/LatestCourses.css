@@ -59,7 +59,7 @@
 }
 .latestcoursep1 {
   padding: 8px 0px 5px 25px;
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0.8;
 }
 .carousalOuterDiv {
@@ -97,10 +97,10 @@
 }
 /* -------------------------------- new card --------------------------------   */
 .latestCourseMain-Div {
-  width: 95%;
+  width: 92%;
   margin: auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between !important;
   padding: 15px 0;
   align-items: center;
   align-items: center;
@@ -113,6 +113,7 @@
   display: flex;
   padding: 8px 0px;
   align-items: center;
+  text-transform: capitalize;
 }
 .latestCourse-pHeading {
   font-size: 18px;
@@ -126,14 +127,14 @@
   text-align: center;
   font-size: 28px;
   font-family: "mulish";
-
+  text-transform: capitalize;
   font-weight: bolder;
 }
 .latestCourse-p {
   padding: 0 0 0 6px;
-  /* font-size: 18px; */
+  font-size: 18px;
   font-family: "mulish";
-  font-size: 13.61px !important;
+  text-transform: capitalize;
   font-weight: 800 !important;
 
   text-transform: capitalize;
@@ -295,7 +296,7 @@
 /* -------------------------------- wishlist --------------------------------   */
 
 /* for mobile */
-@media only screen and (min-width: 300px) and (max-width: 812px) {
+/* @media only screen and (min-width: 300px) and (max-width: 812px) {
   .cardGrid {
     text-align: left;
   }
@@ -315,5 +316,11 @@
   }
   .wishCarImgDiv {
     width: 93%;
+  }
+} */
+
+@media only screen and (min-width: 1900px) {
+  .latestCourseMain-Div {
+    font-size: 18px !important;
   }
 }

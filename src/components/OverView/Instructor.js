@@ -71,7 +71,7 @@ const Instructor = (props) => {
                   <span className="instructor-span">
                     {singlCourse?.creator?.gameLevel
                       ? singlCourse.creator.gameLevel
-                      : "Pro"}
+                      : " Pro"}
                   </span>
                 </p>
                 <p className="instructor-student">
@@ -97,11 +97,13 @@ const Instructor = (props) => {
             <div className="instructor-co">
               <div className="instructor-about-Heading">
                 <p className="instructor-aboutH2">About the Instructor</p>
-                <p className="instructor-aboutP">{singlCourse?.course_name}</p>
+                <p className="instructor-aboutP">
+                  {`Expertise Games: ${singlCourse?.course_name}`}
+                </p>
               </div>
               <div className="instructorProfile-heading">
                 <p className="instructorProfile-Name">
-                  Hi, I am
+                  Hi, I am &nbsp;
                   {singlCourse?.creator?.user_id?.username
                     ? singlCourse.creator.user_id.username
                     : "Arslan Ash"}

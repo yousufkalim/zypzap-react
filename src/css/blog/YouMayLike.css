@@ -60,7 +60,7 @@
 }
 
 /* for mobile */
-@media only screen and (min-width: 601px) and (max-width: 899px) {
+/* @media only screen and (min-width: 601px) and (max-width: 899px) {
   .blogdiv1 {
     margin: auto;
     width: 90%;
@@ -92,7 +92,7 @@
 @media only screen and (min-width: 1900px) and (max-width: 2500px) {
   .blogdivimg {
     width: 100%;
-    /* height: inherit; */
+    /* height: inherit; *
   }
 }
 @media only screen and (min-width: 900px) and (max-width: 1200px) {
@@ -107,4 +107,4 @@
   .MuiGrid-spacing-xs-4 > .MuiGrid-item {
     margin-bottom: 20px;
   }
-}
+} */

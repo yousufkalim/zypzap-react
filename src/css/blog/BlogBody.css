@@ -32,7 +32,7 @@
   border-radius: 20px;
 }
 /* for mobile */
-@media only screen and (min-width: 320px) and (max-width: 812px) {
+/* @media only screen and (min-width: 320px) and (max-width: 812px) {
   .BlogtextimgH1 {
     font-size: 2em;
   }
@@ -40,4 +40,4 @@
     width: 93%;
     height: 40vh;
   }
-}
+} */

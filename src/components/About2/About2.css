@@ -20,8 +20,8 @@
   line-height: 1.5;
   color: #d4d4d4;
 }
-@media only screen and (min-width: 200px) and (max-width: 600px) {
+/* @media only screen and (min-width: 200px) and (max-width: 600px) {
   .ourMissionsH1 {
     font-size: 20px;
   }
-}
+} */

@@ -223,6 +223,7 @@ body {
 .overDescriptionP {
   color: #e0e0e0;
   font-size: 18px;
+  font-weight: 700;
 }
 .overRequirement_h3 {
   font-size: 22px;
@@ -244,13 +245,16 @@ body {
 }
 .curriculum-h3 {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   font-family: "mulish" !important;
 }
 .curriculumLi {
   list-style: none;
   display: inline;
   padding-left: 5px;
+  font-size: 16px;
+  font-family: "mulish" !important;
+  font-weight: 400;
 }
 .curriculumIMG {
   display: inline;
@@ -287,13 +291,15 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
+  border-radius: 5px;
 }
 .instructor-co {
   padding: 0 25px;
 }
 .instructorH2 {
-  font-size: 16px;
-  /* font-weight: 600; */
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: capitalize;
 }
 .instructorP {
   font-size: 13px;
@@ -301,17 +307,17 @@ body {
   margin: 6px 0 0 0;
 }
 .instructor-lavel {
-  font-size: 13px;
-  font-weight: 400;
+  font-size: 12px;
+  font-weight: 700;
   margin: 10px 0 0 0;
 }
 .instructor-span {
-  color: #20bf55;
+  /* color: #20bf55; */
   font-weight: 700;
 }
 .instructor-student {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 700;
   margin: 8px 0 20px 0;
 }
 .Instructor-followBtn {
@@ -333,12 +339,15 @@ body {
 }
 .instructor-aboutP {
   padding: 3px 0;
-  font-weight: 400;
   color: #e0e0e0;
+  font-size: 18px;
+  font-weight: 800;
 }
 .instructorProfile-heading {
   padding: 14px 0 0 0;
   color: #e0e0e0;
+  font-size: 18px;
+  font-weight: 700;
 }
 .instructorProfile-Name {
   font-size: 18px;
@@ -373,7 +382,7 @@ body {
 } */
 .student-feedback-h3 {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 400;
   margin: 20px 0 0 0;
 }
 .courseRating {
@@ -383,13 +392,19 @@ body {
 }
 .courseRatingH1 {
   padding: 10px 0;
+  font-weight: 400;
+  font-size: 36px;
 }
 .courseRatingP {
   padding: 8px 0 17px 0;
+  font-weight: 400;
+  font-size: 16px;
 }
 .ReviewsPersntage {
   display: inline;
   padding: 0 0 0 15px;
+  font-size: 14px;
+  margin-top: 4%;
 }
 .reviewStarLi {
   list-style: none;
@@ -409,8 +424,9 @@ body {
   border: none;
   font-size: 16px;
   margin: 0 10px;
+  text-transform: capitalize;
 }
-@media only screen and (min-width: 1900px) {
+/* @media only screen and (min-width: 1900px) {
   .overViewCard {
     top: 30%;
     right: 13.5%;
@@ -570,7 +586,7 @@ body {
     margin-top: 30px;
     flex-wrap: wrap;
     justify-content: space-around;
-    /* padding-top: 10px; */
+    /* padding-top: 10px; *
   }
   .overViewMenu {
     text-align: center;
@@ -673,7 +689,7 @@ body {
     margin: auto;
     width: 76%;
     padding: 0px 0px 30px 0px;
-    /* flex-direction: column; */
+    /* flex-direction: column; *
   }
   .reviewsStarIcon {
     padding: 20px 0 0 0px;
@@ -695,4 +711,4 @@ body {
   .overViewLi {
     margin-top: 12px;
   }
-}
+} */
