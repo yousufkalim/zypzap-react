@@ -79,9 +79,11 @@ const UserProfile = (props) => {
     );
     // end upload on firebase
   };
-  const saveCoverPhoto = async () => {
+  const saveCoverPhoto = async (downloadURL) => {
     if (user?.role == "Creator") {
-      let res = await api("post", `/creators/${user?._id}`, { cover_photo });
+      let res = await api("post", `/creators/${user?._id}`, {
+        cover_photo: downloadURL
+      });
       if (res) {
         setCoverImageURL("");
         updateStore({
@@ -92,7 +94,7 @@ const UserProfile = (props) => {
       }
     } else {
       let res = await api("put", `/users/addProfileInfo/${user?._id}`, {
-        cover_photo
+        cover_photo: downloadURL
       });
       if (res) {
         setCoverImageURL("");
@@ -130,7 +132,7 @@ const UserProfile = (props) => {
     });
   }
 
-  const showCroppedImage = useCallback(async () => {
+  const showandSaveCroppedImage = useCallback(async () => {
     try {
       const croppedImage = await getCroppedImg(imageSrc, croppedAreaPixels);
 
@@ -154,6 +156,8 @@ const UserProfile = (props) => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            console.log("downloadURL222", downloadURL);
+            saveCoverPhoto(downloadURL);
             setCoverImageURL(downloadURL);
           });
         }
@@ -187,14 +191,6 @@ const UserProfile = (props) => {
 
       <BecomeCreatorpopup open={open} setOpen={setOpen} user={user} />
       <div className="userProfileDiv">
-        {imageSrc && (
-          <div className="cropImgButtonDiv">
-            <button onClick={showCroppedImage} className="cropImgButton">
-              Crop img
-            </button>
-          </div>
-        )}
-
         <div className="userProfile-centerDiv">
           {imageSrc ? (
             <>
@@ -312,40 +308,42 @@ const UserProfile = (props) => {
                 </span>
               </p>
             </div> */}
-            {!imageSrc && (
-              <div className="profileEditButton">
-                {cover_photo ? (
-                  <>
-                    <div className="editProfiel-btn" onClick={saveCoverPhoto}>
-                      Save Cover Photo
-                    </div>
-                  </>
-                ) : (
-                  <a to="">
-                    <label>
-                      <input
-                        style={{
-                          display: "none",
-                          cursor: "none"
-                        }}
-                        type="file"
-                        accept="image/*"
-                        // placeholder="Ref."
-                        onChange={handleImageSelect}
-                        onClick={(event) => {
-                          event.target.value = null;
-                        }}
-                      />
-                      <div className="editProfiel-btn">Add Cover Photo</div>
-                      {/* <img
+
+            <div className="profileEditButton">
+              {imageSrc ? (
+                <>
+                  <div
+                    className="editProfiel-btn"
+                    onClick={showandSaveCroppedImage}
+                  >
+                    Save Cover Photo
+                  </div>
+                </>
+              ) : (
+                <a to="">
+                  <label>
+                    <input
+                      style={{
+                        display: "none",
+                        cursor: "none"
+                      }}
+                      type="file"
+                      accept="image/*"
+                      // placeholder="Ref."
+                      onChange={handleImageSelect}
+                      onClick={(event) => {
+                        event.target.value = null;
+                      }}
+                    />
+                    <div className="editProfiel-btn">Add Cover Photo</div>
+                    {/* <img
                   src={profile_photo ? profile_photo : Course1}
                   className="userProfileInput"
                 /> */}
-                    </label>
-                  </a>
-                )}
-              </div>
-            )}
+                  </label>
+                </a>
+              )}
+            </div>
           </div>
           {/* profile Div */}
         </div>
