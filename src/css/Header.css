@@ -94,8 +94,9 @@
 }
 .sgnBtn {
   cursor: pointer;
-  font-family: "Mulish", sans-serif;
+  font-family: "Mulish";
   font-size: 16px;
+  font-weight: 600;
 }
 .headerLinkbox {
   width: 35% !important;

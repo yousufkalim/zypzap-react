@@ -107,7 +107,7 @@
 }
 .setting_C_label {
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   padding: 0px 0px 10px 0;
   font-weight: 600;
 }
@@ -118,6 +118,7 @@
   border-radius: 4px;
   color: #fff;
   border: none;
+  font-size: 15px;
 }
 .setting_C_inpt2 {
   width: 100%;
