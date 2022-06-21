@@ -231,8 +231,8 @@ export default function PropfileInformation({
     { name: "RPG" },
     { name: "Simulation" },
     { name: "Turn By Turn Strategy" },
-    { name: "Sport" },
-    { name: "Tradung Card" },
+    { name: "Sports" },
+    { name: "Trading Card" },
     { name: "Puzzle" }
   ];
   let gametypebtn2 = [
@@ -462,7 +462,7 @@ export default function PropfileInformation({
               style={{
                 fontSize: "16px",
                 fontWeight: "400",
-                fontFamily: "Mulish",
+                fontFamily: "Mulish"
               }}
             >
               Learning Rhythm
@@ -478,7 +478,7 @@ export default function PropfileInformation({
               style={{
                 fontSize: "15px",
                 fontWeight: "400",
-                fontFamily: "Mulish",
+                fontFamily: "Mulish"
               }}
             >
               <option
@@ -522,7 +522,7 @@ export default function PropfileInformation({
               style={{
                 fontSize: "16px",
                 fontWeight: "400",
-                fontFamily: "Mulish",
+                fontFamily: "Mulish"
               }}
             >
               Current Gameplay Level
@@ -537,7 +537,7 @@ export default function PropfileInformation({
               style={{
                 fontSize: "15px",
                 fontWeight: "400",
-                fontFamily: "Mulish",
+                fontFamily: "Mulish"
               }}
             >
               <option value="Casual" className="selectInput-option">
@@ -562,7 +562,7 @@ export default function PropfileInformation({
               style={{
                 fontSize: "16px",
                 fontWeight: "400",
-                fontFamily: "Mulish",
+                fontFamily: "Mulish"
               }}
             >
               Target Gameplay Level
@@ -578,7 +578,7 @@ export default function PropfileInformation({
               style={{
                 fontSize: "15px",
                 fontWeight: "400",
-                fontFamily: "Mulish",
+                fontFamily: "Mulish"
               }}
             >
               <option value="Casual" className="selectInput-option">

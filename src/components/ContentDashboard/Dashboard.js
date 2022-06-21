@@ -15,13 +15,11 @@ const Dashboard = ({ id }) => {
   const updateStore = UpdateStore();
   const [activeButton, setActiveButton] = useState("Courses");
   const [createCourse, setcreateCourse] = useState(false);
-  const [games, setGames] = useState([]);
 
   const location = useLocation();
 
   useEffect(() => {
     getCreator();
-    getGames();
   }, [contentDashboardButton]);
   useEffect(() => {
     if (history.location.state.createCourse) {
@@ -37,13 +35,7 @@ const Dashboard = ({ id }) => {
       updateStore({ creator: res?.data?.creator });
     }
   };
-  const getGames = async () => {
-    let res = await api("get", `/games/`);
-    if (res) {
-      updateStore({ Games: res.data });
-      setGames(res.data);
-    }
-  };
+
   const items = [
     { name: "Courses", img: Youtube },
     // { name: "Performance", img: performance },
@@ -78,7 +70,6 @@ const Dashboard = ({ id }) => {
         <DashboardRightSideBar
           setcreateCourse={setcreateCourse}
           createCourse={createCourse}
-          games={games}
         />
       </Box>
     </>
