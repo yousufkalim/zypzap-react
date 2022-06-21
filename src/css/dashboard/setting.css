@@ -1,7 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Maven+Pro:wght@400;800&family=Mulish&family=Poppins:wght@500&display=swap");
+
+.MuiChip-filled{
+  color: white !important;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+  linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%) !important;
+}
+.MuiInputBase-formControl{
+  border: 1px solid gray;
+  padding-bottom: 20px !important;
+}
+
 .dashboard_setting {
   width: 100%;
   margin: auto;
   margin-top: 40px;
+}
+.AutofiledgameExperties {
+  margin: 10px 10px !important;
+  width: 100% !important;
+  background: none;
+  border: none;
+  opacity: 0.6;
+  color: #fff;
+}
+.AutofiledgameExperties:active{
+  border: none !important;
 }
 
 .dashboard_container {

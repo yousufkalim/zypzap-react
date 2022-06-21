@@ -8,20 +8,20 @@ import { styled } from "@mui/material/styles";
 import { Store, UpdateStore } from "../../StoreContext";
 import { useHistory } from "react-router-dom";
 import LinearProgress, {
-  linearProgressClasses
+  linearProgressClasses,
 } from "@mui/material/LinearProgress";
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 5,
   borderRadius: 5,
   width: "80%",
   [`&.${linearProgressClasses.colorPrimary}`]: {
-    backgroundColor: "#17192D"
+    backgroundColor: "#17192D",
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 5,
     background: (theme.palette.mode =
-      "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(50.06deg, #662F88 50.05%, #20BF55 131.69%);")
-  }
+      "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(50.06deg, #662F88 50.05%, #20BF55 131.69%);"),
+  },
 }));
 
 var items = [
@@ -31,7 +31,7 @@ var items = [
     name: "James Wiik",
     rating: "5.0",
     // price: "19.99 | 50 min",
-    test: "1"
+    test: "1",
   },
   {
     title: "PUBG GamePlay Course",
@@ -39,8 +39,8 @@ var items = [
     name: "Ifaf ghori ",
     rating: "rating",
     // price: "19.99 | 50 min",
-    test: "2"
-  }
+    test: "2",
+  },
 ];
 
 const StartedCourse = () => {
@@ -58,7 +58,7 @@ const StartedCourse = () => {
   }, [contentDashboardButton]);
   const handleStartCourses = (id) => {
     history.push({
-      pathname: `/OverView/${id}`
+      pathname: `/OverView/${id}`,
     });
   };
   console.log("start_courses", start_courses);
@@ -103,7 +103,7 @@ const StartedCourse = () => {
                             <Star1
                               className="wishCardStar"
                               style={{
-                                key: { item }
+                                key: { item },
                               }}
                             />
                           ))}
@@ -119,7 +119,7 @@ const StartedCourse = () => {
                           />
                         </div>
                         <div className="wishCard-progrss-prsntage">
-                          16% Complete1
+                          16% Complete
                         </div>
                       </div>
 

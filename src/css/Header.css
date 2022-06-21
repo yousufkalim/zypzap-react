@@ -445,6 +445,10 @@
   .opnPrfil {
     padding: 2px 0 0 10px !important;
   }
+
+  .dropdown-content {
+    min-width: 268px;
+  }
   .imgLogo {
     margin-left: -16px !important;
   }
@@ -626,7 +630,20 @@
   .dropdown {
     left: 5px;
   }
-  /* .css-l2l88c {
-    display: flex !important;
-  } */
+}
+
+@media only screen and (min-width: 1200px) {
+  .dropdown-content {
+    min-width: 372px;
+  }
+}
+@media only screen and (min-width: 1700px) {
+  .dropdown-content {
+    min-width: 426px;
+  }
+}
+@media (min-width: 1200px) {
+  .headerLinkbox {
+    justify-content: space-around !important;
+  }
 }

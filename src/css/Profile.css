@@ -1,0 +1,30 @@
+.cropperdiv{
+    height: 404px;
+}
+.imgzoomer{
+    width: 30%;
+    margin: auto;
+    
+}
+.zoomlider{
+    
+}
+.MuiSlider-root{
+    top: 35px !important;
+
+}
+.cropImgButtonDiv{
+    text-align: center;
+}
+.cropImgButton{
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+} 
+.cropImgButton:hover{
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #550d81 9.05%, #0b8f37 131.69%);
+}
