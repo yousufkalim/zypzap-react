@@ -223,7 +223,7 @@ function Setting({ openProfile, setOpenProfile }) {
     "Action",
     "Adventure",
     "Metaverse",
-    "Massively Multiplayer Games",
+    "MMOG",
     "Car Racing",
     "FPS",
     "RTS",
@@ -233,8 +233,7 @@ function Setting({ openProfile, setOpenProfile }) {
     "Sports",
     "Trading card",
     "Puzzle",
-    "Versus Fighting",
-    "Trading card and Board games"
+    "Versus Fighting"
   ];
   const gamePlateform = [
     "PC",
@@ -242,8 +241,7 @@ function Setting({ openProfile, setOpenProfile }) {
     "PS1/2/3/4/5",
     "Xbox/360/One/X",
     "Retro Consoles",
-    "Portable Consoles",
-    "Tablet"
+    "Portable Consoles"
   ];
   const handleSelectedGames = (e) => {
     console.log("selected", e);

@@ -186,8 +186,7 @@ const BecomeCreatorpopup = ({
     "PS1/2/3/4/5",
     "Xbox/360/One/X",
     "Retro Consoles",
-    "Portable Consoles",
-    "Tablet"
+    "Portable Consoles"
   ];
 
   const handleImageSelect = async (e) => {

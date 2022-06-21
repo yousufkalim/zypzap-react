@@ -14,21 +14,8 @@ import Slider from "@material-ui/core/Slider";
 import Cropper from "react-easy-crop";
 import api from "../../api";
 import { getCroppedImg } from "./canvasUtils";
-import { initializeApp } from "firebase/app";
-import { getStorage } from "firebase/storage";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
-
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASURMENT_ID
-};
-export const app = initializeApp(firebaseConfig);
-export const storage = getStorage(app);
+import { storage } from "../../utils/firebase";
 
 const UserProfile = (props) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
@@ -67,6 +54,7 @@ const UserProfile = (props) => {
   const handleIProfilemageSelect = async (e) => {
     setProfileLoading(true);
     let myFile = e.target.files[0];
+
     // upload on firebase
     if (!myFile) return;
     const storageRef = ref(storage, `files/${myFile.name}`);
@@ -84,7 +72,6 @@ const UserProfile = (props) => {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setProfileimg(downloadURL);
-          console.log("donwloaded profile img", downloadURL);
           saveProfilePhoto(downloadURL);
           setProfileLoading(false);
         });
@@ -142,7 +129,6 @@ const UserProfile = (props) => {
       reader.readAsDataURL(file);
     });
   }
-  console.log("cover_photo", cover_photo);
 
   const showCroppedImage = useCallback(async () => {
     try {
@@ -168,7 +154,6 @@ const UserProfile = (props) => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log("donwloaded profile img", downloadURL);
             setCoverImageURL(downloadURL);
           });
         }

@@ -5,23 +5,9 @@ import api from "../../../api";
 import RequestSuccessfullyPopup from "../../PopupForms/RequestSuccessfullyPopup";
 import UploadingTheCourse from "../../PopupForms/UploadingTheCourse";
 import { toast } from "react-toastify";
-import { initializeApp } from "firebase/app";
-import { getStorage } from "firebase/storage";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import { storage } from "../../../utils/firebase";
 
-//      todo later---->
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASURMENT_ID
-};
-
-export const app = initializeApp(firebaseConfig);
-export const storage = getStorage(app);
 const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   const [open, setOpen] = React.useState(false);
   const [progress, setProgress] = useState(0);
