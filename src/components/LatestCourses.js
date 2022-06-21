@@ -108,24 +108,6 @@ export default function LatestCourses(props) {
     });
   };
 
-  // CHECK IF IMAGE EXISTS
-  function checkIfImageExists(url, callback) {
-    const img = new Image();
-    img.src = url;
-
-    if (img.complete) {
-      return true;
-    } else {
-      img.onload = () => {
-        return true;
-      };
-
-      img.onerror = () => {
-        return false;
-      };
-    }
-  }
-
   return (
     <div className="latestCoursescontainer">
       <div className="latestcourseHeadingDiv">
