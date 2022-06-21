@@ -24,6 +24,9 @@
 .landing-partner-header-img {
   width: 100%;
 }
+.userprofiledivCopy {
+  display: none;
+}
 .landing-partner-text-container {
   text-align: center;
   line-height: 50px;
@@ -55,6 +58,9 @@
   font-family: "Myriad Pro";
   font-weight: 600;
   text-shadow: 0px 4px 3px #662f88;
+}
+#u_hide {
+  display: none;
 }
 .btn-landing-partner {
   padding: 12px 35px;
@@ -235,7 +241,17 @@
     margin: auto;
   }
   .MuiGrid-spacing-xs-2 {
-    flex-direction: column !important;
+    flex-direction: column-reverse !important;
+  }
+  .userprofiledivCopy {
+    display: block;
+  }
+  .userprofilediv {
+    justify-content: center;
+  }
+
+  #un_hide {
+    display: none;
   }
   .MuiGrid-grid-xs-12 {
     /* margin: auto !important; */

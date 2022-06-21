@@ -26,6 +26,11 @@
   font-weight: bolder;
   font-size: 15px !important;
 }
+
+/* #u_hide {
+  display: none;
+} */
+
 .topCourseGrid {
   background: linear-gradient(
     90.12deg,
@@ -141,21 +146,25 @@
     /* height: 300px !important; *
   }
 }
-/* for mobile *
+*/
+/* for mobile */
 @media only screen and (min-width: 320px) and (max-width: 812px) {
   .h3heading {
-    font-size: 17px;
+    font-size: 22px;
+    text-align: center;
   }
   .topcourseText {
-    font-size: 15px;
+    font-size: 11px;
+    line-height: 1.3;
+    text-align: center;
+    padding: 3%;
   }
   .topcourseheading {
-    font-size: 28px;
+    font-size: 22px !important;
+    padding-top: 23px;
   }
-  .topCourseGrid {
-    border-radius: 15px !important;
-  }
+
   .topcourseimg {
     border-radius: 15px;
   }
-} */
+}

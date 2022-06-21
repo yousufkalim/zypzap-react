@@ -159,6 +159,7 @@
     opacity: 0.7;
   }
 }
+
 @media only screen and (min-width: 1600px) and (max-width: 1899px) {
   .bodyImage {
     width: 94%;
@@ -215,6 +216,12 @@
     right: 50%;
   }
 }
+*/
+@media only screen and (min-width: 1900px) {
+  .latestCourseMain-Div {
+    width: 84% !important;
+  }
+}
 @media only screen and (min-width: 601px) and (max-width: 899px) {
   .blurImg {
     left: 13px;
@@ -231,7 +238,7 @@
   }
   .textonImgbutton {
     padding: 7px 8px;
-    / font-weight: 400; 
+    /* font-weight: 400;  */
   }
   .textonImgP {
     padding: 0px 0px 0px 0px;
@@ -291,7 +298,7 @@
   .textonImgbutton {
     padding: 1px 4px;
     font-size: 8px;
-    /* font-weight: 400; *
+    /* font-weight: 400; */
     margin: 0;
   }
   .textonImgP {
@@ -305,12 +312,17 @@
     padding: 0px 20px 0px 20px !important;
   }
   .MuiGrid-grid-xs-12 {
-    /* margin: auto !important; *
+    /* margin: auto !important; */
     margin: 0px 0 0px 0 !important;
   }
   .topRatedheading {
-    padding: 28px 0px 19px 0px;
+    margin-right: 3px;
+    padding: 28px 33px 7px 0px;
     font-weight: 600;
+    font-size: 20px !important;
+  }
+  .topRatedheadings {
+    font-weight: 400;
     font-size: 15px !important;
   }
   .setting_C_Container {
@@ -323,20 +335,5 @@
     bottom: 17px;
     left: 48px;
     width: 18px;
-  }
-}
-@media only screen and (min-width: 1900px) {
-  .topcourseimg {
-    width: 100%;
-    padding: 10px;
-    height: 466px !important;
-
-  }
-
-
-} */
-@media only screen and (min-width: 1900px) {
-  .latestCourseMain-Div {
-    width: 84% !important;
   }
 }

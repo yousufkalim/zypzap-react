@@ -22,16 +22,16 @@ export default function TopCourses(props) {
   var items = [
     {
       name: "PUBG gameplay full course",
-      description: "Probably the most random thing you have ever seen!"
+      description: "Probably the most random thing you have ever seen!",
     },
     {
       name: "Taken gameplay full course2",
-      description: "Hello World!"
+      description: "Hello World!",
     },
     {
       name: "Speed3",
-      description: "Hello World!"
-    }
+      description: "Hello World!",
+    },
   ];
 
   const handleviewTopCourses = () => {
@@ -39,8 +39,8 @@ export default function TopCourses(props) {
       pathname: "/searchResult",
       param: {
         name: "Top 10 Games",
-        value: "1"
-      }
+        value: "1",
+      },
     });
   };
   return (
@@ -53,7 +53,7 @@ export default function TopCourses(props) {
         style={{
           display: "inline-block",
           cursor: "Pointer",
-          float: "right"
+          float: "right",
         }}
         onClick={handleviewTopCourses}
       >
@@ -71,7 +71,7 @@ export default function TopCourses(props) {
           <Link
             to={{
               pathname: `OverView/${item?._id}`,
-              state: { course: `${item}` }
+              state: { course: `${item}` },
             }}
             className="requestBt"
             style={{ textDecoration: "none", color: "white" }}
@@ -123,6 +123,80 @@ function TopCoursesComponent({ item }) {
           className="topcourseimg"
           alt="img"
         />
+        <div className="userprofiledivCopy">
+          <Grid
+            container
+            spacing={2}
+            className="topcourseuserGrid"
+            style={{ paddingBottom: "10px" }}
+          >
+            <Grid item xs={6} md={6}>
+              <div className="userprofilediv">
+                <img
+                  src={
+                    item?.creator?.user_id?.profile_photo
+                      ? item.creator.user_id.profile_photo
+                      : avatar
+                  }
+                  className="avatar"
+                  alt="img"
+                />
+                <div>
+                  <p className="p1">{item?.creator?.user_id?.username}</p>
+                  <p className="p2">{item?.course_name + " player"}</p>
+                  {
+                    <p className="p2">
+                      {item?.rating ? item.rating : <></>} &nbsp;
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <Star1
+                          className="starID"
+                          style={{
+                            width: "15px",
+                            height: "15px",
+                          }}
+                        />
+                      ))}
+                      {" (" + countViews(item) + ")"}
+                      {/* &nbsp; (382,420) */}
+                    </p>
+                  }
+                </div>
+              </div>
+            </Grid>
+          </Grid>
+          <Grid
+            container
+            spacing={2}
+            className="topcourseuserGrid"
+            style={{ paddingBottom: "10px" }}
+          >
+            <Grid item xs={6} md={6} className="topcourseuserRightGrid">
+              <div style={{ textAlign: "right" }}>
+                <span className="marginRight">
+                  {item?.level ? item.level : "inital level"}
+                </span>
+
+                <>
+                  <span className="marginRight">|</span>
+                  <span className="marginRight">
+                    {countTime(item) == 0 ? "50 min" : "50 min"}
+                  </span>
+                </>
+
+                <span className="marginRight">|</span>
+                <span className="marginRight">
+                  {item?.student
+                    ? item.student.length + " Student"
+                    : 0 + "   Student"}
+                </span>
+                <span className="marginRight">|</span>
+                <span className="marginRight">
+                  {`${postedTime(item)} days ago`}
+                </span>
+              </div>
+            </Grid>
+          </Grid>
+        </div>
       </Grid>
       <Grid
         item
@@ -157,7 +231,7 @@ function TopCoursesComponent({ item }) {
           style={{ paddingBottom: "10px" }}
         >
           <Grid item xs={6} md={6}>
-            <div className="userprofilediv">
+            <div className="userprofilediv" id="un_hide">
               <img
                 src={
                   item?.creator?.user_id?.profile_photo
@@ -177,7 +251,7 @@ function TopCoursesComponent({ item }) {
                       className="starID"
                       style={{
                         width: "15px",
-                        height: "15px"
+                        height: "15px",
                       }}
                     />
                   ))}
@@ -188,7 +262,13 @@ function TopCoursesComponent({ item }) {
             </div>
           </Grid>
 
-          <Grid item xs={6} md={6} className="topcourseuserRightGrid">
+          <Grid
+            item
+            xs={6}
+            md={6}
+            className="topcourseuserRightGrid"
+            id="un_hide"
+          >
             <div style={{ textAlign: "right" }}>
               <span className="marginRight">
                 {item?.level ? item.level : "inital level"}
