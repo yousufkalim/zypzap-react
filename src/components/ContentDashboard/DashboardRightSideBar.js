@@ -11,12 +11,7 @@ import Box from "@mui/material/Box";
 import { Store, UpdateStore } from "../../StoreContext";
 import MyProfileData from "../UserProfile/MyProfileData";
 import Setting from "../UserDashboard/Setting";
-const DashboardRightSideBar = ({
-  createCourse,
-  setcreateCourse,
-  games,
-  creator
-}) => {
+const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
   const { contentDashboardButton } = Store();
   const [activeUploadButton, setActiveUploadButton] = useState(1);
 
@@ -103,9 +98,7 @@ const DashboardRightSideBar = ({
           </Box>
         </Box>
       ) : null}
-      {contentDashboardButton == "" && createCourse && games.length > 0 && (
-        <CreateCourseForm />
-      )}
+      {contentDashboardButton == "" && createCourse && <CreateCourseForm />}
       {/* {defaultCompState === "Performance" ? <Performance /> : null}
       {defaultCompState === "Earning" ? <Earning /> : null} */}
       {contentDashboardButton === "Setting" ? <Setting /> : null}
