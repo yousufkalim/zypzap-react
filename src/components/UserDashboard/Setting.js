@@ -303,6 +303,7 @@ function Setting({ openProfile, setOpenProfile }) {
               <Autocomplete
                 multiple
                 options={values}
+                defaultValue={favouritGame}
                 // inputValue={}
                 classes={{
                   option: classes.option,
