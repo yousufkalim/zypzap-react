@@ -28,6 +28,17 @@
   display: inline-block;
   font-size: 20px;
   font-weight: 500;
+  font-family: "Poppins";
+}
+.stpno {
+  font-size: 16px;
+  font-family: "Poppins";
+  font-weight: 400;
+}
+.stepLabel {
+  font-size: 16px;
+  font-family: "Poppins";
+  font-weight: 500;
 }
 .hrLine1 {
   width: 100%;
@@ -39,7 +50,7 @@
   margin-top: 20px;
   cursor: pointer;
   width: 92%;
-  margin: 0 auto 0px auto;
+  /* margin: 0 auto 0px auto; */
   padding: 25px 0 0px 0;
   font-size: 12px;
 }

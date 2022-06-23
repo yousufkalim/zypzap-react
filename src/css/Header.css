@@ -94,8 +94,9 @@
 }
 .sgnBtn {
   cursor: pointer;
-  font-family: "Mulish", sans-serif;
+  font-family: "Mulish";
   font-size: 16px;
+  font-weight: 600;
 }
 .headerLinkbox {
   width: 35% !important;
@@ -184,6 +185,9 @@
   background: none;
   padding: 6px 12px;
   /* margin: 12px 12px 7px 0; */
+}
+.headerLinkbox {
+  font-weight: 600;
 }
 .dropbtn {
   color: white;
@@ -445,6 +449,10 @@
   .opnPrfil {
     padding: 2px 0 0 10px !important;
   }
+
+  .dropdown-content {
+    min-width: 268px;
+  }
   .imgLogo {
     margin-left: -16px !important;
   }
@@ -626,7 +634,20 @@
   .dropdown {
     left: 5px;
   }
-  /* .css-l2l88c {
-    display: flex !important;
-  } */
+}
+
+@media only screen and (min-width: 1200px) {
+  .dropdown-content {
+    min-width: 372px;
+  }
+}
+@media only screen and (min-width: 1700px) {
+  .dropdown-content {
+    min-width: 426px;
+  }
+}
+@media (min-width: 1200px) {
+  .headerLinkbox {
+    justify-content: space-around !important;
+  }
 }

@@ -67,6 +67,7 @@
 .upload-courses-headings {
   font-size: 18px;
   margin: 0 37px -5px 0;
+  font-weight: 400;
 }
 .request-data {
   width: 93%;
@@ -121,7 +122,7 @@
 }
 .create-course-btn-text > * {
   padding: 16px 0px;
-  font-size: 15px;
+  font-size: 16px;
 }
 .create-course-btn {
   padding: 8px 17px;
@@ -131,7 +132,7 @@
   border: none;
   color: #fff;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 18px;
 }
 .create-course-btn:hover {
   background: none;
