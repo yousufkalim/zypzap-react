@@ -49,6 +49,7 @@ export default function PropfileInformation({
   });
   const classes = useStyles();
   const updateStore = UpdateStore();
+  const { learner, creator } = Store();
   const [profile_photo, setImageURL] = useState(
     user?.profile_photo ? user.profile_photo : Course1
   );
@@ -457,145 +458,150 @@ export default function PropfileInformation({
               </div>
             </FormControl>
           </div>
-          <div>
-            <label
-              for="Learning"
-              style={{
-                fontSize: "16px",
-                fontWeight: "400",
-                fontFamily: "Mulish",
-              }}
-            >
-              Learning Rhythm
-            </label>
-          </div>
-          <div className="userProfileSelectInput2">
-            <br />
-            <select
-              id="Select"
-              name="Select"
-              onChange={ChangeLearningRhythm}
-              className="selectInput-userProfile2"
-              style={{
-                fontSize: "15px",
-                fontWeight: "400",
-                fontFamily: "Mulish",
-              }}
-            >
-              <option
-                value="10h To 20h Per Week"
-                className="selectInput-option"
-              >
-                {learningRethem === "10h To 20h Per Week"
-                  ? learningRethem
-                  : "10h To 20h Per Week"}
-              </option>
-              <option value="20h To 30h Per Week">
-                {learningRethem === "20h To 30h Per Week"
-                  ? learningRethem
-                  : "20h To 30h Per Week"}
-              </option>
-              <option value="30h To 40h Per Week">
-                {learningRethem === "30h To 40h Per Week"
-                  ? learningRethem
-                  : "30h To 40h Per Week"}
-              </option>
-              <option value="40h To 50h Per Week">
-                {learningRethem === "40h To 50h Per Week"
-                  ? learningRethem
-                  : "40h To 50h Per Week"}
-              </option>
-              <option value="50h To 60h Per Week">
-                {learningRethem === "50h To 60h Per Week"
-                  ? learningRethem
-                  : "50h To 60h Per Week"}
-              </option>
-              <option value="60h To 70h Per Week">
-                {learningRethem === "60h To 70h Per Week"
-                  ? learningRethem
-                  : "60h To 70h Per Week"}
-              </option>
-            </select>
-          </div>
-          <div className="userProfileSelectInput">
-            <label
-              for="Learning"
-              style={{
-                fontSize: "16px",
-                fontWeight: "400",
-                fontFamily: "Mulish",
-              }}
-            >
-              Current Gameplay Level
-            </label>
-            <br />
-            <select
-              id="Select"
-              name="Select"
-              onChange={changeCurrentLevelHandler}
-              className="selectInput-userProfile"
-              defaultValue={currentLevel}
-              style={{
-                fontSize: "15px",
-                fontWeight: "400",
-                fontFamily: "Mulish",
-              }}
-            >
-              <option value="Casual" className="selectInput-option">
-                Casual (5h - 7h Of Play Per Week)
-              </option>
 
-              {/* <option value="saab">Pro</option> */}
-              <option value="Confirmed">
-                Confirmed (8 Hours - 15 Hours Of Play Per Week)
-              </option>
-              <option value="Hardcore">
-                Hardcore (16 Hours - 28 Hours Of Play Per Week)
-              </option>
-              <option value="Esporter">
-                Esporter (More than 30 Hours Of Play Per Week)
-              </option>
-            </select>
-          </div>
-          <div className="userProfileSelectInput">
-            <label
-              for="Learning"
-              style={{
-                fontSize: "16px",
-                fontWeight: "400",
-                fontFamily: "Mulish",
-              }}
-            >
-              Target Gameplay Level
-            </label>
-            <br />
+          {(user?.role === "User" || learner) && (
+            <>
+              <div>
+                <label
+                  for="Learning"
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "400",
+                    fontFamily: "Mulish",
+                  }}
+                >
+                  Learning Rhythm
+                </label>
+              </div>
+              <div className="userProfileSelectInput2">
+                <br />
+                <select
+                  id="Select"
+                  name="Select"
+                  onChange={ChangeLearningRhythm}
+                  className="selectInput-userProfile2"
+                  style={{
+                    fontSize: "15px",
+                    fontWeight: "400",
+                    fontFamily: "Mulish",
+                  }}
+                >
+                  <option
+                    value="10h To 20h Per Week"
+                    className="selectInput-option"
+                  >
+                    {learningRethem === "10h To 20h Per Week"
+                      ? learningRethem
+                      : "10h To 20h Per Week"}
+                  </option>
+                  <option value="20h To 30h Per Week">
+                    {learningRethem === "20h To 30h Per Week"
+                      ? learningRethem
+                      : "20h To 30h Per Week"}
+                  </option>
+                  <option value="30h To 40h Per Week">
+                    {learningRethem === "30h To 40h Per Week"
+                      ? learningRethem
+                      : "30h To 40h Per Week"}
+                  </option>
+                  <option value="40h To 50h Per Week">
+                    {learningRethem === "40h To 50h Per Week"
+                      ? learningRethem
+                      : "40h To 50h Per Week"}
+                  </option>
+                  <option value="50h To 60h Per Week">
+                    {learningRethem === "50h To 60h Per Week"
+                      ? learningRethem
+                      : "50h To 60h Per Week"}
+                  </option>
+                  <option value="60h To 70h Per Week">
+                    {learningRethem === "60h To 70h Per Week"
+                      ? learningRethem
+                      : "60h To 70h Per Week"}
+                  </option>
+                </select>
+              </div>
+              <div className="userProfileSelectInput">
+                <label
+                  for="Learning"
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "400",
+                    fontFamily: "Mulish",
+                  }}
+                >
+                  Current Gameplay Level
+                </label>
+                <br />
+                <select
+                  id="Select"
+                  name="Select"
+                  onChange={changeCurrentLevelHandler}
+                  className="selectInput-userProfile"
+                  defaultValue={currentLevel}
+                  style={{
+                    fontSize: "15px",
+                    fontWeight: "400",
+                    fontFamily: "Mulish",
+                  }}
+                >
+                  <option value="Casual" className="selectInput-option">
+                    Casual (5h - 7h Of Play Per Week)
+                  </option>
 
-            <select
-              id="Select"
-              name="Select"
-              onChange={changeTargetLevelHandler}
-              className="selectInput-userProfile"
-              defaultValue={target_level}
-              style={{
-                fontSize: "15px",
-                fontWeight: "400",
-                fontFamily: "Mulish",
-              }}
-            >
-              <option value="Casual" className="selectInput-option">
-                Casual (5h - 7h Of Play Per Week)
-              </option>
-              <option value="Confirmed">
-                Confirmed (8 Hours - 15 Hours Of Play Per Week)
-              </option>
-              <option value="Hardcore">
-                Hardcore (16 Hours - 28 Hours Of Play Per Week)
-              </option>
-              <option value="Esporter">
-                Esporter (More than 30 Hours Of Play Per Week)
-              </option>
-            </select>
-          </div>
+                  {/* <option value="saab">Pro</option> */}
+                  <option value="Confirmed">
+                    Confirmed (8 Hours - 15 Hours Of Play Per Week)
+                  </option>
+                  <option value="Hardcore">
+                    Hardcore (16 Hours - 28 Hours Of Play Per Week)
+                  </option>
+                  <option value="Esporter">
+                    Esporter (More than 30 Hours Of Play Per Week)
+                  </option>
+                </select>
+              </div>
+              <div className="userProfileSelectInput">
+                <label
+                  for="Learning"
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "400",
+                    fontFamily: "Mulish",
+                  }}
+                >
+                  Target Gameplay Level
+                </label>
+                <br />
+
+                <select
+                  id="Select"
+                  name="Select"
+                  onChange={changeTargetLevelHandler}
+                  className="selectInput-userProfile"
+                  defaultValue={target_level}
+                  style={{
+                    fontSize: "15px",
+                    fontWeight: "400",
+                    fontFamily: "Mulish",
+                  }}
+                >
+                  <option value="Casual" className="selectInput-option">
+                    Casual (5h - 7h Of Play Per Week)
+                  </option>
+                  <option value="Confirmed">
+                    Confirmed (8 Hours - 15 Hours Of Play Per Week)
+                  </option>
+                  <option value="Hardcore">
+                    Hardcore (16 Hours - 28 Hours Of Play Per Week)
+                  </option>
+                  <option value="Esporter">
+                    Esporter (More than 30 Hours Of Play Per Week)
+                  </option>
+                </select>
+              </div>
+            </>
+          )}
           <button className="userProfileButton" onClick={submitProfile}>
             Continue
           </button>
