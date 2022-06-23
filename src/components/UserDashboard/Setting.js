@@ -25,36 +25,36 @@ let gamelist = [
   { value: "green", label: "Green", color: "#36B37E" },
   { value: "forest", label: "Forest", color: "#00875A" },
   { value: "slate", label: "Slate", color: "#253858" },
-  { value: "silver", label: "Silver", color: "#666666" }
+  { value: "silver", label: "Silver", color: "#666666" },
 ];
 function Setting({ openProfile, setOpenProfile }) {
   const useStyles = makeStyles({
     customTextField: {
       "& input": {
         color: "white",
-        border: "none"
+        border: "none",
       },
       "&:hover": {
-        border: "red !important"
+        border: "red !important",
       },
       "& input::placeholder": {
         color: "white",
         "@media (max-width: 780px)": {
-          paddingLeft: "-2px"
-        }
-      }
+          paddingLeft: "-2px",
+        },
+      },
     },
     option: {
       background: "#242635 ",
       color: "white",
       "&:hover": {
-        backgroundColor: "#9198a5 !important"
-      }
+        backgroundColor: "#9198a5 !important",
+      },
     },
     noOptions: {
       display: `${"inherit"}`,
-      color: "white"
-    }
+      color: "white",
+    },
   });
   const classes = useStyles();
   const [values, setValues] = useState([]);
@@ -176,13 +176,13 @@ function Setting({ openProfile, setOpenProfile }) {
       favourite_games: favouritGame,
       learningRethem: learningRethem,
       current_level: currentLevel,
-      target_level: target_level
+      target_level: target_level,
     };
     const formdata = {
       prefrence_games,
       gameType,
       plateForm,
-      gameMood
+      gameMood,
     };
     if (
       prefrence_games === "" ||
@@ -204,6 +204,7 @@ function Setting({ openProfile, setOpenProfile }) {
         if (res) {
           updateStore({ user: res.data });
           setCongratulation(true);
+          console.log("UpdatedGames=======", user.prefrence_games);
         }
       } else {
         let res = await api("post", `/creators/${user?._id}`, formdata);
@@ -211,9 +212,10 @@ function Setting({ openProfile, setOpenProfile }) {
         if (res) {
           updateStore({
             user: res?.data?.newUsers,
-            creator: res?.data?.creator
+            creator: res?.data?.creator,
           });
           setCongratulation(true);
+          console.log("UpdatedGames=======", user.prefrence_games);
         }
       }
     }
@@ -233,7 +235,7 @@ function Setting({ openProfile, setOpenProfile }) {
     "Sports",
     "Trading card",
     "Puzzle",
-    "Versus Fighting"
+    "Versus Fighting",
   ];
   const gamePlateform = [
     "PC",
@@ -241,7 +243,7 @@ function Setting({ openProfile, setOpenProfile }) {
     "PS1/2/3/4/5",
     "Xbox/360/One/X",
     "Retro Consoles",
-    "Portable Consoles"
+    "Portable Consoles",
   ];
   const handleSelectedGames = (e) => {
     console.log("selected", e);
@@ -261,7 +263,7 @@ function Setting({ openProfile, setOpenProfile }) {
         e.target.value +
         "&page=1&page_size=10",
       {
-        withCredentials: false
+        withCredentials: false,
       }
     );
 
@@ -301,8 +303,9 @@ function Setting({ openProfile, setOpenProfile }) {
               <Autocomplete
                 multiple
                 options={values}
+                // inputValue={}
                 classes={{
-                  option: classes.option
+                  option: classes.option,
                 }}
                 filterSelectedOptions
                 popupIcon={null}
@@ -312,7 +315,7 @@ function Setting({ openProfile, setOpenProfile }) {
                   <div
                     style={{
                       color: "white",
-                      fontSize: "12px"
+                      fontSize: "12px",
                     }}
                   >
                     {" "}
@@ -325,7 +328,7 @@ function Setting({ openProfile, setOpenProfile }) {
                 onChange={setGamefiled}
                 hiddenLabel="true"
                 style={{
-                  margin: "auto"
+                  margin: "auto",
                 }}
                 renderInput={(params) => (
                   <TextField
@@ -340,7 +343,7 @@ function Setting({ openProfile, setOpenProfile }) {
                     sx={{
                       outline: "none",
                       width: "80%",
-                      borderRadius: "6px"
+                      borderRadius: "6px",
                     }}
                     // value={gameName}
                     // name="gameName"

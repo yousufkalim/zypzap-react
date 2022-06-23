@@ -17,35 +17,35 @@ export default function PropfileInformation({
   openProfile,
   setOpenProfile,
   user,
-  setCongratulation
+  setCongratulation,
 }) {
   const useStyles = makeStyles({
     customTextField: {
       "& input": {
         color: "white",
-        border: "none"
+        border: "none",
       },
       "&:hover": {
-        border: "red !important"
+        border: "red !important",
       },
       "& input::placeholder": {
         color: "white",
         "@media (max-width: 780px)": {
-          paddingLeft: "-2px"
-        }
-      }
+          paddingLeft: "-2px",
+        },
+      },
     },
     option: {
       background: "#242635 ",
       color: "white",
       "&:hover": {
-        backgroundColor: "#9198a5 !important"
-      }
+        backgroundColor: "#9198a5 !important",
+      },
     },
     noOptions: {
       display: `${"inherit"}`,
-      color: "white"
-    }
+      color: "white",
+    },
   });
   const classes = useStyles();
   const updateStore = UpdateStore();
@@ -129,7 +129,7 @@ export default function PropfileInformation({
 
   const removeTags = (index) => {
     setFavouritGame([
-      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index)
+      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index),
     ]);
   };
 
@@ -181,7 +181,7 @@ export default function PropfileInformation({
       favourite_games: favouritGame,
       learningRethem: learningRethem,
       current_level: currentLevel,
-      target_level: target_level
+      target_level: target_level,
     };
     const formdata = {
       profile_photo,
@@ -189,7 +189,7 @@ export default function PropfileInformation({
       gameType,
       plateForm,
       gameMood,
-      LearningRhythm
+      LearningRhythm,
     };
     if (
       prefrence_games === "" ||
@@ -233,7 +233,7 @@ export default function PropfileInformation({
     { name: "Turn By Turn Strategy" },
     { name: "Sports" },
     { name: "Trading Card" },
-    { name: "Puzzle" }
+    { name: "Puzzle" },
   ];
   let gametypebtn2 = [
     { name: "Retro Consoles" },
@@ -241,7 +241,7 @@ export default function PropfileInformation({
     { name: "Xbox/360/One/X" },
     { name: "Mobile Games" },
     { name: "Portable Consoles" },
-    { name: "PC" }
+    { name: "PC" },
   ];
   // const handleClose = () => {
   //   setOpen(false);
@@ -257,7 +257,7 @@ export default function PropfileInformation({
         e.target.value +
         "&page=1&page_size=10",
       {
-        withCredentials: false
+        withCredentials: false,
       }
     );
 
@@ -327,8 +327,9 @@ export default function PropfileInformation({
                 multiple
                 options={values}
                 classes={{
-                  option: classes.option
+                  option: classes.option,
                 }}
+                defaultValue={favouritGame}
                 filterSelectedOptions
                 popupIcon={null}
                 disableClearable
@@ -337,7 +338,7 @@ export default function PropfileInformation({
                   <div
                     style={{
                       color: "white",
-                      fontSize: "12px"
+                      fontSize: "12px",
                     }}
                   >
                     {" "}
@@ -350,7 +351,7 @@ export default function PropfileInformation({
                 onChange={setGamefiled}
                 hiddenLabel="true"
                 style={{
-                  margin: "auto"
+                  margin: "auto",
                 }}
                 renderInput={(params) => (
                   <TextField
@@ -365,7 +366,7 @@ export default function PropfileInformation({
                     sx={{
                       outline: "none",
                       width: "80%",
-                      borderRadius: "6px"
+                      borderRadius: "6px",
                     }}
                     // value={gameName}
                     // name="gameName"
@@ -462,7 +463,7 @@ export default function PropfileInformation({
               style={{
                 fontSize: "16px",
                 fontWeight: "400",
-                fontFamily: "Mulish"
+                fontFamily: "Mulish",
               }}
             >
               Learning Rhythm
@@ -478,7 +479,7 @@ export default function PropfileInformation({
               style={{
                 fontSize: "15px",
                 fontWeight: "400",
-                fontFamily: "Mulish"
+                fontFamily: "Mulish",
               }}
             >
               <option
@@ -522,7 +523,7 @@ export default function PropfileInformation({
               style={{
                 fontSize: "16px",
                 fontWeight: "400",
-                fontFamily: "Mulish"
+                fontFamily: "Mulish",
               }}
             >
               Current Gameplay Level
@@ -537,7 +538,7 @@ export default function PropfileInformation({
               style={{
                 fontSize: "15px",
                 fontWeight: "400",
-                fontFamily: "Mulish"
+                fontFamily: "Mulish",
               }}
             >
               <option value="Casual" className="selectInput-option">
@@ -562,7 +563,7 @@ export default function PropfileInformation({
               style={{
                 fontSize: "16px",
                 fontWeight: "400",
-                fontFamily: "Mulish"
+                fontFamily: "Mulish",
               }}
             >
               Target Gameplay Level
@@ -578,7 +579,7 @@ export default function PropfileInformation({
               style={{
                 fontSize: "15px",
                 fontWeight: "400",
-                fontFamily: "Mulish"
+                fontFamily: "Mulish",
               }}
             >
               <option value="Casual" className="selectInput-option">

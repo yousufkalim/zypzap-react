@@ -50,7 +50,6 @@ const StartedCourse = () => {
   const [User, setUser] = useState(user ? user : {});
   const [start_courses, setStartedCourses] = useState([]);
   useEffect(() => {
-    console.log("statred course useeffect");
     setUser(user ? user : {});
     setStartedCourses(
       user?.enrolled_courses?.filter((courses) => courses.started === true)
