@@ -166,5 +166,14 @@
 
   .topcourseimg {
     border-radius: 15px;
+    width: 77%;
+    padding: 10px;
+    height: 177px !important;
+    text-align: center;
+    border-radius: 50px;
+    object-fit: cover;
+  }
+  .Carousel-indicators-15 {
+    display: none;
   }
 }

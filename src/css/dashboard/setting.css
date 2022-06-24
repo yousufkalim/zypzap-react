@@ -1,13 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&family=Maven+Pro:wght@400;800&family=Mulish&family=Poppins:wght@500&display=swap");
 
-.MuiChip-filled{
+.MuiChip-filled {
   color: white !important;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-  linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%) !important;
+    linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%) !important;
 }
-.MuiInputBase-formControl{
-  border: 1px solid gray;
+.MuiInputBase-formControl {
   padding-bottom: 20px !important;
+}
+
+.css-16awh2u-MuiAutocomplete-root .MuiOutlinedInput-root {
+  padding: 11px !important;
+  font-size: 13px;
+  color: #fff;
+  font-weight: 400px;
+  font-family: "Mulish";
 }
 
 .dashboard_setting {
@@ -23,7 +30,7 @@
   opacity: 0.6;
   color: #fff;
 }
-.AutofiledgameExperties:active{
+.AutofiledgameExperties:active {
   border: none !important;
 }
 

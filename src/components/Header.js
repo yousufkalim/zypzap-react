@@ -570,7 +570,7 @@ export default function PrimarySearchAppBar({
                     ? "Search for course"
                     : "Search for content creator"
                 }
-                inputProps={{ "aria-label": "search" }}
+                inputProps={{ "aria-label": "search", className: "cc_field" }}
                 onChange={handleChangeInput}
                 // onSubmit={handleSearchButtonClick}
                 value={searchInput}
@@ -711,7 +711,11 @@ export default function PrimarySearchAppBar({
                           disabled
                           displayEmpty
                         >
-                          <MenuItem value="" className="walletInputMenu">
+                          <MenuItem
+                            value=""
+                            className="walletInputMenu"
+                            id="w-item"
+                          >
                             Connect Wallet
                           </MenuItem>
                           <MenuItem value={10} className="walletInputMenu">

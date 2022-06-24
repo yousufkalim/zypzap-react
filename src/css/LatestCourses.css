@@ -156,14 +156,18 @@
   color: white;
   text-decoration: none;
   margin-top: 30px;
+  height: 247px !important;
 }
 .wishCarImgDiv {
   margin: 15px;
-  width: 290px;
+  width: 17%;
+  height: 87%;
 }
 .startcourseimg {
   border-radius: 12px;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .wishList-container {
   padding-left: 30px;
