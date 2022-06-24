@@ -69,7 +69,6 @@
 .walletInputMenu {
   width: 100%;
   color: #fff !important;
-  margin: 0 !important;
   font-size: 16px !important;
   justify-content: left !important;
   padding: 10px !important;
@@ -579,7 +578,13 @@
   .imgLogo {
     margin-left: -28px !important;
   }
-  .requestBtn {
+
+  .dropdown-content {
+    min-width: 220px;
+    padding: 1px 16px;
+  }
+
+  .topc .requestBtn {
     padding: 5px 7px;
     margin: 0px 4px 0px 3px;
     font-size: 8px;
@@ -596,7 +601,7 @@
   }
   .css-1kcggdq-MuiInputBase-root .MuiInputBase-input {
     padding-left: calc(-0em + 11px) !important;
-    font-size: 9px !important;
+    font-size: 4.3px !important;
   }
   .MuiSvgIcon-root {
     /* width: 1em !important; */

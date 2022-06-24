@@ -261,7 +261,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                   onChange={chnageEvent}
                 >
                   <option value="Action" className="setepOption">
-                    Select Sategory
+                    Select Category
                   </option>
                   <option value="Action" className="setepOption">
                     Action
