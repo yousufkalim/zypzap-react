@@ -32,14 +32,14 @@ export function StoreProvider({ children }) {
     Games: [],
     searchLoader: false,
     learner: false,
-    contentDashboardButton: "Courses"
+    contentDashboardButton: "Courses",
   });
 
   const updateStore = (data) => {
     setStore((prev) => {
       return {
         ...prev,
-        ...data
+        ...data,
       };
     });
   };

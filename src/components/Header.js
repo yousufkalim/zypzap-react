@@ -436,13 +436,20 @@ export default function PrimarySearchAppBar({
         user={user}
         setCongratulation={setCongratulation}
       />
+      <PropfileInformation
+        openProfile={openBecomeCreatorPopup}
+        setOpenProfile={setOpenBecomeCreatorPopup}
+        handleClose={handleClose}
+        user={user}
+        setCongratulation={setCongratulation}
+      />
       <LoginFormPopup
         open={openlogin}
         setOpen={setOpenLogin}
         signup={opensignup}
         setSignup={setOpenSignup}
       />
-      <BecomeCreatorpopup
+      {/* <BecomeCreatorpopup
         open={openBecomeCreatorPopup}
         setOpen={setOpenBecomeCreatorPopup}
         games={games}
@@ -451,7 +458,7 @@ export default function PrimarySearchAppBar({
         setOpen2={setOpen2}
         setOpen3={setOpen3}
         // setCongratulation={setCongratulation}
-      />
+      /> */}
       <DoYouWant
         open={open}
         setOpen={setOpen}

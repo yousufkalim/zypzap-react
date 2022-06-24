@@ -25,35 +25,35 @@ const BecomeCreatorpopup = ({
   user,
   creator,
   setOpen3,
-  setOpen2
+  setOpen2,
 }) => {
   const useStyles = makeStyles({
     customTextField: {
       "& input": {
         color: "white",
-        border: "none"
+        border: "none",
       },
       "&:hover": {
-        border: "red !important"
+        border: "red !important",
       },
       "& input::placeholder": {
         color: "white",
         "@media (max-width: 780px)": {
-          paddingLeft: "-2px"
-        }
-      }
+          paddingLeft: "-2px",
+        },
+      },
     },
     option: {
       background: "#242635 ",
       color: "white",
       "&:hover": {
-        backgroundColor: "#9198a5 !important"
-      }
+        backgroundColor: "#9198a5 !important",
+      },
     },
     noOptions: {
       display: `${"inherit"}`,
-      color: "white"
-    }
+      color: "white",
+    },
   });
   const classes = useStyles();
   const history = useHistory();
@@ -95,7 +95,7 @@ const BecomeCreatorpopup = ({
 
   const removeTagsPlateForm = (index) => {
     setPlateForm([
-      ...plateForm.filter((tag) => plateForm.indexOf(tag) !== index)
+      ...plateForm.filter((tag) => plateForm.indexOf(tag) !== index),
     ]);
   };
   const selectplateForm = (e) => {
@@ -141,7 +141,7 @@ const BecomeCreatorpopup = ({
         profile_photo,
         gameType: gameType,
         plateForm: plateForm,
-        gameMood: gameMood
+        gameMood: gameMood,
       };
 
       if (user) {
@@ -150,7 +150,7 @@ const BecomeCreatorpopup = ({
         if (res) {
           updateStore({
             user: res?.data?.newUsers,
-            creator: res?.data?.creator
+            creator: res?.data?.creator,
           });
           setOpen(false);
           history.push("/contentHome");
@@ -178,7 +178,7 @@ const BecomeCreatorpopup = ({
     "Trading card",
     "Puzzle",
     "Versus Fighting",
-    "Trading card and Board games"
+    "Trading card and Board games",
   ];
   const gamePlateform = [
     "PC",
@@ -186,7 +186,7 @@ const BecomeCreatorpopup = ({
     "PS1/2/3/4/5",
     "Xbox/360/One/X",
     "Retro Consoles",
-    "Portable Consoles"
+    "Portable Consoles",
   ];
 
   const handleImageSelect = async (e) => {
@@ -201,7 +201,7 @@ const BecomeCreatorpopup = ({
         e.target.value +
         "&page=1&page_size=10",
       {
-        withCredentials: false
+        withCredentials: false,
       }
     );
 
@@ -262,8 +262,9 @@ const BecomeCreatorpopup = ({
                 multiple
                 options={values}
                 classes={{
-                  option: classes.option
+                  option: classes.option,
                 }}
+                defaultValue={favouritGame}
                 filterSelectedOptions
                 popupIcon={null}
                 disableClearable
@@ -272,7 +273,7 @@ const BecomeCreatorpopup = ({
                   <div
                     style={{
                       color: "white",
-                      fontSize: "12px"
+                      fontSize: "12px",
                     }}
                   >
                     {" "}
@@ -285,7 +286,7 @@ const BecomeCreatorpopup = ({
                 onChange={setGamefiled}
                 hiddenLabel="true"
                 style={{
-                  margin: "auto"
+                  margin: "auto",
                 }}
                 renderInput={(params) => (
                   <TextField
@@ -300,7 +301,7 @@ const BecomeCreatorpopup = ({
                     sx={{
                       outline: "none",
                       width: "80%",
-                      borderRadius: "6px"
+                      borderRadius: "6px",
                     }}
                     // value={gameName}
                     // name="gameName"

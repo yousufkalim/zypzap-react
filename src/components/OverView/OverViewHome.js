@@ -42,9 +42,6 @@ const OverViewHome = (props) => {
       userId: u?._id,
     };
     let res = await api("post", "/users/enrolledCourseAndStarted", data);
-    if (res) {
-      updateStore({ user: res.data });
-    }
   };
   const handleEnrolled = async (u, course) => {
     const data = {

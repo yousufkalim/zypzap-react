@@ -19,6 +19,7 @@ import { Store, UpdateStore } from "./StoreContext";
 function App() {
   // init
   const updateStore = UpdateStore();
+  const { user } = Store();
 
   const { t, i18n } = useTranslation();
   const { language } = i18n;
@@ -32,6 +33,7 @@ function App() {
       getdata();
     }
   }, [token]);
+
   let getdata = async () => {
     try {
       let res = await api("get", "/users/getuserbytoken");
