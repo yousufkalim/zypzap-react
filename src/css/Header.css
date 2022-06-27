@@ -501,6 +501,9 @@
     background-color: #0e0f1e !important;
     color: #fff !important;
   }
+  .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+    margin-top: 40px !important;
+  }
   .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
     width: 100% !important;
     justify-content: initial !important;
@@ -549,7 +552,7 @@
     left: 15px;
   }
 }
-@media only screen and (min-width: 300px) and (max-width: 600px) {
+@media only screen and (min-width: 270px) and (max-width: 600px) {
   .searchBar {
     width: 100% !important;
     margin-left: 12px !important;
@@ -616,6 +619,9 @@
 
   .css-1pz7awu-MuiButtonBase-root-MuiIconButton-root {
     padding: 0px !important;
+  }
+  .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+    margin-top: 40px !important;
   }
   .imgLogo {
     margin-left: 0px !important;
