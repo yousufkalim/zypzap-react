@@ -29,7 +29,7 @@ const WhyData = (props) => {
           />
         </div>
       </div>
-      <div className="why_box">
+      <div className="why_box" id="why_data">
         <div className="col_2">
           <div className="box2">
             <img
