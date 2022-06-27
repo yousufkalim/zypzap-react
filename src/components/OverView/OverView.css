@@ -436,13 +436,13 @@ body {
 
 @media only screen and (min-width: 1500px) {
   .instructor-image {
-    width: 37%;
+    width: 30%;
     margin: auto;
   }
   .instructor-co1 {
     padding-top: 1%;
     padding-bottom: 1%;
-    width: 15%;
+    width: 32%;
   }
 }
 @media only screen and (min-width: 1120px) and (max-width: 1499px) {
