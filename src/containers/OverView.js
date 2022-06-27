@@ -27,6 +27,7 @@ const OverView = (props) => {
   const [course, setCourse] = useState();
   const [rating, setRating] = useState();
   const [showVideo, setShowVideo] = useState(false);
+  const [showRatingPopup, setShowRatingPopup] = useState(false);
 
   const [openlogin, setOpenLogin] = React.useState(false);
   const [opensignup, setOpenSignup] = React.useState(false);
@@ -71,7 +72,10 @@ const OverView = (props) => {
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
       />
       {showVideo ? (
-        <CompleteCourse singlCourse={course} />
+        <CompleteCourse
+          singlCourse={course}
+          setShowRatingPopup={setShowRatingPopup}
+        />
       ) : (
         <OverViewHome
           singlCourse={course}
@@ -96,7 +100,12 @@ const OverView = (props) => {
       {activebtn == "Instructor" && <Instructor singlCourse={course} />}
 
       {activebtn == "Feedback" && (
-        <Reviews singlCourse={course} rating={rating} />
+        <Reviews
+          singlCourse={course}
+          rating={rating}
+          setShowPopup={setShowRatingPopup}
+          showPopup={showRatingPopup}
+        />
       )}
       {/* <LatestCourses courses={[course]} /> */}
 

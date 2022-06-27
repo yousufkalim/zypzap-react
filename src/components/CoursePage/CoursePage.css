@@ -12,6 +12,8 @@ body {
 }
 .completeCourse-colm1 {
   width: 70%;
+  height: 400px;
+  margin-bottom: 50px;
 }
 .completeCourse-colm2 {
   width: 50%;
