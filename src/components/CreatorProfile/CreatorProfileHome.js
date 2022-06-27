@@ -7,6 +7,8 @@ import ProGamer from "../../assets/icons/ProGamer.svg";
 import ViewCourse from "../../assets/icons/ViewCourse.svg";
 import ViewStudent from "../../assets/img/ViewStudent.svg";
 import ViewRank from "../../assets/img/ViewRank.svg";
+import { Link } from "react-router-dom";
+
 import api from "../../api";
 import Course1 from "../../assets/img/course1.png";
 import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
@@ -177,39 +179,52 @@ const CreatorProfileHome = (props) => {
         <div className="creatorProfileCart-centerDiv">
           {courses?.map((item, i) => (
             <div className="creatorCard">
-              <div
-                className="cardGrid"
-                style={{
-                  backgroundColor: " #202342",
-                  margin: "12px",
-                  borderRadius: "35px",
+              <Link
+                to={{
+                  pathname: `/OverView/${item?._id}`,
+                  state: { course: `${item}` },
                 }}
+                style={{ textDecoration: "none", color: "white" }}
               >
-                <img src={item?.thumbnail} className="courseimg" alt="img" />
-                <h5 className="latestcourseh5">
-                  {item?.course_name} GamePlay Course
-                </h5>
-                <p className="latestcoursep1">{user && user.username}</p>
-                <p className="latestcoursep1">
-                  {" "}
-                  {`${item?.rating} `}
-                  {[1, 2, 3, 4, 5].map((item) => (
-                    <Star1
-                      style={{
-                        width: "15px",
-                        height: "15px",
-                        color: "red",
-                        margintTop: "3px",
-                        position: "relative",
-                        top: "3px",
-                        key: { item },
-                      }}
+                <div
+                  className="cardGrid"
+                  style={{
+                    backgroundColor: " #202342",
+                    borderRadius: "35px",
+                  }}
+                >
+                  <div className="topRatedcardGrid-image">
+                    <img
+                      src={item?.thumbnail}
+                      className="courseimg"
+                      alt="img"
                     />
-                  ))}
-                  {" (" + countViews(item) + ")"}
-                </p>
-                <h6 className="latestcourseh6">{item?.price}$</h6>
-              </div>
+                  </div>
+                  <h5 className="latestcourseh5">
+                    {item?.course_name} GamePlay Course
+                  </h5>
+                  <p className="latestcoursep1">{user && user.username}</p>
+                  <p className="latestcoursep1">
+                    {" "}
+                    {`${item?.rating} `}
+                    {[1, 2, 3, 4, 5].map((item) => (
+                      <Star1
+                        style={{
+                          width: "15px",
+                          height: "15px",
+                          color: "red",
+                          margintTop: "3px",
+                          position: "relative",
+                          top: "3px",
+                          key: { item },
+                        }}
+                      />
+                    ))}
+                    {" (" + countViews(item) + ")"}
+                  </p>
+                  <h6 className="latestcourseh6">{item?.price}$</h6>
+                </div>
+              </Link>
             </div>
           ))}
         </div>

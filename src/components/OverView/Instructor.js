@@ -54,7 +54,13 @@ const Instructor = (props) => {
                 style={{ textDecoration: "none", color: "white" }}
               >
                 <div className="instructor-image">
-                  <img src={InstructorIcon} alt="" className="instructorLogo" />
+                  <img
+                    src={
+                      user?.profile_photo ? user.profile_photo : InstructorIcon
+                    }
+                    alt=""
+                    className="instructorLogo"
+                  />
                 </div>
               </Link>
               <div className="instructor-heading">
