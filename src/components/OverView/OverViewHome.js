@@ -39,14 +39,14 @@ const OverViewHome = (props) => {
   const handleStartCourse = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id,
+      userId: u?._id
     };
     let res = await api("post", "/users/enrolledCourseAndStarted", data);
   };
   const handleEnrolled = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id,
+      userId: u?._id
     };
     let res = await api("post", "/users/enrolledCourse", data);
     if (res) {
@@ -54,8 +54,6 @@ const OverViewHome = (props) => {
       setCongratulation(true);
     }
   };
-  console.log("overview user", user);
-  console.log("overview singlCourse", singlCourse);
 
   return (
     <>
@@ -163,12 +161,6 @@ const OverViewHome = (props) => {
                   )}
                 </div> */}
                   {/* end heart icon for wish list */}
-                  {console.log("for view enroll user", user?.creator, user)}
-                  {console.log(
-                    "for view enroll singlCourse",
-                    singlCourse?.creator._id
-                  )}
-                  {console.log("for view enroll learner", learner)}
 
                   {(user?.role === "Creator" && !learner) ||
                   user?.creator === singlCourse?.creator?._id ? (

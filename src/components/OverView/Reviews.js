@@ -83,21 +83,20 @@ const Reviews = (props) => {
   };
   return (
     <div>
-      <CongratsYouDidPopup showPopup={showPopup} setShowPopup={setShowPopup} />
+      <CongratsYouDidPopup
+        showPopup={showPopup}
+        setShowPopup={setShowPopup}
+        singlCourse={singlCourse}
+        rating={rating}
+      />
       <div className="overView_description">
         <div className="overView-descripiton-centerDiv">
           <div className="reviews">
             {/* 1Div */}
             <div className="studentFeedBack">
               <p className="student-feedback-h3">Student feedback</p>
-              {/* <button
-                onClick={() => {
-                  setShowPopup(true);
-                }}
-              >
-                pop
-              </button> */}
-              <div className="courseRating">
+
+              <div className="courseRating" style={{ cursor: "pointer" }}>
                 <h1 className="courseRatingH1">
                   {singlCourse?.rating ? singlCourse.rating : "0.0"}
                 </h1>

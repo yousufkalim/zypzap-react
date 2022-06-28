@@ -1,6 +1,21 @@
 body {
   font-family: "Mulish", sans-serif;
 }
+
+
+.plyr--full-ui input[type=range]{
+  color: #4f2d6b !important;
+  /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662F88 9.05%, #20BF55 131.69%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important; */
+  
+}
+.plyr__control:hover{
+   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(65.06deg, #662F88 9.05%, #20BF55 131.69%) !important;
+}
 .completeCourse {
   color: #fff;
   width: 100%;

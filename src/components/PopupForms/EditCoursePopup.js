@@ -13,7 +13,6 @@ import { storage } from "../../utils/firebase";
 
 import api from "../../api";
 const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
-  console.log("edit course for edit it", course);
   const { Games, creator } = Store();
   const [showPopup, setShowPopup] = React.useState(false);
   const [opens, setOpens] = React.useState(false);
@@ -34,7 +33,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
     gameType: course?.game_id?.category,
     gameMood: course?.gameMood,
     gamePlateForm: course?.gamePlateForm,
-    description: course?.description,
+    description: course?.description
   });
   const {
     course_name,
@@ -44,7 +43,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
     gameType,
     gameMood,
     gamePlateForm,
-    description,
+    description
   } = formDataOne;
 
   useEffect(() => {
@@ -56,7 +55,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
       gameType: course?.game_id?.category,
       gameMood: course?.mode,
       gamePlateForm: course?.plateform,
-      description: course?.description,
+      description: course?.description
     });
   }, [course]);
   useEffect(() => {
@@ -65,7 +64,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   const chnageEvent = (e) => {
     setformDataOne({
       ...formDataOne,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
   const handleSave = async () => {

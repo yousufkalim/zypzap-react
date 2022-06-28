@@ -7,6 +7,7 @@ import ReactPlayer from "react-player";
 const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
   const ref = useRef();
   useEffect(() => {
+    console.log("internal plyr instance:", ref.current.plyr);
     ref.current.plyr.on("ended", (e) => {
       console.log("ended");
     });
