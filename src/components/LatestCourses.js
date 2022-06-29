@@ -1,7 +1,9 @@
 // Init
 import React from "react";
 import Course1 from "../assets/img/course1.png";
+import dummyCourse from "../assets/img/dummycourseimg.png";
 import moment from "moment";
+import axios from "axios";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 // import { ReactComponent as Star1 } from "../assets/icons/star2.svg";
@@ -80,31 +82,32 @@ export default function LatestCourses(props) {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 4,
+      items: 4
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
-      slidesToSlide: 3,
+      slidesToSlide: 3
     },
     tablet: {
       breakpoint: { max: 1024, min: 800 },
-      items: 2,
+      items: 2
     },
     mobile: {
       breakpoint: { max: 800, min: 0 },
-      items: 1,
-    },
+      items: 1
+    }
   };
   const handleLatestCourses = () => {
     history.push({
       pathname: "/searchResult",
       param: {
         name: "Latest Courses",
-        value: "2",
-      },
+        value: "2"
+      }
     });
   };
+
   return (
     <div className="latestCoursescontainer">
       <div className="latestcourseHeadingDiv">
@@ -126,15 +129,16 @@ export default function LatestCourses(props) {
             <Link
               to={{
                 pathname: `OverView/${item?._id}`,
-                state: { course: `${item}` },
+                state: { course: `${item}` }
               }}
               className="requestBt"
               style={{ textDecoration: "none", color: "white" }}
             >
               <div className="cardGrid">
                 <div className="topRatedcardGrid-image">
+                  {console.log("CheckImage", item?.thumbnail)}
                   <img
-                    src={item?.thumbnail ? item.thumbnail : Course1}
+                    src={item?.thumbnail ? item.thumbnail : dummyCourse}
                     className="topRatedcourseimg"
                     alt="img"
                   />
