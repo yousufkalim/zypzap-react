@@ -60,7 +60,6 @@ const StartedCourse = () => {
       pathname: `/OverView/${id}`,
     });
   };
-  console.log("start_courses", start_courses);
   return (
     <div className="wishlistDiv">
       <p className="wishCardh3">Started Courses</p>

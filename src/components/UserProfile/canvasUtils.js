@@ -21,7 +21,7 @@ export function rotateSize(width, height, rotation) {
     width:
       Math.abs(Math.cos(rotRad) * width) + Math.abs(Math.sin(rotRad) * height),
     height:
-      Math.abs(Math.sin(rotRad) * width) + Math.abs(Math.cos(rotRad) * height)
+      Math.abs(Math.sin(rotRad) * width) + Math.abs(Math.cos(rotRad) * height),
   };
 }
 
@@ -35,7 +35,6 @@ export async function getCroppedImg(
   flip = { horizontal: false, vertical: false }
 ) {
   const image = await createImage(imageSrc);
-  console.log("createimage", image);
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
 

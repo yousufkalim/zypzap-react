@@ -41,8 +41,9 @@ body {
 }
 .DP-img {
   border: 15px solid #14162c;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   padding: 0;
+  object-fit: cover;
   margin: 0;
   width: 244px;
   height: 250px;
@@ -98,6 +99,7 @@ body {
   align-items: center;
   margin-top: 30px;
   margin-left: -20px;
+  margin-bottom: 4px;
 }
 .editProfiel-btn2 {
   /* position: absolute; */

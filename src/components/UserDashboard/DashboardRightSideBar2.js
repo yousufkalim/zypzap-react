@@ -18,7 +18,6 @@ const DashboardRightSideBar2 = ({}) => {
       updateStore({ contentDashboardButton: "Setting" });
     }
   }, []);
-  console.log("contentDashboardButton", contentDashboardButton);
 
   return (
     <>

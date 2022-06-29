@@ -225,6 +225,7 @@ body {
   font-size: 18px;
   font-weight: 700;
 }
+
 .overRequirement_h3 {
   font-size: 22px;
   font-weight: 700;
@@ -287,6 +288,7 @@ body {
 .instructorLogo {
   height: 100%;
   width: 100%;
+  object-fit: cover;
   border-radius: 100px;
 }
 .Instructor {
@@ -302,6 +304,7 @@ body {
 }
 .instructor-co {
   padding: 0 25px;
+  width: 80%;
 }
 .instructorH2 {
   font-size: 18px;
@@ -437,6 +440,8 @@ body {
 @media only screen and (min-width: 1500px) {
   .instructor-image {
     width: 30%;
+    margin-top: 18px !important;
+    margin-bottom: 12px !important;
     margin: auto;
   }
   .instructor-co1 {
@@ -447,8 +452,10 @@ body {
 }
 @media only screen and (min-width: 1120px) and (max-width: 1499px) {
   .instructor-image {
-    padding-top: 10px;
-    width: 32%;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    width: 88px;
+    height: 88px;
   }
   .instructor-co1 {
     width: 21%;

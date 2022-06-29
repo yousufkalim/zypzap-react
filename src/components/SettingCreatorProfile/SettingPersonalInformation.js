@@ -16,7 +16,7 @@ const SettingPersonalInformation = () => {
     confirmPassword: "",
     showPassword: false,
     showPassword2: false,
-    showPassword3: false
+    showPassword3: false,
   });
   const { currentPassword, password, confirmPassword } = values;
   const { user } = Store();
@@ -27,7 +27,7 @@ const SettingPersonalInformation = () => {
     iban: user?.iban || "",
     country: user?.country || "",
     account_number: user?.account_number || "",
-    bank_identifier: user?.bank_identifier || ""
+    bank_identifier: user?.bank_identifier || "",
   });
   const {
     username,
@@ -36,7 +36,7 @@ const SettingPersonalInformation = () => {
     iban,
     country,
     account_number,
-    bank_identifier
+    bank_identifier,
   } = formData;
   useEffect(() => {
     setFormData({
@@ -46,7 +46,7 @@ const SettingPersonalInformation = () => {
       iban: user?.iban || "",
       country: user?.country || "",
       account_number: user?.account_number || "",
-      bank_identifier: user?.bank_identifier || ""
+      bank_identifier: user?.bank_identifier || "",
     });
   }, [user]);
 
@@ -57,26 +57,26 @@ const SettingPersonalInformation = () => {
   const handlechange1 = (event) => {
     setFormData({
       ...formData,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
   const handleClickShowPassword = () => {
     setValues({
       ...values,
-      showPassword: !values.showPassword
+      showPassword: !values.showPassword,
     });
   };
   const handleClickShowPassword2 = () => {
     setValues({
       ...values,
-      showPassword2: !values.showPassword2
+      showPassword2: !values.showPassword2,
     });
   };
   const handleClickShowPassword3 = () => {
     setValues({
       ...values,
-      showPassword3: !values.showPassword3
+      showPassword3: !values.showPassword3,
     });
   };
   const SubmitEvent = async (e) => {
@@ -87,7 +87,6 @@ const SettingPersonalInformation = () => {
       }
       newformData = { ...formData, password, currentPassword };
     }
-    console.log("newformData", newformData);
     let res = await api("post", `/users/basicInfo/${user?._id}`, newformData);
     if (res) {
       updateStore({ user: res.data.user });
@@ -615,7 +614,7 @@ const SettingPersonalInformation = () => {
             height: "44px",
             fontSize: "14px",
             display: "bl8ck",
-            margin: "25px 4px"
+            margin: "25px 4px",
           }}
         >
           Save

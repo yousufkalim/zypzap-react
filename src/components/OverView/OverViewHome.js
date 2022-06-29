@@ -6,6 +6,7 @@ import overViewIcon2 from "../../assets/icons/overViewIcon2.svg";
 import overViewIcon3 from "../../assets/icons/overViewIcon3.svg";
 import overViewIcon4 from "../../assets/icons/overViewIcon4.svg";
 import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
+import moment from "moment";
 
 import OverCardHurtLogo from "../../assets/icons/OverCardHurtLogo.svg";
 import RatingStarIcon from "../../assets/icons/RatingStarIcon.svg";
@@ -20,7 +21,7 @@ const OverViewHome = (props) => {
   const { user, Games, learner } = Store();
   const [openCongratulation, setCongratulation] = useState(false);
   const updateStore = UpdateStore();
-  const { singlCourse } = props;
+  const { singlCourse, setCourse } = props;
   const [openGuestPopUp, setOpenGuestPopUp] = useState(false);
   const calTotalSecInVideos = (videos) => {
     let timeInSecond = 1;
@@ -43,6 +44,10 @@ const OverViewHome = (props) => {
     };
     let res = await api("post", "/users/enrolledCourseAndStarted", data);
   };
+  const getDateIs = (d) => {
+    var date = new Date(d);
+    return moment(date).fromNow();
+  };
   const handleEnrolled = async (u, course) => {
     const data = {
       courseId: course?._id,
@@ -51,11 +56,10 @@ const OverViewHome = (props) => {
     let res = await api("post", "/users/enrolledCourse", data);
     if (res) {
       updateStore({ user: res.data?.user });
+      setCourse(res.data?.course);
       setCongratulation(true);
     }
   };
-  console.log("overview user", user);
-  console.log("overview singlCourse", singlCourse);
 
   return (
     <>
@@ -74,10 +78,15 @@ const OverViewHome = (props) => {
             <div className="overViewContent">
               <h1 className="overViewH1">
                 Beat the Opponent&nbsp;
-                {singlCourse?.course_name ? singlCourse.course_name : " CS GO "}
-                &nbsp;Gameplay
+                <span style={{ textTransform: "capitalize" }}>
+                  {" "}
+                  {singlCourse?.course_name
+                    ? singlCourse.course_name
+                    : " CS GO "}
+                  &nbsp;Gameplay
+                </span>
               </h1>
-              <p className="overViewContent">
+              <p className="overViewContent" style={{ width: "60%" }}>
                 {singlCourse?.description ? singlCourse.description : ""}
               </p>
             </div>
@@ -86,9 +95,10 @@ const OverViewHome = (props) => {
               <li className="overViewLi">
                 <img src={overViewIcon1} alt="" className="overViewIcon-1" />
                 <p className="overViewIconP">
-                  {singlCourse?.videos
+                  {/* {singlCourse?.videos
                     ? calculateCourseDuration(singlCourse.videos) + " Weeks"
-                    : "0 Weeks"}
+                    : "0 Weeks"} */}
+                  {getDateIs(singlCourse?.createdAt || "0 Weeks")}
                 </p>
               </li>
               <li className="overViewLi">
@@ -101,16 +111,20 @@ const OverViewHome = (props) => {
                 <img src={overViewIcon3} alt="" className="overViewIcon" />
                 <p className="overViewIconP">
                   {singlCourse?.videos
-                    ? singlCourse.videos.length + " Lessons"
-                    : "0 Lessons"}
+                    ? singlCourse.videos.length > 1
+                      ? singlCourse.videos.length + " Lessons"
+                      : singlCourse.videos.length + " Lesson"
+                    : "0 Lesson"}
                 </p>
               </li>
               <li className="overViewLi">
                 <img src={overViewIcon4} alt="" className="overViewIcon" />
                 <p className="overViewIconP">
                   {singlCourse?.student
-                    ? singlCourse.student.length + " Students"
-                    : "0 Students"}
+                    ? singlCourse.student.length > 1
+                      ? singlCourse.student.length + " Students"
+                      : singlCourse.student.length + " Student"
+                    : "0 Student"}
                 </p>
               </li>
               <li className="overViewLi">
@@ -163,12 +177,6 @@ const OverViewHome = (props) => {
                   )}
                 </div> */}
                   {/* end heart icon for wish list */}
-                  {console.log("for view enroll user", user?.creator, user)}
-                  {console.log(
-                    "for view enroll singlCourse",
-                    singlCourse?.creator._id
-                  )}
-                  {console.log("for view enroll learner", learner)}
 
                   {(user?.role === "Creator" && !learner) ||
                   user?.creator === singlCourse?.creator?._id ? (

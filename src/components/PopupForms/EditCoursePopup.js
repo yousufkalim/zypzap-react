@@ -13,7 +13,6 @@ import { storage } from "../../utils/firebase";
 
 import api from "../../api";
 const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
-  console.log("edit course for edit it", course);
   const { Games, creator } = Store();
   const [showPopup, setShowPopup] = React.useState(false);
   const [opens, setOpens] = React.useState(false);

@@ -111,7 +111,7 @@ export default function LatestCourses(props) {
   return (
     <div className="latestCoursescontainer">
       <div className="latestcourseHeadingDiv">
-        <p className="latestcourseheading">Latest Course</p>
+        <p className="latestcourseheading">Latest Courses</p>
         <p className="latestcourseheadings" onClick={handleLatestCourses}>
           View All
         </p>

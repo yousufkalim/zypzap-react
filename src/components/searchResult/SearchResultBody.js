@@ -254,7 +254,6 @@ const SearchResultBody = () => {
     const value = e.value;
     let res = await api("get", `/courses/topGames?type=${value}`);
     // let r = [res.data];
-    // console.log("SLcted===============", r);
     if (res) {
       if (value == "5") {
         updateStore({
@@ -801,7 +800,6 @@ const SearchResultBody = () => {
                                     alt=""
                                     className="LatestCourse-IMG"
                                   />
-                                  {console.log("item is", item)}
                                   <p className="latestCourse-p">
                                     {item?.creator?.user_id?.username.length > 6
                                       ? `${item?.creator?.user_id?.username.substring(
