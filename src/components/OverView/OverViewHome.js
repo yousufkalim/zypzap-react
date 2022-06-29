@@ -6,6 +6,7 @@ import overViewIcon2 from "../../assets/icons/overViewIcon2.svg";
 import overViewIcon3 from "../../assets/icons/overViewIcon3.svg";
 import overViewIcon4 from "../../assets/icons/overViewIcon4.svg";
 import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
+import moment from "moment";
 
 import OverCardHurtLogo from "../../assets/icons/OverCardHurtLogo.svg";
 import RatingStarIcon from "../../assets/icons/RatingStarIcon.svg";
@@ -43,6 +44,10 @@ const OverViewHome = (props) => {
     };
     let res = await api("post", "/users/enrolledCourseAndStarted", data);
   };
+  const getDateIs = (d) => {
+    var date = new Date(d);
+    return moment(date).fromNow();
+  };
   const handleEnrolled = async (u, course) => {
     const data = {
       courseId: course?._id,
@@ -74,8 +79,13 @@ const OverViewHome = (props) => {
             <div className="overViewContent">
               <h1 className="overViewH1">
                 Beat the Opponent&nbsp;
-                {singlCourse?.course_name ? singlCourse.course_name : " CS GO "}
-                &nbsp;Gameplay
+                <span style={{ textTransform: "capitalize" }}>
+                  {" "}
+                  {singlCourse?.course_name
+                    ? singlCourse.course_name
+                    : " CS GO "}
+                  &nbsp;Gameplay
+                </span>
               </h1>
               <p className="overViewContent">
                 {singlCourse?.description ? singlCourse.description : ""}
@@ -86,9 +96,10 @@ const OverViewHome = (props) => {
               <li className="overViewLi">
                 <img src={overViewIcon1} alt="" className="overViewIcon-1" />
                 <p className="overViewIconP">
-                  {singlCourse?.videos
+                  {/* {singlCourse?.videos
                     ? calculateCourseDuration(singlCourse.videos) + " Weeks"
-                    : "0 Weeks"}
+                    : "0 Weeks"} */}
+                  {getDateIs(singlCourse?.createdAt || "0 Weeks")}
                 </p>
               </li>
               <li className="overViewLi">
@@ -101,7 +112,9 @@ const OverViewHome = (props) => {
                 <img src={overViewIcon3} alt="" className="overViewIcon" />
                 <p className="overViewIconP">
                   {singlCourse?.videos
-                    ? singlCourse.videos.length + " Lessons"
+                    ? singlCourse.videos.length > 1
+                      ? singlCourse.videos.length + " Lessons"
+                      : singlCourse.videos.length + " Lesson"
                     : "0 Lessons"}
                 </p>
               </li>
@@ -109,7 +122,9 @@ const OverViewHome = (props) => {
                 <img src={overViewIcon4} alt="" className="overViewIcon" />
                 <p className="overViewIconP">
                   {singlCourse?.student
-                    ? singlCourse.student.length + " Students"
+                    ? singlCourse.student.length > 1
+                      ? singlCourse.student.length + " Students"
+                      : singlCourse.student.length + " Student"
                     : "0 Students"}
                 </p>
               </li>

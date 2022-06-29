@@ -111,7 +111,6 @@ const DashboardUploadCourses = ({ pageName }) => {
       >
         {pageName === "publish" ? (
           <>
-            {" "}
             {creator?.courses
               ?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
               .map((item) => (

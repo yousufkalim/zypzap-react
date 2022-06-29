@@ -245,12 +245,6 @@ function Setting({ openProfile, setOpenProfile }) {
     "Retro Consoles",
     "Portable Consoles",
   ];
-  const handleSelectedGames = (e) => {
-    console.log("selected", e);
-  };
-  const onSearch = (e) => {
-    console.log("onsearch", e);
-  };
 
   const getAllGames = async (e) => {
     // setformDataOne({
@@ -282,7 +276,6 @@ function Setting({ openProfile, setOpenProfile }) {
   };
   // Set selected game in  setAddressValue State
   const setGamefiled = async (item, selectedItems, reason) => {
-    console.log("selectedItems", selectedItems);
     setFavouritGame(selectedItems);
   };
 

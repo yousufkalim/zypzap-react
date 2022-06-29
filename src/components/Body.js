@@ -31,11 +31,9 @@ export default function Body({ setOpenSignup }) {
   let getTopRatedContentCreator = async () => {
     let res = await api("get", "/creators/topRatedCreator");
     if (res) {
-      console.log("res.data c", res?.data);
       updateStore({ topRatedContentCreator: res?.data });
     }
   };
-  console.log("topRatedContentCreator", topRatedContentCreator);
   useEffect(() => {
     // get top courses
     getTopCourses();
@@ -46,8 +44,8 @@ export default function Body({ setOpenSignup }) {
       pathname: "/searchResult",
       param: {
         name: "Top 10 Games",
-        value: "1"
-      }
+        value: "1",
+      },
     });
   };
   return (

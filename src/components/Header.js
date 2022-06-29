@@ -353,13 +353,21 @@ export default function PrimarySearchAppBar({
           </p>
         ) : (
           <>
-            <p className="sgnBtn" onClick={() => setOpenSignup(true)}>
+            <p
+              className="sgnBtn"
+              style={{ marginLeft: "auto", marginRight: "0%" }}
+              onClick={() => setOpenSignup(true)}
+            >
               Sign Up
             </p>
-            <p className="sgnBtn" onClick={() => setOpenLogin(true)}>
+            <p
+              className="sgnBtn"
+              style={{ marginLeft: "auto", marginRight: "0%" }}
+              onClick={() => setOpenLogin(true)}
+            >
               Login
             </p>
-            <div>
+            {/* <div>
               <FormControl className="form_Control_header">
                 <button className="comming-soon3">Coming Soon</button>
 
@@ -382,7 +390,7 @@ export default function PrimarySearchAppBar({
                   </Select>
                 </MenuItem>
               </FormControl>
-            </div>
+            </div> */}
           </>
         )}
       </MenuItem>
@@ -693,13 +701,21 @@ export default function PrimarySearchAppBar({
                 </p>
               ) : (
                 <>
-                  <p className="sgnBtn" onClick={() => setOpenSignup(true)}>
+                  <p
+                    className="sgnBtn"
+                    style={{ marginLeft: "auto", marginRight: "0%" }}
+                    onClick={() => setOpenSignup(true)}
+                  >
                     Sign Up
                   </p>
-                  <p className="sgnBtn" onClick={() => setOpenLogin(true)}>
+                  <p
+                    className="sgnBtn"
+                    style={{ marginLeft: "auto", marginRight: "0%" }}
+                    onClick={() => setOpenLogin(true)}
+                  >
                     Login
                   </p>
-                  <div>
+                  {/* <div>
                     <FormControl className="form_Control_header">
                       <button className="comming-soon3">Coming Soon</button>
 
@@ -727,7 +743,7 @@ export default function PrimarySearchAppBar({
                         </Select>
                       </MenuItem>
                     </FormControl>
-                  </div>
+                  </div> */}
                   <div>
                     {/* notification dropdown */}
                     {/* <div className="noti-container">

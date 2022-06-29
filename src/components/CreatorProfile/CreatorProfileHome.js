@@ -120,20 +120,7 @@ const CreatorProfileHome = (props) => {
                   <div className="creatorLogos">
                     <img className="CreatorProfileImg" src={ProGamer} alt="" />
                   </div>
-                  <div className="creatorProfileContent">
-                    <p className="creatorProfileP">
-                      {user?.creator?.gameLevel
-                        ? `${user.creator.gameLevel} Gamer`
-                        : "Pro Gamer"}
-                    </p>
-                  </div>
-                  <div className="creatorLogos">
-                    <img
-                      className="CreatorProfileImg"
-                      src={ViewCourse}
-                      alt=""
-                    />
-                  </div>
+
                   <div className="creatorProfileContent">
                     <p className="creatorProfileP">
                       {user?.creator?.courses

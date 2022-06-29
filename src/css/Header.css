@@ -87,7 +87,7 @@
 }
 .css-l2l88c {
   margin-left: auto !important;
-  margin-right: 28px;
+  margin-right: 81px;
   width: 28% !important;
   align-items: center;
 }
@@ -421,6 +421,23 @@
   }
 }
 */
+
+@media only screen and (min-width: 1700px) {
+  .dropdown-content {
+    min-width: 426px;
+  }
+  .css-l2l88c {
+    margin-right: 95px !important;
+  }
+}
+@media only screen and (min-width: 1201px) {
+  .dropdown-content {
+    min-width: 372px;
+  }
+  .headerLinkbox {
+    justify-content: space-around !important;
+  }
+}
 @media only screen and (min-width: 900px) and (max-width: 1200px) {
   .searchBar {
     width: 26% !important;
@@ -644,21 +661,5 @@
   }
   .dropdown {
     left: 5px;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .dropdown-content {
-    min-width: 372px;
-  }
-}
-@media only screen and (min-width: 1700px) {
-  .dropdown-content {
-    min-width: 426px;
-  }
-}
-@media (min-width: 1200px) {
-  .headerLinkbox {
-    justify-content: space-around !important;
   }
 }
