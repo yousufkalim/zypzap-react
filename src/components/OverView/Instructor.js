@@ -54,7 +54,14 @@ const Instructor = (props) => {
                 style={{ textDecoration: "none", color: "white" }}
               >
                 <div className="instructor-image">
-                  <img src={InstructorIcon} alt="" className="instructorLogo" />
+                  <img
+                    src={
+                      singlCourse?.creator?.user_id?.profile_photo ||
+                      InstructorIcon
+                    }
+                    alt=""
+                    className="instructorLogo"
+                  />
                 </div>
               </Link>
               <div className="instructor-heading">
@@ -76,8 +83,10 @@ const Instructor = (props) => {
                 </p>
                 <p className="instructor-student">
                   {singlCourse?.creator?.courses
-                    ? totalStudent(singlCourse.creator.courses) + " Students"
-                    : "0 Students"}
+                    ? totalStudent(singlCourse.creator.courses) > 1
+                      ? totalStudent(singlCourse.creator.courses) + " Students"
+                      : totalStudent(singlCourse.creator.courses) + " Student"
+                    : "No Students"}
                 </p>
               </div>
               {/* 
@@ -98,7 +107,7 @@ const Instructor = (props) => {
               <div className="instructor-about-Heading">
                 <p className="instructor-aboutH2">About the Instructor</p>
                 <p className="instructor-aboutP">
-                  {`Expertise Games: ${singlCourse?.course_name}`}
+                  {`Expertise Games: ${singlCourse?.creator?.user_id?.prefrence_games?.favourite_games}`}
                 </p>
               </div>
               <div className="instructorProfile-heading">
@@ -109,40 +118,48 @@ const Instructor = (props) => {
                     : "Arslan Ash"}
                 </p>
                 <p className="instructorProfile-P">
-                  {singlCourse?.description
+                  {/* {singlCourse?.description
                     ? singlCourse.description
-                    : "NO discription right know"}
+                    : "NO discription right know"} */}
+
+                  {singlCourse?.creator?.bio
+                    ? singlCourse.creator.bio
+                    : "I am a Professional Taken player 2 times world champion last year i was choosen to be red bull athelete too i am here to help you win the game and have a fun."}
                 </p>
               </div>
               <div className="overViewTags">
-                {/* <li className="overViewLi">
-                  <img src={overViewIcon1} alt="" className="overViewIcon-1" />
-                  <p className="overViewIconP">10 Weeks</p>
-                </li> */}
                 <li className="overViewLi">
-                  <img src={overViewIcon2} alt="" className="overViewIcon-1" />
+                  <img
+                    src={overViewIcon3}
+                    alt=""
+                    className="overViewIcon"
+                    style={{ marginLeft: "0" }}
+                  />
                   <p className="overViewIconP">
-                    {singlCourse?.level ? singlCourse.level : "All Levels"}
+                    {singlCourse?.creator?.courses
+                      ? singlCourse.creator.courses.length > 1
+                        ? singlCourse.creator.courses.length + " Courses"
+                        : singlCourse.creator.courses.length + " Course"
+                      : "No Courses"}
                   </p>
                 </li>
                 <li className="overViewLi">
-                  <img src={overViewIcon3} alt="" className="overViewIcon" />
-                  <p className="overViewIconP">
-                    {singlCourse?.videos
-                      ? singlCourse.videos.length + " Lessons"
-                      : "8 Lessons"}
-                    s
-                  </p>
-                </li>
-                <li className="overViewLi">
-                  <img src={overViewIcon4} alt="" className="overViewIcon" />
+                  <img
+                    src={overViewIcon4}
+                    alt=""
+                    className="overViewIcon"
+                    style={{ marginLeft: "55px" }}
+                  />
                   <p className="overViewIconP">
                     {/* {singlCourse?.creator?.courses
                       ? totalStudent(singlCourse.creator.courses) + " Students"
                       : "0 Students"} */}
-                    {singlCourse?.student?.length
-                      ? `${singlCourse.student.length} Student`
-                      : "0 Student"}
+                    {singlCourse?.creator?.courses
+                      ? totalStudent(singlCourse.creator.courses) > 1
+                        ? totalStudent(singlCourse.creator.courses) +
+                          " Students"
+                        : totalStudent(singlCourse.creator.courses) + " Student"
+                      : "No Students"}
                   </p>
                 </li>
               </div>

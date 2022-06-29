@@ -225,6 +225,7 @@ body {
   font-size: 18px;
   font-weight: 700;
 }
+
 .overRequirement_h3 {
   font-size: 22px;
   font-weight: 700;
@@ -280,7 +281,15 @@ body {
 }
 /* Instructor */
 .instructor-image {
-  padding: 20px 50px 5px 50px;
+  width: 53%;
+  margin: auto;
+}
+
+.instructorLogo {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 100px;
 }
 .Instructor {
   display: flex;
@@ -295,6 +304,7 @@ body {
 }
 .instructor-co {
   padding: 0 25px;
+  width: 80%;
 }
 .instructorH2 {
   font-size: 18px;
@@ -425,6 +435,38 @@ body {
   font-size: 16px;
   margin: 0 10px;
   text-transform: capitalize;
+}
+
+@media only screen and (min-width: 1500px) {
+  .instructor-image {
+    width: 30%;
+    margin-top: 18px !important;
+    margin-bottom: 12px !important;
+    margin: auto;
+  }
+  .instructor-co1 {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 32%;
+  }
+}
+@media only screen and (min-width: 1120px) and (max-width: 1499px) {
+  .instructor-image {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    width: 88px;
+    height: 88px;
+  }
+  .instructor-co1 {
+    width: 21%;
+  }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1119px) {
+  .instructor-image {
+    padding-top: 10px;
+    width: 42%;
+  }
 }
 /* @media only screen and (min-width: 1900px) {
   .overViewCard {

@@ -52,7 +52,6 @@ const MyPrifileSetting = () => {
   const handleClickShowPassword = () => {
     setValues(!values);
   };
-  console.log("first");
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
@@ -76,7 +75,6 @@ const MyPrifileSetting = () => {
     let res = await api("post", `/users/basicInfo/${user?._id}`, d);
     if (res) {
       updateStore({ user: res.data.user });
-      console.log("USER", email, password);
       toast.success("Modifier le profil avec succès");
     }
   };

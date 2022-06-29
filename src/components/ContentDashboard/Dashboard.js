@@ -23,7 +23,6 @@ const Dashboard = ({ id }) => {
   }, [contentDashboardButton]);
   useEffect(() => {
     if (history.location.state.createCourse) {
-      console.log("aaa");
       setcreateCourse(true);
       updateStore({ contentDashboardButton: "" });
     }
@@ -40,10 +39,9 @@ const Dashboard = ({ id }) => {
     { name: "Courses", img: Youtube },
     // { name: "Performance", img: performance },
     // { name: "Earning", img: dollar },
-    { name: "Setting", img: settings }
+    { name: "Setting", img: settings },
   ];
   const onSideBtnClick = (e) => {
-    console.log("aa");
     const course = e.target.textContent;
 
     setcreateCourse(false);

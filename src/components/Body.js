@@ -44,8 +44,8 @@ export default function Body({ setOpenSignup }) {
       pathname: "/searchResult",
       param: {
         name: "Top 10 Games",
-        value: "1"
-      }
+        value: "1",
+      },
     });
   };
   return (
