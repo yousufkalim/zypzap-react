@@ -6,7 +6,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 
 const CongratulationPopup1 = ({ open, setOpen, text }) => {
   const handleClose = () => {
-    window.location.reload(false);
+    // window.location.reload(false);
     setOpen(false);
   };
   return (

@@ -21,7 +21,7 @@ const OverViewHome = (props) => {
   const { user, Games, learner } = Store();
   const [openCongratulation, setCongratulation] = useState(false);
   const updateStore = UpdateStore();
-  const { singlCourse } = props;
+  const { singlCourse, setCourse } = props;
   const [openGuestPopUp, setOpenGuestPopUp] = useState(false);
   const calTotalSecInVideos = (videos) => {
     let timeInSecond = 1;
@@ -56,11 +56,10 @@ const OverViewHome = (props) => {
     let res = await api("post", "/users/enrolledCourse", data);
     if (res) {
       updateStore({ user: res.data?.user });
+      setCourse(res.data?.course);
       setCongratulation(true);
     }
   };
-  console.log("overview user", user);
-  console.log("overview singlCourse", singlCourse);
 
   return (
     <>
@@ -178,12 +177,6 @@ const OverViewHome = (props) => {
                   )}
                 </div> */}
                   {/* end heart icon for wish list */}
-                  {console.log("for view enroll user", user?.creator, user)}
-                  {console.log(
-                    "for view enroll singlCourse",
-                    singlCourse?.creator._id
-                  )}
-                  {console.log("for view enroll learner", learner)}
 
                   {(user?.role === "Creator" && !learner) ||
                   user?.creator === singlCourse?.creator?._id ? (

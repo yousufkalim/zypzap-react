@@ -59,6 +59,9 @@ export default function PropfileInformation({
       ? user.prefrence_games.favourite_games
       : []
   );
+  const [expertiseGame, setExpertiseGame] = useState(
+    user?.expertiseGame ? user.expertiseGame : []
+  );
 
   const [gameType, setGameType] = useState(user?.gameType ? user.gameType : []);
   const [plateForm, setPlateForm] = useState(
@@ -187,6 +190,7 @@ export default function PropfileInformation({
     const formdata = {
       profile_photo,
       prefrence_games,
+      expertiseGame,
       gameType,
       plateForm,
       gameMood,
@@ -272,7 +276,9 @@ export default function PropfileInformation({
   };
   // Set selected game in  setAddressValue State
   const setGamefiled = async (item, selectedItems, reason) => {
-    setFavouritGame(selectedItems);
+    if (user?.role === "User" || learner) {
+      setFavouritGame(selectedItems);
+    } else setExpertiseGame(selectedItems);
   };
 
   return (
@@ -323,14 +329,24 @@ export default function PropfileInformation({
             <div>
               <p className="tags-input-FGames">Favorite Games</p>
             </div>
+
             <div>
+              {console.log("user", user)}
+              {console.log("creator", creator)}
+              {console.log("role", user?.role)}
+
               <Autocomplete
                 multiple
                 options={values}
                 classes={{
                   option: classes.option,
                 }}
-                defaultValue={favouritGame}
+                defaultValue={
+                  user?.role === "User" || learner
+                    ? favouritGame
+                    : expertiseGame
+                }
+                // defaultValue={favouritGame}
                 filterSelectedOptions
                 popupIcon={null}
                 disableClearable

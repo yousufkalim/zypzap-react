@@ -61,14 +61,12 @@ const DashboardUploadCourses = ({ pageName }) => {
     // e.nativeEvent.stopImmediatePropagation();
     setCourseForDelete(item);
     setOpenDeletePopup(true);
-    console.log("item for delete", item);
   };
   const hanldleEditCourse = (e, item) => {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
     setCourseForEdit(item);
     setOpenEditePopup(true);
-    console.log("item for edit", item);
   };
   const secondToTime = (second) => {
     // Hours, minutes and seconds

@@ -86,18 +86,16 @@ const UserProfile = (props) => {
         setCoverImageURL("");
         updateStore({
           user: res?.data?.newUsers,
-          creator: res?.data?.creator
+          creator: res?.data?.creator,
         });
-        console.log("res.data for creator", res.data);
       }
     } else {
       let res = await api("put", `/users/addProfileInfo/${user?._id}`, {
-        cover_photo
+        cover_photo,
       });
       if (res) {
         setCoverImageURL("");
         updateStore({ user: res.data });
-        console.log("res.data for user", res.data);
       }
     }
   };
@@ -108,12 +106,12 @@ const UserProfile = (props) => {
         setProfileimg("");
         updateStore({
           user: res?.data?.newUsers,
-          creator: res?.data?.creator
+          creator: res?.data?.creator,
         });
       }
     } else {
       let res = await api("put", `/users/addProfileInfo/${user?._id}`, {
-        profile_photo
+        profile_photo,
       });
       if (res) {
         setProfileimg("");
@@ -136,7 +134,7 @@ const UserProfile = (props) => {
 
       var myFile = new File([croppedImage], imgfile?.name, {
         lastModified: new Date().getTime(),
-        type: imgfile?.type
+        type: imgfile?.type,
       });
       // upload on firebase
       if (!myFile) return;
@@ -270,7 +268,7 @@ const UserProfile = (props) => {
                 <input
                   style={{
                     display: "none",
-                    cursor: "none"
+                    cursor: "none",
                   }}
                   type="file"
                   accept="image/*"
@@ -326,7 +324,7 @@ const UserProfile = (props) => {
                       <input
                         style={{
                           display: "none",
-                          cursor: "none"
+                          cursor: "none",
                         }}
                         type="file"
                         accept="image/*"

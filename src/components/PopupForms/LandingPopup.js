@@ -14,7 +14,7 @@ const LandingPopup = ({ open, setOpen }) => {
     days: 0,
     hours: 0,
     minutes: 0,
-    seconds: 0
+    seconds: 0,
   });
 
   const handleClose = () => {
@@ -40,7 +40,7 @@ const LandingPopup = ({ open, setOpen }) => {
         days,
         hours,
         minutes,
-        seconds
+        seconds,
       });
 
       // If the count down is over, write some text
@@ -50,13 +50,11 @@ const LandingPopup = ({ open, setOpen }) => {
           days: 0,
           hours: 0,
           minutes: 0,
-          seconds: 0
+          seconds: 0,
         });
       }
     }, 1000);
   }, []);
-
-  // console.log("timer,", state);
 
   return (
     <div>
