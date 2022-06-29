@@ -122,10 +122,6 @@ const CreatorProfileHome = (props) => {
 
                   <div className="creatorProfileContent">
                     <p className="creatorProfileP">
-                      {console.log("user", user)}
-                      {console.log("creator", user?.creator)}
-                      {console.log(user?.creator?.courses)}
-                      {console.log("course", courses)}
                       {user?.creator?.courses.length > 1
                         ? `${user?.creator?.courses.length} Courses`
                         : `${user?.creator?.courses.length} Course`}
