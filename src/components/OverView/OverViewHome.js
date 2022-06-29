@@ -86,7 +86,7 @@ const OverViewHome = (props) => {
                   &nbsp;Gameplay
                 </span>
               </h1>
-              <p className="overViewContent">
+              <p className="overViewContent" style={{ width: "60%" }}>
                 {singlCourse?.description ? singlCourse.description : ""}
               </p>
             </div>
@@ -114,7 +114,7 @@ const OverViewHome = (props) => {
                     ? singlCourse.videos.length > 1
                       ? singlCourse.videos.length + " Lessons"
                       : singlCourse.videos.length + " Lesson"
-                    : "0 Lessons"}
+                    : "0 Lesson"}
                 </p>
               </li>
               <li className="overViewLi">
@@ -124,7 +124,7 @@ const OverViewHome = (props) => {
                     ? singlCourse.student.length > 1
                       ? singlCourse.student.length + " Students"
                       : singlCourse.student.length + " Student"
-                    : "0 Students"}
+                    : "0 Student"}
                 </p>
               </li>
               <li className="overViewLi">

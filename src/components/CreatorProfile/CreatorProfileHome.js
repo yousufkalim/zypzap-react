@@ -54,7 +54,6 @@ const CreatorProfileHome = (props) => {
     if (res) {
       setUser(res?.data);
       const courses = res?.data?.creator?.courses;
-      courses.length = 4;
       setCourses(courses);
     }
   };
@@ -123,9 +122,13 @@ const CreatorProfileHome = (props) => {
 
                   <div className="creatorProfileContent">
                     <p className="creatorProfileP">
-                      {user?.creator?.courses
-                        ? `${user.creator.courses.length} Courses`
-                        : "8 Courses"}
+                      {console.log("user", user)}
+                      {console.log("creator", user?.creator)}
+                      {console.log(user?.creator?.courses)}
+                      {console.log("course", courses)}
+                      {user?.creator?.courses.length > 1
+                        ? `${user?.creator?.courses.length} Courses`
+                        : `${user?.creator?.courses.length} Course`}
                     </p>
                   </div>
                   <div className="creatorLogos">
@@ -139,7 +142,9 @@ const CreatorProfileHome = (props) => {
                     <p className="creatorProfileP">
                       {/* todo populate issue  ----> */}
                       {user?.creator?.courses
-                        ? totalStudent(user.creator.courses) + " Students"
+                        ? totalStudent(user.creator.courses) > 1
+                          ? totalStudent(user.creator.courses) + " Students"
+                          : totalStudent(user.creator.courses) + " Student"
                         : "No Student"}
                     </p>
                   </div>

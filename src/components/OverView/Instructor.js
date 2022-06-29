@@ -86,7 +86,7 @@ const Instructor = (props) => {
                     ? totalStudent(singlCourse.creator.courses) > 1
                       ? totalStudent(singlCourse.creator.courses) + " Students"
                       : totalStudent(singlCourse.creator.courses) + " Student"
-                    : "0 Students"}
+                    : "No Students"}
                 </p>
               </div>
               {/* 
@@ -118,9 +118,13 @@ const Instructor = (props) => {
                     : "Arslan Ash"}
                 </p>
                 <p className="instructorProfile-P">
-                  {singlCourse?.description
+                  {/* {singlCourse?.description
                     ? singlCourse.description
-                    : "NO discription right know"}
+                    : "NO discription right know"} */}
+
+                  {singlCourse?.creator?.bio
+                    ? singlCourse.creator.bio
+                    : "I am a Professional Taken player 2 times world champion last year i was choosen to be red bull athelete too i am here to help you win the game and have a fun."}
                 </p>
               </div>
               <div className="overViewTags">
@@ -136,7 +140,7 @@ const Instructor = (props) => {
                       ? singlCourse.creator.courses.length > 1
                         ? singlCourse.creator.courses.length + " Courses"
                         : singlCourse.creator.courses.length + " Course"
-                      : "0 Course"}
+                      : "No Courses"}
                   </p>
                 </li>
                 <li className="overViewLi">
@@ -155,7 +159,7 @@ const Instructor = (props) => {
                         ? totalStudent(singlCourse.creator.courses) +
                           " Students"
                         : totalStudent(singlCourse.creator.courses) + " Student"
-                      : "0 Students"}
+                      : "No Students"}
                   </p>
                 </li>
               </div>
