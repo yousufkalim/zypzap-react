@@ -40,7 +40,7 @@ const OverViewHome = (props) => {
   const handleStartCourse = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id,
+      userId: u?._id
     };
     let res = await api("post", "/users/enrolledCourseAndStarted", data);
   };
@@ -51,7 +51,7 @@ const OverViewHome = (props) => {
   const handleEnrolled = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id,
+      userId: u?._id
     };
     let res = await api("post", "/users/enrolledCourse", data);
     if (res) {

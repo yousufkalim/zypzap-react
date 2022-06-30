@@ -3,12 +3,22 @@ import Dialog from "@mui/material/Dialog";
 import UploadSuccessLog from "../../assets/icons/UploadSuccessLog.svg";
 import ClearIcon from "@mui/icons-material/Clear";
 import Rating from "@mui/material/Rating";
+import api from "../../api";
+import { toast } from "react-toastify";
+import { Store, UpdateStore } from "../../StoreContext";
 
-const CongratsYouDidPopup = ({ showPopup, setShowPopup }) => {
+const CongratsYouDidPopup = ({
+  showPopup,
+  setShowPopup,
+  singlCourse,
+  rating
+}) => {
+  const { user } = Store();
   const [value, setValue] = React.useState(3);
   const handleClose = () => {
     setShowPopup(false);
   };
+
   return (
     <div>
       <Dialog
@@ -34,7 +44,9 @@ const CongratsYouDidPopup = ({ showPopup, setShowPopup }) => {
               />
             </div>
             <br />
-            <button className="uploadSuccessBTN">Submit</button>
+            <button className="uploadSuccessBTN" onClick="">
+              Submit
+            </button>
           </div>
         </div>
       </Dialog>

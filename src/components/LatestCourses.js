@@ -136,7 +136,6 @@ export default function LatestCourses(props) {
             >
               <div className="cardGrid">
                 <div className="topRatedcardGrid-image">
-                  {console.log("CheckImage", item?.thumbnail)}
                   <img
                     src={item?.thumbnail ? item.thumbnail : dummyCourse}
                     className="topRatedcourseimg"
