@@ -763,9 +763,11 @@ const SearchResultBody = () => {
                         fontWeight: "400",
                       }}
                     >
-                      {searchCourse.length +
-                        " course result for " +
-                        ` ${searchInput} `}
+                      {searchInput
+                        ? searchCourse.length +
+                          " course result for " +
+                          ` ${searchInput} `
+                        : searchCourse.length + " course result"}
                     </span>
                   </div>
                   <div>

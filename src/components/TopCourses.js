@@ -43,6 +43,7 @@ export default function TopCourses(props) {
       },
     });
   };
+
   return (
     <div className="topCoursescontainer">
       <p className="topcourseheading" style={{ display: "inline-block" }}>
@@ -95,6 +96,23 @@ function TopCoursesComponent({ item }) {
 
     return count;
   };
+
+  const secondToTime = (second) => {
+    // Hours, minutes and seconds
+    var hrs = ~~(second / 3600);
+    var mins = ~~((second % 3600) / 60);
+    var secs = ~~second % 60;
+
+    // Output like "1:01" or "4:03:59" or "123:03:59"
+    var ret = "";
+    if (hrs > 0) {
+      ret += "" + hrs + "." + (mins < 10 ? "0" : "");
+    }
+    ret += "" + mins + "." + (secs < 10 ? "0" : "");
+    ret += "" + secs;
+    return ret;
+  };
+
   let countTime = (course) => {
     const Videos = course?.videos;
 
@@ -177,9 +195,9 @@ function TopCoursesComponent({ item }) {
                 </span>
 
                 <>
-                  <span className="marginRight">|</span>
+                  ;<span className="marginRight">|</span>
                   <span className="marginRight">
-                    {countTime(item) == 0 ? "50 min" : "50 min"}
+                    {item?.videos && secondToTime(item?.videos[0]?.duration)}
                   </span>
                 </>
 
@@ -277,7 +295,7 @@ function TopCoursesComponent({ item }) {
               <>
                 <span className="marginRight">|</span>
                 <span className="marginRight">
-                  {countTime(item) == 0 ? "50 min" : "50 min"}
+                  {item?.videos && secondToTime(item?.videos[0]?.duration)}
                 </span>
               </>
 

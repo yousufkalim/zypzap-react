@@ -86,6 +86,8 @@
   height: 60px;
   border-radius: 50%;
   margin-right: 5px;
+  object-fit: cover;
+  object-position: top;
 }
 .activeIndicator {
   background: linear-gradient(65.06deg, #662f88 2.05%, #20bf55 111.69%);
