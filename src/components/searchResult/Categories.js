@@ -13,7 +13,14 @@ const CustomColorCheckbox = withStyles({
   checked: {},
 })((props) => <Checkbox color="default" {...props} />);
 
-const Categories = ({ categories, activeButton, trigerOnClickEmpSideBtn }) => {
+const Categories = ({
+  categories,
+  activeButton,
+  trigerOnClickEmpSideBtn,
+  change,
+  name,
+  value,
+}) => {
   return (
     <>
       {categories.map((item) => {
@@ -29,7 +36,11 @@ const Categories = ({ categories, activeButton, trigerOnClickEmpSideBtn }) => {
                 className="categories-tegs2"
                 // checked={checked}
                 // onChange={handleChange}
-                // inputProps={{ "aria-label": "controlled" }}
+                inputProps={{ "aria-label": "controlled" }}
+                name={name}
+                value={item.name}
+                checked={item.name === value}
+                onChange={change}
               />
               &nbsp;
               {item.name}

@@ -154,10 +154,6 @@ const PlateformsAry = [
     name: "Portable Consoles",
     value: "school",
   },
-  {
-    name: "Mobile Games",
-    value: "schooltwo",
-  },
 ];
 const levelAry = [
   {
@@ -206,6 +202,14 @@ const SearchResultBody = () => {
   const [radioBtnValue, setRadioBtnValue] = useState("");
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
   const [paginatedCourses, setPaginatedCourses] = useState([]);
+  const [filterData, setFilterData] = useState({
+    category: undefined,
+    gameType: undefined,
+    plateform: undefined,
+    level: undefined,
+    mode: undefined,
+  });
+
   // recieving context __data
 
   const {
@@ -221,6 +225,14 @@ const SearchResultBody = () => {
   const updateStore = UpdateStore();
 
   //sidebar list togle
+
+  const handleChange = async (e) => {
+    let filters = { ...filterData, [e.target.name]: e.target.value };
+    setFilterData(filters);
+
+    const res = await api("post", "/courses/filter", filters);
+    updateStore({ searchCourse: res.data });
+  };
   const onClickSideBarHeaders = (e) => {
     const id = e.target.id;
     if (id == 1) {
@@ -395,6 +407,9 @@ const SearchResultBody = () => {
                 categories={categories}
                 activeButton={selectedActiveButton}
                 trigerOnClickEmpSideBtn={onSideBtnClick}
+                change={handleChange}
+                name="category"
+                value={filterData.category}
               />
             ) : null}
             <div
@@ -434,6 +449,9 @@ const SearchResultBody = () => {
                 GameTypes={GameTypes}
                 gameBtn={selectedGameBtn}
                 trigerOnClickEmpSideBtn2={onSideBtnClick2}
+                change={handleChange}
+                name="gameType"
+                value={filterData.gameType}
               />
             ) : null}
             <div
@@ -474,6 +492,9 @@ const SearchResultBody = () => {
                 PlateformsAry={PlateformsAry}
                 PlateformsBtn={selectedPlateformsBtn}
                 trigerOnClickEmpSideBtn3={onSideBtnClick3}
+                name="plateform"
+                value={filterData.plateform}
+                change={handleChange}
               />
             ) : null}
             {/* ////////////////////
@@ -514,6 +535,9 @@ const SearchResultBody = () => {
                 PlateformsAry={levelAry}
                 PlateformsBtn={selectedlevelBtn}
                 trigerOnClickEmpSideBtn3={onSideBtnClick6}
+                name="level"
+                value={filterData.level}
+                change={handleChange}
               />
             ) : null}
 
@@ -554,20 +578,22 @@ const SearchResultBody = () => {
                   <div class="radio-item">
                     <input
                       type="radio"
-                      onChange={onChangeRadioBtn}
                       id="Single"
-                      name="active"
+                      name="mode"
                       value="Single"
+                      // value={filterData.mode}
+                      onChange={handleChange}
                     />
                     <label for="Single">Single mode</label>
                   </div>
                   <div class="radio-item">
                     <input
                       type="radio"
-                      onChange={onChangeRadioBtn}
+                      // onChange={onChangeRadioBtn}
                       id="Multiplayer"
-                      name="active"
+                      name="mode"
                       value="Multiplayer"
+                      onChange={handleChange}
                     />
                     <label for="Multiplayer">Multiplayer mode</label>
                   </div>
