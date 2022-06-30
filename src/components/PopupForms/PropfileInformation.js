@@ -331,10 +331,6 @@ export default function PropfileInformation({
             </div>
 
             <div>
-              {console.log("user", user)}
-              {console.log("creator", creator)}
-              {console.log("role", user?.role)}
-
               <Autocomplete
                 multiple
                 options={values}
