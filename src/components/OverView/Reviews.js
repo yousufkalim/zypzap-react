@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
 import ReviewStarList from "./ReviewStarList";
 import LinearProgress, {
-  linearProgressClasses,
+  linearProgressClasses
 } from "@mui/material/LinearProgress";
 import CongratsYouDidPopup from "../PopupForms/CongratsYouDidPopup";
 
@@ -13,24 +13,24 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
   borderRadius: 5,
   [`&.${linearProgressClasses.colorPrimary}`]: {
-    backgroundColor: "#17192D",
+    backgroundColor: "#17192D"
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 5,
     background: (theme.palette.mode =
-      "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(50.06deg, #662F88 50.05%, #20BF55 131.69%);"),
-  },
+      "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(50.06deg, #662F88 50.05%, #20BF55 131.69%);")
+  }
 }));
 
 const Reviews = (props) => {
-  const { singlCourse, rating } = props;
+  const { singlCourse, rating, setShowPopup, showPopup } = props;
   const [OneStar, setOneStar] = useState(0);
   const [twoStar, setTwoStar] = useState(0);
   const [threeStar, setThreeStar] = useState(0);
   const [fourStar, setFourStar] = useState(0);
   const [fiveStar, setFiveStar] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
-  const [showPopup, setShowPopup] = useState(false);
+
   useEffect(() => {
     calculateStarRating();
   }, [rating]);
@@ -83,21 +83,20 @@ const Reviews = (props) => {
   };
   return (
     <div>
-      <CongratsYouDidPopup showPopup={showPopup} setShowPopup={setShowPopup} />
+      <CongratsYouDidPopup
+        showPopup={showPopup}
+        setShowPopup={setShowPopup}
+        singlCourse={singlCourse}
+        rating={rating}
+      />
       <div className="overView_description">
         <div className="overView-descripiton-centerDiv">
           <div className="reviews">
             {/* 1Div */}
             <div className="studentFeedBack">
               <p className="student-feedback-h3">Student feedback</p>
-              {/* <button
-                onClick={() => {
-                  setShowPopup(true);
-                }}
-              >
-                pop
-              </button> */}
-              <div className="courseRating">
+
+              <div className="courseRating" style={{ cursor: "pointer" }}>
                 <h1 className="courseRatingH1">
                   {singlCourse?.rating ? singlCourse.rating : "0.0"}
                 </h1>
@@ -108,7 +107,7 @@ const Reviews = (props) => {
                       style={{
                         width: "21px",
                         height: "21px",
-                        top: "3px",
+                        top: "3px"
                       }}
                     />
                   ))}

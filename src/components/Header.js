@@ -131,6 +131,7 @@ export default function PrimarySearchAppBar({
   const handleSwitch = () => {
     updateStore({ learner: !learner });
   };
+
   const creatorDashboard = () => {
     setOpenBecomeCreatorPopup(true);
     // updateStore({ contentDashboardButton: "Setting" });

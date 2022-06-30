@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from "react";
-// import GameVideo from "../../assets/GameVideo.mp4";
+import React, { useRef, useState, useEffect } from "react";
 import "./CoursePage.css";
-// import "../../";
-// import VideoPlayIcon from "../../assets/icons/VideoPlayIcon.png";
-
+import Plyr from "plyr-react";
+import "plyr-react/dist/plyr.css";
 import ReactPlayer from "react-player";
 
-const CompleteCourse = ({ singlCourse }) => {
+const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
+  const ref = useRef();
+  useEffect(() => {
+    console.log("internal plyr instance:", ref.current.plyr);
+    ref.current.plyr.on("ended", (e) => {
+      console.log("ended");
+    });
+  }, []);
+
   const [videos, setVideos] = useState(
     singlCourse?.videos ? singlCourse.videos : 0
   );
@@ -15,6 +21,14 @@ const CompleteCourse = ({ singlCourse }) => {
   const [videoCount, setVideoCount] = useState(
     singlCourse?.videos ? singlCourse.videos.length : 0
   );
+  const videoSrc = {
+    type: "video",
+    sources: [
+      {
+        src: playVideo?.src_url
+      }
+    ]
+  };
 
   return (
     <>
@@ -26,7 +40,7 @@ const CompleteCourse = ({ singlCourse }) => {
               Course
             </h2>
             {/* <ReactPlayer src={playVideo?.src_url} /> */}
-            <ReactPlayer
+            {/* <ReactPlayer
               url={playVideo?.src_url}
               config={{
                 file: {
@@ -40,13 +54,8 @@ const CompleteCourse = ({ singlCourse }) => {
               className="completeCourse-Video"
               width="100%"
               // height="100%"
-            />
-            {/* <video
-              className="completeCourse-Video"
-              src={playVideo?.src_url}
-              controls
-              autoplay
-            ></video> */}
+            /> */}
+            <Plyr ref={ref} id="videplayer" source={videoSrc} />
           </div>
           <div className="completeCourse-colm2">
             <h3 className="completeCourseH3">Course Content </h3>
