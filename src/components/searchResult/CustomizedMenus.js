@@ -122,7 +122,6 @@ export default function CustomizedMenus(props) {
     const Courses = [...i, ...j, ...k];
     updateStore({ searchCourse: Courses });
     handleClose();
-    console.log("levels", Courses);
   };
   return (
     <div>

@@ -131,7 +131,7 @@ export default function PrimarySearchAppBar({
   const handleSwitch = () => {
     updateStore({ learner: !learner });
   };
-  
+
   const creatorDashboard = () => {
     setOpenBecomeCreatorPopup(true);
     // updateStore({ contentDashboardButton: "Setting" });
@@ -148,7 +148,6 @@ export default function PrimarySearchAppBar({
   };
 
   const handleSettings = () => {
-    console.log("user?.role ", user?.role);
     {
       user?.role === "User" || learner ? UserDashboard() : creatorDashboard();
     }
@@ -353,13 +352,21 @@ export default function PrimarySearchAppBar({
           </p>
         ) : (
           <>
-            <p className="sgnBtn" onClick={() => setOpenSignup(true)}>
+            <p
+              className="sgnBtn"
+              style={{ marginLeft: "auto", marginRight: "0%" }}
+              onClick={() => setOpenSignup(true)}
+            >
               Sign Up
             </p>
-            <p className="sgnBtn" onClick={() => setOpenLogin(true)}>
+            <p
+              className="sgnBtn"
+              style={{ marginLeft: "auto", marginRight: "0%" }}
+              onClick={() => setOpenLogin(true)}
+            >
               Login
             </p>
-            <div>
+            {/* <div>
               <FormControl className="form_Control_header">
                 <button className="comming-soon3">Coming Soon</button>
 
@@ -382,7 +389,7 @@ export default function PrimarySearchAppBar({
                   </Select>
                 </MenuItem>
               </FormControl>
-            </div>
+            </div> */}
           </>
         )}
       </MenuItem>
@@ -436,20 +443,20 @@ export default function PrimarySearchAppBar({
         user={user}
         setCongratulation={setCongratulation}
       />
-      <PropfileInformation
+      {/* <PropfileInformation
         openProfile={openBecomeCreatorPopup}
         setOpenProfile={setOpenBecomeCreatorPopup}
         handleClose={handleClose}
         user={user}
         setCongratulation={setCongratulation}
-      />
+      /> */}
       <LoginFormPopup
         open={openlogin}
         setOpen={setOpenLogin}
         signup={opensignup}
         setSignup={setOpenSignup}
       />
-      {/* <BecomeCreatorpopup
+      <BecomeCreatorpopup
         open={openBecomeCreatorPopup}
         setOpen={setOpenBecomeCreatorPopup}
         games={games}
@@ -458,7 +465,7 @@ export default function PrimarySearchAppBar({
         setOpen2={setOpen2}
         setOpen3={setOpen3}
         // setCongratulation={setCongratulation}
-      /> */}
+      />
       <DoYouWant
         open={open}
         setOpen={setOpen}
@@ -693,13 +700,21 @@ export default function PrimarySearchAppBar({
                 </p>
               ) : (
                 <>
-                  <p className="sgnBtn" onClick={() => setOpenSignup(true)}>
+                  <p
+                    className="sgnBtn"
+                    style={{ marginLeft: "auto", marginRight: "0%" }}
+                    onClick={() => setOpenSignup(true)}
+                  >
                     Sign Up
                   </p>
-                  <p className="sgnBtn" onClick={() => setOpenLogin(true)}>
+                  <p
+                    className="sgnBtn"
+                    style={{ marginLeft: "auto", marginRight: "0%" }}
+                    onClick={() => setOpenLogin(true)}
+                  >
                     Login
                   </p>
-                  <div>
+                  {/* <div>
                     <FormControl className="form_Control_header">
                       <button className="comming-soon3">Coming Soon</button>
 
@@ -727,10 +742,10 @@ export default function PrimarySearchAppBar({
                         </Select>
                       </MenuItem>
                     </FormControl>
-                  </div>
-                  <div>
-                    {/* notification dropdown */}
-                    {/* <div className="noti-container">
+                  </div> */}
+                  {/* <div> */}
+                  {/* notification dropdown */}
+                  {/* <div className="noti-container">
                       <Select
                         labelId="demo-simple-select-autowidth-label"
                         id="demo-simple-select-autowidth"
@@ -769,8 +784,8 @@ export default function PrimarySearchAppBar({
                         </MenuItem>
                       </Select>
                     </div> */}
-                    {/* notification dropdown */}
-                  </div>
+                  {/* notification dropdown */}
+                  {/* </div> */}
                 </>
               )}
             </Box>

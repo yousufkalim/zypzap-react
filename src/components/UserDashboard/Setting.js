@@ -70,6 +70,10 @@ function Setting({ openProfile, setOpenProfile }) {
   const [plateForm, setPlateForm] = useState(
     user?.plateForm ? user.plateForm : []
   );
+  const [expertiseGame, setExpertiseGame] = useState(
+    user?.expertiseGame ? user.expertiseGame : []
+  );
+
   const [gameMood, setGameMood] = useState(
     user?.gameMood ? user.gameMood : "Single"
   );
@@ -169,7 +173,6 @@ function Setting({ openProfile, setOpenProfile }) {
       }
     }
   };
-  console.log("favouritGame", favouritGame);
 
   const submitProfile = async (e) => {
     const prefrence_games = {
@@ -181,6 +184,7 @@ function Setting({ openProfile, setOpenProfile }) {
     const formdata = {
       prefrence_games,
       gameType,
+      expertiseGame,
       plateForm,
       gameMood,
     };
@@ -204,7 +208,6 @@ function Setting({ openProfile, setOpenProfile }) {
         if (res) {
           updateStore({ user: res.data });
           setCongratulation(true);
-          console.log("UpdatedGames=======", user.prefrence_games);
         }
       } else {
         let res = await api("post", `/creators/${user?._id}`, formdata);
@@ -215,7 +218,6 @@ function Setting({ openProfile, setOpenProfile }) {
             creator: res?.data?.creator,
           });
           setCongratulation(true);
-          console.log("UpdatedGames=======", user.prefrence_games);
         }
       }
     }
@@ -245,12 +247,6 @@ function Setting({ openProfile, setOpenProfile }) {
     "Retro Consoles",
     "Portable Consoles",
   ];
-  const handleSelectedGames = (e) => {
-    console.log("selected", e);
-  };
-  const onSearch = (e) => {
-    console.log("onsearch", e);
-  };
 
   const getAllGames = async (e) => {
     // setformDataOne({
@@ -282,8 +278,9 @@ function Setting({ openProfile, setOpenProfile }) {
   };
   // Set selected game in  setAddressValue State
   const setGamefiled = async (item, selectedItems, reason) => {
-    console.log("selectedItems", selectedItems);
-    setFavouritGame(selectedItems);
+    if (user?.role === "User" || learner) {
+      setFavouritGame(selectedItems);
+    } else setExpertiseGame(selectedItems);
   };
 
   return (
@@ -303,7 +300,12 @@ function Setting({ openProfile, setOpenProfile }) {
               <Autocomplete
                 multiple
                 options={values}
-                defaultValue={favouritGame}
+                // defaultValue={favouritGame}
+                defaultValue={
+                  user?.role === "User" || learner
+                    ? favouritGame
+                    : expertiseGame
+                }
                 // inputValue={}
                 classes={{
                   option: classes.option,

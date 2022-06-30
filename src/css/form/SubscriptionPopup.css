@@ -113,9 +113,9 @@
   height: 15px !important;
   margin-top: 5px !important;
 }
-/* 
+
 @media only screen and (min-width: 320px) and (max-width: 600px) {
-  .subH1 {
+  /* .subH1 {
     font-size: 17px !important;
   }
   .subP {
@@ -126,8 +126,11 @@
   }
   .subsLabel {
     font-size: 12px;
-  }
+  } */
   .subsclearIcon {
     height: 22px !important;
+    position: relative;
+    left: -15px;
+    margin-top: 2% !important;
   }
-} */
+}

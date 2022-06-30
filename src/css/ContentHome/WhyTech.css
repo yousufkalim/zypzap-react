@@ -156,7 +156,7 @@
     text-align: left !important;
   }
 }
-/* for mobile *
+/* for mobile */
 @media only screen and (min-width: 320px) and (max-width: 768px) {
   .why_container {
     margin-top: 0px;
@@ -179,8 +179,9 @@
     font-size: 13px;
   }
   .whyh1 {
-    padding: 24px 0 0 0;
+    padding: 46px 0 0 0;
     font-size: 23px;
+    margin-bottom: 8%;
   }
   .why_box {
     flex-direction: column;
@@ -189,6 +190,7 @@
     padding: 4px 0 9px 0;
     width: 100%;
     font-size: 17px;
+    margin: 0;
   }
   .whyboxp {
     font-size: 12px;
@@ -202,15 +204,19 @@
     padding-right: 0px;
   }
   .img2 {
-    margin: 120px auto 0 0px;
     width: 109%;
     margin-left: -43px;
+    margin-top: -49%;
   }
   .img3 {
     padding-left: 0 !important;
     margin-bottom: 20px;
     margin-top: -69px;
     width: 85% !important;
+  }
+  #why_data {
+    display: flex;
+    flex-direction: column-reverse;
   }
   .col_1 {
     width: 100%;
@@ -226,8 +232,9 @@
     width: 100%;
   }
   .box2 {
-    margin: 0px 0 0 0px;
     width: 100%;
+    margin: 120px auto 0 0px;
+    width: 109%;
   }
   .box3 {
     margin-top: 30px;
@@ -236,4 +243,4 @@
   .box3h2 {
     padding-top: 50px;
   }
-} */
+}
