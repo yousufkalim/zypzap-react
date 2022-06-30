@@ -6,6 +6,7 @@ import { ReactComponent as Star1 } from "../assets/icons/star2.svg";
 import TopCourseImg from "../assets/img/topcourseimg.png";
 import avatar from "../assets/img/avatar.png";
 import StarIcon from "@material-ui/icons/Star";
+import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 export default function TopCourses(props) {
@@ -22,16 +23,16 @@ export default function TopCourses(props) {
   var items = [
     {
       name: "PUBG gameplay full course",
-      description: "Probably the most random thing you have ever seen!",
+      description: "Probably the most random thing you have ever seen!"
     },
     {
       name: "Taken gameplay full course2",
-      description: "Hello World!",
+      description: "Hello World!"
     },
     {
       name: "Speed3",
-      description: "Hello World!",
-    },
+      description: "Hello World!"
+    }
   ];
 
   const handleviewTopCourses = () => {
@@ -39,8 +40,8 @@ export default function TopCourses(props) {
       pathname: "/searchResult",
       param: {
         name: "Top 10 Games",
-        value: "1",
-      },
+        value: "1"
+      }
     });
   };
   return (
@@ -53,7 +54,7 @@ export default function TopCourses(props) {
         style={{
           display: "inline-block",
           cursor: "Pointer",
-          float: "right",
+          float: "right"
         }}
         onClick={handleviewTopCourses}
       >
@@ -67,18 +68,20 @@ export default function TopCourses(props) {
         className="topcoursecarousal"
         // width="100%"
       >
-        {Courses?.slice(0, 3).map((item, i) => (
-          <Link
-            to={{
-              pathname: `OverView/${item?._id}`,
-              state: { course: `${item}` },
-            }}
-            className="requestBt"
-            style={{ textDecoration: "none", color: "white" }}
-          >
-            <TopCoursesComponent key={i} item={item} />
-          </Link>
-        ))}
+        {Courses?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+          .slice(0, 3)
+          .map((item, i) => (
+            <Link
+              to={{
+                pathname: `OverView/${item?._id}`,
+                state: { course: `${item}` }
+              }}
+              className="requestBt"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <TopCoursesComponent key={i} item={item} />
+            </Link>
+          ))}
       </Carousel>
     </div>
   );
@@ -114,6 +117,7 @@ function TopCoursesComponent({ item }) {
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays;
   };
+  console.log("item", item);
   return (
     <Grid container spacing={2} className="topCourseGrid">
       <Grid item xs={12} sm={5} className="topCoursesDiv">
@@ -146,13 +150,12 @@ function TopCoursesComponent({ item }) {
                   <p className="p2">{item?.course_name + " player"}</p>
                   {
                     <p className="p2">
-                      {item?.rating ? item.rating : <></>} &nbsp;
                       {[1, 2, 3, 4, 5].map((i) => (
-                        <Star1
+                        <StarIcon
                           className="starID"
                           style={{
                             width: "15px",
-                            height: "15px",
+                            height: "15px"
                           }}
                         />
                       ))}
@@ -245,13 +248,13 @@ function TopCoursesComponent({ item }) {
                 <p className="p1">{item?.creator?.user_id?.username}</p>
                 <p className="p2">{item?.course_name + " player"}</p>
                 <p className="p2">
-                  {item?.rating ? item.rating : <></>} &nbsp;
+                  {item?.rating ? item.rating : <></>}
                   {[1, 2, 3, 4, 5].map((i) => (
                     <Star1
                       className="starID"
                       style={{
                         width: "15px",
-                        height: "15px",
+                        height: "15px"
                       }}
                     />
                   ))}

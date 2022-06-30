@@ -103,6 +103,10 @@
   color: linear-gradient(65.06deg, #662f88, #20bf55 131.69%) !important;
   margin: 5px 0px -3px 0px;
 }
+.starID2{
+  color: linear-gradient(65.06deg, #662f88, #20bf55 131.69%) !important;
+  
+}
 /* for big screens */
 /* @media only screen and (min-width: 1600px) and (max-width: 2000px) {
   .h3heading {

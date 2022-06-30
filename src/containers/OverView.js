@@ -44,7 +44,7 @@ const OverView = (props) => {
     getSingleCourses();
     getRatingOfCourse();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, showVideo]);
+  }, [id, showVideo, showRatingPopup]);
 
   let getSingleCourses = async () => {
     let res = await api("get", `/courses/${id}`);
