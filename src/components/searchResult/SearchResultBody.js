@@ -227,9 +227,13 @@ const SearchResultBody = () => {
   //sidebar list togle
 
   const handleChange = async (e) => {
-    let filters = { ...filterData, [e.target.name]: e.target.value };
+    let filters = {};
+    if (filterData[e.target.name] === e.target.value) {
+      filters = { ...filterData, [e.target.name]: undefined };
+    } else {
+      filters = { ...filterData, [e.target.name]: e.target.value };
+    }
     setFilterData(filters);
-
     const res = await api("post", "/courses/filter", filters);
     updateStore({ searchCourse: res.data });
   };
