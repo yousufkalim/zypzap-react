@@ -9,6 +9,8 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import Checkbox from "@mui/material/Checkbox";
+
 import Course1 from "../../assets/img/course1.png";
 import StarIcon from "@material-ui/icons/Star";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -234,6 +236,10 @@ const SearchResultBody = () => {
       filters = { ...filterData, [e.target.name]: e.target.value };
     }
     setFilterData(filters);
+    console.log("============", {
+      ...filterData,
+      [e.target.name]: e.target.value,
+    });
     const res = await api("post", "/courses/filter", filters);
     updateStore({ searchCourse: res.data });
   };
@@ -578,30 +584,32 @@ const SearchResultBody = () => {
             </div>
             {selectedGameplay ? (
               <div>
-                <form>
-                  <div class="radio-item">
-                    <input
-                      type="radio"
-                      id="Single"
-                      name="mode"
-                      value="Single"
-                      // value={filterData.mode}
-                      onChange={handleChange}
-                    />
-                    <label for="Single">Single mode</label>
-                  </div>
-                  <div class="radio-item">
-                    <input
-                      type="radio"
-                      // onChange={onChangeRadioBtn}
-                      id="Multiplayer"
+                <div class="radio-item">
+                  <span className="categories-tegs">
+                    <Checkbox
                       name="mode"
                       value="Multiplayer"
+                      id="Multiplayer"
+                      checked={filterData.mode === "Multiplayer"}
+                      inputProps={{ "aria-label": "controlled" }}
                       onChange={handleChange}
                     />
-                    <label for="Multiplayer">Multiplayer mode</label>
-                  </div>
-                </form>
+                    &nbsp; Multiplayer mode
+                  </span>
+                </div>
+                <div class="radio-item">
+                  <span className="categories-tegs">
+                    <Checkbox
+                      name="mode"
+                      value="Single"
+                      id="Single"
+                      checked={filterData.mode === "Single"}
+                      inputProps={{ "aria-label": "controlled" }}
+                      onChange={handleChange}
+                    />
+                    &nbsp; Single mode
+                  </span>
+                </div>
               </div>
             ) : null}
             {/* <div
