@@ -116,6 +116,7 @@ export default function PrimarySearchAppBar({
   const [age, setAge] = React.useState("");
 
   const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
 
   const [open2, setOpen2] = useState(false);
   const [open3, setOpen3] = useState(false);
@@ -183,7 +184,8 @@ export default function PrimarySearchAppBar({
         let res = await api("get", `/courses/search?name=${searchInput}`);
 
         if (res) {
-          updateStore({ searchCourse: res?.data, searchCreator: [] });
+          // updateStore({ searchCourse: res?.data, searchCreator: [] });
+          setSearch(res?.data);
           const courses = res?.data;
           history.push(`/searchResult`);
         }
@@ -211,7 +213,8 @@ export default function PrimarySearchAppBar({
     updateStore({ searchState: "course" });
   };
   const handleChangeInput = (e) => {
-    updateStore({ searchInput: e.target.value });
+    // updateStore({ searchInput: e.target.value });
+    setSearch(e.target.value);
     // e.addEventListener("keypress", function (event) {
     //   if (event.key === "Enter") {
     //     event.preventDefault();
@@ -571,6 +574,7 @@ export default function PrimarySearchAppBar({
                   </div>
                 )}
               </div>
+              {console.log("header state search==============>", search)}
               <StyledInputBase
                 placeholder={
                   searchState == "course"
@@ -580,7 +584,7 @@ export default function PrimarySearchAppBar({
                 inputProps={{ "aria-label": "search", className: "cc_field" }}
                 onChange={handleChangeInput}
                 // onSubmit={handleSearchButtonClick}
-                value={searchInput}
+                value={search}
                 onKeyPress={(e) =>
                   e.key === "Enter" && handleSearchButtonClick(e)
                 }

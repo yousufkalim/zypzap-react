@@ -77,8 +77,14 @@ function Setting({ openProfile, setOpenProfile }) {
   const [gameMood, setGameMood] = useState(
     user?.gameMood ? user.gameMood : "Single"
   );
+  // const [learningRethem, setLearningRethem] = useState(
+  //   user?.setLearningRethem ? user.setLearningRethem : ""
+  // );
+
   const [learningRethem, setLearningRethem] = useState(
-    user?.setLearningRethem ? user.setLearningRethem : ""
+    user?.prefrence_games?.learningRethem
+      ? user.prefrence_games.learningRethem
+      : "10h To 20h Per Week"
   );
 
   const [currentLevel, setCurrentLevel] = useState(
@@ -103,7 +109,12 @@ function Setting({ openProfile, setOpenProfile }) {
     setGameType(user?.gameType ? user.gameType : []);
     setPlateForm(user?.plateForm ? user.plateForm : []);
     setGameMood(user?.gameMood ? user.gameMood : "Single");
-    setLearningRethem(user?.setLearningRethem ? user.setLearningRethem : "");
+    // setLearningRethem(user?.setLearningRethem ? user.setLearningRethem : "");
+    setLearningRethem(
+      user?.prefrence_games?.learningRethem
+        ? user.prefrence_games.learningRethem
+        : "Per Week"
+    );
     setCurrentLevel(
       user?.prefrence_games?.current_level
         ? user.prefrence_games.current_level
@@ -444,6 +455,16 @@ function Setting({ openProfile, setOpenProfile }) {
                     label="MultiPlayer Mode"
                     onClick={onChangeRadioBtn}
                   />
+                  {!(user?.role === "User" || learner) ? (
+                    <FormControlLabel
+                      value="Both"
+                      control={<Radio />}
+                      label="Both"
+                      onClick={onChangeRadioBtn}
+                    />
+                  ) : (
+                    ""
+                  )}
                 </RadioGroup>
               </div>
             </FormControl>
@@ -457,44 +478,34 @@ function Setting({ openProfile, setOpenProfile }) {
                 </label>
               </div>
               <div className="userProfileSelectInput">
+                {console.log("Learning Rhythm", learningRethem)}
                 <select
                   id="Select"
                   name="Select"
                   onChange={ChangeLearningRhythm}
                   className="selectInput-userProfile selectInput2"
+                  defaultValue={learningRethem}
                 >
                   <option
                     value="10h To 20h Per Week"
                     className="selectInput-option"
                   >
-                    {learningRethem === "10h To 20h Per Week"
-                      ? learningRethem
-                      : "10h To 20h Per Week"}
+                    10h To 20h Per Week
                   </option>
                   <option value="20h To 30h Per Week">
-                    {learningRethem === "20h To 30h Per Week"
-                      ? learningRethem
-                      : "20h To 30h Per Week"}
+                    20h To 30h Per Week
                   </option>
                   <option value="30h To 40h Per Week">
-                    {learningRethem === "30h To 40h Per Week"
-                      ? learningRethem
-                      : "30h To 40h Per Week"}
+                    30h To 40h Per Week
                   </option>
                   <option value="40h To 50h Per Week">
-                    {learningRethem === "40h To 50h Per Week"
-                      ? learningRethem
-                      : "40h To 50h Per Week"}
+                    40h To 50h Per Week
                   </option>
                   <option value="50h To 60h Per Week">
-                    {learningRethem === "50h To 60h Per Week"
-                      ? learningRethem
-                      : "50h To 60h Per Week"}
+                    50h To 60h Per Week
                   </option>
                   <option value="60h To 70h Per Week">
-                    {learningRethem === "60h To 70h Per Week"
-                      ? learningRethem
-                      : "60h To 70h Per Week"}
+                    60h To 70h Per Week
                   </option>
                 </select>
               </div>

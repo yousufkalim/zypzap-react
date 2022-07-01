@@ -40,7 +40,7 @@ const OverViewHome = (props) => {
   const handleStartCourse = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id
+      userId: u?._id,
     };
     let res = await api("post", "/users/enrolledCourseAndStarted", data);
   };
@@ -51,7 +51,7 @@ const OverViewHome = (props) => {
   const handleEnrolled = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id
+      userId: u?._id,
     };
     let res = await api("post", "/users/enrolledCourse", data);
     if (res) {
@@ -86,8 +86,13 @@ const OverViewHome = (props) => {
                   &nbsp;Gameplay
                 </span>
               </h1>
+
               <p className="overViewContent" style={{ width: "60%" }}>
-                {singlCourse?.description ? singlCourse.description : ""}
+                {singlCourse?.description
+                  ? singlCourse?.description.length > 300
+                    ? `${singlCourse?.description.substring(0, 299)}.....`
+                    : singlCourse?.description
+                  : ""}
               </p>
             </div>
 
@@ -132,7 +137,7 @@ const OverViewHome = (props) => {
                 <p className="overViewIconP">
                   {singlCourse?.rating
                     ? `${singlCourse.rating} Rating`
-                    : " 3.5 Rating"}{" "}
+                    : " 0 Rating"}{" "}
                   {/* <img src={Star6} alt="" /> */}
                 </p>
               </li>
