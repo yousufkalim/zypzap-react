@@ -132,7 +132,7 @@ const OverViewHome = (props) => {
                 <p className="overViewIconP">
                   {singlCourse?.rating
                     ? `${singlCourse.rating} Rating`
-                    : " 3.5 Rating"}{" "}
+                    : " 0 Rating"}{" "}
                   {/* <img src={Star6} alt="" /> */}
                 </p>
               </li>

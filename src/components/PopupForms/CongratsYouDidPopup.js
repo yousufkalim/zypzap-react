@@ -18,7 +18,30 @@ const CongratsYouDidPopup = ({
   const handleClose = () => {
     setShowPopup(false);
   };
+  const handleSubmit = async () => {
+    rating = rating?.filter((rat) => rat.rating_by == user?._id);
 
+    if (rating.length >= 1) {
+      let res = await api("put", `/ratings/${rating[0]?._id}`, {
+        rating: value,
+        course: singlCourse._id,
+        rating_by: user?._id
+      });
+      if (res) {
+        setShowPopup(false);
+      }
+      setShowPopup(false);
+      return;
+    }
+    let res = await api("post", `/ratings`, {
+      rating: value,
+      course: singlCourse._id,
+      rating_by: user?._id
+    });
+    if (res) {
+      setShowPopup(false);
+    }
+  };
   return (
     <div>
       <Dialog
@@ -44,7 +67,7 @@ const CongratsYouDidPopup = ({
               />
             </div>
             <br />
-            <button className="uploadSuccessBTN" onClick="">
+            <button className="uploadSuccessBTN" onClick={handleSubmit}>
               Submit
             </button>
           </div>
