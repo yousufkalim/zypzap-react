@@ -1,7 +1,14 @@
 import React from "react";
 import Checkbox from "@mui/material/Checkbox";
 
-const Level = ({ PlateformsAry, PlateformsBtn, trigerOnClickEmpSideBtn3 }) => {
+const Level = ({
+  PlateformsAry,
+  PlateformsBtn,
+  trigerOnClickEmpSideBtn3,
+  change,
+  name,
+  value,
+}) => {
   return (
     <>
       {PlateformsAry.map((item) => {
@@ -15,9 +22,11 @@ const Level = ({ PlateformsAry, PlateformsBtn, trigerOnClickEmpSideBtn3 }) => {
           >
             <span className="categories-tegs">
               <Checkbox
-                // checked={checked}
-                // onChange={handleChange}
                 inputProps={{ "aria-label": "controlled" }}
+                name={name}
+                value={item.name}
+                checked={item.name === value}
+                onChange={change}
               />
               &nbsp;{item.name}
             </span>

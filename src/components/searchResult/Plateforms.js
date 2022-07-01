@@ -5,6 +5,9 @@ const Plateforms = ({
   PlateformsAry,
   PlateformsBtn,
   trigerOnClickEmpSideBtn3,
+  change,
+  name,
+  value,
 }) => {
   return (
     <>
@@ -19,9 +22,11 @@ const Plateforms = ({
           >
             <span className="categories-tegs">
               <Checkbox
-                // checked={checked}
-                // onChange={handleChange}
+                name={name}
+                value={item.name}
+                checked={item.name === value}
                 inputProps={{ "aria-label": "controlled" }}
+                onChange={change}
               />
               &nbsp;{item.name}
             </span>

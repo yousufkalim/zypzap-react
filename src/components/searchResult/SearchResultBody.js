@@ -9,6 +9,8 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import Checkbox from "@mui/material/Checkbox";
+
 import Course1 from "../../assets/img/course1.png";
 import StarIcon from "@material-ui/icons/Star";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -154,10 +156,6 @@ const PlateformsAry = [
     name: "Portable Consoles",
     value: "school",
   },
-  {
-    name: "Mobile Games",
-    value: "schooltwo",
-  },
 ];
 const levelAry = [
   {
@@ -206,6 +204,14 @@ const SearchResultBody = () => {
   const [radioBtnValue, setRadioBtnValue] = useState("");
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
   const [paginatedCourses, setPaginatedCourses] = useState([]);
+  const [filterData, setFilterData] = useState({
+    category: undefined,
+    gameType: undefined,
+    plateform: undefined,
+    level: undefined,
+    mode: undefined,
+  });
+
   // recieving context __data
 
   const {
@@ -221,6 +227,22 @@ const SearchResultBody = () => {
   const updateStore = UpdateStore();
 
   //sidebar list togle
+
+  const handleChange = async (e) => {
+    let filters = {};
+    if (filterData[e.target.name] === e.target.value) {
+      filters = { ...filterData, [e.target.name]: undefined };
+    } else {
+      filters = { ...filterData, [e.target.name]: e.target.value };
+    }
+    setFilterData(filters);
+    console.log("============", {
+      ...filterData,
+      [e.target.name]: e.target.value,
+    });
+    const res = await api("post", "/courses/filter", filters);
+    updateStore({ searchCourse: res.data });
+  };
   const onClickSideBarHeaders = (e) => {
     const id = e.target.id;
     if (id == 1) {
@@ -395,6 +417,9 @@ const SearchResultBody = () => {
                 categories={categories}
                 activeButton={selectedActiveButton}
                 trigerOnClickEmpSideBtn={onSideBtnClick}
+                change={handleChange}
+                name="category"
+                value={filterData.category}
               />
             ) : null}
             <div
@@ -434,6 +459,9 @@ const SearchResultBody = () => {
                 GameTypes={GameTypes}
                 gameBtn={selectedGameBtn}
                 trigerOnClickEmpSideBtn2={onSideBtnClick2}
+                change={handleChange}
+                name="gameType"
+                value={filterData.gameType}
               />
             ) : null}
             <div
@@ -474,6 +502,9 @@ const SearchResultBody = () => {
                 PlateformsAry={PlateformsAry}
                 PlateformsBtn={selectedPlateformsBtn}
                 trigerOnClickEmpSideBtn3={onSideBtnClick3}
+                name="plateform"
+                value={filterData.plateform}
+                change={handleChange}
               />
             ) : null}
             {/* ////////////////////
@@ -514,6 +545,9 @@ const SearchResultBody = () => {
                 PlateformsAry={levelAry}
                 PlateformsBtn={selectedlevelBtn}
                 trigerOnClickEmpSideBtn3={onSideBtnClick6}
+                name="level"
+                value={filterData.level}
+                change={handleChange}
               />
             ) : null}
 
@@ -550,28 +584,32 @@ const SearchResultBody = () => {
             </div>
             {selectedGameplay ? (
               <div>
-                <form>
-                  <div class="radio-item">
-                    <input
-                      type="radio"
-                      onChange={onChangeRadioBtn}
-                      id="Single"
-                      name="active"
-                      value="Single"
-                    />
-                    <label for="Single">Single mode</label>
-                  </div>
-                  <div class="radio-item">
-                    <input
-                      type="radio"
-                      onChange={onChangeRadioBtn}
-                      id="Multiplayer"
-                      name="active"
+                <div class="radio-item">
+                  <span className="categories-tegs">
+                    <Checkbox
+                      name="mode"
                       value="Multiplayer"
+                      id="Multiplayer"
+                      checked={filterData.mode === "Multiplayer"}
+                      inputProps={{ "aria-label": "controlled" }}
+                      onChange={handleChange}
                     />
-                    <label for="Multiplayer">Multiplayer mode</label>
-                  </div>
-                </form>
+                    &nbsp; Multiplayer mode
+                  </span>
+                </div>
+                <div class="radio-item">
+                  <span className="categories-tegs">
+                    <Checkbox
+                      name="mode"
+                      value="Single"
+                      id="Single"
+                      checked={filterData.mode === "Single"}
+                      inputProps={{ "aria-label": "controlled" }}
+                      onChange={handleChange}
+                    />
+                    &nbsp; Single mode
+                  </span>
+                </div>
               </div>
             ) : null}
             {/* <div
@@ -733,9 +771,11 @@ const SearchResultBody = () => {
                         fontWeight: "400",
                       }}
                     >
-                      {searchCourse.length +
-                        " course result for " +
-                        ` ${searchInput} `}
+                      {searchInput
+                        ? searchCourse.length +
+                          " course result for " +
+                          ` ${searchInput} `
+                        : searchCourse.length + " course result"}
                     </span>
                   </div>
                   <div>
