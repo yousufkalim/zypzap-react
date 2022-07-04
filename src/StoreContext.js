@@ -1,5 +1,5 @@
 // Init
-import React, { useContext, useState, createContext } from "react";
+import React, { useContext, useState, useEffect, createContext } from "react";
 
 // Initializing Create Context Hook
 const storeContext = createContext();
@@ -31,7 +31,7 @@ export function StoreProvider({ children }) {
     searchInput: "",
     Games: [],
     searchLoader: false,
-    learner: false,
+    learner: true,
     contentDashboardButton: "Courses",
   });
 

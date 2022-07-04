@@ -61,11 +61,12 @@ const CreatorProfileHome = (props) => {
     setOpenProfile(true);
   };
   const totalStudent = (courses) => {
-    let total = 0;
+    let std = [];
     courses?.map((c) => {
-      if (c?.student?.length > 0) total += c.student.length;
+      if (c?.student?.length > 0) std.push(...c.student);
     });
-    return total;
+    std = [...new Set(std)];
+    return std.length;
   };
   return (
     <>

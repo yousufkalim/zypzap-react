@@ -321,6 +321,17 @@
   margin: 0 auto;
   padding: 20px;
 }
+.followingImgDiv {
+  height: 88px;
+  width: 88px;
+}
+.followingIMG {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 100px;
+}
+
 .followCol1 {
   display: flex;
   justify-content: space-between;

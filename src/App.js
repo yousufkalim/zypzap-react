@@ -42,7 +42,11 @@ function App() {
         if (res?.data?.role === "Creator") {
           resCreator = await api("get", `/creators/${res.data.creator}`);
         }
-        updateStore({ user: res?.data, creator: resCreator?.data?.creator });
+        updateStore({
+          user: res?.data,
+          creator: resCreator?.data?.creator,
+          learner: res?.data?.role === "User" ? true : false,
+        });
       }
     } catch (error) {}
   };

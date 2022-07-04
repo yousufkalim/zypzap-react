@@ -224,7 +224,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                   value={gameLevel}
                   onChange={chnageEvent}
                 >
-                  <option value="Casual" className="setepOption">
+                  <option value="" className="setepOption">
                     Select Level
                   </option>
                   <option value="Casual" className="setepOption">
@@ -260,7 +260,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                   value={gameType}
                   onChange={chnageEvent}
                 >
-                  <option value="Action" className="setepOption">
+                  <option value="" className="setepOption">
                     Select Category
                   </option>
                   <option value="Action" className="setepOption">
@@ -314,11 +314,11 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                 <select
                   id="gameMood"
                   name="gameMood"
-                  value={gameMood}
                   className="stepSelect"
+                  value={gameMood}
                   onChange={chnageEvent}
                 >
-                  <option value="Single" className="setepOption">
+                  <option value="" className="setepOption">
                     Select Mode
                   </option>
                   <option value="Single" className="setepOption">
@@ -343,9 +343,9 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                   value={gamePlateForm}
                   onChange={chnageEvent}
                 >
-                  {/* <option value="Mobile Games" className="setepOption">
-                        MOBILE GAMES
-                      </option> */}
+                  <option value="" className="setepOption">
+                    Select Platform
+                  </option>
                   <option value="Retro Consoles" className="setepOption">
                     Retro Consoles
                   </option>

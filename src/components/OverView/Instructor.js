@@ -16,11 +16,17 @@ const Instructor = (props) => {
   const updateStore = UpdateStore();
   const { user } = Store();
   const totalStudent = (courses) => {
-    let total = 0;
+    // let total = 0;
+    // courses?.map((c) => {
+    //   if (c?.student?.length > 0) total += c.student.length;
+    // });
+
+    let std = [];
     courses?.map((c) => {
-      if (c?.student?.length > 0) total += c.student.length;
+      if (c?.student?.length > 0) std.push(...c.student);
     });
-    return total;
+    std = [...new Set(std)];
+    return std.length;
   };
   useEffect(() => {
     setId(singlCourse?.creator?.user_id?._id);
@@ -81,6 +87,7 @@ const Instructor = (props) => {
                       : " Pro"}
                   </span>
                 </p>
+                {console.log(singlCourse)}
                 <p className="instructor-student">
                   {singlCourse?.creator?.courses
                     ? totalStudent(singlCourse.creator.courses) > 1

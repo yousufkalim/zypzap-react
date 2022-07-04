@@ -11,19 +11,26 @@ import { CircularProgress } from "@material-ui/core";
 const CreatorResult = ({ input, creator }) => {
   const { searchCreator, searchLoader } = Store();
   const [_myCreators, set_MyRatingCreators] = useState([]);
+
+  const totalStudent = (courses) => {
+    let students = [];
+    courses?.map((c) => {
+      if (c?.student?.length > 0) students.push(...c.student);
+    });
+    students = [...new Set(students)];
+    return students.length;
+  };
+
   useMemo(() => {
     let myCreator = [];
     searchCreator.map((item) => {
       let _num = 0;
-      let student = 0;
+
       item?.creator?.courses?.map((_course) => {
         _num += parseInt(_course.rating);
-        student += parseInt(
-          _course?.student?.length ? _course?.student?.length : 0
-        );
       });
       _num = _num > 0 ? _num / item?.creator?.courses?.length : 0;
-      myCreator.push({ ...item, _avgRating: _num ?? 0, _avgStudent: student });
+      myCreator.push({ ...item, _avgRating: _num ?? 0 });
     });
     set_MyRatingCreators(myCreator);
     // searchCreator?.filter((courses) => (count += courses?.student?.length));
@@ -62,8 +69,9 @@ const CreatorResult = ({ input, creator }) => {
                       <div className="following-card">
                         <div className="followingImgDiv">
                           <img
-                            src={ArslanAshIMG}
+                            src={item.profile_photo || ArslanAshIMG}
                             className="followingIMG"
+                            // className="instructorLogo"
                             alt="img"
                           />
                         </div>
@@ -89,8 +97,14 @@ const CreatorResult = ({ input, creator }) => {
                               />
                             ))}
                             <br />
-                            {/* todo avg  */}
-                            {`${item._avgStudent} Students` ?? 0}
+                            {/* {`${item._avgStudent} Students` ?? 0} */}
+                            {item?.creator?.courses
+                              ? totalStudent(item.creator.courses) > 1
+                                ? totalStudent(item.creator.courses) +
+                                  " Students"
+                                : totalStudent(item.creator.courses) +
+                                  " Student"
+                              : "No Students"}
                           </p>
                         </div>
                         {/* <div className="followingButtonDiv">

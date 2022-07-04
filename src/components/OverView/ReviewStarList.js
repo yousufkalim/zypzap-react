@@ -6,7 +6,7 @@ const ReviewStarList = (props) => {
     <div>
       <li className="reviewStarLi">
         {" "}
-        {[1, 2, 3, 4, 5].map((i) => (
+        {props.star.map((i) => (
           <Star1
             className="starID"
             style={{
