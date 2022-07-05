@@ -2,8 +2,7 @@
 import React, { useEffect } from 'react';
 import { ToastContainer, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useTranslation, Trans } from 'react-i18next';
-import Cookies from './utils/Cookies';
+import { useTranslation } from 'react-i18next';
 import api from './api';
 
 // Files
@@ -19,14 +18,8 @@ import { Store, UpdateStore } from './StoreContext';
 function App() {
   // init
   const updateStore = UpdateStore();
-  const { user } = Store();
 
-  const { t, i18n } = useTranslation();
-  const { language } = i18n;
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
-  let token = localStorage.getItem('token');
+  const token = localStorage.getItem('token');
   useEffect(() => {
     if (token) {
       SetAuthToken(token);
@@ -36,7 +29,7 @@ function App() {
 
   let getdata = async () => {
     try {
-      let res = await api('get', '/users/getuserbytoken');
+      const res = await api('get', '/users/getuserbytoken');
       if (res) {
         let resCreator;
         if (res?.data?.role === 'Creator') {
@@ -48,7 +41,9 @@ function App() {
           learner: res?.data?.role === 'User' ? true : false,
         });
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error(error.message);
+    }
   };
   return (
     <div className="App">

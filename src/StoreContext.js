@@ -1,11 +1,11 @@
 // Init
-import React, { useContext, useState, useEffect, createContext } from 'react';
+import React, { useContext, useState, createContext } from 'react';
 
 // Initializing Create Context Hook
 const storeContext = createContext();
 const storeUpdateContext = createContext();
 
-// We are also initializing useContexts here then we only call these functions where we need that data
+// Also initializing useContexts here then we only call these functions where we need that data
 export function Store() {
   return useContext(storeContext);
 }
@@ -37,10 +37,7 @@ export function StoreProvider({ children }) {
 
   const updateStore = (data) => {
     setStore((prev) => {
-      return {
-        ...prev,
-        ...data,
-      };
+      return { ...prev, ...data };
     });
   };
 

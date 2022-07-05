@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import axios from 'axios';
 import { makeStyles } from '@mui/styles';
-import Select from 'react-select';
 import { toast } from 'react-toastify';
 import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
@@ -10,7 +9,6 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
   const [values, setValues] = useState([]);
-
   const {
     course_name,
     gameName,
@@ -72,9 +70,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
       return toast.error('Veuillez entrer votre ambiance de jeu');
     }
     if (gamePlateForm === '') {
-      return toast.error(
-        'Veuillez saisir le nom de votre forme de plateau de jeu'
-      );
+      return toast.error('Veuillez saisir le nom de votre forme de plateau de jeu');
     }
     if (description === '') {
       return toast.error('Veuillez entrer votre description');
@@ -87,7 +83,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
       [e.target.name]: e.target.value,
     });
 
-    let res = await axios.get(
+    const res = await axios.get(
       `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
         e.target.value +
         '&page=1&page_size=10',
@@ -184,10 +180,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                   }}
                   className="coursInputAutofiled"
                   noOptionsText={
-                    <div style={{ color: 'white', fontSize: '12px' }}>
-                      {' '}
-                      no option{' '}
-                    </div>
+                    <div style={{ color: 'white', fontSize: '12px' }}> no option </div>
                   }
                   PaperComponent={({ children }) => (
                     <Paper style={{ background: '#242635' }}>{children}</Paper>
