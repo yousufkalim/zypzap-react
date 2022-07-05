@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import "../../css/form/LandingPopup.css";
-import Dialog from "@mui/material/Dialog";
-import ClearIcon from "@mui/icons-material/Clear";
-import NewLogo from "../../assets/icons/NewLogo.png";
-import GamerLogo from "../../assets/icons/GamerLogo.svg";
-import Countdown from "react-countdown";
-import moment from "moment";
+import React, { useState, useEffect } from 'react';
+import '../../css/form/LandingPopup.css';
+import Dialog from '@mui/material/Dialog';
+import ClearIcon from '@mui/icons-material/Clear';
+import NewLogo from '../../assets/icons/NewLogo.png';
+import GamerLogo from '../../assets/icons/GamerLogo.svg';
+import Countdown from 'react-countdown';
+import moment from 'moment';
 
 const LandingPopup = ({ open, setOpen }) => {
   const [timeLeft, setTimeLeft] = useState(30);
-  var countDownDate = new Date("June 26, 2022").getTime();
+  var countDownDate = new Date('June 26, 2022').getTime();
   const [state, setState] = useState({
     days: 0,
     hours: 0,
@@ -31,9 +31,7 @@ const LandingPopup = ({ open, setOpen }) => {
       var distance = countDownDate - now;
       // Time calculations for days, hours, minutes and seconds
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
       setState({
@@ -58,8 +56,8 @@ const LandingPopup = ({ open, setOpen }) => {
 
   return (
     <div>
-      <Dialog open={open} maxWidth={"xl"}>
-        <div className="landingPopup" style={{ backgroundColor: "#1D1F38" }}>
+      <Dialog open={open} maxWidth={'xl'}>
+        <div className="landingPopup" style={{ backgroundColor: '#1D1F38' }}>
           <ClearIcon className="subsclearIcon" onClick={handleClose} />
           <div className="landingPopup_container">
             {/* landingPopup_logo_and_heading */}
@@ -69,8 +67,7 @@ const LandingPopup = ({ open, setOpen }) => {
               </div>
               <div className="landingheading">
                 <p className="landing_heading_P">
-                  SOYEZ PARMI LES PREMIERS <br /> ET BÉNÉFICIEZ D’AVANTAGES
-                  EXCLUSIFS*
+                  SOYEZ PARMI LES PREMIERS <br /> ET BÉNÉFICIEZ D’AVANTAGES EXCLUSIFS*
                 </p>
               </div>
             </div>
@@ -81,9 +78,7 @@ const LandingPopup = ({ open, setOpen }) => {
                 {/* gamer_heading_Line_logo */}
                 <div className="gamer_heading_Line_logo">
                   <p className="gamers_title">GAMERS</p>
-                  <p className="gamer_tite_p">
-                    Faites partie des 1000 premiers inscrits
-                  </p>
+                  <p className="gamer_tite_p">Faites partie des 1000 premiers inscrits</p>
                   <div className="gamer_line"></div>
                   <img src={GamerLogo} alt="" className="gamer_Logo" />
                 </div>
@@ -100,14 +95,10 @@ const LandingPopup = ({ open, setOpen }) => {
                   </p>
                 </div>
                 <div className="gratuit">
-                  <p className="gratuit_p1">
-                    Accès aux évènements virtuels exclusifs
-                  </p>
+                  <p className="gratuit_p1">Accès aux évènements virtuels exclusifs</p>
                 </div>
                 <div className="gratuit">
-                  <p className="gratuit_p2_2ind">
-                    Accès anticipé aux fonctionnalités beta
-                  </p>
+                  <p className="gratuit_p2_2ind">Accès anticipé aux fonctionnalités beta</p>
                   <p className="gratuit_p1">pendant un an</p>
                 </div>
                 <img src={GamerLogo} alt="" className="gamer_Logo2" />
@@ -117,9 +108,7 @@ const LandingPopup = ({ open, setOpen }) => {
                 {/* gamer_heading_Line_logo */}
                 <div className="gamer_heading_Line_logo">
                   <p className="gamers_title">CREATEURS DE CONTENU</p>
-                  <p className="gamer_tite_p">
-                    Faites partie des 100 premiers inscrits !
-                  </p>
+                  <p className="gamer_tite_p">Faites partie des 100 premiers inscrits !</p>
                   <div className="gamer_line"></div>
                   <img src={GamerLogo} alt="" className="gamer_Logo" />
                 </div>
@@ -137,15 +126,11 @@ const LandingPopup = ({ open, setOpen }) => {
                   </p>
                 </div>
                 <div className="gratuit">
-                  <p className="gratuit_p1">
-                    Augmentation du % des revenus partagés
-                  </p>
+                  <p className="gratuit_p1">Augmentation du % des revenus partagés</p>
                   <p className="gratuit_p2">pendant un an</p>
                 </div>
                 <div className="gratuit">
-                  <p className="gratuit_p2_2">
-                    Accès anticipé aux fonctionnalités beta
-                  </p>
+                  <p className="gratuit_p2_2">Accès anticipé aux fonctionnalités beta</p>
                   <p className="gratuit_p1">pendant un an</p>
                 </div>
                 <img src={GamerLogo} alt="" className="gamer_Logo2_culm_2" />
@@ -156,12 +141,12 @@ const LandingPopup = ({ open, setOpen }) => {
 
             {/* L'offre se termine dans */}
             <div className="Loffer_mainDiv">
-              <p className="loffer-p">
-                *Les modalités de l’offre vous seront communiqués par email
-              </p>
-              <p className="loffer_heading">L'offre se termine dans</p>
+              <p className="loffer-p">Les modalités de l’offre vous seront communiqués par email</p>
+              {/*
+             
+              <p className="loffer_heading">L'offre se termine dans</p> */}
               {/* L_offer_boxe */}
-              <div className="L_offer_boxe">
+              {/* <div className="L_offer_boxe">
                 <div className="L_offer_Colmn">
                   <p className="L_offer_numbers">{state?.days}</p>
                   <p className="L_offer_Times">DAYS</p>
@@ -178,7 +163,7 @@ const LandingPopup = ({ open, setOpen }) => {
                   <p className="L_offer_numbers">{state?.seconds}</p>
                   <p className="L_offer_Times">SECONDS</p>
                 </div>
-              </div>
+              </div> */}
               {/* L_offer_boxe */}
               <div className="landingLogo2">
                 <img src={NewLogo} alt="" />

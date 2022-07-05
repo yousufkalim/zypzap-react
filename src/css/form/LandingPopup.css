@@ -7,7 +7,7 @@
 
 .landingPopup {
   color: #fff;
-  font-family: "mulish";
+  font-family: 'mulish';
   width: 655px !important;
   overflow: scroll !important;
   border-radius: 13px;
@@ -31,7 +31,7 @@
 .landing_heading_P {
   font-size: 22.057px;
   font-weight: 100;
-  font-family: "AMCAP ETERNAL";
+  font-family: 'AMCAP ETERNAL';
 }
 .landing_gamers_mainDiv {
   display: flex;
@@ -95,7 +95,6 @@
   padding: 40px 0 0 0;
 }
 .loffer-p {
-  padding: 0 0 45px 0;
   font-size: 11px;
   font-style: italic;
 }
@@ -125,7 +124,7 @@
 }
 .L_offer_Times {
   font-size: 15px;
-  font-family: "Myriad Pro-REGULAR";
+  font-family: 'Myriad Pro-REGULAR';
 }
 .landingLogo2 {
   padding: 40px 0;

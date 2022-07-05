@@ -4,11 +4,9 @@ import Box from '@mui/material/Box';
 // import avatar from "../../assets/img/avatar.png";
 import { ReactComponent as Star1 } from '../../assets/icons/star2.svg';
 import ReviewStarList from './ReviewStarList';
-import LinearProgress, {
-  linearProgressClasses,
-} from '@mui/material/LinearProgress';
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import CongratsYouDidPopup from '../PopupForms/CongratsYouDidPopup';
-
+import { Store } from '../../StoreContext';
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
   borderRadius: 5,
@@ -30,6 +28,7 @@ const Reviews = (props) => {
   const [fourStar, setFourStar] = useState(0);
   const [fiveStar, setFiveStar] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
+  const { user } = Store();
 
   useEffect(() => {
     calculateStarRating();
@@ -83,12 +82,17 @@ const Reviews = (props) => {
   };
   return (
     <div>
-      <CongratsYouDidPopup
-        showPopup={showPopup}
-        setShowPopup={setShowPopup}
-        singlCourse={singlCourse}
-        rating={rating}
-      />
+      {user?.creator === singlCourse?.creator?._id ? (
+        ''
+      ) : (
+        <CongratsYouDidPopup
+          showPopup={showPopup}
+          setShowPopup={setShowPopup}
+          singlCourse={singlCourse}
+          rating={rating}
+        />
+      )}
+
       <div className="overView_description">
         <div className="overView-descripiton-centerDiv">
           <div className="reviews">
@@ -162,22 +166,10 @@ const Reviews = (props) => {
               <div className="reviewsStarIcon">
                 {/* calculate persentage and fix it upto 2 figure after decimal */}
                 {/* {(OneStar / totalCount) * 100 + "%"} */}
-                <ReviewStarList
-                  star={[1]}
-                  text={`${Percentage(OneStar, totalCount)}%`}
-                />
-                <ReviewStarList
-                  star={[1, 2]}
-                  text={`${Percentage(twoStar, totalCount)}%`}
-                />
-                <ReviewStarList
-                  star={[1, 2, 3]}
-                  text={`${Percentage(threeStar, totalCount)}%`}
-                />
-                <ReviewStarList
-                  star={[1, 2, 3, 4]}
-                  text={`${Percentage(fourStar, totalCount)}%`}
-                />
+                <ReviewStarList star={[1]} text={`${Percentage(OneStar, totalCount)}%`} />
+                <ReviewStarList star={[1, 2]} text={`${Percentage(twoStar, totalCount)}%`} />
+                <ReviewStarList star={[1, 2, 3]} text={`${Percentage(threeStar, totalCount)}%`} />
+                <ReviewStarList star={[1, 2, 3, 4]} text={`${Percentage(fourStar, totalCount)}%`} />
                 <ReviewStarList
                   star={[1, 2, 3, 4, 5]}
                   text={`${Percentage(fiveStar, totalCount)}%`}

@@ -94,19 +94,15 @@ export default function PrimarySearchAppBar({
   games,
 }) {
   const updateStore = UpdateStore();
-  const {
-    user,
-    creator,
-    searchState,
-    searchInput,
-    learner,
-    contentDashboardButton,
-  } = Store();
+  const { user, creator, searchState, learner } = Store();
 
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [Option, setOption] = useState(false);
+
+  const [searchInput, setsearchInput] = useState('');
+
   const [openProfile, setOpenProfile] = useState(false);
   const [openCongratulation, setCongratulation] = useState(false);
   const [openCongratulation1, setCongratulation1] = useState(false);
@@ -211,7 +207,8 @@ export default function PrimarySearchAppBar({
     updateStore({ searchState: 'course' });
   };
   const handleChangeInput = (e) => {
-    updateStore({ searchInput: e.target.value });
+    // updateStore({ searchInput: e.target.value });
+    setsearchInput(e.target.value);
     // e.addEventListener("keypress", function (event) {
     //   if (event.key === "Enter") {
     //     event.preventDefault();
@@ -281,19 +278,13 @@ export default function PrimarySearchAppBar({
         {creator ? (
           <>
             {window.location.pathname === 'contentHome' ? (
-              <Link
-                to="/home"
-                style={{ color: 'white', textDecoration: 'none' }}
-              >
+              <Link to="/home" style={{ color: 'white', textDecoration: 'none' }}>
                 <p className="sgnBtn" onClick={handleSwitch}>
                   Switch to Learner
                 </p>
               </Link>
             ) : (
-              <Link
-                to="/contentHome"
-                style={{ color: 'white', textDecoration: 'none' }}
-              >
+              <Link to="/contentHome" style={{ color: 'white', textDecoration: 'none' }}>
                 <p className="sgnBtn" onClick={handleSwitch}>
                   Switch to Creator
                 </p>
@@ -420,10 +411,7 @@ export default function PrimarySearchAppBar({
 
   return (
     <>
-      <PaymentOptionPopup
-        open={openCongratulation1}
-        setOpen={setCongratulation1}
-      />
+      <PaymentOptionPopup open={openCongratulation1} setOpen={setCongratulation1} />
       <RegisterSuccessfully
         open={openCongratulation}
         setOpen={setCongratulation}
@@ -516,10 +504,7 @@ export default function PrimarySearchAppBar({
               </div>
             </Typography>
             <Search className="searchBar">
-              <div
-                onClick={handleSearchButtonClick}
-                style={{ cursor: 'pointer' }}
-              >
+              <div onClick={handleSearchButtonClick} style={{ cursor: 'pointer' }}>
                 {' '}
                 <SearchIcon className="searchBarIcon" />
                 <SearchIconWrapper></SearchIconWrapper>
@@ -539,9 +524,7 @@ export default function PrimarySearchAppBar({
                     <div className="drowp1">
                       <a
                         href="#"
-                        className={`${
-                          searchState == 'creator' && 'activeserchis'
-                        } `}
+                        className={`${searchState == 'creator' && 'activeserchis'} `}
                         onClick={handleCreatorSearch}
                       >
                         <img className="UserIcons" src={UserIcon} alt="" />
@@ -549,17 +532,13 @@ export default function PrimarySearchAppBar({
                           {' '}
                           Content Creators
                         </span>
-                        <p className="drowpP">
-                          Top gamers who create content for you
-                        </p>
+                        <p className="drowpP">Top gamers who create content for you</p>
                       </a>
                     </div>
                     <div className=" drowp1">
                       <a
                         href="#"
-                        className={`${
-                          searchState == 'course' && 'activeserchis'
-                        } `}
+                        className={`${searchState == 'course' && 'activeserchis'} `}
                         onClick={handleCourseSearch}
                       >
                         <img className="UserIcons" src={CourseIcon} alt="" />
@@ -572,17 +551,13 @@ export default function PrimarySearchAppBar({
               </div>
               <StyledInputBase
                 placeholder={
-                  searchState == 'course'
-                    ? 'Search for course'
-                    : 'Search for content creator'
+                  searchState == 'course' ? 'Search for course' : 'Search for content creator'
                 }
                 inputProps={{ 'aria-label': 'search', className: 'cc_field' }}
                 onChange={handleChangeInput}
                 // onSubmit={handleSearchButtonClick}
                 value={searchInput}
-                onKeyPress={(e) =>
-                  e.key === 'Enter' && handleSearchButtonClick(e)
-                }
+                onKeyPress={(e) => e.key === 'Enter' && handleSearchButtonClick(e)}
               />
             </Search>
             {/* <Link to="" className="requestBt">
@@ -625,19 +600,13 @@ export default function PrimarySearchAppBar({
               {creator ? (
                 <>
                   {learner ? (
-                    <Link
-                      to="/contentHome"
-                      style={{ color: 'white', textDecoration: 'none' }}
-                    >
+                    <Link to="/contentHome" style={{ color: 'white', textDecoration: 'none' }}>
                       <p className="sgnBtn" onClick={handleSwitch}>
                         Switch to Creator
                       </p>
                     </Link>
                   ) : (
-                    <Link
-                      to="/home"
-                      style={{ color: 'white', textDecoration: 'none' }}
-                    >
+                    <Link to="/home" style={{ color: 'white', textDecoration: 'none' }}>
                       <p className="sgnBtn" onClick={handleSwitch}>
                         Switch to Learner
                       </p>
@@ -676,9 +645,7 @@ export default function PrimarySearchAppBar({
                         to={{
                           pathname: '/UserDashboard',
                         }}
-                        onClick={() =>
-                          updateStore({ contentDashboardButton: 'Courses' })
-                        }
+                        onClick={() => updateStore({ contentDashboardButton: 'Courses' })}
                         style={{ color: 'white', textDecoration: 'none' }}
                       >
                         <p className="sgnBtn">My Dashboard</p>
@@ -690,11 +657,7 @@ export default function PrimarySearchAppBar({
               {user ? (
                 <p className="sgnBtn">
                   <div className="dropdown">
-                    <img
-                      src={HeaderLogoutIcon}
-                      onClick={openProfilePg}
-                      alt=""
-                    />
+                    <img src={HeaderLogoutIcon} onClick={openProfilePg} alt="" />
                   </div>
                 </p>
               ) : (
