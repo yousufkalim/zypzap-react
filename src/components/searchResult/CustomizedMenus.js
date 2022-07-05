@@ -93,7 +93,6 @@ export default function CustomizedMenus(props) {
     const Courses = searchCourse.sort(function (a, b) {
       var c = new Date(a.createdAt);
       var d = new Date(b.createdAt);
-      console.log("date filtr aplied", c);
       return d - c;
     });
     updateStore({ searchCourse: Courses });
@@ -107,7 +106,6 @@ export default function CustomizedMenus(props) {
     const Courses = searchCourse.sort(function (a, b) {
       var c = countViews(a);
       var d = countViews(b);
-      console.log("views filtr aplied", d - c);
       return d - c;
     });
     updateStore({ searchCourse: Courses });

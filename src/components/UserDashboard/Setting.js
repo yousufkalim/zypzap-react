@@ -478,7 +478,6 @@ function Setting({ openProfile, setOpenProfile }) {
                 </label>
               </div>
               <div className="userProfileSelectInput">
-                {console.log("Learning Rhythm", learningRethem)}
                 <select
                   id="Select"
                   name="Select"

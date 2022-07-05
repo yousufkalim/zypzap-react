@@ -137,7 +137,6 @@ function TopCoursesComponent({ item }) {
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays;
   };
-  console.log("item", item);
 
   const getDateIs = (d) => {
     var date = new Date(d);

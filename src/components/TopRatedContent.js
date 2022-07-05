@@ -251,10 +251,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
                         alt=""
                         className="LatestCourse-IMG"
                       />
-                      {console.log(
-                        "item.creator.courses",
-                        item.creator.courses
-                      )}
+
                       <p className="latestCourse-p">
                         {" "}
                         {item.creator?.courses

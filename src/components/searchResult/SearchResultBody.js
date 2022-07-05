@@ -236,10 +236,7 @@ const SearchResultBody = () => {
       filters = { ...filterData, [e.target.name]: e.target.value };
     }
     setFilterData(filters);
-    console.log("============", {
-      ...filterData,
-      [e.target.name]: e.target.value,
-    });
+
     const res = await api("post", "/courses/filter", filters);
     updateStore({ searchCourse: res.data });
   };

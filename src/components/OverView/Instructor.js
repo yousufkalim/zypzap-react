@@ -87,7 +87,6 @@ const Instructor = (props) => {
                       : " Pro"}
                   </span>
                 </p>
-                {console.log(singlCourse)}
                 <p className="instructor-student">
                   {singlCourse?.creator?.courses
                     ? totalStudent(singlCourse.creator.courses) > 1

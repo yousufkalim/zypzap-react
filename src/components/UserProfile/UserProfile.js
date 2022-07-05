@@ -82,7 +82,7 @@ const UserProfile = (props) => {
   const saveCoverPhoto = async (downloadURL) => {
     if (user?.role == "Creator") {
       let res = await api("post", `/creators/${user?._id}`, {
-        cover_photo: downloadURL
+        cover_photo: downloadURL,
       });
       if (res) {
         setCoverImageURL("");
@@ -93,7 +93,7 @@ const UserProfile = (props) => {
       }
     } else {
       let res = await api("put", `/users/addProfileInfo/${user?._id}`, {
-        cover_photo: downloadURL
+        cover_photo: downloadURL,
       });
       if (res) {
         setCoverImageURL("");
@@ -154,7 +154,6 @@ const UserProfile = (props) => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log("downloadURL222", downloadURL);
             saveCoverPhoto(downloadURL);
             setCoverImageURL(downloadURL);
           });
@@ -322,7 +321,7 @@ const UserProfile = (props) => {
                     <input
                       style={{
                         display: "none",
-                        cursor: "none"
+                        cursor: "none",
                       }}
                       type="file"
                       accept="image/*"

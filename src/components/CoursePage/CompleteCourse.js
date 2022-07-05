@@ -25,9 +25,9 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
     type: "video",
     sources: [
       {
-        src: playVideo?.src_url
-      }
-    ]
+        src: playVideo?.src_url,
+      },
+    ],
   };
 
   return (
