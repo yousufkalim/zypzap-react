@@ -1,70 +1,70 @@
-import React, { useState, useEffect, useMemo } from "react";
-import Categories from "./Categories";
-import GameType from "./GameType";
-import Plateforms from "./Plateforms";
-import Level from "./gameLevel";
-import moment from "moment";
-import { experimentalStyled as styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
-import Checkbox from "@mui/material/Checkbox";
+import React, { useState, useEffect, useMemo } from 'react';
+import Categories from './Categories';
+import GameType from './GameType';
+import Plateforms from './Plateforms';
+import Level from './gameLevel';
+import moment from 'moment';
+import { experimentalStyled as styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Checkbox from '@mui/material/Checkbox';
 
-import Course1 from "../../assets/img/course1.png";
-import StarIcon from "@material-ui/icons/Star";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import CustomizedMenus from "./CustomizedMenus";
+import Course1 from '../../assets/img/course1.png';
+import StarIcon from '@material-ui/icons/Star';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import CustomizedMenus from './CustomizedMenus';
 // import HeartIcon from "./HeartIcon";
-import LatestCourseGameIcon from "../../assets/icons/LatestCourseGameIcon.svg";
-import LatestCourseStarBadgeIcon from "../../assets/icons/LatestCourseStarBadgeIcon.svg";
-import LatestCourseLavelIcon from "../../assets/icons/LatestCourseLavelIcon.svg";
-import LatestCourseStarIcon from "../../assets/icons/LatestCourseStarIcon.svg";
-import LatestCourseVideoIcon from "../../assets/icons/LatestCourseVideoIcon.svg";
-import LatestCourseTimingIcon from "../../assets/icons/LatestCourseTimingIcon.svg";
-import { Store, UpdateStore } from "../../StoreContext";
-import { useHistory, Link } from "react-router-dom";
-import api from "../../api";
-import { CircularProgress } from "@material-ui/core";
+import LatestCourseGameIcon from '../../assets/icons/LatestCourseGameIcon.svg';
+import LatestCourseStarBadgeIcon from '../../assets/icons/LatestCourseStarBadgeIcon.svg';
+import LatestCourseLavelIcon from '../../assets/icons/LatestCourseLavelIcon.svg';
+import LatestCourseStarIcon from '../../assets/icons/LatestCourseStarIcon.svg';
+import LatestCourseVideoIcon from '../../assets/icons/LatestCourseVideoIcon.svg';
+import LatestCourseTimingIcon from '../../assets/icons/LatestCourseTimingIcon.svg';
+import { Store, UpdateStore } from '../../StoreContext';
+import { useHistory, Link } from 'react-router-dom';
+import api from '../../api';
+import { CircularProgress } from '@material-ui/core';
 
-import ResearchFaild from "./ResearchFaild";
-import CreatorResult from "./CreatorResult";
+import ResearchFaild from './ResearchFaild';
+import CreatorResult from './CreatorResult';
 
 const categories = [
   {
-    name: "Top 10 Games",
-    value: "1",
+    name: 'Top 10 Games',
+    value: '1',
   },
 
   {
-    name: "Top P2E Games",
-    value: "1",
+    name: 'Top P2E Games',
+    value: '1',
   },
 
   {
-    name: "Top Metaverses",
-    value: "4",
+    name: 'Top Metaverses',
+    value: '4',
   },
   {
-    name: "Top XR Games",
-    value: "7",
+    name: 'Top XR Games',
+    value: '7',
   },
   {
-    name: "Latest Courses",
-    value: "2",
+    name: 'Latest Courses',
+    value: '2',
   },
   {
-    name: "Top Courses",
-    value: "1",
+    name: 'Top Courses',
+    value: '1',
   },
   {
-    name: "Trendy Courses",
-    value: "1",
+    name: 'Trendy Courses',
+    value: '1',
   },
   {
-    name: "Top New Games",
-    value: "6",
+    name: 'Top New Games',
+    value: '6',
   },
 
   //   Top 10 Games
@@ -79,106 +79,106 @@ const categories = [
 
 const GameTypes = [
   {
-    name: "Action",
-    value: "name",
+    name: 'Action',
+    value: 'name',
   },
   {
-    name: "Adventure",
-    value: "class",
+    name: 'Adventure',
+    value: 'class',
   },
   {
-    name: "Metaverse",
-    value: "age",
+    name: 'Metaverse',
+    value: 'age',
   },
   {
-    name: "MMOG",
-    value: "subjects",
+    name: 'MMOG',
+    value: 'subjects',
   },
   {
-    name: "Car Racing",
-    value: "school",
+    name: 'Car Racing',
+    value: 'school',
   },
   {
-    name: "Versus Fighting",
-    value: "schooltwo",
+    name: 'Versus Fighting',
+    value: 'schooltwo',
   },
   {
-    name: "FPS",
-    value: "schooltwo",
+    name: 'FPS',
+    value: 'schooltwo',
   },
   {
-    name: "RTS",
-    value: "schooltwo",
+    name: 'RTS',
+    value: 'schooltwo',
   },
   {
-    name: "RPG",
-    value: "schooltwo",
+    name: 'RPG',
+    value: 'schooltwo',
   },
   {
-    name: "Turn by Turn Strategy",
-    value: "schooltwo",
+    name: 'Turn by Turn Strategy',
+    value: 'schooltwo',
   },
   {
-    name: "Simulation",
-    value: "schooltwo",
+    name: 'Simulation',
+    value: 'schooltwo',
   },
   {
-    name: "Sport",
-    value: "schooltwo",
+    name: 'Sport',
+    value: 'schooltwo',
   },
   {
-    name: "Trading card",
-    value: "schooltwo",
+    name: 'Trading card',
+    value: 'schooltwo',
   },
   {
-    name: "Puzzle",
-    value: "schooltwo",
+    name: 'Puzzle',
+    value: 'schooltwo',
   },
 ];
 const PlateformsAry = [
   {
-    name: "Retro Consoles",
-    value: "name",
+    name: 'Retro Consoles',
+    value: 'name',
   },
   {
-    name: "PS1/2/3/4/5",
-    value: "class",
+    name: 'PS1/2/3/4/5',
+    value: 'class',
   },
   {
-    name: "Xbox/360/One/X",
-    value: "age",
+    name: 'Xbox/360/One/X',
+    value: 'age',
   },
   {
-    name: "PC",
-    value: "subjects",
+    name: 'PC',
+    value: 'subjects',
   },
   {
-    name: "Portable Consoles",
-    value: "school",
+    name: 'Portable Consoles',
+    value: 'school',
   },
 ];
 const levelAry = [
   {
-    name: "Casual",
-    value: "Casual",
+    name: 'Casual',
+    value: 'Casual',
   },
   {
-    name: "Confirmed",
-    value: "Confirmed",
+    name: 'Confirmed',
+    value: 'Confirmed',
   },
   {
-    name: "Hardcore",
-    value: "Hardcore",
+    name: 'Hardcore',
+    value: 'Hardcore',
   },
   {
-    name: "Esporter",
-    value: "Esporter",
+    name: 'Esporter',
+    value: 'Esporter',
   },
 ];
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(2),
-  textAlign: "center",
+  textAlign: 'center',
   color: theme.palette.text.secondary,
 }));
 
@@ -196,12 +196,12 @@ const SearchResultBody = () => {
   const [selectedLevel, setSelectedLevel] = useState(false);
   const [selectedGameplay, setSelectedGameplay] = useState(false);
   const [selectedPrice, setSelectedPrice] = useState(false);
-  const [sliderValue, setSliderValue] = useState("");
-  const [selectedActiveButton, setSelectedActiveButton] = useState("");
-  const [selectedGameBtn, setSelectedGameBtn] = useState("");
-  const [selectedPlateformsBtn, setselectedPlateformsBtn] = useState("");
-  const [selectedlevelBtn, setselectedlevelBtn] = useState("");
-  const [radioBtnValue, setRadioBtnValue] = useState("");
+  const [sliderValue, setSliderValue] = useState('');
+  const [selectedActiveButton, setSelectedActiveButton] = useState('');
+  const [selectedGameBtn, setSelectedGameBtn] = useState('');
+  const [selectedPlateformsBtn, setselectedPlateformsBtn] = useState('');
+  const [selectedlevelBtn, setselectedlevelBtn] = useState('');
+  const [radioBtnValue, setRadioBtnValue] = useState('');
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
   const [paginatedCourses, setPaginatedCourses] = useState([]);
   const [filterData, setFilterData] = useState({
@@ -236,11 +236,8 @@ const SearchResultBody = () => {
       filters = { ...filterData, [e.target.name]: e.target.value };
     }
     setFilterData(filters);
-    console.log("============", {
-      ...filterData,
-      [e.target.name]: e.target.value,
-    });
-    const res = await api("post", "/courses/filter", filters);
+
+    const res = await api('post', '/courses/filter', filters);
     updateStore({ searchCourse: res.data });
   };
   const onClickSideBarHeaders = (e) => {
@@ -274,26 +271,26 @@ const SearchResultBody = () => {
     // const name = e.target.textContent;
     const name = e.name;
     const value = e.value;
-    let res = await api("get", `/courses/topGames?type=${value}`);
+    let res = await api('get', `/courses/topGames?type=${value}`);
     // let r = [res.data];
     if (res) {
-      if (value == "5") {
+      if (value == '5') {
         updateStore({
-          searchState: "creator",
+          searchState: 'creator',
           searchCourse: [],
           searchCreator: res?.data,
           searchInput: name,
         });
-        setSelectedActiveButton("");
+        setSelectedActiveButton('');
       }
-      if (value !== "5") {
+      if (value !== '5') {
         updateStore({
-          searchState: "course",
+          searchState: 'course',
           searchCourse: res.data,
           searchCreator: [],
           searchInput: name,
         });
-        setSelectedActiveButton("");
+        setSelectedActiveButton('');
       }
     }
     setSelectedActiveButton(name);
@@ -351,7 +348,7 @@ const SearchResultBody = () => {
   };
   const RequestClikEvent = async (e) => {
     let res = await api(
-      "get",
+      'get',
       `/courses/filteredCourses?&&gameType=${selectedGameBtn}&&plateForm=${selectedPlateformsBtn}&&level=${selectedlevelBtn}&&mode=${radioBtnValue}&&price=${sliderValue}`
     );
     if (res) {
@@ -368,7 +365,7 @@ const SearchResultBody = () => {
   return (
     <Box
       className="search-result-container"
-      sx={{ flexGrow: 1, display: "flex" }}
+      sx={{ flexGrow: 1, display: 'flex' }}
     >
       <Box className="side-bar-filter">
         <Grid>
@@ -391,10 +388,10 @@ const SearchResultBody = () => {
               {selectedCategories ? (
                 <KeyboardArrowUpIcon
                   sx={{
-                    color: "#fff",
-                    marginTop: "5px",
-                    width: "30px",
-                    height: "1em !important",
+                    color: '#fff',
+                    marginTop: '5px',
+                    width: '30px',
+                    height: '1em !important',
                   }}
                   id="1"
                   onClick={onClickSideBarHeaders}
@@ -402,10 +399,10 @@ const SearchResultBody = () => {
               ) : (
                 <KeyboardArrowDownIcon
                   sx={{
-                    color: "#fff",
-                    marginTop: "5px",
-                    width: "30px",
-                    height: "1em !important",
+                    color: '#fff',
+                    marginTop: '5px',
+                    width: '30px',
+                    height: '1em !important',
                   }}
                   id="1"
                   onClick={onClickSideBarHeaders}
@@ -431,11 +428,11 @@ const SearchResultBody = () => {
               {selectedGame ? (
                 <KeyboardArrowUpIcon
                   sx={{
-                    color: "#fff",
-                    marginTop: "5px",
+                    color: '#fff',
+                    marginTop: '5px',
 
-                    width: "30px",
-                    height: "1em !important",
+                    width: '30px',
+                    height: '1em !important',
                   }}
                   id="2"
                   onClick={onClickSideBarHeaders}
@@ -443,11 +440,11 @@ const SearchResultBody = () => {
               ) : (
                 <KeyboardArrowDownIcon
                   sx={{
-                    color: "#fff",
-                    marginTop: "5px",
+                    color: '#fff',
+                    marginTop: '5px',
 
-                    width: "30px",
-                    height: "1em !important",
+                    width: '30px',
+                    height: '1em !important',
                   }}
                   id="2"
                   onClick={onClickSideBarHeaders}
@@ -473,11 +470,11 @@ const SearchResultBody = () => {
               {selectedPlateforms ? (
                 <KeyboardArrowUpIcon
                   sx={{
-                    color: "#fff",
-                    marginTop: "5px",
+                    color: '#fff',
+                    marginTop: '5px',
 
-                    width: "30px",
-                    height: "1em !important",
+                    width: '30px',
+                    height: '1em !important',
                   }}
                   id="3"
                   onClick={onClickSideBarHeaders}
@@ -485,11 +482,11 @@ const SearchResultBody = () => {
               ) : (
                 <KeyboardArrowDownIcon
                   sx={{
-                    color: "#fff",
-                    marginTop: "5px",
+                    color: '#fff',
+                    marginTop: '5px',
 
-                    width: "30px",
-                    height: "1em !important",
+                    width: '30px',
+                    height: '1em !important',
                   }}
                   id="3"
                   onClick={onClickSideBarHeaders}
@@ -518,11 +515,11 @@ const SearchResultBody = () => {
               {!selectedLevel ? (
                 <KeyboardArrowDownIcon
                   sx={{
-                    color: "#fff",
-                    marginTop: "5px",
+                    color: '#fff',
+                    marginTop: '5px',
 
-                    width: "30px",
-                    height: "1em !important",
+                    width: '30px',
+                    height: '1em !important',
                   }}
                   id="6"
                   onClick={onClickSideBarHeaders}
@@ -530,10 +527,10 @@ const SearchResultBody = () => {
               ) : (
                 <KeyboardArrowUpIcon
                   sx={{
-                    color: "#fff",
-                    marginTop: "5px",
-                    width: "30px",
-                    height: "1em !important",
+                    color: '#fff',
+                    marginTop: '5px',
+                    width: '30px',
+                    height: '1em !important',
                   }}
                   id="6"
                   onClick={onClickSideBarHeaders}
@@ -561,10 +558,10 @@ const SearchResultBody = () => {
               {selectedGameplay ? (
                 <KeyboardArrowUpIcon
                   sx={{
-                    color: "#fff",
-                    marginTop: "5px",
-                    width: "30px",
-                    height: "1em !important",
+                    color: '#fff',
+                    marginTop: '5px',
+                    width: '30px',
+                    height: '1em !important',
                   }}
                   id="4"
                   onClick={onClickSideBarHeaders}
@@ -572,10 +569,10 @@ const SearchResultBody = () => {
               ) : (
                 <KeyboardArrowDownIcon
                   sx={{
-                    color: "#fff",
-                    marginTop: "5px",
-                    width: "30px",
-                    height: "1em !important",
+                    color: '#fff',
+                    marginTop: '5px',
+                    width: '30px',
+                    height: '1em !important',
                   }}
                   id="4"
                   onClick={onClickSideBarHeaders}
@@ -590,8 +587,8 @@ const SearchResultBody = () => {
                       name="mode"
                       value="Multiplayer"
                       id="Multiplayer"
-                      checked={filterData.mode === "Multiplayer"}
-                      inputProps={{ "aria-label": "controlled" }}
+                      checked={filterData.mode === 'Multiplayer'}
+                      inputProps={{ 'aria-label': 'controlled' }}
                       onChange={handleChange}
                     />
                     &nbsp; Multiplayer mode
@@ -603,8 +600,8 @@ const SearchResultBody = () => {
                       name="mode"
                       value="Single"
                       id="Single"
-                      checked={filterData.mode === "Single"}
-                      inputProps={{ "aria-label": "controlled" }}
+                      checked={filterData.mode === 'Single'}
+                      inputProps={{ 'aria-label': 'controlled' }}
                       onChange={handleChange}
                     />
                     &nbsp; Single mode
@@ -733,11 +730,11 @@ const SearchResultBody = () => {
             <label
               for="Multiplayer"
               className="dropdown-headers"
-              style={{ fontSize: "16px" }}
+              style={{ fontSize: '16px' }}
             >
               Didn’t found the <br /> course
             </label>
-            <Box style={{ position: "relative" }}>
+            <Box style={{ position: 'relative' }}>
               {/* <p className="req-coming-soon">Coming soon</p> */}
               <Button
                 className="reqstStateBTN"
@@ -751,14 +748,14 @@ const SearchResultBody = () => {
         </Grid>
       </Box>
       {/*  */}
-      {searchState === "course" ? (
+      {searchState === 'course' ? (
         <>
-          {" "}
+          {' '}
           {searchCourse?.length === 0 ? (
             <ResearchFaild searchInput={searchInput} />
           ) : (
             <>
-              <Box className="cards-container" style={{ position: "relative" }}>
+              <Box className="cards-container" style={{ position: 'relative' }}>
                 <div className="cards-box">
                   <div className="cards-header-text">
                     <p className="card-header-text-h3">{`${searchInput}`}</p>
@@ -766,16 +763,16 @@ const SearchResultBody = () => {
                     {/* <h2>{`${searchInput} GAMES`}</h2> */}
                     <span
                       style={{
-                        fontFamily: "Mulish",
-                        fontSize: "13px",
-                        fontWeight: "400",
+                        fontFamily: 'Mulish',
+                        fontSize: '13px',
+                        fontWeight: '400',
                       }}
                     >
                       {searchInput
                         ? searchCourse.length +
-                          " course result for " +
+                          ' course result for ' +
                           ` ${searchInput} `
-                        : searchCourse.length + " course result"}
+                        : searchCourse.length + ' course result'}
                     </span>
                   </div>
                   <div>
@@ -789,7 +786,7 @@ const SearchResultBody = () => {
                   </div>
                 </div>
                 <Grid
-                  sx={{ padding: "0 20px" }}
+                  sx={{ padding: '0 20px' }}
                   container
                   spacing={{ xs: 1, md: 1 }}
                   columns={{ xs: 2, sm: 8, md: 12 }}
@@ -801,10 +798,10 @@ const SearchResultBody = () => {
                       thickness={3.5}
                       color="white"
                       style={{
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        color: "white",
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        color: 'white',
                       }}
                     />
                   ) : (
@@ -812,7 +809,7 @@ const SearchResultBody = () => {
                       <Grid item xs={12} sm={6} md={6} lg={4}>
                         <Link
                           to={`/OverView/${item._id}`}
-                          style={{ color: "inherit", textDecoration: "none" }}
+                          style={{ color: 'inherit', textDecoration: 'none' }}
                         >
                           <div className="cardGrid searchcard">
                             <div className="favourite-icon-position">
@@ -827,10 +824,10 @@ const SearchResultBody = () => {
                               /> */}
                             </div>
                             <h5 className="latestcourseh5">
-                              {" "}
+                              {' '}
                               {item?.course_name
                                 ? item.course_name
-                                : "Fight Course"}
+                                : 'Fight Course'}
                             </h5>
                             <div className="latestCourseMain-Div">
                               <div className="latestCouse-colmn">
@@ -856,10 +853,10 @@ const SearchResultBody = () => {
                                     className="LatestCourse-IMG"
                                   />
                                   <p className="latestCourse-p">
-                                    {" "}
+                                    {' '}
                                     {item?.rating
                                       ? `${item.rating} Rating`
-                                      : "0 Rating"}
+                                      : '0 Rating'}
                                   </p>
                                 </div>
                               </div>
@@ -872,10 +869,10 @@ const SearchResultBody = () => {
                                     className="LatestCourse-IMG"
                                   />
                                   <p className="latestCourse-p">
-                                    {" "}
+                                    {' '}
                                     {item?.videos
                                       ? `(${countViews(item)})`
-                                      : ""}
+                                      : ''}
                                   </p>
                                 </div>
                                 <div className="latestCourse-colmn-centerDiv">
@@ -944,7 +941,7 @@ const SearchResultBody = () => {
       ) : (
         <></>
       )}
-      {searchState === "creator" ? (
+      {searchState === 'creator' ? (
         searchCreator?.length === 0 ? (
           <ResearchFaild searchInput={searchInput} />
         ) : (

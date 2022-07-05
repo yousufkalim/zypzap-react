@@ -1,85 +1,85 @@
-import React, { useState } from "react";
-import { styled, alpha } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
+import React, { useState } from 'react';
+import { styled, alpha } from '@mui/material/styles';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import InputBase from '@mui/material/InputBase';
 // import Badge from "@mui/material/Badge";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
 // import AccountCircle from "@mui/icons-material/AccountCircle";
 // import NotificationsIcon from "@mui/icons-material/Notifications";
-import MoreIcon from "@mui/icons-material/MoreVert";
-import Hamburger from "../assets/icons/Hamburger.svg";
-import UserHeaderIcon from "../assets/icons/UserHeaderIcon.svg";
-import CourseIcon from "../assets/icons/CourseIcon.svg";
-import DownArrow from "../assets/icons/downarrow.svg";
-import UserIcon from "../assets/icons/userIcon.svg";
-import DropdownProfileImg from "../assets/icons/DropdownProfileImg.svg";
-import HeaderLogoutIcon from "../assets/icons/HeaderLogoutIcon.svg";
-import { useHistory } from "react-router-dom";
-import CreateFormPopup from "./PopupForms/CreateFormPopup";
-import PropfileInformation from "./PopupForms/PropfileInformation";
-import LoginFormPopup from "./PopupForms/LoginFormPopup";
+import MoreIcon from '@mui/icons-material/MoreVert';
+import Hamburger from '../assets/icons/Hamburger.svg';
+import UserHeaderIcon from '../assets/icons/UserHeaderIcon.svg';
+import CourseIcon from '../assets/icons/CourseIcon.svg';
+import DownArrow from '../assets/icons/downarrow.svg';
+import UserIcon from '../assets/icons/userIcon.svg';
+import DropdownProfileImg from '../assets/icons/DropdownProfileImg.svg';
+import HeaderLogoutIcon from '../assets/icons/HeaderLogoutIcon.svg';
+import { useHistory } from 'react-router-dom';
+import CreateFormPopup from './PopupForms/CreateFormPopup';
+import PropfileInformation from './PopupForms/PropfileInformation';
+import LoginFormPopup from './PopupForms/LoginFormPopup';
 // import LogoutForm from "./PopupForms/LogoutForm";
-import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
-import DoYouWant from "./PopupForms/DoYouWant";
-import CongratsPopup from "./PopupForms/CongratsPopup";
-import OopsPopup from "./PopupForms/OopsPopup";
-import OptionPopup from "./PopupForms/OptionPopup";
-import api from "../api";
-import RegisterSuccessfully from "./PopupForms/RegisterSuccessfully";
-import { Link } from "react-router-dom";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import BecomeCreatorpopup from './PopupForms/BecomeCreatorpopup';
+import DoYouWant from './PopupForms/DoYouWant';
+import CongratsPopup from './PopupForms/CongratsPopup';
+import OopsPopup from './PopupForms/OopsPopup';
+import OptionPopup from './PopupForms/OptionPopup';
+import api from '../api';
+import RegisterSuccessfully from './PopupForms/RegisterSuccessfully';
+import { Link } from 'react-router-dom';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 // import NewLogo from "../assets/icons/NewLogo.png";
-import HomePageLogo from "../assets/icons/HomePageLogo.svg";
-import PlusVideo from "../assets/icons/PlusVideo.svg";
-import GiftCard from "../assets/icons/GiftCard.svg";
-import PaymentOptionPopup from "./PopupForms/PaymentOptionPopup";
-import { CircularProgress } from "@material-ui/core";
-import { Store, UpdateStore } from "../StoreContext";
-import Setting from "./UserDashboard/Setting";
+import HomePageLogo from '../assets/icons/HomePageLogo.svg';
+import PlusVideo from '../assets/icons/PlusVideo.svg';
+import GiftCard from '../assets/icons/GiftCard.svg';
+import PaymentOptionPopup from './PopupForms/PaymentOptionPopup';
+import { CircularProgress } from '@material-ui/core';
+import { Store, UpdateStore } from '../StoreContext';
+import Setting from './UserDashboard/Setting';
 
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
+  '&:hover': {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(3),
-    width: "auto",
+    width: 'auto',
   },
 }));
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
+const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
+  color: 'inherit',
+  '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: '20ch',
     },
   },
 }));
@@ -94,26 +94,22 @@ export default function PrimarySearchAppBar({
   games,
 }) {
   const updateStore = UpdateStore();
-  const {
-    user,
-    creator,
-    searchState,
-    searchInput,
-    learner,
-    contentDashboardButton,
-  } = Store();
+  const { user, creator, searchState, learner } = Store();
 
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [Option, setOption] = useState(false);
+
+  const [searchInput, setsearchInput] = useState('');
+
   const [openProfile, setOpenProfile] = useState(false);
   const [openCongratulation, setCongratulation] = useState(false);
   const [openCongratulation1, setCongratulation1] = useState(false);
   const [searchFlag, setSearchFlag] = useState(false);
   // const [settingOpen, setSettingOpen] = useState(false);
 
-  const [age, setAge] = React.useState("");
+  const [age, setAge] = React.useState('');
 
   const [open, setOpen] = useState(false);
 
@@ -125,7 +121,7 @@ export default function PrimarySearchAppBar({
   };
 
   const openProfilePg = () => {
-    history.push("/userprofile");
+    history.push('/userprofile');
   };
 
   const handleSwitch = () => {
@@ -149,7 +145,7 @@ export default function PrimarySearchAppBar({
 
   const handleSettings = () => {
     {
-      user?.role === "User" || learner ? UserDashboard() : creatorDashboard();
+      user?.role === 'User' || learner ? UserDashboard() : creatorDashboard();
     }
   };
   const handleClose = () => {
@@ -179,8 +175,8 @@ export default function PrimarySearchAppBar({
 
     if (searchInput) {
       updateStore({ searchLoader: true });
-      if (searchState === "course") {
-        let res = await api("get", `/courses/search?name=${searchInput}`);
+      if (searchState === 'course') {
+        let res = await api('get', `/courses/search?name=${searchInput}`);
 
         if (res) {
           updateStore({ searchCourse: res?.data, searchCreator: [] });
@@ -190,11 +186,11 @@ export default function PrimarySearchAppBar({
       }
       //   state: { courses },
       // }
-      if (searchState === "creator") {
-        let res = await api("get", `/creators/search?name=${searchInput}`);
+      if (searchState === 'creator') {
+        let res = await api('get', `/creators/search?name=${searchInput}`);
         if (res) {
           updateStore({ searchCreator: res?.data, searchCourse: [] });
-          history.push("/searchResult");
+          history.push('/searchResult');
         }
       }
       updateStore({ searchLoader: false });
@@ -203,15 +199,16 @@ export default function PrimarySearchAppBar({
   const handleCreatorSearch = (e) => {
     e.preventDefault();
     setSearchFlag(false);
-    updateStore({ searchState: "creator" });
+    updateStore({ searchState: 'creator' });
   };
   const handleCourseSearch = (e) => {
     e.preventDefault();
     setSearchFlag(false);
-    updateStore({ searchState: "course" });
+    updateStore({ searchState: 'course' });
   };
   const handleChangeInput = (e) => {
-    updateStore({ searchInput: e.target.value });
+    // updateStore({ searchInput: e.target.value });
+    setsearchInput(e.target.value);
     // e.addEventListener("keypress", function (event) {
     //   if (event.key === "Enter") {
     //     event.preventDefault();
@@ -221,19 +218,19 @@ export default function PrimarySearchAppBar({
     // });
   };
 
-  const menuId = "primary-search-account-menu";
+  const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
+        vertical: 'top',
+        horizontal: 'right',
       }}
       id={menuId}
       keepMounted
       transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
+        vertical: 'top',
+        horizontal: 'right',
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
@@ -247,19 +244,19 @@ export default function PrimarySearchAppBar({
     </Menu>
   );
 
-  const mobileMenuId = "primary-search-account-menu-mobile";
+  const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
+        vertical: 'top',
+        horizontal: 'right',
       }}
       id={mobileMenuId}
       keepMounted
       transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
+        vertical: 'top',
+        horizontal: 'right',
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
@@ -280,20 +277,14 @@ export default function PrimarySearchAppBar({
 
         {creator ? (
           <>
-            {window.location.pathname === "contentHome" ? (
-              <Link
-                to="/home"
-                style={{ color: "white", textDecoration: "none" }}
-              >
+            {window.location.pathname === 'contentHome' ? (
+              <Link to="/home" style={{ color: 'white', textDecoration: 'none' }}>
                 <p className="sgnBtn" onClick={handleSwitch}>
                   Switch to Learner
                 </p>
               </Link>
             ) : (
-              <Link
-                to="/contentHome"
-                style={{ color: "white", textDecoration: "none" }}
-              >
+              <Link to="/contentHome" style={{ color: 'white', textDecoration: 'none' }}>
                 <p className="sgnBtn" onClick={handleSwitch}>
                   Switch to Creator
                 </p>
@@ -302,17 +293,17 @@ export default function PrimarySearchAppBar({
 
             <Link
               to={{
-                pathname: learner ? "UserDashboard" : "dashboard",
+                pathname: learner ? 'UserDashboard' : 'dashboard',
                 state: { creator: `${creator}` },
               }}
-              style={{ color: "white", textDecoration: "none" }}
+              style={{ color: 'white', textDecoration: 'none' }}
             >
               <p className="sgnBtn">Dashboard</p>
             </Link>
           </>
         ) : (
           <>
-            {user?.role != "Creator" && user?.role == "User" && (
+            {user?.role != 'Creator' && user?.role == 'User' && (
               <>
                 <p
                   className="sgnBtn"
@@ -325,10 +316,10 @@ export default function PrimarySearchAppBar({
                 </p>
                 <Link
                   to={{
-                    pathname: learner ? "UserDashboard" : "dashboard",
+                    pathname: learner ? 'UserDashboard' : 'dashboard',
                     state: { user: `${user}` },
                   }}
-                  style={{ color: "white", textDecoration: "none" }}
+                  style={{ color: 'white', textDecoration: 'none' }}
                 >
                   <p className="sgnBtn">My Dashboard</p>
                 </Link>
@@ -354,14 +345,14 @@ export default function PrimarySearchAppBar({
           <>
             <p
               className="sgnBtn"
-              style={{ marginLeft: "auto", marginRight: "0%" }}
+              style={{ marginLeft: 'auto', marginRight: '0%' }}
               onClick={() => setOpenSignup(true)}
             >
               Sign Up
             </p>
             <p
               className="sgnBtn"
-              style={{ marginLeft: "auto", marginRight: "0%" }}
+              style={{ marginLeft: 'auto', marginRight: '0%' }}
               onClick={() => setOpenLogin(true)}
             >
               Login
@@ -420,10 +411,7 @@ export default function PrimarySearchAppBar({
 
   return (
     <>
-      <PaymentOptionPopup
-        open={openCongratulation1}
-        setOpen={setCongratulation1}
-      />
+      <PaymentOptionPopup open={openCongratulation1} setOpen={setCongratulation1} />
       <RegisterSuccessfully
         open={openCongratulation}
         setOpen={setCongratulation}
@@ -481,14 +469,13 @@ export default function PrimarySearchAppBar({
               // src={Logo}
               src={HomePageLogo}
               alt="img"
-              style={{ cursor: "pointer" }}
+              style={{ cursor: 'pointer' }}
               onClick={() => {
                 if (user && learner) {
-                  history.push("/home");
+                  history.push('/home');
                 } else if (user && !learner) {
-                  history.push("/contenthome");
-                } else history.push("/");
-
+                  history.push('/contenthome');
+                } else history.push('/');
                 // window.location.reload();
               }}
             />
@@ -498,30 +485,27 @@ export default function PrimarySearchAppBar({
               noWrap
               component="div"
               sx={{
-                display: { xs: "none", sm: "block" },
-                fontFamily: "Mulish",
-                paddingLeft: "5px",
+                display: { xs: 'none', sm: 'block' },
+                fontFamily: 'Mulish',
+                paddingLeft: '5px',
               }}
             >
               {/* Categories */}
               <div
                 style={{
-                  cursor: "pointer",
+                  cursor: 'pointer',
                 }}
               >
                 <a
                   // href="/SearchResult"
                   target="_blank"
-                  style={{ color: "#fff" }}
+                  style={{ color: '#fff' }}
                 ></a>
               </div>
             </Typography>
             <Search className="searchBar">
-              <div
-                onClick={handleSearchButtonClick}
-                style={{ cursor: "pointer" }}
-              >
-                {" "}
+              <div onClick={handleSearchButtonClick} style={{ cursor: 'pointer' }}>
+                {' '}
                 <SearchIcon className="searchBarIcon" />
                 <SearchIconWrapper></SearchIconWrapper>
               </div>
@@ -540,27 +524,21 @@ export default function PrimarySearchAppBar({
                     <div className="drowp1">
                       <a
                         href="#"
-                        className={`${
-                          searchState == "creator" && "activeserchis"
-                        } `}
+                        className={`${searchState == 'creator' && 'activeserchis'} `}
                         onClick={handleCreatorSearch}
                       >
                         <img className="UserIcons" src={UserIcon} alt="" />
-                        <span className="dropH" style={{ marginLeft: "-5px" }}>
-                          {" "}
+                        <span className="dropH" style={{ marginLeft: '-5px' }}>
+                          {' '}
                           Content Creators
                         </span>
-                        <p className="drowpP">
-                          Top gamers who create content for you
-                        </p>
+                        <p className="drowpP">Top gamers who create content for you</p>
                       </a>
                     </div>
                     <div className=" drowp1">
                       <a
                         href="#"
-                        className={`${
-                          searchState == "course" && "activeserchis"
-                        } `}
+                        className={`${searchState == 'course' && 'activeserchis'} `}
                         onClick={handleCourseSearch}
                       >
                         <img className="UserIcons" src={CourseIcon} alt="" />
@@ -573,17 +551,13 @@ export default function PrimarySearchAppBar({
               </div>
               <StyledInputBase
                 placeholder={
-                  searchState == "course"
-                    ? "Search for course"
-                    : "Search for content creator"
+                  searchState == 'course' ? 'Search for course' : 'Search for content creator'
                 }
-                inputProps={{ "aria-label": "search", className: "cc_field" }}
+                inputProps={{ 'aria-label': 'search', className: 'cc_field' }}
                 onChange={handleChangeInput}
                 // onSubmit={handleSearchButtonClick}
                 value={searchInput}
-                onKeyPress={(e) =>
-                  e.key === "Enter" && handleSearchButtonClick(e)
-                }
+                onKeyPress={(e) => e.key === 'Enter' && handleSearchButtonClick(e)}
               />
             </Search>
             {/* <Link to="" className="requestBt">
@@ -594,7 +568,7 @@ export default function PrimarySearchAppBar({
               )}
             </Link> */}
 
-            {(user?.role == "User" || user?.role == "Creator") && (
+            {(user?.role == 'User' || user?.role == 'Creator') && (
               <div>
                 <button className="requestBtn" onClick={handleSettings}>
                   <img src={UserHeaderIcon} alt="" />
@@ -616,29 +590,23 @@ export default function PrimarySearchAppBar({
               </Link>
             )} */}
             <Box
-              className={`${creator ? "headerLinkbox" : "headerLinkbox2"}`}
+              className={`${creator ? 'headerLinkbox' : 'headerLinkbox2'}`}
               sx={{
-                display: { xs: "none", md: "flex" },
-                justifyContent: { xs: "none", md: "space-between" },
-                width: { xs: "auto", md: "30%" },
+                display: { xs: 'none', md: 'flex' },
+                justifyContent: { xs: 'none', md: 'space-between' },
+                width: { xs: 'auto', md: '30%' },
               }}
             >
               {creator ? (
                 <>
                   {learner ? (
-                    <Link
-                      to="/contentHome"
-                      style={{ color: "white", textDecoration: "none" }}
-                    >
+                    <Link to="/contentHome" style={{ color: 'white', textDecoration: 'none' }}>
                       <p className="sgnBtn" onClick={handleSwitch}>
                         Switch to Creator
                       </p>
                     </Link>
                   ) : (
-                    <Link
-                      to="/home"
-                      style={{ color: "white", textDecoration: "none" }}
-                    >
+                    <Link to="/home" style={{ color: 'white', textDecoration: 'none' }}>
                       <p className="sgnBtn" onClick={handleSwitch}>
                         Switch to Learner
                       </p>
@@ -647,21 +615,21 @@ export default function PrimarySearchAppBar({
 
                   <Link
                     to={{
-                      pathname: learner ? "UserDashboard" : "dashboard",
+                      pathname: learner ? 'UserDashboard' : 'dashboard',
                       state: { creator: `${creator}` },
                     }}
                     onClick={() => {
-                      history.push("/dashboard");
-                      updateStore({ contentDashboardButton: "Courses" });
+                      history.push('/dashboard');
+                      updateStore({ contentDashboardButton: 'Courses' });
                     }}
-                    style={{ color: "white", textDecoration: "none" }}
+                    style={{ color: 'white', textDecoration: 'none' }}
                   >
                     <p className="sgnBtn">My Dashboard</p>
                   </Link>
                 </>
               ) : (
                 <>
-                  {user?.role != "Creator" && user?.role == "User" && (
+                  {user?.role != 'Creator' && user?.role == 'User' && (
                     <>
                       <p
                         className="sgnBtn"
@@ -675,12 +643,10 @@ export default function PrimarySearchAppBar({
 
                       <Link
                         to={{
-                          pathname: "/UserDashboard",
+                          pathname: '/UserDashboard',
                         }}
-                        onClick={() =>
-                          updateStore({ contentDashboardButton: "Courses" })
-                        }
-                        style={{ color: "white", textDecoration: "none" }}
+                        onClick={() => updateStore({ contentDashboardButton: 'Courses' })}
+                        style={{ color: 'white', textDecoration: 'none' }}
                       >
                         <p className="sgnBtn">My Dashboard</p>
                       </Link>
@@ -691,25 +657,21 @@ export default function PrimarySearchAppBar({
               {user ? (
                 <p className="sgnBtn">
                   <div className="dropdown">
-                    <img
-                      src={HeaderLogoutIcon}
-                      onClick={openProfilePg}
-                      alt=""
-                    />
+                    <img src={HeaderLogoutIcon} onClick={openProfilePg} alt="" />
                   </div>
                 </p>
               ) : (
                 <>
                   <p
                     className="sgnBtn"
-                    style={{ marginLeft: "auto", marginRight: "0%" }}
+                    style={{ marginLeft: 'auto', marginRight: '0%' }}
                     onClick={() => setOpenSignup(true)}
                   >
                     Sign Up
                   </p>
                   <p
                     className="sgnBtn"
-                    style={{ marginLeft: "auto", marginRight: "0%" }}
+                    style={{ marginLeft: 'auto', marginRight: '0%' }}
                     onClick={() => setOpenLogin(true)}
                   >
                     Login
@@ -789,7 +751,7 @@ export default function PrimarySearchAppBar({
                 </>
               )}
             </Box>
-            <Box sx={{ display: { xs: "flex", md: "none" } }}>
+            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
               <IconButton
                 size="large"
                 aria-label="show more"

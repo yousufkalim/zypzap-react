@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import OverViewImg from "../../assets/img/OverviewImg.svg";
-import OverViewCardImg from "../../assets/img/OverViewCardImg.svg";
-import overViewIcon1 from "../../assets/icons/overViewIcon1.svg";
-import overViewIcon2 from "../../assets/icons/overViewIcon2.svg";
-import overViewIcon3 from "../../assets/icons/overViewIcon3.svg";
-import overViewIcon4 from "../../assets/icons/overViewIcon4.svg";
-import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
-import moment from "moment";
+import React, { useState } from 'react';
+import OverViewImg from '../../assets/img/OverviewImg.svg';
+import OverViewCardImg from '../../assets/img/OverViewCardImg.svg';
+import overViewIcon1 from '../../assets/icons/overViewIcon1.svg';
+import overViewIcon2 from '../../assets/icons/overViewIcon2.svg';
+import overViewIcon3 from '../../assets/icons/overViewIcon3.svg';
+import overViewIcon4 from '../../assets/icons/overViewIcon4.svg';
+import RegisterSuccessfully from '../PopupForms/RegisterSuccessfully';
+import moment from 'moment';
 
-import OverCardHurtLogo from "../../assets/icons/OverCardHurtLogo.svg";
-import RatingStarIcon from "../../assets/icons/RatingStarIcon.svg";
-import Star6 from "../../assets/icons/Star6.svg";
+import OverCardHurtLogo from '../../assets/icons/OverCardHurtLogo.svg';
+import RatingStarIcon from '../../assets/icons/RatingStarIcon.svg';
+import Star6 from '../../assets/icons/Star6.svg';
 
 // import StarIcon from "@material-ui/icons/Star";
-import { NavLink } from "react-router-dom";
-import { Store, UpdateStore } from "../../StoreContext";
-import api from "../../api";
-import GuestSignUpPopUp from "../PopupForms/GuestSignUpPopUp";
+import { NavLink } from 'react-router-dom';
+import { Store, UpdateStore } from '../../StoreContext';
+import api from '../../api';
+import GuestSignUpPopUp from '../PopupForms/GuestSignUpPopUp';
 const OverViewHome = (props) => {
   const { user, Games, learner } = Store();
   const [openCongratulation, setCongratulation] = useState(false);
@@ -40,9 +40,9 @@ const OverViewHome = (props) => {
   const handleStartCourse = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id
+      userId: u?._id,
     };
-    let res = await api("post", "/users/enrolledCourseAndStarted", data);
+    let res = await api('post', '/users/enrolledCourseAndStarted', data);
   };
   const getDateIs = (d) => {
     var date = new Date(d);
@@ -51,9 +51,9 @@ const OverViewHome = (props) => {
   const handleEnrolled = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id
+      userId: u?._id,
     };
-    let res = await api("post", "/users/enrolledCourse", data);
+    let res = await api('post', '/users/enrolledCourse', data);
     if (res) {
       updateStore({ user: res.data?.user });
       setCourse(res.data?.course);
@@ -78,16 +78,21 @@ const OverViewHome = (props) => {
             <div className="overViewContent">
               <h1 className="overViewH1">
                 Beat the Opponent&nbsp;
-                <span style={{ textTransform: "capitalize" }}>
-                  {" "}
+                <span style={{ textTransform: 'capitalize' }}>
+                  {' '}
                   {singlCourse?.course_name
                     ? singlCourse.course_name
-                    : " CS GO "}
+                    : ' CS GO '}
                   &nbsp;Gameplay
                 </span>
               </h1>
-              <p className="overViewContent" style={{ width: "60%" }}>
-                {singlCourse?.description ? singlCourse.description : ""}
+
+              <p className="overViewContent" style={{ width: '60%' }}>
+                {singlCourse?.description
+                  ? singlCourse?.description.length > 300
+                    ? `${singlCourse?.description.substring(0, 299)}.....`
+                    : singlCourse?.description
+                  : ''}
               </p>
             </div>
 
@@ -98,13 +103,13 @@ const OverViewHome = (props) => {
                   {/* {singlCourse?.videos
                     ? calculateCourseDuration(singlCourse.videos) + " Weeks"
                     : "0 Weeks"} */}
-                  {getDateIs(singlCourse?.createdAt || "0 Weeks")}
+                  {getDateIs(singlCourse?.createdAt || '0 Weeks')}
                 </p>
               </li>
               <li className="overViewLi">
                 <img src={overViewIcon2} alt="" className="overViewIcon" />
                 <p className="overViewIconP">
-                  {singlCourse?.level ? singlCourse.level : "All Levels"}
+                  {singlCourse?.level ? singlCourse.level : 'All Levels'}
                 </p>
               </li>
               <li className="overViewLi">
@@ -112,9 +117,9 @@ const OverViewHome = (props) => {
                 <p className="overViewIconP">
                   {singlCourse?.videos
                     ? singlCourse.videos.length > 1
-                      ? singlCourse.videos.length + " Lessons"
-                      : singlCourse.videos.length + " Lesson"
-                    : "0 Lesson"}
+                      ? singlCourse.videos.length + ' Lessons'
+                      : singlCourse.videos.length + ' Lesson'
+                    : '0 Lesson'}
                 </p>
               </li>
               <li className="overViewLi">
@@ -122,9 +127,9 @@ const OverViewHome = (props) => {
                 <p className="overViewIconP">
                   {singlCourse?.student
                     ? singlCourse.student.length > 1
-                      ? singlCourse.student.length + " Students"
-                      : singlCourse.student.length + " Student"
-                    : "0 Student"}
+                      ? singlCourse.student.length + ' Students'
+                      : singlCourse.student.length + ' Student'
+                    : '0 Student'}
                 </p>
               </li>
               <li className="overViewLi">
@@ -132,7 +137,7 @@ const OverViewHome = (props) => {
                 <p className="overViewIconP">
                   {singlCourse?.rating
                     ? `${singlCourse.rating} Rating`
-                    : " 0 Rating"}{" "}
+                    : ' 0 Rating'}{' '}
                   {/* <img src={Star6} alt="" /> */}
                 </p>
               </li>
@@ -140,10 +145,10 @@ const OverViewHome = (props) => {
             <div className="overVeiwSlectBTN">
               <button className="overVeiwCS-btn">
                 <p>
-                  {" "}
+                  {' '}
                   {singlCourse?.course_name
                     ? `${singlCourse.course_name} course`
-                    : "CS GO course"}{" "}
+                    : 'CS GO course'}{' '}
                 </p>
               </button>
               <button className="overVeiwCS-btn">
@@ -152,11 +157,11 @@ const OverViewHome = (props) => {
             </div>
           </div>
 
-          <div className="overViewCard" style={{ width: "24%" }}>
+          <div className="overViewCard" style={{ width: '24%' }}>
             <div className="overViewCenterdiv">
               <div className="overViewCarImage">
                 <img
-                  style={{ maxWidth: "100%" }}
+                  style={{ maxWidth: '100%' }}
                   src={
                     singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg
                   }
@@ -178,7 +183,7 @@ const OverViewHome = (props) => {
                 </div> */}
                   {/* end heart icon for wish list */}
 
-                  {(user?.role === "Creator" && !learner) ||
+                  {(user?.role === 'Creator' && !learner) ||
                   user?.creator === singlCourse?.creator?._id ? (
                     <NavLink
                       to="#"
@@ -195,7 +200,7 @@ const OverViewHome = (props) => {
                     </NavLink>
                   ) : (
                     <>
-                      {" "}
+                      {' '}
                       <NavLink
                         to="#"
                         className="CardBuyBtn"

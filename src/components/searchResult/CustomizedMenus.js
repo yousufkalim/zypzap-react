@@ -1,41 +1,41 @@
-import React, { useState, useEffect } from "react";
-import { styled, alpha } from "@mui/material/styles";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import React, { useState, useEffect } from 'react';
+import { styled, alpha } from '@mui/material/styles';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const StyledMenu = styled((props) => (
   <Menu
     elevation={0}
     anchorOrigin={{
-      vertical: "bottom",
-      horizontal: "right",
+      vertical: 'bottom',
+      horizontal: 'right',
     }}
     transformOrigin={{
-      vertical: "top",
-      horizontal: "right",
+      vertical: 'top',
+      horizontal: 'right',
     }}
     {...props}
   />
 ))(({ theme }) => ({
-  "& .MuiPaper-root": {
+  '& .MuiPaper-root': {
     borderRadius: 6,
     marginTop: theme.spacing(1),
     minWidth: 180,
-    color: "#fff",
-    backgroundColor: "#14162C",
+    color: '#fff',
+    backgroundColor: '#14162C',
     boxShadow:
-      "rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px",
-    "& .MuiMenu-list": {
-      padding: "4px 0",
+      'rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
+    '& .MuiMenu-list': {
+      padding: '4px 0',
     },
-    "& .MuiMenuItem-root": {
-      "& .MuiSvgIcon-root": {
+    '& .MuiMenuItem-root': {
+      '& .MuiSvgIcon-root': {
         fontSize: 18,
         color: theme.palette.text.secondary,
         marginRight: theme.spacing(1.5),
       },
-      "&:active": {
+      '&:active': {
         backgroundColor: alpha(
           theme.palette.primary.main,
           theme.palette.action.selectedOpacity
@@ -48,7 +48,7 @@ const StyledMenu = styled((props) => (
 export default function CustomizedMenus(props) {
   const { updateStore, searchCourse } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [sortBy, setSortBy] = useState("");
+  const [sortBy, setSortBy] = useState('');
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -74,7 +74,7 @@ export default function CustomizedMenus(props) {
 
   const filterByRating = async (e) => {
     e.preventDefault();
-    setSortBy("Rating");
+    setSortBy('Rating');
     const Courses = searchCourse.sort(function (a, b) {
       if (a.rating === undefined) a.rating = 0;
       if (b.rating === undefined) b.rating = 0;
@@ -88,12 +88,11 @@ export default function CustomizedMenus(props) {
 
   const filterByDate = async (e) => {
     e.preventDefault();
-    setSortBy("Date");
+    setSortBy('Date');
 
     const Courses = searchCourse.sort(function (a, b) {
       var c = new Date(a.createdAt);
       var d = new Date(b.createdAt);
-      console.log("date filtr aplied", c);
       return d - c;
     });
     updateStore({ searchCourse: Courses });
@@ -102,12 +101,11 @@ export default function CustomizedMenus(props) {
 
   const filterByViews = async (e) => {
     e.preventDefault();
-    setSortBy("Views");
+    setSortBy('Views');
 
     const Courses = searchCourse.sort(function (a, b) {
       var c = countViews(a);
       var d = countViews(b);
-      console.log("views filtr aplied", d - c);
       return d - c;
     });
     updateStore({ searchCourse: Courses });
@@ -115,10 +113,10 @@ export default function CustomizedMenus(props) {
   };
   const filterByLevel = async (e) => {
     e.preventDefault();
-    setSortBy("Level");
-    const i = searchCourse.filter((course) => course.level === "Advance Level");
-    const j = searchCourse.filter((course) => course.level === "medium Level");
-    const k = searchCourse.filter((course) => course.level === "inital Level");
+    setSortBy('Level');
+    const i = searchCourse.filter((course) => course.level === 'Advance Level');
+    const j = searchCourse.filter((course) => course.level === 'medium Level');
+    const k = searchCourse.filter((course) => course.level === 'inital Level');
     const Courses = [...i, ...j, ...k];
     updateStore({ searchCourse: Courses });
     handleClose();
@@ -130,7 +128,7 @@ export default function CustomizedMenus(props) {
         id="demo-customized-button"
         aria-controls="demo-customized-menu"
         aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
+        aria-expanded={open ? 'true' : undefined}
         disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
@@ -139,20 +137,20 @@ export default function CustomizedMenus(props) {
           <span> Sort by &nbsp;</span>
           <KeyboardArrowDownIcon
             sx={{
-              color: "#fff !important",
-              opacity: "0.6",
+              color: '#fff !important',
+              opacity: '0.6',
               // width: "2px",
-              marginTop: "2px",
-              height: "0.8em !important",
+              marginTop: '2px',
+              height: '0.8em !important',
             }}
           />
-          {sortBy || ""}
+          {sortBy || ''}
         </div>
       </button>
       <StyledMenu
         id="demo-customized-menu"
         MenuListProps={{
-          "aria-labelledby": "demo-customized-button",
+          'aria-labelledby': 'demo-customized-button',
         }}
         anchorEl={anchorEl}
         open={open}
@@ -160,18 +158,18 @@ export default function CustomizedMenus(props) {
       >
         <MenuItem
           sx={{
-            fontFamily: "mulish",
-            fontSize: "13px",
-            fontWeight: "700",
+            fontFamily: 'mulish',
+            fontSize: '13px',
+            fontWeight: '700',
           }}
           onClick={filterByRating}
-          value={"Rating"}
+          value={'Rating'}
           disableRipple
         >
           Rating
         </MenuItem>
         <MenuItem
-          sx={{ fontFamily: "mulish", fontSize: "13px", fontWeight: "700" }}
+          sx={{ fontFamily: 'mulish', fontSize: '13px', fontWeight: '700' }}
           // style={{ fontFamily: "mulish" }}
           onClick={filterByDate}
           disableRipple
@@ -179,14 +177,14 @@ export default function CustomizedMenus(props) {
           Date Posted
         </MenuItem>
         <MenuItem
-          sx={{ fontFamily: "mulish", fontSize: "13px", fontWeight: "700" }}
+          sx={{ fontFamily: 'mulish', fontSize: '13px', fontWeight: '700' }}
           onClick={filterByViews}
           disableRipple
         >
           Number Of Views
         </MenuItem>
         <MenuItem
-          sx={{ fontFamily: "mulish", fontSize: "13px", fontWeight: "700" }}
+          sx={{ fontFamily: 'mulish', fontSize: '13px', fontWeight: '700' }}
           onClick={filterByLevel}
           disableRipple
         >

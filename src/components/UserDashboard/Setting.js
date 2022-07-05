@@ -1,59 +1,59 @@
-import React, { useState, useEffect } from "react";
-import Dialog from "@mui/material/Dialog";
-import axios from "axios";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import Autocomplete from "@mui/material/Autocomplete";
-import { TextField, Paper, Chip } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import React, { useState, useEffect } from 'react';
+import Dialog from '@mui/material/Dialog';
+import axios from 'axios';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import Autocomplete from '@mui/material/Autocomplete';
+import { TextField, Paper, Chip } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
-import api from "../../api";
-import Course1 from "../../assets/img/course1.png";
-import { toast } from "react-toastify";
-import { Store, UpdateStore } from "../../StoreContext";
-import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
+import api from '../../api';
+import Course1 from '../../assets/img/course1.png';
+import { toast } from 'react-toastify';
+import { Store, UpdateStore } from '../../StoreContext';
+import RegisterSuccessfully from '../PopupForms/RegisterSuccessfully';
 
 let gamelist = [
-  { value: "ocean", label: "Ocean", color: "#00B8D9", isFixed: true },
-  { value: "blue", label: "Blue", color: "#0052CC", isDisabled: true },
-  { value: "purple", label: "Purple", color: "#5243AA" },
-  { value: "red", label: "Red", color: "#FF5630", isFixed: true },
-  { value: "orange", label: "Orange", color: "#FF8B00" },
-  { value: "yellow", label: "Yellow", color: "#FFC400" },
-  { value: "green", label: "Green", color: "#36B37E" },
-  { value: "forest", label: "Forest", color: "#00875A" },
-  { value: "slate", label: "Slate", color: "#253858" },
-  { value: "silver", label: "Silver", color: "#666666" },
+  { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
+  { value: 'blue', label: 'Blue', color: '#0052CC', isDisabled: true },
+  { value: 'purple', label: 'Purple', color: '#5243AA' },
+  { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
+  { value: 'orange', label: 'Orange', color: '#FF8B00' },
+  { value: 'yellow', label: 'Yellow', color: '#FFC400' },
+  { value: 'green', label: 'Green', color: '#36B37E' },
+  { value: 'forest', label: 'Forest', color: '#00875A' },
+  { value: 'slate', label: 'Slate', color: '#253858' },
+  { value: 'silver', label: 'Silver', color: '#666666' },
 ];
 function Setting({ openProfile, setOpenProfile }) {
   const useStyles = makeStyles({
     customTextField: {
-      "& input": {
-        color: "white",
-        border: "none",
+      '& input': {
+        color: 'white',
+        border: 'none',
       },
-      "&:hover": {
-        border: "red !important",
+      '&:hover': {
+        border: 'red !important',
       },
-      "& input::placeholder": {
-        color: "white",
-        "@media (max-width: 780px)": {
-          paddingLeft: "-2px",
+      '& input::placeholder': {
+        color: 'white',
+        '@media (max-width: 780px)': {
+          paddingLeft: '-2px',
         },
       },
     },
     option: {
-      background: "#242635 ",
-      color: "white",
-      "&:hover": {
-        backgroundColor: "#9198a5 !important",
+      background: '#242635 ',
+      color: 'white',
+      '&:hover': {
+        backgroundColor: '#9198a5 !important',
       },
     },
     noOptions: {
-      display: `${"inherit"}`,
-      color: "white",
+      display: `${'inherit'}`,
+      color: 'white',
     },
   });
   const classes = useStyles();
@@ -75,21 +75,27 @@ function Setting({ openProfile, setOpenProfile }) {
   );
 
   const [gameMood, setGameMood] = useState(
-    user?.gameMood ? user.gameMood : "Single"
+    user?.gameMood ? user.gameMood : 'Single'
   );
+  // const [learningRethem, setLearningRethem] = useState(
+  //   user?.setLearningRethem ? user.setLearningRethem : ""
+  // );
+
   const [learningRethem, setLearningRethem] = useState(
-    user?.setLearningRethem ? user.setLearningRethem : ""
+    user?.prefrence_games?.learningRethem
+      ? user.prefrence_games.learningRethem
+      : '10h To 20h Per Week'
   );
 
   const [currentLevel, setCurrentLevel] = useState(
     user?.prefrence_games?.current_level
       ? user.prefrence_games.current_level
-      : "initial"
+      : 'initial'
   );
   const [target_level, setTargetLevel] = useState(
     user?.prefrence_games?.target_level
       ? user.prefrence_games.target_level
-      : "initial"
+      : 'initial'
   );
   useEffect(() => {
     setCurrentSate();
@@ -102,17 +108,22 @@ function Setting({ openProfile, setOpenProfile }) {
     );
     setGameType(user?.gameType ? user.gameType : []);
     setPlateForm(user?.plateForm ? user.plateForm : []);
-    setGameMood(user?.gameMood ? user.gameMood : "Single");
-    setLearningRethem(user?.setLearningRethem ? user.setLearningRethem : "");
+    setGameMood(user?.gameMood ? user.gameMood : 'Single');
+    // setLearningRethem(user?.setLearningRethem ? user.setLearningRethem : "");
+    setLearningRethem(
+      user?.prefrence_games?.learningRethem
+        ? user.prefrence_games.learningRethem
+        : 'Per Week'
+    );
     setCurrentLevel(
       user?.prefrence_games?.current_level
         ? user.prefrence_games.current_level
-        : "initial"
+        : 'initial'
     );
     setTargetLevel(
       user?.prefrence_games?.target_level
         ? user.prefrence_games.target_level
-        : "initial"
+        : 'initial'
     );
   };
 
@@ -127,7 +138,7 @@ function Setting({ openProfile, setOpenProfile }) {
     setGameMood(e.target.value);
   };
 
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
   // const removeTags = (index) => {
   //   setFavouritGame([
@@ -146,7 +157,7 @@ function Setting({ openProfile, setOpenProfile }) {
   };
 
   const selectplateForm = (e) => {
-    if (e.target.className === "activetypebtn") {
+    if (e.target.className === 'activetypebtn') {
       setPlateForm((prev) => {
         return prev.filter((a) => a !== e.target.value);
       });
@@ -160,7 +171,7 @@ function Setting({ openProfile, setOpenProfile }) {
     }
   };
   const selectGameType = (e) => {
-    if (e.target.className === "activetypebtn") {
+    if (e.target.className === 'activetypebtn') {
       setGameType((prev) => {
         return prev.filter((a) => a !== e.target.value);
       });
@@ -189,19 +200,19 @@ function Setting({ openProfile, setOpenProfile }) {
       gameMood,
     };
     if (
-      prefrence_games === "" ||
-      gameType === "" ||
-      plateForm === "" ||
-      gameMood === "" ||
-      target_level === "" ||
-      currentLevel === "" ||
-      favouritGame === ""
+      prefrence_games === '' ||
+      gameType === '' ||
+      plateForm === '' ||
+      gameMood === '' ||
+      target_level === '' ||
+      currentLevel === '' ||
+      favouritGame === ''
     ) {
-      return toast.error("Give your complete details!");
+      return toast.error('Give your complete details!');
     } else {
-      if (user?.role === "User" || learner) {
+      if (user?.role === 'User' || learner) {
         let res = await api(
-          "put",
+          'put',
           `/users/addProfileInfo/${user._id}`,
           formdata
         );
@@ -210,7 +221,7 @@ function Setting({ openProfile, setOpenProfile }) {
           setCongratulation(true);
         }
       } else {
-        let res = await api("post", `/creators/${user?._id}`, formdata);
+        let res = await api('post', `/creators/${user?._id}`, formdata);
 
         if (res) {
           updateStore({
@@ -224,28 +235,28 @@ function Setting({ openProfile, setOpenProfile }) {
   };
 
   let gametypebtn = [
-    "Action",
-    "Adventure",
-    "Metaverse",
-    "MMOG",
-    "Car Racing",
-    "FPS",
-    "RTS",
-    "RPG",
-    "Turn by Turn Strategy",
-    "Simulation",
-    "Sports",
-    "Trading card",
-    "Puzzle",
-    "Versus Fighting",
+    'Action',
+    'Adventure',
+    'Metaverse',
+    'MMOG',
+    'Car Racing',
+    'FPS',
+    'RTS',
+    'RPG',
+    'Turn by Turn Strategy',
+    'Simulation',
+    'Sports',
+    'Trading card',
+    'Puzzle',
+    'Versus Fighting',
   ];
   const gamePlateform = [
-    "PC",
-    "Mobile Games",
-    "PS1/2/3/4/5",
-    "Xbox/360/One/X",
-    "Retro Consoles",
-    "Portable Consoles",
+    'PC',
+    'Mobile Games',
+    'PS1/2/3/4/5',
+    'Xbox/360/One/X',
+    'Retro Consoles',
+    'Portable Consoles',
   ];
 
   const getAllGames = async (e) => {
@@ -257,7 +268,7 @@ function Setting({ openProfile, setOpenProfile }) {
     let res = await axios.get(
       `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
         e.target.value +
-        "&page=1&page_size=10",
+        '&page=1&page_size=10',
       {
         withCredentials: false,
       }
@@ -278,7 +289,7 @@ function Setting({ openProfile, setOpenProfile }) {
   };
   // Set selected game in  setAddressValue State
   const setGamefiled = async (item, selectedItems, reason) => {
-    if (user?.role === "User" || learner) {
+    if (user?.role === 'User' || learner) {
       setFavouritGame(selectedItems);
     } else setExpertiseGame(selectedItems);
   };
@@ -302,7 +313,7 @@ function Setting({ openProfile, setOpenProfile }) {
                 options={values}
                 // defaultValue={favouritGame}
                 defaultValue={
-                  user?.role === "User" || learner
+                  user?.role === 'User' || learner
                     ? favouritGame
                     : expertiseGame
                 }
@@ -317,21 +328,21 @@ function Setting({ openProfile, setOpenProfile }) {
                 noOptionsText={
                   <div
                     style={{
-                      color: "white",
-                      fontSize: "12px",
+                      color: 'white',
+                      fontSize: '12px',
                     }}
                   >
-                    {" "}
-                    no option{" "}
+                    {' '}
+                    no option{' '}
                   </div>
                 }
                 PaperComponent={({ children }) => (
-                  <Paper style={{ background: "#242635" }}>{children}</Paper>
+                  <Paper style={{ background: '#242635' }}>{children}</Paper>
                 )}
                 onChange={setGamefiled}
                 hiddenLabel="true"
                 style={{
-                  margin: "auto",
+                  margin: 'auto',
                 }}
                 renderInput={(params) => (
                   <TextField
@@ -340,13 +351,13 @@ function Setting({ openProfile, setOpenProfile }) {
                     placeholder="Add here..."
                     classes={{ root: classes.customTextField }}
                     {...params}
-                    style={{ color: "white" }}
+                    style={{ color: 'white' }}
                     // variant="outlined"
                     onChange={getAllGames}
                     sx={{
-                      outline: "none",
-                      width: "80%",
-                      borderRadius: "6px",
+                      outline: 'none',
+                      width: '80%',
+                      borderRadius: '6px',
                     }}
                     // value={gameName}
                     // name="gameName"
@@ -364,8 +375,8 @@ function Setting({ openProfile, setOpenProfile }) {
                     <button
                       className={
                         gameType?.includes(tag)
-                          ? "activetypebtn"
-                          : "userTagsAllButton"
+                          ? 'activetypebtn'
+                          : 'userTagsAllButton'
                       }
                       value={tag}
                       onClick={selectGameType}
@@ -409,8 +420,8 @@ function Setting({ openProfile, setOpenProfile }) {
                     key={i}
                     className={
                       plateForm?.includes(tag)
-                        ? "activetypebtn"
-                        : "userTagsAllButton"
+                        ? 'activetypebtn'
+                        : 'userTagsAllButton'
                     }
                     value={tag}
                     onClick={selectplateForm}
@@ -429,7 +440,7 @@ function Setting({ openProfile, setOpenProfile }) {
                   aria-labelledby="demo-radio-buttons-group-label"
                   defaultValue={gameMood}
                   name="radio-buttons-group"
-                  style={{ display: "inline" }}
+                  style={{ display: 'inline' }}
                 >
                   &nbsp; &nbsp;
                   <FormControlLabel
@@ -444,13 +455,23 @@ function Setting({ openProfile, setOpenProfile }) {
                     label="MultiPlayer Mode"
                     onClick={onChangeRadioBtn}
                   />
+                  {!(user?.role === 'User' || learner) ? (
+                    <FormControlLabel
+                      value="Both"
+                      control={<Radio />}
+                      label="Both"
+                      onClick={onChangeRadioBtn}
+                    />
+                  ) : (
+                    ''
+                  )}
                 </RadioGroup>
               </div>
             </FormControl>
           </div>
-          {(user?.role === "User" || learner) && (
+          {(user?.role === 'User' || learner) && (
             <>
-              {" "}
+              {' '}
               <div>
                 <label className="setting-label" for="Learning">
                   Learning Rhythm
@@ -462,39 +483,28 @@ function Setting({ openProfile, setOpenProfile }) {
                   name="Select"
                   onChange={ChangeLearningRhythm}
                   className="selectInput-userProfile selectInput2"
+                  defaultValue={learningRethem}
                 >
                   <option
                     value="10h To 20h Per Week"
                     className="selectInput-option"
                   >
-                    {learningRethem === "10h To 20h Per Week"
-                      ? learningRethem
-                      : "10h To 20h Per Week"}
+                    10h To 20h Per Week
                   </option>
                   <option value="20h To 30h Per Week">
-                    {learningRethem === "20h To 30h Per Week"
-                      ? learningRethem
-                      : "20h To 30h Per Week"}
+                    20h To 30h Per Week
                   </option>
                   <option value="30h To 40h Per Week">
-                    {learningRethem === "30h To 40h Per Week"
-                      ? learningRethem
-                      : "30h To 40h Per Week"}
+                    30h To 40h Per Week
                   </option>
                   <option value="40h To 50h Per Week">
-                    {learningRethem === "40h To 50h Per Week"
-                      ? learningRethem
-                      : "40h To 50h Per Week"}
+                    40h To 50h Per Week
                   </option>
                   <option value="50h To 60h Per Week">
-                    {learningRethem === "50h To 60h Per Week"
-                      ? learningRethem
-                      : "50h To 60h Per Week"}
+                    50h To 60h Per Week
                   </option>
                   <option value="60h To 70h Per Week">
-                    {learningRethem === "60h To 70h Per Week"
-                      ? learningRethem
-                      : "60h To 70h Per Week"}
+                    60h To 70h Per Week
                   </option>
                 </select>
               </div>

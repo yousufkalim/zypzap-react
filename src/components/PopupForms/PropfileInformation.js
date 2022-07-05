@@ -1,52 +1,52 @@
-import React, { useState, useEffect } from "react";
-import Dialog from "@mui/material/Dialog";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import api from "../../api";
-import Autocomplete from "@mui/material/Autocomplete";
-import axios from "axios";
-import { TextField, Paper } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import Course1 from "../../assets/img/course1.png";
-import ProfileDp from "../../assets/img/profileavatar.png";
-import { toast } from "react-toastify";
-import ClearIcon from "@mui/icons-material/Clear";
-import { Store, UpdateStore } from "../../StoreContext";
+import React, { useState, useEffect } from 'react';
+import Dialog from '@mui/material/Dialog';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import api from '../../api';
+import Autocomplete from '@mui/material/Autocomplete';
+import axios from 'axios';
+import { TextField, Paper } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import Course1 from '../../assets/img/course1.png';
+import ProfileDp from '../../assets/img/profileavatar.png';
+import { toast } from 'react-toastify';
+import ClearIcon from '@mui/icons-material/Clear';
+import { Store, UpdateStore } from '../../StoreContext';
 export default function PropfileInformation({
   openProfile,
   setOpenProfile,
   user,
-  setCongratulation
+  setCongratulation,
 }) {
   const useStyles = makeStyles({
     customTextField: {
-      "& input": {
-        color: "white",
-        border: "none"
+      '& input': {
+        color: 'white',
+        border: 'none',
       },
-      "&:hover": {
-        border: "red !important"
+      '&:hover': {
+        border: 'red !important',
       },
-      "& input::placeholder": {
-        color: "white",
-        "@media (max-width: 780px)": {
-          paddingLeft: "-2px"
-        }
-      }
+      '& input::placeholder': {
+        color: 'white',
+        '@media (max-width: 780px)': {
+          paddingLeft: '-2px',
+        },
+      },
     },
     option: {
-      background: "#242635 ",
-      color: "white",
-      "&:hover": {
-        backgroundColor: "#9198a5 !important"
-      }
+      background: '#242635 ',
+      color: 'white',
+      '&:hover': {
+        backgroundColor: '#9198a5 !important',
+      },
     },
     noOptions: {
-      display: `${"inherit"}`,
-      color: "white"
-    }
+      display: `${'inherit'}`,
+      color: 'white',
+    },
   });
   const classes = useStyles();
   const updateStore = UpdateStore();
@@ -69,25 +69,23 @@ export default function PropfileInformation({
     user?.plateForm ? user.plateForm : []
   );
   const [gameMood, setGameMood] = useState(
-    user?.gameMood ? user.gameMood : "Single"
+    user?.gameMood ? user.gameMood : 'Single'
   );
   const [learningRethem, setLearningRethem] = useState(
     user?.prefrence_games?.learningRethem
       ? user.prefrence_games.learningRethem
-      : "10h To 20h Per Week"
+      : '10h To 20h Per Week'
   );
   const [currentLevel, setCurrentLevel] = useState(
     user?.prefrence_games?.current_level
       ? user.prefrence_games.current_level
-      : "initial"
+      : 'initial'
   );
-  const [LearningRhythm, setLearningRhythm] = useState(
-    user?.learning_rhythm || "initial"
-  );
+
   const [target_level, setTargetLevel] = useState(
     user?.prefrence_games?.target_level
       ? user.prefrence_games.target_level
-      : "initial"
+      : 'initial'
   );
   useEffect(() => {
     setCurrentSate();
@@ -101,28 +99,28 @@ export default function PropfileInformation({
     );
     setGameType(user?.gameType ? user.gameType : []);
     setPlateForm(user?.plateForm ? user.plateForm : []);
-    setGameMood(user?.gameMood ? user.gameMood : "Single");
+    setGameMood(user?.gameMood ? user.gameMood : 'Single');
     setLearningRethem(
       user?.prefrence_games?.learningRethem
         ? user.prefrence_games.learningRethem
-        : "Per Week"
+        : 'Per Week'
     );
     setCurrentLevel(
       user?.prefrence_games?.current_level
         ? user.prefrence_games.current_level
-        : "initial"
+        : 'initial'
     );
     setTargetLevel(
       user?.prefrence_games?.target_level
         ? user.prefrence_games.target_level
-        : "initial"
+        : 'initial'
     );
   };
 
   const addTags = (event) => {
-    if (event.key === "Enter" && event.target.value !== "") {
+    if (event.key === 'Enter' && event.target.value !== '') {
       setFavouritGame([...favouritGame, event.target.value]);
-      event.target.value = "";
+      event.target.value = '';
     }
   };
   const onChangeRadioBtn = (e) => {
@@ -130,11 +128,11 @@ export default function PropfileInformation({
     setGameMood(e.target.value);
   };
 
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
   const removeTags = (index) => {
     setFavouritGame([
-      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index)
+      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index),
     ]);
   };
 
@@ -142,7 +140,7 @@ export default function PropfileInformation({
     setCurrentLevel(e.target.value);
   };
   const ChangeLearningRhythm = (e) => {
-    setLearningRhythm(e.target.value);
+    setLearningRethem(e.target.value);
   };
   const changeTargetLevelHandler = (e) => {
     setTargetLevel(e.target.value);
@@ -177,7 +175,7 @@ export default function PropfileInformation({
   const handleImageSelect = async (e) => {
     const formdata = new FormData();
     formdata.append(`files`, e.target.files[0]);
-    let res = await api("post", "/uploadImage", formdata);
+    let res = await api('post', '/uploadImage', formdata);
     setImageURL(res.data.file[0].location);
   };
 
@@ -186,7 +184,7 @@ export default function PropfileInformation({
       favourite_games: favouritGame,
       learningRethem: learningRethem,
       current_level: currentLevel,
-      target_level: target_level
+      target_level: target_level,
     };
     const formdata = {
       profile_photo,
@@ -195,22 +193,22 @@ export default function PropfileInformation({
       gameType,
       plateForm,
       gameMood,
-      LearningRhythm
+      learningRethem,
     };
     if (
-      prefrence_games === "" ||
-      gameType === "" ||
-      plateForm === "" ||
-      gameMood === "" ||
-      target_level === "" ||
-      currentLevel === "" ||
-      learningRethem === "" ||
-      favouritGame === ""
+      prefrence_games === '' ||
+      gameType === '' ||
+      plateForm === '' ||
+      gameMood === '' ||
+      target_level === '' ||
+      currentLevel === '' ||
+      learningRethem === '' ||
+      favouritGame === ''
     ) {
     } else {
       if (user) {
         let res = await api(
-          "put",
+          'put',
           `/users/addProfileInfo/${user?._id}`,
           formdata
         );
@@ -220,34 +218,34 @@ export default function PropfileInformation({
           setCongratulation(true);
         }
       } else {
-        toast.success("Profil non modifié");
+        toast.success('Profil non modifié');
       }
     }
   };
 
   let gametypebtn = [
-    { name: "Action" },
-    { name: "Adventure" },
-    { name: "Metaverse" },
-    { name: "MMOG" },
-    { name: "Car Racing" },
-    { name: "Versus Fighting" },
-    { name: "FPS" },
-    { name: "RTS" },
-    { name: "RPG" },
-    { name: "Simulation" },
-    { name: "Turn By Turn Strategy" },
-    { name: "Sports" },
-    { name: "Trading Card" },
-    { name: "Puzzle" }
+    { name: 'Action' },
+    { name: 'Adventure' },
+    { name: 'Metaverse' },
+    { name: 'MMOG' },
+    { name: 'Car Racing' },
+    { name: 'Versus Fighting' },
+    { name: 'FPS' },
+    { name: 'RTS' },
+    { name: 'RPG' },
+    { name: 'Simulation' },
+    { name: 'Turn By Turn Strategy' },
+    { name: 'Sports' },
+    { name: 'Trading Card' },
+    { name: 'Puzzle' },
   ];
   let gametypebtn2 = [
-    { name: "Retro Consoles" },
-    { name: "PS1/2/3/4/5" },
-    { name: "Xbox/360/One/X" },
-    { name: "Mobile Games" },
-    { name: "Portable Consoles" },
-    { name: "PC" }
+    { name: 'Retro Consoles' },
+    { name: 'PS1/2/3/4/5' },
+    { name: 'Xbox/360/One/X' },
+    { name: 'Mobile Games' },
+    { name: 'Portable Consoles' },
+    { name: 'PC' },
   ];
   // const handleClose = () => {
   //   setOpen(false);
@@ -261,9 +259,9 @@ export default function PropfileInformation({
     let res = await axios.get(
       `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
         e.target.value +
-        "&page=1&page_size=10",
+        '&page=1&page_size=10',
       {
-        withCredentials: false
+        withCredentials: false,
       }
     );
 
@@ -277,7 +275,7 @@ export default function PropfileInformation({
   };
   // Set selected game in  setAddressValue State
   const setGamefiled = async (item, selectedItems, reason) => {
-    if (user?.role === "User" || learner) {
+    if (user?.role === 'User' || learner) {
       setFavouritGame(selectedItems);
     } else setExpertiseGame(selectedItems);
   };
@@ -295,7 +293,7 @@ export default function PropfileInformation({
             <ClearIcon
               className="clearIcon"
               onClick={() => setOpenProfile(false)}
-              style={{ margin: "10px 0" }}
+              style={{ margin: '10px 0' }}
             />
             <h2 className="userProfileH1">Profile Information</h2>
             <p className="userProfileP">Input your details</p>
@@ -336,10 +334,10 @@ export default function PropfileInformation({
                 multiple
                 options={values}
                 classes={{
-                  option: classes.option
+                  option: classes.option,
                 }}
                 defaultValue={
-                  user?.role === "User" || learner
+                  user?.role === 'User' || learner
                     ? favouritGame
                     : expertiseGame
                 }
@@ -351,21 +349,21 @@ export default function PropfileInformation({
                 noOptionsText={
                   <div
                     style={{
-                      color: "white",
-                      fontSize: "12px"
+                      color: 'white',
+                      fontSize: '12px',
                     }}
                   >
-                    {" "}
-                    no option{" "}
+                    {' '}
+                    no option{' '}
                   </div>
                 }
                 PaperComponent={({ children }) => (
-                  <Paper style={{ background: "#242635" }}>{children}</Paper>
+                  <Paper style={{ background: '#242635' }}>{children}</Paper>
                 )}
                 onChange={setGamefiled}
                 hiddenLabel="true"
                 style={{
-                  margin: "auto"
+                  margin: 'auto',
                 }}
                 renderInput={(params) => (
                   <TextField
@@ -374,13 +372,13 @@ export default function PropfileInformation({
                     placeholder="Add here..."
                     classes={{ root: classes.customTextField }}
                     {...params}
-                    style={{ color: "white" }}
+                    style={{ color: 'white' }}
                     // variant="outlined"
                     onChange={getAllGames}
                     sx={{
-                      outline: "none",
-                      width: "80%",
-                      borderRadius: "6px"
+                      outline: 'none',
+                      width: '80%',
+                      borderRadius: '6px',
                     }}
                     // value={gameName}
                     // name="gameName"
@@ -453,7 +451,7 @@ export default function PropfileInformation({
                   aria-labelledby="demo-radio-buttons-group-label"
                   defaultValue={gameMood}
                   name="radio-buttons-group"
-                  style={{ display: "inline" }}
+                  style={{ display: 'inline' }}
                 >
                   <FormControlLabel
                     value="Single"
@@ -472,15 +470,15 @@ export default function PropfileInformation({
             </FormControl>
           </div>
 
-          {(user?.role === "User" || learner) && (
+          {(user?.role === 'User' || learner) && (
             <>
               <div>
                 <label
                   for="Learning"
                   style={{
-                    fontSize: "16px",
-                    fontWeight: "400",
-                    fontFamily: "Mulish"
+                    fontSize: '16px',
+                    fontWeight: '400',
+                    fontFamily: 'Mulish',
                   }}
                 >
                   Learning Rhythm
@@ -493,44 +491,33 @@ export default function PropfileInformation({
                   name="Select"
                   onChange={ChangeLearningRhythm}
                   className="selectInput-userProfile2"
+                  defaultValue={learningRethem}
                   style={{
-                    fontSize: "15px",
-                    fontWeight: "400",
-                    fontFamily: "Mulish"
+                    fontSize: '15px',
+                    fontWeight: '400',
+                    fontFamily: 'Mulish',
                   }}
                 >
                   <option
                     value="10h To 20h Per Week"
                     className="selectInput-option"
                   >
-                    {learningRethem === "10h To 20h Per Week"
-                      ? learningRethem
-                      : "10h To 20h Per Week"}
+                    10h To 20h Per Week
                   </option>
                   <option value="20h To 30h Per Week">
-                    {learningRethem === "20h To 30h Per Week"
-                      ? learningRethem
-                      : "20h To 30h Per Week"}
+                    20h To 30h Per Week
                   </option>
                   <option value="30h To 40h Per Week">
-                    {learningRethem === "30h To 40h Per Week"
-                      ? learningRethem
-                      : "30h To 40h Per Week"}
+                    30h To 40h Per Week
                   </option>
                   <option value="40h To 50h Per Week">
-                    {learningRethem === "40h To 50h Per Week"
-                      ? learningRethem
-                      : "40h To 50h Per Week"}
+                    40h To 50h Per Week
                   </option>
                   <option value="50h To 60h Per Week">
-                    {learningRethem === "50h To 60h Per Week"
-                      ? learningRethem
-                      : "50h To 60h Per Week"}
+                    50h To 60h Per Week
                   </option>
                   <option value="60h To 70h Per Week">
-                    {learningRethem === "60h To 70h Per Week"
-                      ? learningRethem
-                      : "60h To 70h Per Week"}
+                    60h To 70h Per Week
                   </option>
                 </select>
               </div>
@@ -538,9 +525,9 @@ export default function PropfileInformation({
                 <label
                   for="Learning"
                   style={{
-                    fontSize: "16px",
-                    fontWeight: "400",
-                    fontFamily: "Mulish"
+                    fontSize: '16px',
+                    fontWeight: '400',
+                    fontFamily: 'Mulish',
                   }}
                 >
                   Current Gameplay Level
@@ -553,9 +540,9 @@ export default function PropfileInformation({
                   className="selectInput-userProfile"
                   defaultValue={currentLevel}
                   style={{
-                    fontSize: "15px",
-                    fontWeight: "400",
-                    fontFamily: "Mulish"
+                    fontSize: '15px',
+                    fontWeight: '400',
+                    fontFamily: 'Mulish',
                   }}
                 >
                   <option value="Casual" className="selectInput-option">
@@ -578,9 +565,9 @@ export default function PropfileInformation({
                 <label
                   for="Learning"
                   style={{
-                    fontSize: "16px",
-                    fontWeight: "400",
-                    fontFamily: "Mulish"
+                    fontSize: '16px',
+                    fontWeight: '400',
+                    fontFamily: 'Mulish',
                   }}
                 >
                   Target Gameplay Level
@@ -594,9 +581,9 @@ export default function PropfileInformation({
                   className="selectInput-userProfile"
                   defaultValue={target_level}
                   style={{
-                    fontSize: "15px",
-                    fontWeight: "400",
-                    fontFamily: "Mulish"
+                    fontSize: '15px',
+                    fontWeight: '400',
+                    fontFamily: 'Mulish',
                   }}
                 >
                   <option value="Casual" className="selectInput-option">

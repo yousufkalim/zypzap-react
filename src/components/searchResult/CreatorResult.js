@@ -1,29 +1,36 @@
-import React, { useState, useEffect, useMemo } from "react";
-import ArslanAshIMG from "../../assets/img/ArslanAshIMG.svg";
-import Course2 from "../../assets/img/course2.png";
-import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
-import { Link } from "react-router-dom";
-import CustomizedMenus from "./CustomizedMenus";
-import { Store, UpdateStore } from "../../StoreContext";
-import Box from "@mui/material/Box";
-import { CircularProgress } from "@material-ui/core";
+import React, { useState, useEffect, useMemo } from 'react';
+import ArslanAshIMG from '../../assets/img/ArslanAshIMG.svg';
+import Course2 from '../../assets/img/course2.png';
+import { ReactComponent as Star1 } from '../../assets/icons/star2.svg';
+import { Link } from 'react-router-dom';
+import CustomizedMenus from './CustomizedMenus';
+import { Store, UpdateStore } from '../../StoreContext';
+import Box from '@mui/material/Box';
+import { CircularProgress } from '@material-ui/core';
 
 const CreatorResult = ({ input, creator }) => {
   const { searchCreator, searchLoader } = Store();
   const [_myCreators, set_MyRatingCreators] = useState([]);
+
+  const totalStudent = (courses) => {
+    let students = [];
+    courses?.map((c) => {
+      if (c?.student?.length > 0) students.push(...c.student);
+    });
+    students = [...new Set(students)];
+    return students.length;
+  };
+
   useMemo(() => {
     let myCreator = [];
     searchCreator.map((item) => {
       let _num = 0;
-      let student = 0;
+
       item?.creator?.courses?.map((_course) => {
         _num += parseInt(_course.rating);
-        student += parseInt(
-          _course?.student?.length ? _course?.student?.length : 0
-        );
       });
       _num = _num > 0 ? _num / item?.creator?.courses?.length : 0;
-      myCreator.push({ ...item, _avgRating: _num ?? 0, _avgStudent: student });
+      myCreator.push({ ...item, _avgRating: _num ?? 0 });
     });
     set_MyRatingCreators(myCreator);
     // searchCreator?.filter((courses) => (count += courses?.student?.length));
@@ -32,7 +39,7 @@ const CreatorResult = ({ input, creator }) => {
 
   return (
     <>
-      <div className="followList" style={{ position: "relative" }}>
+      <div className="followList" style={{ position: 'relative' }}>
         <div className="followCenerDiv">
           {/* div col 1 */}
           <div className="followCol1">
@@ -49,10 +56,10 @@ const CreatorResult = ({ input, creator }) => {
                   size={70}
                   thickness={3.5}
                   style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    color: "white",
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    color: 'white',
                   }}
                 />
               ) : (
@@ -62,8 +69,9 @@ const CreatorResult = ({ input, creator }) => {
                       <div className="following-card">
                         <div className="followingImgDiv">
                           <img
-                            src={ArslanAshIMG}
+                            src={item.profile_photo || ArslanAshIMG}
                             className="followingIMG"
+                            // className="instructorLogo"
                             alt="img"
                           />
                         </div>
@@ -73,7 +81,7 @@ const CreatorResult = ({ input, creator }) => {
                           <p className="following_P">
                             {item?.course_name
                               ? item.course_name
-                              : "fighting game player of Tekken"}
+                              : 'fighting game player of Tekken'}
                           </p>
                           <p className="followingP2">
                             {item?.creator?.user_id?.username}
@@ -89,8 +97,14 @@ const CreatorResult = ({ input, creator }) => {
                               />
                             ))}
                             <br />
-                            {/* todo avg  */}
-                            {`${item._avgStudent} Students` ?? 0}
+                            {/* {`${item._avgStudent} Students` ?? 0} */}
+                            {item?.creator?.courses
+                              ? totalStudent(item.creator.courses) > 1
+                                ? totalStudent(item.creator.courses) +
+                                  ' Students'
+                                : totalStudent(item.creator.courses) +
+                                  ' Student'
+                              : 'No Students'}
                           </p>
                         </div>
                         {/* <div className="followingButtonDiv">

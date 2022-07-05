@@ -92,6 +92,8 @@ const StartedCourse = () => {
                         <p className="wishlistP2">
                           {item?.course_id?.creator?.user_id?.username}
                         </p>
+                        {console.log("itemmmmm", item)}
+                        {console.log("course_id", item.course_id)}
                         <p className="wishlistP3">
                           {item?.course_id?.rating
                             ? item.course_id.rating

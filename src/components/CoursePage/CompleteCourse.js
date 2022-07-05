@@ -1,15 +1,15 @@
-import React, { useRef, useState, useEffect } from "react";
-import "./CoursePage.css";
-import Plyr from "plyr-react";
-import "plyr-react/dist/plyr.css";
-import ReactPlayer from "react-player";
+import React, { useRef, useState, useEffect } from 'react';
+import './CoursePage.css';
+import Plyr from 'plyr-react';
+import 'plyr-react/dist/plyr.css';
+import ReactPlayer from 'react-player';
 
 const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
   const ref = useRef();
   useEffect(() => {
-    console.log("internal plyr instance:", ref.current.plyr);
-    ref.current.plyr.on("ended", (e) => {
-      console.log("ended");
+    console.log('internal plyr instance:', ref.current.plyr);
+    ref.current.plyr.on('ended', (e) => {
+      console.log('ended');
     });
   }, []);
 
@@ -22,12 +22,12 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
     singlCourse?.videos ? singlCourse.videos.length : 0
   );
   const videoSrc = {
-    type: "video",
+    type: 'video',
     sources: [
       {
-        src: playVideo?.src_url
-      }
-    ]
+        src: playVideo?.src_url,
+      },
+    ],
   };
 
   return (
@@ -36,7 +36,7 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
         <div className="completeCourse-center-div">
           <div className="completeCourse-colm1">
             <h2 className="completeCourseH2">
-              {playVideo?.title ? playVideo.title : "CS Go"} Ep 1 Complete
+              {playVideo?.title ? playVideo.title : 'CS Go'} Ep 1 Complete
               Course
             </h2>
             {/* <ReactPlayer src={playVideo?.src_url} /> */}
@@ -93,12 +93,12 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value }) => {
     var secs = ~~second % 60;
 
     // Output like "1:01" or "4:03:59" or "123:03:59"
-    var ret = "";
+    var ret = '';
     if (hrs > 0) {
-      ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+      ret += '' + hrs + ':' + (mins < 10 ? '0' : '');
     }
-    ret += "" + mins + ":" + (secs < 10 ? "0" : "");
-    ret += "" + secs;
+    ret += '' + mins + ':' + (secs < 10 ? '0' : '');
+    ret += '' + secs;
     return ret;
   };
 
@@ -111,17 +111,17 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value }) => {
         src={
           clip?.src_url
             ? clip.src_url
-            : "https://pass-to-trip.s3.eu-west-3.amazonaws.com/1647410128211"
+            : 'https://pass-to-trip.s3.eu-west-3.amazonaws.com/1647410128211'
         }
       ></video>
       <div className="playVideoHeading">
         <h3 className="playVideoH3">
-          {clip?.title ? clip.title : "CS Go"} Ep 1 Complete Course
+          {clip?.title ? clip.title : 'CS Go'} Ep 1 Complete Course
         </h3>
-        <span className="playVideonumber">{value + "/" + videoCount} </span>
-        <span>{"|"}</span>
-        <span className="playVideomint" style={{ margin: "10px" }}>
-          {clip?.duration ? secondToTime(clip.duration) + " min" : "1:00 min"}
+        <span className="playVideonumber">{value + '/' + videoCount} </span>
+        <span>{'|'}</span>
+        <span className="playVideomint" style={{ margin: '10px' }}>
+          {clip?.duration ? secondToTime(clip.duration) + ' min' : '1:00 min'}
         </span>
       </div>
     </li>
