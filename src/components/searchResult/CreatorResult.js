@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useMemo } from "react";
-import ArslanAshIMG from "../../assets/img/ArslanAshIMG.svg";
-import Course2 from "../../assets/img/course2.png";
-import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
-import { Link } from "react-router-dom";
-import CustomizedMenus from "./CustomizedMenus";
-import { Store, UpdateStore } from "../../StoreContext";
-import Box from "@mui/material/Box";
-import { CircularProgress } from "@material-ui/core";
+import React, { useState, useEffect, useMemo } from 'react';
+import ArslanAshIMG from '../../assets/img/ArslanAshIMG.svg';
+import Course2 from '../../assets/img/course2.png';
+import { ReactComponent as Star1 } from '../../assets/icons/star2.svg';
+import { Link } from 'react-router-dom';
+import CustomizedMenus from './CustomizedMenus';
+import { Store, UpdateStore } from '../../StoreContext';
+import Box from '@mui/material/Box';
+import { CircularProgress } from '@material-ui/core';
 
 const CreatorResult = ({ input, creator }) => {
   const { searchCreator, searchLoader } = Store();
@@ -39,7 +39,7 @@ const CreatorResult = ({ input, creator }) => {
 
   return (
     <>
-      <div className="followList" style={{ position: "relative" }}>
+      <div className="followList" style={{ position: 'relative' }}>
         <div className="followCenerDiv">
           {/* div col 1 */}
           <div className="followCol1">
@@ -56,10 +56,10 @@ const CreatorResult = ({ input, creator }) => {
                   size={70}
                   thickness={3.5}
                   style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    color: "white",
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    color: 'white',
                   }}
                 />
               ) : (
@@ -81,7 +81,7 @@ const CreatorResult = ({ input, creator }) => {
                           <p className="following_P">
                             {item?.course_name
                               ? item.course_name
-                              : "fighting game player of Tekken"}
+                              : 'fighting game player of Tekken'}
                           </p>
                           <p className="followingP2">
                             {item?.creator?.user_id?.username}
@@ -101,10 +101,10 @@ const CreatorResult = ({ input, creator }) => {
                             {item?.creator?.courses
                               ? totalStudent(item.creator.courses) > 1
                                 ? totalStudent(item.creator.courses) +
-                                  " Students"
+                                  ' Students'
                                 : totalStudent(item.creator.courses) +
-                                  " Student"
-                              : "No Students"}
+                                  ' Student'
+                              : 'No Students'}
                           </p>
                         </div>
                         {/* <div className="followingButtonDiv">

@@ -1,14 +1,14 @@
-import { Button } from "@mui/material";
-import React, { useState, useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
-import InstructorIcon from "../../assets/icons/InstructorIcon.svg";
+import { Button } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { NavLink, Link } from 'react-router-dom';
+import InstructorIcon from '../../assets/icons/InstructorIcon.svg';
 // import overViewIcon1 from "../../assets/icons/overViewIcon1.svg";
-import overViewIcon2 from "../../assets/icons/overViewIcon2.svg";
-import overViewIcon3 from "../../assets/icons/overViewIcon3.svg";
-import { Store, UpdateStore } from "../../StoreContext";
+import overViewIcon2 from '../../assets/icons/overViewIcon2.svg';
+import overViewIcon3 from '../../assets/icons/overViewIcon3.svg';
+import { Store, UpdateStore } from '../../StoreContext';
 
-import api from "../../api";
-import overViewIcon4 from "../../assets/icons/overViewIcon4.svg";
+import api from '../../api';
+import overViewIcon4 from '../../assets/icons/overViewIcon4.svg';
 const Instructor = (props) => {
   const { singlCourse } = props;
   const [follow, setFollow] = useState(false);
@@ -57,7 +57,7 @@ const Instructor = (props) => {
                   pathname: `/CreatorProfile/${id}`,
                 }}
                 className="requestBt"
-                style={{ textDecoration: "none", color: "white" }}
+                style={{ textDecoration: 'none', color: 'white' }}
               >
                 <div className="instructor-image">
                   <img
@@ -74,7 +74,7 @@ const Instructor = (props) => {
                 <h3 className="instructorH2">
                   {singlCourse?.creator?.user_id?.username
                     ? singlCourse.creator.user_id.username
-                    : "Arslan Ash"}
+                    : 'Arslan Ash'}
                 </h3>
                 {/* <p className="instructorP">
                   Player of {singlCourse?.course_name}
@@ -84,15 +84,15 @@ const Instructor = (props) => {
                   <span className="instructor-span">
                     {singlCourse?.creator?.gameLevel
                       ? singlCourse.creator.gameLevel
-                      : " Pro"}
+                      : ' Pro'}
                   </span>
                 </p>
                 <p className="instructor-student">
                   {singlCourse?.creator?.courses
                     ? totalStudent(singlCourse.creator.courses) > 1
-                      ? totalStudent(singlCourse.creator.courses) + " Students"
-                      : totalStudent(singlCourse.creator.courses) + " Student"
-                    : "No Students"}
+                      ? totalStudent(singlCourse.creator.courses) + ' Students'
+                      : totalStudent(singlCourse.creator.courses) + ' Student'
+                    : 'No Students'}
                 </p>
               </div>
               {/* 
@@ -114,7 +114,7 @@ const Instructor = (props) => {
                 <p className="instructor-aboutH2">About the Instructor</p>
                 <p className="instructor-aboutP">
                   {`Expertise Games: ${singlCourse?.creator?.user_id?.prefrence_games?.favourite_games.join(
-                    ",  "
+                    ',  '
                   )} `}
                 </p>
               </div>
@@ -123,7 +123,7 @@ const Instructor = (props) => {
                   Hi, I am &nbsp;
                   {singlCourse?.creator?.user_id?.username
                     ? singlCourse.creator.user_id.username
-                    : "Arslan Ash"}
+                    : 'Arslan Ash'}
                 </p>
                 <p className="instructorProfile-P">
                   {/* {singlCourse?.description
@@ -132,7 +132,7 @@ const Instructor = (props) => {
 
                   {singlCourse?.creator?.bio
                     ? singlCourse.creator.bio
-                    : "I am a Professional Taken player 2 times world champion last year i was choosen to be red bull athelete too i am here to help you win the game and have a fun."}
+                    : 'I am a Professional Taken player 2 times world champion last year i was choosen to be red bull athelete too i am here to help you win the game and have a fun.'}
                 </p>
               </div>
               <div className="overViewTags">
@@ -141,14 +141,14 @@ const Instructor = (props) => {
                     src={overViewIcon3}
                     alt=""
                     className="overViewIcon"
-                    style={{ marginLeft: "0" }}
+                    style={{ marginLeft: '0' }}
                   />
                   <p className="overViewIconP">
                     {singlCourse?.creator?.courses
                       ? singlCourse.creator.courses.length > 1
-                        ? singlCourse.creator.courses.length + " Courses"
-                        : singlCourse.creator.courses.length + " Course"
-                      : "No Courses"}
+                        ? singlCourse.creator.courses.length + ' Courses'
+                        : singlCourse.creator.courses.length + ' Course'
+                      : 'No Courses'}
                   </p>
                 </li>
                 <li className="overViewLi">
@@ -156,7 +156,7 @@ const Instructor = (props) => {
                     src={overViewIcon4}
                     alt=""
                     className="overViewIcon"
-                    style={{ marginLeft: "55px" }}
+                    style={{ marginLeft: '55px' }}
                   />
                   <p className="overViewIconP">
                     {/* {singlCourse?.creator?.courses
@@ -165,9 +165,9 @@ const Instructor = (props) => {
                     {singlCourse?.creator?.courses
                       ? totalStudent(singlCourse.creator.courses) > 1
                         ? totalStudent(singlCourse.creator.courses) +
-                          " Students"
-                        : totalStudent(singlCourse.creator.courses) + " Student"
-                      : "No Students"}
+                          ' Students'
+                        : totalStudent(singlCourse.creator.courses) + ' Student'
+                      : 'No Students'}
                   </p>
                 </li>
               </div>

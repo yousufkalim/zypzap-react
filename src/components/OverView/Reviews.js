@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
+import React, { useState, useEffect } from 'react';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 // import avatar from "../../assets/img/avatar.png";
-import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
-import ReviewStarList from "./ReviewStarList";
+import { ReactComponent as Star1 } from '../../assets/icons/star2.svg';
+import ReviewStarList from './ReviewStarList';
 import LinearProgress, {
   linearProgressClasses,
-} from "@mui/material/LinearProgress";
-import CongratsYouDidPopup from "../PopupForms/CongratsYouDidPopup";
+} from '@mui/material/LinearProgress';
+import CongratsYouDidPopup from '../PopupForms/CongratsYouDidPopup';
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
   borderRadius: 5,
   [`&.${linearProgressClasses.colorPrimary}`]: {
-    backgroundColor: "#17192D",
+    backgroundColor: '#17192D',
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 5,
     background: (theme.palette.mode =
-      "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(50.06deg, #662F88 50.05%, #20BF55 131.69%);"),
+      'linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(50.06deg, #662F88 50.05%, #20BF55 131.69%);'),
   },
 }));
 
@@ -101,19 +101,19 @@ const Reviews = (props) => {
                 onClick={() => {
                   setShowPopup(true);
                 }}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: 'pointer' }}
               >
                 <h1 className="courseRatingH1">
-                  {singlCourse?.rating ? singlCourse.rating : "0.0"}
+                  {singlCourse?.rating ? singlCourse.rating : '0.0'}
                 </h1>
                 <div className="courseRating-images">
                   {[1, 2, 3, 4, 5].map((i) => (
                     <Star1
                       className="starID"
                       style={{
-                        width: "21px",
-                        height: "21px",
-                        top: "3px",
+                        width: '21px',
+                        height: '21px',
+                        top: '3px',
                       }}
                     />
                   ))}

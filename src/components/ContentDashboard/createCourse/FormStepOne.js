@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import Grid from "@mui/material/Grid";
-import axios from "axios";
-import { makeStyles } from "@mui/styles";
-import Select from "react-select";
-import { toast } from "react-toastify";
-import TextField from "@mui/material/TextField";
-import Paper from "@mui/material/Paper";
-import Autocomplete from "@mui/material/Autocomplete";
+import React, { useState, useEffect } from 'react';
+import Grid from '@mui/material/Grid';
+import axios from 'axios';
+import { makeStyles } from '@mui/styles';
+import Select from 'react-select';
+import { toast } from 'react-toastify';
+import TextField from '@mui/material/TextField';
+import Paper from '@mui/material/Paper';
+import Autocomplete from '@mui/material/Autocomplete';
 
 const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
   const [values, setValues] = useState([]);
@@ -30,54 +30,54 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
   };
   const useStyles = makeStyles({
     customTextField: {
-      "& input": { color: "white" },
-      "&:hover": {
-        border: "red !important",
+      '& input': { color: 'white' },
+      '&:hover': {
+        border: 'red !important',
       },
-      "& input::placeholder": {
-        color: "white",
-        "@media (max-width: 780px)": {
-          paddingLeft: "-2px",
+      '& input::placeholder': {
+        color: 'white',
+        '@media (max-width: 780px)': {
+          paddingLeft: '-2px',
         },
       },
     },
     option: {
-      background: "#242635 ",
-      color: "white",
-      "&:hover": {
-        backgroundColor: "#9198a5 !important",
+      background: '#242635 ',
+      color: 'white',
+      '&:hover': {
+        backgroundColor: '#9198a5 !important',
       },
     },
     noOptions: {
-      display: `${"inherit"}`,
-      color: "white",
+      display: `${'inherit'}`,
+      color: 'white',
     },
   });
   const classes = useStyles();
 
   const handleContinue = () => {
-    if (course_name === "") {
-      return toast.error("Veuillez saisir le nom de votre cours");
+    if (course_name === '') {
+      return toast.error('Veuillez saisir le nom de votre cours');
     }
-    if (selectedGamename === "") {
-      return toast.error("Veuillez entrer votre nom du jeu");
+    if (selectedGamename === '') {
+      return toast.error('Veuillez entrer votre nom du jeu');
     }
-    if (gameLevel === "") {
-      return toast.error("Veuillez saisir le nom de votre niveau de jeu");
+    if (gameLevel === '') {
+      return toast.error('Veuillez saisir le nom de votre niveau de jeu');
     }
-    if (gameType === "") {
-      return toast.error("Veuillez entrer votre type de jeu");
+    if (gameType === '') {
+      return toast.error('Veuillez entrer votre type de jeu');
     }
-    if (gameMood === "") {
-      return toast.error("Veuillez entrer votre ambiance de jeu");
+    if (gameMood === '') {
+      return toast.error('Veuillez entrer votre ambiance de jeu');
     }
-    if (gamePlateForm === "") {
+    if (gamePlateForm === '') {
       return toast.error(
-        "Veuillez saisir le nom de votre forme de plateau de jeu"
+        'Veuillez saisir le nom de votre forme de plateau de jeu'
       );
     }
-    if (description === "") {
-      return toast.error("Veuillez entrer votre description");
+    if (description === '') {
+      return toast.error('Veuillez entrer votre description');
     }
     setStep(2);
   };
@@ -90,7 +90,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
     let res = await axios.get(
       `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
         e.target.value +
-        "&page=1&page_size=10",
+        '&page=1&page_size=10',
       {
         withCredentials: false,
       }
@@ -122,14 +122,14 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
           const city = values[i].city;
           setformDataOne({
             ...formDataOne,
-            ["selectedGamename"]: values[i].label,
+            ['selectedGamename']: values[i].label,
           });
         }
       }
     } else {
       await setformDataOne({
         ...formDataOne,
-        ["selectedGamename"]: values[i].label,
+        ['selectedGamename']: values[i].label,
       });
     }
   };
@@ -145,8 +145,8 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
           <div className="courseDiv">
             <Grid xs={12} sm={6}>
               <div>
-                <p className="stepLabel" style={{ marginTop: "4%" }}>
-                  Course Title{" "}
+                <p className="stepLabel" style={{ marginTop: '4%' }}>
+                  Course Title{' '}
                 </p>
                 <input
                   type="text"
@@ -184,26 +184,26 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                   }}
                   className="coursInputAutofiled"
                   noOptionsText={
-                    <div style={{ color: "white", fontSize: "12px" }}>
-                      {" "}
-                      no option{" "}
+                    <div style={{ color: 'white', fontSize: '12px' }}>
+                      {' '}
+                      no option{' '}
                     </div>
                   }
                   PaperComponent={({ children }) => (
-                    <Paper style={{ background: "#242635" }}>{children}</Paper>
+                    <Paper style={{ background: '#242635' }}>{children}</Paper>
                   )}
-                  getOptionLabel={(option) => option.label || ""}
+                  getOptionLabel={(option) => option.label || ''}
                   onChange={setGamefiled}
                   hiddenLabel="true"
                   style={{
-                    margin: "auto",
+                    margin: 'auto',
                   }}
                   renderInput={(params) => (
                     <TextField
                       classes={{ root: classes.customTextField }}
                       {...params}
                       placeholder="Game Name"
-                      style={{ color: "white" }}
+                      style={{ color: 'white' }}
                       variant="outlined"
                       onChange={getAllGames}
                       value={gameName}
@@ -251,7 +251,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
             {/* <Grid container spacing={2} className="step_container">
               <Grid container spacing={2}> */}
             <Grid xs={12} sm={6}>
-              <div style={{ marginTop: "4%" }}>
+              <div style={{ marginTop: '4%' }}>
                 <p className="stepLabel">Game Type</p>
                 <select
                   id="gameType"

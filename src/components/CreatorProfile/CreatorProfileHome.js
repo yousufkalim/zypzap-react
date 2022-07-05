@@ -1,33 +1,33 @@
-import React, { useState, useEffect } from "react";
-import "../../components/UserProfile/UserProfile.css";
-import UserHomeProfleImg2 from "../../assets/img/UserHomeProfleImg2.svg";
-import CreatorPrifileImg from "../../assets/img/CreatorPrifileImg.svg";
-import PropfileInformation from "../PopupForms/PropfileInformation";
-import ProGamer from "../../assets/icons/ProGamer.svg";
-import ViewCourse from "../../assets/icons/ViewCourse.svg";
-import ViewStudent from "../../assets/img/ViewStudent.svg";
-import ViewRank from "../../assets/img/ViewRank.svg";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import '../../components/UserProfile/UserProfile.css';
+import UserHomeProfleImg2 from '../../assets/img/UserHomeProfleImg2.svg';
+import CreatorPrifileImg from '../../assets/img/CreatorPrifileImg.svg';
+import PropfileInformation from '../PopupForms/PropfileInformation';
+import ProGamer from '../../assets/icons/ProGamer.svg';
+import ViewCourse from '../../assets/icons/ViewCourse.svg';
+import ViewStudent from '../../assets/img/ViewStudent.svg';
+import ViewRank from '../../assets/img/ViewRank.svg';
+import { Link } from 'react-router-dom';
 
-import api from "../../api";
-import Course1 from "../../assets/img/course1.png";
-import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
+import api from '../../api';
+import Course1 from '../../assets/img/course1.png';
+import { ReactComponent as Star1 } from '../../assets/icons/star2.svg';
 const CreaterDatav = [
   {
     imgSrc: ProGamer,
-    content: "Pro Gamer",
+    content: 'Pro Gamer',
   },
   {
     imgSrc: ViewCourse,
-    content: "8 Courses",
+    content: '8 Courses',
   },
   {
     imgSrc: ViewStudent,
-    content: "2287 Students",
+    content: '2287 Students',
   },
   {
     imgSrc: ViewRank,
-    content: "2nd Rank",
+    content: '2nd Rank',
   },
 ];
 
@@ -50,7 +50,7 @@ const CreatorProfileHome = (props) => {
     return count;
   };
   const getCreator = async () => {
-    let res = await api("get", `/users/${id}`);
+    let res = await api('get', `/users/${id}`);
     if (res) {
       setUser(res?.data);
       const courses = res?.data?.creator?.courses;
@@ -91,19 +91,19 @@ const CreatorProfileHome = (props) => {
           <div className="profile-container2">
             <div className="prfile-name-heading">
               <h1 className="profile-name">
-                {user ? user.username : "Atif Khan"}
+                {user ? user.username : 'Atif Khan'}
               </h1>
               <p className="pofileP">
                 {user?.gameType?.length > 0
                   ? `${user.gameType} Player`
-                  : "Taken Player"}
+                  : 'Taken Player'}
               </p>
               <p className="prfile-lavelP">
-                Hi, I am {user?.username ? user.username : "User1"}
+                Hi, I am {user?.username ? user.username : 'User1'}
                 <br />
                 {user?.creator?.bio
                   ? user.creator.bio
-                  : "I am a Professional Taken player 2 times world champion last year i was choosen to be red bull athelete too i am here to help you win the game and have a fun."}
+                  : 'I am a Professional Taken player 2 times world champion last year i was choosen to be red bull athelete too i am here to help you win the game and have a fun.'}
               </p>
               {/* <div className="profileEditButton">
                 <a to="">
@@ -140,9 +140,9 @@ const CreatorProfileHome = (props) => {
                       {/* todo populate issue  ----> */}
                       {user?.creator?.courses
                         ? totalStudent(user.creator.courses) > 1
-                          ? totalStudent(user.creator.courses) + " Students"
-                          : totalStudent(user.creator.courses) + " Student"
-                        : "No Student"}
+                          ? totalStudent(user.creator.courses) + ' Students'
+                          : totalStudent(user.creator.courses) + ' Student'
+                        : 'No Student'}
                     </p>
                   </div>
                   <div className="creatorLogos">
@@ -173,13 +173,13 @@ const CreatorProfileHome = (props) => {
                   pathname: `/OverView/${item?._id}`,
                   state: { course: `${item}` },
                 }}
-                style={{ textDecoration: "none", color: "white" }}
+                style={{ textDecoration: 'none', color: 'white' }}
               >
                 <div
                   className="cardGrid"
                   style={{
-                    backgroundColor: " #202342",
-                    borderRadius: "35px",
+                    backgroundColor: ' #202342',
+                    borderRadius: '35px',
                   }}
                 >
                   <div className="topRatedcardGrid-image">
@@ -194,22 +194,22 @@ const CreatorProfileHome = (props) => {
                   </h5>
                   <p className="latestcoursep1">{user && user.username}</p>
                   <p className="latestcoursep1">
-                    {" "}
+                    {' '}
                     {`${item?.rating} `}
                     {[1, 2, 3, 4, 5].map((item) => (
                       <Star1
                         style={{
-                          width: "15px",
-                          height: "15px",
-                          color: "red",
-                          margintTop: "3px",
-                          position: "relative",
-                          top: "3px",
+                          width: '15px',
+                          height: '15px',
+                          color: 'red',
+                          margintTop: '3px',
+                          position: 'relative',
+                          top: '3px',
                           key: { item },
                         }}
                       />
                     ))}
-                    {" (" + countViews(item) + ")"}
+                    {' (' + countViews(item) + ')'}
                   </p>
                   <h6 className="latestcourseh6">{item?.price}$</h6>
                 </div>

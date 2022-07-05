@@ -1,18 +1,18 @@
-import React from "react";
-import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
+import React from 'react';
+import { ReactComponent as Star1 } from '../../assets/icons/star2.svg';
 
 const ReviewStarList = (props) => {
   return (
     <div>
       <li className="reviewStarLi">
-        {" "}
+        {' '}
         {props.star.map((i) => (
           <Star1
             className="starID"
             style={{
-              width: "18px",
-              height: "18px",
-              top: "1px",
+              width: '18px',
+              height: '18px',
+              top: '1px',
             }}
           />
         ))}

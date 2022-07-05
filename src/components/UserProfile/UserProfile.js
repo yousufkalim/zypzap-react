@@ -1,21 +1,21 @@
-import React, { useState, useCallback } from "react";
-import "../../components/UserProfile/UserProfile.css";
-import UserHomeProfleImg from "../../assets/img/UserHomeProfleImg.svg";
-import ProfileDp from "../../assets/img/profileavatar.png";
-import LoadingAvatar from "../../assets/img/loadingavatar.jpeg";
-import editIcon from "../../assets/editicon2.svg";
-import PropfileInformation from "../PopupForms/PropfileInformation";
-import RegisterSuccessfully from "../PopupForms/RegisterSuccessfully";
-import BecomeCreatorpopup from "../PopupForms/BecomeCreatorpopup";
-import { Store, UpdateStore } from "../../StoreContext";
-import { useHistory } from "react-router-dom";
-import { toast } from "react-toastify";
-import Slider from "@material-ui/core/Slider";
-import Cropper from "react-easy-crop";
-import api from "../../api";
-import { getCroppedImg } from "./canvasUtils";
-import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
-import { storage } from "../../utils/firebase";
+import React, { useState, useCallback } from 'react';
+import '../../components/UserProfile/UserProfile.css';
+import UserHomeProfleImg from '../../assets/img/UserHomeProfleImg.svg';
+import ProfileDp from '../../assets/img/profileavatar.png';
+import LoadingAvatar from '../../assets/img/loadingavatar.jpeg';
+import editIcon from '../../assets/editicon2.svg';
+import PropfileInformation from '../PopupForms/PropfileInformation';
+import RegisterSuccessfully from '../PopupForms/RegisterSuccessfully';
+import BecomeCreatorpopup from '../PopupForms/BecomeCreatorpopup';
+import { Store, UpdateStore } from '../../StoreContext';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import Slider from '@material-ui/core/Slider';
+import Cropper from 'react-easy-crop';
+import api from '../../api';
+import { getCroppedImg } from './canvasUtils';
+import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
+import { storage } from '../../utils/firebase';
 
 const UserProfile = (props) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
@@ -32,12 +32,12 @@ const UserProfile = (props) => {
   const [openCongratulation, setCongratulation] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const [cover_photo, setCoverImageURL] = useState("");
-  const [profile_photo, setProfileimg] = useState("");
+  const [cover_photo, setCoverImageURL] = useState('');
+  const [profile_photo, setProfileimg] = useState('');
   const updateStore = UpdateStore();
   let file;
   const handleClickOpen = () => {
-    if (user?.role == "Creator") {
+    if (user?.role == 'Creator') {
       setOpen(true);
     } else {
       setOpenProfile(true);
@@ -60,7 +60,7 @@ const UserProfile = (props) => {
     const storageRef = ref(storage, `files/${myFile.name}`);
     const uploadTask = uploadBytesResumable(storageRef, myFile);
     uploadTask.on(
-      "state_changed",
+      'state_changed',
       (snapshot) => {
         const progress = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
@@ -80,43 +80,43 @@ const UserProfile = (props) => {
     // end upload on firebase
   };
   const saveCoverPhoto = async (downloadURL) => {
-    if (user?.role == "Creator") {
-      let res = await api("post", `/creators/${user?._id}`, {
+    if (user?.role == 'Creator') {
+      let res = await api('post', `/creators/${user?._id}`, {
         cover_photo: downloadURL,
       });
       if (res) {
-        setCoverImageURL("");
+        setCoverImageURL('');
         updateStore({
           user: res?.data?.newUsers,
           creator: res?.data?.creator,
         });
       }
     } else {
-      let res = await api("put", `/users/addProfileInfo/${user?._id}`, {
+      let res = await api('put', `/users/addProfileInfo/${user?._id}`, {
         cover_photo: downloadURL,
       });
       if (res) {
-        setCoverImageURL("");
+        setCoverImageURL('');
         updateStore({ user: res.data });
       }
     }
   };
   const saveProfilePhoto = async (profile_photo) => {
-    if (user?.role == "Creator") {
-      let res = await api("post", `/creators/${user?._id}`, { profile_photo });
+    if (user?.role == 'Creator') {
+      let res = await api('post', `/creators/${user?._id}`, { profile_photo });
       if (res) {
-        setProfileimg("");
+        setProfileimg('');
         updateStore({
           user: res?.data?.newUsers,
           creator: res?.data?.creator,
         });
       }
     } else {
-      let res = await api("put", `/users/addProfileInfo/${user?._id}`, {
+      let res = await api('put', `/users/addProfileInfo/${user?._id}`, {
         profile_photo,
       });
       if (res) {
-        setProfileimg("");
+        setProfileimg('');
         updateStore({ user: res.data });
       }
     }
@@ -125,7 +125,7 @@ const UserProfile = (props) => {
   function readFile(file) {
     return new Promise((resolve) => {
       const reader = new FileReader();
-      reader.addEventListener("load", () => resolve(reader.result), false);
+      reader.addEventListener('load', () => resolve(reader.result), false);
       reader.readAsDataURL(file);
     });
   }
@@ -143,7 +143,7 @@ const UserProfile = (props) => {
       const storageRef = ref(storage, `files/${myFile.name}`);
       const uploadTask = uploadBytesResumable(storageRef, myFile);
       uploadTask.on(
-        "state_changed",
+        'state_changed',
         (snapshot) => {
           const progress = Math.round(
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100
@@ -191,7 +191,7 @@ const UserProfile = (props) => {
         <div className="userProfile-centerDiv">
           {imageSrc ? (
             <>
-              {" "}
+              {' '}
               <div className="cropperdiv">
                 <Cropper
                   image={imageSrc}
@@ -262,8 +262,8 @@ const UserProfile = (props) => {
               <label>
                 <input
                   style={{
-                    display: "none",
-                    cursor: "none",
+                    display: 'none',
+                    cursor: 'none',
                   }}
                   type="file"
                   accept="image/*"
@@ -285,15 +285,15 @@ const UserProfile = (props) => {
           <div className="profile-container">
             <div className="prfile-name-heading">
               <h1 className="profile-name">
-                {user ? user.username : "Atif Khan"}
+                {user ? user.username : 'Atif Khan'}
               </h1>
               <p className="pofileP">
-                {user ? user.email[0] : "johnsmith1@gmail.com"}
+                {user ? user.email[0] : 'johnsmith1@gmail.com'}
               </p>
               <p className="prfile-lavelP">
                 Level:&nbsp;
                 <span className="level-span">
-                  {creator?.gameLevel ? creator.gameLevel : "Semi-Pro"}
+                  {creator?.gameLevel ? creator.gameLevel : 'Semi-Pro'}
                 </span>
               </p>
             </div>
@@ -320,8 +320,8 @@ const UserProfile = (props) => {
                   <label>
                     <input
                       style={{
-                        display: "none",
-                        cursor: "none",
+                        display: 'none',
+                        cursor: 'none',
                       }}
                       type="file"
                       accept="image/*"

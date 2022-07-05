@@ -1,16 +1,16 @@
 // Init
-import React, { useState, useEffect } from "react";
-import Grid from "@material-ui/core/Grid";
-import Carousel from "react-material-ui-carousel";
-import { ReactComponent as Star1 } from "../assets/icons/star2.svg";
-import TopCourseImg from "../assets/img/topcourseimg.png";
-import avatar from "../assets/img/avatar.png";
-import StarIcon from "@material-ui/icons/Star";
-import Rating from "@mui/material/Rating";
-import moment from "moment";
+import React, { useState, useEffect } from 'react';
+import Grid from '@material-ui/core/Grid';
+import Carousel from 'react-material-ui-carousel';
+import { ReactComponent as Star1 } from '../assets/icons/star2.svg';
+import TopCourseImg from '../assets/img/topcourseimg.png';
+import avatar from '../assets/img/avatar.png';
+import StarIcon from '@material-ui/icons/Star';
+import Rating from '@mui/material/Rating';
+import moment from 'moment';
 
-import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 export default function TopCourses(props) {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -24,40 +24,40 @@ export default function TopCourses(props) {
   });
   var items = [
     {
-      name: "PUBG gameplay full course",
-      description: "Probably the most random thing you have ever seen!",
+      name: 'PUBG gameplay full course',
+      description: 'Probably the most random thing you have ever seen!',
     },
     {
-      name: "Taken gameplay full course2",
-      description: "Hello World!",
+      name: 'Taken gameplay full course2',
+      description: 'Hello World!',
     },
     {
-      name: "Speed3",
-      description: "Hello World!",
+      name: 'Speed3',
+      description: 'Hello World!',
     },
   ];
 
   const handleviewTopCourses = () => {
     history.push({
-      pathname: "/searchResult",
+      pathname: '/searchResult',
       param: {
-        name: "Top 10 Games",
-        value: "1",
+        name: 'Top 10 Games',
+        value: '1',
       },
     });
   };
 
   return (
     <div className="topCoursescontainer">
-      <p className="topcourseheading" style={{ display: "inline-block" }}>
+      <p className="topcourseheading" style={{ display: 'inline-block' }}>
         Top Courses
       </p>
       <p
         className="topcourseheadings"
         style={{
-          display: "inline-block",
-          cursor: "Pointer",
-          float: "right",
+          display: 'inline-block',
+          cursor: 'Pointer',
+          float: 'right',
         }}
         onClick={handleviewTopCourses}
       >
@@ -66,8 +66,8 @@ export default function TopCourses(props) {
       <Carousel
         autoPlay={false}
         interval={3000}
-        animation={"fade"}
-        activeIndicatorIconButtonProps={{ className: "activeIndicator" }}
+        animation={'fade'}
+        activeIndicatorIconButtonProps={{ className: 'activeIndicator' }}
         className="topcoursecarousal"
         // width="100%"
       >
@@ -80,7 +80,7 @@ export default function TopCourses(props) {
                 state: { course: `${item}` },
               }}
               className="requestBt"
-              style={{ textDecoration: "none", color: "white" }}
+              style={{ textDecoration: 'none', color: 'white' }}
             >
               <TopCoursesComponent key={i} item={item} />
             </Link>
@@ -109,12 +109,12 @@ function TopCoursesComponent({ item }) {
     var secs = ~~second % 60;
 
     // Output like "1:01" or "4:03:59" or "123:03:59"
-    var ret = "";
+    var ret = '';
     if (hrs > 0) {
-      ret += "" + hrs + "." + (mins < 10 ? "0" : "");
+      ret += '' + hrs + '.' + (mins < 10 ? '0' : '');
     }
-    ret += "" + mins + "." + (secs < 10 ? "0" : "");
-    ret += "" + secs;
+    ret += '' + mins + '.' + (secs < 10 ? '0' : '');
+    ret += '' + secs;
     return ret;
   };
 
@@ -156,7 +156,7 @@ function TopCoursesComponent({ item }) {
             container
             spacing={2}
             className="topcourseuserGrid"
-            style={{ paddingBottom: "10px" }}
+            style={{ paddingBottom: '10px' }}
           >
             <Grid item xs={6} md={6}>
               <div className="userprofilediv">
@@ -171,19 +171,19 @@ function TopCoursesComponent({ item }) {
                 />
                 <div>
                   <p className="p1">{item?.creator?.user_id?.username}</p>
-                  <p className="p2">{item?.course_name + " player"}</p>
+                  <p className="p2">{item?.course_name + ' player'}</p>
                   {
                     <p className="p2">
                       {[1, 2, 3, 4, 5].map((i) => (
                         <StarIcon
                           className="starID"
                           style={{
-                            width: "15px",
-                            height: "15px",
+                            width: '15px',
+                            height: '15px',
                           }}
                         />
                       ))}
-                      {" (" + countViews(item) + ")"}
+                      {' (' + countViews(item) + ')'}
                       {/* &nbsp; (382,420) */}
                     </p>
                   }
@@ -195,12 +195,12 @@ function TopCoursesComponent({ item }) {
             container
             spacing={2}
             className="topcourseuserGrid"
-            style={{ paddingBottom: "10px" }}
+            style={{ paddingBottom: '10px' }}
           >
             <Grid item xs={6} md={6} className="topcourseuserRightGrid">
-              <div style={{ textAlign: "right" }}>
+              <div style={{ textAlign: 'right' }}>
                 <span className="marginRight">
-                  {item?.level ? item.level : "inital level"}
+                  {item?.level ? item.level : 'inital level'}
                 </span>
 
                 <>
@@ -213,14 +213,14 @@ function TopCoursesComponent({ item }) {
                 <span className="marginRight">|</span>
                 <span className="marginRight">
                   {item?.student
-                    ? item.student.length + " Student"
-                    : 0 + "   Student"}
+                    ? item.student.length + ' Student'
+                    : 0 + '   Student'}
                 </span>
                 <span className="marginRight">|</span>
                 <span className="marginRight">
                   {/* {`${postedTime(item)} days ago`} */}
 
-                  {getDateIs(item?.createdAt || "0 Weeks")}
+                  {getDateIs(item?.createdAt || '0 Weeks')}
                 </span>
               </div>
             </Grid>
@@ -238,8 +238,8 @@ function TopCoursesComponent({ item }) {
           <Grid item xs={8} md={10}>
             <h3 className="h3heading">
               {item?.name
-                ? item.name + "gameplay full course"
-                : "PUBG gameplay full course"}
+                ? item.name + 'gameplay full course'
+                : 'PUBG gameplay full course'}
             </h3>
             <p className="topcourseText">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa
@@ -257,7 +257,7 @@ function TopCoursesComponent({ item }) {
           container
           spacing={2}
           className="topcourseuserGrid"
-          style={{ paddingBottom: "10px" }}
+          style={{ paddingBottom: '10px' }}
         >
           <Grid item xs={6} md={6}>
             <div className="userprofilediv" id="un_hide">
@@ -272,19 +272,19 @@ function TopCoursesComponent({ item }) {
               />
               <div className="div2">
                 <p className="p1">{item?.creator?.user_id?.username}</p>
-                <p className="p2">{item?.course_name + " player"}</p>
+                <p className="p2">{item?.course_name + ' player'}</p>
                 <p className="p2">
                   {item?.rating ? item.rating : <></>}
                   {[1, 2, 3, 4, 5].map((i) => (
                     <Star1
                       className="starID"
                       style={{
-                        width: "15px",
-                        height: "15px",
+                        width: '15px',
+                        height: '15px',
                       }}
                     />
                   ))}
-                  {" (" + countViews(item) + ")"}
+                  {' (' + countViews(item) + ')'}
                   {/* &nbsp; (382,420) */}
                 </p>
               </div>
@@ -298,9 +298,9 @@ function TopCoursesComponent({ item }) {
             className="topcourseuserRightGrid"
             id="un_hide"
           >
-            <div style={{ textAlign: "right" }}>
+            <div style={{ textAlign: 'right' }}>
               <span className="marginRight">
-                {item?.level ? item.level : "inital level"}
+                {item?.level ? item.level : 'inital level'}
               </span>
 
               <>
@@ -313,13 +313,13 @@ function TopCoursesComponent({ item }) {
               <span className="marginRight">|</span>
               <span className="marginRight">
                 {item?.student
-                  ? item.student.length + " Student"
-                  : 0 + "   Student"}
+                  ? item.student.length + ' Student'
+                  : 0 + '   Student'}
               </span>
               <span className="marginRight">|</span>
               <span className="marginRight">
                 {/* {`${postedTime(item)} days ago`} */}
-                {getDateIs(item?.createdAt || "0 Weeks")}
+                {getDateIs(item?.createdAt || '0 Weeks')}
               </span>
             </div>
           </Grid>

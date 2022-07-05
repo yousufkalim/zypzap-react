@@ -1,5 +1,5 @@
 // Init
-import React, { useContext, useState, useEffect, createContext } from "react";
+import React, { useContext, useState, useEffect, createContext } from 'react';
 
 // Initializing Create Context Hook
 const storeContext = createContext();
@@ -27,12 +27,12 @@ export function StoreProvider({ children }) {
     creator: null,
     searchCreator: [],
     searchCourse: [],
-    searchState: "course",
-    searchInput: "",
+    searchState: 'course',
+    searchInput: '',
     Games: [],
     searchLoader: false,
     learner: true,
-    contentDashboardButton: "Courses",
+    contentDashboardButton: 'Courses',
   });
 
   const updateStore = (data) => {
