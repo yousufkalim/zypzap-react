@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import Grid from "@mui/material/Grid";
-import VideoInput from "../../../utils/VideoInput";
-import api from "../../../api";
-import RequestSuccessfullyPopup from "../../PopupForms/RequestSuccessfullyPopup";
-import UploadingTheCourse from "../../PopupForms/UploadingTheCourse";
-import { toast } from "react-toastify";
-import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
-import { storage } from "../../../utils/firebase";
+import React, { useState } from 'react';
+import Grid from '@mui/material/Grid';
+import VideoInput from '../../../utils/VideoInput';
+import api from '../../../api';
+import RequestSuccessfullyPopup from '../../PopupForms/RequestSuccessfullyPopup';
+import UploadingTheCourse from '../../PopupForms/UploadingTheCourse';
+import { toast } from 'react-toastify';
+import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
+import { storage } from '../../../utils/firebase';
 
 const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   const [open, setOpen] = React.useState(false);
@@ -15,7 +15,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   const [activeUploadButton, setActiveUploadButton] = useState(1);
   const [uploading, setUploading] = useState(false);
   const [imgUrl, setImgUrl] = useState([]);
-  const [videoName, setVideoName] = useState("");
+  const [videoName, setVideoName] = useState('');
   const [mbPerSecond, setmbPerSecond] = useState(0);
   const [timeUploadRemaining, setTimeUploadRemaining] = useState(0);
 
@@ -51,7 +51,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
       let speed = 0;
       setOpens(true);
       uploadTask.on(
-        "state_changed",
+        'state_changed',
         (snapshot) => {
           if (lastBytesTransferedTime == null) {
             lastBytesTransfered = snapshot.bytesTransferred;
@@ -63,8 +63,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
             let _duration = now - lastBytesTransferedTime;
             if (_duration > updateDurationThreshold) {
               let bytesPerSecond =
-                (snapshot.bytesTransferred - lastBytesTransfered) /
-                updateDurationThreshold;
+                (snapshot.bytesTransferred - lastBytesTransfered) / updateDurationThreshold;
 
               lastBytesTransfered = snapshot.bytesTransferred;
 
@@ -72,9 +71,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
               let newbytesPerSecond = bytesPerSecond / 1024;
               setmbPerSecond(newbytesPerSecond.toFixed(3));
               let remTime =
-                (((snapshot.totalBytes - snapshot.bytesTransferred) /
-                  bytesPerSecond) *
-                  2) /
+                (((snapshot.totalBytes - snapshot.bytesTransferred) / bytesPerSecond) * 2) /
                 (updateDurationThreshold - 1000);
               totaltransferedBytes += lastBytesTransfered;
               remTime = remTime.toFixed(0);
@@ -86,14 +83,12 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
 
               if (remTime > 3600) {
                 remTime = (remTime / 3600).toFixed(2);
-                remTime = `${remTime} houre left`;
+                remTime = `${remTime} hour left`;
               }
               setTimeUploadRemaining(remTime);
             }
           }
-          const progress = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          );
+          const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
           setProgress(progress);
         },
         (error) => {
@@ -122,7 +117,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   };
   const handleVideo = () => {
     if (formDataTwo.length === 0) {
-      return toast.error("Sélectionnez la vidéo pour la prochaine étape");
+      return toast.error('Sélectionnez la vidéo pour la prochaine étape');
     }
     setStep(5);
   };
@@ -146,7 +141,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
         <div className="uploadBtnDiv">
           <h2
             className={`
-             ${activeUploadButton == 1 && "ActiveLine"} 
+             ${activeUploadButton == 1 && 'ActiveLine'} 
             uploadCoursebtn`}
             onClick={() => handleActiveUploadButton(1)}
           >
@@ -155,7 +150,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
 
           <h2
             className={`
-             ${activeUploadButton == 2 && "ActiveLine"} 
+             ${activeUploadButton == 2 && 'ActiveLine'} 
             RecordButton`}
             onClick={() => handleActiveUploadButton(2)}
           >
@@ -172,11 +167,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
                 <div className="step_container2">
                   <div className="step1">
                     <p className="stapPr">Upload Full Course</p>
-                    <VideoInput
-                      id="1"
-                      text="Select Video"
-                      onChange={handleSubmit}
-                    />
+                    <VideoInput id="1" text="Select Video" onChange={handleSubmit} />
                   </div>
                   <p className="step_or" onClick={() => setOpens(true)}>
                     or
@@ -192,9 +183,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
                 </div>
               </Grid>
             ) : (
-              <p className="success">
-                Video Upload Successfully Please Continue!
-              </p>
+              <p className="success">Video Upload Successfully Please Continue!</p>
             )}
           </>
         ) : (
@@ -207,7 +196,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
           <button className="drafBtn">Draft</button>
           <button
             className="drafBtn"
-            style={{ background: "none", border: "1px solid #662F88" }}
+            style={{ background: 'none', border: '1px solid #662F88' }}
             onClick={() => setStep(1)}
           >
             Previous

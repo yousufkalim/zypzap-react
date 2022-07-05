@@ -1,45 +1,43 @@
-import React, { useState, useEffect } from "react";
-import Course1 from "../../assets/img/course1.png";
-import Course2 from "../../assets/img/course2.png";
-import "react-multi-carousel/lib/styles.css";
-import { ReactComponent as Star1 } from "../../assets/icons/star2.svg";
-import { Link } from "react-router-dom";
-import { styled } from "@mui/material/styles";
-import { Store, UpdateStore } from "../../StoreContext";
-import { useHistory } from "react-router-dom";
-import LinearProgress, {
-  linearProgressClasses,
-} from "@mui/material/LinearProgress";
+import React, { useState, useEffect } from 'react';
+import Course1 from '../../assets/img/course1.png';
+import Course2 from '../../assets/img/course2.png';
+import 'react-multi-carousel/lib/styles.css';
+import { ReactComponent as Star1 } from '../../assets/icons/star2.svg';
+import { Link } from 'react-router-dom';
+import { styled } from '@mui/material/styles';
+import { Store, UpdateStore } from '../../StoreContext';
+import { useHistory } from 'react-router-dom';
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 5,
   borderRadius: 5,
-  width: "80%",
+  width: '80%',
   [`&.${linearProgressClasses.colorPrimary}`]: {
-    backgroundColor: "#17192D",
+    backgroundColor: '#17192D',
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 5,
     background: (theme.palette.mode =
-      "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(50.06deg, #662F88 50.05%, #20BF55 131.69%);"),
+      'linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(50.06deg, #662F88 50.05%, #20BF55 131.69%);'),
   },
 }));
 
 var items = [
   {
-    title: "CS-GO Ep 2 Complete Course 1",
+    title: 'CS-GO Ep 2 Complete Course 1',
     img: Course1,
-    name: "James Wiik",
-    rating: "5.0",
+    name: 'James Wiik',
+    rating: '5.0',
     // price: "19.99 | 50 min",
-    test: "1",
+    test: '1',
   },
   {
-    title: "PUBG GamePlay Course",
+    title: 'PUBG GamePlay Course',
     img: Course2,
-    name: "Ifaf ghori ",
-    rating: "rating",
+    name: 'Ifaf ghori ',
+    rating: 'rating',
     // price: "19.99 | 50 min",
-    test: "2",
+    test: '2',
   },
 ];
 
@@ -51,9 +49,7 @@ const StartedCourse = () => {
   const [start_courses, setStartedCourses] = useState([]);
   useEffect(() => {
     setUser(user ? user : {});
-    setStartedCourses(
-      user?.enrolled_courses?.filter((courses) => courses.started === true)
-    );
+    setStartedCourses(user?.enrolled_courses?.filter((courses) => courses.started === true));
   }, [contentDashboardButton]);
   const handleStartCourses = (id) => {
     history.push({
@@ -73,11 +69,7 @@ const StartedCourse = () => {
                     <div className="cardGrid2">
                       <div className="wishCarImgDiv">
                         <img
-                          src={
-                            item?.course_id?.thumbnail
-                              ? item.course_id.thumbnail
-                              : Course1
-                          }
+                          src={item?.course_id?.thumbnail ? item.course_id.thumbnail : Course1}
                           className="startcourseimg"
                           alt="img"
                         />
@@ -86,19 +78,13 @@ const StartedCourse = () => {
                         <p className="wishListh4">
                           {item?.course_id?.course_name
                             ? item.course_id.course_name
-                            : "Fight Course"}
+                            : 'Fight Course'}
                         </p>
 
-                        <p className="wishlistP2">
-                          {item?.course_id?.creator?.user_id?.username}
-                        </p>
-                        {console.log("itemmmmm", item)}
-                        {console.log("course_id", item.course_id)}
+                        <p className="wishlistP2">{item?.course_id?.creator?.user_id?.username}</p>
+
                         <p className="wishlistP3">
-                          {item?.course_id?.rating
-                            ? item.course_id.rating
-                            : "0.0"}{" "}
-                          &nbsp;
+                          {item?.course_id?.rating ? item.course_id.rating : '0.0'} &nbsp;
                           {[1, 2, 3, 4, 5].map((item) => (
                             <Star1
                               className="wishCardStar"
@@ -112,23 +98,19 @@ const StartedCourse = () => {
                             ? `( ${item.course_id.student.length} )`
                             : `( 0 )`}
                         </p>
+
                         <div className="wishCard-progrss">
-                          <BorderLinearProgress
-                            variant="determinate"
-                            value={30}
-                          />
+                          <BorderLinearProgress variant="determinate" value={item.progress} />
                         </div>
                         <div className="wishCard-progrss-prsntage">
-                          16% Complete
+                          {item.progress.toFixed(0)}% Complete
                         </div>
                       </div>
 
                       <div className="wishButtonDiv">
                         <button
                           className="wishListBtn"
-                          onClick={() =>
-                            handleStartCourses(item?.course_id?._id)
-                          }
+                          onClick={() => handleStartCourses(item?.course_id?._id)}
                         >
                           Continue the course
                         </button>
