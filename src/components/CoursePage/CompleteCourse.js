@@ -2,25 +2,20 @@ import React, { useRef, useState, useEffect } from 'react';
 import './CoursePage.css';
 import Plyr from 'plyr-react';
 import 'plyr-react/dist/plyr.css';
-import ReactPlayer from 'react-player';
+import api from '../../api/index';
+import { Store } from '../../StoreContext';
 
 const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
   const ref = useRef();
+  const { user } = Store();
   useEffect(() => {
-    console.log('internal plyr instance:', ref.current.plyr);
-    ref.current.plyr.on('ended', (e) => {
-      console.log('ended');
-    });
+    ref.current.plyr.on('ended', (e) => {});
   }, []);
 
-  const [videos, setVideos] = useState(
-    singlCourse?.videos ? singlCourse.videos : 0
-  );
+  const [videos, setVideos] = useState(singlCourse?.videos ? singlCourse.videos : 0);
   // const [id, setId] = useSate();
   const [playVideo, setPlayVideo] = useState(singlCourse?.videos[0]);
-  const [videoCount, setVideoCount] = useState(
-    singlCourse?.videos ? singlCourse.videos.length : 0
-  );
+  const [videoCount, setVideoCount] = useState(singlCourse?.videos ? singlCourse.videos.length : 0);
   const videoSrc = {
     type: 'video',
     sources: [
@@ -30,14 +25,21 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
     ],
   };
 
+  useEffect(() => {
+    handlePlayedVideo();
+  }, [playVideo]);
+
+  const handlePlayedVideo = async () => {
+    await api('get', `/users/video-played/${user._id}/${singlCourse._id}/${playVideo._id}`);
+  };
+
   return (
     <>
       <div className="completeCourse">
         <div className="completeCourse-center-div">
           <div className="completeCourse-colm1">
             <h2 className="completeCourseH2">
-              {playVideo?.title ? playVideo.title : 'CS Go'} Ep 1 Complete
-              Course
+              {playVideo?.title ? playVideo.title : 'CS Go'} Ep 1 Complete Course
             </h2>
             {/* <ReactPlayer src={playVideo?.src_url} /> */}
             {/* <ReactPlayer
@@ -60,6 +62,7 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
           <div className="completeCourse-colm2">
             <h3 className="completeCourseH3">Course Content </h3>
             <div className="completeCourseScroll">
+              {/* {console.log('videos', videos)} */}
               {videos?.map((clip, index) => {
                 return (
                   <LiDAta
@@ -103,7 +106,13 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value }) => {
   };
 
   return (
-    <li className="completeCourse-videoList" onClick={() => setPlayVideo(clip)}>
+    <li
+      className="completeCourse-videoList"
+      onClick={() => {
+        setPlayVideo(clip);
+        console.log('Current video', clip._id);
+      }}
+    >
       {/* onClick={() => setPlayVideo(clip)} */}
       <video
         // poster={VideoPlayIcon}
@@ -115,9 +124,7 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value }) => {
         }
       ></video>
       <div className="playVideoHeading">
-        <h3 className="playVideoH3">
-          {clip?.title ? clip.title : 'CS Go'} Ep 1 Complete Course
-        </h3>
+        <h3 className="playVideoH3">{clip?.title ? clip.title : 'CS Go'} Ep 1 Complete Course</h3>
         <span className="playVideonumber">{value + '/' + videoCount} </span>
         <span>{'|'}</span>
         <span className="playVideomint" style={{ margin: '10px' }}>
