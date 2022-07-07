@@ -1,72 +1,72 @@
-import React, { useState } from "react";
-import Button from "@mui/material/Button";
-import { toast } from "react-toastify";
-import Dialog from "@mui/material/Dialog";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
-import ClearIcon from "@mui/icons-material/Clear";
-import Google from "../../assets/icons/Googli.svg";
-import ChatIcon from "../../assets/icons/twitch.svg";
-import Facebook from "../../assets/icons/fb1.svg";
-import Discord1 from "../../assets/icons/discord1.svg";
-import IconButton from "@material-ui/core/IconButton";
-import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Input from "@material-ui/core/Input";
-import api from "../../api";
-import { useHistory } from "react-router-dom";
-import { Store, UpdateStore } from "../../StoreContext";
+import React, { useState } from 'react';
+import Button from '@mui/material/Button';
+import { toast } from 'react-toastify';
+import Dialog from '@mui/material/Dialog';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import ClearIcon from '@mui/icons-material/Clear';
+import Google from '../../assets/icons/Googli.svg';
+import ChatIcon from '../../assets/icons/twitch.svg';
+import Facebook from '../../assets/icons/fb1.svg';
+import Discord1 from '../../assets/icons/discord1.svg';
+import IconButton from '@material-ui/core/IconButton';
+import Visibility from '@material-ui/icons/Visibility';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Input from '@material-ui/core/Input';
+import api from '../../api';
+import { useHistory } from 'react-router-dom';
+import { Store, UpdateStore } from '../../StoreContext';
 
-import ForgetPassword from "./ForgetPassword";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import { styled } from "@mui/material/styles";
-import Switch from "@mui/material/Switch";
-import { baseUrl } from "../../config";
+import ForgetPassword from './ForgetPassword';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import { styled } from '@mui/material/styles';
+import Switch from '@mui/material/Switch';
+import { baseUrl } from '../../config';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 82,
   height: 34,
   padding: 7,
-  "& .MuiSwitch-switchBase": {
+  '& .MuiSwitch-switchBase': {
     margin: 1,
     padding: 0,
-    transform: "translateX(6px)",
-    "&.Mui-checked": {
-      color: "red",
-      transform: "translateX(22px)",
+    transform: 'translateX(6px)',
+    '&.Mui-checked': {
+      color: 'red',
+      transform: 'translateX(22px)',
 
-      "& + .MuiSwitch-track": {
+      '& + .MuiSwitch-track': {
         opacity: 1,
-        backgroundColor: theme.palette.mode === "dark" ? "green" : "black",
+        backgroundColor: theme.palette.mode === 'dark' ? 'green' : 'black',
       },
     },
   },
-  "& .MuiSwitch-thumb": {
+  '& .MuiSwitch-thumb': {
     background:
-      theme.palette.mode === "dark"
-        ? "red"
-        : "linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)",
+      theme.palette.mode === 'dark'
+        ? 'red'
+        : 'linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%)',
     width: 28,
     height: 28,
-    "&:before": {
+    '&:before': {
       content: "''",
-      position: "absolute",
-      width: "100%",
-      height: "100%",
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
       left: 0,
       top: 0,
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center",
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
     },
   },
-  "& .MuiSwitch-track": {
+  '& .MuiSwitch-track': {
     opacity: 1,
-    backgroundColor: theme.palette.mode === "dark" ? "pink" : "gray",
+    backgroundColor: theme.palette.mode === 'dark' ? 'pink' : 'gray',
     borderRadius: 20 / 2,
-    position: "relative",
-    left: "-21px",
+    position: 'relative',
+    left: '-21px',
   },
 }));
 
@@ -76,8 +76,8 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [values, setValues] = React.useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
     showPassword: false,
   });
   const [creatorSwitch, setCreatorSwitch] = useState(false);
@@ -97,7 +97,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
     event.preventDefault();
   };
   const handleClose = () => {
-    setValues({ email: "", password: "" });
+    setValues({ email: '', password: '' });
     setOpen(false);
   };
 
@@ -109,33 +109,35 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
   };
   const submitForm = async (event) => {
     event.preventDefault();
-    if (values.email == "") {
-      return toast.error("Please enter your email");
+    if (values.email == '') {
+      return toast.error('Please enter your email');
     }
 
-    if (values.password == "") {
-      return toast.error("Please enter your password");
+    if (values.password == '') {
+      return toast.error('Please enter your password');
     }
     let formdata = {
       email,
       password,
     };
     try {
-      let res = await api("post", "/users/login", formdata);
+      let res = await api('post', '/users/login', formdata);
       if (res) {
-        if (creatorSwitch && res?.data?.user?.role !== "Creator") {
+        if (creatorSwitch && res?.data?.user?.role !== 'Creator') {
           setLoading(false);
-          return toast.error("You are not a creator");
+          return toast.error('You are not a creator');
         }
-        localStorage.setItem("token", res?.data?.token);
+        localStorage.setItem('token', res?.data?.token);
         setOpen(false);
         setLoading(false);
         if (creatorSwitch) {
+          localStorage.setItem('learner', false);
           updateStore({ learner: false });
-          history.push("/contenthome");
+          history.push('/contenthome');
         } else {
+          localStorage.setItem('learner', true);
           updateStore({ learner: true });
-          history.push("/home");
+          history.push('/home');
         }
         // window.location.reload();
       }
@@ -145,7 +147,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
   };
   const label = {
     inputProps: {
-      "aria-label": "Switch demo",
+      'aria-label': 'Switch demo',
     },
   };
   const handleCheck = (e) => {
@@ -154,7 +156,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
 
   return (
     <div>
-      <Dialog open={open} style={{ maxWidth: "480px", margin: "auto" }}>
+      <Dialog open={open} style={{ maxWidth: '480px', margin: 'auto' }}>
         <div className="login_form">
           <div className="form_container">
             <h1 className="loginH1">Login to your account</h1>
@@ -162,12 +164,12 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
             <p className="login_pera">Welcome back</p>
             <div
               style={{
-                fontSize: "18px",
-                fontFamily: "Mulish",
-                fontWeight: "700",
+                fontSize: '18px',
+                fontFamily: 'Mulish',
+                fontWeight: '700',
               }}
             >
-              {creatorSwitch ? "Creator" : "User"}
+              {creatorSwitch ? 'Creator' : 'User'}
               <MaterialUISwitch
                 sx={{ m: 1 }}
                 defaultChecked={creatorSwitch}
@@ -195,7 +197,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
 
               <Input
                 className="inputForm"
-                type={values.showPassword ? "text" : "password"}
+                type={values.showPassword ? 'text' : 'password'}
                 onChange={onChangeEvent}
                 placeholder="************************"
                 value={values.password}
@@ -215,7 +217,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
 
               <p
                 className="forget"
-                style={{ cursor: "pointer" }}
+                style={{ cursor: 'pointer' }}
                 onClick={() => {
                   setForgetPasswordPopup(true);
                   setOpen(false);
@@ -273,10 +275,7 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
           </div>
         </div>
       </Dialog>
-      <ForgetPassword
-        open={forgetPasswordPopup}
-        setOpen={setForgetPasswordPopup}
-      />
+      <ForgetPassword open={forgetPasswordPopup} setOpen={setForgetPasswordPopup} />
     </div>
   );
 }

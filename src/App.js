@@ -19,7 +19,9 @@ function App() {
   // init
   const updateStore = UpdateStore();
 
+  const { learner, creator } = Store();
   const token = localStorage.getItem('token');
+  // const storage = localStorage.setItem('learner', true : false);
   useEffect(() => {
     if (token) {
       SetAuthToken(token);
@@ -35,10 +37,22 @@ function App() {
         if (res?.data?.role === 'Creator') {
           resCreator = await api('get', `/creators/${res.data.creator}`);
         }
+        // const storage = localStorage.setItem('learner', res?.data?.role === 'User' ? true : false);
+        let learner = res?.data?.role === 'User' ? true : false;
+        let storage = localStorage.getItem('learner');
+
+        if (storage) {
+          storage = JSON.parse(storage);
+          console.log('Storage --> ', typeof storage);
+          learner = storage;
+        } else {
+          localStorage.setItem('learner', learner);
+        }
+
         updateStore({
           user: res?.data,
           creator: resCreator?.data?.creator,
-          learner: res?.data?.role === 'User' ? true : false,
+          learner,
         });
       }
     } catch (error) {

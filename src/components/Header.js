@@ -126,6 +126,7 @@ export default function PrimarySearchAppBar({
 
   const handleSwitch = () => {
     updateStore({ learner: !learner });
+    localStorage.setItem('learner', !learner);
   };
 
   const creatorDashboard = () => {
