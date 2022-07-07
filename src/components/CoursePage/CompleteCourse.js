@@ -15,6 +15,7 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
   const [videos, setVideos] = useState(singlCourse?.videos ? singlCourse.videos : 0);
   // const [id, setId] = useSate();
   const [playVideo, setPlayVideo] = useState(singlCourse?.videos[0]);
+  const [index, setIndex] = useState(0);
   const [videoCount, setVideoCount] = useState(singlCourse?.videos ? singlCourse.videos.length : 0);
   const videoSrc = {
     type: 'video',
@@ -33,13 +34,23 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
     await api('get', `/users/video-played/${user._id}/${singlCourse._id}/${playVideo._id}`);
   };
 
+  const handleNext = () => {
+    setPlayVideo(videos[index + 1]);
+    setIndex(index + 1);
+  };
+
+  const handlePrev = () => {
+    setPlayVideo(videos[index - 1]);
+    setIndex(index - 1);
+  };
+
   return (
     <>
       <div className="completeCourse">
         <div className="completeCourse-center-div">
           <div className="completeCourse-colm1">
             <h2 className="completeCourseH2">
-              {playVideo?.title ? playVideo.title : 'CS Go'} Ep 1 Complete Course
+              {playVideo?.title ? playVideo.title : 'CS Go'} Ep {index + 1} Complete Course
             </h2>
             {/* <ReactPlayer src={playVideo?.src_url} /> */}
             {/* <ReactPlayer
@@ -62,11 +73,15 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
           <div className="completeCourse-colm2">
             <h3 className="completeCourseH3">Course Content </h3>
             <div className="completeCourseScroll">
-              {/* {console.log('videos', videos)} */}
+              {console.log('VIDEOS', videos)}
+              {console.log('VIDEOS', videos.index)}
+
               {videos?.map((clip, index) => {
                 return (
                   <LiDAta
                     clip={clip}
+                    index={index}
+                    setIndex={setIndex}
                     value={index + 1}
                     videoCount={videoCount}
                     setPlayVideo={setPlayVideo}
@@ -77,8 +92,16 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
           </div>
         </div>
         <div className="Pre-next-btn">
-          <button className="preBTN">Previous</button>
-          <button className="nextBTN">Next</button>
+          {index > 0 && (
+            <button className="preBTN" onClick={handlePrev}>
+              Previous
+            </button>
+          )}
+          {index !== videos.length - 1 && (
+            <button className="nextBTN" onClick={handleNext}>
+              Next
+            </button>
+          )}
           {/* <hr className="pre_next_line" /> */}
         </div>
       </div>
@@ -88,7 +111,7 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
 
 export default CompleteCourse;
 
-const LiDAta = ({ clip, videoCount, setPlayVideo, value }) => {
+const LiDAta = ({ clip, videoCount, setPlayVideo, value, index, setIndex }) => {
   const secondToTime = (second) => {
     // Hours, minutes and seconds
     var hrs = ~~(second / 3600);
@@ -110,7 +133,7 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value }) => {
       className="completeCourse-videoList"
       onClick={() => {
         setPlayVideo(clip);
-        console.log('Current video', clip._id);
+        setIndex(index);
       }}
     >
       {/* onClick={() => setPlayVideo(clip)} */}
@@ -124,7 +147,9 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value }) => {
         }
       ></video>
       <div className="playVideoHeading">
-        <h3 className="playVideoH3">{clip?.title ? clip.title : 'CS Go'} Ep 1 Complete Course</h3>
+        <h3 className="playVideoH3">
+          {clip?.title ? clip.title : 'CS Go'} Ep {index + 1} Complete Course
+        </h3>
         <span className="playVideonumber">{value + '/' + videoCount} </span>
         <span>{'|'}</span>
         <span className="playVideomint" style={{ margin: '10px' }}>

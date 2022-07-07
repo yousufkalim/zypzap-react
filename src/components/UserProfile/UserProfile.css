@@ -18,7 +18,7 @@
 }
 
 body {
-  font-family: "Mulish", sans-serif;
+  font-family: 'Mulish', sans-serif;
 }
 .userProfile-centerDiv {
   width: 90%;
@@ -41,7 +41,7 @@ body {
 }
 .DP-img {
   border: 15px solid #14162c;
-  /* border-radius: 6px; */
+  border-radius: 8px;
   padding: 0;
   object-fit: cover;
   margin: 0;
@@ -132,7 +132,7 @@ body {
   font-weight: 600;
   padding: 10px 10px;
   border-radius: 4px;
-  font-family: "mulish";
+  font-family: 'mulish';
   cursor: pointer;
 }
 /* My Profile component */
@@ -328,7 +328,7 @@ body {
   height: 44px;
   font-size: 14px;
   margin-left: 4px;
-  font-family: "mulish";
+  font-family: 'mulish';
 }
 /* .formbtnbtn:hover {
   border: 1px solid gray;
