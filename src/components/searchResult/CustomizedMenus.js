@@ -3,6 +3,7 @@ import { styled, alpha } from '@mui/material/styles';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { Store, UpdateStore } from '../../StoreContext';
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -36,17 +37,16 @@ const StyledMenu = styled((props) => (
         marginRight: theme.spacing(1.5),
       },
       '&:active': {
-        backgroundColor: alpha(
-          theme.palette.primary.main,
-          theme.palette.action.selectedOpacity
-        ),
+        backgroundColor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
       },
     },
   },
 }));
 
 export default function CustomizedMenus(props) {
-  const { updateStore, searchCourse } = props;
+  const updateStore = UpdateStore();
+  let { searchCourse } = Store();
+  searchCourse = [...searchCourse];
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [sortBy, setSortBy] = useState('');
   const open = Boolean(anchorEl);
@@ -90,11 +90,7 @@ export default function CustomizedMenus(props) {
     e.preventDefault();
     setSortBy('Date');
 
-    const Courses = searchCourse.sort(function (a, b) {
-      var c = new Date(a.createdAt);
-      var d = new Date(b.createdAt);
-      return d - c;
-    });
+    const Courses = searchCourse.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
     updateStore({ searchCourse: Courses });
     handleClose();
   };
@@ -176,18 +172,10 @@ export default function CustomizedMenus(props) {
         >
           Date Posted
         </MenuItem>
-        <MenuItem
-          sx={{ fontFamily: 'mulish', fontSize: '13px', fontWeight: '700' }}
-          onClick={filterByViews}
-          disableRipple
-        >
+        <MenuItem sx={{ fontFamily: 'mulish', fontSize: '13px', fontWeight: '700' }} onClick={filterByViews} disableRipple>
           Number Of Views
         </MenuItem>
-        <MenuItem
-          sx={{ fontFamily: 'mulish', fontSize: '13px', fontWeight: '700' }}
-          onClick={filterByLevel}
-          disableRipple
-        >
+        <MenuItem sx={{ fontFamily: 'mulish', fontSize: '13px', fontWeight: '700' }} onClick={filterByLevel} disableRipple>
           Level
         </MenuItem>
       </StyledMenu>

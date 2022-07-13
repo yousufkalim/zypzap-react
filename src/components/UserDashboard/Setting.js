@@ -180,11 +180,10 @@ function Setting({ openProfile, setOpenProfile }) {
     ) {
       return toast.error('Give your complete details!');
     } else {
-        let res = await api('put', `/users/addProfileInfo/${user._id}`, formdata);
-        if (res) {
-          updateStore({ user: res.data });
-          setCongratulation(true);
-        }
+      let res = await api('put', `/users/addProfileInfo/${user._id}`, formdata);
+      if (res) {
+        updateStore({ user: res.data });
+        setCongratulation(true);
       }
     }
   };
