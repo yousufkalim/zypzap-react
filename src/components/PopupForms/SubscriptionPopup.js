@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import Dialog from "@mui/material/Dialog";
-import { toast } from "react-toastify";
-import { useTranslation } from "react-i18next";
-import api from "../../api";
-import { Link } from "react-router-dom";
-import CongratulationPopup1 from "./CongratulationPopup1";
-import ConfirmationPopup2 from "./ConfirmationPopup2";
-import ClearIcon from "@mui/icons-material/Clear";
+import React, { useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
+import api from '../../api';
+import { Link } from 'react-router-dom';
+import CongratulationPopup1 from './CongratulationPopup1';
+import ConfirmationPopup2 from './ConfirmationPopup2';
+import ClearIcon from '@mui/icons-material/Clear';
 const SubscriptionPopup = ({
   open,
   setOpen,
@@ -24,7 +24,7 @@ const SubscriptionPopup = ({
   const [showPopup2, setShowPopup2] = useState(false);
   const { t, i18n } = useTranslation();
   const { language } = i18n;
-  const [email, setEmail] = useState(Email ? Email : "");
+  const [email, setEmail] = useState(Email ? Email : '');
   const [loading, setLoading] = useState(false);
   const [values, setValues] = useState({
     checkBoxOne: false,
@@ -44,20 +44,23 @@ const SubscriptionPopup = ({
     setOpen(false);
   };
   const submitForm = async (event) => {
-    if (email == "") {
-      return toast.error("Veuillez entrer votre e-mail");
+    if (email == '') {
+      return toast.error('Veuillez entrer votre e-mail');
+    }
+
+    // Email Validation
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return toast.error('Veuillez entrer un e-mail valide');
     }
 
     if (content) {
       if (!values.checkBoxOne) {
-        return toast.error(
-          "Merci d'accepter les conditions pour démarrer le test"
-        );
+        return toast.error("Merci d'accepter les conditions pour démarrer le test");
       }
     }
     const tester = values.checkBoxTwo;
     setLoading(true);
-    let res = await api("post", "/newsletters", {
+    let res = await api('post', '/newsletters', {
       email,
       type,
       tester,
@@ -71,23 +74,15 @@ const SubscriptionPopup = ({
         setSuccessPopup(true);
       }
       setLoading(false);
-      setEmail("");
+      setEmail('');
     } else {
       setOpen(false);
     }
   };
   return (
     <>
-      <CongratulationPopup1
-        open={showPopup}
-        setOpen={() => setShowPopup(!showPopup)}
-        closeModal={handleClose}
-      />
-      <ConfirmationPopup2
-        open={showPopup2}
-        setOpen={() => setShowPopup2(!showPopup2)}
-        closeModal={handleClose}
-      />
+      <CongratulationPopup1 open={showPopup} setOpen={() => setShowPopup(!showPopup)} closeModal={handleClose} />
+      <ConfirmationPopup2 open={showPopup2} setOpen={() => setShowPopup2(!showPopup2)} closeModal={handleClose} />
       <Dialog open={open}>
         <div className="login_form">
           <div className="subs_container">
@@ -96,11 +91,11 @@ const SubscriptionPopup = ({
               <ClearIcon className="subsclearIcon" onClick={handleClose} />
               <p className="subH1">{title2}</p>
 
-              <p className="subP">{isThreeLine ? content : ""}</p>
+              <p className="subP">{isThreeLine ? content : ''}</p>
             </div>
             {/* <form onSubmit={submitForm}> */}
             <label className="email-label" htmlFor="email">
-              {t("Adresse e-mail")}
+              {t('Adresse e-mail')}
             </label>
             <input
               className="subsinputForm"
@@ -111,12 +106,12 @@ const SubscriptionPopup = ({
               name="email"
             />
             <div
-              className={`${heading1 && "toppdding"}`}
+              className={`${heading1 && 'toppdding'}`}
               style={{
-                display: "-webkit-inline-box",
-                margin: "10px 80px 5px 0",
-                paddingTop: "5px",
-                fontSize: "16px",
+                display: '-webkit-inline-box',
+                margin: '10px 80px 5px 0',
+                paddingTop: '5px',
+                fontSize: '16px',
               }}
             >
               <input
@@ -147,9 +142,9 @@ const SubscriptionPopup = ({
 
             <div
               style={{
-                display: "-webkit-inline-box",
-                margin: "10px 0px 10px 0",
-                fontSize: "16px",
+                display: '-webkit-inline-box',
+                margin: '10px 0px 10px 0',
+                fontSize: '16px',
               }}
             >
               {isThreeLine && (
@@ -170,15 +165,15 @@ const SubscriptionPopup = ({
             <br />
 
             <div
-              className={`${heading1 && "toppdding"}`}
+              className={`${heading1 && 'toppdding'}`}
               style={{
-                display: "-webkit-inline-box",
-                margin: "0px 80px 30px 0",
-                paddingTop: "5px",
-                fontSize: "16px",
+                display: '-webkit-inline-box',
+                margin: '0px 80px 30px 0',
+                paddingTop: '5px',
+                fontSize: '16px',
               }}
             >
-              {title !== "Recevez notre newsletter pour être " && (
+              {title !== 'Recevez notre newsletter pour être ' && (
                 <>
                   <input
                     onChange={getCheckboxValues}
