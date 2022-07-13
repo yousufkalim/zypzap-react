@@ -62,69 +62,39 @@ function Setting({ openProfile, setOpenProfile }) {
   const updateStore = UpdateStore();
   const [openCongratulation, setCongratulation] = useState(false);
   const [favouritGame, setFavouritGame] = useState(
-    user?.prefrence_games?.favourite_games
-      ? user.prefrence_games.favourite_games
-      : []
+    user?.prefrence_games?.favourite_games ? user.prefrence_games.favourite_games : []
   );
   const [gameType, setGameType] = useState(user?.gameType ? user.gameType : []);
-  const [plateForm, setPlateForm] = useState(
-    user?.plateForm ? user.plateForm : []
-  );
-  const [expertiseGame, setExpertiseGame] = useState(
-    user?.expertiseGame ? user.expertiseGame : []
-  );
+  const [plateForm, setPlateForm] = useState(user?.plateForm ? user.plateForm : []);
+  const [expertiseGame, setExpertiseGame] = useState(user?.expertiseGame ? user.expertiseGame : []);
 
-  const [gameMood, setGameMood] = useState(
-    user?.gameMood ? user.gameMood : 'Single'
-  );
+  const [gameMood, setGameMood] = useState(user?.gameMood ? user.gameMood : 'Single');
   // const [learningRethem, setLearningRethem] = useState(
   //   user?.setLearningRethem ? user.setLearningRethem : ""
   // );
 
   const [learningRethem, setLearningRethem] = useState(
-    user?.prefrence_games?.learningRethem
-      ? user.prefrence_games.learningRethem
-      : '10h To 20h Per Week'
+    user?.prefrence_games?.learningRethem ? user.prefrence_games.learningRethem : '10h To 20h Per Week'
   );
 
   const [currentLevel, setCurrentLevel] = useState(
-    user?.prefrence_games?.current_level
-      ? user.prefrence_games.current_level
-      : 'initial'
+    user?.prefrence_games?.current_level ? user.prefrence_games.current_level : 'initial'
   );
   const [target_level, setTargetLevel] = useState(
-    user?.prefrence_games?.target_level
-      ? user.prefrence_games.target_level
-      : 'initial'
+    user?.prefrence_games?.target_level ? user.prefrence_games.target_level : 'initial'
   );
   useEffect(() => {
     setCurrentSate();
   }, [user]);
   const setCurrentSate = () => {
-    setFavouritGame(
-      user?.prefrence_games?.favourite_games
-        ? user.prefrence_games.favourite_games
-        : []
-    );
+    setFavouritGame(user?.prefrence_games?.favourite_games ? user.prefrence_games.favourite_games : []);
     setGameType(user?.gameType ? user.gameType : []);
     setPlateForm(user?.plateForm ? user.plateForm : []);
     setGameMood(user?.gameMood ? user.gameMood : 'Single');
     // setLearningRethem(user?.setLearningRethem ? user.setLearningRethem : "");
-    setLearningRethem(
-      user?.prefrence_games?.learningRethem
-        ? user.prefrence_games.learningRethem
-        : 'Per Week'
-    );
-    setCurrentLevel(
-      user?.prefrence_games?.current_level
-        ? user.prefrence_games.current_level
-        : 'initial'
-    );
-    setTargetLevel(
-      user?.prefrence_games?.target_level
-        ? user.prefrence_games.target_level
-        : 'initial'
-    );
+    setLearningRethem(user?.prefrence_games?.learningRethem ? user.prefrence_games.learningRethem : 'Per Week');
+    setCurrentLevel(user?.prefrence_games?.current_level ? user.prefrence_games.current_level : 'initial');
+    setTargetLevel(user?.prefrence_games?.target_level ? user.prefrence_games.target_level : 'initial');
   };
 
   // const addTags = (event) => {
@@ -210,24 +180,9 @@ function Setting({ openProfile, setOpenProfile }) {
     ) {
       return toast.error('Give your complete details!');
     } else {
-      if (user?.role === 'User' || learner) {
-        let res = await api(
-          'put',
-          `/users/addProfileInfo/${user._id}`,
-          formdata
-        );
+        let res = await api('put', `/users/addProfileInfo/${user._id}`, formdata);
         if (res) {
           updateStore({ user: res.data });
-          setCongratulation(true);
-        }
-      } else {
-        let res = await api('post', `/creators/${user?._id}`, formdata);
-
-        if (res) {
-          updateStore({
-            user: res?.data?.newUsers,
-            creator: res?.data?.creator,
-          });
           setCongratulation(true);
         }
       }
@@ -250,14 +205,7 @@ function Setting({ openProfile, setOpenProfile }) {
     'Puzzle',
     'Versus Fighting',
   ];
-  const gamePlateform = [
-    'PC',
-    'Mobile Games',
-    'PS1/2/3/4/5',
-    'Xbox/360/One/X',
-    'Retro Consoles',
-    'Portable Consoles',
-  ];
+  const gamePlateform = ['PC', 'Mobile Games', 'PS1/2/3/4/5', 'Xbox/360/One/X', 'Retro Consoles', 'Portable Consoles'];
 
   const getAllGames = async (e) => {
     // setformDataOne({
@@ -266,9 +214,7 @@ function Setting({ openProfile, setOpenProfile }) {
     // });
 
     let res = await axios.get(
-      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
-        e.target.value +
-        '&page=1&page_size=10',
+      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` + e.target.value + '&page=1&page_size=10',
       {
         withCredentials: false,
       }
@@ -296,11 +242,7 @@ function Setting({ openProfile, setOpenProfile }) {
 
   return (
     <>
-      <RegisterSuccessfully
-        open={openCongratulation}
-        setOpen={setCongratulation}
-        text="Your Profile Edit Successfully !"
-      />
+      <RegisterSuccessfully open={openCongratulation} setOpen={setCongratulation} text="Your Profile Edit Successfully !" />
       <div className="dashboardSetting">
         <div className="userProfile_conteiner2">
           <div className="tags-input">
@@ -312,11 +254,7 @@ function Setting({ openProfile, setOpenProfile }) {
                 multiple
                 options={values}
                 // defaultValue={favouritGame}
-                defaultValue={
-                  user?.role === 'User' || learner
-                    ? favouritGame
-                    : expertiseGame
-                }
+                defaultValue={user?.role === 'User' || learner ? favouritGame : expertiseGame}
                 // inputValue={}
                 classes={{
                   option: classes.option,
@@ -336,9 +274,7 @@ function Setting({ openProfile, setOpenProfile }) {
                     no option{' '}
                   </div>
                 }
-                PaperComponent={({ children }) => (
-                  <Paper style={{ background: '#242635' }}>{children}</Paper>
-                )}
+                PaperComponent={({ children }) => <Paper style={{ background: '#242635' }}>{children}</Paper>}
                 onChange={setGamefiled}
                 hiddenLabel="true"
                 style={{
@@ -373,11 +309,7 @@ function Setting({ openProfile, setOpenProfile }) {
                 {gametypebtn.map((tag) => {
                   return (
                     <button
-                      className={
-                        gameType?.includes(tag)
-                          ? 'activetypebtn'
-                          : 'userTagsAllButton'
-                      }
+                      className={gameType?.includes(tag) ? 'activetypebtn' : 'userTagsAllButton'}
                       value={tag}
                       onClick={selectGameType}
                     >
@@ -418,11 +350,7 @@ function Setting({ openProfile, setOpenProfile }) {
                 return (
                   <button
                     key={i}
-                    className={
-                      plateForm?.includes(tag)
-                        ? 'activetypebtn'
-                        : 'userTagsAllButton'
-                    }
+                    className={plateForm?.includes(tag) ? 'activetypebtn' : 'userTagsAllButton'}
                     value={tag}
                     onClick={selectplateForm}
                   >
@@ -443,25 +371,10 @@ function Setting({ openProfile, setOpenProfile }) {
                   style={{ display: 'inline' }}
                 >
                   &nbsp; &nbsp;
-                  <FormControlLabel
-                    value="Single"
-                    control={<Radio />}
-                    label="Single Player Mode"
-                    onClick={onChangeRadioBtn}
-                  />
-                  <FormControlLabel
-                    value="MultiPlayer"
-                    control={<Radio />}
-                    label="MultiPlayer Mode"
-                    onClick={onChangeRadioBtn}
-                  />
+                  <FormControlLabel value="Single" control={<Radio />} label="Single Player Mode" onClick={onChangeRadioBtn} />
+                  <FormControlLabel value="MultiPlayer" control={<Radio />} label="MultiPlayer Mode" onClick={onChangeRadioBtn} />
                   {!(user?.role === 'User' || learner) ? (
-                    <FormControlLabel
-                      value="Both"
-                      control={<Radio />}
-                      label="Both"
-                      onClick={onChangeRadioBtn}
-                    />
+                    <FormControlLabel value="Both" control={<Radio />} label="Both" onClick={onChangeRadioBtn} />
                   ) : (
                     ''
                   )}
@@ -485,27 +398,14 @@ function Setting({ openProfile, setOpenProfile }) {
                   className="selectInput-userProfile selectInput2"
                   defaultValue={learningRethem}
                 >
-                  <option
-                    value="10h To 20h Per Week"
-                    className="selectInput-option"
-                  >
+                  <option value="10h To 20h Per Week" className="selectInput-option">
                     10h To 20h Per Week
                   </option>
-                  <option value="20h To 30h Per Week">
-                    20h To 30h Per Week
-                  </option>
-                  <option value="30h To 40h Per Week">
-                    30h To 40h Per Week
-                  </option>
-                  <option value="40h To 50h Per Week">
-                    40h To 50h Per Week
-                  </option>
-                  <option value="50h To 60h Per Week">
-                    50h To 60h Per Week
-                  </option>
-                  <option value="60h To 70h Per Week">
-                    60h To 70h Per Week
-                  </option>
+                  <option value="20h To 30h Per Week">20h To 30h Per Week</option>
+                  <option value="30h To 40h Per Week">30h To 40h Per Week</option>
+                  <option value="40h To 50h Per Week">40h To 50h Per Week</option>
+                  <option value="50h To 60h Per Week">50h To 60h Per Week</option>
+                  <option value="60h To 70h Per Week">60h To 70h Per Week</option>
                 </select>
               </div>
               <div className="userProfileSelectInput">
@@ -523,15 +423,9 @@ function Setting({ openProfile, setOpenProfile }) {
                   <option value="Casual" className="selectInput-option">
                     Casual (5h - 7h Of Play Per Week)
                   </option>
-                  <option value="Confirmed">
-                    Confirmed (8 Hours - 15 Hours Of Play Per Week)
-                  </option>
-                  <option value="Hardcore">
-                    Hardcore (16 Hours - 28 Hours Of Play Per Week)
-                  </option>
-                  <option value="Esporter">
-                    Esporter (More than 30 Hours Of Play Per Week)
-                  </option>
+                  <option value="Confirmed">Confirmed (8 Hours - 15 Hours Of Play Per Week)</option>
+                  <option value="Hardcore">Hardcore (16 Hours - 28 Hours Of Play Per Week)</option>
+                  <option value="Esporter">Esporter (More than 30 Hours Of Play Per Week)</option>
                 </select>
               </div>
               <div className="userProfileSelectInput">
@@ -550,24 +444,15 @@ function Setting({ openProfile, setOpenProfile }) {
                   <option value="Casual" className="selectInput-option">
                     Casual (5h - 7h Of Play Per Week)
                   </option>
-                  <option value="Confirmed">
-                    Confirmed (8 Hours - 15 Hours Of Play Per Week)
-                  </option>
-                  <option value="Hardcore">
-                    Hardcore (16 Hours - 28 Hours Of Play Per Week)
-                  </option>
-                  <option value="Esporter">
-                    Esporter (More than 30 Hours Of Play Per Week)
-                  </option>
+                  <option value="Confirmed">Confirmed (8 Hours - 15 Hours Of Play Per Week)</option>
+                  <option value="Hardcore">Hardcore (16 Hours - 28 Hours Of Play Per Week)</option>
+                  <option value="Esporter">Esporter (More than 30 Hours Of Play Per Week)</option>
                 </select>
               </div>
             </>
           )}
 
-          <button
-            className="userProfileButton userProfileButton2"
-            onClick={submitProfile}
-          >
+          <button className="userProfileButton userProfileButton2" onClick={submitProfile}>
             Continue
           </button>
         </div>
