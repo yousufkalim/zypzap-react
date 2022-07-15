@@ -8,9 +8,6 @@ import { Store } from '../../StoreContext';
 const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
   const ref = useRef();
   const { user } = Store();
-  useEffect(() => {
-    ref.current.plyr.on('ended', (e) => {});
-  }, []);
 
   const [videos, setVideos] = useState(singlCourse?.videos ? singlCourse.videos : 0);
   // const [id, setId] = useSate();
@@ -29,6 +26,18 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
   useEffect(() => {
     handlePlayedVideo();
   }, [playVideo]);
+
+  useEffect(() => {
+    ref.current.plyr.on('ended', (e) => {
+      // If the last video ended, then we have to show the rating popup
+      if (index === videos.length - 1) {
+        // making smooth ux xD
+        setTimeout(() => {
+          setShowRatingPopup(true);
+        }, 700);
+      }
+    });
+  }, [index]);
 
   const handlePlayedVideo = async () => {
     await api('get', `/users/video-played/${user._id}/${singlCourse._id}/${playVideo._id}`);
@@ -73,9 +82,6 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
           <div className="completeCourse-colm2">
             <h3 className="completeCourseH3">Course Content </h3>
             <div className="completeCourseScroll">
-              {console.log('VIDEOS', videos)}
-              {console.log('VIDEOS', videos.index)}
-
               {videos?.map((clip, index) => {
                 return (
                   <LiDAta
@@ -135,16 +141,13 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value, index, setIndex }) => {
         setPlayVideo(clip);
         setIndex(index);
       }}
+      style={{ cursor: 'pointer' }}
     >
       {/* onClick={() => setPlayVideo(clip)} */}
       <video
         // poster={VideoPlayIcon}
         className="completeCourse-playVideo"
-        src={
-          clip?.src_url
-            ? clip.src_url
-            : 'https://pass-to-trip.s3.eu-west-3.amazonaws.com/1647410128211'
-        }
+        src={clip?.src_url ? clip.src_url : 'https://pass-to-trip.s3.eu-west-3.amazonaws.com/1647410128211'}
       ></video>
       <div className="playVideoHeading">
         <h3 className="playVideoH3">

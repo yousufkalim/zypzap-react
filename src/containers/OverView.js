@@ -1,29 +1,24 @@
-import React, { useState, useEffect } from "react";
-import Header from "../components/Header";
-import OverViewHome from "../components/OverView/OverViewHome";
-import "../components/OverView/OverView.css";
-import OverViewMenu from "../components/OverView/OverViewMenu";
-import OverviewButton from "../components/OverView/OverviewButton";
-import Curriculum from "../components/OverView/Curriculum";
-import Instructor from "../components/OverView/Instructor";
-import Reviews from "../components/OverView/Reviews";
-import Footer from "../components/blog/BlogFooter";
-import { useParams } from "react-router-dom";
-import { useHistory, useLocation } from "react-router-dom";
-import CompleteCourse from "../components/CoursePage/CompleteCourse";
-import api from "../api";
-import { Store, UpdateStore } from "../StoreContext";
-import LatestCourses from "../components/LatestCourses";
-let btns = [
-  { text: "Overview" },
-  { text: "Cursus" },
-  { text: "Instructor" },
-  { text: "Feedback" },
-];
+import React, { useState, useEffect } from 'react';
+import Header from '../components/Header';
+import OverViewHome from '../components/OverView/OverViewHome';
+import '../components/OverView/OverView.css';
+import OverViewMenu from '../components/OverView/OverViewMenu';
+import OverviewButton from '../components/OverView/OverviewButton';
+import Curriculum from '../components/OverView/Curriculum';
+import Instructor from '../components/OverView/Instructor';
+import Reviews from '../components/OverView/Reviews';
+import Footer from '../components/blog/BlogFooter';
+import { useParams } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
+import CompleteCourse from '../components/CoursePage/CompleteCourse';
+import api from '../api';
+import { Store, UpdateStore } from '../StoreContext';
+import LatestCourses from '../components/LatestCourses';
+let btns = [{ text: 'Overview' }, { text: 'Cursus' }, { text: 'Instructor' }, { text: 'Feedback' }];
 const OverView = (props) => {
   const { id } = useParams();
   const [overView, setOverView] = useState(false);
-  const [activebtn, setActivebtn] = useState("Overview");
+  const [activebtn, setActivebtn] = useState('Overview');
   const [course, setCourse] = useState();
   const [rating, setRating] = useState();
   const [showVideo, setShowVideo] = useState(false);
@@ -36,7 +31,7 @@ const OverView = (props) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 1,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
   useEffect(() => {
@@ -47,7 +42,7 @@ const OverView = (props) => {
   }, [id, showVideo, showRatingPopup]);
 
   let getSingleCourses = async () => {
-    let res = await api("get", `/courses/${id}`);
+    let res = await api('get', `/courses/${id}`);
 
     if (res) {
       setCourse(res?.data);
@@ -55,7 +50,7 @@ const OverView = (props) => {
   };
   let getRatingOfCourse = async () => {
     if (id) {
-      let res = await api("get", `/ratings/forSingleCourses/${id}`);
+      let res = await api('get', `/ratings/forSingleCourses/${id}`);
       if (res) {
         setRating(res?.data);
       }
@@ -72,10 +67,7 @@ const OverView = (props) => {
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
       />
       {showVideo ? (
-        <CompleteCourse
-          singlCourse={course}
-          setShowRatingPopup={setShowRatingPopup}
-        />
+        <CompleteCourse singlCourse={course} setShowRatingPopup={setShowRatingPopup} />
       ) : (
         <OverViewHome
           singlCourse={course}
@@ -86,27 +78,15 @@ const OverView = (props) => {
         />
       )}
 
-      <OverViewMenu
-        btns={btns}
-        setActivebtn={setActivebtn}
-        activebtn={activebtn}
-        course={course}
-      />
-      {activebtn == "Overview" && <OverviewButton singlCourse={course} />}
+      <OverViewMenu btns={btns} setActivebtn={setActivebtn} activebtn={activebtn} course={course} />
+      {activebtn == 'Overview' && <OverviewButton singlCourse={course} />}
 
-      {activebtn == "Cursus" && (
-        <Curriculum singlCourse={course} setShowVideo={setShowVideo} />
-      )}
+      {activebtn == 'Cursus' && <Curriculum singlCourse={course} setShowVideo={setShowVideo} />}
 
-      {activebtn == "Instructor" && <Instructor singlCourse={course} />}
+      {activebtn == 'Instructor' && <Instructor singlCourse={course} />}
 
-      {activebtn == "Feedback" && (
-        <Reviews
-          singlCourse={course}
-          rating={rating}
-          setShowPopup={setShowRatingPopup}
-          showPopup={showRatingPopup}
-        />
+      {(activebtn == 'Feedback' || showRatingPopup) && (
+        <Reviews singlCourse={course} rating={rating} setShowPopup={setShowRatingPopup} showPopup={showRatingPopup} />
       )}
       {/* <LatestCourses courses={[course]} /> */}
 

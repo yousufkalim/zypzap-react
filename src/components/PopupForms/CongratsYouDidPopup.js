@@ -1,20 +1,15 @@
-import React from "react";
-import Dialog from "@mui/material/Dialog";
-import UploadSuccessLog from "../../assets/icons/UploadSuccessLog.svg";
-import ClearIcon from "@mui/icons-material/Clear";
-import Rating from "@mui/material/Rating";
-import api from "../../api";
-import { toast } from "react-toastify";
-import { Store, UpdateStore } from "../../StoreContext";
+import React from 'react';
+import Dialog from '@mui/material/Dialog';
+import UploadSuccessLog from '../../assets/icons/UploadSuccessLog.svg';
+import ClearIcon from '@mui/icons-material/Clear';
+import Rating from '@mui/material/Rating';
+import api from '../../api';
+import { toast } from 'react-toastify';
+import { Store, UpdateStore } from '../../StoreContext';
 
-const CongratsYouDidPopup = ({
-  showPopup,
-  setShowPopup,
-  singlCourse,
-  rating
-}) => {
+const CongratsYouDidPopup = ({ showPopup, setShowPopup, singlCourse, rating }) => {
   const { user } = Store();
-  const [value, setValue] = React.useState(3);
+  const [value, setValue] = React.useState(5);
   const handleClose = () => {
     setShowPopup(false);
   };
@@ -22,10 +17,10 @@ const CongratsYouDidPopup = ({
     rating = rating?.filter((rat) => rat.rating_by == user?._id);
 
     if (rating.length >= 1) {
-      let res = await api("put", `/ratings/${rating[0]?._id}`, {
+      let res = await api('put', `/ratings/${rating[0]?._id}`, {
         rating: value,
         course: singlCourse._id,
-        rating_by: user?._id
+        rating_by: user?._id,
       });
       if (res) {
         setShowPopup(false);
@@ -33,10 +28,10 @@ const CongratsYouDidPopup = ({
       setShowPopup(false);
       return;
     }
-    let res = await api("post", `/ratings`, {
+    let res = await api('post', `/ratings`, {
       rating: value,
       course: singlCourse._id,
-      rating_by: user?._id
+      rating_by: user?._id,
     });
     if (res) {
       setShowPopup(false);
@@ -55,7 +50,7 @@ const CongratsYouDidPopup = ({
           <div className="uploadSuccess-centerDiv">
             <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />
             <p className="congtratsYouP">Congrats You did it!</p>
-            <p className="congtratsYouP2">Rate your Experience with CS-GO</p>
+            <p className="congtratsYouP2">Rate your Experience with {singlCourse.course_name}</p>
             <div className="congratsStarBar">
               <Rating
                 className="congtratsYouPopup"
