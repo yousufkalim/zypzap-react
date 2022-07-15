@@ -1,49 +1,43 @@
-import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import Checkbox from "@mui/material/Checkbox";
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import Checkbox from '@mui/material/Checkbox';
 // import { pink } from "@mui/material/colors";
 
 const CustomColorCheckbox = withStyles({
   root: {
-    color: "#fff",
-    "&$checked": {
-      color: " #5dcfa09c",
+    color: '#fff',
+    '&$checked': {
+      color: ' #5dcfa09c',
     },
   },
   checked: {},
 })((props) => <Checkbox color="default" {...props} />);
 
-const Categories = ({
-  categories,
-  activeButton,
-  trigerOnClickEmpSideBtn,
-  change,
-  name,
-  value,
-}) => {
+const Categories = ({ categories, activeButton, trigerOnClickEmpSideBtn, change, name, value }) => {
   return (
     <>
       {categories.map((item) => {
-        const className = activeButton === item.name ? "active" : "";
+        const className = activeButton === item.name ? 'active' : '';
         return (
           <div
             onClick={() => trigerOnClickEmpSideBtn(item)}
             className={`categories-text ${className}`}
-            sx={{ display: "flex", flexDirection: "column" }}
+            sx={{ display: 'flex', flexDirection: 'column' }}
           >
             <span className="categories-tegs">
               <Checkbox
                 className="categories-tegs2"
-                // checked={checked}
-                // onChange={handleChange}
-                inputProps={{ "aria-label": "controlled" }}
+                inputProps={{ 'aria-label': 'controlled' }}
                 name={name}
+                id={`${item.name}-${value}`}
                 value={item.name}
                 checked={item.name === value}
                 onChange={change}
               />
               &nbsp;
-              {item.name}
+              <label style={{ cursor: 'pointer' }} htmlFor={`${item.name}-${value}`}>
+                {item.name}
+              </label>
             </span>
           </div>
         );
