@@ -9,16 +9,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
   const [values, setValues] = useState([]);
-  const {
-    course_name,
-    gameName,
-    selectedGamename,
-    gameLevel,
-    gameType,
-    gameMood,
-    gamePlateForm,
-    description,
-  } = formDataOne;
+  const { course_name, gameName, selectedGamename, gameLevel, gameType, gameMood, gamePlateForm, description } = formDataOne;
 
   const chnageEvent = (e) => {
     setformDataOne({
@@ -84,9 +75,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
     });
 
     const res = await axios.get(
-      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
-        e.target.value +
-        '&page=1&page_size=10',
+      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` + e.target.value + '&page=1&page_size=10',
       {
         withCredentials: false,
       }
@@ -139,26 +128,80 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
           {/* /* -------------------------------- main div --------------------------------  */}
 
           <div className="courseDiv">
-            <Grid xs={12} sm={6}>
-              <div>
-                <p className="stepLabel" style={{ marginTop: '4%' }}>
-                  Course Title{' '}
-                </p>
-                <input
-                  type="text"
-                  className="coursInput"
-                  placeholder="Learn how to play minacraft"
-                  value={course_name}
-                  name="course_name"
-                  onChange={chnageEvent}
-                />
-              </div>
-            </Grid>
+            <Grid container>
+              <Grid xs={6} sm={6}>
+                <div>
+                  <p className="stepLabel" style={{ marginTop: '4%' }}>
+                    Course Title{' '}
+                  </p>
+                  <input
+                    type="text"
+                    className="coursInput"
+                    placeholder="Learn how to play minacraft"
+                    value={course_name}
+                    name="course_name"
+                    onChange={chnageEvent}
+                  />
+                </div>
+              </Grid>
 
-            <Grid xs={12} sm={6}>
-              <div>
-                <p className="stepLabel">Game Name</p>
-                {/* <select
+              <Grid xs={6} sm={6}>
+                <div style={{ marginTop: '4%' }}>
+                  <p className="stepLabel">Game Category</p>
+                  <select id="gameType" name="gameType" className="stepSelect" value={gameType} onChange={chnageEvent}>
+                    <option value="" className="setepOption">
+                      Select Category
+                    </option>
+                    <option value="Action" className="setepOption">
+                      Action
+                    </option>
+                    <option value="Adventure" className="setepOption">
+                      Adventure
+                    </option>
+                    <option value="Metaverse" className="setepOption">
+                      MetaVerse
+                    </option>
+                    <option value="MMOG" className="setepOption">
+                      MMOG
+                    </option>
+                    <option value="Car Racing" className="setepOption">
+                      Car Racing
+                    </option>
+                    <option value="Versus Fighting" className="setepOption">
+                      Versus Fighting
+                    </option>
+                    <option value="FPS" className="setepOption">
+                      FPS
+                    </option>
+                    <option value="RTS" className="setepOption">
+                      RTS
+                    </option>
+                    <option value="RPG" className="setepOption">
+                      RPG
+                    </option>
+                    <option value="Turn by Turn Strategy" className="setepOption">
+                      Turn by Turn Strategy
+                    </option>
+                    <option value="Simulation" className="setepOption">
+                      Simulation
+                    </option>
+                    <option value="Sports" className="setepOption">
+                      Sport
+                    </option>
+                    <option value="Trading Card" className="setepOption">
+                      Trading Card
+                    </option>
+                    <option value="Puzzle" className="setepOption">
+                      Puzzle
+                    </option>
+                  </select>
+                </div>
+              </Grid>
+
+              <Grid xs={6} sm={6}>
+                <div>
+                  <p className="stepLabel">Game Name</p>
+                  {/* <select
                   id="gameName"
                   name="gameName"
                   className="coursInput"
@@ -173,193 +216,112 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                     );
                   })}
                 </select> */}
-                <Autocomplete
-                  options={values}
-                  classes={{
-                    option: classes.option,
-                  }}
-                  className="coursInputAutofiled"
-                  noOptionsText={
-                    <div style={{ color: 'white', fontSize: '12px' }}> no option </div>
-                  }
-                  PaperComponent={({ children }) => (
-                    <Paper style={{ background: '#242635' }}>{children}</Paper>
-                  )}
-                  getOptionLabel={(option) => option.label || ''}
-                  onChange={setGamefiled}
-                  hiddenLabel="true"
-                  style={{
-                    margin: 'auto',
-                  }}
-                  renderInput={(params) => (
-                    <TextField
-                      classes={{ root: classes.customTextField }}
-                      {...params}
-                      placeholder="Game Name"
-                      style={{ color: 'white' }}
-                      variant="outlined"
-                      onChange={getAllGames}
-                      value={gameName}
-                      name="gameName"
-                    />
-                  )}
-                />
-              </div>
-            </Grid>
-            {/* <Grid container spacing={2}> */}
-            <Grid xs={12} sm={6}>
-              <div>
-                <p className="stepLabel">Gameplay Level</p>
-                <select
-                  id="gameLevel"
-                  name="gameLevel"
-                  className="stepSelect"
-                  value={gameLevel}
-                  onChange={chnageEvent}
-                >
-                  <option value="" className="setepOption">
-                    Select Level
-                  </option>
-                  <option value="Casual" className="setepOption">
-                    CASUAL
-                  </option>
-                  <option value="Confirmed" className="setepOption">
-                    CONFIRMED
-                  </option>
-                  <option value="Hardcore" className="setepOption">
-                    HARDCORE
-                  </option>
-                  <option value="Esporter" className="setepOption">
-                    ESPORTER
-                  </option>
-                </select>
-              </div>
-              {/* </Grid> */}
-            </Grid>
-          </div>
-          {/* /* -------------------------------- main div --------------------------------  */}
-          {/* /* -------------------------------- main div --------------------------------  */}
-          <div></div>
-          <div className="courseDiv">
-            {/* <Grid container spacing={2} className="step_container">
-              <Grid container spacing={2}> */}
-            <Grid xs={12} sm={6}>
-              <div style={{ marginTop: '4%' }}>
-                <p className="stepLabel">Game Type</p>
-                <select
-                  id="gameType"
-                  name="gameType"
-                  className="stepSelect"
-                  value={gameType}
-                  onChange={chnageEvent}
-                >
-                  <option value="" className="setepOption">
-                    Select Category
-                  </option>
-                  <option value="Action" className="setepOption">
-                    Action
-                  </option>
-                  <option value="Adventure" className="setepOption">
-                    Adventure
-                  </option>
-                  <option value="Metaverse" className="setepOption">
-                    MetaVerse
-                  </option>
-                  <option value="MMOG" className="setepOption">
-                    MMOG
-                  </option>
-                  <option value="Car Racing" className="setepOption">
-                    Car Racing
-                  </option>
-                  <option value="Versus Fighting" className="setepOption">
-                    Versus Fighting
-                  </option>
-                  <option value="FPS" className="setepOption">
-                    FPS
-                  </option>
-                  <option value="RTS" className="setepOption">
-                    RTS
-                  </option>
-                  <option value="RPG" className="setepOption">
-                    RPG
-                  </option>
-                  <option value="Turn by Turn Strategy" className="setepOption">
-                    Turn by Turn Strategy
-                  </option>
-                  <option value="Simulation" className="setepOption">
-                    Simulation
-                  </option>
-                  <option value="Sports" className="setepOption">
-                    Sport
-                  </option>
-                  <option value="Trading Card" className="setepOption">
-                    Trading Card
-                  </option>
-                  <option value="Puzzle" className="setepOption">
-                    Puzzle
-                  </option>
-                </select>
-              </div>
-            </Grid>
-            <Grid xs={12} sm={6}>
-              <div>
-                <p className="stepLabel">Gaming Mode</p>
-                <select
-                  id="gameMood"
-                  name="gameMood"
-                  className="stepSelect"
-                  value={gameMood}
-                  onChange={chnageEvent}
-                >
-                  <option value="" className="setepOption">
-                    Select Mode
-                  </option>
-                  <option value="Single" className="setepOption">
-                    SINGLE
-                  </option>
-                  <option value="Multiplayer" className="setepOption">
-                    MULTIPLAYER
-                  </option>
-                  <option value="Both" className="setepOption">
-                    BOTH
-                  </option>
-                </select>
-              </div>
-            </Grid>
-            <Grid xs={12} sm={6}>
-              <div>
-                <p className="stepLabel">Gaming Platform</p>
-                <select
-                  id="gamePlateForm"
-                  name="gamePlateForm"
-                  className="stepSelect"
-                  value={gamePlateForm}
-                  onChange={chnageEvent}
-                >
-                  <option value="" className="setepOption">
-                    Select Platform
-                  </option>
-                  <option value="Retro Consoles" className="setepOption">
-                    Retro Consoles
-                  </option>
-                  <option value="PS1/2/3/4/5" className="setepOption">
-                    PS1/2/3/4/5
-                  </option>
-                  <option value="Xbox/360/One/X" className="setepOption">
-                    XBOX/360/ONE/X
-                  </option>
+                  <Autocomplete
+                    options={values}
+                    classes={{
+                      option: classes.option,
+                    }}
+                    className="coursInputAutofiled"
+                    noOptionsText={<div style={{ color: 'white', fontSize: '12px' }}> no option </div>}
+                    PaperComponent={({ children }) => <Paper style={{ background: '#242635' }}>{children}</Paper>}
+                    getOptionLabel={(option) => option.label || ''}
+                    onChange={setGamefiled}
+                    hiddenLabel="true"
+                    style={{
+                      margin: 'auto',
+                    }}
+                    renderInput={(params) => (
+                      <TextField
+                        classes={{ root: classes.customTextField }}
+                        {...params}
+                        placeholder="Game Name"
+                        style={{ color: 'white' }}
+                        variant="outlined"
+                        onChange={getAllGames}
+                        value={gameName}
+                        name="gameName"
+                      />
+                    )}
+                  />
+                </div>
+              </Grid>
 
-                  <option value="Portable Consoles" className="setepOption">
-                    PORTABLE CONSOLE
-                  </option>
-                  <option value="PC" className="setepOption">
-                    PC
-                  </option>
-                </select>
-              </div>
+              <Grid xs={6}>
+                <div>
+                  <p className="stepLabel">Gaming Mode</p>
+                  <select id="gameMood" name="gameMood" className="stepSelect" value={gameMood} onChange={chnageEvent}>
+                    <option value="" className="setepOption">
+                      Select Mode
+                    </option>
+                    <option value="Single" className="setepOption">
+                      SINGLE
+                    </option>
+                    <option value="Multiplayer" className="setepOption">
+                      MULTIPLAYER
+                    </option>
+                    <option value="Both" className="setepOption">
+                      BOTH
+                    </option>
+                  </select>
+                </div>
+              </Grid>
+              {/* <Grid container spacing={2}> */}
+              <Grid xs={6}>
+                <div>
+                  <p className="stepLabel">Gameplay Level</p>
+                  <select id="gameLevel" name="gameLevel" className="stepSelect" value={gameLevel} onChange={chnageEvent}>
+                    <option value="" className="setepOption">
+                      Select Level
+                    </option>
+                    <option value="Casual" className="setepOption">
+                      CASUAL
+                    </option>
+                    <option value="Confirmed" className="setepOption">
+                      CONFIRMED
+                    </option>
+                    <option value="Hardcore" className="setepOption">
+                      HARDCORE
+                    </option>
+                    <option value="Esporter" className="setepOption">
+                      ESPORTER
+                    </option>
+                  </select>
+                </div>
+                {/* </Grid> */}
+              </Grid>
+              <Grid xs={6}>
+                <div>
+                  <p className="stepLabel">Gaming Platform</p>
+                  <select
+                    id="gamePlateForm"
+                    name="gamePlateForm"
+                    className="stepSelect"
+                    value={gamePlateForm}
+                    onChange={chnageEvent}
+                  >
+                    <option value="" className="setepOption">
+                      Select Platform
+                    </option>
+                    <option value="Retro Consoles" className="setepOption">
+                      Retro Consoles
+                    </option>
+                    <option value="PS1/2/3/4/5" className="setepOption">
+                      PS1/2/3/4/5
+                    </option>
+                    <option value="Xbox/360/One/X" className="setepOption">
+                      XBOX/360/ONE/X
+                    </option>
+
+                    <option value="Portable Consoles" className="setepOption">
+                      PORTABLE CONSOLE
+                    </option>
+                    <option value="PC" className="setepOption">
+                      PC
+                    </option>
+                  </select>
+                </div>
+              </Grid>
             </Grid>
-            {/* </Grid>
-            </Grid> */}
           </div>
           {/* /* -------------------------------- main div --------------------------------  */}
         </div>
