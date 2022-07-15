@@ -1,7 +1,7 @@
 import React from 'react';
 import Checkbox from '@mui/material/Checkbox';
 
-const Level = ({ PlateformsAry, PlateformsBtn, trigerOnClickEmpSideBtn3, change, name, value }) => {
+const Level = ({ PlateformsAry, PlateformsBtn, trigerOnClickEmpSideBtn3, change, name, values }) => {
   return (
     <>
       {PlateformsAry.map((item) => {
@@ -15,15 +15,15 @@ const Level = ({ PlateformsAry, PlateformsBtn, trigerOnClickEmpSideBtn3, change,
           >
             <span className="categories-tegs">
               <Checkbox
-                id={`${item.name}-${value}`}
+                id={`${item.name}-${name}`}
                 inputProps={{ 'aria-label': 'controlled' }}
                 name={name}
                 value={item.name}
-                checked={item.name === value}
+                checked={values.includes(item.name)}
                 onChange={change}
               />
               &nbsp;
-              <label style={{ cursor: 'pointer' }} htmlFor={`${item.name}-${value}`}>
+              <label style={{ cursor: 'pointer' }} htmlFor={`${item.name}-${name}`}>
                 {item.name}
               </label>
             </span>

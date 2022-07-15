@@ -205,11 +205,11 @@ const SearchResultBody = () => {
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
   const [paginatedCourses, setPaginatedCourses] = useState([]);
   const [filterData, setFilterData] = useState({
-    category: undefined,
-    gameType: undefined,
-    plateform: undefined,
-    level: undefined,
-    mode: undefined,
+    category: [],
+    gameType: [],
+    plateform: [],
+    level: [],
+    mode: [],
   });
 
   // recieving context __data
@@ -223,17 +223,28 @@ const SearchResultBody = () => {
   //sidebar list togle
 
   const handleChange = async (e) => {
-    let filters = {};
-    if (filterData[e.target.name] === e.target.value) {
-      filters = { ...filterData, [e.target.name]: undefined };
+    let filters = { ...filterData };
+
+    if (e.target.name === 'mode') {
+      if (filters[e.target.name].includes(e.target.value)) {
+        filters[e.target.name] = [];
+      } else {
+        filters[e.target.name] = [e.target.value];
+      }
     } else {
-      filters = { ...filterData, [e.target.name]: e.target.value };
+      if (filters[e.target.name].includes(e.target.value)) {
+        filters[e.target.name] = filters[e.target.name].filter((a) => a !== e.target.value);
+      } else {
+        filterData[e.target.name].push(e.target.value);
+      }
     }
+
     setFilterData(filters);
 
     const res = await api('post', '/courses/filter', filters);
     updateStore({ searchCourse: res.data });
   };
+
   const onClickSideBarHeaders = (e) => {
     const id = e.target.id;
     if (id == 1) {
@@ -399,7 +410,7 @@ const SearchResultBody = () => {
                 trigerOnClickEmpSideBtn={onSideBtnClick}
                 change={handleChange}
                 name="category"
-                value={filterData.category}
+                values={filterData.category}
               />
             ) : null}
             <div id="2" onClick={onClickSideBarHeaders} className="dropdown-headers">
@@ -437,7 +448,7 @@ const SearchResultBody = () => {
                 trigerOnClickEmpSideBtn2={onSideBtnClick2}
                 change={handleChange}
                 name="gameType"
-                value={filterData.gameType}
+                values={filterData.gameType}
               />
             ) : null}
             <div id="3" onClick={onClickSideBarHeaders} className="dropdown-headers">
@@ -475,7 +486,7 @@ const SearchResultBody = () => {
                 PlateformsBtn={selectedPlateformsBtn}
                 trigerOnClickEmpSideBtn3={onSideBtnClick3}
                 name="plateform"
-                value={filterData.plateform}
+                values={filterData.plateform}
                 change={handleChange}
               />
             ) : null}
@@ -514,7 +525,7 @@ const SearchResultBody = () => {
                 PlateformsBtn={selectedlevelBtn}
                 trigerOnClickEmpSideBtn3={onSideBtnClick6}
                 name="level"
-                value={filterData.level}
+                values={filterData.level}
                 change={handleChange}
               />
             ) : null}
@@ -554,7 +565,7 @@ const SearchResultBody = () => {
                       name="mode"
                       value="Multiplayer"
                       id="Multiplayer"
-                      checked={filterData.mode === 'Multiplayer'}
+                      checked={filterData.mode.includes('Multiplayer')}
                       inputProps={{ 'aria-label': 'controlled' }}
                       onChange={handleChange}
                     />
@@ -567,7 +578,7 @@ const SearchResultBody = () => {
                       name="mode"
                       value="Single"
                       id="Single"
-                      checked={filterData.mode === 'Single'}
+                      checked={filterData.mode.includes('Single')}
                       inputProps={{ 'aria-label': 'controlled' }}
                       onChange={handleChange}
                     />
