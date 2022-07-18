@@ -62,9 +62,7 @@ const UserProfile = (props) => {
     uploadTask.on(
       'state_changed',
       (snapshot) => {
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
+        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
       },
       (error) => {
         alert(error);
@@ -145,9 +143,7 @@ const UserProfile = (props) => {
       uploadTask.on(
         'state_changed',
         (snapshot) => {
-          const progress = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          );
+          const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
         },
         (error) => {
           alert(error);
@@ -284,12 +280,8 @@ const UserProfile = (props) => {
           {/* profile Div */}
           <div className="profile-container">
             <div className="prfile-name-heading">
-              <h1 className="profile-name">
-                {user ? user.username : 'Atif Khan'}
-              </h1>
-              <p className="pofileP">
-                {user ? user.email[0] : 'johnsmith1@gmail.com'}
-              </p>
+              <h1 className="profile-name">{user ? user.username : 'Atif Khan'}</h1>
+              <p className="pofileP">{user ? user.email[0] : 'johnsmith1@gmail.com'}</p>
               <p className="prfile-lavelP">
                 Level:&nbsp;
                 <span className="level-span">
@@ -308,10 +300,7 @@ const UserProfile = (props) => {
             <div className="profileEditButton">
               {imageSrc ? (
                 <>
-                  <div
-                    className="editProfiel-btn"
-                    onClick={showandSaveCroppedImage}
-                  >
+                  <div className="editProfiel-btn" onClick={showandSaveCroppedImage}>
                     Save Cover Photo
                   </div>
                 </>
