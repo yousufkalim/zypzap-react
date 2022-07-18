@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import FormStepone from "./FormStepOne";
-import FormStepTwo from "./FormStepTwo";
-import FormStepThree from "./FormStepthree";
-import FormStepFour from "./FormStepFour";
-import FormStepFive from "./FormStepFive";
-import FormStepSix from "./FormStepSix";
-import { Store, UpdateStore } from "../../../StoreContext";
+import React, { useState, useEffect } from 'react';
+import FormStepone from './FormStepOne';
+import FormStepTwo from './FormStepTwo';
+import FormStepThree from './FormStepthree';
+import FormStepFour from './FormStepFour';
+import FormStepFive from './FormStepFive';
+import FormStepSix from './FormStepSix';
+import { Store, UpdateStore } from '../../../StoreContext';
 const CreateCourseForm = () => {
   const [step, setStep] = useState(1);
   const [formDataOne, setformDataOne] = useState({
-    course_name: "",
-    gameName: "",
-    selectedGamename: "",
-    gameLevel: "Casual",
-    gameType: "Action",
-    gameMood: "Single",
-    gamePlateForm: "Mobile Games",
-    description: ""
+    course_name: '',
+    gameName: '',
+    selectedGamename: '',
+    gameLevel: '',
+    gameType: '',
+    gameMood: '',
+    gamePlateForm: '',
+    description: '',
   });
   const [formDataTwo, setformDataTwo] = useState([]);
   const [formDataFive, setformDataFive] = useState([]);

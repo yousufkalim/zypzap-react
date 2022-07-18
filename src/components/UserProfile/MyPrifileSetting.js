@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from "react";
-import IconButton from "@mui/material/IconButton";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import Visa from "../../assets/icons/Visa.svg";
-import MasterCard from "../../assets/icons/MasterCard.svg";
-import Switch from "@mui/material/Switch";
-import HeaderLogoutIcon from "../../assets/icons/HeaderLogoutIcon.svg";
-import api from "../../api";
-import { toast } from "react-toastify";
+import React, { useState, useEffect } from 'react';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Visa from '../../assets/icons/Visa.svg';
+import MasterCard from '../../assets/icons/MasterCard.svg';
+import Switch from '@mui/material/Switch';
+import HeaderLogoutIcon from '../../assets/icons/HeaderLogoutIcon.svg';
+import api from '../../api';
+import { toast } from 'react-toastify';
 
-import { useHistory } from "react-router-dom";
-import { Store, UpdateStore } from "../../StoreContext";
+import { useHistory } from 'react-router-dom';
+import { Store, UpdateStore } from '../../StoreContext';
 const MyPrifileSetting = () => {
   const history = useHistory();
   const updateStore = UpdateStore();
   const { user, creator, searchState, searchInput } = Store();
   const [values, setValues] = React.useState(false);
   const [formData, setFormData] = useState({
-    username: user?.username || "",
-    email: user?.email ? user.email[0] : "",
-    // password: user?.password || "",
-    card_number: user?.card_number || "",
-    expiry_month: user?.expiry_date?.month || "",
-    expiry_year: user?.expiry_date?.year || "",
-    cvv: user?.cvv || "",
-    card_holder_name: user?.card_holder_name || "",
+    username: user?.username || '',
+    email: user?.email ? user.email[0] : '',
+    password: user?.password || '',
+    card_number: user?.card_number || '',
+    expiry_month: user?.expiry_date?.month || '',
+    expiry_year: user?.expiry_date?.year || '',
+    cvv: user?.cvv || '',
+    card_holder_name: user?.card_holder_name || '',
   });
 
   const {
@@ -39,14 +39,14 @@ const MyPrifileSetting = () => {
   } = formData;
   useEffect(() => {
     setFormData({
-      username: user?.username || "",
-      email: user?.email ? user.email[0] : "",
-      // password: user?.password || "",
-      card_number: user?.card_number || "",
-      expiry_month: user?.expiry_date?.month || "",
-      expiry_year: user?.expiry_date?.year || "",
-      cvv: user?.cvv || "",
-      card_holder_name: user?.card_holder_name || "",
+      username: user?.username || '',
+      email: user?.email ? user.email[0] : '',
+      password: user?.password || '',
+      card_number: user?.card_number || '',
+      expiry_month: user?.expiry_date?.month || '',
+      expiry_year: user?.expiry_date?.year || '',
+      cvv: user?.cvv || '',
+      card_holder_name: user?.card_holder_name || '',
     });
   }, [user]);
   const handleClickShowPassword = () => {
@@ -72,13 +72,28 @@ const MyPrifileSetting = () => {
     };
     delete d.expiry_month;
     delete d.expiry_year;
-    let res = await api("post", `/users/basicInfo/${user?._id}`, d);
+    if (!username) {
+      return toast.error('User ID cant be null');
+    }
+
+    if (!email) {
+      return toast.error('Please provide Email');
+    }
+
+    if (!(email.includes('@') && email.includes('.'))) {
+      return toast.error('Please enter a valid Email');
+    }
+    if (password && password.length < 8) {
+      return toast.error('Please enter more then eight digit password');
+    }
+    let res = await api('post', `/users/basicInfoUserOnly/${user?._id}`, d);
+
     if (res) {
       updateStore({ user: res.data.user });
-      toast.success("Modifier le profil avec succès");
+      toast.success('Modifier le profil avec succès');
     }
   };
-  const label = { inputProps: { "aria-label": "Switch demo" } };
+  const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
   return (
     <>
@@ -104,7 +119,7 @@ const MyPrifileSetting = () => {
                 Change The Password
               </label>
               <input
-                type={values ? "text" : "password"}
+                type={values ? 'text' : 'password'}
                 className="profileInputs "
                 placeholder="*************"
                 value={password}
@@ -206,7 +221,7 @@ const MyPrifileSetting = () => {
                 </div>
               </div>
             </div>
-          */}{" "}
+          */}{' '}
           </div>
           {/* /* ---------------------------------- col2 ----------------------------------  */}
           {/* <div className="profileSetting-Col">
@@ -313,18 +328,18 @@ const MyPrifileSetting = () => {
           type="submit"
           onClick={SubmitEvent}
           style={{
-            background: "linear-gradient(326deg, #662F88 8%, #20BF55 132%)",
-            color: "white",
-            fontWeight: "600",
-            borderRadius: " 4px",
-            cursor: "pointer",
-            border: "none",
-            width: " 133.93px",
-            height: "44px",
-            fontSize: "14px",
-            display: "bl8ck",
+            background: 'linear-gradient(326deg, #662F88 8%, #20BF55 132%)',
+            color: 'white',
+            fontWeight: '600',
+            borderRadius: ' 4px',
+            cursor: 'pointer',
+            border: 'none',
+            width: ' 133.93px',
+            height: '44px',
+            fontSize: '14px',
+            display: 'bl8ck',
 
-            margin: "25px 4px",
+            margin: '25px 4px',
           }}
         >
           Save
