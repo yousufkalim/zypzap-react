@@ -620,7 +620,7 @@ export default function PrimarySearchAppBar({
                       state: { creator: `${creator}` },
                     }}
                     onClick={() => {
-                      history.push('/dashboard');
+                      // history.push('/dashboard');
                       updateStore({ contentDashboardButton: 'Courses' });
                     }}
                     style={{ color: 'white', textDecoration: 'none' }}
