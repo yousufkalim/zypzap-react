@@ -1,24 +1,24 @@
 // Init
-import React, { useState } from "react";
-import Grid from "@material-ui/core/Grid";
-import NewLogo from "../../assets/icons/NewLogo.png";
-import Globel from "../../assets/icons/Globle.svg";
+import React, { useState } from 'react';
+import Grid from '@material-ui/core/Grid';
+import NewLogo from '../../assets/icons/NewLogo.png';
+import Globel from '../../assets/icons/Globle.svg';
 // import FbIcon22 from "../../assets/icons/FbIcon22.svg";
 // import TwitterIcon2 from "../../assets/icons/TwitterIcon2.svg";
 // import LinkedinIcon2 from "../../assets/icons/LinkedinIcon2.svg";
 // import VactorIcon from "../../assets/icons/VactorIcon.svg";
 // import InstagramIcon from "../../assets/icons/InstagramIcon.svg";
-import email from "../../assets/icons/email.svg";
-import location from "../../assets/icons/location.svg";
-import fFacebook from "../../assets/img/fFacebook.svg";
-import fDiscord from "../../assets/img/fDiscord.svg";
-import fTwitter from "../../assets/img/fTwitter.svg";
-import fReddit from "../../assets/img/fReddit.svg";
+import email from '../../assets/icons/email.svg';
+import location from '../../assets/icons/location.svg';
+import fFacebook from '../../assets/img/fFacebook.svg';
+import fDiscord from '../../assets/img/fDiscord.svg';
+import fTwitter from '../../assets/img/fTwitter.svg';
+// import fReddit from '../../assets/img/fReddit.svg';
 
-import fLinkedin from "../../assets/img/fLinkedin.svg";
+import fLinkedin from '../../assets/img/fLinkedin.svg';
 
-import { Link } from "react-router-dom";
-import { useTranslation, Trans } from "react-i18next";
+import { Link } from 'react-router-dom';
+import { useTranslation, Trans } from 'react-i18next';
 
 export default function Footer({ openContentRequest, setOpenContentRequest }) {
   const { t, i18n } = useTranslation();
@@ -30,11 +30,7 @@ export default function Footer({ openContentRequest, setOpenContentRequest }) {
   return (
     <>
       <div className="footerDiv">
-        <Grid
-          container
-          spacing={4}
-          style={{ borderBottom: "0.2px solid #2B2B4D" }}
-        >
+        <Grid container spacing={4} style={{ borderBottom: '0.2px solid #2B2B4D' }}>
           <Grid item xs={12} sm={3} className="footer_container">
             <div className="f1div">
               <Link to="/">
@@ -64,17 +60,11 @@ export default function Footer({ openContentRequest, setOpenContentRequest }) {
                   <a href="https://twitter.com/ZypZapCommunity" target="_blank">
                     <img src={fTwitter} className="imgIcon" />
                   </a>
-                  <img src={fReddit} className="imgIcon" />
-                  <a
-                    href="https://www.facebook.com/zypzap.media"
-                    target="_blank"
-                  >
+                  {/* <img src={fReddit} className="imgIcon" /> */}
+                  <a href="https://www.facebook.com/zypzap.media" target="_blank">
                     <img src={fFacebook} className="imgIcon" />
                   </a>
-                  <a
-                    href="https://www.linkedin.com/company/zypzap"
-                    target="_blank"
-                  >
+                  <a href="https://www.linkedin.com/company/zypzap" target="_blank">
                     <img src={fLinkedin} className="imgIcon" />
                   </a>
                 </div>
@@ -117,40 +107,28 @@ export default function Footer({ openContentRequest, setOpenContentRequest }) {
           </Grid> */}
           <Grid item xs={12} sm={6} className="footer_menu">
             <div className="f2div">
-              <Link
-                to="/about"
-                style={{ color: "white", textDecoration: "none" }}
-              >
+              <Link to="/about" style={{ color: 'white', textDecoration: 'none' }}>
                 <p className="pmargin">A propos de nous</p>
               </Link>
-              <Link
-                to="/LegalNotice"
-                style={{ color: "white", textDecoration: "none" }}
-              >
+              <Link to="/LegalNotice" style={{ color: 'white', textDecoration: 'none' }}>
                 <p className="pmargin">Mentions légales</p>
               </Link>
-              <Link
-                to="/Team"
-                style={{ color: "white", textDecoration: "none" }}
-              >
+              <Link to="/Team" style={{ color: 'white', textDecoration: 'none' }}>
                 <p className="pmargin">L’équipe</p>
               </Link>
               {/* <p className="pmargin"> L’équipe</p> */}
-              <Link
-                to="/PrivacyPolicy"
-                style={{ color: "white", textDecoration: "none" }}
-              >
+              <Link to="/PrivacyPolicy" style={{ color: 'white', textDecoration: 'none' }}>
                 <p className="pmargin">Politique de confidentialité</p>
               </Link>
               <Link
                 to="#"
                 className="pmargin"
-                style={{ color: "white", textDecoration: "none" }}
+                style={{ color: 'white', textDecoration: 'none' }}
                 onClick={() => {
                   setOpenContentRequest(true);
                 }}
               >
-                {" "}
+                {' '}
                 Contactez-nous
               </Link>
             </div>
@@ -180,18 +158,16 @@ export default function Footer({ openContentRequest, setOpenContentRequest }) {
             <div className="languagebuttondiv">
               <button
                 className="languageButton"
-                onClick={() =>
-                  changeLanguage(`${language == "en" ? "fr" : "en"}`)
-                }
+                onClick={() => changeLanguage(`${language == 'en' ? 'fr' : 'en'}`)}
               >
                 <img src={Globel} className="languageIcon" />
-                {language == "fr" ? "English" : "French"}
+                {language == 'fr' ? 'English' : 'French'}
               </button>
             </div>
           </Grid>
         </Grid>
       </div>
-      <div className="divforsign" style={{ width: "100%" }}>
+      <div className="divforsign" style={{ width: '100%' }}>
         <p className="sign">©ZypZap. ALL RIGHTS RESERVED.</p>
       </div>
     </>

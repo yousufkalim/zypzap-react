@@ -119,7 +119,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
           const city = values[i].city;
           setformDataOne({
             ...formDataOne,
-            ['selectedGamename']: values[i].label,
+            ['selectedGamename']: values[i],
           });
         }
       }
@@ -236,6 +236,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                 </select> */}
                   <Autocomplete
                     options={values}
+                    value={formDataOne.selectedGamename}
                     classes={{
                       option: classes.option,
                     }}
@@ -287,9 +288,9 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                     <option value="Multiplayer" className="setepOption">
                       MULTIPLAYER
                     </option>
-                    <option value="Both" className="setepOption">
+                    {/* <option value="Both" className="setepOption">
                       BOTH
-                    </option>
+                    </option> */}
                   </select>
                 </div>
               </Grid>

@@ -95,6 +95,12 @@ const SettingPersonalInformation = () => {
     if (currentPassword && !(confirmPassword || password)) {
       return toast.error('Enter new and confirm password as well ');
     }
+    if (currentPassword && password && !confirmPassword) {
+      return toast.error('Please Enter confirm password ');
+    }
+    if (currentPassword && confirmPassword && !password) {
+      return toast.error('Enter new password ');
+    }
 
     if (currentPassword && password && password.length < 8) {
       return toast.error('Password should be more than 7 characters ');

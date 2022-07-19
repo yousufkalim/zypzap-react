@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import Grid from "@mui/material/Grid";
-import ImageInput from "../../../utils/ImageInput";
-import VideoInput from "../../../utils/VideoInput";
-import api from "../../../api";
-import { Store, UpdateStore } from "../../../StoreContext";
-import { toast } from "react-toastify";
-import successPopup from "../../PopupForms/RequestSuccessfullyPopup";
-import { useHistory } from "react-router-dom";
-import CourseAproved from "../../PopupForms/CourseAproved";
-import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
-import { storage } from "../../../utils/firebase";
+import React, { useState } from 'react';
+import Grid from '@mui/material/Grid';
+import ImageInput from '../../../utils/ImageInput';
+import VideoInput from '../../../utils/VideoInput';
+import api from '../../../api';
+import { Store, UpdateStore } from '../../../StoreContext';
+import { toast } from 'react-toastify';
+import successPopup from '../../PopupForms/RequestSuccessfullyPopup';
+import { useHistory } from 'react-router-dom';
+import CourseAproved from '../../PopupForms/CourseAproved';
+import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
+import { storage } from '../../../utils/firebase';
 const FormStepsix = ({
   step,
   formDataOne,
@@ -20,7 +20,7 @@ const FormStepsix = ({
   setformDataSix,
   formDataFive,
   setStep,
-  setformDataFive
+  setformDataFive,
 }) => {
   const history = useHistory();
   const updateStore = UpdateStore();
@@ -29,7 +29,7 @@ const FormStepsix = ({
   const [btnState, setBtnState] = useState(0);
   const [opens, setOpens] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const [imgUrl, setImgUrl] = useState("");
+  const [imgUrl, setImgUrl] = useState('');
   // const [videoName, setVideoName] = useState("");
   // const handleFileChange = (event) => {
   //   const file = event.target.files[0];
@@ -44,11 +44,9 @@ const FormStepsix = ({
     const storageRef = ref(storage, `files/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
     uploadTask.on(
-      "state_changed",
+      'state_changed',
       (snapshot) => {
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
+        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
       },
       (error) => {
         alert(error);
@@ -65,32 +63,34 @@ const FormStepsix = ({
   };
 
   const handleSubmitCourse = async () => {
-    if (imgUrl == "") {
-      return toast.error("Veuillez entrer la vignette du cours");
+    if (imgUrl == '') {
+      return toast.error('Veuillez entrer la vignette du cours');
     }
     setBtnState(1);
 
+    let formDataOne = { ...formDataOne };
+    formDataOne.selectedGamename = formDataOne.selectedGamename.label;
     let data = { formDataOne, formDataFive, formDataSix, id: creator._id };
-    let res = await api("post", "/courses", data);
+    let res = await api('post', '/courses', data);
     if (res) {
       updateStore({ creator: res?.data?.creator });
       setformDataOne({
-        course_name: "",
-        gameName: "",
-        gameLevel: "",
-        gameType: "",
-        gameMood: "",
-        gamePlateForm: "",
-        description: ""
+        course_name: '',
+        gameName: '',
+        gameLevel: '',
+        gameType: '',
+        gameMood: '',
+        gamePlateForm: '',
+        description: '',
       });
       setformDataFive([]);
-      setformDataSix("");
+      setformDataSix('');
       setBtnState(2);
       setOpens(true);
-      updateStore({ contentDashboardButton: "Courses" });
-      history.push("/dashboard");
+      updateStore({ contentDashboardButton: 'Courses' });
+      history.push('/dashboard');
     } else {
-      toast.error("Enter your email");
+      toast.error('Enter your email');
     }
   };
   const handleClose = () => {
@@ -136,16 +136,14 @@ const FormStepsix = ({
             </Grid>
           </div>
         ) : (
-          <p className="success">
-            Thumnail Upload Successfully Now Submit Course
-          </p>
+          <p className="success">Thumnail Upload Successfully Now Submit Course</p>
         )}
 
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
           <button
             className="drafBtn"
-            style={{ background: "none", border: "1px solid #662F88" }}
+            style={{ background: 'none', border: '1px solid #662F88' }}
             onClick={() => setStep(5)}
           >
             Previous
@@ -156,12 +154,12 @@ const FormStepsix = ({
             disabled={btnState == 0 ? false : true}
           >
             {btnState === 0
-              ? "Submit For Approval"
+              ? 'Submit For Approval'
               : btnState === 1
-              ? "Loading"
+              ? 'Loading'
               : btnState === 2
-              ? "Submited"
-              : "Uploading Thumnail"}
+              ? 'Submited'
+              : 'Uploading Thumnail'}
           </button>
         </div>
       </div>
