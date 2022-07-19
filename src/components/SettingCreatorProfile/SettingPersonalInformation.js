@@ -195,9 +195,9 @@ const SettingPersonalInformation = () => {
                       edge="end"
                     >
                       {values.showPassword ? (
-                        <VisibilityOff className="setting_show_hide_icon" />
-                      ) : (
                         <Visibility className="setting_show_hide_icon" />
+                      ) : (
+                        <VisibilityOff className="setting_show_hide_icon" />
                       )}
                     </IconButton>
                   </InputAdornment>
@@ -223,9 +223,9 @@ const SettingPersonalInformation = () => {
                       edge="end"
                     >
                       {values.showPassword2 ? (
-                        <VisibilityOff className="setting_show_hide_icon" />
-                      ) : (
                         <Visibility className="setting_show_hide_icon" />
+                      ) : (
+                        <VisibilityOff className="setting_show_hide_icon" />
                       )}
                     </IconButton>
                   </InputAdornment>
@@ -251,9 +251,9 @@ const SettingPersonalInformation = () => {
                       edge="end"
                     >
                       {values.showPassword3 ? (
-                        <VisibilityOff className="setting_show_hide_icon" />
-                      ) : (
                         <Visibility className="setting_show_hide_icon" />
+                      ) : (
+                        <VisibilityOff className="setting_show_hide_icon" />
                       )}
                     </IconButton>
                   </InputAdornment>

@@ -1,21 +1,21 @@
-import React, { useEffect } from "react";
-import CreateHome from "../components/ContentLending/CreateHome";
-import UserLandingPageHeader from "../components/UserLandingPageHeader";
-import ContentCreator from "../components/ContentLending/ContentCreator";
+import React, { useEffect } from 'react';
+import CreateHome from '../components/ContentLending/CreateHome';
+import UserLandingPageHeader from '../components/UserLandingPageHeader';
+import ContentCreator from '../components/ContentLending/ContentCreator';
 // import Avantages from "../components/ContentLending/Avantages";
 
-import Monitization from "../components/ContentLending/Monitization";
-import UserLandingPageBlog from "../components/UserLandingPage/UserLandingPageBlog";
-import UserLandingPageAdvantages from "../components/UserLandingPage/UserLandingPageAdvantages";
+import Monitization from '../components/ContentLending/Monitization';
+import UserLandingPageBlog from '../components/UserLandingPage/UserLandingPageBlog';
+import UserLandingPageAdvantages from '../components/UserLandingPage/UserLandingPageAdvantages';
 
-import Footer from "../components/blog/BlogFooter";
-import { useTranslation } from "react-i18next";
+import Footer from '../components/blog/BlogFooter';
+import { useTranslation } from 'react-i18next';
 
 const ContentCreatorLandingPage = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 1,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
   useEffect(() => {
@@ -25,9 +25,9 @@ const ContentCreatorLandingPage = () => {
   return (
     <div
       style={{
-        minHeight: "100vh",
-        overflowX: "hidden",
-        overflowY: "hidden",
+        minHeight: '100vh',
+        overflowX: 'hidden',
+        overflowY: 'hidden',
       }}
     >
       <UserLandingPageHeader />

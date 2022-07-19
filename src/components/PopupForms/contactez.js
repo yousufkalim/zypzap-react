@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import Dialog from "@mui/material/Dialog";
-import ClearIcon from "@mui/icons-material/Clear";
-import { toast } from "react-toastify";
-import "../../css/form/contactez.css";
+import React, { useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import ClearIcon from '@mui/icons-material/Clear';
+import { toast } from 'react-toastify';
+import '../../css/form/contactez.css';
 
 const Contactez = ({ openContentRequest, setOpenContentRequest }) => {
   const [inputData, setInputData] = useState({
-    name: "",
-    email: "",
-    text: "",
+    name: '',
+    email: '',
+    text: '',
   });
   const { name, email, text } = inputData;
 
@@ -22,17 +22,20 @@ const Contactez = ({ openContentRequest, setOpenContentRequest }) => {
 
   const handleClick = (event) => {
     event.preventDefault();
-    if (name == "") {
-      return toast.error("Please enter your name");
+    if (name == '') {
+      return toast.error('Please enter your name');
     }
-    if (email == "") {
-      return toast.error("Please enter your email");
+    if (email == '') {
+      return toast.error('Please enter your email');
     }
-    if (text == "") {
-      return toast.error("Please enter your email");
+    if (!(email.includes('@') || email.includes('.'))) {
+      return toast.error('Please enter a valid email');
     }
-    setInputData({ name: "", email: "", text: "" });
-    toast.success("Message Send");
+    if (text == '') {
+      return toast.error('Please enter message');
+    }
+    setInputData({ name: '', email: '', text: '' });
+    toast.success('Message Send');
   };
   const handleClose = () => {
     setOpenContentRequest(false);
@@ -50,7 +53,7 @@ const Contactez = ({ openContentRequest, setOpenContentRequest }) => {
             {/* /* --------------------------------- oneDiv --------------------------------- */}
             <div className="contactezDiv-box2">
               <label htmlFor="" className="contactezDov-label">
-                {" "}
+                {' '}
                 Nom
               </label>
               <input
@@ -97,7 +100,7 @@ const Contactez = ({ openContentRequest, setOpenContentRequest }) => {
             {/* /* --------------------------------- oneDiv --------------------------------- */}
             <div className="contactezDiv-box5">
               <button className="contactezBtn" onClick={handleClick}>
-                Envoyer le message{" "}
+                Envoyer le message{' '}
               </button>
             </div>
             {/* /* --------------------------------- oneDiv --------------------------------- */}

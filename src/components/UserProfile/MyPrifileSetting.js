@@ -131,7 +131,7 @@ const MyPrifileSetting = () => {
                 onClick={handleClickShowPassword}
                 onMouseDown={handleMouseDownPassword}
               >
-                {values ? <VisibilityOff /> : <Visibility />}
+                {values ? <Visibility /> : <VisibilityOff />}
               </button>
             </div>
             <div className="profileSetting_Input">
