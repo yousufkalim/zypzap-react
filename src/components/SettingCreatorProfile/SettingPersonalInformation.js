@@ -77,10 +77,14 @@ const SettingPersonalInformation = () => {
     let newformData = formData;
     let { password, currentPassword, confirmPassword } = values;
 
+    var n =
+      /^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/;
     if (!username) {
       return toast.error('User ID cant be null');
     }
-
+    if (!phone_number.match(n)) {
+      return toast.error('Please enter a valid phone number');
+    }
     if (!email) {
       return toast.error('Please provide Email');
     }
@@ -176,6 +180,9 @@ const SettingPersonalInformation = () => {
                 value={phone_number}
                 onChange={handlechange1}
                 placeholder="+33 755 556 674"
+                // min="0"
+                // max="9"
+                // maxLength="10"
                 name="phone_number"
               />
             </div>

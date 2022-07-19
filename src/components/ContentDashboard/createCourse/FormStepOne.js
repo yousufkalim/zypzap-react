@@ -368,6 +368,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
           id=""
           cols="200"
           rows="20"
+          maxlength="300"
           placeholder="300 Characters Maximum"
           className="courstexarea"
           value={description}
