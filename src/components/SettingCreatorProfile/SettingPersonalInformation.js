@@ -77,10 +77,14 @@ const SettingPersonalInformation = () => {
     let newformData = formData;
     let { password, currentPassword, confirmPassword } = values;
 
+    var n =
+      /^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/;
     if (!username) {
       return toast.error('User ID cant be null');
     }
-
+    if (!phone_number.match(n)) {
+      return toast.error('Please enter a valid phone number');
+    }
     if (!email) {
       return toast.error('Please provide Email');
     }
@@ -95,9 +99,15 @@ const SettingPersonalInformation = () => {
     if (currentPassword && !(confirmPassword || password)) {
       return toast.error('Enter new and confirm password as well ');
     }
+    if (currentPassword && password && !confirmPassword) {
+      return toast.error('Please Enter confirm password ');
+    }
+    if (currentPassword && confirmPassword && !password) {
+      return toast.error('Enter new password ');
+    }
 
     if (currentPassword && password && password.length < 8) {
-      return toast.error('Password should be more than 8 characters ');
+      return toast.error('Password should be more than 7 characters ');
     }
     if (currentPassword && confirmPassword && password) {
       if (password !== confirmPassword) {
@@ -119,6 +129,7 @@ const SettingPersonalInformation = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+
   return (
     <>
       <div>
@@ -169,6 +180,9 @@ const SettingPersonalInformation = () => {
                 value={phone_number}
                 onChange={handlechange1}
                 placeholder="+33 755 556 674"
+                // min="0"
+                // max="9"
+                // maxLength="10"
                 name="phone_number"
               />
             </div>
@@ -194,9 +208,9 @@ const SettingPersonalInformation = () => {
                       edge="end"
                     >
                       {values.showPassword ? (
-                        <VisibilityOff className="setting_show_hide_icon" />
-                      ) : (
                         <Visibility className="setting_show_hide_icon" />
+                      ) : (
+                        <VisibilityOff className="setting_show_hide_icon" />
                       )}
                     </IconButton>
                   </InputAdornment>
@@ -222,9 +236,9 @@ const SettingPersonalInformation = () => {
                       edge="end"
                     >
                       {values.showPassword2 ? (
-                        <VisibilityOff className="setting_show_hide_icon" />
-                      ) : (
                         <Visibility className="setting_show_hide_icon" />
+                      ) : (
+                        <VisibilityOff className="setting_show_hide_icon" />
                       )}
                     </IconButton>
                   </InputAdornment>
@@ -250,9 +264,9 @@ const SettingPersonalInformation = () => {
                       edge="end"
                     >
                       {values.showPassword3 ? (
-                        <VisibilityOff className="setting_show_hide_icon" />
-                      ) : (
                         <Visibility className="setting_show_hide_icon" />
+                      ) : (
+                        <VisibilityOff className="setting_show_hide_icon" />
                       )}
                     </IconButton>
                   </InputAdornment>

@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
-import Dialog from "@mui/material/Dialog";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import ClearIcon from "@mui/icons-material/Clear";
-import Google from "../../assets/icons/Googli.svg";
-import ChatIcon from "../../assets/icons/twitch.svg";
-import Facebook from "../../assets/icons/fb1.svg";
-import Discord1 from "../../assets/icons/discord1.svg";
-import IconButton from "@material-ui/core/IconButton";
-import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Input from "@material-ui/core/Input";
-import api from "../../api";
-import EmailVarificaiton from "./EmailVarificaiton";
-import { Store, UpdateStore } from "../../StoreContext";
-import { baseUrl } from "../../config";
+import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import Dialog from '@mui/material/Dialog';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import ClearIcon from '@mui/icons-material/Clear';
+import Google from '../../assets/icons/Googli.svg';
+import ChatIcon from '../../assets/icons/twitch.svg';
+import Facebook from '../../assets/icons/fb1.svg';
+import Discord1 from '../../assets/icons/discord1.svg';
+import IconButton from '@material-ui/core/IconButton';
+import Visibility from '@material-ui/icons/Visibility';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Input from '@material-ui/core/Input';
+import api from '../../api';
+import EmailVarificaiton from './EmailVarificaiton';
+import { Store, UpdateStore } from '../../StoreContext';
+import { baseUrl } from '../../config';
 
 const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
   // const [opens, setOpens] = React.useState(false);
@@ -24,10 +24,10 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
   const [allMembers, setAllMembers] = useState(0);
 
   const [values, setValues] = React.useState({
-    username: "",
-    email: "",
-    password: "",
-    CnfrmPassword: "",
+    username: '',
+    email: '',
+    password: '',
+    CnfrmPassword: '',
     showPassword: false,
     showConfirPassword: false,
   });
@@ -35,19 +35,12 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
   useEffect(() => {
     // setMembers();
     if (!open) {
-      setValues({ username: "", email: "", password: "", CnfrmPassword: "" });
+      setValues({ username: '', email: '', password: '', CnfrmPassword: '' });
     }
   }, []);
   // init
 
-  const {
-    username,
-    email,
-    password,
-    showPassword,
-    CnfrmPassword,
-    showConfirPassword,
-  } = values;
+  const { username, email, password, showPassword, CnfrmPassword, showConfirPassword } = values;
   const showLoginFormPopup = () => {
     setLogin(true);
     setOpen(false);
@@ -64,7 +57,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
     event.preventDefault();
   };
   const handleClose = () => {
-    setValues({ username: "", email: "", password: "", CnfrmPassword: "" });
+    setValues({ username: '', email: '', password: '', CnfrmPassword: '' });
     setOpen(false);
   };
 
@@ -83,21 +76,24 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
   // };
   const submitForm = async (event) => {
     event.preventDefault();
-    if (values.username == "") {
-      return toast.error("Please enter your username");
+    if (values.username == '') {
+      return toast.error('Please enter your username');
     }
-    if (values.email == "") {
-      return toast.error("Please enter your email");
+    if (values.email == '') {
+      return toast.error('Please enter your email');
+    }
+    if (!(values.email.includes('@') || values.email.includes('.'))) {
+      return toast.error('Please enter a valid email');
     }
 
-    if (values.password == "" || password.length < 8) {
-      return toast.error("Please enter more then eight digit password");
+    if (values.password == '' || password.length < 8) {
+      return toast.error('Please enter more then seven digit password');
     }
-    if (values.CnfrmPassword == "" || CnfrmPassword.length < 8) {
-      return toast.error("Please enter more then eight digit Confirm Password");
+    if (values.CnfrmPassword == '' || CnfrmPassword.length < 8) {
+      return toast.error('Please enter more then seven digit Confirm Password');
     }
     if (CnfrmPassword !== password) {
-      return toast.error("Password and confirm password dose not match");
+      return toast.error('Password and confirm password dose not match');
     }
     setLoading(true);
     let formdata = {
@@ -105,17 +101,17 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
       email,
       password,
       CnfrmPassword,
-      role: "User",
+      role: 'User',
     };
     try {
-      let res = await api("post", "/users", formdata);
+      let res = await api('post', '/users', formdata);
 
       if (res) {
-        localStorage.setItem("token", res?.data?.token);
+        localStorage.setItem('token', res?.data?.token);
         updateStore({ user: res.data.user });
         setOpen(false);
         setLoading(false);
-        setValues({ username: "", email: "", password: "" });
+        setValues({ username: '', email: '', password: '' });
         setOpenProfile(true);
         toast.success(res.data.message);
       }
@@ -129,7 +125,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
       <div>
         {/* <EmailVarificaiton open={opens} setOpen={setOpens} /> */}
 
-        <Dialog open={open} maxWidth={"sm"}>
+        <Dialog open={open} maxWidth={'sm'}>
           <div className="create_form">
             <div className="create_container">
               <h1 className="createH1">Create an Account</h1>
@@ -162,16 +158,12 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                   required
                 />
                 <br />
-                <label
-                  htmlFor="password"
-                  style={{ marginTop: "30px" }}
-                  className="createLbl"
-                >
+                <label htmlFor="password" style={{ marginTop: '30px' }} className="createLbl">
                   Password
                 </label>
                 <Input
                   className="inputForm2Password"
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword ? 'text' : 'password'}
                   onChange={onChangeEvent}
                   placeholder="************************"
                   value={values.password}
@@ -183,25 +175,17 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                         onClick={handleClickShowPassword}
                         onMouseDown={handleMouseDownPassword}
                       >
-                        {values.showPassword ? (
-                          <Visibility />
-                        ) : (
-                          <VisibilityOff />
-                        )}
+                        {values.showPassword ? <Visibility /> : <VisibilityOff />}
                       </IconButton>
                     </InputAdornment>
                   }
                 />
-                <label
-                  htmlFor="password"
-                  style={{ marginTop: "30px" }}
-                  className="createLbl"
-                >
+                <label htmlFor="password" style={{ marginTop: '30px' }} className="createLbl">
                   Confirm Password
                 </label>
                 <Input
                   className="inputForm2Password"
-                  type={showConfirPassword ? "text" : "password"}
+                  type={showConfirPassword ? 'text' : 'password'}
                   onChange={onChangeEvent}
                   placeholder="************************"
                   value={values.CnfrmPassword}
@@ -213,22 +197,13 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                         onClick={handleClickShowCofirmPassword}
                         onMouseDown={handleMouseDownPassword}
                       >
-                        {values.showConfirPassword ? (
-                          <Visibility />
-                        ) : (
-                          <VisibilityOff />
-                        )}
+                        {values.showConfirPassword ? <Visibility /> : <VisibilityOff />}
                       </IconButton>
                     </InputAdornment>
                   }
                 />
-                <button
-                  className="formbtn2"
-                  type="submit"
-                  disabled={loading}
-                  onClick={submitForm}
-                >
-                  {loading ? "loading" : "Sign Up"}
+                <button className="formbtn2" type="submit" disabled={loading} onClick={submitForm}>
+                  {loading ? 'loading' : 'Sign Up'}
                 </button>
                 <div className="lines-container">
                   <hr className="lines1" />
@@ -265,7 +240,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                       </div>
                     </Grid>
                   </Grid>
-                </Box>{" "}
+                </Box>{' '}
               </form>
               <div className="logPera">
                 <p>Already Have An Account?</p>
@@ -277,11 +252,11 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
               </div>
               <p className="terms">
                 By Registering for this website, you accept our &nbsp;
-                <span className="condition" style={{ fontWeight: "bolder" }}>
+                <span className="condition" style={{ fontWeight: 'bolder' }}>
                   Terms <br /> Of Use &nbsp;
                 </span>
-                and our{" "}
-                <span className="condition" style={{ fontWeight: "bolder" }}>
+                and our{' '}
+                <span className="condition" style={{ fontWeight: 'bolder' }}>
                   Privacy Policy.
                 </span>
               </p>

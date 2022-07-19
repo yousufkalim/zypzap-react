@@ -1,60 +1,53 @@
-import React, { useState, useEffect } from "react";
-import Select from "react-select";
-import Dialog from "@mui/material/Dialog";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormLabel from "@mui/material/FormLabel";
-import { useHistory } from "react-router-dom";
-import Autocomplete from "@mui/material/Autocomplete";
-import axios from "axios";
-import { TextField, Paper } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import FormControl from "@mui/material/FormControl";
-import api from "../../api";
-import Course1 from "../../assets/img/course1.png";
-import ProfileDp from "../../assets/img/profileavatar.png";
-import { toast } from "react-toastify";
-import ClearIcon from "@mui/icons-material/Clear";
-import { Store, UpdateStore } from "../../StoreContext";
+import React, { useState, useEffect } from 'react';
+import Select from 'react-select';
+import Dialog from '@mui/material/Dialog';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormLabel from '@mui/material/FormLabel';
+import { useHistory } from 'react-router-dom';
+import Autocomplete from '@mui/material/Autocomplete';
+import axios from 'axios';
+import { TextField, Paper } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import FormControl from '@mui/material/FormControl';
+import api from '../../api';
+import Course1 from '../../assets/img/course1.png';
+import ProfileDp from '../../assets/img/profileavatar.png';
+import { toast } from 'react-toastify';
+import ClearIcon from '@mui/icons-material/Clear';
+import { Store, UpdateStore } from '../../StoreContext';
 
 // import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
 
-const BecomeCreatorpopup = ({
-  open,
-  setOpen,
-  user,
-  creator,
-  setOpen3,
-  setOpen2
-}) => {
+const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }) => {
   const useStyles = makeStyles({
     customTextField: {
-      "& input": {
-        color: "white",
-        border: "none"
+      '& input': {
+        color: 'white',
+        border: 'none',
       },
-      "&:hover": {
-        border: "red !important"
+      '&:hover': {
+        border: 'red !important',
       },
-      "& input::placeholder": {
-        color: "white",
-        "@media (max-width: 780px)": {
-          paddingLeft: "-2px"
-        }
-      }
+      '& input::placeholder': {
+        color: 'white',
+        '@media (max-width: 780px)': {
+          paddingLeft: '-2px',
+        },
+      },
     },
     option: {
-      background: "#242635 ",
-      color: "white",
-      "&:hover": {
-        backgroundColor: "#9198a5 !important"
-      }
+      background: '#242635 ',
+      color: 'white',
+      '&:hover': {
+        backgroundColor: '#9198a5 !important',
+      },
     },
     noOptions: {
-      display: `${"inherit"}`,
-      color: "white"
-    }
+      display: `${'inherit'}`,
+      color: 'white',
+    },
   });
   const classes = useStyles();
   const history = useHistory();
@@ -65,12 +58,8 @@ const BecomeCreatorpopup = ({
   );
   const [favouritGame, setFavouritGame] = useState(user?.expertiseGame || []);
   const [gameType, setGameType] = useState(user?.gameType ? user.gameType : []);
-  const [plateForm, setPlateForm] = useState(
-    user?.plateForm ? user.plateForm : []
-  );
-  const [gameMood, setGameMood] = useState(
-    user?.gameMood ? user.gameMood : "Single"
-  );
+  const [plateForm, setPlateForm] = useState(user?.plateForm ? user.plateForm : []);
+  const [gameMood, setGameMood] = useState(user?.gameMood ? user.gameMood : 'Single');
 
   useEffect(() => {
     setCurrentSate();
@@ -84,7 +73,7 @@ const BecomeCreatorpopup = ({
     setFavouritGame(user?.expertiseGame || []);
     setGameType(user?.gameType ? user.gameType : []);
     setPlateForm(user?.plateForm ? user.plateForm : []);
-    setGameMood(user?.gameMood ? user.gameMood : "Single");
+    setGameMood(user?.gameMood ? user.gameMood : 'Single');
   };
 
   const onChangeRadioBtn = (e) => {
@@ -92,15 +81,13 @@ const BecomeCreatorpopup = ({
     setGameMood(e.target.value);
   };
 
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
   const removeTagsPlateForm = (index) => {
-    setPlateForm([
-      ...plateForm.filter((tag) => plateForm.indexOf(tag) !== index)
-    ]);
+    setPlateForm([...plateForm.filter((tag) => plateForm.indexOf(tag) !== index)]);
   };
   const selectplateForm = (e) => {
-    if (e.target.className === "activetypebtn") {
+    if (e.target.className === 'activetypebtn') {
       setPlateForm((prev) => {
         return prev.filter((a) => a !== e.target.value);
       });
@@ -114,7 +101,7 @@ const BecomeCreatorpopup = ({
     }
   };
   const selectGameType = (e) => {
-    if (e.target.className === "activetypebtn") {
+    if (e.target.className === 'activetypebtn') {
       setGameType((prev) => {
         return prev.filter((a) => a !== e.target.value);
       });
@@ -129,32 +116,27 @@ const BecomeCreatorpopup = ({
   };
 
   const submitProfile = async (e) => {
-    if (
-      favouritGame === "" &&
-      gameType === "" &&
-      plateForm === "" &&
-      gameMood === ""
-    ) {
-      return toast.error("Veuillez saisir le nom de votre cours");
+    if (favouritGame === '' && gameType === '' && plateForm === '' && gameMood === '') {
+      return toast.error('Veuillez saisir le nom de votre cours');
     } else {
       const formdata = {
         expertiseGame: favouritGame,
         profile_photo,
         gameType: gameType,
         plateForm: plateForm,
-        gameMood: gameMood
+        gameMood: gameMood,
       };
 
       if (user) {
-        let res = await api("post", `/creators/${user?._id}`, formdata);
+        let res = await api('post', `/creators/${user?._id}`, formdata);
 
         if (res) {
           updateStore({
             user: res?.data?.newUsers,
-            creator: res?.data?.creator
+            creator: res?.data?.creator,
           });
           setOpen(false);
-          history.push("/contentHome");
+          history.push('/contentHome');
           // setOpen2(true);
           // window.location.reload();
         }
@@ -165,44 +147,43 @@ const BecomeCreatorpopup = ({
   };
 
   let gametypebtn = [
-    "Action",
-    "Adventure",
-    "Metaverse",
-    "Massively Multiplayer Games",
-    "Car Racing",
-    "FPS",
-    "RTS",
-    "RPG",
-    "Turn by Turn Strategy",
-    "Simulation",
-    "Sports",
-    "Trading card",
-    "Puzzle",
-    "Versus Fighting",
-    "Trading card and Board games"
+    'Action',
+    'Adventure',
+    'Metaverse',
+    'Car Racing',
+    'MMOG',
+    'FPS',
+    'RTS',
+    'RPG',
+    'Turn by Turn Strategy',
+    'Simulation',
+    'Sports',
+    'Trading card',
+    'Puzzle',
+    'Versus Fighting',
   ];
   const gamePlateform = [
-    "PC",
-    "Mobile Games",
-    "PS1/2/3/4/5",
-    "Xbox/360/One/X",
-    "Retro Consoles",
-    "Portable Consoles"
+    'PC',
+    'Mobile Games',
+    'PS1/2/3/4/5',
+    'Xbox/360/One/X',
+    'Retro Consoles',
+    'Portable Consoles',
   ];
 
   const handleImageSelect = async (e) => {
     const formdata = new FormData();
     formdata.append(`files`, e.target.files[0]);
-    let res = await api("post", "/uploadImage", formdata);
+    let res = await api('post', '/uploadImage', formdata);
     if (res) setImageURL(res.data.file[0].location);
   };
   const getAllGames = async (e) => {
     let res = await axios.get(
       `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
         e.target.value +
-        "&page=1&page_size=10",
+        '&page=1&page_size=10',
       {
-        withCredentials: false
+        withCredentials: false,
       }
     );
 
@@ -263,7 +244,7 @@ const BecomeCreatorpopup = ({
                 multiple
                 options={values}
                 classes={{
-                  option: classes.option
+                  option: classes.option,
                 }}
                 defaultValue={favouritGame}
                 filterSelectedOptions
@@ -273,21 +254,21 @@ const BecomeCreatorpopup = ({
                 noOptionsText={
                   <div
                     style={{
-                      color: "white",
-                      fontSize: "12px"
+                      color: 'white',
+                      fontSize: '12px',
                     }}
                   >
-                    {" "}
-                    no option{" "}
+                    {' '}
+                    no option{' '}
                   </div>
                 }
                 PaperComponent={({ children }) => (
-                  <Paper style={{ background: "#242635" }}>{children}</Paper>
+                  <Paper style={{ background: '#242635' }}>{children}</Paper>
                 )}
                 onChange={setGamefiled}
                 hiddenLabel="true"
                 style={{
-                  margin: "auto"
+                  margin: 'auto',
                 }}
                 renderInput={(params) => (
                   <TextField
@@ -296,13 +277,13 @@ const BecomeCreatorpopup = ({
                     placeholder="Add here..."
                     classes={{ root: classes.customTextField }}
                     {...params}
-                    style={{ color: "white" }}
+                    style={{ color: 'white' }}
                     // variant="outlined"
                     onChange={getAllGames}
                     sx={{
-                      outline: "none",
-                      width: "80%",
-                      borderRadius: "6px"
+                      outline: 'none',
+                      width: '80%',
+                      borderRadius: '6px',
                     }}
                     // value={gameName}
                     // name="gameName"
@@ -318,11 +299,7 @@ const BecomeCreatorpopup = ({
                 {gametypebtn.map((tag) => {
                   return (
                     <button
-                      className={
-                        gameType?.includes(tag)
-                          ? "activetypebtn"
-                          : "userTagsAllButton"
-                      }
+                      className={gameType?.includes(tag) ? 'activetypebtn' : 'userTagsAllButton'}
                       value={tag}
                       onClick={selectGameType}
                     >
@@ -340,11 +317,7 @@ const BecomeCreatorpopup = ({
                 return (
                   <button
                     key={i}
-                    className={
-                      plateForm?.includes(tag)
-                        ? "activetypebtn"
-                        : "userTagsAllButton"
-                    }
+                    className={plateForm?.includes(tag) ? 'activetypebtn' : 'userTagsAllButton'}
                     value={tag}
                     onClick={selectplateForm}
                   >
@@ -362,7 +335,7 @@ const BecomeCreatorpopup = ({
                   aria-labelledby="demo-radio-buttons-group-label"
                   defaultValue={gameMood}
                   name="radio-buttons-group"
-                  style={{ display: "inline" }}
+                  style={{ display: 'inline' }}
                 >
                   <FormControlLabel
                     value="Single"

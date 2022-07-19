@@ -84,7 +84,7 @@ const MyPrifileSetting = () => {
       return toast.error('Please enter a valid Email');
     }
     if (password && password.length < 8) {
-      return toast.error('Please enter more then eight digit password');
+      return toast.error('Please enter more then seven digit password');
     }
     let res = await api('post', `/users/basicInfoUserOnly/${user?._id}`, d);
 
@@ -131,7 +131,7 @@ const MyPrifileSetting = () => {
                 onClick={handleClickShowPassword}
                 onMouseDown={handleMouseDownPassword}
               >
-                {values ? <VisibilityOff /> : <Visibility />}
+                {values ? <Visibility /> : <VisibilityOff />}
               </button>
             </div>
             <div className="profileSetting_Input">
