@@ -97,7 +97,7 @@ const SettingPersonalInformation = () => {
     }
 
     if (currentPassword && password && password.length < 8) {
-      return toast.error('Password should be more than 8 characters ');
+      return toast.error('Password should be more than 7 characters ');
     }
     if (currentPassword && confirmPassword && password) {
       if (password !== confirmPassword) {
@@ -119,6 +119,7 @@ const SettingPersonalInformation = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+
   return (
     <>
       <div>

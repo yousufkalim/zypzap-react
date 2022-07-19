@@ -333,7 +333,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                     value={gamePlateForm}
                     onChange={chnageEvent}
                   >
-                    <option value="Select Platform" disabled className="setepOption">
+                    <option value="Select Platform" className="setepOption">
                       Select Platform
                     </option>
                     <option value="Retro Consoles" className="setepOption">
