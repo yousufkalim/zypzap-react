@@ -1,5 +1,5 @@
-import React from "react";
-import ImageIcon from "../../src/assets/icons/ImageIcon.svg";
+import React from 'react';
+import ImageIcon from '../../src/assets/icons/ImageIcon.svg';
 
 const ImageInput = ({ text, onChange }) => {
   const inputRef = React.useRef();
@@ -16,7 +16,7 @@ const ImageInput = ({ text, onChange }) => {
           className="VideoInput_input"
           type="file"
           onChange={onChange}
-          // accept=".mov,.mp4"
+          accept="image/*"
         />
         <button onClick={handleChoose} className="uploadBtn">
           <img src={ImageIcon} alt="" />

@@ -1,5 +1,5 @@
-import React from "react";
-import Videoicon from "../../src/assets/icons/Videoicon.png";
+import React from 'react';
+import Videoicon from '../../src/assets/icons/Videoicon.png';
 
 const VideoInput = ({ text, onChange }) => {
   const inputRef = React.useRef();
@@ -16,7 +16,7 @@ const VideoInput = ({ text, onChange }) => {
           className="VideoInput_input"
           type="file"
           onChange={onChange}
-          accept=".mov,.mp4"
+          accept="video/*"
           multiple
           name="files[]"
         />

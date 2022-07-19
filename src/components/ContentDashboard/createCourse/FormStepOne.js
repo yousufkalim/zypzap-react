@@ -9,7 +9,16 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
   const [values, setValues] = useState([]);
-  const { course_name, gameName, selectedGamename, gameLevel, gameType, gameMood, gamePlateForm, description } = formDataOne;
+  const {
+    course_name,
+    gameName,
+    selectedGamename,
+    gameLevel,
+    gameType,
+    gameMood,
+    gamePlateForm,
+    description,
+  } = formDataOne;
 
   const chnageEvent = (e) => {
     setformDataOne({
@@ -75,7 +84,9 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
     });
 
     const res = await axios.get(
-      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` + e.target.value + '&page=1&page_size=10',
+      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
+        e.target.value +
+        '&page=1&page_size=10',
       {
         withCredentials: false,
       }
@@ -97,6 +108,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
 
   // Set selected game in  setAddressValue State
   const setGamefiled = async (item) => {
+    console.log('Selected item --> ', item);
     if (item.target.textContent) {
       const selectedItem = item.target.textContent;
       for (var i = 0; i < values.length; i++) {
@@ -148,7 +160,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
               <Grid xs={6} sm={6}>
                 <div style={{ marginTop: '4%' }}>
                   <p className="stepLabel">Game Category</p>
-                  <select id="gameType" name="gameType" className="stepSelect" value={gameType} onChange={chnageEvent}>
+                  <select
+                    id="gameType"
+                    name="gameType"
+                    className="stepSelect"
+                    value={gameType}
+                    onChange={chnageEvent}
+                  >
                     <option value="" className="setepOption">
                       Select Category
                     </option>
@@ -222,8 +240,12 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                       option: classes.option,
                     }}
                     className="coursInputAutofiled"
-                    noOptionsText={<div style={{ color: 'white', fontSize: '12px' }}> no option </div>}
-                    PaperComponent={({ children }) => <Paper style={{ background: '#242635' }}>{children}</Paper>}
+                    noOptionsText={
+                      <div style={{ color: 'white', fontSize: '12px' }}> no option </div>
+                    }
+                    PaperComponent={({ children }) => (
+                      <Paper style={{ background: '#242635' }}>{children}</Paper>
+                    )}
                     getOptionLabel={(option) => option.label || ''}
                     onChange={setGamefiled}
                     hiddenLabel="true"
@@ -249,7 +271,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
               <Grid xs={6}>
                 <div>
                   <p className="stepLabel">Gaming Mode</p>
-                  <select id="gameMood" name="gameMood" className="stepSelect" value={gameMood} onChange={chnageEvent}>
+                  <select
+                    id="gameMood"
+                    name="gameMood"
+                    className="stepSelect"
+                    value={gameMood}
+                    onChange={chnageEvent}
+                  >
                     <option value="" className="setepOption">
                       Select Mode
                     </option>
@@ -269,7 +297,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
               <Grid xs={6}>
                 <div>
                   <p className="stepLabel">Gameplay Level</p>
-                  <select id="gameLevel" name="gameLevel" className="stepSelect" value={gameLevel} onChange={chnageEvent}>
+                  <select
+                    id="gameLevel"
+                    name="gameLevel"
+                    className="stepSelect"
+                    value={gameLevel}
+                    onChange={chnageEvent}
+                  >
                     <option value="" className="setepOption">
                       Select Level
                     </option>
@@ -299,7 +333,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                     value={gamePlateForm}
                     onChange={chnageEvent}
                   >
-                    <option value="" className="setepOption">
+                    <option value="Select Platform" disabled className="setepOption">
                       Select Platform
                     </option>
                     <option value="Retro Consoles" className="setepOption">

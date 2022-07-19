@@ -1,52 +1,45 @@
-import React, { useState, useEffect } from "react";
-import IconButton from "@mui/material/IconButton";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputAdornment from "@mui/material/InputAdornment";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { toast } from "react-toastify";
-import api from "../../api/index";
-import { Store, UpdateStore } from "../../StoreContext";
+import React, { useState, useEffect } from 'react';
+import IconButton from '@mui/material/IconButton';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputAdornment from '@mui/material/InputAdornment';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { toast } from 'react-toastify';
+import api from '../../api/index';
+import { Store, UpdateStore } from '../../StoreContext';
 
 const SettingPersonalInformation = () => {
   const updateStore = UpdateStore();
+
   const [values, setValues] = React.useState({
-    currentPassword: "",
-    password: "",
-    confirmPassword: "",
+    currentPassword: '',
+    password: '',
+    confirmPassword: '',
     showPassword: false,
     showPassword2: false,
     showPassword3: false,
   });
-  const { currentPassword, password, confirmPassword } = values;
   const { user } = Store();
   const [formData, setFormData] = useState({
-    username: user?.username || "",
-    email: user?.email ? user.email[0] : "",
-    phone_number: user?.phone_number || "",
-    iban: user?.iban || "",
-    country: user?.country || "",
-    account_number: user?.account_number || "",
-    bank_identifier: user?.bank_identifier || "",
+    username: user?.username || '',
+    email: user?.email ? user.email[0] : '',
+    phone_number: user?.phone_number || '',
+    iban: user?.iban || '',
+    country: user?.country || '',
+    account_number: user?.account_number || '',
+    bank_identifier: user?.bank_identifier || '',
   });
-  const {
-    username,
-    email,
-    phone_number,
-    iban,
-    country,
-    account_number,
-    bank_identifier,
-  } = formData;
+  const { username, email, phone_number, iban, country, account_number, bank_identifier } =
+    formData;
   useEffect(() => {
     setFormData({
-      username: user?.username || "",
-      email: user?.email ? user.email[0] : "",
-      phone_number: user?.phone_number || "",
-      iban: user?.iban || "",
-      country: user?.country || "",
-      account_number: user?.account_number || "",
-      bank_identifier: user?.bank_identifier || "",
+      username: user?.username || '',
+      email: user?.email ? user.email[0] : '',
+      phone_number: user?.phone_number || '',
+      iban: user?.iban || '',
+      country: user?.country || '',
+      account_number: user?.account_number || '',
+      bank_identifier: user?.bank_identifier || '',
     });
   }, [user]);
 
@@ -79,18 +72,48 @@ const SettingPersonalInformation = () => {
       showPassword3: !values.showPassword3,
     });
   };
+
   const SubmitEvent = async (e) => {
     let newformData = formData;
-    if (password && currentPassword && confirmPassword) {
-      if (password != confirmPassword) {
-        return toast.success("Confirm password Not match");
+    let { password, currentPassword, confirmPassword } = values;
+
+    if (!username) {
+      return toast.error('User ID cant be null');
+    }
+
+    if (!email) {
+      return toast.error('Please provide Email');
+    }
+
+    if (!(email.includes('@') && email.includes('.'))) {
+      return toast.error('Please enter a valid Email');
+    }
+    if ((confirmPassword || password) && !currentPassword) {
+      return toast.error('Enter current password ');
+    }
+
+    if (currentPassword && !(confirmPassword || password)) {
+      return toast.error('Enter new and confirm password as well ');
+    }
+
+    if (currentPassword && password && password.length < 8) {
+      return toast.error('Password should be more than 8 characters ');
+    }
+    if (currentPassword && confirmPassword && password) {
+      if (password !== confirmPassword) {
+        return toast.error('Confirm password does not match');
       }
       newformData = { ...formData, password, currentPassword };
     }
-    let res = await api("post", `/users/basicInfo/${user?._id}`, newformData);
+    let res = await api('post', `/users/basicInfo/${user?._id}`, newformData);
     if (res) {
       updateStore({ user: res.data.user });
-      toast.success("Modifier le profil avec succès");
+      toast.success('Modifier le profil avec succès');
+      setValues({
+        currentPassword: '',
+        password: '',
+        confirmPassword: '',
+      });
     }
   };
   const handleMouseDownPassword = (event) => {
@@ -99,7 +122,7 @@ const SettingPersonalInformation = () => {
   return (
     <>
       <div>
-        {" "}
+        {' '}
         <p className="setting_C_Heading">
           Personal information &nbsp; &nbsp;
           <span style={{ opacity: 0.5 }}> Payment information</span>
@@ -119,7 +142,7 @@ const SettingPersonalInformation = () => {
                 type="text"
                 value={username}
                 onChange={handlechange1}
-                placeholder={"@arslanash"}
+                placeholder={'@arslanash'}
                 name="username"
               />
             </div>
@@ -142,7 +165,7 @@ const SettingPersonalInformation = () => {
               </label>
               <input
                 className="setting_C_inpt"
-                type="number"
+                type="text"
                 value={phone_number}
                 onChange={handlechange1}
                 placeholder="+33 755 556 674"
@@ -158,9 +181,10 @@ const SettingPersonalInformation = () => {
               <OutlinedInput
                 className="setting_C_inpt2"
                 disabledPadding
-                type={values.showPassword ? "text" : "password"}
+                name="currentPassword"
+                type={values.showPassword ? 'text' : 'password'}
                 value={values.currentPassword}
-                onChange={handleChange("currentPassword")}
+                onChange={handleChange('currentPassword')}
                 placeholder="********"
                 endAdornment={
                   <InputAdornment position="end">
@@ -186,9 +210,9 @@ const SettingPersonalInformation = () => {
               <OutlinedInput
                 className="setting_C_inpt2"
                 disabledPadding
-                type={values.showPassword2 ? "text" : "password"}
+                type={values.showPassword2 ? 'text' : 'password'}
                 value={values.password}
-                onChange={handleChange("password")}
+                onChange={handleChange('password')}
                 placeholder="********"
                 endAdornment={
                   <InputAdornment position="end">
@@ -214,9 +238,9 @@ const SettingPersonalInformation = () => {
               <OutlinedInput
                 className="setting_C_inpt2"
                 disabledPadding
-                type={values.showPassword3 ? "text" : "password"}
+                type={values.showPassword3 ? 'text' : 'password'}
                 value={values.confirmPassword}
-                onChange={handleChange("confirmPassword")}
+                onChange={handleChange('confirmPassword')}
                 placeholder="********"
                 endAdornment={
                   <InputAdornment position="end">
@@ -604,17 +628,17 @@ const SettingPersonalInformation = () => {
           type="submit"
           onClick={SubmitEvent}
           style={{
-            background: "linear-gradient(326deg, #662F88 8%, #20BF55 132%)",
-            color: "white",
-            fontWeight: "600",
-            borderRadius: " 4px",
-            cursor: "pointer",
-            border: "none",
-            width: " 133.93px",
-            height: "44px",
-            fontSize: "14px",
-            display: "bl8ck",
-            margin: "25px 4px",
+            background: 'linear-gradient(326deg, #662F88 8%, #20BF55 132%)',
+            color: 'white',
+            fontWeight: '600',
+            borderRadius: ' 4px',
+            cursor: 'pointer',
+            border: 'none',
+            width: ' 133.93px',
+            height: '44px',
+            fontSize: '14px',
+            display: 'bl8ck',
+            margin: '25px 4px',
           }}
         >
           Save
