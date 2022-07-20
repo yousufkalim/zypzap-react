@@ -28,6 +28,7 @@
 .f2div {
   padding: 40px 0px 15px 115px;
   text-align: left;
+  width: 40%;
 }
 .infotable1 {
   /* margin: auto; */
@@ -41,7 +42,7 @@
 }
 .infoTd {
   text-align: left;
-  font-family: "Myriad Pro-REGULAR";
+  font-family: 'Myriad Pro-REGULAR';
   font-size: 15px;
   padding-bottom: 10px;
 }
@@ -57,7 +58,7 @@
 }
 .pmargin {
   margin-bottom: 17px;
-  font-family: "Myriad Pro-REGULAR";
+  font-family: 'Myriad Pro-REGULAR';
   font-size: 15px;
   padding-bottom: 10px;
 }
@@ -95,7 +96,7 @@
   width: 100%;
 
   text-align: right;
-  font-family: "Maven Pro", sans-serif;
+  font-family: 'Maven Pro', sans-serif;
 }
 .imgIcon {
   cursor: pointer;

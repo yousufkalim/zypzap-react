@@ -3,9 +3,7 @@ import Dialog from '@mui/material/Dialog';
 import Box from '@mui/material/Box';
 import '../../css/form/UploadingTheCourse.css';
 import { styled } from '@mui/material/styles';
-import LinearProgress, {
-  linearProgressClasses,
-} from '@mui/material/LinearProgress';
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import UploadCancalled from './UploadCancalled';
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -29,6 +27,7 @@ const UploadingTheCourse = ({
   videoName,
   imgUrl,
   uploading,
+  setUploading,
   mbPerSecond,
   timeUploadRemaining,
 }) => {
@@ -40,6 +39,7 @@ const UploadingTheCourse = ({
   const CancelHandleClick = () => {
     // setShowPopup(true);
     setOpen(false);
+    // setUploading(false);
     setProgress(0);
   };
   const CloseHandleClick = () => {
@@ -51,7 +51,12 @@ const UploadingTheCourse = ({
 
   return (
     <div>
-      <UploadCancalled open={showPopup} setOpen={setShowPopup} />
+      <UploadCancalled
+        open={showPopup}
+        setOpen={setShowPopup}
+        // setProgress={setProgress}
+        // setUploading={setUploading}
+      />
       <Dialog
         open={open}
         setOpe={setOpen}
@@ -72,26 +77,18 @@ const UploadingTheCourse = ({
               </Box>
               <div className="uploadTheCourse-Headings">
                 <p className="uploadTheCourse-content">
-                  {progress === 100
-                    ? 'Completed'
-                    : `Speed: ${mbPerSecond} MB/s`}
+                  {progress === 100 ? 'Completed' : `Speed: ${mbPerSecond} MB/s`}
                 </p>
                 <span className="uploadTheCourse-span">
                   {progress != 100 && `Time: ${timeUploadRemaining}`}
                 </span>
               </div>
               {progress === 100 && uploading ? (
-                <button
-                  className="uploadTheCourseBTN"
-                  onClick={CloseHandleClick}
-                >
+                <button className="uploadTheCourseBTN" onClick={CloseHandleClick}>
                   Done
                 </button>
               ) : (
-                <button
-                  className="uploadTheCourseBTN"
-                  onClick={CancelHandleClick}
-                >
+                <button className="uploadTheCourseBTN" onClick={CancelHandleClick}>
                   Cancel
                 </button>
               )}

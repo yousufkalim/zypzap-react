@@ -34,7 +34,17 @@ export default function Footer({ openContentRequest, setOpenContentRequest }) {
           <Grid item xs={12} sm={3} className="footer_container">
             <div className="f1div">
               <Link to="/">
-                <img className="footerLogo " src={NewLogo} />
+                <img
+                  className="footerLogo "
+                  src={NewLogo}
+                  onClick={() => {
+                    window.location.reload();
+                    window.scrollTo({
+                      top: 0,
+                      behavior: 'smooth',
+                    });
+                  }}
+                />
               </Link>
               <div>
                 <table className="infotable1">

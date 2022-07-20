@@ -75,6 +75,9 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
     if (description === '') {
       return toast.error('Veuillez entrer votre description');
     }
+    if (description.length < 100) {
+      return toast.error('Description should contain atleast 100 characters');
+    }
     setStep(2);
   };
   const getAllGames = async (e) => {
@@ -368,6 +371,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
           id=""
           cols="200"
           rows="20"
+          minlength="100"
           maxlength="300"
           placeholder="300 Characters Maximum"
           className="courstexarea"

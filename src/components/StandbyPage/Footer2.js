@@ -31,7 +31,17 @@ const Footer2 = ({ openContentRequest, setOpenContentRequest }) => {
           <Grid item xs={12} sm={3} className="footer_container">
             <div className="f1div">
               <Link to="/">
-                <img className="footerLogo " src={NewLogo} />
+                <img
+                  className="footerLogo "
+                  src={NewLogo}
+                  onClick={() => {
+                    window.location.reload();
+                    window.scrollTo({
+                      top: 0,
+                      behavior: 'smooth',
+                    });
+                  }}
+                />
               </Link>
               <div>
                 <table className="infotable1">
@@ -96,7 +106,7 @@ const Footer2 = ({ openContentRequest, setOpenContentRequest }) => {
               </Link>
             </div>
           </Grid>
-          <Grid item xs={12} sm={3} className="footer_language">
+          {/* <Grid item xs={12} sm={3} className="footer_language">
             <div className="languagebuttondiv">
               <button
                 className="languageButton"
@@ -106,7 +116,7 @@ const Footer2 = ({ openContentRequest, setOpenContentRequest }) => {
                 {language == 'fr' ? 'English' : 'French'}
               </button>
             </div>
-          </Grid>
+          </Grid> */}
         </Grid>
       </div>
       <div className="divforsign" style={{ width: '100%' }}>
