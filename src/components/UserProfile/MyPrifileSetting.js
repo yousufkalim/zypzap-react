@@ -73,7 +73,7 @@ const MyPrifileSetting = () => {
     delete d.expiry_month;
     delete d.expiry_year;
     if (!username) {
-      return toast.error('User ID cant be null');
+      return toast.error('User ID is required');
     }
 
     if (!email) {
