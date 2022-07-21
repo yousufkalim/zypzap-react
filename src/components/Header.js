@@ -10,6 +10,7 @@ import InputBase from '@mui/material/InputBase';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import Tooltip from '@material-ui/core/Tooltip';
 // import AccountCircle from "@mui/icons-material/AccountCircle";
 // import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from '@mui/icons-material/MoreVert';
@@ -515,7 +516,9 @@ export default function PrimarySearchAppBar({
             <Search className="searchBar">
               <div onClick={handleSearchButtonClick} style={{ cursor: 'pointer' }}>
                 {' '}
-                <SearchIcon className="searchBarIcon" />
+                <Tooltip title="Search">
+                  <SearchIcon className="searchBarIcon" />
+                </Tooltip>
                 <SearchIconWrapper></SearchIconWrapper>
               </div>
 
@@ -579,9 +582,11 @@ export default function PrimarySearchAppBar({
 
             {(user?.role == 'User' || user?.role == 'Creator') && (
               <div>
-                <button className="requestBtn" onClick={handleSettings}>
-                  <img src={UserHeaderIcon} alt="" />
-                </button>
+                <Tooltip title="Profile Information">
+                  <button className="requestBtn" onClick={handleSettings}>
+                    <img src={UserHeaderIcon} alt="" />
+                  </button>
+                </Tooltip>
               </div>
             )}
             {/* {(user?.role == "User" || user?.role == "Creator") && (
@@ -666,7 +671,10 @@ export default function PrimarySearchAppBar({
               {user ? (
                 <p className="sgnBtn">
                   <div className="dropdown">
-                    <img src={HeaderLogoutIcon} onClick={openProfilePg} alt="" />
+                    {' '}
+                    <Tooltip title="My Profile">
+                      <img src={HeaderLogoutIcon} onClick={openProfilePg} alt="" />
+                    </Tooltip>
                   </div>
                 </p>
               ) : (
