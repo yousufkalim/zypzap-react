@@ -206,8 +206,8 @@ body {
 .overView-descripiton-centerDiv {
   width: 87%;
   margin: auto;
-  height: 50vh;
 }
+
 .overView-description-content {
   width: 60%;
   margin-bottom: 50px;
@@ -264,7 +264,24 @@ body {
 .curriculum-div {
   width: 60%;
   background-color: #14162c;
-  margin-bottom: 50px;
+  height: 33vh;
+  overflow-y: scroll;
+}
+
+.curriculum-div ::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.curriculum-div ::-webkit-scrollbar-track {
+  background: #1c1e36;
+  border-radius: 5px;
+}
+
+/* Handle */
+.curriculum-div ::-webkit-scrollbar-thumb {
+  background: #3d3f6b;
+  border-radius: 5px;
 }
 .curriculumTime {
   display: inline-block;
