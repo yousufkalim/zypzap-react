@@ -64,10 +64,10 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
       return toast.error('Veuillez saisir le nom de votre niveau de jeu');
     }
     if (gameType === '') {
-      return toast.error('Veuillez entrer votre type de jeu');
+      return toast.error('Veuillez entrer votre catégorie de jeu');
     }
     if (gameMood === '') {
-      return toast.error('Veuillez entrer votre ambiance de jeu');
+      return toast.error('Veuillez saisir votre mode de jeu');
     }
     if (gamePlateForm === '') {
       return toast.error('Veuillez saisir le nom de votre forme de plateau de jeu');

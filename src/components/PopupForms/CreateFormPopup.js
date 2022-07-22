@@ -82,15 +82,15 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
     if (values.email == '') {
       return toast.error('Please enter your email');
     }
-    if (!(values.email.includes('@') || values.email.includes('.'))) {
+    if (!(values.email.includes('@') && values.email.includes('.'))) {
       return toast.error('Please enter a valid email');
     }
 
     if (values.password == '' || password.length < 8) {
-      return toast.error('Please enter more then seven digit password');
+      return toast.error('Please enter more than seven digit password');
     }
     if (values.CnfrmPassword == '' || CnfrmPassword.length < 8) {
-      return toast.error('Please enter more then seven digit Confirm Password');
+      return toast.error('Please enter more than seven digit Confirm Password');
     }
     if (CnfrmPassword !== password) {
       return toast.error('Password and confirm password dose not match');

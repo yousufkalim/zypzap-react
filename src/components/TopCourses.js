@@ -197,14 +197,12 @@ function TopCoursesComponent({ item }) {
             className="topcourseuserGrid"
             style={{ paddingBottom: '10px' }}
           >
-            <Grid item xs={6} md={6} className="topcourseuserRightGrid">
+            <Grid item xs={6} md={6} className="topcourseuserRightGrid" id="userInfo">
               <div style={{ textAlign: 'right' }}>
-                <span className="marginRight">
-                  {item?.level ? item.level : 'inital level'}
-                </span>
+                <span className="marginRight">{item?.level ? item.level : 'inital level'}</span>
 
                 <>
-                  ;<span className="marginRight">|</span>
+                  <span className="marginRight">|</span>
                   <span className="marginRight">
                     {item?.videos && secondToTime(item?.videos[0]?.duration)}
                   </span>
@@ -212,9 +210,7 @@ function TopCoursesComponent({ item }) {
 
                 <span className="marginRight">|</span>
                 <span className="marginRight">
-                  {item?.student
-                    ? item.student.length + ' Student'
-                    : 0 + '   Student'}
+                  {item?.student ? item.student.length + ' Student' : 0 + '   Student'}
                 </span>
                 <span className="marginRight">|</span>
                 <span className="marginRight">
@@ -227,25 +223,16 @@ function TopCoursesComponent({ item }) {
           </Grid>
         </div>
       </Grid>
-      <Grid
-        item
-        xs={12}
-        sm={8}
-        className="topcourseTextGrid"
-        justifyContent="space-between"
-      >
+      <Grid item xs={12} sm={8} className="topcourseTextGrid" justifyContent="space-between">
         <Grid container spacing={2}>
           <Grid item xs={8} md={10}>
             <h3 className="h3heading">
-              {item?.name
-                ? item.name + 'gameplay full course'
-                : 'PUBG gameplay full course'}
+              {item?.name ? item.name + 'gameplay full course' : 'PUBG gameplay full course'}
             </h3>
             <p className="topcourseText">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa
-              semper mi feugiat quis tellus arcu. Rutrum non vitae id urna nunc,
-              egestas. Tempus aliquam, at fusce facilisi gravida lacus faucibus
-              felis, aliquet. Condimentum aenean nulla morbi euismod non vel
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa semper mi feugiat quis
+              tellus arcu. Rutrum non vitae id urna nunc, egestas. Tempus aliquam, at fusce facilisi
+              gravida lacus faucibus felis, aliquet. Condimentum aenean nulla morbi euismod non vel
               arcu sapien magna.
             </p>
           </Grid>
@@ -253,12 +240,7 @@ function TopCoursesComponent({ item }) {
             <h3 style={{ textAlign: "right" }}>{item?.price + " $"}</h3>
           </Grid> */}
         </Grid>
-        <Grid
-          container
-          spacing={2}
-          className="topcourseuserGrid"
-          style={{ paddingBottom: '10px' }}
-        >
+        <Grid container spacing={2} className="topcourseuserGrid" style={{ paddingBottom: '10px' }}>
           <Grid item xs={6} md={6}>
             <div className="userprofilediv" id="un_hide">
               <img
@@ -291,17 +273,9 @@ function TopCoursesComponent({ item }) {
             </div>
           </Grid>
 
-          <Grid
-            item
-            xs={6}
-            md={6}
-            className="topcourseuserRightGrid"
-            id="un_hide"
-          >
+          <Grid item xs={6} md={6} className="topcourseuserRightGrid" id="un_hide">
             <div style={{ textAlign: 'right' }}>
-              <span className="marginRight">
-                {item?.level ? item.level : 'inital level'}
-              </span>
+              <span className="marginRight">{item?.level ? item.level : 'inital level'}</span>
 
               <>
                 <span className="marginRight">|</span>
@@ -312,9 +286,7 @@ function TopCoursesComponent({ item }) {
 
               <span className="marginRight">|</span>
               <span className="marginRight">
-                {item?.student
-                  ? item.student.length + ' Student'
-                  : 0 + '   Student'}
+                {item?.student ? item.student.length + ' Student' : 0 + '   Student'}
               </span>
               <span className="marginRight">|</span>
               <span className="marginRight">

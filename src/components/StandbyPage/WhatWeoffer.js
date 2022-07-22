@@ -1,13 +1,13 @@
 // Init
-import React, { useState } from "react";
-import SubscriptionPopup from "../PopupForms/SubscriptionPopup";
-import Grid from "@material-ui/core/Grid";
-import gamerImg from "../../assets/img/ComputerImg.svg";
-import contentImg from "../../assets/img/ComputerImg2.svg";
-import { useTranslation, Trans } from "react-i18next";
-import { Link } from "react-router-dom";
-import "../../css/landingPage/landingpage.css";
-import CongratulationPopup1 from "../PopupForms/CongratulationPopup1";
+import React, { useState } from 'react';
+import SubscriptionPopup from '../PopupForms/SubscriptionPopup';
+import Grid from '@material-ui/core/Grid';
+import gamerImg from '../../assets/img/ComputerImg.svg';
+import contentImg from '../../assets/img/ComputerImg2.svg';
+import { useTranslation, Trans } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import '../../css/landingPage/landingpage.css';
+import CongratulationPopup1 from '../PopupForms/CongratulationPopup1';
 export default function WhatWeOffer() {
   const [successPopup, setSuccessPopup] = useState(false);
   const [open, setOpen] = useState(false);
@@ -71,13 +71,11 @@ export default function WhatWeOffer() {
           <div className="offerdivleft">
             <div className="offerdzooming ">
               <img src={gamerImg} className="offerimg1 offerimg1-1" alt="img" />
-              <h1 className="offerheading2 offerheading5">
-                {t("Je suis un Gamer")}
-              </h1>
+              <h1 className="offerheading2 offerheading5">{t('Je suis un Gamer')}</h1>
               <p className="offerText2">
-                {t("Suivez les cours de votre choix ")}
+                {t('Suivez les cours de votre choix ')}
                 <br />
-                {t(" et commencez à scorer")}
+                {t(' et commencez à scorer')}
               </p>
               {/* <p className="offerText22">
                 Suivez les cours de votre choix et commencez à scorer
@@ -85,10 +83,10 @@ export default function WhatWeOffer() {
               <Link to="#">
                 <button
                   className="whatweofferButton"
-                  style={{ marginBottom: "18px" }}
+                  style={{ marginBottom: '18px' }}
                   onClick={() => setOpen2(true)}
                 >
-                  {t("Pré-inscrivez vous")}
+                  {t('Pré-inscrivez vous')}
                 </button>
               </Link>
             </div>
@@ -98,23 +96,16 @@ export default function WhatWeOffer() {
           <div className="offerdivright  ">
             <div className="offerdzooming ">
               <img src={contentImg} className="offerimg2 " alt="img" />
-              <h1 className="offerheading2 offerheading5">
-                {t("Je suis un Créateur ")}
-              </h1>
+              <h1 className="offerheading2 offerheading5">{t('Je suis un Créateur ')}</h1>
               <p className="offerText2">
-                {t("Créez vos cours et ")}
+                {t('Créez vos cours et ')}
                 <br />
-                {t("monetisez votre expertise")}
+                {t('monetisez votre expertise')}
               </p>
-              <p className="offerText22">
-                Créez vos cours et monetisez votre expertise
-              </p>
+              <p className="offerText22">Créez vos cours et monetisez votre expertise</p>
               <Link to="#">
-                <button
-                  className="whatweofferButton2"
-                  onClick={() => setOpen(true)}
-                >
-                  {t("Pré-inscrivez vous")}
+                <button className="whatweofferButton2" onClick={() => setOpen(true)}>
+                  {t('Pré-inscrivez vous')}
                 </button>
               </Link>
             </div>
@@ -123,10 +114,7 @@ export default function WhatWeOffer() {
       </Grid>
       <div className="whatweoffercontainer ">
         <div className="offerh1">
-          <h1
-            className="offerh1-1"
-            style={{ fontWeight: "100", fontSize: "28px" }}
-          ></h1>
+          <h1 className="offerh1-1" style={{ fontWeight: '100', fontSize: '28px' }}></h1>
           {/* <div className="offerdashline"></div> */}
         </div>
         <div className="preparingHeading">
@@ -135,18 +123,16 @@ export default function WhatWeOffer() {
             Nous avons hâte de vous faire découvrir la plateforme ZypZap.
           </p>
           <p className="preparingP">
-            Toute notre équipe est mobilisée sur le développement de ses
-            fonctionnalités inédites et innovantes.
+            Toute notre équipe est mobilisée sur le développement de ses fonctionnalités inédites et
+            innovantes.
           </p>
           <p className="preparingP">
-            Inscrivez-vous dès maintenant pour participer au développement de
-            notre communauté.
+            Inscrivez-vous dès maintenant pour participer au développement de notre communauté.
           </p>
           <p className="preparingP2">
-            Nous avons hâte de vous faire découvrir la plateforme ZypZap. Toute
-            notre équipe est mobilisée sur le développement de ses
-            fonctionnalités inédites et innovantes. Inscrivez-vous dès
-            maintenant pour participer au développement de notre communauté.
+            Nous avons hâte de vous faire découvrir la plateforme ZypZap. Toute notre équipe est
+            mobilisée sur le développement de ses fonctionnalités inédites et innovantes.
+            Inscrivez-vous dès maintenant pour participer au développement de notre communauté.
           </p>
         </div>
       </div>

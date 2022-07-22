@@ -1,29 +1,28 @@
 // Init
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 // import Header from "../components/Header";
 // import UserReview from "../components/about/UsersReview";
 // import GetStarted from "../components/about/GetStarted";
 // import AboutLandingPage from "../components/about/AboutLandingPage";
 // import Footer from "../components/blog/BlogFooter";
-import "../components/About2/About2.css";
-import UserLandingPageHeader from "../components/UserLandingPageHeader";
-import About2 from "../components/About2/About2";
-import OurMissions from "../components/About2/OurMissions";
-import FollowUs from "../components/StandbyPage/FollowUs";
-import JoinedUs from "../components/StandbyPage/JoinedUs";
-import Footer2 from "../components/StandbyPage/Footer2";
-import Contactez from "../components/PopupForms/contactez";
+import '../components/About2/About2.css';
+import UserLandingPageHeader from '../components/UserLandingPageHeader';
+import About2 from '../components/About2/About2';
+import OurMissions from '../components/About2/OurMissions';
+import FollowUs from '../components/StandbyPage/FollowUs';
+import JoinedUs from '../components/StandbyPage/JoinedUs';
+import Footer2 from '../components/StandbyPage/Footer2';
+import Contactez from '../components/PopupForms/contactez';
 
 export default function About() {
   const [openContentRequest, setOpenContentRequest] = useState(false);
   const [openlogin, setOpenLogin] = React.useState(false);
   const [opensignup, setOpenSignup] = React.useState(false);
-  const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] =
-    React.useState(false);
+  const [openBecomeCreatorPopup, setOpenBecomeCreatorPopup] = React.useState(false);
   const scrollToTop = () => {
     window.scrollTo({
       top: 1,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
   useEffect(() => {
@@ -33,10 +32,10 @@ export default function About() {
   return (
     <div
       style={{
-        backgroundColor: "black",
-        minHeight: "100vh",
-        overflowX: "hidden",
-        overflowY: "hidden",
+        backgroundColor: 'black',
+        minHeight: '100vh',
+        overflowX: 'hidden',
+        overflowY: 'hidden',
       }}
     >
       <Contactez
@@ -56,7 +55,7 @@ export default function About() {
       <About2 />
       <OurMissions />
       <FollowUs />
-      <JoinedUs />
+      {/* <JoinedUs /> */}
       {/* <UserReview /> */}
       {/* <GetStarted /> */}
       {/* <Footer /> */}

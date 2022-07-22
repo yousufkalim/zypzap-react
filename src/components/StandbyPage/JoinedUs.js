@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import api from "../../api";
-import Gamers from "../../assets/img/Gamers.svg";
-import Creators from "../../assets/img/Creators.svg";
-import MobileGame from "../../assets/img/MobileGame.svg";
-import DisplayCourse from "../../assets/img/DisplayCourse.svg";
+import React, { useState, useEffect } from 'react';
+import api from '../../api';
+import Gamers from '../../assets/img/Gamers.svg';
+import Creators from '../../assets/img/Creators.svg';
+import MobileGame from '../../assets/img/MobileGame.svg';
+import DisplayCourse from '../../assets/img/DisplayCourse.svg';
 
 const JoinedUs = () => {
   const [allMembers, setAllMembers] = useState(0);
@@ -14,21 +14,21 @@ const JoinedUs = () => {
     setCreator();
   }, []);
   const setMembers = async () => {
-    let res = await api("get", "/newsletters/all");
+    let res = await api('get', '/newsletters/all');
     if (res) {
       setAllMembers(res.data.allMembers);
     }
   };
 
   const setCreator = async () => {
-    let res = await api("get", "/newsletters/creator");
+    let res = await api('get', '/newsletters/creator');
     if (res) {
       setAllCreator(res.data.totalCreator);
     }
   };
   return (
     <div>
-      {" "}
+      {' '}
       <div className="FollowUs">
         <div className="FollowUs_container">
           <h2 className="followUsH2-div2">Ils nous ont rejoint</h2>
@@ -51,14 +51,9 @@ const JoinedUs = () => {
             </div1>
             <div className="followDiv">
               <div className="followUs-box2">
-                <img
-                  src={MobileGame}
-                  alt=""
-                  className="followUsImg"
-                  style={{ marginTop: "7px" }}
-                />
+                <img src={MobileGame} alt="" className="followUsImg" style={{ marginTop: '7px' }} />
                 <div className="followSocialHeading2">
-                  <p className="followSocialP" style={{ padding: "6px" }}>
+                  <p className="followSocialP" style={{ padding: '6px' }}>
                     0
                   </p>
                   <p className="followSocialP2">Jeux traités</p>
