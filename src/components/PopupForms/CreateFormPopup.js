@@ -83,14 +83,9 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
       return toast.error('Please enter your email');
     }
 
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-    if (!values.email.match(mailformat)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
       return toast.error('Please enter a valid email');
     }
-    // if (!(values.email.includes('@') && values.email.includes('.'))) {
-    //   return toast.error('Please enter a valid email');
-    // }
 
     if (values.password == '' || password.length < 8) {
       return toast.error('Please enter more than seven digit password');

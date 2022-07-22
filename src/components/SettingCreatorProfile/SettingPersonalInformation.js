@@ -77,22 +77,22 @@ const SettingPersonalInformation = () => {
     let newformData = formData;
     let { password, currentPassword, confirmPassword } = values;
 
-    var n =
-      /^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/;
+    var n = /^(?:(?:(?:\+|00)33[ ]?(?:\(0\)[ ]?)?)|0){1}[1-9]{1}([ .-]?)(?:\d{2}\1?){3}\d{2}$/;
     if (!username) {
       return toast.error('User ID is required');
     }
     if (!phone_number.match(n)) {
       return toast.error('Please enter a valid phone number');
     }
+
     if (!email) {
       return toast.error('Please provide Email');
     }
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-    if (!values.email.match(mailformat)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return toast.error('Please enter a valid email');
     }
+
     if ((confirmPassword || password) && !currentPassword) {
       return toast.error('Enter current password ');
     }
