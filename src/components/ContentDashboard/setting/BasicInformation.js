@@ -41,7 +41,7 @@ const BasicInformation = () => {
       return toast.error('Enter your Phone Number');
     }
     if (!username) {
-      return toast.error('User ID cant be null');
+      return toast.error('User ID is required');
     }
     if (!phone_number.match(n)) {
       return toast.error('Please enter a valid phone number');

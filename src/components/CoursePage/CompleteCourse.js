@@ -82,18 +82,20 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
           <div className="completeCourse-colm2">
             <h3 className="completeCourseH3">Course Content </h3>
             <div className="completeCourseScroll">
-              {videos?.map((clip, index) => {
-                return (
-                  <LiDAta
-                    clip={clip}
-                    index={index}
-                    setIndex={setIndex}
-                    value={index + 1}
-                    videoCount={videoCount}
-                    setPlayVideo={setPlayVideo}
-                  />
-                );
-              })}
+              <div className="completeCourseScroll2">
+                {videos?.map((clip, index) => {
+                  return (
+                    <LiDAta
+                      clip={clip}
+                      index={index}
+                      setIndex={setIndex}
+                      value={index + 1}
+                      videoCount={videoCount}
+                      setPlayVideo={setPlayVideo}
+                    />
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -147,7 +149,11 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value, index, setIndex }) => {
       <video
         // poster={VideoPlayIcon}
         className="completeCourse-playVideo"
-        src={clip?.src_url ? clip.src_url : 'https://pass-to-trip.s3.eu-west-3.amazonaws.com/1647410128211'}
+        src={
+          clip?.src_url
+            ? clip.src_url
+            : 'https://pass-to-trip.s3.eu-west-3.amazonaws.com/1647410128211'
+        }
       ></video>
       <div className="playVideoHeading">
         <h3 className="playVideoH3">

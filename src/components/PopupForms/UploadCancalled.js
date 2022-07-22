@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import Dialog from "@mui/material/Dialog";
-import "../../css/form/UploadSuccessfulPopup.css";
-import UploadSuccessLog from "../../assets/icons/UploadSuccessLog.svg";
-import UploadedEpisodePopup from "./UploadedEpisodePopup";
+import React, { useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import '../../css/form/UploadSuccessfulPopup.css';
+import UploadSuccessLog from '../../assets/icons/UploadSuccessLog.svg';
+import UploadedEpisodePopup from './UploadedEpisodePopup';
 
-const UploadCancalled = ({ open, setOpen }) => {
+const UploadCancalled = ({ open, setOpen, setUploading, setProgress }) => {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
 
   const handleClick = () => {
@@ -13,11 +13,18 @@ const UploadCancalled = ({ open, setOpen }) => {
   };
   const handleClose = () => {
     setOpen(false);
+    // setUploading(false);
+    // setProgress(0);
   };
   return (
     <div>
       <UploadedEpisodePopup open={showDeletePopup} setOpen={setShowDeletePopup} />
-      <Dialog open={open} setOpe={setOpen} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+      <Dialog
+        open={open}
+        setOpe={setOpen}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv">
             <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />

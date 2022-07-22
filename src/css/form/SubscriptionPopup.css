@@ -7,7 +7,7 @@
   src: url(../../assets/MYRIADPRO-BOLD.OTF);
 }
 
-@import url("http://fonts.cdnfonts.com/css/myriad-pro");
+@import url('http://fonts.cdnfonts.com/css/myriad-pro');
 
 .form-box {
   width: 482px;
@@ -70,14 +70,14 @@
   font-weight: 400;
   font-size: 15px;
   color: #fff;
-  font-family: "Myriad Pro" !important;
+  font-family: 'Myriad Pro' !important;
 }
 .subsformbtn {
   padding: 11px 6px;
   border: none;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
-  font-family: "Mulish";
+  font-family: 'Mulish';
   border-radius: 2px;
   cursor: pointer;
   width: 100%;
@@ -108,7 +108,7 @@
 .toppdding {
   margin-top: 50px !important;
 }
-.popup-checkbox[type="checkbox"] {
+.popup-checkbox[type='checkbox'] {
   width: 15px !important;
   height: 15px !important;
   margin-top: 5px !important;
@@ -132,5 +132,11 @@
     position: relative;
     left: -15px;
     margin-top: 2% !important;
+  }
+  #subsclearIcon {
+    height: 22px !important;
+    position: relative;
+    left: 2px;
+    margin-top: -30% !important;
   }
 }

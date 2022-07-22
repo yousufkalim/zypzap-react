@@ -81,14 +81,22 @@ const SubscriptionPopup = ({
   };
   return (
     <>
-      <CongratulationPopup1 open={showPopup} setOpen={() => setShowPopup(!showPopup)} closeModal={handleClose} />
-      <ConfirmationPopup2 open={showPopup2} setOpen={() => setShowPopup2(!showPopup2)} closeModal={handleClose} />
+      <CongratulationPopup1
+        open={showPopup}
+        setOpen={() => setShowPopup(!showPopup)}
+        closeModal={handleClose}
+      />
+      <ConfirmationPopup2
+        open={showPopup2}
+        setOpen={() => setShowPopup2(!showPopup2)}
+        closeModal={handleClose}
+      />
       <Dialog open={open}>
         <div className="login_form">
           <div className="subs_container">
             <div className="form-header-block">
               <p className="subH1">{title}</p>
-              <ClearIcon className="subsclearIcon" onClick={handleClose} />
+              <ClearIcon className="subsclearIcon" onClick={handleClose} id="subsclearIcon" />
               <p className="subH1">{title2}</p>
 
               <p className="subP">{isThreeLine ? content : ''}</p>

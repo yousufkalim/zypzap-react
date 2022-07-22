@@ -10,6 +10,7 @@ import InputBase from '@mui/material/InputBase';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import Tooltip from '@material-ui/core/Tooltip';
 // import AccountCircle from "@mui/icons-material/AccountCircle";
 // import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from '@mui/icons-material/MoreVert';
@@ -43,6 +44,7 @@ import PaymentOptionPopup from './PopupForms/PaymentOptionPopup';
 import { CircularProgress } from '@material-ui/core';
 import { Store, UpdateStore } from '../StoreContext';
 import Setting from './UserDashboard/Setting';
+import { useRef } from 'react';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -95,7 +97,7 @@ export default function PrimarySearchAppBar({
 }) {
   const updateStore = UpdateStore();
   const { user, creator, searchState, learner } = Store();
-
+  const click = useRef(null);
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -107,6 +109,7 @@ export default function PrimarySearchAppBar({
   const [openCongratulation, setCongratulation] = useState(false);
   const [openCongratulation1, setCongratulation1] = useState(false);
   const [searchFlag, setSearchFlag] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState('');
   // const [settingOpen, setSettingOpen] = useState(false);
 
   const [age, setAge] = React.useState('');
@@ -120,6 +123,12 @@ export default function PrimarySearchAppBar({
     setAge(event.target.value);
   };
 
+  const handleCloseDropDown = (e) => {
+    if (click.current && searchFlag && !click.current.contains(e.target)) {
+      setSearchFlag(false);
+    }
+  };
+  document.addEventListener('mousedown', handleCloseDropDown);
   const openProfilePg = () => {
     history.push('/userprofile');
   };
@@ -507,7 +516,9 @@ export default function PrimarySearchAppBar({
             <Search className="searchBar">
               <div onClick={handleSearchButtonClick} style={{ cursor: 'pointer' }}>
                 {' '}
-                <SearchIcon className="searchBarIcon" />
+                <Tooltip title="Search">
+                  <SearchIcon className="searchBarIcon" />
+                </Tooltip>
                 <SearchIconWrapper></SearchIconWrapper>
               </div>
 
@@ -521,7 +532,7 @@ export default function PrimarySearchAppBar({
                 />
                 {/* </button> */}
                 {searchFlag && (
-                  <div className="dropdown-content">
+                  <div className="dropdown-content" ref={click}>
                     <div className="drowp1">
                       <a
                         href="#"
@@ -571,9 +582,11 @@ export default function PrimarySearchAppBar({
 
             {(user?.role == 'User' || user?.role == 'Creator') && (
               <div>
-                <button className="requestBtn" onClick={handleSettings}>
-                  <img src={UserHeaderIcon} alt="" />
-                </button>
+                <Tooltip title="Profile Information">
+                  <button className="requestBtn" onClick={handleSettings}>
+                    <img src={UserHeaderIcon} alt="" />
+                  </button>
+                </Tooltip>
               </div>
             )}
             {/* {(user?.role == "User" || user?.role == "Creator") && (
@@ -658,7 +671,10 @@ export default function PrimarySearchAppBar({
               {user ? (
                 <p className="sgnBtn">
                   <div className="dropdown">
-                    <img src={HeaderLogoutIcon} onClick={openProfilePg} alt="" />
+                    {' '}
+                    <Tooltip title="My Profile">
+                      <img src={HeaderLogoutIcon} onClick={openProfilePg} alt="" />
+                    </Tooltip>
                   </div>
                 </p>
               ) : (

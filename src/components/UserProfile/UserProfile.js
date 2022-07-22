@@ -10,6 +10,7 @@ import BecomeCreatorpopup from '../PopupForms/BecomeCreatorpopup';
 import { Store, UpdateStore } from '../../StoreContext';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Tooltip from '@material-ui/core/Tooltip';
 import Slider from '@material-ui/core/Slider';
 import Cropper from 'react-easy-crop';
 import api from '../../api';
@@ -206,15 +207,17 @@ const UserProfile = (props) => {
                 >
                   Zoom
                 </p>
-                <Slider
-                  value={zoom}
-                  min={1}
-                  max={3}
-                  step={0.1}
-                  aria-labelledby="Zoom"
-                  className="zoomlider"
-                  onChange={(e, zoom) => setZoom(zoom)}
-                />
+                <Tooltip title="Zoom">
+                  <Slider
+                    value={zoom}
+                    min={1}
+                    max={3}
+                    step={0.1}
+                    aria-labelledby="Zoom"
+                    className="zoomlider"
+                    onChange={(e, zoom) => setZoom(zoom)}
+                  />
+                </Tooltip>
               </div>
             </>
           ) : (
@@ -242,15 +245,10 @@ const UserProfile = (props) => {
               <img src={LoadingAvatar} alt="loading" className="DP-img" />
             ) : (
               <img
-                src={
-                  profile_photo
-                    ? profile_photo
-                    : user?.profile_photo
-                    ? user?.profile_photo
-                    : ProfileDp
-                }
+                src={profile_photo ? profile_photo : user?.profile_photo}
                 alt=""
                 className="DP-img"
+                onError={() => setProfileimg(ProfileDp)}
               />
             )}
 
@@ -269,11 +267,13 @@ const UserProfile = (props) => {
                     event.target.value = null;
                   }}
                 />
-                <img
-                  src={editIcon}
-                  className="editprofileIcon"
-                  // onClick={handleClickOpen}
-                />
+                <Tooltip title={'Edit Profile Photo'}>
+                  <img
+                    src={editIcon}
+                    className="editprofileIcon"
+                    // onClick={handleClickOpen}
+                  />
+                </Tooltip>
               </label>
             </a>
           </div>
