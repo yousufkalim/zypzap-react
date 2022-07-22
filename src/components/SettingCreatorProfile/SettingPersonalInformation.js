@@ -88,9 +88,10 @@ const SettingPersonalInformation = () => {
     if (!email) {
       return toast.error('Please provide Email');
     }
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-    if (!(email.includes('@') && email.includes('.'))) {
-      return toast.error('Please enter a valid Email');
+    if (!values.email.match(mailformat)) {
+      return toast.error('Please enter a valid email');
     }
     if ((confirmPassword || password) && !currentPassword) {
       return toast.error('Enter current password ');

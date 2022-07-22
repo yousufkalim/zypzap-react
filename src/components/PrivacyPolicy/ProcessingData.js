@@ -1,5 +1,5 @@
-import React from "react";
-import ProcessingAllData from "./ProcessingAllData";
+import React from 'react';
+import ProcessingAllData from './ProcessingAllData';
 
 const ProcessingData = (props) => {
   return (
@@ -97,14 +97,7 @@ const ProcessingData = (props) => {
             content3p="nom d’utilisateur ainsi que votre mot de passe ne seront plus sauvegardés, vos paniers en cours ne seront plus enregistrés…)."
           />
           {/* -------------------------------- copy div -------------------------------- */}
-          <ProcessingAllData
-            heading="5. Partage des données"
-            content1="ZYPZAP s’engage à ne jamais vendre ou louer vos données ni d’en céder des accès sans votre consentement préalable à moins d’y être contraints (obligation légale, lutte contre la fraude, exercice des droits de la défense…etc)."
-            content2="L’accès à notre base de données est limité aux employés de ZYPZAP, habilités en raison de leur mission et engagés à respecter notre politique de confidentialité."
-            content3="Nous partageons ces données (principalement anonymisées sauf dans le cas des transports pour le bon acheminement de vos commandes) avec des partenaires soumis au règlement général européen sur la protection des données personnelles ainsi que la loi informatique et liberté. Ces partenaires se sont, de plus, engagés contractuellement au respect de la confidentialité de vos données."
-            content4=" Nous ne partageons ces informations qu’avec les partenaires indispensables pour la prestation de services tiers et pour les finalités décrites dans cette politique de confidentialité :"
-            // content5="s’agit notamment de cookies qui concernent vos achats et le contenu que vous consultez. "
-          />
+
           {/* -------------------------------- copy div -------------------------------- */}
         </div>
       </div>

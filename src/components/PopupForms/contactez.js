@@ -28,7 +28,9 @@ const Contactez = ({ openContentRequest, setOpenContentRequest }) => {
     if (email == '') {
       return toast.error('Please enter your email');
     }
-    if (!(email.includes('@') && email.includes('.'))) {
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    if (!email.match(mailformat)) {
       return toast.error('Please enter a valid email');
     }
     if (text == '') {
