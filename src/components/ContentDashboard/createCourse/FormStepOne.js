@@ -114,11 +114,11 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
     console.log('Selected item --> ', item);
     if (item.target.textContent) {
       const selectedItem = item.target.textContent;
-      console.log('VALUES[i]', values[i]);
       for (var i = 0; i < values.length; i++) {
         if (values[i].label === selectedItem) {
           var label = values[i].label;
           var img = values[i].img;
+
           const city = values[i].city;
           setformDataOne({
             ...formDataOne,
@@ -250,7 +250,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                     PaperComponent={({ children }) => (
                       <Paper style={{ background: '#242635' }}>{children}</Paper>
                     )}
-                    getOptionLabel={(option) => option.label || ''}
+                    getOptionLabel={(option) => option.label}
                     onChange={setGamefiled}
                     hiddenLabel="true"
                     style={{
@@ -367,6 +367,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
           Course Description
         </label>
         <textarea
+          style={{ resize: 'none' }}
           name="description"
           id=""
           cols="200"

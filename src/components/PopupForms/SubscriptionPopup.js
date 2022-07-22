@@ -55,7 +55,9 @@ const SubscriptionPopup = ({
 
     if (content) {
       if (!values.checkBoxOne) {
-        return toast.error("Merci d'accepter les conditions pour démarrer le test");
+        return toast.error(
+          'Veuillez accepter la politique de confidentialité de zipzap pour commencer le test'
+        );
       }
     }
     const tester = values.checkBoxTwo;
