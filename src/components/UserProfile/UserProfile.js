@@ -15,8 +15,6 @@ import Slider from '@material-ui/core/Slider';
 import Cropper from 'react-easy-crop';
 import api from '../../api';
 import { getCroppedImg } from './canvasUtils';
-import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
-import { storage } from '../../utils/firebase';
 import { uploadPhoto } from '../../utils/uploadMedia';
 
 const UserProfile = (props) => {
@@ -66,8 +64,6 @@ const UserProfile = (props) => {
     setProfileimg(data.url);
     saveProfilePhoto(data.url);
     setProfileLoading(false);
-
-    // end upload on firebase
   };
   const saveCoverPhoto = async (downloadURL) => {
     if (user?.role == 'Creator') {
@@ -128,7 +124,6 @@ const UserProfile = (props) => {
         lastModified: new Date().getTime(),
         type: imgfile?.type,
       });
-      // upload on firebase
       if (!myFile) return;
 
       const formData = new FormData();

@@ -8,8 +8,6 @@ import { toast } from 'react-toastify';
 import successPopup from '../../PopupForms/RequestSuccessfullyPopup';
 import { useHistory } from 'react-router-dom';
 import CourseAproved from '../../PopupForms/CourseAproved';
-import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
-import { storage } from '../../../utils/firebase';
 import { uploadPhoto } from '../../../utils/uploadMedia';
 const FormStepsix = ({
   step,

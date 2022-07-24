@@ -5,8 +5,6 @@ import api from '../../../api';
 import RequestSuccessfullyPopup from '../../PopupForms/RequestSuccessfullyPopup';
 import UploadingTheCourse from '../../PopupForms/UploadingTheCourse';
 import { toast } from 'react-toastify';
-import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
-import { storage } from '../../../utils/firebase';
 import { Store } from '../../../StoreContext';
 import { uploadVideo } from '../../../utils/uploadMedia';
 
