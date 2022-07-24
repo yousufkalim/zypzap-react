@@ -17,6 +17,7 @@ import api from '../../api';
 import { getCroppedImg } from './canvasUtils';
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
 import { storage } from '../../utils/firebase';
+import { uploadMedia } from '../../utils/uploadMedia';
 
 const UserProfile = (props) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
@@ -55,27 +56,17 @@ const UserProfile = (props) => {
   const handleIProfilemageSelect = async (e) => {
     setProfileLoading(true);
     let myFile = e.target.files[0];
-
-    // upload on firebase
     if (!myFile) return;
-    const storageRef = ref(storage, `files/${myFile.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, myFile);
-    uploadTask.on(
-      'state_changed',
-      (snapshot) => {
-        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-      },
-      (error) => {
-        alert(error);
-      },
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          setProfileimg(downloadURL);
-          saveProfilePhoto(downloadURL);
-          setProfileLoading(false);
-        });
-      }
-    );
+
+    const formData = new FormData();
+    formData.append('photos', myFile);
+
+    let data = await uploadMedia(formData, 'photos', 'profile_photos');
+
+    setProfileimg(data.url);
+    saveProfilePhoto(data.url);
+    setProfileLoading(false);
+
     // end upload on firebase
   };
   const saveCoverPhoto = async (downloadURL) => {
@@ -139,24 +130,14 @@ const UserProfile = (props) => {
       });
       // upload on firebase
       if (!myFile) return;
-      const storageRef = ref(storage, `files/${myFile.name}`);
-      const uploadTask = uploadBytesResumable(storageRef, myFile);
-      uploadTask.on(
-        'state_changed',
-        (snapshot) => {
-          const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-        },
-        (error) => {
-          alert(error);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            saveCoverPhoto(downloadURL);
-            setCoverImageURL(downloadURL);
-          });
-        }
-      );
-      // end upload on firebase
+
+      const formData = new FormData();
+      formData.append('photos', myFile);
+
+      let data = await uploadMedia(formData, 'photos', 'cover_photos');
+
+      saveCoverPhoto(data.url);
+      setCoverImageURL(data.url);
 
       setCroppedImage(croppedImage);
       setCoverImageURL(URL.createObjectURL(croppedImage));
@@ -170,11 +151,7 @@ const UserProfile = (props) => {
   }, []);
   return (
     <>
-      <RegisterSuccessfully
-        open={openCongratulation}
-        setOpen={setCongratulation}
-        text="Your Profile Edit Successfully !"
-      />
+      <RegisterSuccessfully open={openCongratulation} setOpen={setCongratulation} text="Your Profile Edit Successfully !" />
 
       <PropfileInformation
         openProfile={openProfile}
@@ -225,13 +202,7 @@ const UserProfile = (props) => {
               {/* {showImg ? null : (
               <> */}
               <img
-                src={
-                  cover_photo
-                    ? cover_photo
-                    : user?.cover_photo
-                    ? user?.cover_photo
-                    : UserHomeProfleImg
-                }
+                src={cover_photo ? cover_photo : user?.cover_photo ? user?.cover_photo : UserHomeProfleImg}
                 alt=""
                 className="profileBackgroun-Image"
               />
@@ -284,9 +255,7 @@ const UserProfile = (props) => {
               <p className="pofileP">{user ? user.email[0] : 'johnsmith1@gmail.com'}</p>
               <p className="prfile-lavelP">
                 Level:&nbsp;
-                <span className="level-span">
-                  {creator?.gameLevel ? creator.gameLevel : 'Semi-Pro'}
-                </span>
+                <span className="level-span">{creator?.gameLevel ? creator.gameLevel : 'Semi-Pro'}</span>
               </p>
             </div>
             {/* <div className="following-content">
