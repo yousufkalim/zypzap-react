@@ -15,8 +15,7 @@ import Slider from '@material-ui/core/Slider';
 import Cropper from 'react-easy-crop';
 import api from '../../api';
 import { getCroppedImg } from './canvasUtils';
-import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
-import { storage } from '../../utils/firebase';
+import { uploadPhoto } from '../../utils/uploadMedia';
 
 const UserProfile = (props) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
@@ -55,28 +54,16 @@ const UserProfile = (props) => {
   const handleIProfilemageSelect = async (e) => {
     setProfileLoading(true);
     let myFile = e.target.files[0];
-
-    // upload on firebase
     if (!myFile) return;
-    const storageRef = ref(storage, `files/${myFile.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, myFile);
-    uploadTask.on(
-      'state_changed',
-      (snapshot) => {
-        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-      },
-      (error) => {
-        alert(error);
-      },
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          setProfileimg(downloadURL);
-          saveProfilePhoto(downloadURL);
-          setProfileLoading(false);
-        });
-      }
-    );
-    // end upload on firebase
+
+    const formData = new FormData();
+    formData.append('photos', myFile);
+
+    let data = await uploadPhoto(formData, 'profile_photos');
+
+    setProfileimg(data.url);
+    saveProfilePhoto(data.url);
+    setProfileLoading(false);
   };
   const saveCoverPhoto = async (downloadURL) => {
     if (user?.role == 'Creator') {
@@ -137,26 +124,15 @@ const UserProfile = (props) => {
         lastModified: new Date().getTime(),
         type: imgfile?.type,
       });
-      // upload on firebase
       if (!myFile) return;
-      const storageRef = ref(storage, `files/${myFile.name}`);
-      const uploadTask = uploadBytesResumable(storageRef, myFile);
-      uploadTask.on(
-        'state_changed',
-        (snapshot) => {
-          const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-        },
-        (error) => {
-          alert(error);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            saveCoverPhoto(downloadURL);
-            setCoverImageURL(downloadURL);
-          });
-        }
-      );
-      // end upload on firebase
+
+      const formData = new FormData();
+      formData.append('photos', myFile);
+
+      let data = await uploadPhoto(formData, 'cover_photos');
+
+      saveCoverPhoto(data.url);
+      setCoverImageURL(data.url);
 
       setCroppedImage(croppedImage);
       setCoverImageURL(URL.createObjectURL(croppedImage));

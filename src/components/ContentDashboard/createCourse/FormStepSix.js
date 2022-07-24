@@ -8,8 +8,7 @@ import { toast } from 'react-toastify';
 import successPopup from '../../PopupForms/RequestSuccessfullyPopup';
 import { useHistory } from 'react-router-dom';
 import CourseAproved from '../../PopupForms/CourseAproved';
-import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
-import { storage } from '../../../utils/firebase';
+import { uploadPhoto } from '../../../utils/uploadMedia';
 const FormStepsix = ({
   step,
   formDataOne,
@@ -36,41 +35,72 @@ const FormStepsix = ({
   //   setformDataSix(file);
   //   setUploading(true);
   // };
-  const handleSubmit = async (e) => {
+  const handleSubmitImage = async (e) => {
     e.preventDefault();
     setBtnState(3);
     const file = e.target.files[0];
     if (!file) return;
-    const storageRef = ref(storage, `files/${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
-    uploadTask.on(
-      'state_changed',
-      (snapshot) => {
-        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-      },
-      (error) => {
-        alert(error);
-      },
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          setformDataSix(downloadURL);
-          setImgUrl(downloadURL);
-          setUploading(true);
-          setBtnState(0);
-        });
-      }
-    );
+    var fileName = file.name;
+    var idxDot = fileName.lastIndexOf('.') + 1;
+    var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+
+    if (
+      !(
+        extFile == 'jpg' ||
+        extFile == 'jpeg' ||
+        extFile == 'png' ||
+        extFile == 'webp' ||
+        extFile == 'gif' ||
+        extFile == 'svg'
+      )
+    )
+      toast.error('Only image file should be selected!');
+    else {
+      const formData = new FormData();
+      formData.append('photos', file);
+      let data = await uploadPhoto(formData, 'thumbnails');
+      setformDataSix(data.url);
+      setImgUrl(data.url);
+      setUploading(true);
+      setBtnState(0);
+    }
+  };
+
+  const handleSubmitVideo = async (e) => {
+    e.preventDefault();
+    setBtnState(3);
+    const file = e.target.files[0];
+    if (!file) return;
+
+    var fileName = file.name;
+    var idxDot = fileName.lastIndexOf('.') + 1;
+    var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+
+    if (!(extFile == 'mp4' || extFile == 'mov' || extFile == 'mkv'))
+      toast.error('Only video files should be selected');
+    else {
+      const formData = new FormData();
+      formData.append('photos', file);
+      let data = await uploadPhoto(formData, 'thumbnails');
+      setformDataSix(data.url);
+      setImgUrl(data.url);
+      setUploading(true);
+
+      setBtnState(0);
+    }
   };
 
   const handleSubmitCourse = async () => {
+    console.log('Submitted');
     if (imgUrl == '') {
       return toast.error('Veuillez entrer la vignette du cours');
     }
+
     setBtnState(1);
 
-    let formDataOne = { ...formDataOne };
-    formDataOne.selectedGamename = formDataOne.selectedGamename.label;
-    let data = { formDataOne, formDataFive, formDataSix, id: creator._id };
+    let modifiedFormDataOne = { ...formDataOne };
+    modifiedFormDataOne.selectedGamename = formDataOne.selectedGamename.label;
+    let data = { formDataOne: modifiedFormDataOne, formDataFive, formDataSix, id: creator._id };
     let res = await api('post', '/courses', data);
     if (res) {
       updateStore({ creator: res?.data?.creator });
@@ -122,7 +152,7 @@ const FormStepsix = ({
               <div className="step_container">
                 <div className="step1">
                   <p className="step1-p">Upload Course Thumbnail</p>
-                  <ImageInput text="Select Image" onChange={handleSubmit} />
+                  <ImageInput text="Select Image" onChange={handleSubmitImage} />
                 </div>
               </div>
             </Grid>
@@ -130,7 +160,7 @@ const FormStepsix = ({
               <div className="step_container">
                 <div className="step1">
                   <p className="step1-p">Upload Course Introduction</p>
-                  <VideoInput text="Select Video" onChange={handleSubmit} />
+                  <VideoInput text="Select Video" onChange={handleSubmitVideo} />
                 </div>
               </div>
             </Grid>

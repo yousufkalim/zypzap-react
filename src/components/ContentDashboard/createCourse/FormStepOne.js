@@ -250,7 +250,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                     PaperComponent={({ children }) => (
                       <Paper style={{ background: '#242635' }}>{children}</Paper>
                     )}
-                    getOptionLabel={(option) => option.label}
+                    getOptionLabel={(option) => option.label || ''}
                     onChange={setGamefiled}
                     hiddenLabel="true"
                     style={{
@@ -260,7 +260,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                       <TextField
                         classes={{ root: classes.customTextField }}
                         {...params}
-                        placeholder="Game Name"
+                        placeholder="Game Name "
                         style={{ color: 'white' }}
                         variant="outlined"
                         onChange={getAllGames}

@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import DashboardLeftSideBar from "./DashboardLeftSideBar";
-import DashboardRightSideBar from "./DashboardRightSideBar";
-import settings from "../../assets/img/settings.svg";
-import Youtube from "../../assets/img/youtube.svg";
-import { Store, UpdateStore } from "../../StoreContext";
-import api from "../../api";
-import { useHistory, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import DashboardLeftSideBar from './DashboardLeftSideBar';
+import DashboardRightSideBar from './DashboardRightSideBar';
+import settings from '../../assets/img/settings.svg';
+import Youtube from '../../assets/img/youtube.svg';
+import { Store, UpdateStore } from '../../StoreContext';
+import api from '../../api';
+import { useHistory, useLocation } from 'react-router-dom';
 const Dashboard = ({ id }) => {
   const history = useHistory();
 
   const { creator, contentDashboardButton } = Store();
   const updateStore = UpdateStore();
-  const [activeButton, setActiveButton] = useState("Courses");
+  const [activeButton, setActiveButton] = useState('Courses');
   const [createCourse, setcreateCourse] = useState(false);
 
   const location = useLocation();
@@ -21,14 +21,15 @@ const Dashboard = ({ id }) => {
   useEffect(() => {
     getCreator();
   }, [contentDashboardButton]);
+
   useEffect(() => {
-    if (history.location.state.createCourse) {
+    if (history.location.state?.createCourse) {
       setcreateCourse(true);
-      updateStore({ contentDashboardButton: "" });
+      updateStore({ contentDashboardButton: '' });
     }
   }, []);
   const getCreator = async () => {
-    let res = await api("get", `/creators/${creator?._id}`);
+    let res = await api('get', `/creators/${creator?._id}`);
 
     if (res) {
       updateStore({ creator: res?.data?.creator });
@@ -36,10 +37,10 @@ const Dashboard = ({ id }) => {
   };
 
   const items = [
-    { name: "Courses", img: Youtube },
+    { name: 'Courses', img: Youtube },
     // { name: "Performance", img: performance },
     // { name: "Earning", img: dollar },
-    { name: "Setting", img: settings },
+    { name: 'Setting', img: settings },
   ];
   const onSideBtnClick = (e) => {
     const course = e.target.textContent;
@@ -50,10 +51,7 @@ const Dashboard = ({ id }) => {
   };
   return (
     <>
-      <Box
-        className="dashboard-container"
-        sx={{ flexGrow: 1, display: "flex" }}
-      >
+      <Box className="dashboard-container" sx={{ flexGrow: 1, display: 'flex' }}>
         {/* dashboard SideBar */}
         <Box className="dashboard-sidebar">
           <Grid>
@@ -65,10 +63,7 @@ const Dashboard = ({ id }) => {
           </Grid>
         </Box>
         {/* dashboardBody */}
-        <DashboardRightSideBar
-          setcreateCourse={setcreateCourse}
-          createCourse={createCourse}
-        />
+        <DashboardRightSideBar setcreateCourse={setcreateCourse} createCourse={createCourse} />
       </Box>
     </>
   );

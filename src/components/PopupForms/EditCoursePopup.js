@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import VideoInput from "../../utils/VideoInput";
-import "../../css/form/EditCoursePopup.css";
-import Grid from "@mui/material/Grid";
-import UploadSuccessfulPopup from "./UploadSuccessfulPopup";
-import { toast } from "react-toastify";
-import { Store, UpdateStore } from "../../StoreContext";
-import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
-import UploadingTheCourse from "../PopupForms/UploadingTheCourse";
-import { storage } from "../../utils/firebase";
+import React, { useState, useEffect } from 'react';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import VideoInput from '../../utils/VideoInput';
+import '../../css/form/EditCoursePopup.css';
+import Grid from '@mui/material/Grid';
+import UploadSuccessfulPopup from './UploadSuccessfulPopup';
+import { toast } from 'react-toastify';
+import { Store, UpdateStore } from '../../StoreContext';
+import UploadingTheCourse from '../PopupForms/UploadingTheCourse';
+import { uploadVideo } from '../../utils/uploadMedia';
 
-import api from "../../api";
+import api from '../../api';
 const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   const { Games, creator } = Store();
   const [showPopup, setShowPopup] = React.useState(false);
@@ -20,7 +19,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   const [progress, setProgress] = useState(0);
   const [imgUrl, setImgUrl] = useState([]);
   const [uploading, setUploading] = useState(false);
-  const [videoName, setVideoName] = useState("");
+  const [videoName, setVideoName] = useState('');
   const [game, setGame] = useState(Games ? Games : []);
   const [timeUploadRemaining, setTimeUploadRemaining] = useState(0);
   const [formDataTwo, setformDataTwo] = useState([]);
@@ -33,7 +32,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
     gameType: course?.game_id?.category,
     gameMood: course?.gameMood,
     gamePlateForm: course?.gamePlateForm,
-    description: course?.description
+    description: course?.description,
   });
   const {
     course_name,
@@ -43,7 +42,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
     gameType,
     gameMood,
     gamePlateForm,
-    description
+    description,
   } = formDataOne;
 
   useEffect(() => {
@@ -55,7 +54,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
       gameType: course?.game_id?.category,
       gameMood: course?.mode,
       gamePlateForm: course?.plateform,
-      description: course?.description
+      description: course?.description,
     });
   }, [course]);
   useEffect(() => {
@@ -64,12 +63,12 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   const chnageEvent = (e) => {
     setformDataOne({
       ...formDataOne,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
   const handleSave = async () => {
     const data = { formDataOne, formDataFive, id: course?._id };
-    let res = await api("put", "/courses", data);
+    let res = await api('put', '/courses', data);
     if (res) {
       // setShowPopup(true);
       setformDataTwo([]);
@@ -77,7 +76,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
       setOpen(false);
       // setOpens(true);
     } else {
-      return toast.error("Courses not update try again");
+      return toast.error('Courses not update try again');
     }
   };
 
@@ -90,7 +89,15 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
     if (!files) return;
     let newArray = ([] = formDataTwo);
     for (let i = 0; i < files.length; i++) {
-      const url = await singlefileUpload(files[i]);
+      const url = await uploadVideo(
+        files[i],
+        creator._id,
+        setVideoName,
+        setOpens,
+        setmbPerSecond,
+        setTimeUploadRemaining,
+        setProgress
+      );
       setImgUrl(...imgUrl, url);
       const fileData = { name: files[i].name, path: url, file: files[i] };
       let file = await handleSingleVideo(fileData);
@@ -108,82 +115,12 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   const handleSingleVideo = async (file) => {
     return new Promise(async (resolve, reject) => {
       file.creator = creator._id;
-      let res = await api("post", "/videos", file);
+      let res = await api('post', '/videos', file);
       if (res) {
         resolve(res.data);
       } else {
         reject(null);
       }
-    });
-  };
-  const singlefileUpload = (file) => {
-    return new Promise((resolve, reject) => {
-      setVideoName(file.name);
-      if (!file) return;
-      const storageRef = ref(storage, `files/${file.name}`);
-      const uploadTask = uploadBytesResumable(storageRef, file);
-      // file upload speed code
-      let lastBytesTransfered = null;
-      let lastBytesTransferedTime = null; //new Date().getTime();
-      let totaltransferedBytes = 0;
-      let updateDurationThreshold = 2000;
-      let speed = 0;
-      setOpens(true);
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          if (lastBytesTransferedTime == null) {
-            lastBytesTransfered = snapshot.bytesTransferred;
-            lastBytesTransferedTime = new Date().getTime();
-            totaltransferedBytes += snapshot.bytesTransferred;
-            speed = 0;
-          } else {
-            let now = new Date().getTime();
-            let _duration = now - lastBytesTransferedTime;
-            if (_duration > updateDurationThreshold) {
-              let bytesPerSecond =
-                (snapshot.bytesTransferred - lastBytesTransfered) /
-                updateDurationThreshold;
-
-              lastBytesTransfered = snapshot.bytesTransferred;
-
-              lastBytesTransferedTime = now;
-              let newbytesPerSecond = bytesPerSecond / 1024;
-              setmbPerSecond(newbytesPerSecond.toFixed(3));
-              let remTime =
-                (((snapshot.totalBytes - snapshot.bytesTransferred) /
-                  bytesPerSecond) *
-                  2) /
-                (updateDurationThreshold - 1000);
-              totaltransferedBytes += lastBytesTransfered;
-              remTime = remTime.toFixed(0);
-              if (remTime <= 60) remTime = `${remTime} sec left`;
-              if (remTime > 60 && remTime < 3600) {
-                remTime = (remTime / 60).toFixed(2);
-                remTime = `${remTime} min left`;
-              }
-
-              if (remTime > 3600) {
-                remTime = (remTime / 3600).toFixed(2);
-                remTime = `${remTime} houre left`;
-              }
-              setTimeUploadRemaining(remTime);
-            }
-          }
-          const progress = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          );
-          setProgress(progress);
-        },
-        (error) => {
-          reject(error);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            resolve(downloadURL);
-          });
-        }
-      );
     });
   };
 
@@ -202,14 +139,9 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
       />
       {/* <RequestSuccessfullyPopup open={open} setOpen={setOpen} /> */}
       <div>
-        <Dialog
-          fullWidth="true"
-          maxWidth="md"
-          open={open}
-          className="editCoursePopup"
-        >
+        <Dialog fullWidth="true" maxWidth="md" open={open} className="editCoursePopup">
           {/* /* -------------------------------- main div --------------------------------  */}
-          <div className="formStepOneDiv" style={{ margin: "0px" }}>
+          <div className="formStepOneDiv" style={{ margin: '0px' }}>
             <p className="coursedetail2">Edit the course</p>
             <div className="hrLine1" />
             <div className="courseDivContainer">
@@ -225,7 +157,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                         type="text"
                         className="coursInput"
                         placeholder="learn how to play minacraft"
-                        value={course_name ? course_name : ""}
+                        value={course_name ? course_name : ''}
                         onChange={chnageEvent}
                       />
                     </div>
@@ -255,13 +187,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                   <Grid xs={12} sm={6}>
                     <div>
                       <p className="stepLabel">Gameplay level</p>
-                      <select
-                        id="gameLevel"
-                        name="gameLevel"
-                        className="stepSelect"
-                        value={gameLevel}
-                        onChange={chnageEvent}
-                      >
+                      <select id="gameLevel" name="gameLevel" className="stepSelect" value={gameLevel} onChange={chnageEvent}>
                         <option value="Casual" className="setepOption">
                           Casual
                         </option>
@@ -289,13 +215,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                       <div>
                         <p className="stepLabel">Game Type</p>
 
-                        <select
-                          id="gameType"
-                          name="gameType"
-                          className="stepSelect"
-                          value={gameType}
-                          onChange={chnageEvent}
-                        >
+                        <select id="gameType" name="gameType" className="stepSelect" value={gameType} onChange={chnageEvent}>
                           <option value="Action" className="setepOption">
                             Action
                           </option>
@@ -311,10 +231,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                           <option value="Car Racing" className="setepOption">
                             Car Racing
                           </option>
-                          <option
-                            value="Versus Fighting"
-                            className="setepOption"
-                          >
+                          <option value="Versus Fighting" className="setepOption">
                             Versus Fighting
                           </option>
                           <option value="FPS" className="setepOption">
@@ -326,10 +243,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                           <option value="RPG" className="setepOption">
                             RPG
                           </option>
-                          <option
-                            value="Turn by Turn Strategy"
-                            className="setepOption"
-                          >
+                          <option value="Turn by Turn Strategy" className="setepOption">
                             Turn by Turn Strategy
                           </option>
                           <option value="Simulation" className="setepOption">
@@ -350,13 +264,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                     <Grid xs={12} sm={6}>
                       <div>
                         <p className="stepLabel">Gaming Mode</p>
-                        <select
-                          id="gameMood"
-                          name="gameMood"
-                          className="stepSelect"
-                          value={gameMood}
-                          onChange={chnageEvent}
-                        >
+                        <select id="gameMood" name="gameMood" className="stepSelect" value={gameMood} onChange={chnageEvent}>
                           <option value="Single" className="setepOption">
                             Single
                           </option>
@@ -379,28 +287,19 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                           value={gamePlateForm}
                           onChange={chnageEvent}
                         >
-                          <option
-                            value="Retro Consoles"
-                            className="setepOption"
-                          >
+                          <option value="Retro Consoles" className="setepOption">
                             Retro Consoles
                           </option>
                           <option value="PS1/2/3/4/5" className="setepOption">
                             PS1/2/3/4/5
                           </option>
-                          <option
-                            value="Xbox/360/One/X"
-                            className="setepOption"
-                          >
+                          <option value="Xbox/360/One/X" className="setepOption">
                             Xbox/360/One/X
                           </option>
                           <option value="Mobile Games" className="setepOption">
                             Mobile Games
                           </option>
-                          <option
-                            value="Portable Consoles"
-                            className="setepOption"
-                          >
+                          <option value="Portable Consoles" className="setepOption">
                             Portable Consoles
                           </option>
                           <option value="PC" className="setepOption">
