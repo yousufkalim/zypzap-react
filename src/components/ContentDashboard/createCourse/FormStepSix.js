@@ -55,14 +55,15 @@ const FormStepsix = ({
   };
 
   const handleSubmitCourse = async () => {
+    console.log('Submitted');
     if (imgUrl == '') {
       return toast.error('Veuillez entrer la vignette du cours');
     }
     setBtnState(1);
 
-    let formDataOne = { ...formDataOne };
-    formDataOne.selectedGamename = formDataOne.selectedGamename.label;
-    let data = { formDataOne, formDataFive, formDataSix, id: creator._id };
+    let modifiedFormDataOne = { ...formDataOne };
+    modifiedFormDataOne.selectedGamename = formDataOne.selectedGamename.label;
+    let data = { formDataOne: modifiedFormDataOne, formDataFive, formDataSix, id: creator._id };
     let res = await api('post', '/courses', data);
     if (res) {
       updateStore({ creator: res?.data?.creator });

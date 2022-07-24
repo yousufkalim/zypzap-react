@@ -1,5 +1,5 @@
 let baseUrl = '';
-let mediaServerUrl = 'http://localhost:5001';
+let mediaServerUrl = 'https://media.zypzap.com';
 
 if (window.location.host === 'zypzap.com') {
   baseUrl = 'https://api.zypzap.com/api';

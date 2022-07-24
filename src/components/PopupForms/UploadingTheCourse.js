@@ -30,6 +30,7 @@ const UploadingTheCourse = ({
   setUploading,
   mbPerSecond,
   timeUploadRemaining,
+  handleAbort,
 }) => {
   const [showPopup, setShowPopup] = useState(false);
   const handleClose = () => {
@@ -39,6 +40,7 @@ const UploadingTheCourse = ({
   const CancelHandleClick = () => {
     // setShowPopup(true);
     setOpen(false);
+    handleAbort();
     // setUploading(false);
     setProgress(0);
   };
@@ -57,12 +59,7 @@ const UploadingTheCourse = ({
         // setProgress={setProgress}
         // setUploading={setUploading}
       />
-      <Dialog
-        open={open}
-        setOpe={setOpen}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
+      <Dialog open={open} setOpe={setOpen} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
         <p className="uploadingtheCourse-p">Uploading The Course</p>
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv">
@@ -76,12 +73,8 @@ const UploadingTheCourse = ({
                 <BorderLinearProgress variant="determinate" value={progress} />
               </Box>
               <div className="uploadTheCourse-Headings">
-                <p className="uploadTheCourse-content">
-                  {progress === 100 ? 'Completed' : `Speed: ${mbPerSecond} MB/s`}
-                </p>
-                <span className="uploadTheCourse-span">
-                  {progress != 100 && `Time: ${timeUploadRemaining}`}
-                </span>
+                <p className="uploadTheCourse-content">{progress === 100 ? 'Completed' : `Speed: ${mbPerSecond} MB/s`}</p>
+                <span className="uploadTheCourse-span">{progress != 100 && `Time: ${timeUploadRemaining}`}</span>
               </div>
               {progress === 100 && uploading ? (
                 <button className="uploadTheCourseBTN" onClick={CloseHandleClick}>
