@@ -30,7 +30,6 @@ const UploadingTheCourse = ({
   setUploading,
   mbPerSecond,
   timeUploadRemaining,
-  handleAbort,
 }) => {
   const [showPopup, setShowPopup] = useState(false);
   const handleClose = () => {
@@ -40,7 +39,6 @@ const UploadingTheCourse = ({
   const CancelHandleClick = () => {
     // setShowPopup(true);
     setOpen(false);
-    handleAbort();
     // setUploading(false);
     setProgress(0);
   };

@@ -7,8 +7,8 @@ import UploadingTheCourse from '../../PopupForms/UploadingTheCourse';
 import { toast } from 'react-toastify';
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
 import { storage } from '../../../utils/firebase';
-import axios from 'axios';
-import { mediaServerUrl } from '../../../config';
+import { Store } from '../../../StoreContext';
+import { uploadVideo } from '../../../utils/uploadMedia';
 
 const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   const [open, setOpen] = React.useState(false);
@@ -20,8 +20,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   const [videoName, setVideoName] = useState('');
   const [mbPerSecond, setmbPerSecond] = useState(0);
   const [timeUploadRemaining, setTimeUploadRemaining] = useState(0);
-  const CancelToken = axios.CancelToken;
-  const source = CancelToken.source();
+  const { creator } = Store();
 
   const handleSubmit = async (file) => {
     // e.preventDefault();
@@ -29,7 +28,15 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
     if (!files) return;
     let newArray = ([] = formDataTwo);
     for (let i = 0; i < files.length; i++) {
-      const url = await singlefileUpload(files[i]);
+      const url = await uploadVideo(
+        files[i],
+        creator._id,
+        setVideoName,
+        setOpens,
+        setmbPerSecond,
+        setTimeUploadRemaining,
+        setProgress
+      );
       setImgUrl(...imgUrl, url);
       const fileData = { name: files[i].name, path: url, file: files[i] };
       newArray = [...newArray, fileData];
@@ -38,74 +45,6 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
       setUploading(true);
       setTimeUploadRemaining(`0 sec left`);
     }
-  };
-
-  const singlefileUpload = async (file) => {
-    if (!file) return;
-    return new Promise(async (resolve, reject) => {
-      setVideoName(file.name);
-      setOpens(true);
-
-      const formData = new FormData();
-      formData.append('videos', file);
-
-      // file upload speed code
-      let bytesTransferred = null;
-      let bytesTransferredTime = null; //new Date().getTime();
-      let totalBytesTransferred = 0;
-      let updateDurationThreshold = 2000;
-      let speed = 0;
-
-      try {
-        const response = await axios.post(`${mediaServerUrl}/uploads/videos/coursetwo`, formData, {
-          withCredentials: false,
-          cancelToken: source.token,
-          onUploadProgress: (progressEvent) => {
-            const { loaded, total } = progressEvent;
-            if (bytesTransferredTime == null) {
-              bytesTransferred = loaded;
-              bytesTransferredTime = new Date().getTime();
-              totalBytesTransferred += loaded;
-              speed = 0;
-            } else {
-              let now = new Date().getTime();
-              let _duration = now - bytesTransferredTime;
-              if (_duration > updateDurationThreshold) {
-                let bytesPerSecond = (loaded - bytesTransferred) / updateDurationThreshold;
-
-                bytesTransferred = loaded;
-
-                bytesTransferredTime = now;
-                let newbytesPerSecond = bytesPerSecond / 1024;
-                setmbPerSecond(newbytesPerSecond.toFixed(3));
-                let remTime = (((total - loaded) / bytesPerSecond) * 2) / (updateDurationThreshold - 1000);
-                totalBytesTransferred += bytesTransferred;
-                remTime = remTime.toFixed(0);
-                if (remTime <= 60) remTime = `${remTime} sec left`;
-                if (remTime > 60 && remTime < 3600) {
-                  remTime = (remTime / 60).toFixed(2);
-                  remTime = `${remTime} min left`;
-                }
-
-                if (remTime > 3600) {
-                  remTime = (remTime / 3600).toFixed(2);
-                  remTime = `${remTime} hour left`;
-                }
-                setTimeUploadRemaining(remTime);
-              }
-            }
-            const progress = Math.round((loaded / total) * 100);
-            setProgress(progress);
-          },
-        });
-
-        const url = response.data.url;
-        resolve(url);
-      } catch (err) {
-        toast.error('Error uploading file');
-        reject();
-      }
-    });
   };
 
   // const handleClick = () => {};
@@ -131,7 +70,6 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
       <UploadingTheCourse
         open={opens}
         setOpen={setOpens}
-        handleAbort={() => source.cancel()}
         progress={progress}
         setProgress={setProgress}
         videoName={videoName}
