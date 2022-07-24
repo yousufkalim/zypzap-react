@@ -10,6 +10,7 @@ import { useHistory } from 'react-router-dom';
 import CourseAproved from '../../PopupForms/CourseAproved';
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
 import { storage } from '../../../utils/firebase';
+import { uploadMedia } from '../../../utils/uploadMedia';
 const FormStepsix = ({
   step,
   formDataOne,
@@ -41,25 +42,16 @@ const FormStepsix = ({
     setBtnState(3);
     const file = e.target.files[0];
     if (!file) return;
-    const storageRef = ref(storage, `files/${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
-    uploadTask.on(
-      'state_changed',
-      (snapshot) => {
-        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-      },
-      (error) => {
-        alert(error);
-      },
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          setformDataSix(downloadURL);
-          setImgUrl(downloadURL);
-          setUploading(true);
-          setBtnState(0);
-        });
-      }
-    );
+
+    const formData = new FormData();
+    formData.append('photos', file);
+
+    let data = await uploadMedia(formData, 'photos', 'thumbnails');
+
+    setformDataSix(data.url);
+    setImgUrl(data.url);
+    setUploading(true);
+    setBtnState(0);
   };
 
   const handleSubmitCourse = async () => {
@@ -98,13 +90,7 @@ const FormStepsix = ({
   };
   return (
     <>
-      <CourseAproved
-        open={opens}
-        setOpen={setOpens}
-        closeModal={handleClose}
-        setStep={setStep}
-        text=""
-      />
+      <CourseAproved open={opens} setOpen={setOpens} closeModal={handleClose} setStep={setStep} text="" />
       {/* <successPopup
         open={showPopup}
         setOpen={() => setShowPopup(!showPopup)}
@@ -141,18 +127,10 @@ const FormStepsix = ({
 
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button
-            className="drafBtn"
-            style={{ background: 'none', border: '1px solid #662F88' }}
-            onClick={() => setStep(5)}
-          >
+          <button className="drafBtn" style={{ background: 'none', border: '1px solid #662F88' }} onClick={() => setStep(5)}>
             Previous
           </button>
-          <button
-            className="continueBtn"
-            onClick={handleSubmitCourse}
-            disabled={btnState == 0 ? false : true}
-          >
+          <button className="continueBtn" onClick={handleSubmitCourse} disabled={btnState == 0 ? false : true}>
             {btnState === 0
               ? 'Submit For Approval'
               : btnState === 1
