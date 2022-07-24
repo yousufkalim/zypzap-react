@@ -17,7 +17,7 @@ import api from '../../api';
 import { getCroppedImg } from './canvasUtils';
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
 import { storage } from '../../utils/firebase';
-import { uploadMedia } from '../../utils/uploadMedia';
+import { uploadPhoto } from '../../utils/uploadMedia';
 
 const UserProfile = (props) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
@@ -61,7 +61,7 @@ const UserProfile = (props) => {
     const formData = new FormData();
     formData.append('photos', myFile);
 
-    let data = await uploadMedia(formData, 'photos', 'profile_photos');
+    let data = await uploadPhoto(formData, 'profile_photos');
 
     setProfileimg(data.url);
     saveProfilePhoto(data.url);
@@ -134,7 +134,7 @@ const UserProfile = (props) => {
       const formData = new FormData();
       formData.append('photos', myFile);
 
-      let data = await uploadMedia(formData, 'photos', 'cover_photos');
+      let data = await uploadPhoto(formData, 'cover_photos');
 
       saveCoverPhoto(data.url);
       setCoverImageURL(data.url);

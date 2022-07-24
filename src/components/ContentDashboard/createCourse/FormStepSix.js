@@ -10,7 +10,7 @@ import { useHistory } from 'react-router-dom';
 import CourseAproved from '../../PopupForms/CourseAproved';
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
 import { storage } from '../../../utils/firebase';
-import { uploadMedia } from '../../../utils/uploadMedia';
+import { uploadPhoto } from '../../../utils/uploadMedia';
 const FormStepsix = ({
   step,
   formDataOne,
@@ -46,7 +46,7 @@ const FormStepsix = ({
     const formData = new FormData();
     formData.append('photos', file);
 
-    let data = await uploadMedia(formData, 'photos', 'thumbnails');
+    let data = await uploadPhoto(formData, 'thumbnails');
 
     setformDataSix(data.url);
     setImgUrl(data.url);

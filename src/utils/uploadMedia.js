@@ -2,10 +2,10 @@ import axios from 'axios';
 import { mediaServerUrl } from '../config';
 import { toast } from 'react-toastify';
 
-export const uploadMedia = (formData, type, dir) => {
+export const uploadPhoto = (formData, dir) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await axios.post(`${mediaServerUrl}/uploads/${type}/${dir}`, formData, {
+      const response = await axios.post(`${mediaServerUrl}/uploads/photos/${dir}`, formData, {
         withCredentials: false,
       });
       resolve(response.data);
