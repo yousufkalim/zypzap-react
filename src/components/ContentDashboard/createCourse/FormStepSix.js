@@ -41,19 +41,8 @@ const FormStepsix = ({
     const file = e.target.files[0];
     if (!file) return;
     var fileName = file.name;
-    var idxDot = fileName.lastIndexOf('.') + 1;
-    var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
 
-    if (
-      !(
-        extFile == 'jpg' ||
-        extFile == 'jpeg' ||
-        extFile == 'png' ||
-        extFile == 'webp' ||
-        extFile == 'gif' ||
-        extFile == 'svg'
-      )
-    )
+    if (!fileName.match(/\.(jpeg|png|jpg|gif|webp)$/))
       toast.error('Only image file should be selected!');
     else {
       const formData = new FormData();
@@ -73,11 +62,8 @@ const FormStepsix = ({
     if (!file) return;
 
     var fileName = file.name;
-    var idxDot = fileName.lastIndexOf('.') + 1;
-    var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
 
-    if (!(extFile == 'mp4' || extFile == 'mov' || extFile == 'mkv'))
-      toast.error('Only video files should be selected');
+    if (!fileName.match(/\.(mp4|mpeg|mov)$/)) toast.error('Only video files should be selected');
     else {
       const formData = new FormData();
       formData.append('photos', file);
