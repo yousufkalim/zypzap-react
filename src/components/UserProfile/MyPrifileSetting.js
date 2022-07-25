@@ -80,9 +80,10 @@ const MyPrifileSetting = () => {
       return toast.error('Please provide Email');
     }
 
-    if (!(email.includes('@') && email.includes('.'))) {
-      return toast.error('Please enter a valid Email');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return toast.error('Please enter a valid email');
     }
+
     if (password && password.length < 8) {
       return toast.error('Please enter more than seven digit password');
     }

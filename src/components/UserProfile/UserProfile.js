@@ -146,7 +146,11 @@ const UserProfile = (props) => {
   }, []);
   return (
     <>
-      <RegisterSuccessfully open={openCongratulation} setOpen={setCongratulation} text="Your Profile Edit Successfully !" />
+      <RegisterSuccessfully
+        open={openCongratulation}
+        setOpen={setCongratulation}
+        text="Your Profile Edit Successfully !"
+      />
 
       <PropfileInformation
         openProfile={openProfile}
@@ -197,7 +201,13 @@ const UserProfile = (props) => {
               {/* {showImg ? null : (
               <> */}
               <img
-                src={cover_photo ? cover_photo : user?.cover_photo ? user?.cover_photo : UserHomeProfleImg}
+                src={
+                  cover_photo
+                    ? cover_photo
+                    : user?.cover_photo
+                    ? user?.cover_photo
+                    : UserHomeProfleImg
+                }
                 alt=""
                 className="profileBackgroun-Image"
               />
@@ -250,7 +260,9 @@ const UserProfile = (props) => {
               <p className="pofileP">{user ? user.email[0] : 'johnsmith1@gmail.com'}</p>
               <p className="prfile-lavelP">
                 Level:&nbsp;
-                <span className="level-span">{creator?.gameLevel ? creator.gameLevel : 'Semi-Pro'}</span>
+                <span className="level-span">
+                  {creator?.gameLevel ? creator.gameLevel : 'Semi-Pro'}
+                </span>
               </p>
             </div>
             {/* <div className="following-content">

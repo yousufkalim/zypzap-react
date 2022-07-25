@@ -82,7 +82,8 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
     if (values.email == '') {
       return toast.error('Please enter your email');
     }
-    if (!(values.email.includes('@') && values.email.includes('.'))) {
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
       return toast.error('Please enter a valid email');
     }
 

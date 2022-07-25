@@ -35,21 +35,45 @@ const FormStepsix = ({
   //   setformDataSix(file);
   //   setUploading(true);
   // };
-  const handleSubmit = async (e) => {
+  const handleSubmitImage = async (e) => {
+    e.preventDefault();
+    setBtnState(3);
+    const file = e.target.files[0];
+    if (!file) return;
+    var fileName = file.name;
+
+    if (!fileName.match(/\.(jpeg|png|jpg|gif|webp)$/))
+      toast.error('Only image file should be selected!');
+    else {
+      const formData = new FormData();
+      formData.append('photos', file);
+      let data = await uploadPhoto(formData, 'thumbnails');
+      setformDataSix(data.url);
+      setImgUrl(data.url);
+      setUploading(true);
+      setBtnState(0);
+    }
+  };
+
+  const handleSubmitVideo = async (e) => {
     e.preventDefault();
     setBtnState(3);
     const file = e.target.files[0];
     if (!file) return;
 
-    const formData = new FormData();
-    formData.append('photos', file);
+    var fileName = file.name;
 
-    let data = await uploadPhoto(formData, 'thumbnails');
+    if (!fileName.match(/\.(mp4|mpeg|mov)$/)) toast.error('Only video files should be selected');
+    else {
+      const formData = new FormData();
+      formData.append('photos', file);
+      let data = await uploadPhoto(formData, 'thumbnails');
+      setformDataSix(data.url);
+      setImgUrl(data.url);
+      setUploading(true);
 
-    setformDataSix(data.url);
-    setImgUrl(data.url);
-    setUploading(true);
-    setBtnState(0);
+      setBtnState(0);
+    }
   };
 
   const handleSubmitCourse = async () => {
@@ -57,6 +81,7 @@ const FormStepsix = ({
     if (imgUrl == '') {
       return toast.error('Veuillez entrer la vignette du cours');
     }
+
     setBtnState(1);
 
     let modifiedFormDataOne = { ...formDataOne };
@@ -89,7 +114,13 @@ const FormStepsix = ({
   };
   return (
     <>
-      <CourseAproved open={opens} setOpen={setOpens} closeModal={handleClose} setStep={setStep} text="" />
+      <CourseAproved
+        open={opens}
+        setOpen={setOpens}
+        closeModal={handleClose}
+        setStep={setStep}
+        text=""
+      />
       {/* <successPopup
         open={showPopup}
         setOpen={() => setShowPopup(!showPopup)}
@@ -107,7 +138,7 @@ const FormStepsix = ({
               <div className="step_container">
                 <div className="step1">
                   <p className="step1-p">Upload Course Thumbnail</p>
-                  <ImageInput text="Select Image" onChange={handleSubmit} />
+                  <ImageInput text="Select Image" onChange={handleSubmitImage} />
                 </div>
               </div>
             </Grid>
@@ -115,7 +146,7 @@ const FormStepsix = ({
               <div className="step_container">
                 <div className="step1">
                   <p className="step1-p">Upload Course Introduction</p>
-                  <VideoInput text="Select Video" onChange={handleSubmit} />
+                  <VideoInput text="Select Video" onChange={handleSubmitVideo} />
                 </div>
               </div>
             </Grid>
@@ -126,10 +157,18 @@ const FormStepsix = ({
 
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button className="drafBtn" style={{ background: 'none', border: '1px solid #662F88' }} onClick={() => setStep(5)}>
+          <button
+            className="drafBtn"
+            style={{ background: 'none', border: '1px solid #662F88' }}
+            onClick={() => setStep(5)}
+          >
             Previous
           </button>
-          <button className="continueBtn" onClick={handleSubmitCourse} disabled={btnState == 0 ? false : true}>
+          <button
+            className="continueBtn"
+            onClick={handleSubmitCourse}
+            disabled={btnState == 0 ? false : true}
+          >
             {btnState === 0
               ? 'Submit For Approval'
               : btnState === 1

@@ -260,7 +260,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                       <TextField
                         classes={{ root: classes.customTextField }}
                         {...params}
-                        placeholder="Game Name"
+                        placeholder="Game Name "
                         style={{ color: 'white' }}
                         variant="outlined"
                         onChange={getAllGames}
@@ -367,6 +367,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
           Course Description
         </label>
         <textarea
+          style={{ resize: 'none' }}
           name="description"
           id=""
           cols="200"
