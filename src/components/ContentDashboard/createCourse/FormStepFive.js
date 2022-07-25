@@ -1,22 +1,25 @@
-import React, { useState, useEffect } from "react";
-import Fireicon from "../../../assets/icons/Fireicon.png";
-import AddIcon from "@mui/icons-material/Add";
-import EditIcon from "../../../assets/icons/EditIcon.svg";
-import DeleteIcon from "../../../assets/icons/DeleteIcon.svg";
-import api from "../../../api";
-import { toast } from "react-toastify";
-import { Store, UpdateStore } from "../../../StoreContext";
+import React, { useState, useEffect } from 'react';
+import Fireicon from '../../../assets/icons/Fireicon.png';
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '../../../assets/icons/EditIcon.svg';
+import DeleteIcon from '../../../assets/icons/DeleteIcon.svg';
+import api from '../../../api';
+import { toast } from 'react-toastify';
+import { Store, UpdateStore } from '../../../StoreContext';
+import { CircularProgress } from '@material-ui/core';
+
 const FormStepFive = ({
   step,
   setStep,
   setformDataTwo,
   formDataTwo,
   formDataFive,
-  setformDataFive
+  setformDataFive,
 }) => {
   const { creator } = Store();
   const [creatorId, setCreatorId] = useState(creator ? creator?._id : null);
   const [lodding, setlodding] = useState(false);
+
   const [uploadedVideos, setUploadedVideos] = useState([]);
   // const [newVideos, setNewVideos] = useState([]);
 
@@ -27,32 +30,34 @@ const FormStepFive = ({
   const handleSubmit = async () => {
     if (formDataTwo.length === 0) {
       if (formDataFive.length === 0) {
-        toast.error("Veuillez sélectionner une vidéo pour ce cours");
+        toast.error('Veuillez sélectionner une vidéo pour ce cours');
         setStep(2);
-      }
-      setStep(6);
-    }
-    setlodding(true);
-
-    let newArray = [...formDataFive];
-    for (let i = formDataFive?.length; i < formDataTwo?.length; i++) {
-      if (formDataTwo[i]?.name === "") {
-        formDataTwo[i].name = formDataTwo[i]?.file?.name;
-      }
-      let file = await handleSingleVideo(formDataTwo[i]);
-      // setUploadedVideos([...uploadedVideos, formDataTwo[i]]);
-      newArray = [...newArray, file._id];
-      setformDataFive(newArray);
-      if (formDataTwo.length === 1) setStep(6);
-      if (i == formDataTwo.length - 1) {
+      } else {
         setStep(6);
+      }
+    } else {
+      setlodding(true);
+
+      let newArray = [...formDataFive];
+      for (let i = formDataFive?.length; i < formDataTwo?.length; i++) {
+        if (formDataTwo[i]?.name === '') {
+          formDataTwo[i].name = formDataTwo[i]?.file?.name;
+        }
+        let file = await handleSingleVideo(formDataTwo[i]);
+        // setUploadedVideos([...uploadedVideos, formDataTwo[i]]);
+        newArray = [...newArray, file._id];
+        setformDataFive(newArray);
+        if (formDataTwo.length === 1) setStep(6);
+        if (i == formDataTwo.length - 1) {
+          setStep(6);
+        }
       }
     }
   };
   const handleSingleVideo = async (file) => {
     return new Promise(async (resolve, reject) => {
       file.creator = creatorId;
-      let res = await api("post", "/videos", file);
+      let res = await api('post', '/videos', file);
       if (res) {
         resolve(res.data);
       } else {
@@ -87,15 +92,10 @@ const FormStepFive = ({
                   type="text"
                   placeholder="Title"
                   className="step3_inputs"
-                  value={file?.name ? file.name : ""}
+                  value={file?.name ? file.name : ''}
                   onChange={(e) => handleChange(e, index)}
                 />
-                <img
-                  className="editIcon"
-                  src={EditIcon}
-                  alt=""
-                  onClick={() => handleEdit(file)}
-                />
+                <img className="editIcon" src={EditIcon} alt="" onClick={() => handleEdit(file)} />
                 <img
                   className="deleteIcon"
                   src={DeleteIcon}
@@ -110,16 +110,31 @@ const FormStepFive = ({
           <button className="drafBtn">Draft</button>
           <button
             className="drafBtn"
-            style={{ background: "none", border: "1px solid #662F88" }}
+            style={{ background: 'none', border: '1px solid #662F88' }}
             onClick={() => setStep(2)}
           >
             Previous
           </button>
-          <button onClick={handleSubmit} className="continueBtn">
-            {lodding ? "Loading" : "Continue"}
+          <button onClick={handleSubmit} disabled={lodding ? true : false} className="continueBtn">
+            {lodding ? 'Loading' : 'Continue'}
           </button>
         </div>
+        {lodding ? (
+          <CircularProgress
+            size={70}
+            thickness={3.5}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '55%',
+              color: 'white',
+            }}
+          />
+        ) : (
+          ''
+        )}
       </div>
+      {/* <DeleteEpisodePUBG /> */}
     </>
   );
 };
