@@ -8,7 +8,9 @@ import { toast } from 'react-toastify';
 import successPopup from '../../PopupForms/RequestSuccessfullyPopup';
 import { useHistory } from 'react-router-dom';
 import CourseAproved from '../../PopupForms/CourseAproved';
-import { uploadPhoto } from '../../../utils/uploadMedia';
+import { uploadPhoto, uploadVideo } from '../../../utils/uploadMedia';
+import { CircularProgress } from '@material-ui/core';
+
 const FormStepsix = ({
   step,
   formDataOne,
@@ -27,6 +29,9 @@ const FormStepsix = ({
   const [uploading, setUploading] = useState(false);
   const [btnState, setBtnState] = useState(0);
   const [opens, setOpens] = useState(false);
+  const [videoName, setVideoName] = useState('');
+  const [mbPerSecond, setmbPerSecond] = useState(0);
+  const [timeUploadRemaining, setTimeUploadRemaining] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
   const [imgUrl, setImgUrl] = useState('');
   // const [videoName, setVideoName] = useState("");
@@ -49,6 +54,7 @@ const FormStepsix = ({
       formData.append('photos', file);
       let data = await uploadPhoto(formData, 'thumbnails');
       setformDataSix(data.url);
+      // setformDataFive([]);
       setImgUrl(data.url);
       setUploading(true);
       setBtnState(0);
@@ -60,14 +66,21 @@ const FormStepsix = ({
     setBtnState(3);
     const file = e.target.files[0];
     if (!file) return;
-
     var fileName = file.name;
 
     if (!fileName.match(/\.(mp4|mpeg|mov)$/)) toast.error('Only video files should be selected');
     else {
       const formData = new FormData();
-      formData.append('photos', file);
-      let data = await uploadPhoto(formData, 'thumbnails');
+      formData.append('videos', file);
+      let data = await uploadVideo(
+        formData,
+        creator._id,
+        setVideoName,
+        setOpens,
+        setmbPerSecond,
+        setTimeUploadRemaining,
+        ''
+      );
       setformDataSix(data.url);
       setImgUrl(data.url);
       setUploading(true);
@@ -84,9 +97,7 @@ const FormStepsix = ({
 
     setBtnState(1);
 
-    let modifiedFormDataOne = { ...formDataOne };
-    modifiedFormDataOne.selectedGamename = formDataOne.selectedGamename.label;
-    let data = { formDataOne: modifiedFormDataOne, formDataFive, formDataSix, id: creator._id };
+    let data = { formDataOne, formDataFive, formDataSix, id: creator._id };
     let res = await api('post', '/courses', data);
     if (res) {
       updateStore({ creator: res?.data?.creator });
@@ -152,7 +163,7 @@ const FormStepsix = ({
             </Grid>
           </div>
         ) : (
-          <p className="success">Thumnail Upload Successfully Now Submit Course</p>
+          <p className="success">Thumbnail Uploaded Successfully, Now Submit Course</p>
         )}
 
         <div className="coursDetailBtn">
@@ -160,6 +171,7 @@ const FormStepsix = ({
           <button
             className="drafBtn"
             style={{ background: 'none', border: '1px solid #662F88' }}
+            disabled={btnState == 1 || btnState == 3 ? true : false}
             onClick={() => setStep(5)}
           >
             Previous
@@ -167,7 +179,7 @@ const FormStepsix = ({
           <button
             className="continueBtn"
             onClick={handleSubmitCourse}
-            disabled={btnState == 0 ? false : true}
+            disabled={btnState == 1 || btnState == 3 ? true : false}
           >
             {btnState === 0
               ? 'Submit For Approval'
@@ -175,8 +187,23 @@ const FormStepsix = ({
               ? 'Loading'
               : btnState === 2
               ? 'Submited'
-              : 'Uploading Thumnail'}
+              : 'Uploading Thumbnail'}
           </button>
+
+          {btnState === 1 || btnState === 3 ? (
+            <CircularProgress
+              size={70}
+              thickness={3.5}
+              style={{
+                position: 'absolute',
+                top: '60%',
+                left: '55%',
+                color: 'white',
+              }}
+            />
+          ) : (
+            ''
+          )}
         </div>
       </div>
     </>

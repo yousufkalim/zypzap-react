@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Dialog from "@mui/material/Dialog";
-import "../../css/form/UploadSuccessfulPopup.css";
-import Fireicon from "../../assets/icons/Fireicon.png";
-import AddIcon from "@mui/icons-material/Add";
-import EditIcon from "../../assets/icons/EditIcon.svg";
-import DeleteIcon from "../../assets/icons/DeleteIcon.svg";
-import UplaodEpisodeSuccessfull from "./UplaodEpisodeSuccessfull";
+import React, { useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import '../../css/form/UploadSuccessfulPopup.css';
+import Fireicon from '../../assets/icons/Fireicon.png';
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '../../assets/icons/EditIcon.svg';
+import DeleteIcon from '../../assets/icons/DeleteIcon.svg';
+import UplaodEpisodeSuccessfull from './UplaodEpisodeSuccessfull';
 
 const UploadedEpisodePopup = ({ open, setOpen }) => {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
@@ -33,8 +33,8 @@ const UploadedEpisodePopup = ({ open, setOpen }) => {
           <div className="uploadSuccess-centerDiv">
             {/* /* ------------------------------- content Div ------------------------------  */}
             <div className="formStepOneDiv">
-              <p style={{ textAlign: "left" }}>Step 5/6</p>
-              <h2 className="coursedetail1" style={{ textAlign: "left" }}>
+              <p style={{ textAlign: 'left' }}>Step 5/6</p>
+              <h2 className="coursedetail1" style={{ textAlign: 'left' }}>
                 Uploaded Episode
               </h2>
               <div className="hrLine1" />

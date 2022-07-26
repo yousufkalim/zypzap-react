@@ -37,6 +37,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
       );
       setImgUrl(...imgUrl, url);
       const fileData = { name: files[i].name, path: url, file: files[i] };
+
       newArray = [...newArray, fileData];
       setformDataTwo(newArray);
       if (i !== files.length - 1) setProgress(0);
@@ -125,7 +126,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
                 </div>
               </Grid>
             ) : (
-              <p className="success">Video Upload Successfully Please Continue!</p>
+              <p className="success">Video Uploaded Successfully, Please Continue!</p>
             )}
           </>
         ) : (
@@ -136,7 +137,11 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
 
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button className="drafBtn" style={{ background: 'none', border: '1px solid #662F88' }} onClick={() => setStep(1)}>
+          <button
+            className="drafBtn"
+            style={{ background: 'none', border: '1px solid #662F88' }}
+            onClick={() => setStep(1)}
+          >
             Previous
           </button>
           <button onClick={handleVideo} className="continueBtn">
