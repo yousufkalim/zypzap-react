@@ -5,8 +5,9 @@ import EditIcon from '../../../assets/icons/EditIcon.svg';
 import DeleteIcon from '../../../assets/icons/DeleteIcon.svg';
 import api from '../../../api';
 import { toast } from 'react-toastify';
-import { Store, UpdateStore } from '../../../StoreContext';
+import { Store } from '../../../StoreContext';
 import { CircularProgress } from '@material-ui/core';
+import DeleteEp from '../../PopupForms/DeleteEp';
 
 const FormStepFive = ({
   step,
@@ -19,7 +20,8 @@ const FormStepFive = ({
   const { creator } = Store();
   const [creatorId, setCreatorId] = useState(creator ? creator?._id : null);
   const [lodding, setlodding] = useState(false);
-
+  const [fileToDelete, setFileToDelete] = useState({});
+  const [open, setOpen] = useState(false);
   const [uploadedVideos, setUploadedVideos] = useState([]);
   // const [newVideos, setNewVideos] = useState([]);
 
@@ -27,6 +29,7 @@ const FormStepFive = ({
     const newChapter = formDataTwo?.filter((a) => a !== file);
     setformDataTwo(newChapter);
   };
+
   const handleSubmit = async () => {
     if (formDataTwo.length === 0) {
       if (formDataFive.length === 0) {
@@ -75,6 +78,14 @@ const FormStepFive = ({
 
   return (
     <>
+      <DeleteEp
+        open={open}
+        setOpen={setOpen}
+        formDataTwo={formDataTwo}
+        setformDataTwo={setformDataTwo}
+        handleDelete={handleDelete}
+        fileToDelete={fileToDelete}
+      />
       <div className="formStepOneDiv">
         <p>Step {step}/6</p>
         <h2 className="coursedetail">Uploaded Episode</h2>
@@ -100,7 +111,10 @@ const FormStepFive = ({
                   className="deleteIcon"
                   src={DeleteIcon}
                   alt=""
-                  onClick={() => handleDelete(file)}
+                  onClick={() => {
+                    setOpen(true);
+                    setFileToDelete(file);
+                  }}
                 />
               </div>
             </div>
