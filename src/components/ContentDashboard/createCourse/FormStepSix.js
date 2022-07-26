@@ -30,7 +30,6 @@ const FormStepsix = ({
   const [btnState, setBtnState] = useState(0);
   const [opens, setOpens] = useState(false);
   const [videoName, setVideoName] = useState('');
-
   const [mbPerSecond, setmbPerSecond] = useState(0);
   const [timeUploadRemaining, setTimeUploadRemaining] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
@@ -55,6 +54,7 @@ const FormStepsix = ({
       formData.append('photos', file);
       let data = await uploadPhoto(formData, fileName);
       setformDataSix(data.url);
+      // setformDataFive([]);
       setImgUrl(data.url);
       setUploading(true);
       setBtnState(0);
@@ -97,9 +97,7 @@ const FormStepsix = ({
 
     setBtnState(1);
 
-    let modifiedFormDataOne = { ...formDataOne };
-    modifiedFormDataOne.selectedGamename = formDataOne.selectedGamename.label;
-    let data = { formDataOne: modifiedFormDataOne, formDataFive, formDataSix, id: creator._id };
+    let data = { formDataOne, formDataFive, formDataSix, id: creator._id };
     let res = await api('post', '/courses', data);
     if (res) {
       updateStore({ creator: res?.data?.creator });
@@ -165,7 +163,7 @@ const FormStepsix = ({
             </Grid>
           </div>
         ) : (
-          <p className="success">Thumnail Upload Successfully Now Submit Course</p>
+          <p className="success">Thumbnail Uploaded Successfully, Now Submit Course</p>
         )}
 
         <div className="coursDetailBtn">
@@ -173,6 +171,7 @@ const FormStepsix = ({
           <button
             className="drafBtn"
             style={{ background: 'none', border: '1px solid #662F88' }}
+            disabled={btnState == 1 || btnState == 3 ? true : false}
             onClick={() => setStep(5)}
           >
             Previous

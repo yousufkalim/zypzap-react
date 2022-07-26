@@ -126,7 +126,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
                 </div>
               </Grid>
             ) : (
-              <p className="success">Video Upload Successfully Please Continue!</p>
+              <p className="success">Video Uploaded Successfully, Please Continue!</p>
             )}
           </>
         ) : (

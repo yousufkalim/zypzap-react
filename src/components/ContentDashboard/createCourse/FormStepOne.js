@@ -95,43 +95,20 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
       }
     );
 
-    var gamesToSet = []; // //debugger;
-    for (var i = 0; i < res?.data?.results?.length; i++) {
-      gamesToSet.push({
-        id: i,
-        label: res?.data?.results[i].name,
+    var gamesToSet = res?.data?.results?.map((game) => {
+      return game.name;
+    });
 
-        img: res?.data?.results[i].background_image,
-      });
-    }
-    if (gamesToSet.length === res?.data?.results.length) {
-      setValues(gamesToSet);
-    }
+    setValues(gamesToSet);
   };
 
   // Set selected game in  setAddressValue State
-  const setGamefiled = async (item) => {
-    console.log('Selected item --> ', item);
-    if (item.target.textContent) {
-      const selectedItem = item.target.textContent;
-      for (var i = 0; i < values.length; i++) {
-        if (values[i].label === selectedItem) {
-          var label = values[i].label;
-          var img = values[i].img;
-
-          const city = values[i].city;
-          setformDataOne({
-            ...formDataOne,
-            ['selectedGamename']: values[i],
-          });
-        }
-      }
-    } else {
-      await setformDataOne({
-        ...formDataOne,
-        ['selectedGamename']: values[i].label,
-      });
-    }
+  const setGamefiled = async (item, value) => {
+    setformDataOne({
+      ...formDataOne,
+      ['selectedGamename']: value,
+      ['gameName']: value,
+    });
   };
   return (
     <>
@@ -243,6 +220,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                     classes={{
                       option: classes.option,
                     }}
+                    id="controllable-states-demo"
                     className="coursInputAutofiled"
                     noOptionsText={
                       <div style={{ color: 'white', fontSize: '12px' }}> no option </div>
@@ -250,7 +228,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                     PaperComponent={({ children }) => (
                       <Paper style={{ background: '#242635' }}>{children}</Paper>
                     )}
-                    getOptionLabel={(option) => option.label || ''}
+                    getOptionLabel={(option) => option || ''}
                     onChange={setGamefiled}
                     hiddenLabel="true"
                     style={{

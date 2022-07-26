@@ -121,15 +121,18 @@ const FormStepFive = ({
           );
         })}
         <div className="coursDetailBtn">
-          <button className="drafBtn">Draft</button>
+          <button disabled={lodding} className="drafBtn">
+            Draft
+          </button>
           <button
             className="drafBtn"
+            disabled={lodding}
             style={{ background: 'none', border: '1px solid #662F88' }}
             onClick={() => setStep(2)}
           >
             Previous
           </button>
-          <button onClick={handleSubmit} disabled={lodding ? true : false} className="continueBtn">
+          <button onClick={handleSubmit} disabled={lodding} className="continueBtn">
             {lodding ? 'Loading' : 'Continue'}
           </button>
         </div>
