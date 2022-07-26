@@ -52,7 +52,7 @@ const FormStepsix = ({
     else {
       const formData = new FormData();
       formData.append('photos', file);
-      let data = await uploadPhoto(formData, fileName);
+      let data = await uploadPhoto(formData, 'thumbnails');
       setformDataSix(data.url);
       // setformDataFive([]);
       setImgUrl(data.url);
