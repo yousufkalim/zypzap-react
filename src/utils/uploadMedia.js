@@ -16,8 +16,17 @@ export const uploadPhoto = (formData, dir) => {
   });
 };
 
-export const uploadVideo = async (file, creator, setVideoName, setOpens, setmbPerSecond, setTimeUploadRemaining, setProgress) => {
+export const uploadVideo = async (
+  file,
+  creator,
+  setVideoName,
+  setOpens,
+  setmbPerSecond,
+  setTimeUploadRemaining,
+  setProgress
+) => {
   if (!file) return;
+
   return new Promise(async (resolve, reject) => {
     setVideoName(file.name);
     setOpens(true);
@@ -53,7 +62,8 @@ export const uploadVideo = async (file, creator, setVideoName, setOpens, setmbPe
               bytesTransferredTime = now;
               let newbytesPerSecond = bytesPerSecond / 1024;
               setmbPerSecond(newbytesPerSecond.toFixed(3));
-              let remTime = (((total - loaded) / bytesPerSecond) * 2) / (updateDurationThreshold - 1000);
+              let remTime =
+                (((total - loaded) / bytesPerSecond) * 2) / (updateDurationThreshold - 1000);
               totalBytesTransferred += bytesTransferred;
               remTime = remTime.toFixed(0);
               if (remTime <= 60) remTime = `${remTime} sec left`;
@@ -77,7 +87,7 @@ export const uploadVideo = async (file, creator, setVideoName, setOpens, setmbPe
       const url = response.data.url;
       resolve(url);
     } catch (err) {
-      toast.error('Error uploading file');
+      toast.error('Error uploading file. Pleaese try again');
       reject();
     }
   });

@@ -90,7 +90,6 @@ const FormStepsix = ({
   };
 
   const handleSubmitCourse = async () => {
-    console.log('Submitted');
     if (imgUrl == '') {
       return toast.error('Veuillez entrer la vignette du cours');
     }
@@ -137,8 +136,9 @@ const FormStepsix = ({
         setOpen={() => setShowPopup(!showPopup)}
         closeModal={handleClose}
       /> */}
+
       <div className="formStepOneDiv">
-        <p>Step {step}/6</p>
+        <p>Step 4/4</p>
         <br />
 
         <p className="stapPr">Add intro video and Thumbnail</p>
@@ -167,7 +167,9 @@ const FormStepsix = ({
         )}
 
         <div className="coursDetailBtn">
-          <button className="drafBtn">Draft</button>
+          <button disabled={btnState == 1 || btnState == 3 ? true : false} className="drafBtn">
+            Draft
+          </button>
           <button
             className="drafBtn"
             style={{ background: 'none', border: '1px solid #662F88' }}

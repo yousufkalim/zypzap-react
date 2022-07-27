@@ -113,7 +113,7 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
   return (
     <>
       <div className="formStepOneDiv">
-        <p className="stpno">Step {step}/6</p>
+        <p className="stpno">Step 1/4</p>
         <h2 className="coursedetail1">Course Details </h2>
         <div className="hrLine1" />
         <div className="courseDivContainer">

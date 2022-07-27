@@ -9,10 +9,16 @@ import { toast } from 'react-toastify';
 import { Store, UpdateStore } from '../../StoreContext';
 import UploadingTheCourse from '../PopupForms/UploadingTheCourse';
 import { uploadVideo } from '../../utils/uploadMedia';
+import axios from 'axios';
+import { makeStyles } from '@mui/styles';
+import TextField from '@mui/material/TextField';
+import Paper from '@mui/material/Paper';
+import Autocomplete from '@mui/material/Autocomplete';
 
 import api from '../../api';
 const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   const { Games, creator } = Store();
+  const [values, setValues] = useState([]);
   const [showPopup, setShowPopup] = React.useState(false);
   const [opens, setOpens] = React.useState(false);
   const [mbPerSecond, setmbPerSecond] = useState(0);
@@ -26,17 +32,44 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   const [formDataFive, setformDataFive] = useState([]);
   const [formDataOne, setformDataOne] = useState({
     course_name: course?.course_name,
-    // gameName: course?.game_id?._id,
+    gameName: '',
     selectedGamename: course?.selectedGamename,
     gameLevel: course?.gameLevel,
-    gameType: course?.game_id?.category,
+    gameType: course?.gameType,
     gameMood: course?.gameMood,
     gamePlateForm: course?.gamePlateForm,
     description: course?.description,
   });
+  console.log('game_id', course);
+  const useStyles = makeStyles({
+    customTextField: {
+      '& input': { color: 'white' },
+      '&:hover': {
+        border: 'red !important',
+      },
+      '& input::placeholder': {
+        color: 'white',
+        '@media (max-width: 780px)': {
+          paddingLeft: '-2px',
+        },
+      },
+    },
+    option: {
+      background: '#242635 ',
+      color: 'white',
+      '&:hover': {
+        backgroundColor: '#9198a5 !important',
+      },
+    },
+    noOptions: {
+      display: `${'inherit'}`,
+      color: 'white',
+    },
+  });
+  const classes = useStyles();
   const {
     course_name,
-    // gameName,
+    gameName,
     selectedGamename,
     gameLevel,
     gameType,
@@ -48,10 +81,9 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   useEffect(() => {
     setformDataOne({
       course_name: course?.course_name,
-      gameName: course?.game_id?._id,
       selectedGamename: course?.selectedGamename,
       gameLevel: course?.level,
-      gameType: course?.game_id?.category,
+      gameType: course?.gameType,
       gameMood: course?.mode,
       gamePlateForm: course?.plateform,
       description: course?.description,
@@ -112,6 +144,35 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
       setTimeUploadRemaining(`0 sec left`);
     }
   };
+
+  const getAllGames = async (e) => {
+    setformDataOne({
+      ...formDataOne,
+      [e.target.name]: e.target.value,
+    });
+
+    const res = await axios.get(
+      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
+        e.target.value +
+        '&page=1&page_size=10',
+      {
+        withCredentials: false,
+      }
+    );
+
+    var gamesToSet = res?.data?.results?.map((game) => {
+      return game.name;
+    });
+
+    setValues(gamesToSet);
+  };
+  const setGamefiled = async (item, value) => {
+    setformDataOne({
+      ...formDataOne,
+      ['selectedGamename']: value,
+      ['gameName']: value,
+    });
+  };
   const handleSingleVideo = async (file) => {
     return new Promise(async (resolve, reject) => {
       file.creator = creator._id;
@@ -166,28 +227,52 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                 <Grid xs={12} sm={6}>
                   <div>
                     <p className="stepLabel">Game Name</p>
-                    <select
-                      id="gameName"
-                      name="selectedGamename"
-                      className="coursInput"
-                      value={selectedGamename}
-                      onChange={chnageEvent}
-                    >
-                      {game?.map((g, index) => {
-                        return (
-                          <option value={g._id} className="setepOption">
-                            {g.game_name}
-                          </option>
-                        );
-                      })}
-                    </select>
+                    <Autocomplete
+                      options={values}
+                      value={formDataOne.selectedGamename}
+                      classes={{
+                        option: classes.option,
+                      }}
+                      id="controllable-states-demo"
+                      className="coursInputAutofiled"
+                      noOptionsText={
+                        <div style={{ color: 'white', fontSize: '12px' }}> no option </div>
+                      }
+                      PaperComponent={({ children }) => (
+                        <Paper style={{ background: '#242635' }}>{children}</Paper>
+                      )}
+                      getOptionLabel={(option) => option || ''}
+                      onChange={setGamefiled}
+                      hiddenLabel="true"
+                      style={{
+                        margin: 'auto',
+                      }}
+                      renderInput={(params) => (
+                        <TextField
+                          classes={{ root: classes.customTextField }}
+                          {...params}
+                          placeholder="Game Name "
+                          style={{ color: 'white' }}
+                          variant="outlined"
+                          onChange={getAllGames}
+                          value={gameName}
+                          name="gameName"
+                        />
+                      )}
+                    />
                   </div>
                 </Grid>
                 <Grid container spacing={2}>
                   <Grid xs={12} sm={6}>
                     <div>
                       <p className="stepLabel">Gameplay level</p>
-                      <select id="gameLevel" name="gameLevel" className="stepSelect" value={gameLevel} onChange={chnageEvent}>
+                      <select
+                        id="gameLevel"
+                        name="gameLevel"
+                        className="stepSelect"
+                        value={gameLevel}
+                        onChange={chnageEvent}
+                      >
                         <option value="Casual" className="setepOption">
                           Casual
                         </option>
@@ -215,7 +300,13 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                       <div>
                         <p className="stepLabel">Game Type</p>
 
-                        <select id="gameType" name="gameType" className="stepSelect" value={gameType} onChange={chnageEvent}>
+                        <select
+                          id="gameType"
+                          name="gameType"
+                          className="stepSelect"
+                          value={gameType}
+                          onChange={chnageEvent}
+                        >
                           <option value="Action" className="setepOption">
                             Action
                           </option>
@@ -264,7 +355,13 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                     <Grid xs={12} sm={6}>
                       <div>
                         <p className="stepLabel">Gaming Mode</p>
-                        <select id="gameMood" name="gameMood" className="stepSelect" value={gameMood} onChange={chnageEvent}>
+                        <select
+                          id="gameMood"
+                          name="gameMood"
+                          className="stepSelect"
+                          value={gameMood}
+                          onChange={chnageEvent}
+                        >
                           <option value="Single" className="setepOption">
                             Single
                           </option>
