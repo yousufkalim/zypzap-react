@@ -40,7 +40,6 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
     gamePlateForm: course?.gamePlateForm,
     description: course?.description,
   });
-  console.log('game_id', course);
   const useStyles = makeStyles({
     customTextField: {
       '& input': { color: 'white' },
