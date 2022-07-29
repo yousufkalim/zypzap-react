@@ -24,25 +24,35 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
     // e.preventDefault();
     const files = file.target.files;
     if (!files) return;
-    let newArray = ([] = formDataTwo);
-    for (let i = 0; i < files.length; i++) {
-      const url = await uploadVideo(
-        files[i],
-        creator._id,
-        setVideoName,
-        setOpens,
-        setmbPerSecond,
-        setTimeUploadRemaining,
-        setProgress
-      );
-      setImgUrl(...imgUrl, url);
-      const fileData = { name: files[i].name, path: url, file: files[i] };
 
-      newArray = [...newArray, fileData];
-      setformDataTwo(newArray);
-      if (i !== files.length - 1) setProgress(0);
-      setUploading(true);
-      setTimeUploadRemaining(`0 sec left`);
+    let newArray = ([] = formDataTwo);
+
+    for (let i = 0; i < files.length; i++) {
+      var filename = files[i].name;
+      if (!filename.match(/\.(mp4|mpeg|mov)$/)) {
+        toast.error('Please select video files. Only video files will be uploaded');
+        setUploading(false);
+        setProgress(0);
+        setOpen(false);
+      } else {
+        const url = await uploadVideo(
+          files[i],
+          creator._id,
+          setVideoName,
+          setOpens,
+          setmbPerSecond,
+          setTimeUploadRemaining,
+          setProgress
+        );
+        setImgUrl(...imgUrl, url);
+        const fileData = { name: files[i].name, path: url, file: files[i] };
+
+        newArray = [...newArray, fileData];
+        setformDataTwo(newArray);
+        if (i !== files.length - 1) setProgress(0);
+        setUploading(true);
+        setTimeUploadRemaining(`0 sec left`);
+      }
     }
   };
 
@@ -80,7 +90,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
       />
       <RequestSuccessfullyPopup open={open} setOpen={setOpen} />
       <div className="formStepOneDiv">
-        <p>Step {step}/6</p>
+        <p>Step 2/4</p>
         <div className="uploadBtnDiv">
           <h2
             className={`

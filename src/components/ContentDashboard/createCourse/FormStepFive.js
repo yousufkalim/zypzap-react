@@ -32,28 +32,27 @@ const FormStepFive = ({
 
   const handleSubmit = async () => {
     if (formDataTwo.length === 0) {
-      if (formDataFive.length === 0) {
-        toast.error('Veuillez sélectionner une vidéo pour ce cours');
-        setStep(2);
+      toast.error('Veuillez sélectionner une vidéo pour ce cours');
+      setStep(2);
+    } else {
+      let newArray = [...formDataFive];
+      if (formDataFive.length < formDataTwo.length) {
+        setlodding(true);
+        for (let i = formDataFive?.length; i < formDataTwo?.length; i++) {
+          if (formDataTwo[i]?.name === '') {
+            formDataTwo[i].name = formDataTwo[i]?.file?.name;
+          }
+          let file = await handleSingleVideo(formDataTwo[i]);
+          // setUploadedVideos([...uploadedVideos, formDataTwo[i]]);
+          newArray = [...newArray, file._id];
+          setformDataFive(newArray);
+          if (formDataTwo.length === 1) setStep(6);
+          if (i == formDataTwo.length - 1) {
+            setStep(6);
+          }
+        }
       } else {
         setStep(6);
-      }
-    } else {
-      setlodding(true);
-
-      let newArray = [...formDataFive];
-      for (let i = formDataFive?.length; i < formDataTwo?.length; i++) {
-        if (formDataTwo[i]?.name === '') {
-          formDataTwo[i].name = formDataTwo[i]?.file?.name;
-        }
-        let file = await handleSingleVideo(formDataTwo[i]);
-        // setUploadedVideos([...uploadedVideos, formDataTwo[i]]);
-        newArray = [...newArray, file._id];
-        setformDataFive(newArray);
-        if (formDataTwo.length === 1) setStep(6);
-        if (i == formDataTwo.length - 1) {
-          setStep(6);
-        }
       }
     }
   };
@@ -86,8 +85,8 @@ const FormStepFive = ({
         handleDelete={handleDelete}
         fileToDelete={fileToDelete}
       />
-      <div className="formStepOneDiv">
-        <p>Step {step}/6</p>
+      <div className={!lodding ? 'formStepOneDiv' : 'disableDiv'}>
+        <p>Step 3/4</p>
         <h2 className="coursedetail">Uploaded Episode</h2>
         <div className="hrLine1" />
         {formDataTwo?.map((file, index) => {

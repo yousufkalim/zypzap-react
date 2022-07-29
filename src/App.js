@@ -1,9 +1,10 @@
 // Init
 import React, { useEffect } from 'react';
-import { ToastContainer, Flip } from 'react-toastify';
+import { ToastContainer, Flip, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useTranslation } from 'react-i18next';
 import api from './api';
+import { OnlineStatus } from './StoreContext';
 
 // Files
 import Index from './routes/index';
@@ -18,6 +19,7 @@ import { Store, UpdateStore } from './StoreContext';
 function App() {
   // init
   const updateStore = UpdateStore();
+  const isConnected = OnlineStatus();
 
   const { learner, creator } = Store();
   const token = localStorage.getItem('token');
@@ -28,6 +30,11 @@ function App() {
       getdata();
     }
   }, [token]);
+  useEffect(() => {
+    if (!isConnected) {
+      toast.error('Internet has been disconnected.');
+    }
+  }, [isConnected]);
 
   let getdata = async () => {
     try {

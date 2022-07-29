@@ -54,7 +54,7 @@
 .courstexarea::placeholder {
   color: #ffffff;
 
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 13px;
   font-weight: 400;
 }
@@ -89,7 +89,7 @@
   padding: 10px;
   color: #fff;
   display: block;
-  font-family: "poppins";
+  font-family: 'poppins';
 }
 
 .step4Div {
@@ -108,21 +108,22 @@
   margin: 10px 13px 30px 0px;
   padding: 20px 150px;
 }
+
 .drafBtn {
-  font-family: "mulish" !important;
+  font-family: 'mulish' !important;
   padding: 8px 25px;
   border: none;
   margin: 10px 13px 30px 0px;
   background-color: #28293b;
   color: white;
   font-weight: 600;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
 .continueBtn {
-  font-family: "mulish" !important;
+  font-family: 'mulish' !important;
   padding: 8px 25px;
   border: none;
   margin: 10px 13px 30px 0px;
@@ -131,7 +132,7 @@
   border-radius: 4px;
   color: white;
   font-weight: 600;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   cursor: pointer;
   font-size: 16px;
 }
