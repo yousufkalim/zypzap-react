@@ -49,7 +49,7 @@ const BasicInformation = () => {
     }
     let res = await api('post', `/users/basicInfo/${user?._id}`, formData);
     if (res) {
-      updateStore({ user: res.data.user });
+      updateStore({ user: res.admin });
       toast.success('Modifier le profil avec succès');
       setFormData({
         username: '',
