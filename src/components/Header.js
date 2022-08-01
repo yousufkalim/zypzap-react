@@ -572,6 +572,7 @@ export default function PrimarySearchAppBar({
                 onKeyPress={(e) => e.key === 'Enter' && handleSearchButtonClick(e)}
               />
             </Search>
+
             {/* <Link to="" className="requestBt">
               {user ? (
                 <></>
@@ -786,6 +787,68 @@ export default function PrimarySearchAppBar({
               </IconButton>
             </Box>
           </Toolbar>
+          <div className="mobBar">
+            {' '}
+            <Search className="mobSearchBar">
+              <div onClick={handleSearchButtonClick} style={{ cursor: 'pointer' }}>
+                {' '}
+                <Tooltip title="Search">
+                  <SearchIcon className="searchBarIcon" />
+                </Tooltip>
+                <SearchIconWrapper></SearchIconWrapper>
+              </div>
+
+              <div className="dropdown">
+                {/* <button className="dropbtn"> */}
+                <img
+                  src={DownArrow}
+                  alt="img"
+                  className="downarrow"
+                  onClick={() => setSearchFlag(!searchFlag)}
+                />
+                {/* </button> */}
+                {searchFlag && (
+                  <div className="dropdown-content" ref={click}>
+                    <div className="drowp1">
+                      <a
+                        href="#"
+                        className={`${searchState == 'creator' && 'activeserchis'} `}
+                        onClick={handleCreatorSearch}
+                      >
+                        <img className="UserIcons" src={UserIcon} alt="" />
+                        <span className="dropH" style={{ marginLeft: '-5px' }}>
+                          {' '}
+                          Content Creators
+                        </span>
+                        <p className="drowpP">Top gamers who create content for you</p>
+                      </a>
+                    </div>
+                    <div className=" drowp1">
+                      <a
+                        href="#"
+                        className={`${searchState == 'course' && 'activeserchis'} `}
+                        onClick={handleCourseSearch}
+                      >
+                        <img className="UserIcons" src={CourseIcon} alt="" />
+                        <span className="dropH">Courses</span>
+                        <p className="drowpP">Browse and buy courses</p>
+                      </a>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <StyledInputBase
+                placeholder={
+                  searchState == 'course' ? 'Search for course' : 'Search for content creator'
+                }
+                inputProps={{ 'aria-label': 'search', className: 'cc_field' }}
+                onChange={handleChangeInput}
+                // onSubmit={handleSearchButtonClick}
+                value={searchInput}
+                onKeyPress={(e) => e.key === 'Enter' && handleSearchButtonClick(e)}
+              />
+            </Search>
+          </div>
         </AppBar>
         {renderMobileMenu}
         {renderMenu}

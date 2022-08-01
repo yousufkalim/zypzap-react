@@ -161,7 +161,7 @@
 } */
 
 /* for mobile */
-@media only screen and (min-width: 320px) and (max-width: 812px) {
+@media only screen and (min-width: 300px) and (max-width: 812px) {
   .footerLogo {
     margin-left: -15px;
     text-align: center;
@@ -212,6 +212,7 @@
   .f2div {
     padding: 0px 0px 15px 0px;
     text-align: center;
+    margin: auto;
   }
   .divforsign {
     position: relative;
