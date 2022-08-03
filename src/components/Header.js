@@ -250,17 +250,14 @@ export default function PrimarySearchAppBar({
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+      sx={{
+        top: '-35px',
+        minWidth: '100%',
+        minHeight: '100%',
       }}
+      anchorEl={mobileMoreAnchorEl}
       id={mobileMenuId}
       keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >

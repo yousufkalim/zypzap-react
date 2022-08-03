@@ -584,6 +584,22 @@
     margin-top: 19%;
   }
 
+  .menu {
+    top: -35px;
+    left: 6px;
+    min-width: 100%;
+    min-height: 100% !important;
+  }
+  /* #primary-search-account-menu-mobile {
+    top: -35px;
+    left: 6px;
+    min-width: 100%;
+    min-height: 100% !important;
+  } */
+
+  .css-6hp17o-MuiList-root-MuiMenu-list {
+    height: 100vh;
+  }
   .Carousel-indicatorIcon-17 {
     margin-right: 0.5rem !important;
   }
