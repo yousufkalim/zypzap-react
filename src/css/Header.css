@@ -188,9 +188,7 @@
 .headerLinkbox {
   font-weight: 600;
 }
-.mobSearchBar {
-  display: none;
-}
+
 .dropbtn {
   color: white;
   /* padding: 16px; */
@@ -573,26 +571,32 @@
   }
 }
 @media only screen and (min-width: 270px) and (max-width: 600px) {
-  .searchBar {
-    width: 100% !important;
-    margin-left: 12px !important;
+  .mobSearchBar {
+    width: 91% !important;
+    margin: auto;
   }
-  .searchBar {
-    display: none;
-  }
+
   .mobSearchBar {
     display: block;
-    padding: 3%;
+    padding: 2%;
+    position: absolute !important;
+    z-index: 1;
+    margin-top: 19%;
   }
-  .mobBar {
-    margin: auto;
-    width: 87%;
-    margin-top: 4%;
-    margin-bottom: 7%;
+
+  .Carousel-indicatorIcon-17 {
+    margin-right: 0.5rem !important;
+  }
+  .activeIndicator {
+    display: none;
   }
   .searchBarIcon {
     position: absolute;
     top: 2%;
+  }
+  .css-i9gxme {
+    margin-bottom: 5rem;
+    margin-top: 1rem;
   }
   .downarrow {
     left: 0px;
@@ -626,8 +630,8 @@
   }
 
   .dropdown-content {
-    min-width: 220px;
-    padding: 1px 16px;
+    padding-right: 1.2rem;
+    padding-left: 0.6rem;
   }
 
   .topc .requestBtn {

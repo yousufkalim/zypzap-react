@@ -233,7 +233,7 @@
     top: 50px;
     left: 8%;
     text-align: left;
-    z-index: 1;
+    z-index: 0;
   }
   .textimgH1 {
     font-size: 30px;
