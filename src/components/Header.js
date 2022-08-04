@@ -288,7 +288,12 @@ export default function PrimarySearchAppBar({
                   // history.push('/dashboard');
                   updateStore({ contentDashboardButton: 'Courses' });
                 }}
-                style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
+                style={{
+                  color: 'white',
+                  textDecoration: 'none',
+                  marginRight: 'auto',
+                  marginTop: '90%',
+                }}
               >
                 <p className="sgnBtn">My Dashboard</p>
               </Link>
@@ -327,7 +332,12 @@ export default function PrimarySearchAppBar({
                       pathname: learner ? 'UserDashboard' : 'dashboard',
                       state: { user: `${user}` },
                     }}
-                    style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
+                    style={{
+                      color: 'white',
+                      textDecoration: 'none',
+                      marginRight: 'auto',
+                      marginTop: '90%',
+                    }}
                   >
                     <p className="sgnBtn">My Dashboard</p>
                   </Link>
@@ -361,7 +371,7 @@ export default function PrimarySearchAppBar({
             <>
               <p
                 className="sgnBtn"
-                style={{ marginRight: 'auto', marginTop: '24%' }}
+                style={{ marginRight: 'auto', marginTop: '100%' }}
                 onClick={() => setOpenSignup(true)}
               >
                 <img src={S_Vector} /> Sign Up
