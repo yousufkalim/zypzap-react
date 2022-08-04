@@ -1,11 +1,5 @@
 /* for background color of avbar */
 
-
-/* .css-177ic5c{
-  position: none;
-  min-height:"100%";
-  min-width: "100%";
-} */
 .css-hip9hq-MuiPaper-root-MuiAppBar-root {
   background-color: black !important;
 }
@@ -702,8 +696,8 @@
   }
   .sgnBtn {
     margin-right: auto ;
-    margin-left: 7%;
-    margin-bottom: 5%;
+    margin-bottom: 16%;
+    margin-left: 22%;
   }
 
   .css-177ic5c{
