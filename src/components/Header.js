@@ -292,7 +292,7 @@ export default function PrimarySearchAppBar({
                   color: 'white',
                   textDecoration: 'none',
                   marginRight: 'auto',
-                  marginTop: '90%',
+                  marginTop: '20vh',
                 }}
               >
                 <p className="sgnBtn">My Dashboard</p>
@@ -336,7 +336,7 @@ export default function PrimarySearchAppBar({
                       color: 'white',
                       textDecoration: 'none',
                       marginRight: 'auto',
-                      marginTop: '90%',
+                      marginTop: '20vh',
                     }}
                   >
                     <p className="sgnBtn">My Dashboard</p>
