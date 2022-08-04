@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import ClearIcon from '@mui/icons-material/Clear';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -21,6 +22,9 @@ import DownArrow from '../assets/icons/downarrow.svg';
 import UserIcon from '../assets/icons/userIcon.svg';
 import DropdownProfileImg from '../assets/icons/DropdownProfileImg.svg';
 import HeaderLogoutIcon from '../assets/icons/HeaderLogoutIcon.svg';
+
+import S_Vector from '../assets/icons/S_Vector.svg';
+
 import { useHistory } from 'react-router-dom';
 import CreateFormPopup from './PopupForms/CreateFormPopup';
 import PropfileInformation from './PopupForms/PropfileInformation';
@@ -102,7 +106,7 @@ export default function PrimarySearchAppBar({
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [Option, setOption] = useState(false);
-
+  const [openMobMenu, setOpenMobMenu] = useState(true);
   const [searchInput, setsearchInput] = useState('');
 
   const [openProfile, setOpenProfile] = useState(false);
@@ -160,7 +164,7 @@ export default function PrimarySearchAppBar({
   };
   const handleClose = () => {
     setOpenProfile(false);
-    // setAnchorEl2(null);
+    setOpenMobMenu(false);
   };
   const showBecomePopup = () => {
     setOption(true);
@@ -224,6 +228,7 @@ export default function PrimarySearchAppBar({
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
+      // open={openMobMenu}
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: 'top',
@@ -249,115 +254,117 @@ export default function PrimarySearchAppBar({
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
-    <Menu
-      sx={{
-        top: '-35px',
-        minWidth: '100%',
-        minHeight: '100%',
-      }}
-      anchorEl={mobileMoreAnchorEl}
-      id={mobileMenuId}
-      keepMounted
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      {/* <ClearIcon className="closeMenu" /> */}
-      <MenuItem>
-        {/* <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>User</p> */}
-        {/* /* -------------------------------- res menu --------------------------------  */}
+    <div className="menu">
+      <Menu
+        anchorEl={mobileMoreAnchorEl}
+        id={mobileMenuId}
+        keepMounted
+        open={isMobileMenuOpen}
+        onClose={handleMobileMenuClose}
+      >
+        <i
+          class="fa-solid fa-xmark"
+          style={{
+            position: 'absolute',
+            right: '0',
+            marginRight: ' 8%',
+            marginTop: '5%',
+            cursor: 'pointer',
+          }}
+          onClick={handleMenuClose}
+        />
 
-        {creator ? (
-          <>
-            {window.location.pathname === 'contentHome' ? (
-              <Link to="/home" style={{ color: 'white', textDecoration: 'none' }}>
-                <p className="sgnBtn" onClick={handleSwitch}>
-                  Switch to Learner
-                </p>
-              </Link>
-            ) : (
-              <Link to="/contentHome" style={{ color: 'white', textDecoration: 'none' }}>
-                <p className="sgnBtn" onClick={handleSwitch}>
-                  Switch to Creator
-                </p>
-              </Link>
-            )}
-
-            <Link
-              to={{
-                pathname: learner ? 'UserDashboard' : 'dashboard',
-                state: { creator: `${creator}` },
-              }}
-              style={{ color: 'white', textDecoration: 'none' }}
-            >
-              <p className="sgnBtn">Dashboard</p>
-            </Link>
-          </>
-        ) : (
-          <>
-            {user?.role != 'Creator' && user?.role == 'User' && (
-              <>
-                <p
-                  className="sgnBtn"
-                  onClick={() => {
-                    // setOpenBecomeCreatorPopup(true);
-                    setOpen(true);
-                  }}
-                >
-                  Become a Creator
-                </p>
+        <MenuItem>
+          {/* /* -------------------------------- res menu --------------------------------  */}
+          {creator ? (
+            <>
+              {window.location.pathname === 'contentHome' ? (
                 <Link
-                  to={{
-                    pathname: learner ? 'UserDashboard' : 'dashboard',
-                    state: { user: `${user}` },
-                  }}
-                  style={{ color: 'white', textDecoration: 'none' }}
+                  to="/home"
+                  style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
                 >
-                  <p className="sgnBtn">My Dashboard</p>
+                  <p className="sgnBtn" onClick={handleSwitch}>
+                    Switch to Learner
+                  </p>
                 </Link>
-              </>
-            )}
-          </>
-        )}
-        {user ? (
-          <p className="sgnBtn">
-            <div
-              className="dropdown"
-              // onClick={handleLogout}
-            >
-              <img src={HeaderLogoutIcon} alt="" onClick={openProfilePg} />
-              {/* <div id="myDropdown" class="dropdown-content">
+              ) : (
+                <Link
+                  to="/contentHome"
+                  style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
+                >
+                  <p className="sgnBtn" onClick={handleSwitch}>
+                    Switch to Creator
+                  </p>
+                </Link>
+              )}
+
+              <Link
+                to={{
+                  pathname: learner ? 'UserDashboard' : 'dashboard',
+                  state: { creator: `${creator}` },
+                }}
+                style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
+              >
+                <p className="sgnBtn">Dashboard</p>
+              </Link>
+            </>
+          ) : (
+            <>
+              {user?.role != 'Creator' && user?.role == 'User' && (
+                <>
+                  <p
+                    className="sgnBtn"
+                    onClick={() => {
+                      // setOpenBecomeCreatorPopup(true);
+                      setOpen(true);
+                    }}
+                  >
+                    Become a Creator
+                  </p>
+                  <Link
+                    to={{
+                      pathname: learner ? 'UserDashboard' : 'dashboard',
+                      state: { user: `${user}` },
+                    }}
+                    style={{ color: 'white', textDecoration: 'none' }}
+                  >
+                    <p className="sgnBtn">My Dashboard</p>
+                  </Link>
+                </>
+              )}
+            </>
+          )}
+          {user ? (
+            <p className="sgnBtn">
+              <div
+                className="dropdown"
+                // onClick={handleLogout}
+              >
+                <img src={HeaderLogoutIcon} alt="" onClick={openProfilePg} />
+                {/* <div id="myDropdown" class="dropdown-content">
                 <a className="LogoutBTN" href="#home">
                   Logout
                 </a>
               </div> */}
-            </div>
-          </p>
-        ) : (
-          <>
-            <p
-              className="sgnBtn"
-              style={{ marginLeft: 'auto', marginRight: '0%' }}
-              onClick={() => setOpenSignup(true)}
-            >
-              Sign Up
+              </div>
             </p>
-            <p
-              className="sgnBtn"
-              style={{ marginLeft: 'auto', marginRight: '0%' }}
-              onClick={() => setOpenLogin(true)}
-            >
-              Login
-            </p>
-            {/* <div>
+          ) : (
+            <>
+              <p
+                className="sgnBtn"
+                style={{ marginRight: 'auto' }}
+                onClick={() => setOpenSignup(true)}
+              >
+                <img src={S_Vector} /> Sign Up
+              </p>
+              <p
+                className="sgnBtn"
+                style={{ marginRight: 'auto' }}
+                onClick={() => setOpenLogin(true)}
+              >
+                Login
+              </p>
+              {/* <div>
               <FormControl className="form_Control_header">
                 <button className="comming-soon3">Coming Soon</button>
 
@@ -381,11 +388,11 @@ export default function PrimarySearchAppBar({
                 </MenuItem>
               </FormControl>
             </div> */}
-          </>
-        )}
-      </MenuItem>
-      {/* <MenuItem> */}
-      {/* <IconButton
+            </>
+          )}
+        </MenuItem>
+        {/* <MenuItem> */}
+        {/* <IconButton
           size="large"
           aria-label="show 17 new notifications"
           color="inherit"
@@ -395,18 +402,20 @@ export default function PrimarySearchAppBar({
           </Badge>
         </IconButton>
         <p>My Courses</p> */}
-      {/* </MenuItem> */}
+        {/* </MenuItem> */}
 
-      {/* <MenuItem> */}
-      {/* <IconButton
+        {/* <MenuItem> */}
+        {/* <IconButton
           size="large"
           aria-label="show 4 new mails"
           color="inherit"
         ></IconButton>
         <p onClick={showBecomePopup}>Become a Creater</p> */}
-      {/* </MenuItem> */}
-      {/* /* -------------------------------- res menu --------------------------------  */}
-    </Menu>
+        {/* </MenuItem> */}
+        {/* /* -------------------------------- res menu --------------------------------  */}
+        {/* <ClearIcon className="clearIconclose" style={{ marginLeft: 'auto', marginTop: '-27%' }} /> */}
+      </Menu>
+    </div>
   );
 
   return (

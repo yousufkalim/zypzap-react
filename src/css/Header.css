@@ -576,6 +576,7 @@
     margin: auto;
   }
 
+ 
   .mobSearchBar {
     display: block;
     padding: 2%;
@@ -584,18 +585,7 @@
     margin-top: 19%;
   }
 
-  .menu {
-    top: -35px;
-    left: 6px;
-    min-width: 100%;
-    min-height: 100% !important;
-  }
-  /* #primary-search-account-menu-mobile {
-    top: -35px;
-    left: 6px;
-    min-width: 100%;
-    min-height: 100% !important;
-  } */
+
 
   .css-6hp17o-MuiList-root-MuiMenu-list {
     height: 100vh;
@@ -684,7 +674,11 @@
     padding: 0px !important;
   }
   .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
-    margin-top: 40px !important;
+  min-width: 100% !important;
+    min-height: 100% !important;
+    margin-left: 6%;
+    margin-top: 5%;
+
   }
   .imgLogo {
     margin-left: 0px !important;
@@ -697,10 +691,12 @@
     display: none;
   }
   .sgnBtn {
-    margin: 7px 0;
+    margin: 10px 0;
+    margin-right: auto ;
   }
   .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
     flex-direction: column !important;
+    margin-top: 20% !important;
   }
   .form_Control_header {
     margin-top: 12px !important;
