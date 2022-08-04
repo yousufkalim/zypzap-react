@@ -188,9 +188,7 @@
 .headerLinkbox {
   font-weight: 600;
 }
-.mobSearchBar {
-  display: none;
-}
+
 .dropbtn {
   color: white;
   /* padding: 16px; */
@@ -573,26 +571,38 @@
   }
 }
 @media only screen and (min-width: 270px) and (max-width: 600px) {
-  .searchBar {
-    width: 100% !important;
-    margin-left: 12px !important;
+  .mobSearchBar {
+    width: 91% !important;
+    margin: auto;
   }
-  .searchBar {
-    display: none;
-  }
+
+ 
   .mobSearchBar {
     display: block;
-    padding: 3%;
+    padding: 2%;
+    position: absolute !important;
+    z-index: 1;
+    margin-top: 19%;
   }
-  .mobBar {
-    margin: auto;
-    width: 87%;
-    margin-top: 4%;
-    margin-bottom: 7%;
+
+
+
+  .css-6hp17o-MuiList-root-MuiMenu-list {
+    height: 100vh;
+  }
+  .Carousel-indicatorIcon-17 {
+    margin-right: 0.5rem !important;
+  }
+  .activeIndicator {
+    display: none;
   }
   .searchBarIcon {
     position: absolute;
     top: 2%;
+  }
+  .css-i9gxme {
+    margin-bottom: 5rem;
+    margin-top: 1rem;
   }
   .downarrow {
     left: 0px;
@@ -626,8 +636,8 @@
   }
 
   .dropdown-content {
-    min-width: 220px;
-    padding: 1px 16px;
+    padding-right: 1.2rem;
+    padding-left: 0.6rem;
   }
 
   .topc .requestBtn {
@@ -664,7 +674,11 @@
     padding: 0px !important;
   }
   .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
-    margin-top: 40px !important;
+  min-width: 100% !important;
+    min-height: 100% !important;
+    margin-left: 6%;
+    margin-top: 5%;
+
   }
   .imgLogo {
     margin-left: 0px !important;
@@ -677,10 +691,12 @@
     display: none;
   }
   .sgnBtn {
-    margin: 7px 0;
+    margin: 10px 0;
+    margin-right: auto ;
   }
   .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
     flex-direction: column !important;
+    margin-top: 20% !important;
   }
   .form_Control_header {
     margin-top: 12px !important;

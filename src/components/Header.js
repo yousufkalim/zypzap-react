@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import ClearIcon from '@mui/icons-material/Clear';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -21,6 +22,9 @@ import DownArrow from '../assets/icons/downarrow.svg';
 import UserIcon from '../assets/icons/userIcon.svg';
 import DropdownProfileImg from '../assets/icons/DropdownProfileImg.svg';
 import HeaderLogoutIcon from '../assets/icons/HeaderLogoutIcon.svg';
+
+import S_Vector from '../assets/icons/S_Vector.svg';
+
 import { useHistory } from 'react-router-dom';
 import CreateFormPopup from './PopupForms/CreateFormPopup';
 import PropfileInformation from './PopupForms/PropfileInformation';
@@ -102,7 +106,7 @@ export default function PrimarySearchAppBar({
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [Option, setOption] = useState(false);
-
+  const [openMobMenu, setOpenMobMenu] = useState(true);
   const [searchInput, setsearchInput] = useState('');
 
   const [openProfile, setOpenProfile] = useState(false);
@@ -160,7 +164,7 @@ export default function PrimarySearchAppBar({
   };
   const handleClose = () => {
     setOpenProfile(false);
-    // setAnchorEl2(null);
+    setOpenMobMenu(false);
   };
   const showBecomePopup = () => {
     setOption(true);
@@ -208,6 +212,7 @@ export default function PrimarySearchAppBar({
   };
   const handleCreatorSearch = (e) => {
     e.preventDefault();
+    console.log('creator hit');
     setSearchFlag(false);
     updateStore({ searchState: 'creator' });
   };
@@ -217,20 +222,13 @@ export default function PrimarySearchAppBar({
     updateStore({ searchState: 'course' });
   };
   const handleChangeInput = (e) => {
-    // updateStore({ searchInput: e.target.value });
     setsearchInput(e.target.value);
-    // e.addEventListener("keypress", function (event) {
-    //   if (event.key === "Enter") {
-    //     event.preventDefault();
-    //     handleSearchButtonClick();
-    //     // document.getElementById("myBtn").click();
-    //   }
-    // });
   };
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
+      // open={openMobMenu}
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: 'top',
@@ -256,118 +254,117 @@ export default function PrimarySearchAppBar({
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      {/* <ClearIcon className="closeMenu" /> */}
-      <MenuItem>
-        {/* <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>User</p> */}
-        {/* /* -------------------------------- res menu --------------------------------  */}
+    <div className="menu">
+      <Menu
+        anchorEl={mobileMoreAnchorEl}
+        id={mobileMenuId}
+        keepMounted
+        open={isMobileMenuOpen}
+        onClose={handleMobileMenuClose}
+      >
+        <i
+          class="fa-solid fa-xmark"
+          style={{
+            position: 'absolute',
+            right: '0',
+            marginRight: ' 8%',
+            marginTop: '5%',
+            cursor: 'pointer',
+          }}
+          onClick={handleMenuClose}
+        />
 
-        {creator ? (
-          <>
-            {window.location.pathname === 'contentHome' ? (
-              <Link to="/home" style={{ color: 'white', textDecoration: 'none' }}>
-                <p className="sgnBtn" onClick={handleSwitch}>
-                  Switch to Learner
-                </p>
-              </Link>
-            ) : (
-              <Link to="/contentHome" style={{ color: 'white', textDecoration: 'none' }}>
-                <p className="sgnBtn" onClick={handleSwitch}>
-                  Switch to Creator
-                </p>
-              </Link>
-            )}
-
-            <Link
-              to={{
-                pathname: learner ? 'UserDashboard' : 'dashboard',
-                state: { creator: `${creator}` },
-              }}
-              style={{ color: 'white', textDecoration: 'none' }}
-            >
-              <p className="sgnBtn">Dashboard</p>
-            </Link>
-          </>
-        ) : (
-          <>
-            {user?.role != 'Creator' && user?.role == 'User' && (
-              <>
-                <p
-                  className="sgnBtn"
-                  onClick={() => {
-                    // setOpenBecomeCreatorPopup(true);
-                    setOpen(true);
-                  }}
-                >
-                  Become a Creator
-                </p>
+        <MenuItem>
+          {/* /* -------------------------------- res menu --------------------------------  */}
+          {creator ? (
+            <>
+              {window.location.pathname === 'contentHome' ? (
                 <Link
-                  to={{
-                    pathname: learner ? 'UserDashboard' : 'dashboard',
-                    state: { user: `${user}` },
-                  }}
-                  style={{ color: 'white', textDecoration: 'none' }}
+                  to="/home"
+                  style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
                 >
-                  <p className="sgnBtn">My Dashboard</p>
+                  <p className="sgnBtn" onClick={handleSwitch}>
+                    Switch to Learner
+                  </p>
                 </Link>
-              </>
-            )}
-          </>
-        )}
-        {user ? (
-          <p className="sgnBtn">
-            <div
-              className="dropdown"
-              // onClick={handleLogout}
-            >
-              <img src={HeaderLogoutIcon} alt="" onClick={openProfilePg} />
-              {/* <div id="myDropdown" class="dropdown-content">
+              ) : (
+                <Link
+                  to="/contentHome"
+                  style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
+                >
+                  <p className="sgnBtn" onClick={handleSwitch}>
+                    Switch to Creator
+                  </p>
+                </Link>
+              )}
+
+              <Link
+                to={{
+                  pathname: learner ? 'UserDashboard' : 'dashboard',
+                  state: { creator: `${creator}` },
+                }}
+                style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
+              >
+                <p className="sgnBtn">Dashboard</p>
+              </Link>
+            </>
+          ) : (
+            <>
+              {user?.role != 'Creator' && user?.role == 'User' && (
+                <>
+                  <p
+                    className="sgnBtn"
+                    onClick={() => {
+                      // setOpenBecomeCreatorPopup(true);
+                      setOpen(true);
+                    }}
+                  >
+                    Become a Creator
+                  </p>
+                  <Link
+                    to={{
+                      pathname: learner ? 'UserDashboard' : 'dashboard',
+                      state: { user: `${user}` },
+                    }}
+                    style={{ color: 'white', textDecoration: 'none' }}
+                  >
+                    <p className="sgnBtn">My Dashboard</p>
+                  </Link>
+                </>
+              )}
+            </>
+          )}
+          {user ? (
+            <p className="sgnBtn">
+              <div
+                className="dropdown"
+                // onClick={handleLogout}
+              >
+                <img src={HeaderLogoutIcon} alt="" onClick={openProfilePg} />
+                {/* <div id="myDropdown" class="dropdown-content">
                 <a className="LogoutBTN" href="#home">
                   Logout
                 </a>
               </div> */}
-            </div>
-          </p>
-        ) : (
-          <>
-            <p
-              className="sgnBtn"
-              style={{ marginLeft: 'auto', marginRight: '0%' }}
-              onClick={() => setOpenSignup(true)}
-            >
-              Sign Up
+              </div>
             </p>
-            <p
-              className="sgnBtn"
-              style={{ marginLeft: 'auto', marginRight: '0%' }}
-              onClick={() => setOpenLogin(true)}
-            >
-              Login
-            </p>
-            {/* <div>
+          ) : (
+            <>
+              <p
+                className="sgnBtn"
+                style={{ marginRight: 'auto' }}
+                onClick={() => setOpenSignup(true)}
+              >
+                <img src={S_Vector} /> Sign Up
+              </p>
+              <p
+                className="sgnBtn"
+                style={{ marginRight: 'auto' }}
+                onClick={() => setOpenLogin(true)}
+              >
+                Login
+              </p>
+              {/* <div>
               <FormControl className="form_Control_header">
                 <button className="comming-soon3">Coming Soon</button>
 
@@ -391,11 +388,11 @@ export default function PrimarySearchAppBar({
                 </MenuItem>
               </FormControl>
             </div> */}
-          </>
-        )}
-      </MenuItem>
-      {/* <MenuItem> */}
-      {/* <IconButton
+            </>
+          )}
+        </MenuItem>
+        {/* <MenuItem> */}
+        {/* <IconButton
           size="large"
           aria-label="show 17 new notifications"
           color="inherit"
@@ -405,18 +402,20 @@ export default function PrimarySearchAppBar({
           </Badge>
         </IconButton>
         <p>My Courses</p> */}
-      {/* </MenuItem> */}
+        {/* </MenuItem> */}
 
-      {/* <MenuItem> */}
-      {/* <IconButton
+        {/* <MenuItem> */}
+        {/* <IconButton
           size="large"
           aria-label="show 4 new mails"
           color="inherit"
         ></IconButton>
         <p onClick={showBecomePopup}>Become a Creater</p> */}
-      {/* </MenuItem> */}
-      {/* /* -------------------------------- res menu --------------------------------  */}
-    </Menu>
+        {/* </MenuItem> */}
+        {/* /* -------------------------------- res menu --------------------------------  */}
+        {/* <ClearIcon className="clearIconclose" style={{ marginLeft: 'auto', marginTop: '-27%' }} /> */}
+      </Menu>
+    </div>
   );
 
   return (
@@ -513,7 +512,7 @@ export default function PrimarySearchAppBar({
                 ></a>
               </div>
             </Typography>
-            <Search className="searchBar">
+            <Search className={window.innerWidth < 601 ? 'mobSearchBar' : 'searchBar'}>
               <div onClick={handleSearchButtonClick} style={{ cursor: 'pointer' }}>
                 {' '}
                 <Tooltip title="Search">
@@ -572,6 +571,69 @@ export default function PrimarySearchAppBar({
                 onKeyPress={(e) => e.key === 'Enter' && handleSearchButtonClick(e)}
               />
             </Search>
+
+            {/* <div className="mobBar">
+              {' '}
+              <Search className="mobSearchBar">
+                <div onClick={handleSearchButtonClick} style={{ cursor: 'pointer' }}>
+                  {' '}
+                  <Tooltip title="Search">
+                    <SearchIcon className="searchBarIcon" />
+                  </Tooltip>
+                  <SearchIconWrapper></SearchIconWrapper>
+                </div>
+
+                <div className="dropdown">
+                
+                  <img
+                    src={DownArrow}
+                    alt="img"
+                    className="downarrow"
+                    onClick={() => setSearchFlag(!searchFlag)}
+                  />
+                 
+                  {searchFlag && (
+                    <div className="dropdown-content" ref={click}>
+                      <div className="drowp1">
+                        <a
+                          href="#"
+                          className={`${searchState == 'creator' && 'activeserchis'} `}
+                          onClick={handleCreatorSearch}
+                        >
+                          <img className="UserIcons" src={UserIcon} alt="" />
+                          <span className="dropH" style={{ marginLeft: '-5px' }}>
+                            {' '}
+                            Content Creators
+                          </span>
+                          <p className="drowpP">Top gamers who create content for you</p>
+                        </a>
+                      </div>
+                      <div className=" drowp1">
+                        <a
+                          href="#"
+                          className={`${searchState == 'course' && 'activeserchis'} `}
+                          onClick={handleCourseSearch}
+                        >
+                          <img className="UserIcons" src={CourseIcon} alt="" />
+                          <span className="dropH">Courses</span>
+                          <p className="drowpP">Browse and buy courses</p>
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <StyledInputBase
+                  placeholder={
+                    searchState == 'course' ? 'Search for course' : 'Search for content creator'
+                  }
+                  inputProps={{ 'aria-label': 'search', className: 'cc_field' }}
+                  onChange={handleChangeInput}
+                  // onSubmit={handleSearchButtonClick}
+                  value={searchInput}
+                  onKeyPress={(e) => e.key === 'Enter' && handleSearchButtonClick(e)}
+                />
+              </Search>
+            </div> */}
 
             {/* <Link to="" className="requestBt">
               {user ? (
@@ -787,68 +849,6 @@ export default function PrimarySearchAppBar({
               </IconButton>
             </Box>
           </Toolbar>
-          <div className="mobBar">
-            {' '}
-            <Search className="mobSearchBar">
-              <div onClick={handleSearchButtonClick} style={{ cursor: 'pointer' }}>
-                {' '}
-                <Tooltip title="Search">
-                  <SearchIcon className="searchBarIcon" />
-                </Tooltip>
-                <SearchIconWrapper></SearchIconWrapper>
-              </div>
-
-              <div className="dropdown">
-                {/* <button className="dropbtn"> */}
-                <img
-                  src={DownArrow}
-                  alt="img"
-                  className="downarrow"
-                  onClick={() => setSearchFlag(!searchFlag)}
-                />
-                {/* </button> */}
-                {searchFlag && (
-                  <div className="dropdown-content" ref={click}>
-                    <div className="drowp1">
-                      <a
-                        href="#"
-                        className={`${searchState == 'creator' && 'activeserchis'} `}
-                        onClick={handleCreatorSearch}
-                      >
-                        <img className="UserIcons" src={UserIcon} alt="" />
-                        <span className="dropH" style={{ marginLeft: '-5px' }}>
-                          {' '}
-                          Content Creators
-                        </span>
-                        <p className="drowpP">Top gamers who create content for you</p>
-                      </a>
-                    </div>
-                    <div className=" drowp1">
-                      <a
-                        href="#"
-                        className={`${searchState == 'course' && 'activeserchis'} `}
-                        onClick={handleCourseSearch}
-                      >
-                        <img className="UserIcons" src={CourseIcon} alt="" />
-                        <span className="dropH">Courses</span>
-                        <p className="drowpP">Browse and buy courses</p>
-                      </a>
-                    </div>
-                  </div>
-                )}
-              </div>
-              <StyledInputBase
-                placeholder={
-                  searchState == 'course' ? 'Search for course' : 'Search for content creator'
-                }
-                inputProps={{ 'aria-label': 'search', className: 'cc_field' }}
-                onChange={handleChangeInput}
-                // onSubmit={handleSearchButtonClick}
-                value={searchInput}
-                onKeyPress={(e) => e.key === 'Enter' && handleSearchButtonClick(e)}
-              />
-            </Search>
-          </div>
         </AppBar>
         {renderMobileMenu}
         {renderMenu}

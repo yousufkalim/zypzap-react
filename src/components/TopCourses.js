@@ -198,7 +198,7 @@ function TopCoursesComponent({ item }) {
             style={{ paddingBottom: '10px' }}
           >
             <Grid item xs={6} md={6} className="topcourseuserRightGrid" id="userInfo">
-              <div style={{ textAlign: 'right' }}>
+              <div className="itemDetails">
                 <span className="marginRight">{item?.level ? item.level : 'inital level'}</span>
 
                 <>

@@ -233,7 +233,7 @@
     top: 50px;
     left: 8%;
     text-align: left;
-    z-index: 1;
+    z-index: 0;
   }
   .textimgH1 {
     font-size: 30px;
@@ -292,7 +292,7 @@
     top: 25px;
     left: 9%;
     text-align: left;
-    z-index: 1;
+    z-index: 0;
   }
   .textimgH1 {
     font-size: 1.2rem;
