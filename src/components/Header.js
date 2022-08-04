@@ -22,6 +22,7 @@ import DownArrow from '../assets/icons/downarrow.svg';
 import UserIcon from '../assets/icons/userIcon.svg';
 import DropdownProfileImg from '../assets/icons/DropdownProfileImg.svg';
 import HeaderLogoutIcon from '../assets/icons/HeaderLogoutIcon.svg';
+import EditPrfile from '../assets/icons/EditPrfile.svg';
 
 import S_Vector from '../assets/icons/S_Vector.svg';
 
@@ -278,16 +279,20 @@ export default function PrimarySearchAppBar({
           {/* /* -------------------------------- res menu --------------------------------  */}
           {creator ? (
             <>
-              {window.location.pathname === 'contentHome' ? (
-                <Link
-                  to="/home"
-                  style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
-                >
-                  <p className="sgnBtn" onClick={handleSwitch}>
-                    Switch to Learner
-                  </p>
-                </Link>
-              ) : (
+              <Link
+                to={{
+                  pathname: learner ? 'UserDashboard' : 'dashboard',
+                  state: { creator: `${creator}` },
+                }}
+                onClick={() => {
+                  // history.push('/dashboard');
+                  updateStore({ contentDashboardButton: 'Courses' });
+                }}
+                style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
+              >
+                <p className="sgnBtn">My Dashboard</p>
+              </Link>
+              {learner ? (
                 <Link
                   to="/contentHome"
                   style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
@@ -296,22 +301,36 @@ export default function PrimarySearchAppBar({
                     Switch to Creator
                   </p>
                 </Link>
+              ) : (
+                <Link
+                  to="/home"
+                  style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
+                >
+                  <p className="sgnBtn" onClick={handleSwitch}>
+                    Switch to Learner
+                  </p>
+                </Link>
               )}
 
-              <Link
-                to={{
-                  pathname: learner ? 'UserDashboard' : 'dashboard',
-                  state: { creator: `${creator}` },
-                }}
-                style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
-              >
-                <p className="sgnBtn">Dashboard</p>
+              <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
+                <p onClick={handleSettings} className="sgnBtn">
+                  <img src={EditPrfile} alt="" /> &nbsp;Edit Profile
+                </p>
               </Link>
             </>
           ) : (
             <>
               {user?.role != 'Creator' && user?.role == 'User' && (
                 <>
+                  <Link
+                    to={{
+                      pathname: learner ? 'UserDashboard' : 'dashboard',
+                      state: { user: `${user}` },
+                    }}
+                    style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
+                  >
+                    <p className="sgnBtn">My Dashboard</p>
+                  </Link>
                   <p
                     className="sgnBtn"
                     onClick={() => {
@@ -321,33 +340,23 @@ export default function PrimarySearchAppBar({
                   >
                     Become a Creator
                   </p>
-                  <Link
-                    to={{
-                      pathname: learner ? 'UserDashboard' : 'dashboard',
-                      state: { user: `${user}` },
-                    }}
-                    style={{ color: 'white', textDecoration: 'none' }}
-                  >
-                    <p className="sgnBtn">My Dashboard</p>
+
+                  <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
+                    <p onClick={handleSettings} className="sgnBtn">
+                      <img src={EditPrfile} alt="" /> &nbsp; Edit Profile
+                    </p>
                   </Link>
                 </>
               )}
             </>
           )}
           {user ? (
-            <p className="sgnBtn">
-              <div
-                className="dropdown"
-                // onClick={handleLogout}
-              >
-                <img src={HeaderLogoutIcon} alt="" onClick={openProfilePg} />
-                {/* <div id="myDropdown" class="dropdown-content">
-                <a className="LogoutBTN" href="#home">
-                  Logout
-                </a>
-              </div> */}
-              </div>
-            </p>
+            <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
+              <p onClick={openProfilePg} className="sgnBtn">
+                <img src={S_Vector} alt="" />
+                &nbsp; My Profile
+              </p>
+            </Link>
           ) : (
             <>
               <p
