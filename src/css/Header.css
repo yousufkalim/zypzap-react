@@ -700,6 +700,12 @@
     margin-left: 22%;
   }
 
+  .jss16, {
+    margin-right: 2% !important;
+  }
+  .jss15 {
+    display: none;
+  }
   .css-177ic5c{
     position: revert !important;
     min-height:100vh !important;
