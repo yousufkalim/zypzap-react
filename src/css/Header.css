@@ -711,6 +711,9 @@
     min-height:100vh !important;
     min-width: 100vw !important;
   }
+  .uploadSuccessP{
+    font-size: 16px;
+  }
   .css-r8u8y9{
     min-height:100vh !important;
     min-width: 100vw !important;
@@ -725,4 +728,54 @@
   .dropdown {
     left: 5px;
   }
+
+  .overIMG{
+    display: none;
+  }
+  .overViewMene_centerDiv{
+   margin-top: 65vh;
+  }
+  .overViewH1{
+    font-size: 22px;
+  }
+  .overViewContent{
+    font-size: 14px;
+    width: 100%  !important ;
+  }
+  .overViewIconP{
+    font-size: 14px;
+  }
+  .overView_heading{
+    margin-top: 50vh;
+    width: 100%  !important ;
+  }
+  .overVeiwCS-btn{
+    margin: 5px 10px;
+  }
+  .overViewCard{
+    width: 100% !important;
+    position: revert;
+    top:0 !important;
+  right: 0 !important 
+ }
+  .overViewTags{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .overViewIcon {
+    display: inline;
+    margin-left: 12px;
+    margin-top: 0px;
+}
+.overVeiwSlectBTN{
+  display:flex;
+  flex-direction: column;
+  margin-left: -45%;
+}
+.overViewMenuButton{
+  padding: 8px 1px;
+}
+.overView-description-content{
+  width:100% !important
+}
 }

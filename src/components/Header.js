@@ -162,6 +162,7 @@ export default function PrimarySearchAppBar({
     {
       user?.role === 'User' || learner ? UserDashboard() : creatorDashboard();
     }
+    handleMenuClose();
   };
   const handleClose = () => {
     setOpenProfile(false);
@@ -275,6 +276,7 @@ export default function PrimarySearchAppBar({
           onClick={handleMenuClose}
         />
 
+        <MenuItem> </MenuItem>
         <MenuItem>
           {/* /* -------------------------------- res menu --------------------------------  */}
           {creator ? (
@@ -286,6 +288,7 @@ export default function PrimarySearchAppBar({
                 }}
                 onClick={() => {
                   // history.push('/dashboard');
+                  handleMenuClose();
                   updateStore({ contentDashboardButton: 'Courses' });
                 }}
                 style={{
@@ -339,7 +342,9 @@ export default function PrimarySearchAppBar({
                       marginTop: '20vh',
                     }}
                   >
-                    <p className="sgnBtn">My Dashboard</p>
+                    <p className="sgnBtn" onClick={handleMenuClose}>
+                      My Dashboard
+                    </p>
                   </Link>
                   <p
                     className="sgnBtn"
@@ -410,6 +415,9 @@ export default function PrimarySearchAppBar({
             </>
           )}
         </MenuItem>
+
+        <MenuItem> </MenuItem>
+
         {/* <MenuItem> */}
         {/* <IconButton
           size="large"
