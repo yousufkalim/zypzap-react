@@ -711,6 +711,9 @@
     min-height:100vh !important;
     min-width: 100vw !important;
   }
+  .uploadSuccessP{
+    font-size: 16px;
+  }
   .css-r8u8y9{
     min-height:100vh !important;
     min-width: 100vw !important;
@@ -725,4 +728,6 @@
   .dropdown {
     left: 5px;
   }
+
+ 
 }

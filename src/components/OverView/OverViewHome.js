@@ -80,17 +80,15 @@ const OverViewHome = (props) => {
                 Beat the Opponent&nbsp;
                 <span style={{ textTransform: 'capitalize' }}>
                   {' '}
-                  {singlCourse?.course_name
-                    ? singlCourse.course_name
-                    : ' CS GO '}
+                  {singlCourse?.course_name ? singlCourse.course_name : ' CS GO '}
                   &nbsp;Gameplay
                 </span>
               </h1>
 
               <p className="overViewContent" style={{ width: '60%' }}>
                 {singlCourse?.description
-                  ? singlCourse?.description.length > 300
-                    ? `${singlCourse?.description.substring(0, 299)}.....`
+                  ? singlCourse?.description.length > 290
+                    ? `${singlCourse?.description.substring(0, 276)}.....`
                     : singlCourse?.description
                   : ''}
               </p>
@@ -135,9 +133,7 @@ const OverViewHome = (props) => {
               <li className="overViewLi">
                 <img src={RatingStarIcon} alt="" className="overViewIcon" />
                 <p className="overViewIconP">
-                  {singlCourse?.rating
-                    ? `${singlCourse.rating} Rating`
-                    : ' 0 Rating'}{' '}
+                  {singlCourse?.rating ? `${singlCourse.rating} Rating` : ' 0 Rating'}{' '}
                   {/* <img src={Star6} alt="" /> */}
                 </p>
               </li>
@@ -162,9 +158,7 @@ const OverViewHome = (props) => {
               <div className="overViewCarImage">
                 <img
                   style={{ maxWidth: '100%' }}
-                  src={
-                    singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg
-                  }
+                  src={singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg}
                   alt=""
                   className="overViewCardIMG"
                 />
