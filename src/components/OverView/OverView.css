@@ -649,7 +649,15 @@ body {
 }
 .completeCourse-colm2{
   padding: 0!important;
-  margin-top: 5vh;
+  margin-top:16vh;
 }
-
+.plyr__progress {
+  position: relative;
+  top: 6vh;
+  width: 87vw;
+  margin-left: -13vh;
+}
+.plyr--video .plyr__controls{
+  top:38vh
+}
 }
