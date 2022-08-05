@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 const OverviewButton = (props) => {
   const { singlCourse } = props;
@@ -14,7 +14,7 @@ const OverviewButton = (props) => {
             <div className="overView-description-content">
               <h3 className="overDescriptionH3">Description</h3>
               <p className="overDescriptionP">
-                {singlCourse?.description ? singlCourse.description : ""}
+                {singlCourse?.description ? singlCourse.description : ''}
               </p>
             </div>
             {/* <div className="overRequirements">

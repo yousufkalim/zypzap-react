@@ -50,7 +50,15 @@ const Instructor = (props) => {
             <h3 className="overDescriptionH3">Description</h3>
             <p className="overDescriptionP">Welcome to Instructor</p>
           </div> */}
+
           <div className="Instructor">
+            <h1 className="instructorName">
+              {' '}
+              {singlCourse?.creator?.user_id?.username
+                ? singlCourse.creator.user_id.username
+                : 'Arslan Ash'}
+            </h1>
+
             <div className="instructor-co1">
               <Link
                 to={{
@@ -61,10 +69,7 @@ const Instructor = (props) => {
               >
                 <div className="instructor-image">
                   <img
-                    src={
-                      singlCourse?.creator?.user_id?.profile_photo ||
-                      InstructorIcon
-                    }
+                    src={singlCourse?.creator?.user_id?.profile_photo || InstructorIcon}
                     alt=""
                     className="instructorLogo"
                   />
@@ -82,9 +87,7 @@ const Instructor = (props) => {
                 <p className="instructor-lavel">
                   Level:
                   <span className="instructor-span">
-                    {singlCourse?.creator?.gameLevel
-                      ? singlCourse.creator.gameLevel
-                      : ' Pro'}
+                    {singlCourse?.creator?.gameLevel ? singlCourse.creator.gameLevel : ' Pro'}
                   </span>
                 </p>
                 <p className="instructor-student">
@@ -135,7 +138,7 @@ const Instructor = (props) => {
                     : 'I am a Professional Taken player 2 times world champion last year i was choosen to be red bull athelete too i am here to help you win the game and have a fun.'}
                 </p>
               </div>
-              <div className="overViewTags">
+              <div className="overViewTags" id="tags">
                 <li className="overViewLi">
                   <img
                     src={overViewIcon3}
@@ -151,7 +154,7 @@ const Instructor = (props) => {
                       : 'No Courses'}
                   </p>
                 </li>
-                <li className="overViewLi">
+                <li className="overViewLi" id="std_tag">
                   <img
                     src={overViewIcon4}
                     alt=""
@@ -164,8 +167,7 @@ const Instructor = (props) => {
                       : "0 Students"} */}
                     {singlCourse?.creator?.courses
                       ? totalStudent(singlCourse.creator.courses) > 1
-                        ? totalStudent(singlCourse.creator.courses) +
-                          ' Students'
+                        ? totalStudent(singlCourse.creator.courses) + ' Students'
                         : totalStudent(singlCourse.creator.courses) + ' Student'
                       : 'No Students'}
                   </p>

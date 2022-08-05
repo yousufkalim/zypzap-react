@@ -85,7 +85,12 @@ const Reviews = (props) => {
       {user?.creator === singlCourse?.creator?._id ? (
         ''
       ) : (
-        <CongratsYouDidPopup showPopup={showPopup} setShowPopup={setShowPopup} singlCourse={singlCourse} rating={rating} />
+        <CongratsYouDidPopup
+          showPopup={showPopup}
+          setShowPopup={setShowPopup}
+          singlCourse={singlCourse}
+          rating={rating}
+        />
       )}
 
       <div className="overView_description">
@@ -96,8 +101,10 @@ const Reviews = (props) => {
               <p className="student-feedback-h3">Student feedback</p>
 
               <div className="courseRating">
-                <h1 className="courseRatingH1">{singlCourse?.rating ? singlCourse.rating : '0.0'}</h1>
-                <div className="courseRating-images">
+                <h1 className="courseRatingH1">
+                  {singlCourse?.rating ? singlCourse.rating : '0.0'}
+                </h1>
+                <div className="courseRating-images" id="stars">
                   {[1, 2, 3, 4, 5].map((i) => (
                     <Star1
                       className="starID"
@@ -115,23 +122,38 @@ const Reviews = (props) => {
             <div className="reviews-lines">
               <Box sx={{ flexGrow: 1 }}>
                 <br />
-                <BorderLinearProgress variant="determinate" value={Percentage(OneStar, totalCount)} />
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={Percentage(OneStar, totalCount)}
+                />
               </Box>
               <Box sx={{ flexGrow: 1 }}>
                 <br />
-                <BorderLinearProgress variant="determinate" value={Percentage(twoStar, totalCount)} />
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={Percentage(twoStar, totalCount)}
+                />
               </Box>
               <Box sx={{ flexGrow: 1 }}>
                 <br />
-                <BorderLinearProgress variant="determinate" value={Percentage(threeStar, totalCount)} />
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={Percentage(threeStar, totalCount)}
+                />
               </Box>
               <Box sx={{ flexGrow: 1 }}>
                 <br />
-                <BorderLinearProgress variant="determinate" value={Percentage(fourStar, totalCount)} />
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={Percentage(fourStar, totalCount)}
+                />
               </Box>
               <Box sx={{ flexGrow: 1 }}>
                 <br />
-                <BorderLinearProgress variant="determinate" value={Percentage(fiveStar, totalCount)} />
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={Percentage(fiveStar, totalCount)}
+                />
               </Box>
             </div>
             <div className="reviews-all-star-image">
@@ -142,7 +164,10 @@ const Reviews = (props) => {
                 <ReviewStarList star={[1, 2]} text={`${Percentage(twoStar, totalCount)}%`} />
                 <ReviewStarList star={[1, 2, 3]} text={`${Percentage(threeStar, totalCount)}%`} />
                 <ReviewStarList star={[1, 2, 3, 4]} text={`${Percentage(fourStar, totalCount)}%`} />
-                <ReviewStarList star={[1, 2, 3, 4, 5]} text={`${Percentage(fiveStar, totalCount)}%`} />
+                <ReviewStarList
+                  star={[1, 2, 3, 4, 5]}
+                  text={`${Percentage(fiveStar, totalCount)}%`}
+                />
               </div>
             </div>
           </div>
