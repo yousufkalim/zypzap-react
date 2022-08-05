@@ -86,7 +86,12 @@ const OverView = (props) => {
       {activebtn == 'Instructor' && <Instructor singlCourse={course} />}
 
       {(activebtn == 'Feedback' || showRatingPopup) && (
-        <Reviews singlCourse={course} rating={rating} setShowPopup={setShowRatingPopup} showPopup={showRatingPopup} />
+        <Reviews
+          singlCourse={course}
+          rating={rating}
+          setShowPopup={setShowRatingPopup}
+          showPopup={showRatingPopup}
+        />
       )}
       {/* <LatestCourses courses={[course]} /> */}
 

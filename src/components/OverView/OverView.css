@@ -519,6 +519,8 @@ body {
   }
   .overVeiwCS-btn{
     margin: 5px 10px;
+    margin-right: auto;
+    margin-left: 24vh;
   }
   .overViewCard{
     width: 100% !important;
@@ -568,12 +570,14 @@ body {
   font-weight: 400;
 }
 .instructor-aboutP {
- 
+ font-size: 15px;
   position: absolute;
-  bottom: -68%;
- 
+  bottom: -73vh;
   margin-left: -6%;
-  width: 100vh;
+  width: 57vh;
+}
+.Instructor{
+  padding: 2%;
 }
 .instructor-heading{
   display: none;
@@ -625,6 +629,27 @@ body {
 }
 .studentFeedBack{
   margin-top: -31vh;
+}
+.completeCourse-center-div {
+  width: 100%;
+  /* margin: auto; */
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.completeCourse{
+  height: 52vh !important;
+}
+.completeCourse-colm1,.completeCourse-colm2{
+  width: 100vw !important;
+}
+.completeCourseScroll{
+  height: 27vh !important;
+  width: 57vh;
+}
+.completeCourse-colm2{
+  padding: 0!important;
+  margin-top: 5vh;
 }
 
 }

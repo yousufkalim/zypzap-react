@@ -99,7 +99,6 @@ const Reviews = (props) => {
             {/* 1Div */}
             <div className="studentFeedBack">
               <p className="student-feedback-h3">Student feedback</p>
-
               <div className="courseRating">
                 <h1 className="courseRatingH1">
                   {singlCourse?.rating ? singlCourse.rating : '0.0'}
