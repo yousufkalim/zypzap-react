@@ -29,3 +29,10 @@ body {
   border: 1px solid #20bf55;
   padding: 11px 29px;
 }
+
+@media only screen and (min-width: 270px) and (max-width: 600px) {
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+  width: 81% !important;
+  height: 54% !important;
+}
+}

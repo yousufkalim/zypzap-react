@@ -80,33 +80,35 @@ const StartedCourse = () => {
                             ? item.course_id.course_name
                             : 'Fight Course'}
                         </p>
+                        <div className="wishListFlex-container">
+                          <p className="wishlistP2">
+                            {item?.course_id?.creator?.user_id?.username}
+                          </p>
 
-                        <p className="wishlistP2">{item?.course_id?.creator?.user_id?.username}</p>
+                          <p className="wishlistP3">
+                            {item?.course_id?.rating ? item.course_id.rating : '0.0'} &nbsp;
+                            {[1, 2, 3, 4, 5].map((item) => (
+                              <Star1
+                                className="wishCardStar"
+                                style={{
+                                  key: { item },
+                                }}
+                              />
+                            ))}
+                            &nbsp; &nbsp; &nbsp;
+                            {item?.course_id?.student
+                              ? `( ${item.course_id.student.length} )`
+                              : `( 0 )`}
+                          </p>
 
-                        <p className="wishlistP3">
-                          {item?.course_id?.rating ? item.course_id.rating : '0.0'} &nbsp;
-                          {[1, 2, 3, 4, 5].map((item) => (
-                            <Star1
-                              className="wishCardStar"
-                              style={{
-                                key: { item },
-                              }}
-                            />
-                          ))}
-                          &nbsp; &nbsp; &nbsp;
-                          {item?.course_id?.student
-                            ? `( ${item.course_id.student.length} )`
-                            : `( 0 )`}
-                        </p>
-
-                        <div className="wishCard-progrss">
-                          <BorderLinearProgress variant="determinate" value={item.progress} />
-                        </div>
-                        <div className="wishCard-progrss-prsntage">
-                          {item.progress.toFixed(0)}% Complete
+                          <div className="wishCard-progrss">
+                            <BorderLinearProgress variant="determinate" value={item.progress} />
+                          </div>
+                          <div className="wishCard-progrss-prsntage">
+                            {item.progress.toFixed(0)}% Complete
+                          </div>
                         </div>
                       </div>
-
                       <div className="wishButtonDiv">
                         <button
                           className="wishListBtn"
