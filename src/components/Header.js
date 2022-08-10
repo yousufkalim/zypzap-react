@@ -283,7 +283,7 @@ export default function PrimarySearchAppBar({
             <>
               <Link
                 to={{
-                  pathname: learner ? 'UserDashboard' : 'dashboard',
+                  pathname: learner ? '/UserDashboard' : '/dashboard',
                   state: { creator: `${creator}` },
                 }}
                 onClick={() => {
@@ -332,7 +332,7 @@ export default function PrimarySearchAppBar({
                 <>
                   <Link
                     to={{
-                      pathname: learner ? 'UserDashboard' : 'dashboard',
+                      pathname: learner ? '/UserDashboard' : '/dashboard',
                       state: { user: `${user}` },
                     }}
                     style={{
@@ -719,7 +719,7 @@ export default function PrimarySearchAppBar({
 
                   <Link
                     to={{
-                      pathname: learner ? 'UserDashboard' : 'dashboard',
+                      pathname: learner ? '/UserDashboard' : '/dashboard',
                       state: { creator: `${creator}` },
                     }}
                     onClick={() => {
