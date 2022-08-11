@@ -129,7 +129,15 @@ export default function CustomizedMenus(props) {
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
       >
-        <div className="btn-icon-container">
+        <div
+          className="btn-icon-container"
+          style={{
+            border: '1px solid white',
+            borderRadius: '4px',
+            padding: '9px 3px',
+            marginTop: '3px',
+          }}
+        >
           <span> Sort by &nbsp;</span>
           <KeyboardArrowDownIcon
             sx={{
@@ -172,10 +180,18 @@ export default function CustomizedMenus(props) {
         >
           Date Posted
         </MenuItem>
-        <MenuItem sx={{ fontFamily: 'mulish', fontSize: '13px', fontWeight: '700' }} onClick={filterByViews} disableRipple>
+        <MenuItem
+          sx={{ fontFamily: 'mulish', fontSize: '13px', fontWeight: '700' }}
+          onClick={filterByViews}
+          disableRipple
+        >
           Number Of Views
         </MenuItem>
-        <MenuItem sx={{ fontFamily: 'mulish', fontSize: '13px', fontWeight: '700' }} onClick={filterByLevel} disableRipple>
+        <MenuItem
+          sx={{ fontFamily: 'mulish', fontSize: '13px', fontWeight: '700' }}
+          onClick={filterByLevel}
+          disableRipple
+        >
           Level
         </MenuItem>
       </StyledMenu>

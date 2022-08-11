@@ -431,11 +431,35 @@
     height: 343px;
   }
 }
-/* mobile devices (landscape tablets, 768px and up)
+/* mobile devices (landscape tablets, 768px and up) */
 
-/* @media only screen and (max-width: 600px) {
-  } */
+  @media only screen and (min-width: 270px) and (max-width: 600px) {
 
-/* Medium devices (landscape tablets, 768px and up)
-  @media only screen and (min-width: 768px) {
-  } */
+    .side-bar-filter {
+      width: 80%;
+      z-index: 1;
+      position: fixed;
+      top: 0px;
+      height: 100vh
+  }
+  .css-vj1n65-MuiGrid-root{
+    height: 100vh !important;
+  }
+  .css-qmz1lj{
+    overflow: scroll;
+    z-index: 1;
+    height: 100vh;
+  }
+
+  /* .css-1dk9rsx-MuiPaper-root */
+  .filterby-container{
+   padding: 10px !important;
+  }
+  .cards-container, .cards-container2{
+    margin: 0px !important;
+    width: 100%;
+  }
+  .followList{
+    width: 100%;
+  }
+  }
