@@ -228,3 +228,108 @@
     height: 80vh !important;
   }
 } */
+
+@media only screen and (min-width: 270px) and (max-width: 600px) {
+ 
+  .css-vj1n65-MuiGrid-root{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between !important;
+  }
+  .css-1l0r181{
+    display: flex !important;
+    flex-wrap: wrap;
+  }
+  .dashboard-sidebar,.dashboard{
+    background-color: black;
+  }
+  .dashboard-sidebar{
+    width: 0;
+    display: block;
+    position: absolute;
+  }
+  .wishCardh3{
+    display: none;
+  }
+  .wishlistDiv{
+    width: 100%;
+  }
+  .cardGrid2{
+    height: 100% !important;
+  }
+  .wishListFlex-container{
+   display: flex;
+   flex-wrap: wrap;
+  }
+  .wishCard-progrss{
+    width: 92vw;
+    padding-top: 1%;
+    padding-bottom: 1%;   
+  }
+  .wishlistP3 {
+    padding: 9px 21px;
+}
+.wishButtonDiv{
+  margin: auto !important;
+   
+}
+.dashboard-sidebar{
+  display: none;
+}
+/* #mobDropDown{
+  margin-top: 6vh;
+    margin-left: -56px;
+    padding-bottom: 10px;
+} */
+.wishListBtn,.wishListBtn2{
+  width: 85vw;
+  height: 7vh;
+  margin-top: 5%;
+  margin-bottom: 6%;
+  margin-right: 0px;
+}
+.Mobdropdown{
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+  .dropdown-content1 {
+    display: block;
+    position: absolute;
+    margin-top: 1%; 
+    min-width: 168px;
+    z-index: 1;
+  }
+  .line{
+    width: 92vw;
+   margin-left: 4%;
+   margin-top: 3%;
+   margin-bottom: 1%;
+
+  }
+  .CourseDownArrow {
+    position: absolute;
+  right: 0;
+    left: 82px;
+    width: 2%;
+    margin-top: -16px;
+  }
+  .dropdown-content1 a {
+    color: #fff;
+    padding: 12px 16px;
+    background-color: #202342;
+    text-decoration: none;
+    display: block;
+    font-family: 'Mulish';
+  }
+  .userProfile_conteiner2 {
+    width: 100%;
+    margin-top: 7%;
+    margin-left: 42px;
+}
+.selectInput-userProfile,.userProfileButton{
+  width: 100% !important;
+}
+}
+
+  

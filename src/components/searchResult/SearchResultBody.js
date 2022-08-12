@@ -10,7 +10,8 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Checkbox from '@mui/material/Checkbox';
-
+import Filters from '../../assets/filters.svg';
+import { useRef } from 'react';
 import Course1 from '../../assets/img/course1.png';
 import StarIcon from '@material-ui/icons/Star';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -190,6 +191,7 @@ const SearchResultBody = () => {
     }
   }, []);
   // initalize variables
+  const click = useRef(null);
   const [selectedCategories, setselectedCategories] = useState(false);
   const [selectedGame, setSelectedGame] = useState(false);
   const [selectedPlateforms, setSelectedPlateforms] = useState(false);
@@ -202,6 +204,9 @@ const SearchResultBody = () => {
   const [selectedPlateformsBtn, setselectedPlateformsBtn] = useState('');
   const [selectedlevelBtn, setselectedlevelBtn] = useState('');
   const [radioBtnValue, setRadioBtnValue] = useState('');
+  const [openMobView, setOpenMobView] = useState(false);
+  const [normalView, setNormalView] = useState(true);
+
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
   const [paginatedCourses, setPaginatedCourses] = useState([]);
   const [filterData, setFilterData] = useState({
@@ -222,6 +227,9 @@ const SearchResultBody = () => {
 
   //sidebar list togle
 
+  const openSidebar = () => {
+    setOpenMobView(true);
+  };
   const handleChange = async (e) => {
     let filters = { ...filterData };
 
@@ -270,6 +278,14 @@ const SearchResultBody = () => {
       setSelectedLevel(!selectedLevel);
     }
   };
+
+  const handleCloseSidebar = (e) => {
+    if (click.current && openMobView && !click.current.contains(e.target)) {
+      setOpenMobView(false);
+    }
+  };
+  document.addEventListener('mousedown', handleCloseSidebar);
+
   // sidebar list togle
   // making list item active by chnaging background
   const onSideBtnClick = async (e) => {
@@ -369,225 +385,234 @@ const SearchResultBody = () => {
   // To get slider value
   return (
     <Box className="search-result-container" sx={{ flexGrow: 1, display: 'flex' }}>
-      <Box className="side-bar-filter">
-        <Grid>
-          <Item className="filterby-container">
-            <p className="filterby-container-h4">Filter By</p>
-            <div className="searchInputItem">
-              <input type="text" placeholder="CS⎸Go Game" className="searchInputItem-input" />
-            </div>
-            <hr className="filterby-divider" />
-            <div id="1" onClick={onClickSideBarHeaders} className="dropdown-headers">
-              Top Games
-              {selectedCategories ? (
-                <KeyboardArrowUpIcon
-                  sx={{
-                    color: '#fff',
-                    marginTop: '5px',
-                    width: '30px',
-                    height: '1em !important',
-                  }}
-                  id="1"
-                  onClick={onClickSideBarHeaders}
-                />
-              ) : (
-                <KeyboardArrowDownIcon
-                  sx={{
-                    color: '#fff',
-                    marginTop: '5px',
-                    width: '30px',
-                    height: '1em !important',
-                  }}
-                  id="1"
-                  onClick={onClickSideBarHeaders}
-                />
-              )}
-            </div>
-            {selectedCategories ? (
-              <Categories
-                categories={categories}
-                activeButton={selectedActiveButton}
-                trigerOnClickEmpSideBtn={onSideBtnClick}
-                change={handleChange}
-                name="category"
-                values={filterData.category}
-              />
-            ) : null}
-            <div id="2" onClick={onClickSideBarHeaders} className="dropdown-headers">
-              Categories
-              {selectedGame ? (
-                <KeyboardArrowUpIcon
-                  sx={{
-                    color: '#fff',
-                    marginTop: '5px',
-
-                    width: '30px',
-                    height: '1em !important',
-                  }}
-                  id="2"
-                  onClick={onClickSideBarHeaders}
-                />
-              ) : (
-                <KeyboardArrowDownIcon
-                  sx={{
-                    color: '#fff',
-                    marginTop: '5px',
-
-                    width: '30px',
-                    height: '1em !important',
-                  }}
-                  id="2"
-                  onClick={onClickSideBarHeaders}
-                />
-              )}
-            </div>
-            {selectedGame ? (
-              <GameType
-                GameTypes={GameTypes}
-                gameBtn={selectedGameBtn}
-                trigerOnClickEmpSideBtn2={onSideBtnClick2}
-                change={handleChange}
-                name="gameType"
-                values={filterData.gameType}
-              />
-            ) : null}
-            <div id="3" onClick={onClickSideBarHeaders} className="dropdown-headers">
-              Plateforms
-              {selectedPlateforms ? (
-                <KeyboardArrowUpIcon
-                  sx={{
-                    color: '#fff',
-                    marginTop: '5px',
-
-                    width: '30px',
-                    height: '1em !important',
-                  }}
-                  id="3"
-                  onClick={onClickSideBarHeaders}
-                />
-              ) : (
-                <KeyboardArrowDownIcon
-                  sx={{
-                    color: '#fff',
-                    marginTop: '5px',
-
-                    width: '30px',
-                    height: '1em !important',
-                  }}
-                  id="3"
-                  onClick={onClickSideBarHeaders}
-                />
-              )}
-            </div>
-
-            {selectedPlateforms ? (
-              <Plateforms
-                PlateformsAry={PlateformsAry}
-                PlateformsBtn={selectedPlateformsBtn}
-                trigerOnClickEmpSideBtn3={onSideBtnClick3}
-                name="plateform"
-                values={filterData.plateform}
-                change={handleChange}
-              />
-            ) : null}
-            {/* ////////////////////
-             */}
-            <div id="6" onClick={onClickSideBarHeaders} className="dropdown-headers">
-              Gameplay Level
-              {!selectedLevel ? (
-                <KeyboardArrowDownIcon
-                  sx={{
-                    color: '#fff',
-                    marginTop: '5px',
-
-                    width: '30px',
-                    height: '1em !important',
-                  }}
-                  id="6"
-                  onClick={onClickSideBarHeaders}
-                />
-              ) : (
-                <KeyboardArrowUpIcon
-                  sx={{
-                    color: '#fff',
-                    marginTop: '5px',
-                    width: '30px',
-                    height: '1em !important',
-                  }}
-                  id="6"
-                  onClick={onClickSideBarHeaders}
-                />
-              )}
-            </div>
-            {selectedLevel ? (
-              <Level
-                PlateformsAry={levelAry}
-                PlateformsBtn={selectedlevelBtn}
-                trigerOnClickEmpSideBtn3={onSideBtnClick6}
-                name="level"
-                values={filterData.level}
-                change={handleChange}
-              />
-            ) : null}
-
-            {/*  */}
-            <div id="4" onClick={onClickSideBarHeaders} className="dropdown-headers">
-              Gameplay mode
-              {selectedGameplay ? (
-                <KeyboardArrowUpIcon
-                  sx={{
-                    color: '#fff',
-                    marginTop: '5px',
-                    width: '30px',
-                    height: '1em !important',
-                  }}
-                  id="4"
-                  onClick={onClickSideBarHeaders}
-                />
-              ) : (
-                <KeyboardArrowDownIcon
-                  sx={{
-                    color: '#fff',
-                    marginTop: '5px',
-                    width: '30px',
-                    height: '1em !important',
-                  }}
-                  id="4"
-                  onClick={onClickSideBarHeaders}
-                />
-              )}
-            </div>
-            {selectedGameplay ? (
-              <div>
-                <div class="radio-item">
-                  <span className="categories-tegs">
-                    <Checkbox
-                      name="mode"
-                      value="Multiplayer"
-                      id="Multiplayer"
-                      checked={filterData.mode.includes('Multiplayer')}
-                      inputProps={{ 'aria-label': 'controlled' }}
-                      onChange={handleChange}
-                    />
-                    &nbsp; Multiplayer mode
-                  </span>
-                </div>
-                <div class="radio-item">
-                  <span className="categories-tegs">
-                    <Checkbox
-                      name="mode"
-                      value="Single"
-                      id="Single"
-                      checked={filterData.mode.includes('Single')}
-                      inputProps={{ 'aria-label': 'controlled' }}
-                      onChange={handleChange}
-                    />
-                    &nbsp; Single mode
-                  </span>
-                </div>
+      {(window.innerWidth < 601 ? openMobView : normalView) && (
+        <Box className="side-bar-filter" ref={click}>
+          <Grid>
+            <Item className="filterby-container">
+              <p className="filterby-container-h4">
+                {' '}
+                {window.innerWidth < 601 ? (
+                  <i class="fa-solid fa-circle-arrow-left" onClick={() => setOpenMobView(false)} />
+                ) : (
+                  ''
+                )}{' '}
+                &nbsp; Filter By
+              </p>
+              <div className="searchInputItem">
+                <input type="text" placeholder="CS⎸Go Game" className="searchInputItem-input" />
               </div>
-            ) : null}
-            {/* <div
+              <hr className="filterby-divider" />
+              <div id="1" onClick={onClickSideBarHeaders} className="dropdown-headers">
+                Top Games
+                {selectedCategories ? (
+                  <KeyboardArrowUpIcon
+                    sx={{
+                      color: '#fff',
+                      marginTop: '5px',
+                      width: '30px',
+                      height: '1em !important',
+                    }}
+                    id="1"
+                    onClick={onClickSideBarHeaders}
+                  />
+                ) : (
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      color: '#fff',
+                      marginTop: '5px',
+                      width: '30px',
+                      height: '1em !important',
+                    }}
+                    id="1"
+                    onClick={onClickSideBarHeaders}
+                  />
+                )}
+              </div>
+              {selectedCategories ? (
+                <Categories
+                  categories={categories}
+                  activeButton={selectedActiveButton}
+                  trigerOnClickEmpSideBtn={onSideBtnClick}
+                  change={handleChange}
+                  name="category"
+                  values={filterData.category}
+                />
+              ) : null}
+              <div id="2" onClick={onClickSideBarHeaders} className="dropdown-headers">
+                Categories
+                {selectedGame ? (
+                  <KeyboardArrowUpIcon
+                    sx={{
+                      color: '#fff',
+                      marginTop: '5px',
+
+                      width: '30px',
+                      height: '1em !important',
+                    }}
+                    id="2"
+                    onClick={onClickSideBarHeaders}
+                  />
+                ) : (
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      color: '#fff',
+                      marginTop: '5px',
+
+                      width: '30px',
+                      height: '1em !important',
+                    }}
+                    id="2"
+                    onClick={onClickSideBarHeaders}
+                  />
+                )}
+              </div>
+              {selectedGame ? (
+                <GameType
+                  GameTypes={GameTypes}
+                  gameBtn={selectedGameBtn}
+                  trigerOnClickEmpSideBtn2={onSideBtnClick2}
+                  change={handleChange}
+                  name="gameType"
+                  values={filterData.gameType}
+                />
+              ) : null}
+              <div id="3" onClick={onClickSideBarHeaders} className="dropdown-headers">
+                Plateforms
+                {selectedPlateforms ? (
+                  <KeyboardArrowUpIcon
+                    sx={{
+                      color: '#fff',
+                      marginTop: '5px',
+
+                      width: '30px',
+                      height: '1em !important',
+                    }}
+                    id="3"
+                    onClick={onClickSideBarHeaders}
+                  />
+                ) : (
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      color: '#fff',
+                      marginTop: '5px',
+
+                      width: '30px',
+                      height: '1em !important',
+                    }}
+                    id="3"
+                    onClick={onClickSideBarHeaders}
+                  />
+                )}
+              </div>
+
+              {selectedPlateforms ? (
+                <Plateforms
+                  PlateformsAry={PlateformsAry}
+                  PlateformsBtn={selectedPlateformsBtn}
+                  trigerOnClickEmpSideBtn3={onSideBtnClick3}
+                  name="plateform"
+                  values={filterData.plateform}
+                  change={handleChange}
+                />
+              ) : null}
+              {/* ////////////////////
+               */}
+              <div id="6" onClick={onClickSideBarHeaders} className="dropdown-headers">
+                Gameplay Level
+                {!selectedLevel ? (
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      color: '#fff',
+                      marginTop: '5px',
+
+                      width: '30px',
+                      height: '1em !important',
+                    }}
+                    id="6"
+                    onClick={onClickSideBarHeaders}
+                  />
+                ) : (
+                  <KeyboardArrowUpIcon
+                    sx={{
+                      color: '#fff',
+                      marginTop: '5px',
+                      width: '30px',
+                      height: '1em !important',
+                    }}
+                    id="6"
+                    onClick={onClickSideBarHeaders}
+                  />
+                )}
+              </div>
+              {selectedLevel ? (
+                <Level
+                  PlateformsAry={levelAry}
+                  PlateformsBtn={selectedlevelBtn}
+                  trigerOnClickEmpSideBtn3={onSideBtnClick6}
+                  name="level"
+                  values={filterData.level}
+                  change={handleChange}
+                />
+              ) : null}
+
+              {/*  */}
+              <div id="4" onClick={onClickSideBarHeaders} className="dropdown-headers">
+                Gameplay mode
+                {selectedGameplay ? (
+                  <KeyboardArrowUpIcon
+                    sx={{
+                      color: '#fff',
+                      marginTop: '5px',
+                      width: '30px',
+                      height: '1em !important',
+                    }}
+                    id="4"
+                    onClick={onClickSideBarHeaders}
+                  />
+                ) : (
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      color: '#fff',
+                      marginTop: '5px',
+                      width: '30px',
+                      height: '1em !important',
+                    }}
+                    id="4"
+                    onClick={onClickSideBarHeaders}
+                  />
+                )}
+              </div>
+              {selectedGameplay ? (
+                <div>
+                  <div class="radio-item">
+                    <span className="categories-tegs">
+                      <Checkbox
+                        name="mode"
+                        value="Multiplayer"
+                        id="Multiplayer"
+                        checked={filterData.mode.includes('Multiplayer')}
+                        inputProps={{ 'aria-label': 'controlled' }}
+                        onChange={handleChange}
+                      />
+                      &nbsp; Multiplayer mode
+                    </span>
+                  </div>
+                  <div class="radio-item">
+                    <span className="categories-tegs">
+                      <Checkbox
+                        name="mode"
+                        value="Single"
+                        id="Single"
+                        checked={filterData.mode.includes('Single')}
+                        inputProps={{ 'aria-label': 'controlled' }}
+                        onChange={handleChange}
+                      />
+                      &nbsp; Single mode
+                    </span>
+                  </div>
+                </div>
+              ) : null}
+              {/* <div
               id="5"
               onClick={onClickSideBarHeaders}
               className="dropdown-headers"
@@ -701,32 +726,38 @@ const SearchResultBody = () => {
                 </div>
               </form>
             ) : null} */}
-            {/* 111111 */}
-            {/* <h4 className="didnt-find-text">
+              {/* 111111 */}
+              {/* <h4 className="didnt-find-text">
               Didn't found the <br /> course
             </h4> */}
-            <label className="dropdown-headers" style={{ fontSize: '16px' }}>
-              Didn’t found the <br /> course
-            </label>
-            <Box style={{ position: 'relative' }}>
-              {/* <p className="req-coming-soon">Coming soon</p> */}
-              <Button className="reqstStateBTN" onClick={RequestClikEvent} variant="contained">
-                Request Now
-              </Button>
-            </Box>
-          </Item>
-        </Grid>
-      </Box>
+              <label className="dropdown-headers" style={{ fontSize: '16px' }}>
+                Didn’t found the <br /> course
+              </label>
+              <Box style={{ position: 'relative' }}>
+                {/* <p className="req-coming-soon">Coming soon</p> */}
+                <Button className="reqstStateBTN" onClick={RequestClikEvent} variant="contained">
+                  Request Now
+                </Button>
+              </Box>
+            </Item>
+          </Grid>
+        </Box>
+      )}
       {/*  */}
       {searchState === 'course' ? (
         <>
           {' '}
           {searchCourse?.length === 0 ? (
-            <ResearchFaild searchInput={searchInput} />
+            <ResearchFaild searchInput={searchInput} setOpen={setOpenMobView} />
           ) : (
             <>
               <Box className="cards-container" style={{ position: 'relative' }}>
                 <div className="cards-box">
+                  {window.innerWidth < 601 ? (
+                    <img src={Filters} onClick={openSidebar} alt="" />
+                  ) : (
+                    ''
+                  )}
                   <div className="cards-header-text">
                     <p className="card-header-text-h3">{`${searchInput}`}</p>
 

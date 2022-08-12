@@ -490,27 +490,20 @@
   font-weight: 400;
   padding-top: 20px;
 }
-/* @media only screen and (min-width: 320px) and (max-width: 820px) {
-  .sosocial_accoountcial {
-    flex-wrap: wrap;
+@media only screen and (min-width: 300px) and (max-width: 601px) {
+  .css-6od3lo-MuiChip-label{
+    width:17vw;
+    padding-left: 12px;
+       margin-top: 3vw;
   }
-
-  .social_accoount span {
-    display: block;
-    border: 1px solid #636060;
-    padding: 12px 28px;
+  .MuiChip-root .MuiChip-deleteIcon {
+    -webkit-tap-highlight-color: transparent;
+    color: rgba(0, 0, 0, 0.26);
+    font-size: 22px;
+    margin-top: -8vw !important;
+    margin-left: auto !important;
     cursor: pointer;
-    margin-bottom: 10px;
-  }
-  .create_container .or2 {
-    margin: -8px 2px;
-  }
-  .allButtons {
-    justify-content: inherit;
-  }
+   
 }
-@media only screen and (max-width: 319px) {
-  .allButtons {
-    justify-content: inherit;
-  }
-} */
+  
+}

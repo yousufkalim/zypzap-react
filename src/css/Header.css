@@ -13,6 +13,9 @@
   background-color: rgba(25, 118, 210, 0.08);
   padding: 9px 4px !important;
 }
+.css-8iv0is .MuiInputBase-input {
+  width: 28ch;
+}
 .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
   color: #fff !important;
 }
@@ -661,7 +664,7 @@
   }
   .css-1kcggdq-MuiInputBase-root .MuiInputBase-input {
     padding-left: calc(-0em + 11px) !important;
-    font-size: 4.3px !important;
+    font-size: 14px !important;
   }
   .MuiSvgIcon-root {
     /* width: 1em !important; */
