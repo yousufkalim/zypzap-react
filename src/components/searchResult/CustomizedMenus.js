@@ -138,7 +138,11 @@ export default function CustomizedMenus(props) {
             marginTop: '3px',
           }}
         >
-          {sortBy ? sortBy + ' ' : <span> Sort by</span>}
+          {window.innerWidth < 601
+            ? sortBy
+              ? sortBy + '  '
+              : 'Sort by '
+            : 'Sort By ' + sortBy || ''}
 
           <KeyboardArrowDownIcon
             sx={{
