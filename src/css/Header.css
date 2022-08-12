@@ -14,7 +14,7 @@
   padding: 9px 4px !important;
 }
 .css-8iv0is .MuiInputBase-input {
-  width: 28ch;
+  width: 28ch !important;
 }
 .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
   color: #fff !important;
@@ -35,9 +35,9 @@
   padding-left: 45px !important;
   min-height: 80px !important;
 }
-.css-r8u8y9 {
+/* .css-r8u8y9 {
   background: #1d1f38 !important;
-}
+} */
 .searchBar {
   width: 23% !important;
   /* border-radius: 60px !important; */
@@ -594,9 +594,11 @@
 
 
 
-  .css-6hp17o-MuiList-root-MuiMenu-list {
+  /* .css-6hp17o-MuiList-root-MuiMenu-list {
     height: 100vh;
-  }
+  } */
+
+
   .Carousel-indicatorIcon-17 {
     margin-right: 0.5rem !important;
   }
@@ -717,10 +719,10 @@
   .uploadSuccessP{
     font-size: 16px;
   }
-  .css-r8u8y9{
+  /* .css-r8u8y9{
     min-height:100vh !important;
     min-width: 100vw !important;
-  }
+  } */
   .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
     flex-direction: column !important;
     margin-top: 20% !important;
