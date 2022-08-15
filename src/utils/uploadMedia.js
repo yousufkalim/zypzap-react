@@ -30,6 +30,8 @@ export const uploadVideoAsThumbnail = (formData, dir) => {
   });
 };
 
+export let controller;
+
 export const uploadVideo = async (file, creator, setVideoName, setOpens, setmbPerSecond, setTimeUploadRemaining, setProgress) => {
   if (!file) return;
 
@@ -48,8 +50,15 @@ export const uploadVideo = async (file, creator, setVideoName, setOpens, setmbPe
     let speed = 0;
 
     try {
+      controller = new AbortController();
+
+      controller.signal.addEventListener('abort', () => {
+        reject();
+      });
+
       const response = await axios.post(`${mediaServerUrl}/uploads/videos/${creator}`, formData, {
         withCredentials: false,
+        signal: controller.signal,
         onUploadProgress: (progressEvent) => {
           const { loaded, total } = progressEvent;
           if (bytesTransferredTime == null) {

@@ -29,10 +29,6 @@ const FormStepsix = ({
   const [uploading, setUploading] = useState(false);
   const [btnState, setBtnState] = useState(0);
   const [opens, setOpens] = useState(false);
-  const [videoName, setVideoName] = useState('');
-  const [mbPerSecond, setmbPerSecond] = useState(0);
-  const [timeUploadRemaining, setTimeUploadRemaining] = useState(0);
-  const [showPopup, setShowPopup] = useState(false);
   const [imgUrl, setImgUrl] = useState('');
   // const [videoName, setVideoName] = useState("");
   // const handleFileChange = (event) => {
