@@ -109,21 +109,31 @@
     font-size: 31px !important;
     padding: 0 6px !important;
     padding-top: -9px;
+    border-radius: 50%;
+
     /* color:grey !important */
   }
   .activeIndicator {
     background: radial-gradient(65.06deg, #662f88 2.05%, #20bf55 111.69%);
     /* color: red !important; */
-    margin-right: 2% !important;
+    border-radius: 50% !important;
+    /* margin-right: 2% !important; */
 }
+.jss15 {
+  width: 76%  !important;
+  margin: auto  !important;}
 .jss16:hover {
   color: #1f1f1f;
   width: 4vw !important;
   height: 2vh !important;
   margin-right: 3% !important;
+  border-radius: 50%;
+
 }
 .MuiIconButton-sizeSmall{
-  width:5% !important
+  width:5% !important;
+  border-radius: 50%;
+
 }
   .Carousel-buttonWrapper-6 {
     top: 0;
@@ -131,6 +141,8 @@
     position: inherit !important;
     background-color: transparent;
     margin: auto;
+  
+
   }
   .Carousel-fullHeightHoverWrapper-7 {
     top: 0 !important;
