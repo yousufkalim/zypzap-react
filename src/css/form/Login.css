@@ -163,15 +163,6 @@
   letter-spacing: 0.5px;
   color: #5dcfa09c;
 }
-/* @media only screen and (min-width: 300px) and (max-width: 768px) {
-  .social span {
-    display: block;
-    border: 1px solid #636060;
-    padding: 12px 28px;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
-  .form_container .or {
-    margin: -8px 3px;
-  }
-} */
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+ 
+}

@@ -193,4 +193,7 @@
   .Carousel-indicators-15 {
     display: none;
   }
+  .topCourseGrid {
+    border-radius: 16px !important;
+  }
 }

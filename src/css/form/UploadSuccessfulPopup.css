@@ -40,6 +40,10 @@ body {
   height: 54% !important;
 }
 
+#didItPopUp{
+  width: 89%;
+  margin-left: 4%;
+}
 
 .css-uhb5lp{
   width:331px !important;
@@ -59,5 +63,12 @@ body {
 .coursDetailBtns{
   display: flex;
   flex-wrap: wrap;
+}
+.css-uhb5lp{
+  width: 89% !important;
+}
+.uploadSuccessBTN{
+  padding: 10px 30px;
+  width: 87%;
 }
 }
