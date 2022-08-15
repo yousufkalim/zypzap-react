@@ -16,15 +16,21 @@ export const uploadPhoto = (formData, dir) => {
   });
 };
 
-export const uploadVideo = async (
-  file,
-  creator,
-  setVideoName,
-  setOpens,
-  setmbPerSecond,
-  setTimeUploadRemaining,
-  setProgress
-) => {
+export const uploadVideoAsThumbnail = (formData, dir) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await axios.post(`${mediaServerUrl}/uploads/videos/${dir}`, formData, {
+        withCredentials: false,
+      });
+      resolve(response.data);
+    } catch (err) {
+      toast.error(err.response.data.message);
+      reject(err);
+    }
+  });
+};
+
+export const uploadVideo = async (file, creator, setVideoName, setOpens, setmbPerSecond, setTimeUploadRemaining, setProgress) => {
   if (!file) return;
 
   return new Promise(async (resolve, reject) => {
@@ -62,8 +68,7 @@ export const uploadVideo = async (
               bytesTransferredTime = now;
               let newbytesPerSecond = bytesPerSecond / 1024;
               setmbPerSecond(newbytesPerSecond.toFixed(3));
-              let remTime =
-                (((total - loaded) / bytesPerSecond) * 2) / (updateDurationThreshold - 1000);
+              let remTime = (((total - loaded) / bytesPerSecond) * 2) / (updateDurationThreshold - 1000);
               totalBytesTransferred += bytesTransferred;
               remTime = remTime.toFixed(0);
               if (remTime <= 60) remTime = `${remTime} sec left`;
