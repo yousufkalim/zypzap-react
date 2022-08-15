@@ -603,7 +603,7 @@
     margin-right: 0.5rem !important;
   }
   .activeIndicator {
-    display: none;
+   
   }
   .searchBarIcon {
     position: absolute;
@@ -647,6 +647,7 @@
   .dropdown-content {
     padding-left: 1rem;
     min-width: 94vw;
+    margin-top: 3vh ;
   }
 
   .topc .requestBtn {
@@ -671,7 +672,7 @@
   .MuiSvgIcon-root {
     /* width: 1em !important; */
     margin: 0px 0 0 -8px !important;
-    color: white !important;
+    /* color: white !important; */
     height: 100% !important;
   }
   .css-1t29gy6-MuiToolbar-root {
@@ -708,8 +709,10 @@
   .jss16 {
     margin-right: 2% !important;
   }
-  .jss15 {
-    display: none;
+  .jss18 {
+    margin-right: 2% !important;
+    background: linear-gradient(65.06deg, #662f88 2.05%, #20bf55 111.69%);
+    color: transparent;
   }
   .css-177ic5c{
     position: revert !important;

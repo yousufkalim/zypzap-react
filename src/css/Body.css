@@ -383,4 +383,14 @@
   right: 25%;
   width: 13%;
 }
+.textonImgbutton{
+  border-radius: 2px;
+  padding: 6px;
+}
+.curriculum-h1{
+  font-weight: 100 !important;
+}
+.curriculumLiDiv{
+  font-size: 11px;
+}
 }

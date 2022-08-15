@@ -40,10 +40,32 @@ const Video = ({ video, setShowVideo }) => {
     var ret = '';
     if (hrs > 0) {
       ret += '' + hrs + ':' + (mins < 10 ? '0' : '');
+      ret += '' + mins + ':' + (secs < 10 ? '0' : '');
+      ret += '' + secs + ' hr';
+    } else if (mins > 0) {
+      ret += '' + mins + ':' + (secs < 10 ? '0' : '');
+      ret += '' + secs + ' min';
+    } else {
+      ret += ' 0:' + secs + ' sec';
     }
-    ret += '' + mins + ':' + (secs < 10 ? '0' : '');
-    ret += '' + secs;
     return ret;
+  };
+
+  const calTotalSecInVideos = (sec) => {
+    // videos?.map((videos) => (timeInSecond += parseInt(videos.duration)));
+    var hrs = ~~(sec / 3600);
+    var mins = ~~((sec % 3600) / 60);
+    var secs = ~~sec % 60;
+    let time;
+    if (hrs > 0) {
+      time = `${hrs} : ${mins} :${secs} hrs`;
+    } else if (mins > 0) {
+      time = `${mins}:${secs} mins`;
+    } else {
+      time = `${secs} sec`;
+    }
+
+    return time;
   };
   return (
     <>

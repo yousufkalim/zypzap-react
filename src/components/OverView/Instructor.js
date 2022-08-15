@@ -116,9 +116,11 @@ const Instructor = (props) => {
               <div className="instructor-about-Heading">
                 <p className="instructor-aboutH2">About the Instructor</p>
                 <p className="instructor-aboutP">
-                  {`Expertise Games: ${singlCourse?.creator?.user_id?.prefrence_games?.favourite_games.join(
-                    ',  '
-                  )} `}
+                  {singlCourse?.creator?.user_id?.prefrence_games?.favourite_games.length > 0
+                    ? `Expertise Games: ${singlCourse?.creator?.user_id?.prefrence_games?.favourite_games.join(
+                        ',  '
+                      )} `
+                    : 'Expertise Games: None'}
                 </p>
               </div>
               <div className="instructorProfile-heading">

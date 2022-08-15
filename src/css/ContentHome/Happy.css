@@ -71,9 +71,6 @@
 }
 /* for mobile */
 @media only screen and (min-width: 320px) and (max-width: 812px) {
-  .drowpP {
-    display: none;
-  }
   .happy_container {
     width: 90%;
     margin: auto;
@@ -112,7 +109,22 @@
     font-size: 31px !important;
     padding: 0 6px !important;
     padding-top: -9px;
+    /* color:grey !important */
   }
+  .activeIndicator {
+    background: radial-gradient(65.06deg, #662f88 2.05%, #20bf55 111.69%);
+    /* color: red !important; */
+    margin-right: 2% !important;
+}
+.jss16:hover {
+  color: #1f1f1f;
+  width: 4vw !important;
+  height: 2vh !important;
+  margin-right: 3% !important;
+}
+.MuiIconButton-sizeSmall{
+  width:5% !important
+}
   .Carousel-buttonWrapper-6 {
     top: 0;
     height: 0;
@@ -128,9 +140,7 @@
   .Carousel-indicators-2 {
     margin-top: -60px !important;
   }
-  .activeIndicator {
-    background: transparent;
-  }
+ 
   .happy_col1p,
   .happy_col1h2 {
     text-align: center;
