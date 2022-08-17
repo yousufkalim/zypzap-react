@@ -324,6 +324,10 @@
   .wishCarImgDiv {
     width: 93%;
   }
+  .css-1l6di18 .MuiAutocomplete-tag {
+    overflow: hidden;
+    font-size: 11px;
+}
 }
 
 @media only screen and (min-width: 1900px) {

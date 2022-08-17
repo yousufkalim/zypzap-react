@@ -40,10 +40,11 @@ body {
   height: 54% !important;
 }
 
-#didItPopUp{
+#congoPopUp,#didItPopUp{
   width: 89%;
-  margin-left: 4%;
+  margin-left: 5% !important;
 }
+ 
 
 .css-uhb5lp{
   width:331px !important;

@@ -12,6 +12,7 @@ const CongratulationPopup1 = ({ open, setOpen, text }) => {
   return (
     <div>
       <Dialog
+        id="congoPopUp"
         open={open}
         setOpen={setOpen}
         aria-labelledby="alert-dialog-title"

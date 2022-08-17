@@ -358,4 +358,14 @@
   width: 100%;
   margin-bottom: 7%;
 }
+.profileSetting-centerDiv{
+  flex-direction: column-reverse;
+}
+.profileSetting-Col{
+  width: 100% !important;
+}
+.carousalOuterDiv2{
+  font-size: 10px;
+  text-align: center;
+}
 }

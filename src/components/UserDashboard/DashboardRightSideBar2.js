@@ -5,7 +5,7 @@ import EnrolledCourse from './EnrolledCourse';
 import Wishlist from './Wishlist';
 import ProgressionRoadmap from './ProgressionRoadmap';
 import { Store, UpdateStore } from '../../StoreContext';
-
+import DownArrow from '../../assets/icons/downarrow.svg';
 import MyWallet from './MyWallet';
 import Setting from './Setting';
 
@@ -33,7 +33,7 @@ const DashboardRightSideBar2 = ({}) => {
           <div class="Mobdropdown">
             <div>
               <div class="dropbtn" onClick={() => setOpen(!open)}>
-                Courses <i class=" CourseDownArrow fa-solid fa-angle-down "></i>
+                Courses <img src={DownArrow} alt="img" className="downarrow" />
               </div>
               {open && (
                 <div class="dropdown-content1">

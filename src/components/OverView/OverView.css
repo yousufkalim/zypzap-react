@@ -501,7 +501,7 @@ body {
   .overViewMene_centerDiv{
    margin-top: 72vh;
    margin-bottom: 4vh;
-    margin-left: 0vh;
+    margin-left: -2vh;
   }
   .overViewH1{
     font-size: 22px;
