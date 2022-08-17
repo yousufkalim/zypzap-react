@@ -238,29 +238,29 @@ export default function LoginFormPopup({ open, setOpen, setSignup }) {
                 <Grid container spacing={0}>
                   <Grid item xs={12}>
                     <div className="social">
-                      <a href={`${baseUrl}/users/auth/discord`}>
-                        <span>
+                      <span>
+                        <a href={`${baseUrl}/users/auth/discord`}>
                           <img src={Discord1} alt="" />
-                        </span>
-                      </a>
+                        </a>
+                      </span>
 
-                      <a href={`${baseUrl}/users/auth/twitch`}>
-                        <span>
+                      <span>
+                        <a href={`${baseUrl}/users/auth/twitch`}>
                           <img src={ChatIcon} alt="" />
-                        </span>
-                      </a>
+                        </a>
+                      </span>
 
-                      <a href={`${baseUrl}/users/auth/google`}>
-                        <span>
+                      <span>
+                        <a href={`${baseUrl}/users/auth/google`}>
                           <img src={Google} alt="" />
-                        </span>
-                      </a>
+                        </a>
+                      </span>
 
-                      <a href={`${baseUrl}/users/auth/facebook`}>
-                        <span>
+                      <span>
+                        <a href={`${baseUrl}/users/auth/facebook`}>
                           <img src={Facebook} alt="" />
-                        </span>
-                      </a>
+                        </a>
+                      </span>
                     </div>
                   </Grid>
                 </Grid>
