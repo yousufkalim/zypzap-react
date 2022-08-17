@@ -11,6 +11,7 @@ import Setting from './Setting';
 
 const DashboardRightSideBar2 = ({}) => {
   const [open, setOpen] = useState(false);
+  const [tab, setTab] = useState('courses');
 
   const { contentDashboardButton } = Store();
   const updateStore = UpdateStore();
@@ -25,15 +26,37 @@ const DashboardRightSideBar2 = ({}) => {
     updateStore({ contentDashboardButton: i });
     setOpen(!open);
   };
+  const handleSettings = (i) => {
+    updateStore({ contentDashboardButton: 'Setting' });
+    setTab(i);
+  };
 
+  const handleOpen = (i) => {
+    setOpen(!open);
+    setTab(i);
+  };
   return (
     <>
       {window.innerWidth < 601 ? (
         <div>
           <div class="Mobdropdown">
             <div>
-              <div class="dropbtn" onClick={() => setOpen(!open)}>
+              <div class="dropbtn" onClick={() => handleOpen('courses')}>
                 Courses <img src={DownArrow} alt="img" className="downarrow" />
+                {tab === 'courses' ? (
+                  <hr
+                    style={{
+                      width: '17%',
+                      marginTop: '3%',
+                      position: 'absolute',
+                      borderStyle: 'solid',
+                      borderWidth: '1px',
+                      borderImage: 'linear-gradient(45deg,#662f88, #20bf55) 1 ',
+                    }}
+                  />
+                ) : (
+                  ''
+                )}
               </div>
               {open && (
                 <div class="dropdown-content1">
@@ -46,10 +69,25 @@ const DashboardRightSideBar2 = ({}) => {
                 </div>
               )}
             </div>
-            <div class="dropbtn" onClick={() => updateStore({ contentDashboardButton: 'Setting' })}>
+            <div class="dropbtn " onClick={() => handleSettings('settings')}>
               Settings
             </div>
           </div>
+          {tab === 'settings' ? (
+            <hr
+              style={{
+                width: '18%',
+                position: 'absolute',
+                marginLeft: '75vw',
+                borderStyle: 'solid',
+                borderWidth: '1px',
+                borderImage: 'linear-gradient(45deg,#662f88, #20bf55) 1 ',
+                marginTop: '3%',
+              }}
+            />
+          ) : (
+            ''
+          )}
           <hr className="line" />
         </div>
       ) : (
