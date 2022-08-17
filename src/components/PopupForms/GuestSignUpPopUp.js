@@ -27,7 +27,7 @@ const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup, setOpenLogin }) => {
   return (
     <>
       <div>
-        <Dialog open={open}>
+        <Dialog open={open} className="regPopUp">
           <div className="create_container" style={{ padding: '6%' }}>
             <ClearIcon className="clearIcon3" onClick={handleClose} />
 

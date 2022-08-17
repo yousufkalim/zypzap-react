@@ -41,7 +41,7 @@ const DoYouWant = ({ open, setOpen, setOpenBecomeCreatorPopup }) => {
               Yes
             </button>
 
-            <button className="continueBtn" onClick={handleClose}>
+            <button className="continueBtn" id="noBtn" onClick={handleClose}>
               No
             </button>
           </div>

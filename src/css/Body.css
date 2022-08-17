@@ -21,7 +21,7 @@
 }
 #loginFormbtn{
   width: 31%;
-  padding: 12px 0px !important;
+  padding: 9px 0px !important;
   border: none;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   border-radius: 8px;
@@ -35,7 +35,7 @@
 }
 #signupBtn{
   width: 35%;
-  padding: 12px 0px !important;
+  padding: 9px 0px !important;
   border: none;
   background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   color: white;
@@ -348,7 +348,7 @@
   font-size: 11px;
 }
 #regText{
-  font-size: 23px;
+  font-size: 19px;
 }
 .regBtns{
  display: flex;

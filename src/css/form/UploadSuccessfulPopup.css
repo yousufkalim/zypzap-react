@@ -57,6 +57,9 @@ body {
     /* margin-left: 4% !important; */
     margin-bottom: 6% !important;
 }
+#noBtn{
+  background: #41435D;
+}
 #preferncePopUp{
   width:92%;
   border-radius: 5px !important;
@@ -71,5 +74,11 @@ body {
 .uploadSuccessBTN{
   padding: 10px 30px;
   width: 87%;
+}
+.regPopUp{
+  width: 86%;
+  margin: auto;
+  border-radius: 3px;
+  font-size: 19px;
 }
 }
