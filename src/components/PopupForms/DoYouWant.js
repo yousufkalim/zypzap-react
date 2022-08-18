@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Dialog from "@mui/material/Dialog";
-import "../../css/form/UploadSuccessfulPopup.css";
-import ClearIcon from "@mui/icons-material/Clear";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import '../../css/form/UploadSuccessfulPopup.css';
+import ClearIcon from '@mui/icons-material/Clear';
+import { useHistory } from 'react-router-dom';
 
 const DoYouWant = ({ open, setOpen, setOpenBecomeCreatorPopup }) => {
   const history = useHistory();
@@ -14,18 +14,20 @@ const DoYouWant = ({ open, setOpen, setOpenBecomeCreatorPopup }) => {
   return (
     <div>
       <Dialog
+        id="preferncePopUp"
         open={open}
         setOpen={setOpen}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
-        style={{ maxWidth: "500px", margin: "auto" }}
+        style={{ maxWidth: '500px', margin: 'auto' }}
       >
-        <div
-          className="uploadSuccess-centerDiv"
-          style={{ color: "#fff", textAlign: "center" }}
-        >
+        <div className="uploadSuccess-centerDiv" style={{ color: '#fff', textAlign: 'center' }}>
           <p className="uploadSuccessP">
-            <ClearIcon className="clearIconss" onClick={handleClose} />
+            {window.innerWidth < 601 ? (
+              ''
+            ) : (
+              <ClearIcon className="clearIconss" onClick={handleClose} />
+            )}
             Do you Want to keep your profile <br /> preferences information?
           </p>
           <div className="coursDetailBtns">
@@ -38,8 +40,8 @@ const DoYouWant = ({ open, setOpen, setOpenBecomeCreatorPopup }) => {
             >
               Yes
             </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button className="continueBtn" onClick={handleClose}>
+
+            <button className="continueBtn" id="noBtn" onClick={handleClose}>
               No
             </button>
           </div>

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Dialog from "@mui/material/Dialog";
-import "../../css/form/UploadSuccessfulPopup.css";
-import UploadSuccessLog from "../../assets/icons/UploadSuccessLog.svg";
-import ClearIcon from "@mui/icons-material/Clear";
+import React, { useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import '../../css/form/UploadSuccessfulPopup.css';
+import UploadSuccessLog from '../../assets/icons/UploadSuccessLog.svg';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const CongratulationPopup1 = ({ open, setOpen, text }) => {
   const handleClose = () => {
@@ -12,13 +12,18 @@ const CongratulationPopup1 = ({ open, setOpen, text }) => {
   return (
     <div>
       <Dialog
+        id="congoPopUp"
         open={open}
         setOpen={setOpen}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
         <div className="uploadSuccessDiv">
-          <ClearIcon className="subsclearIcon" onClick={handleClose} />
+          {window.innerWidth < 601 ? (
+            ''
+          ) : (
+            <ClearIcon className="subsclearIcon" onClick={handleClose} />
+          )}
           <div className="uploadSuccess-centerDiv">
             <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />
             <p className="uploadSuccessP">

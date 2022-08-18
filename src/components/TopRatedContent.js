@@ -194,7 +194,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
           // autoPlay={true}
           autoPlaySpeed={3000}
           // transitionDuration={3000}
-          // infinite={true}
+          infinite={true}
           className="latestcourseCarousel"
         >
           {topRatedContentCreator?.map((item, i) => (
@@ -214,11 +214,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
                   />
                 </div>
                 <h4 className="latestCourse-h4">
-                  <img
-                    src={LatestCourseGameIcon}
-                    alt=""
-                    className="LatestCourse-IMG"
-                  />
+                  <img src={LatestCourseGameIcon} alt="" className="LatestCourse-IMG" />
                   &nbsp;
                   {item.username}
                 </h4>
@@ -229,28 +225,15 @@ export default function TopRatedContent({ topRatedContentCreator }) {
               </p>
               <p className="topRatedContentcourseh6">{item.students}</p> */}
                 {/* /* -------------------------------- new card --------------------------------  */}
-                <div
-                  className="latestCourseMain-Div"
-                  style={{ justifyContent: 'space-between' }}
-                >
+                <div className="latestCourseMain-Div" style={{ justifyContent: 'space-between' }}>
                   {/* /* ------------------------------- copy colmn -------------------------------  */}
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
-                      <img
-                        src={LatestCourseProPlayerIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
-                      <h1 className="latestCourse-pHeading">
-                        Pro Player Of...
-                      </h1>
+                      <img src={LatestCourseProPlayerIcon} alt="" className="LatestCourse-IMG" />
+                      <h1 className="latestCourse-pHeading">Pro Player Of...</h1>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
-                      <img
-                        src={LatestCourseStudentsIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
+                      <img src={LatestCourseStudentsIcon} alt="" className="LatestCourse-IMG" />
 
                       <p className="latestCourse-p">
                         {' '}
@@ -266,19 +249,11 @@ export default function TopRatedContent({ topRatedContentCreator }) {
                   {/* ------------------------------- copy colmn -------------------------------  */}
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
-                      <img
-                        src={LatestCourseLavelIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
+                      <img src={LatestCourseLavelIcon} alt="" className="LatestCourse-IMG" />
                       <p className="latestCourse-p">{item?.gameMood}</p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
-                      <img
-                        src={LatestCourseRatingIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
+                      <img src={LatestCourseRatingIcon} alt="" className="LatestCourse-IMG" />
                       <p className="latestCourse-p">0 Rating</p>
                     </div>
                   </div>

@@ -261,6 +261,10 @@
    display: flex;
    flex-wrap: wrap;
   }
+
+  #wishListFlex-containerE{
+    display: block !important;
+  }
   .wishCard-progrss{
     width: 92vw;
     padding-top: 1%;
@@ -268,6 +272,11 @@
   }
   .wishlistP3 {
     padding: 9px 21px;
+    font-size: 14px;
+}
+.wishlistP2 {
+  font-size: 18px;
+  padding: 9px 0;
 }
 .wishButtonDiv{
   margin: auto !important;
@@ -305,6 +314,7 @@
    margin-left: 4%;
    margin-top: 3%;
    margin-bottom: 1%;
+   opacity: 27%;
 
   }
   .CourseDownArrow {

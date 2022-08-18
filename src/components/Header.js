@@ -376,7 +376,7 @@ export default function PrimarySearchAppBar({
             <>
               <p
                 className="sgnBtn"
-                style={{ marginRight: 'auto', marginTop: '100%' }}
+                style={{ marginRight: 'auto', marginTop: '10vh' }}
                 onClick={() => setOpenSignup(true)}
               >
                 <img src={S_Vector} /> Sign Up

@@ -501,7 +501,7 @@ body {
   .overViewMene_centerDiv{
    margin-top: 72vh;
    margin-bottom: 4vh;
-    margin-left: 0vh;
+    margin-left: -2vh;
   }
   .overViewH1{
     font-size: 22px;
@@ -572,7 +572,7 @@ body {
 .instructor-aboutP {
  font-size: 15px;
   position: absolute;
-  bottom: -65vh;
+  bottom: -69vh;
   margin-left: -6%;
 }
 .Instructor{
@@ -644,7 +644,7 @@ body {
 }
 .completeCourseScroll{
   height: 27vh !important;
-  width: 57vh;
+  width: 95vw;
 }
 .completeCourse-colm2{
   padding: 0!important;

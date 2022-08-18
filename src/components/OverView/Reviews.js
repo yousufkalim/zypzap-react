@@ -123,21 +123,7 @@ const Reviews = (props) => {
                 <br />
                 <BorderLinearProgress
                   variant="determinate"
-                  value={Percentage(OneStar, totalCount)}
-                />
-              </Box>
-              <Box sx={{ flexGrow: 1 }}>
-                <br />
-                <BorderLinearProgress
-                  variant="determinate"
-                  value={Percentage(twoStar, totalCount)}
-                />
-              </Box>
-              <Box sx={{ flexGrow: 1 }}>
-                <br />
-                <BorderLinearProgress
-                  variant="determinate"
-                  value={Percentage(threeStar, totalCount)}
+                  value={Percentage(fiveStar, totalCount)}
                 />
               </Box>
               <Box sx={{ flexGrow: 1 }}>
@@ -151,7 +137,22 @@ const Reviews = (props) => {
                 <br />
                 <BorderLinearProgress
                   variant="determinate"
-                  value={Percentage(fiveStar, totalCount)}
+                  value={Percentage(threeStar, totalCount)}
+                />
+              </Box>
+              <Box sx={{ flexGrow: 1 }}>
+                <br />
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={Percentage(twoStar, totalCount)}
+                />
+              </Box>
+
+              <Box sx={{ flexGrow: 1 }}>
+                <br />
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={Percentage(OneStar, totalCount)}
                 />
               </Box>
             </div>
@@ -159,14 +160,15 @@ const Reviews = (props) => {
               <div className="reviewsStarIcon">
                 {/* calculate persentage and fix it upto 2 figure after decimal */}
                 {/* {(OneStar / totalCount) * 100 + "%"} */}
-                <ReviewStarList star={[1]} text={`${Percentage(OneStar, totalCount)}%`} />
-                <ReviewStarList star={[1, 2]} text={`${Percentage(twoStar, totalCount)}%`} />
-                <ReviewStarList star={[1, 2, 3]} text={`${Percentage(threeStar, totalCount)}%`} />
-                <ReviewStarList star={[1, 2, 3, 4]} text={`${Percentage(fourStar, totalCount)}%`} />
+
                 <ReviewStarList
                   star={[1, 2, 3, 4, 5]}
                   text={`${Percentage(fiveStar, totalCount)}%`}
                 />
+                <ReviewStarList star={[1, 2, 3, 4]} text={`${Percentage(fourStar, totalCount)}%`} />
+                <ReviewStarList star={[1, 2, 3]} text={`${Percentage(threeStar, totalCount)}%`} />
+                <ReviewStarList star={[1, 2]} text={`${Percentage(twoStar, totalCount)}%`} />
+                <ReviewStarList star={[1]} text={`${Percentage(OneStar, totalCount)}%`} />
               </div>
             </div>
           </div>

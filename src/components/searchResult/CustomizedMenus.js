@@ -138,7 +138,12 @@ export default function CustomizedMenus(props) {
             marginTop: '3px',
           }}
         >
-          <span> Sort by &nbsp;</span>
+          {window.innerWidth < 601
+            ? sortBy
+              ? sortBy + '  '
+              : 'Sort by '
+            : 'Sort By ' + sortBy || ''}
+
           <KeyboardArrowDownIcon
             sx={{
               color: '#fff !important',
@@ -148,7 +153,6 @@ export default function CustomizedMenus(props) {
               height: '0.8em !important',
             }}
           />
-          {sortBy || ''}
         </div>
       </button>
       <StyledMenu
@@ -159,6 +163,7 @@ export default function CustomizedMenus(props) {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
+        sx={{ minHeight: '0' }}
       >
         <MenuItem
           sx={{

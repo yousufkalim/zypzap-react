@@ -40,13 +40,18 @@ const CongratsYouDidPopup = ({ showPopup, setShowPopup, singlCourse, rating }) =
   return (
     <div>
       <Dialog
+        id="didItPopUp"
         open={showPopup}
         setOpen={setShowPopup}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
         <div className="uploadSuccessDiv">
-          <ClearIcon className="subsclearIcon" onClick={handleClose} />
+          {window.innerWidth < 601 ? (
+            ''
+          ) : (
+            <ClearIcon className="subsclearIcon" onClick={handleClose} />
+          )}
           <div className="uploadSuccess-centerDiv">
             <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />
             <p className="congtratsYouP">Congrats You did it!</p>
