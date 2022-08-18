@@ -87,6 +87,15 @@ tr {
   .cardGrid {
     border-radius: 15px !important;
   }
+
+  .react-multiple-carousel__arrow--right{
+    margin-top: 65vh;
+    margin-right: 23vh;
+  }
+  .react-multiple-carousel__arrow--left{
+    margin-top: 65vh;
+    margin-left: 21vh;
+  }
 }
 /* @media only screen and (min-width: 813px) and (max-width: 212px) {
   .topRatedcardGrid-image {
