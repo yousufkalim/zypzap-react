@@ -602,9 +602,7 @@
   .Carousel-indicatorIcon-17 {
     margin-right: 0.5rem !important;
   }
-  .activeIndicator {
-   
-  }
+ 
   .searchBarIcon {
     position: absolute;
     top: 2%;
@@ -702,8 +700,8 @@
   }
   .sgnBtn {
     margin-right: auto ;
-    margin-bottom: 5vh;
-    margin-left: 4vh;
+    margin-bottom: 4vh;
+    margin-left: 2vh;
   }
 
   .jss16 {
@@ -736,6 +734,20 @@
   .dropdown {
     left: 5px;
   }
-
+  /* .css-r8u8y9{
+    display: flex;
+    flex-direction: column;
+  } */
+  .flexMenu{
+    display: flex;
+    flex-direction: column;
+  }
+  .b1{
+    width: 90%;
+    margin-top: 3%;
+    position: absolute;
+    border-bottom: 1px solig grey ;
+    opacity: 15%;
+  }
  
 }
