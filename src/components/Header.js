@@ -3,6 +3,7 @@ import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import ClearIcon from '@mui/icons-material/Clear';
+
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -20,6 +21,8 @@ import UserHeaderIcon from '../assets/icons/UserHeaderIcon.svg';
 import CourseIcon from '../assets/icons/CourseIcon.svg';
 import DownArrow from '../assets/icons/downarrow.svg';
 import UserIcon from '../assets/icons/userIcon.svg';
+import Union from '../assets/icons/Union.svg';
+
 import DropdownProfileImg from '../assets/icons/DropdownProfileImg.svg';
 import HeaderLogoutIcon from '../assets/icons/HeaderLogoutIcon.svg';
 import EditPrfile from '../assets/icons/EditPrfile.svg';
@@ -270,8 +273,8 @@ export default function PrimarySearchAppBar({
             style={{ position: 'absolute', right: '0', marginTop: '3vh' }}
             onClick={handleMenuClose}
           >
-            <i
-              class="fa-solid fa-xmark"
+            <img
+              src={Union}
               style={{
                 marginTop: '5vh',
                 marginBottom: '5vh',
@@ -279,7 +282,12 @@ export default function PrimarySearchAppBar({
                 cursor: 'pointer',
                 zIndex: '500',
               }}
-            />{' '}
+              alt=""
+            />
+            {/* <i
+              class="fa-solid fa-xmark"
+            
+            />{' '} */}
           </MenuItem>
 
           {/* /* -------------------------------- res menu --------------------------------  */}
