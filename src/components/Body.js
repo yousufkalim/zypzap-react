@@ -1,8 +1,6 @@
 // Init
 import React, { useState, useEffect } from 'react';
 import Bodyimg from '../assets/img/Bodyimg.svg';
-import Bodyimg1 from '../assets/img/Bodyimg1.svg';
-
 import BodyBlurimg from '../assets/img/bodyblur.png';
 import TopCourses from './TopCourses';
 import LatestCourses from './LatestCourses';
@@ -60,11 +58,7 @@ export default function Body({ setOpenSignup }) {
         <h1>Loading...</h1>
       ) : (
         <div className="Bodycontainer">
-          {/* {window.innerWidth < 601 ? (
-            <img src={Bodyimg1} alt="img" className="bodyImage1" style={{ position: 'relative' }} />
-          ) : ( */}
           <img src={Bodyimg} alt="img" className="bodyImage" style={{ position: 'relative' }} />
-          {/* )} */}
 
           <div className="textonImg">
             <h1 className="textimgH1">

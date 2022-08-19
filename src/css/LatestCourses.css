@@ -304,6 +304,13 @@
 @media only screen and (min-width: 300px) and (max-width: 812px) {
   .cardGrid {
     text-align: left;
+    margin-top: 4px;
+  }
+  .topRatedcardGrid{
+    width: 93% !important;
+  }
+  .TopRatedcarousalOuterDiv{
+    margin-top: -13px !important;
   }
   .wishListh4{
     text-align: left;
@@ -327,7 +334,8 @@
     margin: auto;
   }
   .latestCourse-h4 {
-    font-size: 17px;
+    font-size: 22px;
+    padding-top: 3vh;
   }
   .cardGrid2 {
     flex-direction: column;
@@ -374,4 +382,9 @@
   .wishList-container{
     margin-right: auto;
   }
+  #latestCourse-pHeading, .latestCourse{
+    font-weight: 400 !important;
+  }
+
 }
+

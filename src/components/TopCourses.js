@@ -160,33 +160,35 @@ function TopCoursesComponent({ item }) {
           >
             <Grid item xs={6} md={6}>
               <div className="userprofilediv">
-                <img
-                  src={
-                    item?.creator?.user_id?.profile_photo
-                      ? item.creator.user_id.profile_photo
-                      : avatar
-                  }
-                  className="avatar"
-                  alt="img"
-                />
+                <div>
+                  <img
+                    src={
+                      item?.creator?.user_id?.profile_photo
+                        ? item.creator.user_id.profile_photo
+                        : avatar
+                    }
+                    className="avatar"
+                    alt="img"
+                  />
+                </div>
                 <div>
                   <p className="p1">{item?.creator?.user_id?.username}</p>
                   <p className="p2">{item?.course_name + ' player'}</p>
-                  {
-                    <p className="p2">
-                      {[1, 2, 3, 4, 5].map((i) => (
-                        <StarIcon
-                          className="starID"
-                          style={{
-                            width: '15px',
-                            height: '15px',
-                          }}
-                        />
-                      ))}
-                      {' (' + countViews(item) + ')'}
-                      {/* &nbsp; (382,420) */}
-                    </p>
-                  }
+
+                  <p className="p2">
+                    {item?.rating ? item.rating + ' ' : <></>}
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star1
+                        className="starID"
+                        style={{
+                          width: '12px',
+                          height: '12px',
+                        }}
+                      />
+                    ))}
+                    {' (' + countViews(item) + ')'}
+                    {/* &nbsp; (382,420) */}
+                  </p>
                 </div>
               </div>
             </Grid>
