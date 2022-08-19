@@ -76,7 +76,7 @@ tr {
 }
 
 /* for mobile */
-@media only screen and (min-width: 320px) and (max-width: 812px) {
+@media only screen and (min-width: 300px) and (max-width: 812px) {
   .topRatedcardGrid {
     text-align: left;
     border-radius: 15px !important;
@@ -87,7 +87,9 @@ tr {
   .cardGrid {
     border-radius: 15px !important;
   }
-
+  .topRatedContentHeadingDiv{
+    margin-top: 7vh;
+  }
   .react-multiple-carousel__arrow--right{
     margin-top: 65vh;
     margin-right: 20vh;

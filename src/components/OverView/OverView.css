@@ -305,15 +305,16 @@ body {
 }
 /* Instructor */
 .instructor-image {
-  width: 53%;
   margin: auto;
+  width: 28%;
+    height: 75%;
 }
 
 .instructorLogo {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: 100px;
+  border-radius: 50%;
 }
 .Instructor {
   display: flex;
@@ -495,13 +496,16 @@ body {
 
 
 @media only screen and (min-width: 200px) and (max-width: 600px) {
+  .ReviewsPersntage{
+    font-size: 13px;
+    padding: 0 !important;
+  }
   .overIMG{
     display: none;
   }
   .overViewMene_centerDiv{
    margin-top: 72vh;
    margin-bottom: 4vh;
-    margin-left: -2vh;
   }
   .overViewH1{
     font-size: 22px;
@@ -543,7 +547,8 @@ body {
   margin-left: -45%;
 }
 .overViewMenuButton{
-  padding: 8px 1px;
+  padding: 9px 6px;
+  font-size: 13px;
 }
 .overView-description-content{
   width:100% !important;
@@ -582,9 +587,13 @@ body {
   display: none;
 }
 .instructor-image {
-  width: 53%;
+ 
    margin: 0; 
-  margin-top: 11vh;
+  margin-top: 5vh;
+  border-radius: 50%;
+  width: 28%;
+    height: 50%;
+  
 }
 .instructorProfile-heading{
   width: 86vw;
@@ -655,6 +664,7 @@ body {
   top: 6vh;
   width: 87vw;
   margin-left: -13vh;
+  z-index: 1 !important;
 }
 .plyr--video .plyr__controls{
   top:38vh

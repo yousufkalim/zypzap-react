@@ -643,10 +643,20 @@
   }
 
   .dropdown-content {
-    padding-left: 1rem;
-    min-width: 94vw;
+    min-width: 91vw;
     margin-top: 3vh ;
+    margin-left:-177%;
   }
+  #dropDownItem1{
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+
+  }
+  #dropDownItem2{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+ 
+   }
 
   .topc .requestBtn {
     padding: 5px 7px;
@@ -666,6 +676,7 @@
   .css-1kcggdq-MuiInputBase-root .MuiInputBase-input {
     padding-left: calc(-0em + 11px) !important;
     font-size: 14px !important;
+    width:84vw !important;
   }
   .MuiSvgIcon-root {
     /* width: 1em !important; */
@@ -731,8 +742,11 @@
   .form_Control_header {
     margin-top: 12px !important;
   }
-  .dropdown {
-    left: 5px;
+
+  .downarrow{
+    width:11px;
+    position: inherit;
+    left: 37vh;
   }
   /* .css-r8u8y9{
     display: flex;

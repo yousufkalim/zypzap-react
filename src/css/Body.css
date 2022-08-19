@@ -375,4 +375,10 @@
 .jss17{
   margin: 0vh !important;
 }
+
+.jss67.jss42,.jss42:hover {
+  margin-right: 2%;
+  width: 13px !important;
+  height: 12px;
+}
 }

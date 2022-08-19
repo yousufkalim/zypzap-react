@@ -67,6 +67,17 @@ const Instructor = (props) => {
                 className="requestBt"
                 style={{ textDecoration: 'none', color: 'white' }}
               >
+                {window.innerWidth < 601 ? (
+                  <p style={{ width: '88vw', textAlign: 'left' }}>
+                    {singlCourse?.creator?.user_id?.prefrence_games?.favourite_games.length > 0
+                      ? `Expertise Games: ${singlCourse?.creator?.user_id?.prefrence_games?.favourite_games.join(
+                          ',  '
+                        )} `
+                      : 'Expertise Games: None'}
+                  </p>
+                ) : (
+                  ''
+                )}
                 <div className="instructor-image">
                   <img
                     src={singlCourse?.creator?.user_id?.profile_photo || InstructorIcon}
@@ -115,13 +126,17 @@ const Instructor = (props) => {
             <div className="instructor-co">
               <div className="instructor-about-Heading">
                 <p className="instructor-aboutH2">About the Instructor</p>
-                <p className="instructor-aboutP">
-                  {singlCourse?.creator?.user_id?.prefrence_games?.favourite_games.length > 0
-                    ? `Expertise Games: ${singlCourse?.creator?.user_id?.prefrence_games?.favourite_games.join(
-                        ',  '
-                      )} `
-                    : 'Expertise Games: None'}
-                </p>
+                {window.innerWidth < 601 ? (
+                  ''
+                ) : (
+                  <p className="instructor-aboutP">
+                    {singlCourse?.creator?.user_id?.prefrence_games?.favourite_games.length > 0
+                      ? `Expertise Games: ${singlCourse?.creator?.user_id?.prefrence_games?.favourite_games.join(
+                          ',  '
+                        )} `
+                      : 'Expertise Games: None'}
+                  </p>
+                )}
               </div>
               <div className="instructorProfile-heading">
                 <p className="instructorProfile-Name">

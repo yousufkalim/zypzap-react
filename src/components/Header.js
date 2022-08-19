@@ -588,6 +588,7 @@ export default function PrimarySearchAppBar({
                       <a
                         href="#"
                         className={`${searchState == 'creator' && 'activeserchis'} `}
+                        id="dropDownItem1"
                         onClick={handleCreatorSearch}
                       >
                         <img className="UserIcons" src={UserIcon} alt="" />
@@ -602,6 +603,7 @@ export default function PrimarySearchAppBar({
                       <a
                         href="#"
                         className={`${searchState == 'course' && 'activeserchis'} `}
+                        id="dropDownItem2"
                         onClick={handleCourseSearch}
                       >
                         <img className="UserIcons" src={CourseIcon} alt="" />
