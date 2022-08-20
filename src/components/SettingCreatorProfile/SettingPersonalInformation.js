@@ -137,7 +137,7 @@ const SettingPersonalInformation = () => {
         {' '}
         <p className="setting_C_Heading">
           Personal information &nbsp; &nbsp;
-          <span style={{ opacity: 0.5 }}> Payment information</span>
+          {/* <span style={{ opacity: 0.5 }}> Payment information</span> */}
         </p>
       </div>
       <div className="setting_C_Profile">
@@ -645,13 +645,13 @@ const SettingPersonalInformation = () => {
           style={{
             background: 'linear-gradient(326deg, #662F88 8%, #20BF55 132%)',
             color: 'white',
-            fontWeight: '600',
+            fontWeight: '700',
             borderRadius: ' 4px',
             cursor: 'pointer',
             border: 'none',
             width: ' 133.93px',
             height: '44px',
-            fontSize: '14px',
+            fontSize: '16px',
             display: 'bl8ck',
             margin: '25px 4px',
           }}
