@@ -4,7 +4,9 @@
   flex-grow: 0;
   max-width: 100% !important;
 }
-
+.failedImg{
+  width: 100%;
+}
 .latestCoursescontainer {
   margin-top: 5px;
   position: unset !important;
@@ -395,6 +397,20 @@
     margin: auto !important;
     margin-bottom: 2vh !important;
   }
- 
+  .failedImg{
+    width: 250.22px;
+    height: 177.88px;
+  }
+  .researchP {
+    font-size: 16px;
+    padding: 23px 22px;
+    font-weight: 500;
+}
+
+
+.btn-Research{    width: 181px;
+  height: 43px;
+  font-size: 16px !important;
+  font-weight: 700 !important;}
 }
 
