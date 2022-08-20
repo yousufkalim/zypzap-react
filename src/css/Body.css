@@ -274,13 +274,14 @@
   }
   .topRatedheading {
     margin-right: 3px;
-    padding: 28px 33px 7px 0px;
+    padding-top: 41px !important;
     font-weight: 600;
     font-size: 20px !important;
   }
   .topRatedheadings {
     font-weight: 400;
     font-size: 15px !important;
+    padding-top: 45px !important;
   }
   .setting_C_Container {
     flex-direction: column;
@@ -371,4 +372,14 @@
 .css-1t1j96h-MuiPaper-root-MuiDialog-paper{
   border-radius: 4px !important;
 }
+.jss17{
+  margin: 0vh !important;
+}
+
+.jss67.jss42,.jss42:hover {
+  margin-right: 2%;
+  width: 13px !important;
+  height: 12px;
+}
+
 }

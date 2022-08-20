@@ -4,7 +4,9 @@
   flex-grow: 0;
   max-width: 100% !important;
 }
-
+.failedImg{
+  width: 100%;
+}
 .latestCoursescontainer {
   margin-top: 5px;
   position: unset !important;
@@ -41,7 +43,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10%;
+  border-radius: 15px;
   margin: auto;
   display: block;
 }
@@ -304,6 +306,13 @@
 @media only screen and (min-width: 300px) and (max-width: 812px) {
   .cardGrid {
     text-align: left;
+    margin-top: 4px;
+  }
+  .topRatedcardGrid{
+    width: 93% !important;
+  }
+  .TopRatedcarousalOuterDiv{
+    margin-top: -13px !important;
   }
   .wishListh4{
     text-align: left;
@@ -327,7 +336,8 @@
     margin: auto;
   }
   .latestCourse-h4 {
-    font-size: 17px;
+    font-size: 22px;
+    padding-top: 3vh;
   }
   .cardGrid2 {
     flex-direction: column;
@@ -365,8 +375,9 @@
     font-family: 'mulish';
   }
   .latestCourse-p {
-    font-size: 16px;
-  }
+    font-size: 14px;
+    font-weight: 400 !important;
+}
   .startcourseimg{
     height: 27vh;
 
@@ -374,4 +385,32 @@
   .wishList-container{
     margin-right: auto;
   }
+  #latestCourse-pHeading, .latestCourse{
+    font-weight: 400 !important;
+  }
+  .latestcourseh5 {
+    padding-left: 0 !important;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .cardGrid{
+    margin: auto !important;
+    margin-bottom: 2vh !important;
+  }
+  .failedImg{
+    width: 250.22px;
+    height: 177.88px;
+  }
+  .researchP {
+    font-size: 16px;
+    padding: 23px 22px;
+    font-weight: 500;
 }
+
+
+.btn-Research{    width: 181px;
+  height: 43px;
+  font-size: 16px !important;
+  font-weight: 700 !important;}
+}
+

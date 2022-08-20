@@ -3,6 +3,7 @@ import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import ClearIcon from '@mui/icons-material/Clear';
+
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -20,6 +21,8 @@ import UserHeaderIcon from '../assets/icons/UserHeaderIcon.svg';
 import CourseIcon from '../assets/icons/CourseIcon.svg';
 import DownArrow from '../assets/icons/downarrow.svg';
 import UserIcon from '../assets/icons/userIcon.svg';
+import Union from '../assets/icons/Union.svg';
+
 import DropdownProfileImg from '../assets/icons/DropdownProfileImg.svg';
 import HeaderLogoutIcon from '../assets/icons/HeaderLogoutIcon.svg';
 import EditPrfile from '../assets/icons/EditPrfile.svg';
@@ -263,131 +266,163 @@ export default function PrimarySearchAppBar({
         keepMounted
         open={isMobileMenuOpen}
         onClose={handleMobileMenuClose}
+        style={{ display: 'flex', flexDirection: 'column' }}
       >
-        <i
-          class="fa-solid fa-xmark"
-          style={{
-            position: 'absolute',
-            right: '0',
-            marginRight: ' 8%',
-            marginTop: '5%',
-            cursor: 'pointer',
-          }}
-          onClick={handleMenuClose}
-        />
+        <div className="flexMenu">
+          <MenuItem
+            style={{ position: 'absolute', right: '0', marginTop: '3vh' }}
+            onClick={handleMenuClose}
+          >
+            <img
+              src={Union}
+              style={{
+                marginTop: '5vh',
+                marginBottom: '5vh',
+                marginRight: '5vh',
+                cursor: 'pointer',
+                zIndex: '500',
+              }}
+              alt=""
+            />
+            {/* <i
+              class="fa-solid fa-xmark"
+            
+            />{' '} */}
+          </MenuItem>
 
-        <MenuItem> </MenuItem>
-        <MenuItem>
           {/* /* -------------------------------- res menu --------------------------------  */}
           {creator ? (
             <>
-              <Link
-                to={{
-                  pathname: learner ? '/UserDashboard' : '/dashboard',
-                  state: { creator: `${creator}` },
-                }}
-                onClick={() => {
-                  // history.push('/dashboard');
-                  handleMenuClose();
-                  updateStore({ contentDashboardButton: 'Courses' });
-                }}
-                style={{
-                  color: 'white',
-                  textDecoration: 'none',
-                  marginRight: 'auto',
-                  marginTop: '20vh',
-                }}
-              >
-                <p className="sgnBtn">My Dashboard</p>
-              </Link>
+              <MenuItem>
+                <Link
+                  to={{
+                    pathname: learner ? '/UserDashboard' : '/dashboard',
+                    state: { creator: `${creator}` },
+                  }}
+                  onClick={() => {
+                    // history.push('/dashboard');
+                    handleMenuClose();
+                    updateStore({ contentDashboardButton: 'Courses' });
+                  }}
+                  style={{
+                    color: 'white',
+                    textDecoration: 'none',
+                    marginRight: 'auto',
+                    marginTop: '12vh',
+                  }}
+                >
+                  <p className="sgnBtn">
+                    My Dashboard <hr className="b1" />
+                  </p>
+                </Link>
+              </MenuItem>
               {learner ? (
-                <Link
-                  to="/contentHome"
-                  style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
-                >
-                  <p className="sgnBtn" onClick={handleSwitch}>
-                    Switch to Creator
-                  </p>
-                </Link>
+                <MenuItem>
+                  <Link
+                    to="/contentHome"
+                    style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
+                  >
+                    <p className="sgnBtn" onClick={handleSwitch}>
+                      Switch to Creator <hr className="b1" />
+                    </p>
+                  </Link>
+                </MenuItem>
               ) : (
-                <Link
-                  to="/home"
-                  style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
-                >
-                  <p className="sgnBtn" onClick={handleSwitch}>
-                    Switch to Learner
+                <MenuItem>
+                  <Link
+                    to="/home"
+                    style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
+                  >
+                    <p className="sgnBtn" onClick={handleSwitch}>
+                      Switch to Learner <hr className="b1" />
+                    </p>
+                  </Link>
+                </MenuItem>
+              )}
+              <MenuItem>
+                <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
+                  <p onClick={handleSettings} className="sgnBtn">
+                    <img src={EditPrfile} alt="" /> &nbsp;Edit Profile <hr className="b1" />
                   </p>
                 </Link>
-              )}
-
-              <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
-                <p onClick={handleSettings} className="sgnBtn">
-                  <img src={EditPrfile} alt="" /> &nbsp;Edit Profile
-                </p>
-              </Link>
+              </MenuItem>
             </>
           ) : (
             <>
               {user?.role != 'Creator' && user?.role == 'User' && (
                 <>
-                  <Link
-                    to={{
-                      pathname: learner ? '/UserDashboard' : '/dashboard',
-                      state: { user: `${user}` },
-                    }}
-                    style={{
-                      color: 'white',
-                      textDecoration: 'none',
-                      marginRight: 'auto',
-                      marginTop: '20vh',
-                    }}
-                  >
-                    <p className="sgnBtn" onClick={handleMenuClose}>
-                      My Dashboard
+                  <MenuItem>
+                    <Link
+                      to={{
+                        pathname: learner ? '/UserDashboard' : '/dashboard',
+                        state: { user: `${user}` },
+                      }}
+                      style={{
+                        color: 'white',
+                        textDecoration: 'none',
+                        marginRight: 'auto',
+                        marginTop: '12vh',
+                      }}
+                    >
+                      <p className="sgnBtn" onClick={handleMenuClose}>
+                        My Dashboard <hr className="b1" />
+                      </p>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <p
+                      className="sgnBtn"
+                      onClick={() => {
+                        // setOpenBecomeCreatorPopup(true);
+                        setOpen(true);
+                      }}
+                    >
+                      Become a Creator <hr className="b1" />
                     </p>
-                  </Link>
-                  <p
-                    className="sgnBtn"
-                    onClick={() => {
-                      // setOpenBecomeCreatorPopup(true);
-                      setOpen(true);
-                    }}
-                  >
-                    Become a Creator
-                  </p>
-
-                  <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
-                    <p onClick={handleSettings} className="sgnBtn">
-                      <img src={EditPrfile} alt="" /> &nbsp; Edit Profile
-                    </p>
-                  </Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
+                      <p onClick={handleSettings} className="sgnBtn">
+                        <img src={EditPrfile} alt="" /> &nbsp; Edit Profile <hr className="b1" />
+                      </p>
+                    </Link>
+                  </MenuItem>
                 </>
               )}
             </>
           )}
           {user ? (
-            <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
-              <p onClick={openProfilePg} className="sgnBtn">
-                <img src={S_Vector} alt="" />
-                &nbsp; My Profile
-              </p>
-            </Link>
+            <MenuItem>
+              {' '}
+              <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
+                <p onClick={openProfilePg} className="sgnBtn">
+                  <img src={S_Vector} alt="" />
+                  &nbsp; My Profile <hr className="b1" />
+                </p>
+              </Link>
+            </MenuItem>
           ) : (
             <>
-              <p
-                className="sgnBtn"
-                style={{ marginRight: 'auto', marginTop: '10vh' }}
-                onClick={() => setOpenSignup(true)}
-              >
-                <img src={S_Vector} /> Sign Up
-              </p>
-              <p
-                className="sgnBtn"
-                style={{ marginRight: 'auto' }}
-                onClick={() => setOpenLogin(true)}
-              >
-                Login
-              </p>
+              <MenuItem>
+                {' '}
+                <p
+                  className="sgnBtn"
+                  style={{ marginRight: 'auto', marginTop: '12vh' }}
+                  onClick={() => setOpenLogin(true)}
+                >
+                  Login
+                  <hr className="b1" />
+                </p>
+              </MenuItem>
+              <MenuItem>
+                <p
+                  className="sgnBtn"
+                  style={{ marginRight: 'auto' }}
+                  onClick={() => setOpenSignup(true)}
+                >
+                  <img src={S_Vector} /> Sign Up <hr className="b1" />
+                </p>
+              </MenuItem>
               {/* <div>
               <FormControl className="form_Control_header">
                 <button className="comming-soon3">Coming Soon</button>
@@ -414,12 +449,9 @@ export default function PrimarySearchAppBar({
             </div> */}
             </>
           )}
-        </MenuItem>
 
-        <MenuItem> </MenuItem>
-
-        {/* <MenuItem> */}
-        {/* <IconButton
+          {/* <MenuItem> */}
+          {/* <IconButton
           size="large"
           aria-label="show 17 new notifications"
           color="inherit"
@@ -429,18 +461,19 @@ export default function PrimarySearchAppBar({
           </Badge>
         </IconButton>
         <p>My Courses</p> */}
-        {/* </MenuItem> */}
+          {/* </MenuItem> */}
 
-        {/* <MenuItem> */}
-        {/* <IconButton
+          {/* <MenuItem> */}
+          {/* <IconButton
           size="large"
           aria-label="show 4 new mails"
           color="inherit"
         ></IconButton>
         <p onClick={showBecomePopup}>Become a Creater</p> */}
-        {/* </MenuItem> */}
-        {/* /* -------------------------------- res menu --------------------------------  */}
-        {/* <ClearIcon className="clearIconclose" style={{ marginLeft: 'auto', marginTop: '-27%' }} /> */}
+          {/* </MenuItem> */}
+          {/* /* -------------------------------- res menu --------------------------------  */}
+          {/* <ClearIcon className="clearIconclose" style={{ marginLeft: 'auto', marginTop: '-27%' }} /> */}
+        </div>
       </Menu>
     </div>
   );
@@ -563,6 +596,7 @@ export default function PrimarySearchAppBar({
                       <a
                         href="#"
                         className={`${searchState == 'creator' && 'activeserchis'} `}
+                        id="dropDownItem1"
                         onClick={handleCreatorSearch}
                       >
                         <img className="UserIcons" src={UserIcon} alt="" />
@@ -577,6 +611,7 @@ export default function PrimarySearchAppBar({
                       <a
                         href="#"
                         className={`${searchState == 'course' && 'activeserchis'} `}
+                        id="dropDownItem2"
                         onClick={handleCourseSearch}
                       >
                         <img className="UserIcons" src={CourseIcon} alt="" />

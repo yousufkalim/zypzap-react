@@ -14,6 +14,8 @@ import Filters from '../../assets/filters.svg';
 import { useRef } from 'react';
 import Course1 from '../../assets/img/course1.png';
 import StarIcon from '@material-ui/icons/Star';
+import Union from '../../assets/icons/Union.svg';
+
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import CustomizedMenus from './CustomizedMenus';
@@ -389,15 +391,27 @@ const SearchResultBody = () => {
         <Box className="side-bar-filter" ref={click}>
           <Grid>
             <Item className="filterby-container">
-              <p className="filterby-container-h4">
-                {' '}
-                {window.innerWidth < 601 ? (
-                  <i class="fa-solid fa-circle-arrow-left" onClick={() => setOpenMobView(false)} />
-                ) : (
-                  ''
-                )}{' '}
-                &nbsp; Filter By
-              </p>
+              <div className="filterMenu">
+                <p className="filterby-container-h4">Filter By</p>
+                <p>
+                  {' '}
+                  {window.innerWidth < 601 ? (
+                    <img
+                      src={Union}
+                      onClick={() => setOpenMobView(false)}
+                      style={{
+                        cursor: 'pointer',
+                        zIndex: '500',
+                        width: '11px',
+                        height: '11px',
+                      }}
+                      alt="filtersimg"
+                    />
+                  ) : (
+                    ''
+                  )}{' '}
+                </p>
+              </div>
               <div className="searchInputItem">
                 <input type="text" placeholder="CS⎸Go Game" className="searchInputItem-input" />
               </div>
@@ -410,7 +424,7 @@ const SearchResultBody = () => {
                       color: '#fff',
                       marginTop: '5px',
                       width: '30px',
-                      height: '1em !important',
+                      height: '1.2em !important',
                     }}
                     id="1"
                     onClick={onClickSideBarHeaders}
@@ -421,7 +435,7 @@ const SearchResultBody = () => {
                       color: '#fff',
                       marginTop: '5px',
                       width: '30px',
-                      height: '1em !important',
+                      height: '1.2em !important',
                     }}
                     id="1"
                     onClick={onClickSideBarHeaders}
@@ -447,7 +461,7 @@ const SearchResultBody = () => {
                       marginTop: '5px',
 
                       width: '30px',
-                      height: '1em !important',
+                      height: '1.2em !important',
                     }}
                     id="2"
                     onClick={onClickSideBarHeaders}
@@ -459,7 +473,7 @@ const SearchResultBody = () => {
                       marginTop: '5px',
 
                       width: '30px',
-                      height: '1em !important',
+                      height: '1.2em !important',
                     }}
                     id="2"
                     onClick={onClickSideBarHeaders}
@@ -485,7 +499,7 @@ const SearchResultBody = () => {
                       marginTop: '5px',
 
                       width: '30px',
-                      height: '1em !important',
+                      height: '1.2em !important',
                     }}
                     id="3"
                     onClick={onClickSideBarHeaders}
@@ -497,7 +511,7 @@ const SearchResultBody = () => {
                       marginTop: '5px',
 
                       width: '30px',
-                      height: '1em !important',
+                      height: '1.2em !important',
                     }}
                     id="3"
                     onClick={onClickSideBarHeaders}
@@ -526,7 +540,7 @@ const SearchResultBody = () => {
                       marginTop: '5px',
 
                       width: '30px',
-                      height: '1em !important',
+                      height: '1.2em !important',
                     }}
                     id="6"
                     onClick={onClickSideBarHeaders}
@@ -537,7 +551,7 @@ const SearchResultBody = () => {
                       color: '#fff',
                       marginTop: '5px',
                       width: '30px',
-                      height: '1em !important',
+                      height: '1.2em !important',
                     }}
                     id="6"
                     onClick={onClickSideBarHeaders}
@@ -564,7 +578,7 @@ const SearchResultBody = () => {
                       color: '#fff',
                       marginTop: '5px',
                       width: '30px',
-                      height: '1em !important',
+                      height: '1.2em !important',
                     }}
                     id="4"
                     onClick={onClickSideBarHeaders}
@@ -575,7 +589,7 @@ const SearchResultBody = () => {
                       color: '#fff',
                       marginTop: '5px',
                       width: '30px',
-                      height: '1em !important',
+                      height: '1.2em !important',
                     }}
                     id="4"
                     onClick={onClickSideBarHeaders}
@@ -583,7 +597,7 @@ const SearchResultBody = () => {
                 )}
               </div>
               {selectedGameplay ? (
-                <div>
+                <div className="mobMode">
                   <div class="radio-item">
                     <span className="categories-tegs">
                       <Checkbox
@@ -730,9 +744,16 @@ const SearchResultBody = () => {
               {/* <h4 className="didnt-find-text">
               Didn't found the <br /> course
             </h4> */}
-              <label className="dropdown-headers" style={{ fontSize: '16px' }}>
-                Didn’t found the <br /> course
-              </label>
+              {window.innerWidth < 601 ? (
+                <label className="dropdown-headers" style={{ fontSize: '15px' }}>
+                  Didn’t found the course
+                </label>
+              ) : (
+                <label className="dropdown-headers" style={{ fontSize: '16px' }}>
+                  Didn’t found the <br /> course
+                </label>
+              )}
+
               <Box style={{ position: 'relative' }}>
                 {/* <p className="req-coming-soon">Coming soon</p> */}
                 <Button className="reqstStateBTN" onClick={RequestClikEvent} variant="contained">
@@ -809,6 +830,14 @@ const SearchResultBody = () => {
                           style={{ color: 'inherit', textDecoration: 'none' }}
                         >
                           <div className="cardGrid searchcard">
+                            {window.innerWidth < 601 ? (
+                              <h5 className="latestcourseh5" style={{ paddingTop: '2vh' }}>
+                                {' '}
+                                {item?.course_name ? item.course_name : 'Fight Course'}
+                              </h5>
+                            ) : (
+                              ''
+                            )}
                             <div className="favourite-icon-position">
                               <img
                                 src={item?.thumbnail ? item.thumbnail : Course1}
@@ -820,10 +849,14 @@ const SearchResultBody = () => {
                                 FvrtIconCount={FvrtIconCount}
                               /> */}
                             </div>
-                            <h5 className="latestcourseh5">
-                              {' '}
-                              {item?.course_name ? item.course_name : 'Fight Course'}
-                            </h5>
+                            {window.innerWidth < 601 ? (
+                              ''
+                            ) : (
+                              <h5 className="latestcourseh5">
+                                {' '}
+                                {item?.course_name ? item.course_name : 'Fight Course'}
+                              </h5>
+                            )}
                             <div className="latestCourseMain-Div">
                               <div className="latestCouse-colmn">
                                 <div className="latestCourse-colmn-centerDiv">

@@ -53,6 +53,10 @@
   box-shadow: 0px 10px 20px rgb(0 0 0 / 15%);
   flex-direction: column;
 }
+.css-1ljjtbo-MuiModal-root-MuiPopover-root-MuiMenu-root .MuiPaper-root .MuiMenu-list{
+ background: #202342 !important;
+}
+
 .slider p {
   font-size: 18px;
   font-weight: 600;
@@ -154,7 +158,8 @@
   cursor: pointer;
   font-size: 16px !important;
   padding: 12px 15px !important;
-  margin: 25px 0 0 0 !important;
+  margin: 25px 0 0 0;
+
 }
 .btn-search-result:hover {
   background: none;
@@ -377,51 +382,7 @@
   padding: 10px 20px;
   border: none;
 }
-/* 
-@media all and (max-width: 1200px) {
-  .req-coming-soon {
-    right: 5px;
-    display: inline-table;
-  }
-}
-@media all and (max-width: 800px) {
-  .search-result-container {
-    display: flex;
-    flex-direction: column;
-  }
-  .side-bar-filter {
-    width: 100%;
-  }
-  .cards-container {
-    width: 100%;
-  }
-  .side-bar-container {
-    padding: 10px !important;
-  }
-  .reqstStateBTN {
-    font-size: 12px;
-  }
-  .filterby-container {
-    padding: 20px !important;
-  }
-  .cards-container2 {
-    margin: auto;
-    width: 90%;
-  }
-  .req-coming-soon {
-    left: 10%;
-    display: inline-table;
-  }
-}
 
-
-@media only screen and (min-width: 1900px) {
-  .favourite-icon-position2 {
-    position: relative;
-    height: 350px;
-    padding: 15px;
-  }
-} */
 
 @media only screen and (min-width: 1900px) {
   .favourite-icon-position {
@@ -435,12 +396,25 @@
 
   @media only screen and (min-width: 270px) and (max-width: 600px) {
 
+    .btn-search-result{
+      width: 139px !important;
+      height: 43px !important;
+      margin: 9px 0 32px 0 !important;
+      border-radius: 5px !important;
+  }
+ 
+  
+  
+
     .side-bar-filter {
       width: 80%;
       z-index: 1;
       position: fixed;
       top: 0px;
       height: 100vh
+  }
+  .cards-header-text{
+    display: none;
   }
   .css-vj1n65-MuiGrid-root{
     height: 100vh !important;
@@ -453,7 +427,7 @@
 
   /* .css-1dk9rsx-MuiPaper-root */
   .filterby-container{
-   padding: 10px !important;
+   padding: 0px !important;
   }
   .cards-container, .cards-container2{
     margin: 0px !important;
@@ -462,4 +436,103 @@
   .followList{
     width: 100%;
   }
+  .cards-box{
+    padding: 20px 25px;
   }
+  .btn-icon-container{
+    font-size: 14px;
+    font-weight: 500 !important;
+  }
+
+  /* sortby menu responsivness  */
+  .css-8tslhi-MuiButtonBase-root-MuiMenuItem-root{
+   align-items: baseline !important;
+    justify-content: flex-end !important;
+    line-height: 2;
+  }
+  .css-1ljjtbo-MuiModal-root-MuiPopover-root-MuiMenu-root .MuiPaper-root .MuiMenuItem-root {
+    margin-top: -5px !important;
+}
+  .css-1ljjtbo-MuiModal-root-MuiPopover-root-MuiMenu-root .MuiPaper-root{
+   min-width: 143px !important;
+  border-radius: 5px;
+    left: 202px !important;
+  }
+  .css-6hp17o-MuiList-root-MuiMenu-list{
+    padding: 0 !important;
+  }
+
+
+/* filter menu responsivness */
+.css-1dk9rsx-MuiPaper-root{
+  width: 88% !important;
+  overflow: scroll;
+  }
+
+  .filterMenu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 7vh;
+    padding: 3vh;
+  }
+  .filterby-container-h4 {
+    font-family: 'Mulish' !important;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .searchInputItem{
+    margin: 16px !important;
+  }
+  .filterby-divider{
+    display: none;
+  }
+  .dropdown-headers {
+    padding: 3px 17px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.categories-text{
+  padding: 4px 20px;
+}
+.f2div{
+  width: 45% !important;
+}
+.mobMode{
+  padding-left: 21px;
+}
+
+.reqstStateBTN{
+  font-size: 14px !important;
+    font-weight: 600 !important;
+    margin-left: 17px !important;
+    width: 139px;
+    height: 43px !important;
+    border-radius: 5px !important;
+}
+.followingImgDiv {
+  height: 70px;
+  width: 70px;
+}
+.followingh4{
+  text-transform: capitalize;
+  font-size: 14px !important;
+    font-weight: 700 !important;
+}
+.following_P,.followingP2,.followingP3{
+color:rgba(255, 255, 255, 0.47);
+
+}
+
+
+.follow-P {
+  font-size: 14px;
+  padding-top: 5vh !important;
+  padding-bottom: 2vh;
+  font-weight: 600;
+  color: #662F88;
+  margin: auto;
+  text-align: center;
+}
+}

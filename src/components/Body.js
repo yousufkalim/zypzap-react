@@ -1,17 +1,17 @@
 // Init
-import React, { useState, useEffect } from "react";
-import Bodyimg from "../assets/img/Bodyimg.svg";
-import BodyBlurimg from "../assets/img/bodyblur.png";
-import TopCourses from "./TopCourses";
-import LatestCourses from "./LatestCourses";
-import TopRatedContent from "./TopRatedContent";
-import Request from "./Request";
-import RankingList from "./RankingList";
-import Blog from "./Blog";
-import ContentRequest from "../components/PopupForms/ContentRequest";
-import { Store, UpdateStore } from "../StoreContext";
-import api from "../api";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import Bodyimg from '../assets/img/Bodyimg.svg';
+import BodyBlurimg from '../assets/img/bodyblur.png';
+import TopCourses from './TopCourses';
+import LatestCourses from './LatestCourses';
+import TopRatedContent from './TopRatedContent';
+import Request from './Request';
+import RankingList from './RankingList';
+import Blog from './Blog';
+import ContentRequest from '../components/PopupForms/ContentRequest';
+import { Store, UpdateStore } from '../StoreContext';
+import api from '../api';
+import { useHistory } from 'react-router-dom';
 
 export default function Body({ setOpenSignup }) {
   const [loading, setLoading] = useState(false);
@@ -22,14 +22,14 @@ export default function Body({ setOpenSignup }) {
 
   let getTopCourses = async () => {
     setLoading(true);
-    let res = await api("get", "/courses");
+    let res = await api('get', '/courses');
     if (res) {
       updateStore({ courses: res?.data });
     }
     setLoading(false);
   };
   let getTopRatedContentCreator = async () => {
-    let res = await api("get", "/creators/topRatedCreator");
+    let res = await api('get', '/creators/topRatedCreator');
     if (res) {
       updateStore({ topRatedContentCreator: res?.data });
     }
@@ -41,10 +41,10 @@ export default function Body({ setOpenSignup }) {
   }, []);
   const handleviewTopCourses = () => {
     history.push({
-      pathname: "/searchResult",
+      pathname: '/searchResult',
       param: {
-        name: "Top 10 Games",
-        value: "1",
+        name: 'Top 10 Games',
+        value: '1',
       },
     });
   };
@@ -58,12 +58,7 @@ export default function Body({ setOpenSignup }) {
         <h1>Loading...</h1>
       ) : (
         <div className="Bodycontainer">
-          <img
-            src={Bodyimg}
-            alt="img"
-            className="bodyImage"
-            style={{ position: "relative" }}
-          />
+          <img src={Bodyimg} alt="img" className="bodyImage" style={{ position: 'relative' }} />
 
           <div className="textonImg">
             <h1 className="textimgH1">
@@ -80,10 +75,7 @@ export default function Body({ setOpenSignup }) {
                 Explore Courses
               </button>
             ) : (
-              <button
-                className="textonImgbutton"
-                onClick={() => setOpenSignup(true)}
-              >
+              <button className="textonImgbutton" onClick={() => setOpenSignup(true)}>
                 Sign Up For Free
               </button>
             )}
