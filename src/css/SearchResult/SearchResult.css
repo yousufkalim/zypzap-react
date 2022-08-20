@@ -511,4 +511,28 @@
     height: 43px !important;
     border-radius: 5px !important;
 }
+.followingImgDiv {
+  height: 70px;
+  width: 70px;
+}
+.followingh4{
+  text-transform: capitalize;
+  font-size: 14px !important;
+    font-weight: 700 !important;
+}
+.following_P,.followingP2,.followingP3{
+color:rgba(255, 255, 255, 0.47);
+
+}
+
+
+.follow-P {
+  font-size: 14px;
+  padding-top: 5vh !important;
+  padding-bottom: 2vh;
+  font-weight: 600;
+  color: #662F88;
+  margin: auto;
+  text-align: center;
+}
 }
