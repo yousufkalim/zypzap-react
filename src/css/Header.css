@@ -766,5 +766,8 @@
     border-bottom: 1px solig grey ;
     opacity: 15%;
   }
- 
+ .profileHeader{
+  color: transparent !important;
+  z-index: 500 !important;
+ }
 }

@@ -17,6 +17,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 // import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Hamburger from '../assets/icons/Hamburger.svg';
+import Hamburger1 from '../assets/icons/Hamburger1.svg';
+
 import UserHeaderIcon from '../assets/icons/UserHeaderIcon.svg';
 import CourseIcon from '../assets/icons/CourseIcon.svg';
 import DownArrow from '../assets/icons/downarrow.svg';
@@ -532,8 +534,13 @@ export default function PrimarySearchAppBar({
       <OopsPopup open={open3} setOpen={setOpen3} />
       <OptionPopup open={Option} setOpen={setOption} />
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" className="headerBackgroundColor">
-          <Toolbar className="imgLogo">
+        <AppBar
+          position="static"
+          className={
+            window.location.pathname === '/userprofile' ? 'profileHeader' : 'headerBackgroundColor'
+          }
+        >
+          <Toolbar className="imgLogo" style={{ zIndex: '1300' }}>
             <img
               // src={Logo}
               src={HomePageLogo}
@@ -572,67 +579,69 @@ export default function PrimarySearchAppBar({
                 ></a>
               </div>
             </Typography>
-            <Search className={window.innerWidth < 601 ? 'mobSearchBar' : 'searchBar'}>
-              <div onClick={handleSearchButtonClick} style={{ cursor: 'pointer' }}>
-                {' '}
-                <Tooltip title="Search">
-                  <SearchIcon className="searchBarIcon" />
-                </Tooltip>
-                <SearchIconWrapper></SearchIconWrapper>
-              </div>
+            {window.innerWidth < 601 && window.location.pathname === '/userprofile' ? null : (
+              <Search className={window.innerWidth < 601 ? 'mobSearchBar' : 'searchBar'}>
+                <div onClick={handleSearchButtonClick} style={{ cursor: 'pointer' }}>
+                  {' '}
+                  <Tooltip title="Search">
+                    <SearchIcon className="searchBarIcon" />
+                  </Tooltip>
+                  <SearchIconWrapper></SearchIconWrapper>
+                </div>
 
-              <div className="dropdown">
-                {/* <button className="dropbtn"> */}
-                <img
-                  src={DownArrow}
-                  alt="img"
-                  className="downarrow"
-                  onClick={() => setSearchFlag(!searchFlag)}
+                <div className="dropdown">
+                  {/* <button className="dropbtn"> */}
+                  <img
+                    src={DownArrow}
+                    alt="img"
+                    className="downarrow"
+                    onClick={() => setSearchFlag(!searchFlag)}
+                  />
+                  {/* </button> */}
+                  {searchFlag && (
+                    <div className="dropdown-content" ref={click}>
+                      <div className="drowp1">
+                        <a
+                          href="#"
+                          className={`${searchState == 'creator' && 'activeserchis'} `}
+                          id="dropDownItem1"
+                          onClick={handleCreatorSearch}
+                        >
+                          <img className="UserIcons" src={UserIcon} alt="" />
+                          <span className="dropH" style={{ marginLeft: '-5px' }}>
+                            {' '}
+                            Content Creators
+                          </span>
+                          <p className="drowpP">Top gamers who create content for you</p>
+                        </a>
+                      </div>
+                      <div className=" drowp1">
+                        <a
+                          href="#"
+                          className={`${searchState == 'course' && 'activeserchis'} `}
+                          id="dropDownItem2"
+                          onClick={handleCourseSearch}
+                        >
+                          <img className="UserIcons" src={CourseIcon} alt="" />
+                          <span className="dropH">Courses</span>
+                          <p className="drowpP">Browse and buy courses</p>
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <StyledInputBase
+                  placeholder={
+                    searchState == 'course' ? 'Search for course' : 'Search for content creator'
+                  }
+                  inputProps={{ 'aria-label': 'search', className: 'cc_field' }}
+                  onChange={handleChangeInput}
+                  // onSubmit={handleSearchButtonClick}
+                  value={searchInput}
+                  onKeyPress={(e) => e.key === 'Enter' && handleSearchButtonClick(e)}
                 />
-                {/* </button> */}
-                {searchFlag && (
-                  <div className="dropdown-content" ref={click}>
-                    <div className="drowp1">
-                      <a
-                        href="#"
-                        className={`${searchState == 'creator' && 'activeserchis'} `}
-                        id="dropDownItem1"
-                        onClick={handleCreatorSearch}
-                      >
-                        <img className="UserIcons" src={UserIcon} alt="" />
-                        <span className="dropH" style={{ marginLeft: '-5px' }}>
-                          {' '}
-                          Content Creators
-                        </span>
-                        <p className="drowpP">Top gamers who create content for you</p>
-                      </a>
-                    </div>
-                    <div className=" drowp1">
-                      <a
-                        href="#"
-                        className={`${searchState == 'course' && 'activeserchis'} `}
-                        id="dropDownItem2"
-                        onClick={handleCourseSearch}
-                      >
-                        <img className="UserIcons" src={CourseIcon} alt="" />
-                        <span className="dropH">Courses</span>
-                        <p className="drowpP">Browse and buy courses</p>
-                      </a>
-                    </div>
-                  </div>
-                )}
-              </div>
-              <StyledInputBase
-                placeholder={
-                  searchState == 'course' ? 'Search for course' : 'Search for content creator'
-                }
-                inputProps={{ 'aria-label': 'search', className: 'cc_field' }}
-                onChange={handleChangeInput}
-                // onSubmit={handleSearchButtonClick}
-                value={searchInput}
-                onKeyPress={(e) => e.key === 'Enter' && handleSearchButtonClick(e)}
-              />
-            </Search>
+              </Search>
+            )}
 
             {/* <div className="mobBar">
               {' '}
@@ -902,12 +911,11 @@ export default function PrimarySearchAppBar({
                 onClick={handleMobileMenuOpen}
                 color="inherit"
               >
-                <img
-                  src={Hamburger}
-                  // onClick={openProfilePg}
-                  alt=""
-                />
-                {/* <Hamburger /> */}
+                {window.location.pathname === '/userprofile' ? (
+                  <img src={Hamburger1} alt="" />
+                ) : (
+                  <img src={Hamburger} alt="" />
+                )}
               </IconButton>
             </Box>
           </Toolbar>

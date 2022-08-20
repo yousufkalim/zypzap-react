@@ -96,6 +96,7 @@
 .profileBackgroun-Image {
   width: 100%;
   height: 404px;
+  border-radius: 44px;
 }
 .profileEdit-Icon {
   position: absolute;
@@ -294,8 +295,10 @@
     left: 48px;
     width: 18px;
   }
-  .profileBackgroun-Image{
-    height: 100% !important;
+ 
+  .profileBackgroun-Image {
+   
+    border-radius: 0px;
   }
   .editProfiel-btn{
     border:none;
@@ -309,25 +312,34 @@
     width: 100px;
     height: 100px;
 }
-.Profile-DP {
+/* .Profile-DP {
   position: absolute;
   bottom: -76%;
   left: 30%;
-}
-.profile-name{
-  text-align: center;
-}
-.profile-container{
+} */
+
+/* .profile-container{
   top:0;
   bottom:0;
   margin-top: 82%;
+} */
+.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked{
+  /**/
+  color:#662F88 ;
+}
+.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track{
+  background-color: #662F88  
+}
+.active_profile{
+font-weight: 600;
 }
 
 .myProfile{
-  margin-top: 59%;
+  margin-top: 9%;
 }
-.setting_C_Heading{
-  font-size: 16px;
+.setting_C_Heading {
+  font-size: 20px;
+  font-weight: 600;
 }
 .formbtn2{
   width: 95% !important;
