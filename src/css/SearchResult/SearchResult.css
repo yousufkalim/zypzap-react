@@ -496,7 +496,9 @@
 .categories-text{
   padding: 4px 20px;
 }
-
+.f2div{
+  width: 45% !important;
+}
 .mobMode{
   padding-left: 21px;
 }
