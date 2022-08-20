@@ -50,44 +50,38 @@ export default function Body({ setOpenSignup }) {
   };
   return (
     <>
-      <ContentRequest
-        openContentRequest={openContentRequest}
-        setOpenContentRequest={setOpenContentRequest}
-      />
+      <ContentRequest openContentRequest={openContentRequest} setOpenContentRequest={setOpenContentRequest} />
       {loading ? (
         <h1>Loading...</h1>
       ) : (
         <div className="Bodycontainer">
-          <img src={Bodyimg} alt="img" className="bodyImage" style={{ position: 'relative' }} />
-
-          <div className="textonImg">
-            <h1 className="textimgH1">
-              We help you becoming
-              <br /> a pro player
-            </h1>
-            <p className="textonImgP">For players who want more</p>
-            {user ? (
-              <button
-                className="textonImgbutton"
-                // onClick={() => setOpenSignup(true)}
-                onClick={handleviewTopCourses}
-              >
-                Explore Courses
-              </button>
-            ) : (
-              <button className="textonImgbutton" onClick={() => setOpenSignup(true)}>
-                Sign Up For Free
-              </button>
-            )}
+          <div className="img-and-text-container">
+            <img src={Bodyimg} alt="img" className="bodyImage" style={{ position: 'relative' }} />
+            <div className="textonImg">
+              <h1 className="textimgH1">
+                We help you becoming
+                <br />A pro player
+              </h1>
+              <p className="textonImgP">For players who want more</p>
+              {user ? (
+                <button
+                  className="textonImgbutton"
+                  // onClick={() => setOpenSignup(true)}
+                  onClick={handleviewTopCourses}
+                >
+                  Explore Courses
+                </button>
+              ) : (
+                <button className="textonImgbutton" onClick={() => setOpenSignup(true)}>
+                  Sign Up For Free
+                </button>
+              )}
+            </div>
           </div>
           <TopCourses courses={courses} user={user} />
           <LatestCourses courses={courses} user={user} />
           <TopRatedContent topRatedContentCreator={topRatedContentCreator} />
-          <Request
-            openContentRequest={openContentRequest}
-            setOpenContentRequest={setOpenContentRequest}
-            user={user}
-          />
+          <Request openContentRequest={openContentRequest} setOpenContentRequest={setOpenContentRequest} user={user} />
           {/* x */}
           {/* <RankingList /> */}
           {/* <Blog /> */}

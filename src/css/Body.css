@@ -5,6 +5,10 @@
     background-color: black;
 }
 
+.img-and-text-container {
+    position: relative;
+}
+
 .css-1636szt {
     color: #fff !important;
 }
@@ -398,20 +402,29 @@ Custom arrows end here
 }
 
 @media only screen and (min-width: 300px) and (max-width: 600px) {
+    .bodyImage {
+        height: 35vh !important;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
     .blurImg {
         left: 13px;
     }
 
     .textonImg {
         position: absolute;
-        top: 25px;
+        transform: translateY(-50%);
+        top: 50%;
         left: 9%;
         text-align: left;
         z-index: 0;
     }
 
     .textimgH1 {
-        font-size: 1.2rem;
+        font-size: 24px;
+        font-weight: 800;
+        line-height: 35px;
     }
 
     .textonImgbutton {
@@ -423,7 +436,8 @@ Custom arrows end here
 
     .textonImgP {
         padding: 0px 0px 0px 0px;
-        font-size: 9px;
+        font-size: 15px;
+        line-height: 20px;
     }
 
     .MuiGrid-spacing-xs-2>.MuiGrid-item {
@@ -532,6 +546,12 @@ Custom arrows end here
     .textonImgbutton {
         border-radius: 2px;
         padding: 6px;
+        width: 138px;
+        height: 43px;
+        border-radius: 5px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
     }
 
     .curriculum-h1 {
