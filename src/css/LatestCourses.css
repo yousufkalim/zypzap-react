@@ -41,7 +41,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10%;
+  border-radius: 15px;
   margin: auto;
   display: block;
 }
@@ -373,8 +373,9 @@
     font-family: 'mulish';
   }
   .latestCourse-p {
-    font-size: 16px;
-  }
+    font-size: 14px;
+    font-weight: 400 !important;
+}
   .startcourseimg{
     height: 27vh;
 
@@ -385,6 +386,15 @@
   #latestCourse-pHeading, .latestCourse{
     font-weight: 400 !important;
   }
-
+  .latestcourseh5 {
+    padding-left: 0 !important;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .cardGrid{
+    margin: auto !important;
+    margin-bottom: 2vh !important;
+  }
+ 
 }
 

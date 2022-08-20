@@ -809,6 +809,14 @@ const SearchResultBody = () => {
                           style={{ color: 'inherit', textDecoration: 'none' }}
                         >
                           <div className="cardGrid searchcard">
+                            {window.innerWidth < 601 ? (
+                              <h5 className="latestcourseh5" style={{ paddingTop: '2vh' }}>
+                                {' '}
+                                {item?.course_name ? item.course_name : 'Fight Course'}
+                              </h5>
+                            ) : (
+                              ''
+                            )}
                             <div className="favourite-icon-position">
                               <img
                                 src={item?.thumbnail ? item.thumbnail : Course1}
@@ -820,10 +828,14 @@ const SearchResultBody = () => {
                                 FvrtIconCount={FvrtIconCount}
                               /> */}
                             </div>
-                            <h5 className="latestcourseh5">
-                              {' '}
-                              {item?.course_name ? item.course_name : 'Fight Course'}
-                            </h5>
+                            {window.innerWidth < 601 ? (
+                              ''
+                            ) : (
+                              <h5 className="latestcourseh5">
+                                {' '}
+                                {item?.course_name ? item.course_name : 'Fight Course'}
+                              </h5>
+                            )}
                             <div className="latestCourseMain-Div">
                               <div className="latestCouse-colmn">
                                 <div className="latestCourse-colmn-centerDiv">
