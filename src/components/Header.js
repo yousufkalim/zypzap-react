@@ -536,6 +536,7 @@ export default function PrimarySearchAppBar({
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
           position="static"
+          sx={{ background: 'transparent' }}
           className={
             window.location.pathname === '/userprofile' ? 'profileHeader' : 'headerBackgroundColor'
           }
