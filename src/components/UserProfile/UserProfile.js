@@ -1,6 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import '../../components/UserProfile/UserProfile.css';
 import UserHomeProfleImg from '../../assets/img/UserHomeProfleImg.svg';
+import editProfile from '../../assets/img/editProfile.svg';
+
 import ProfileDp from '../../assets/img/profileavatar.png';
 import LoadingAvatar from '../../assets/img/loadingavatar.jpeg';
 import editIcon from '../../assets/editicon2.svg';
@@ -12,6 +14,7 @@ import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Tooltip from '@material-ui/core/Tooltip';
 import Slider from '@material-ui/core/Slider';
+import cam from '../../assets/icons/cam.svg';
 import Cropper from 'react-easy-crop';
 import api from '../../api';
 import { getCroppedImg } from './canvasUtils';
@@ -197,90 +200,129 @@ const UserProfile = (props) => {
               </div>
             </>
           ) : (
-            <div className="profile-image">
-              {/* {showImg ? null : (
-              <> */}
-              <img
-                src={
-                  cover_photo
-                    ? cover_photo
-                    : user?.cover_photo
-                    ? user?.cover_photo
-                    : UserHomeProfleImg
-                }
-                alt=""
-                className="profileBackgroun-Image"
-              />
-              {/* </>
-            )} */}
-            </div>
-          )}
-
-          <div className="Profile-DP">
-            {ProfileLoading ? (
-              <img src={LoadingAvatar} alt="loading" className="DP-img" />
-            ) : (
-              <img
-                src={profile_photo ? profile_photo : user?.profile_photo}
-                alt=""
-                className="DP-img"
-                onError={() => setProfileimg(ProfileDp)}
-              />
-            )}
-
-            <a to="">
-              <label>
-                <input
+            <>
+              {window.innerWidth < 601 ? (
+                <img
+                  src={
+                    cover_photo ? cover_photo : user?.cover_photo ? user?.cover_photo : editProfile
+                  }
                   style={{
-                    display: 'none',
-                    cursor: 'none',
+                    opacity: '0.7',
+                    position: 'fixed',
+                    top: '0',
+                    position: 'relative',
+                    top: '-23vh',
+                    height: '34vh',
+                    /* text-align: center; */
+                    width: '100vw',
+                    overflow: 'hidden',
                   }}
-                  type="file"
-                  accept="image/*"
-                  // placeholder="Ref."
-                  onChange={handleIProfilemageSelect}
-                  onClick={(event) => {
-                    event.target.value = null;
-                  }}
+                  alt=""
                 />
-                <Tooltip title={'Edit Profile Photo'}>
-                  <img
-                    src={editIcon}
-                    className="editprofileIcon"
-                    // onClick={handleClickOpen}
-                  />
-                </Tooltip>
-              </label>
-            </a>
-          </div>
-          {/* profile Div */}
-          <div className="profile-container">
-            <div className="prfile-name-heading">
-              <h1 className="profile-name">{user ? user.username : 'Atif Khan'}</h1>
-              <p className="pofileP">{user ? user.email[0] : 'johnsmith1@gmail.com'}</p>
-              <p className="prfile-lavelP">
-                Level:&nbsp;
-                <span className="level-span">
-                  {creator?.gameLevel ? creator.gameLevel : 'Semi-Pro'}
-                </span>
-              </p>
-            </div>
-            {/* <div className="following-content">
-              <p className="followingP">
-                Following:&nbsp;
-                <span className="follo-span">
-                  {creator?.followers ? creator.followers.length : " 0"}
-                </span>
-              </p>
-            </div> */}
-            <div className="profileEditButton">
-              {imageSrc ? (
-                <>
-                  <div className="editProfiel-btn" onClick={showandSaveCroppedImage}>
-                    Save Cover Photo
-                  </div>
-                </>
               ) : (
+                <div className="profile-image">
+                  <img
+                    src={
+                      cover_photo
+                        ? cover_photo
+                        : user?.cover_photo
+                        ? user?.cover_photo
+                        : UserHomeProfleImg
+                    }
+                    alt=""
+                    className="profileBackgroun-Image"
+                  />
+                </div>
+              )}
+            </>
+          )}
+          {/* ============================================= */}
+
+          {window.innerWidth < 601 ? (
+            <div
+              className="mobDP"
+              style={{ display: 'flex', flexDirection: 'column', marginTop: '-40vh' }}
+            >
+              <div style={{ paddingBottom: '3vh', position: 'relative', fontWeight: '600' }}>
+                {imageSrc ? (
+                  <>
+                    <div
+                      style={{
+                        textAlign: 'center',
+                        color: 'white',
+                      }}
+                      onClick={showandSaveCroppedImage}
+                    >
+                      Save Cover Photo
+                    </div>
+                  </>
+                ) : (
+                  <a to="">
+                    <label>
+                      <input
+                        style={{
+                          display: 'none',
+                          cursor: 'none',
+                        }}
+                        type="file"
+                        accept="image/*"
+                        // placeholder="Ref."
+                        onChange={handleImageSelect}
+                        onClick={(event) => {
+                          event.target.value = null;
+                        }}
+                      />
+                      <div
+                        style={{
+                          position: 'unset',
+                          textAlign: 'center',
+                          color: 'white',
+                          top: '-3',
+                        }}
+                      >
+                        <img src={cam} style={{ marginRight: '3px' }} alt="" /> Add Cover Photo
+                      </div>
+                    </label>
+                  </a>
+                )}
+              </div>
+
+              <div style={{ margin: 'auto' }}>
+                {ProfileLoading ? (
+                  <img
+                    src={LoadingAvatar}
+                    alt="loading"
+                    style={{
+                      border: '6px solid #14162c',
+                      borderRadius: '8px',
+                      padding: '0',
+                      objectFit: 'cover',
+                      margin: '0',
+                      width: '130px',
+                      height: '134px',
+                      margin: 'auto',
+                      position: 'relative',
+                    }}
+                  />
+                ) : (
+                  <img
+                    src={profile_photo ? profile_photo : user?.profile_photo}
+                    alt=""
+                    style={{
+                      border: '6px solid #14162c',
+                      borderRadius: '8px',
+                      padding: '0',
+                      objectFit: 'cover',
+                      margin: '0',
+                      width: '130px',
+                      height: '134px',
+                      margin: 'auto',
+                      position: 'relative',
+                    }}
+                    onError={() => setProfileimg(ProfileDp)}
+                  />
+                )}
+
                 <a to="">
                   <label>
                     <input
@@ -291,21 +333,163 @@ const UserProfile = (props) => {
                       type="file"
                       accept="image/*"
                       // placeholder="Ref."
-                      onChange={handleImageSelect}
+                      onChange={handleIProfilemageSelect}
                       onClick={(event) => {
                         event.target.value = null;
                       }}
                     />
-                    <div className="editProfiel-btn">Add Cover Photo</div>
-                    {/* <img
+                    <Tooltip title={'Edit Profile Photo'}>
+                      <img
+                        src={cam}
+                        style={{ right: '20%', position: 'relative', bottom: '2vh' }}
+                      />
+                    </Tooltip>
+                  </label>
+                </a>
+              </div>
+              <div style={{ color: 'white' }}>
+                <h1 className="profile-name" style={{ textAlign: 'center' }}>
+                  {user ? user.username : 'Atif Khan'}
+                </h1>
+                <p className="pofileP" style={{ textAlign: 'center' }}>
+                  {user ? user.email[0] : 'johnsmith1@gmail.com'}
+                </p>
+
+                <p className="prfile-lavelP">
+                  {creator?.gameLevel ? creator.gameLevel : 'Semi-Pro'}
+                  <br />
+                  <p
+                    style={{
+                      fontSize: '14px',
+                      fontWeight: '500',
+                      color: 'rgba(255, 255, 255, 0.5)',
+                      textAlign: 'center',
+                    }}
+                  >
+                    Level
+                  </p>
+                </p>
+              </div>
+            </div>
+          ) : (
+            ''
+          )}
+          {/* ============================================= */}
+          {window.innerWidth < 601 ? (
+            ''
+          ) : (
+            <>
+              <div className="Profile-DP">
+                {ProfileLoading ? (
+                  <img src={LoadingAvatar} alt="loading" className="DP-img" />
+                ) : (
+                  <img
+                    src={profile_photo ? profile_photo : user?.profile_photo}
+                    alt=""
+                    className="DP-img"
+                    onError={() => setProfileimg(ProfileDp)}
+                  />
+                )}
+
+                <a to="">
+                  <label>
+                    <input
+                      style={{
+                        display: 'none',
+                        cursor: 'none',
+                      }}
+                      type="file"
+                      accept="image/*"
+                      // placeholder="Ref."
+                      onChange={handleIProfilemageSelect}
+                      onClick={(event) => {
+                        event.target.value = null;
+                      }}
+                    />
+                    <Tooltip title={'Edit Profile Photo'}>
+                      <img
+                        src={editIcon}
+                        className="editprofileIcon"
+                        // onClick={handleClickOpen}
+                      />
+                    </Tooltip>
+                  </label>
+                </a>
+              </div>
+
+              <div className="profile-container">
+                <div className="prfile-name-heading">
+                  <h1 className="profile-name">{user ? user.username : 'Atif Khan'}</h1>
+                  <p className="pofileP">{user ? user.email[0] : 'johnsmith1@gmail.com'}</p>
+                  {window.innerWidth < 601 ? (
+                    <p className="prfile-lavelP">
+                      {creator?.gameLevel ? creator.gameLevel : 'Semi-Pro'}
+                      <br />
+                      <p
+                        style={{
+                          fontSize: '14px',
+                          fontWeight: '500',
+                          color: 'rgba(255, 255, 255, 0.5)',
+                          textAlign: 'center',
+                        }}
+                      >
+                        Level
+                      </p>
+                    </p>
+                  ) : (
+                    <p className="prfile-lavelP">
+                      Level:&nbsp;
+                      <span className="level-span">
+                        {creator?.gameLevel ? creator.gameLevel : 'Semi-Pro'}
+                      </span>
+                    </p>
+                  )}
+                </div>
+                {/* <div className="following-content">
+              <p className="followingP">
+                Following:&nbsp;
+                <span className="follo-span">
+                  {creator?.followers ? creator.followers.length : " 0"}
+                </span>
+              </p>
+            </div> */}
+                <div className="profileEditButton">
+                  {imageSrc ? (
+                    <>
+                      <div className="editProfiel-btn" onClick={showandSaveCroppedImage}>
+                        Save Cover Photo
+                      </div>
+                    </>
+                  ) : (
+                    <a to="">
+                      <label>
+                        <input
+                          style={{
+                            display: 'none',
+                            cursor: 'none',
+                          }}
+                          type="file"
+                          accept="image/*"
+                          // placeholder="Ref."
+                          onChange={handleImageSelect}
+                          onClick={(event) => {
+                            event.target.value = null;
+                          }}
+                        />
+                        <div className="editProfiel-btn">
+                          <img src={cam} style={{ marginRight: '3px' }} alt="" /> Add Cover Photo
+                        </div>
+                        {/* <img
                   src={profile_photo ? profile_photo : Course1}
                   className="userProfileInput"
                 /> */}
-                  </label>
-                </a>
-              )}
-            </div>
-          </div>
+                      </label>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
           {/* profile Div */}
         </div>
       </div>

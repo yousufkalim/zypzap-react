@@ -4,6 +4,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Store, UpdateStore } from '../../StoreContext';
+import DownArrow from '../../assets/icons/downarrow.svg';
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -132,9 +133,9 @@ export default function CustomizedMenus(props) {
         <div
           className="btn-icon-container"
           style={{
-            border: '1px solid white',
+            border: '2px solid white',
             borderRadius: '4px',
-            padding: '9px 3px',
+            padding: '9px 9px',
             marginTop: '3px',
           }}
         >
@@ -144,7 +145,7 @@ export default function CustomizedMenus(props) {
               : 'Sort by '
             : 'Sort By ' + sortBy || ''}
 
-          <KeyboardArrowDownIcon
+          {/* <KeyboardArrowDownIcon
             sx={{
               color: '#fff !important',
               opacity: '0.6',
@@ -152,7 +153,9 @@ export default function CustomizedMenus(props) {
               marginTop: '2px',
               height: '0.8em !important',
             }}
-          />
+          
+          /> */}
+          <img src={DownArrow} alt="img" style={{ marginLeft: '10px' }} className="downarrow" />
         </div>
       </button>
       <StyledMenu
@@ -168,8 +171,8 @@ export default function CustomizedMenus(props) {
         <MenuItem
           sx={{
             fontFamily: 'mulish',
-            fontSize: '13px',
-            fontWeight: '700',
+            fontSize: '14px',
+            fontWeight: '500',
           }}
           onClick={filterByRating}
           value={'Rating'}
@@ -178,7 +181,7 @@ export default function CustomizedMenus(props) {
           Rating
         </MenuItem>
         <MenuItem
-          sx={{ fontFamily: 'mulish', fontSize: '13px', fontWeight: '700' }}
+          sx={{ fontFamily: 'mulish', fontSize: '14px', fontWeight: '500' }}
           // style={{ fontFamily: "mulish" }}
           onClick={filterByDate}
           disableRipple
@@ -186,18 +189,18 @@ export default function CustomizedMenus(props) {
           Date Posted
         </MenuItem>
         <MenuItem
-          sx={{ fontFamily: 'mulish', fontSize: '13px', fontWeight: '700' }}
+          sx={{ fontFamily: 'mulish', fontSize: '14px', fontWeight: '500' }}
           onClick={filterByViews}
           disableRipple
         >
           Number Of Views
         </MenuItem>
         <MenuItem
-          sx={{ fontFamily: 'mulish', fontSize: '13px', fontWeight: '700' }}
+          sx={{ fontFamily: 'mulish', fontSize: '14px', fontWeight: '500' }}
           onClick={filterByLevel}
           disableRipple
         >
-          Level
+          Gameplay Level
         </MenuItem>
       </StyledMenu>
     </div>

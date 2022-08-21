@@ -17,6 +17,24 @@ import 'react-multi-carousel/lib/styles.css';
 import { useHistory } from 'react-router-dom';
 import { Store } from '../StoreContext';
 
+const CustomRightArrow = ({ onClick, ...rest }) => {
+  const {
+    onMove,
+    carouselState: { currentSlide, deviceType },
+  } = rest;
+  // onMove means if dragging or swiping in progress.
+  return <button className="latest-course-custom-arrow-right" onClick={() => onClick()} />;
+};
+
+const CustomLeftArrow = ({ onClick, ...rest }) => {
+  const {
+    onMove,
+    carouselState: { currentSlide, deviceType },
+  } = rest;
+  // onMove means if dragging or swiping in progress.
+  return <button className="latest-course-custom-arrow-left" onClick={() => onClick()} />;
+};
+
 export default function TopRatedContent({ topRatedContentCreator }) {
   const history = useHistory();
   const { user, creator } = Store();
@@ -196,6 +214,8 @@ export default function TopRatedContent({ topRatedContentCreator }) {
           // transitionDuration={3000}
           infinite={true}
           className="latestcourseCarousel"
+          customLeftArrow={<CustomLeftArrow />}
+          customRightArrow={<CustomRightArrow />}
         >
           {topRatedContentCreator?.map((item, i) => (
             <Link
@@ -206,18 +226,27 @@ export default function TopRatedContent({ topRatedContentCreator }) {
               style={{ textDecoration: 'none', color: 'white' }}
             >
               <div className="topRatedcardGrid" style={{ width: '500px' }}>
+                {window.innerWidth < 601 ? (
+                  <h4 className="latestCourse-h4">
+                    <img src={LatestCourseGameIcon} alt="" className="LatestCourse-IMG" />
+                    &nbsp;
+                    {item.username}
+                  </h4>
+                ) : (
+                  ''
+                )}
                 <div className="topRatedcardGrid-image">
-                  <img
-                    src={item.profile_photo ? item.profile_photo : Game2}
-                    className="topRatedcourseimg"
-                    alt="img"
-                  />
+                  <img src={item.profile_photo ? item.profile_photo : Game2} className="topRatedcourseimg" alt="img" />
                 </div>
-                <h4 className="latestCourse-h4">
-                  <img src={LatestCourseGameIcon} alt="" className="LatestCourse-IMG" />
-                  &nbsp;
-                  {item.username}
-                </h4>
+                {window.innerWidth < 601 ? (
+                  ''
+                ) : (
+                  <h4 className="latestCourse-h4">
+                    <img src={LatestCourseGameIcon} alt="" className="LatestCourse-IMG" />
+                    &nbsp;
+                    {item.username}
+                  </h4>
+                )}
                 {/* <p className="latestcoursep1">{item.title}</p>
               <p className="latestcoursep1">
                 {" "}
@@ -230,7 +259,9 @@ export default function TopRatedContent({ topRatedContentCreator }) {
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
                       <img src={LatestCourseProPlayerIcon} alt="" className="LatestCourse-IMG" />
-                      <h1 className="latestCourse-pHeading">Pro Player Of...</h1>
+                      <h1 className="latestCourse-pHeading" id="latestCourse-pHeading">
+                        Pro Player Of...
+                      </h1>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
                       <img src={LatestCourseStudentsIcon} alt="" className="LatestCourse-IMG" />

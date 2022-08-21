@@ -248,6 +248,12 @@
   }
   .userprofilediv {
     justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .p1{
+    font-size: 14px;
   }
 
   #un_hide {

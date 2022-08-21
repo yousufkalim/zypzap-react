@@ -4,6 +4,8 @@ import Plyr from 'plyr-react';
 import 'plyr-react/dist/plyr.css';
 import api from '../../api/index';
 import { Store } from '../../StoreContext';
+import prev from '../../assets/icons/prev.svg';
+import next from '../../assets/icons/next.svg';
 
 const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
   const ref = useRef();
@@ -78,6 +80,15 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
           </div>
           <div className="completeCourse-colm2">
             <h3 className="completeCourseH3">Course Content </h3>
+
+            {window.innerWidth < 601 ? (
+              <div>
+                {' '}
+                <img src={prev} style={{ color: 'white' }} /> <img src={next} />
+              </div>
+            ) : (
+              ''
+            )}
             <div className="completeCourseScroll">
               <div className="completeCourseScroll2">
                 {videos?.map((clip, index) => {

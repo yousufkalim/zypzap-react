@@ -3,6 +3,7 @@ import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import ClearIcon from '@mui/icons-material/Clear';
+
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -16,10 +17,14 @@ import Tooltip from '@material-ui/core/Tooltip';
 // import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Hamburger from '../assets/icons/Hamburger.svg';
+import Hamburger1 from '../assets/icons/Hamburger1.svg';
+
 import UserHeaderIcon from '../assets/icons/UserHeaderIcon.svg';
 import CourseIcon from '../assets/icons/CourseIcon.svg';
 import DownArrow from '../assets/icons/downarrow.svg';
 import UserIcon from '../assets/icons/userIcon.svg';
+import Union from '../assets/icons/Union.svg';
+
 import DropdownProfileImg from '../assets/icons/DropdownProfileImg.svg';
 import HeaderLogoutIcon from '../assets/icons/HeaderLogoutIcon.svg';
 import EditPrfile from '../assets/icons/EditPrfile.svg';
@@ -263,131 +268,163 @@ export default function PrimarySearchAppBar({
         keepMounted
         open={isMobileMenuOpen}
         onClose={handleMobileMenuClose}
+        style={{ display: 'flex', flexDirection: 'column' }}
       >
-        <i
-          class="fa-solid fa-xmark"
-          style={{
-            position: 'absolute',
-            right: '0',
-            marginRight: ' 8%',
-            marginTop: '5%',
-            cursor: 'pointer',
-          }}
-          onClick={handleMenuClose}
-        />
+        <div className="flexMenu">
+          <MenuItem
+            style={{ position: 'absolute', right: '0', marginTop: '3vh' }}
+            onClick={handleMenuClose}
+          >
+            <img
+              src={Union}
+              style={{
+                marginTop: '5vh',
+                marginBottom: '5vh',
+                marginRight: '5vh',
+                cursor: 'pointer',
+                zIndex: '500',
+              }}
+              alt=""
+            />
+            {/* <i
+              class="fa-solid fa-xmark"
+            
+            />{' '} */}
+          </MenuItem>
 
-        <MenuItem> </MenuItem>
-        <MenuItem>
           {/* /* -------------------------------- res menu --------------------------------  */}
           {creator ? (
             <>
-              <Link
-                to={{
-                  pathname: learner ? '/UserDashboard' : '/dashboard',
-                  state: { creator: `${creator}` },
-                }}
-                onClick={() => {
-                  // history.push('/dashboard');
-                  handleMenuClose();
-                  updateStore({ contentDashboardButton: 'Courses' });
-                }}
-                style={{
-                  color: 'white',
-                  textDecoration: 'none',
-                  marginRight: 'auto',
-                  marginTop: '20vh',
-                }}
-              >
-                <p className="sgnBtn">My Dashboard</p>
-              </Link>
+              <MenuItem>
+                <Link
+                  to={{
+                    pathname: learner ? '/UserDashboard' : '/dashboard',
+                    state: { creator: `${creator}` },
+                  }}
+                  onClick={() => {
+                    // history.push('/dashboard');
+                    handleMenuClose();
+                    updateStore({ contentDashboardButton: 'Courses' });
+                  }}
+                  style={{
+                    color: 'white',
+                    textDecoration: 'none',
+                    marginRight: 'auto',
+                    marginTop: '12vh',
+                  }}
+                >
+                  <p className="sgnBtn">
+                    My Dashboard <hr className="b1" />
+                  </p>
+                </Link>
+              </MenuItem>
               {learner ? (
-                <Link
-                  to="/contentHome"
-                  style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
-                >
-                  <p className="sgnBtn" onClick={handleSwitch}>
-                    Switch to Creator
-                  </p>
-                </Link>
+                <MenuItem>
+                  <Link
+                    to="/contentHome"
+                    style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
+                  >
+                    <p className="sgnBtn" onClick={handleSwitch}>
+                      Switch to Creator <hr className="b1" />
+                    </p>
+                  </Link>
+                </MenuItem>
               ) : (
-                <Link
-                  to="/home"
-                  style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
-                >
-                  <p className="sgnBtn" onClick={handleSwitch}>
-                    Switch to Learner
+                <MenuItem>
+                  <Link
+                    to="/home"
+                    style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}
+                  >
+                    <p className="sgnBtn" onClick={handleSwitch}>
+                      Switch to Learner <hr className="b1" />
+                    </p>
+                  </Link>
+                </MenuItem>
+              )}
+              <MenuItem>
+                <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
+                  <p onClick={handleSettings} className="sgnBtn">
+                    <img src={EditPrfile} alt="" /> &nbsp;Edit Profile <hr className="b1" />
                   </p>
                 </Link>
-              )}
-
-              <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
-                <p onClick={handleSettings} className="sgnBtn">
-                  <img src={EditPrfile} alt="" /> &nbsp;Edit Profile
-                </p>
-              </Link>
+              </MenuItem>
             </>
           ) : (
             <>
               {user?.role != 'Creator' && user?.role == 'User' && (
                 <>
-                  <Link
-                    to={{
-                      pathname: learner ? '/UserDashboard' : '/dashboard',
-                      state: { user: `${user}` },
-                    }}
-                    style={{
-                      color: 'white',
-                      textDecoration: 'none',
-                      marginRight: 'auto',
-                      marginTop: '20vh',
-                    }}
-                  >
-                    <p className="sgnBtn" onClick={handleMenuClose}>
-                      My Dashboard
+                  <MenuItem>
+                    <Link
+                      to={{
+                        pathname: learner ? '/UserDashboard' : '/dashboard',
+                        state: { user: `${user}` },
+                      }}
+                      style={{
+                        color: 'white',
+                        textDecoration: 'none',
+                        marginRight: 'auto',
+                        marginTop: '12vh',
+                      }}
+                    >
+                      <p className="sgnBtn" onClick={handleMenuClose}>
+                        My Dashboard <hr className="b1" />
+                      </p>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <p
+                      className="sgnBtn"
+                      onClick={() => {
+                        // setOpenBecomeCreatorPopup(true);
+                        setOpen(true);
+                      }}
+                    >
+                      Become a Creator <hr className="b1" />
                     </p>
-                  </Link>
-                  <p
-                    className="sgnBtn"
-                    onClick={() => {
-                      // setOpenBecomeCreatorPopup(true);
-                      setOpen(true);
-                    }}
-                  >
-                    Become a Creator
-                  </p>
-
-                  <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
-                    <p onClick={handleSettings} className="sgnBtn">
-                      <img src={EditPrfile} alt="" /> &nbsp; Edit Profile
-                    </p>
-                  </Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
+                      <p onClick={handleSettings} className="sgnBtn">
+                        <img src={EditPrfile} alt="" /> &nbsp; Edit Profile <hr className="b1" />
+                      </p>
+                    </Link>
+                  </MenuItem>
                 </>
               )}
             </>
           )}
           {user ? (
-            <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
-              <p onClick={openProfilePg} className="sgnBtn">
-                <img src={S_Vector} alt="" />
-                &nbsp; My Profile
-              </p>
-            </Link>
+            <MenuItem>
+              {' '}
+              <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
+                <p onClick={openProfilePg} className="sgnBtn">
+                  <img src={S_Vector} alt="" />
+                  &nbsp; My Profile <hr className="b1" />
+                </p>
+              </Link>
+            </MenuItem>
           ) : (
             <>
-              <p
-                className="sgnBtn"
-                style={{ marginRight: 'auto', marginTop: '10vh' }}
-                onClick={() => setOpenSignup(true)}
-              >
-                <img src={S_Vector} /> Sign Up
-              </p>
-              <p
-                className="sgnBtn"
-                style={{ marginRight: 'auto' }}
-                onClick={() => setOpenLogin(true)}
-              >
-                Login
-              </p>
+              <MenuItem>
+                {' '}
+                <p
+                  className="sgnBtn"
+                  style={{ marginRight: 'auto', marginTop: '12vh' }}
+                  onClick={() => setOpenLogin(true)}
+                >
+                  Login
+                  <hr className="b1" />
+                </p>
+              </MenuItem>
+              <MenuItem>
+                <p
+                  className="sgnBtn"
+                  style={{ marginRight: 'auto' }}
+                  onClick={() => setOpenSignup(true)}
+                >
+                  <img src={S_Vector} /> Sign Up <hr className="b1" />
+                </p>
+              </MenuItem>
               {/* <div>
               <FormControl className="form_Control_header">
                 <button className="comming-soon3">Coming Soon</button>
@@ -414,12 +451,9 @@ export default function PrimarySearchAppBar({
             </div> */}
             </>
           )}
-        </MenuItem>
 
-        <MenuItem> </MenuItem>
-
-        {/* <MenuItem> */}
-        {/* <IconButton
+          {/* <MenuItem> */}
+          {/* <IconButton
           size="large"
           aria-label="show 17 new notifications"
           color="inherit"
@@ -429,18 +463,19 @@ export default function PrimarySearchAppBar({
           </Badge>
         </IconButton>
         <p>My Courses</p> */}
-        {/* </MenuItem> */}
+          {/* </MenuItem> */}
 
-        {/* <MenuItem> */}
-        {/* <IconButton
+          {/* <MenuItem> */}
+          {/* <IconButton
           size="large"
           aria-label="show 4 new mails"
           color="inherit"
         ></IconButton>
         <p onClick={showBecomePopup}>Become a Creater</p> */}
-        {/* </MenuItem> */}
-        {/* /* -------------------------------- res menu --------------------------------  */}
-        {/* <ClearIcon className="clearIconclose" style={{ marginLeft: 'auto', marginTop: '-27%' }} /> */}
+          {/* </MenuItem> */}
+          {/* /* -------------------------------- res menu --------------------------------  */}
+          {/* <ClearIcon className="clearIconclose" style={{ marginLeft: 'auto', marginTop: '-27%' }} /> */}
+        </div>
       </Menu>
     </div>
   );
@@ -499,8 +534,13 @@ export default function PrimarySearchAppBar({
       <OopsPopup open={open3} setOpen={setOpen3} />
       <OptionPopup open={Option} setOpen={setOption} />
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" className="headerBackgroundColor">
-          <Toolbar className="imgLogo">
+        <AppBar
+          position="static"
+          className={
+            window.location.pathname === '/userprofile' ? 'profileHeader' : 'headerBackgroundColor'
+          }
+        >
+          <Toolbar className="imgLogo" style={{ zIndex: '1300' }}>
             <img
               // src={Logo}
               src={HomePageLogo}
@@ -539,65 +579,69 @@ export default function PrimarySearchAppBar({
                 ></a>
               </div>
             </Typography>
-            <Search className={window.innerWidth < 601 ? 'mobSearchBar' : 'searchBar'}>
-              <div onClick={handleSearchButtonClick} style={{ cursor: 'pointer' }}>
-                {' '}
-                <Tooltip title="Search">
-                  <SearchIcon className="searchBarIcon" />
-                </Tooltip>
-                <SearchIconWrapper></SearchIconWrapper>
-              </div>
+            {window.innerWidth < 601 && window.location.pathname === '/userprofile' ? null : (
+              <Search className={window.innerWidth < 601 ? 'mobSearchBar' : 'searchBar'}>
+                <div onClick={handleSearchButtonClick} style={{ cursor: 'pointer' }}>
+                  {' '}
+                  <Tooltip title="Search">
+                    <SearchIcon className="searchBarIcon" />
+                  </Tooltip>
+                  <SearchIconWrapper></SearchIconWrapper>
+                </div>
 
-              <div className="dropdown">
-                {/* <button className="dropbtn"> */}
-                <img
-                  src={DownArrow}
-                  alt="img"
-                  className="downarrow"
-                  onClick={() => setSearchFlag(!searchFlag)}
+                <div className="dropdown">
+                  {/* <button className="dropbtn"> */}
+                  <img
+                    src={DownArrow}
+                    alt="img"
+                    className="downarrow"
+                    onClick={() => setSearchFlag(!searchFlag)}
+                  />
+                  {/* </button> */}
+                  {searchFlag && (
+                    <div className="dropdown-content" ref={click}>
+                      <div className="drowp1">
+                        <a
+                          href="#"
+                          className={`${searchState == 'creator' && 'activeserchis'} `}
+                          id="dropDownItem1"
+                          onClick={handleCreatorSearch}
+                        >
+                          <img className="UserIcons" src={UserIcon} alt="" />
+                          <span className="dropH" style={{ marginLeft: '-5px' }}>
+                            {' '}
+                            Content Creators
+                          </span>
+                          <p className="drowpP">Top gamers who create content for you</p>
+                        </a>
+                      </div>
+                      <div className=" drowp1">
+                        <a
+                          href="#"
+                          className={`${searchState == 'course' && 'activeserchis'} `}
+                          id="dropDownItem2"
+                          onClick={handleCourseSearch}
+                        >
+                          <img className="UserIcons" src={CourseIcon} alt="" />
+                          <span className="dropH">Courses</span>
+                          <p className="drowpP">Browse and buy courses</p>
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <StyledInputBase
+                  placeholder={
+                    searchState == 'course' ? 'Search for course' : 'Search for content creator'
+                  }
+                  inputProps={{ 'aria-label': 'search', className: 'cc_field' }}
+                  onChange={handleChangeInput}
+                  // onSubmit={handleSearchButtonClick}
+                  value={searchInput}
+                  onKeyPress={(e) => e.key === 'Enter' && handleSearchButtonClick(e)}
                 />
-                {/* </button> */}
-                {searchFlag && (
-                  <div className="dropdown-content" ref={click}>
-                    <div className="drowp1">
-                      <a
-                        href="#"
-                        className={`${searchState == 'creator' && 'activeserchis'} `}
-                        onClick={handleCreatorSearch}
-                      >
-                        <img className="UserIcons" src={UserIcon} alt="" />
-                        <span className="dropH" style={{ marginLeft: '-5px' }}>
-                          {' '}
-                          Content Creators
-                        </span>
-                        <p className="drowpP">Top gamers who create content for you</p>
-                      </a>
-                    </div>
-                    <div className=" drowp1">
-                      <a
-                        href="#"
-                        className={`${searchState == 'course' && 'activeserchis'} `}
-                        onClick={handleCourseSearch}
-                      >
-                        <img className="UserIcons" src={CourseIcon} alt="" />
-                        <span className="dropH">Courses</span>
-                        <p className="drowpP">Browse and buy courses</p>
-                      </a>
-                    </div>
-                  </div>
-                )}
-              </div>
-              <StyledInputBase
-                placeholder={
-                  searchState == 'course' ? 'Search for course' : 'Search for content creator'
-                }
-                inputProps={{ 'aria-label': 'search', className: 'cc_field' }}
-                onChange={handleChangeInput}
-                // onSubmit={handleSearchButtonClick}
-                value={searchInput}
-                onKeyPress={(e) => e.key === 'Enter' && handleSearchButtonClick(e)}
-              />
-            </Search>
+              </Search>
+            )}
 
             {/* <div className="mobBar">
               {' '}
@@ -867,12 +911,11 @@ export default function PrimarySearchAppBar({
                 onClick={handleMobileMenuOpen}
                 color="inherit"
               >
-                <img
-                  src={Hamburger}
-                  // onClick={openProfilePg}
-                  alt=""
-                />
-                {/* <Hamburger /> */}
+                {window.location.pathname === '/userprofile' ? (
+                  <img src={Hamburger1} alt="" />
+                ) : (
+                  <img src={Hamburger} alt="" />
+                )}
               </IconButton>
             </Box>
           </Toolbar>

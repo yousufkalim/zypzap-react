@@ -46,10 +46,14 @@ const CreatorResult = ({ input, creator }) => {
         <div className="followCenerDiv">
           {/* div col 1 */}
           <div className="followCol1">
-            <div className="followerNames">
-              {/* <h3 className="followH3">{input}</h3> */}
-              <p className="follow-P">{_myCreators?.length} result Found</p>
-            </div>
+            {window.innerWidth < 601 ? (
+              ''
+            ) : (
+              <div className="followerNames">
+                {/* <h3 className="followH3">{input}</h3> */}
+                <p className="follow-P">{_myCreators?.length} result Found</p>
+              </div>
+            )}
           </div>
           {/* div col 2 */}
           <div className="followCol2">
@@ -84,11 +88,9 @@ const CreatorResult = ({ input, creator }) => {
                           <p className="following_P">
                             {item?.course_name
                               ? item.course_name
-                              : 'fighting game player of Tekken'}
+                              : 'Fighting game player of Tekken'}
                           </p>
-                          <p className="followingP2">
-                            {item?.creator?.user_id?.username}
-                          </p>
+                          <p className="followingP2">{item?.creator?.user_id?.username}</p>
                           <p className="followingP3">
                             {item._avgRating ?? 0} &nbsp;
                             {[1, 2, 3, 4, 5].map((item) => (
@@ -103,11 +105,9 @@ const CreatorResult = ({ input, creator }) => {
                             {/* {`${item._avgStudent} Students` ?? 0} */}
                             {item?.creator?.courses
                               ? totalStudent(item.creator.courses) > 1
-                                ? totalStudent(item.creator.courses) +
-                                  ' Students'
-                                : totalStudent(item.creator.courses) +
-                                  ' Student'
-                              : 'No Students'}
+                                ? totalStudent(item.creator.courses) + ' Students'
+                                : totalStudent(item.creator.courses) + ' Student'
+                              : '0 Student'}
                           </p>
                         </div>
                         {/* <div className="followingButtonDiv">
@@ -120,6 +120,14 @@ const CreatorResult = ({ input, creator }) => {
               )}
             </div>
           </div>
+          {window.innerWidth < 601 ? (
+            <div className="followerNames">
+              {/* <h3 className="followH3">{input}</h3> */}
+              <p className="follow-P">{_myCreators?.length} result Found</p>
+            </div>
+          ) : (
+            ''
+          )}
         </div>
       </div>
     </>

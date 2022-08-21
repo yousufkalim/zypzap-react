@@ -14,8 +14,11 @@ const ResearchFaild = ({ searchInput, setOpen }) => {
       <Box className="cards-container2">
         <div className="cards-box">
           <div className="cards-header-text">
-            <h3 className="card-header-text-h3"> {searchInput}</h3>
-            {window.innerWidth < 601 ? (
+            <h3 className="card-header-text-h3">
+              {' '}
+              {searchInput} <span>0 Result Found</span>
+            </h3>
+            {/* {window.innerWidth < 601 ? (
               <img
                 src={Filters}
                 onClick={openSidebar}
@@ -24,8 +27,7 @@ const ResearchFaild = ({ searchInput, setOpen }) => {
               />
             ) : (
               ''
-            )}{' '}
-            <span>0 Result Found</span>
+            )}{' '} */}
           </div>
         </div>
         <Grid
@@ -36,7 +38,7 @@ const ResearchFaild = ({ searchInput, setOpen }) => {
           columns={{ xs: 2, sm: 8, md: 12 }}
         >
           <div className="researchErrorImg">
-            <img src={NotFound} alt="" style={{ width: '100%' }} />
+            <img src={NotFound} alt="" className="failedImg" />
             <p className="researchP">Don’t Worry if you didn’t got what you searched for</p>
           </div>
         </Grid>

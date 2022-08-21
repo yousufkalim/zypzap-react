@@ -29,7 +29,7 @@ const CongratulationPopup1 = ({ open, setOpen, text }) => {
             <p className="uploadSuccessP">
               Congratulations !
               <br />
-              {text}
+              <p style={{ fontSize: '18px', fontWeight: '400' }}> {text}</p>
             </p>
             <button className="uploadSuccessBTN" onClick={handleClose}>
               close
