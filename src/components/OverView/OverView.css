@@ -526,6 +526,18 @@ body {
     margin-right: auto;
     margin-left: 24vh;
   }
+  .curriculum-h3{
+    font-size: 16px;
+  }
+  .curriculumLi,.curriculumTime{
+    font-size: 14px;
+
+  }
+  .curriculumIMG{
+    width: 16px;
+    height: 16px;
+
+  }
   .overViewCard{
     width: 100% !important;
     position: revert;
@@ -547,8 +559,18 @@ body {
   margin-left: -45%;
 }
 .overViewMenuButton{
-  padding: 9px 6px;
+  padding: 12px;
   font-size: 13px;
+  margin-right: 10px;
+  border-radius: 2px;
+}
+.overDescriptionP{
+  font-size: 14px;
+  text-align: justify;
+
+}
+.overView-descripiton-centerDiv{
+  padding: 6%;
 }
 .overView-description-content{
   width:100% !important;
@@ -571,7 +593,7 @@ body {
 .instructorName{
   display: block;
   text-transform: capitalize;
-
+  font-size: 22px;
   font-weight: 400;
 }
 .instructor-aboutP {
