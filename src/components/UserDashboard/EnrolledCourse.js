@@ -68,45 +68,27 @@ const EnrolledCourse = () => {
                             ? item.course_id.course_name
                             : 'Fight Course'}
                         </h4>
-                        <div className="wishListFlex-container" id="wishListFlex-containerE">
-                          <p className="wishlistP2" id="mobEnrollUser">
+                        <div className="wishListFlex-container">
+                          <p className="wishlistP2">
                             {item?.course_id?.creator?.user_id?.username}
                           </p>
-                          {window.innerWidth < 601 ? (
-                            ''
-                          ) : (
-                            <p className="wishlistP3">
-                              {item?.course_id?.rating ? item.course_id.rating : '0'} &nbsp;
-                              {[1, 2, 3, 4, 5].map((item) => (
-                                <Star1
-                                  className="wishCardStar"
-                                  style={{
-                                    key: { item },
-                                  }}
-                                />
-                              ))}
-                              &nbsp; &nbsp; &nbsp;
-                              {item?.course_id?.student
-                                ? `( ${item.course_id.student.length} )`
-                                : `( 0 )`}
-                            </p>
-                          )}
+
+                          <p className="wishlistP3">
+                            {item?.course_id?.rating ? item.course_id.rating : '0'} &nbsp;
+                            {[1, 2, 3, 4, 5].map((item) => (
+                              <Star1
+                                className="wishCardStar"
+                                style={{
+                                  key: { item },
+                                }}
+                              />
+                            ))}
+                            &nbsp; &nbsp; &nbsp;
+                            {item?.course_id?.student
+                              ? `( ${item.course_id.student.length} )`
+                              : `( 0 )`}
+                          </p>
                         </div>
-                        <p id="mobEnrollRating">
-                          {item?.course_id?.rating ? item.course_id.rating : '0'} &nbsp;
-                          {[1, 2, 3, 4, 5].map((item) => (
-                            <Star1
-                              className="wishCardStar"
-                              style={{
-                                key: { item },
-                              }}
-                            />
-                          ))}
-                          &nbsp; &nbsp; &nbsp;
-                          {item?.course_id?.student
-                            ? `( ${item.course_id.student.length} )`
-                            : `( 0 )`}
-                        </p>
                       </div>
                       <div className="wishButtonDiv">
                         <button

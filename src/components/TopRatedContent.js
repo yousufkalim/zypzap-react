@@ -17,6 +17,24 @@ import 'react-multi-carousel/lib/styles.css';
 import { useHistory } from 'react-router-dom';
 import { Store } from '../StoreContext';
 
+const CustomRightArrow = ({ onClick, ...rest }) => {
+  const {
+    onMove,
+    carouselState: { currentSlide, deviceType },
+  } = rest;
+  // onMove means if dragging or swiping in progress.
+  return <button className="latest-course-custom-arrow-right" onClick={() => onClick()} />;
+};
+
+const CustomLeftArrow = ({ onClick, ...rest }) => {
+  const {
+    onMove,
+    carouselState: { currentSlide, deviceType },
+  } = rest;
+  // onMove means if dragging or swiping in progress.
+  return <button className="latest-course-custom-arrow-left" onClick={() => onClick()} />;
+};
+
 export default function TopRatedContent({ topRatedContentCreator }) {
   const history = useHistory();
   const { user, creator } = Store();
@@ -196,6 +214,8 @@ export default function TopRatedContent({ topRatedContentCreator }) {
           // transitionDuration={3000}
           infinite={true}
           className="latestcourseCarousel"
+          customLeftArrow={<CustomLeftArrow />}
+          customRightArrow={<CustomRightArrow />}
         >
           {topRatedContentCreator?.map((item, i) => (
             <Link
@@ -216,11 +236,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
                   ''
                 )}
                 <div className="topRatedcardGrid-image">
-                  <img
-                    src={item.profile_photo ? item.profile_photo : Game2}
-                    className="topRatedcourseimg"
-                    alt="img"
-                  />
+                  <img src={item.profile_photo ? item.profile_photo : Game2} className="topRatedcourseimg" alt="img" />
                 </div>
                 {window.innerWidth < 601 ? (
                   ''

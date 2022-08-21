@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import successPopup from '../../PopupForms/RequestSuccessfullyPopup';
 import { useHistory } from 'react-router-dom';
 import CourseAproved from '../../PopupForms/CourseAproved';
-import { uploadPhoto, uploadVideo } from '../../../utils/uploadMedia';
+import { uploadPhoto, uploadVideoAsThumbnail, uploadVideo } from '../../../utils/uploadMedia';
 import { CircularProgress } from '@material-ui/core';
 
 const FormStepsix = ({
@@ -29,10 +29,6 @@ const FormStepsix = ({
   const [uploading, setUploading] = useState(false);
   const [btnState, setBtnState] = useState(0);
   const [opens, setOpens] = useState(false);
-  const [videoName, setVideoName] = useState('');
-  const [mbPerSecond, setmbPerSecond] = useState(0);
-  const [timeUploadRemaining, setTimeUploadRemaining] = useState(0);
-  const [showPopup, setShowPopup] = useState(false);
   const [imgUrl, setImgUrl] = useState('');
   // const [videoName, setVideoName] = useState("");
   // const handleFileChange = (event) => {
@@ -47,8 +43,7 @@ const FormStepsix = ({
     if (!file) return;
     var fileName = file.name;
 
-    if (!fileName.match(/\.(jpeg|png|jpg|gif|webp)$/))
-      toast.error('Only image file should be selected!');
+    if (!fileName.match(/\.(jpeg|png|jpg|gif|webp)$/)) toast.error('Only image file should be selected!');
     else {
       const formData = new FormData();
       formData.append('photos', file);
@@ -72,19 +67,11 @@ const FormStepsix = ({
     else {
       const formData = new FormData();
       formData.append('videos', file);
-      let data = await uploadVideo(
-        formData,
-        creator._id,
-        setVideoName,
-        setOpens,
-        setmbPerSecond,
-        setTimeUploadRemaining,
-        ''
-      );
+      let data = await uploadVideoAsThumbnail(formData, 'thumbnails');
       setformDataSix(data.url);
+      // setformDataFive([]);
       setImgUrl(data.url);
       setUploading(true);
-
       setBtnState(0);
     }
   };
@@ -124,13 +111,7 @@ const FormStepsix = ({
   };
   return (
     <>
-      <CourseAproved
-        open={opens}
-        setOpen={setOpens}
-        closeModal={handleClose}
-        setStep={setStep}
-        text=""
-      />
+      <CourseAproved open={opens} setOpen={setOpens} closeModal={handleClose} setStep={setStep} text="" />
       {/* <successPopup
         open={showPopup}
         setOpen={() => setShowPopup(!showPopup)}
@@ -178,11 +159,7 @@ const FormStepsix = ({
           >
             Previous
           </button>
-          <button
-            className="continueBtn"
-            onClick={handleSubmitCourse}
-            disabled={btnState == 1 || btnState == 3 ? true : false}
-          >
+          <button className="continueBtn" onClick={handleSubmitCourse} disabled={btnState == 1 || btnState == 3 ? true : false}>
             {btnState === 0
               ? 'Submit For Approval'
               : btnState === 1

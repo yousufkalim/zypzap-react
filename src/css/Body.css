@@ -1,397 +1,608 @@
 .Bodycontainer {
-  text-align: center;
-  position: relative;
-  color: white;
-  background-color: black;
-}
-.css-1636szt {
-  color: #fff !important;
-}
-.textonImg {
-  position: absolute;
-  top: 4.6%;
-  left: 7%;
-  text-align: left;
+    text-align: center;
+    position: relative;
+    color: white;
+    background-color: black;
 }
 
-.regBtns{
-  display: flex;
-  margin-top: 10vh;
-  justify-content: space-evenly;
+.img-and-text-container {
+    position: relative;
 }
-#loginFormbtn{
-  width: 31%;
-  padding: 9px 0px !important;
-  border: none;
-  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
-  border-radius: 8px;
-  color: white;
-  font-weight: 700;
-  font-family: Mulish;
-  cursor: pointer;
-  font-size: 18px;
-  display: block;
-  font-weight: 500;
+
+.css-1636szt {
+    color: #fff !important;
 }
-#signupBtn{
-  width: 35%;
-  padding: 9px 0px !important;
-  border: none;
-  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
-  color: white;
-  font-weight: 700;
-  font-family: Mulish;
-  cursor: pointer;
-  border-radius: 8px;  
-  font-size: 18px;
-  display: block;
-  font-weight: 500;
+
+.textonImg {
+    position: absolute;
+    top: 17%;
+    left: 7%;
+    text-align: left;
+}
+
+.regBtns {
+    display: flex;
+    margin-top: 10vh;
+    justify-content: space-evenly;
+}
+
+#loginFormbtn {
+    width: 31%;
+    padding: 9px 0px !important;
+    border: none;
+    background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+    border-radius: 8px;
+    color: white;
+    font-weight: 700;
+    font-family: Mulish;
+    cursor: pointer;
+    font-size: 18px;
+    display: block;
+    font-weight: 500;
+}
+
+#signupBtn {
+    width: 35%;
+    padding: 9px 0px !important;
+    border: none;
+    background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+    color: white;
+    font-weight: 700;
+    font-family: Mulish;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 18px;
+    display: block;
+    font-weight: 500;
 }
 
 .textimgH1 {
-  font-size: 56px;
-  font-weight: 800;
-  /* line-height: 66px; */
-  font-family: 'mulish';
-}
-.textonImgP {
-  padding: 5px 0px 5px 0px;
-  margin: 8px 0px 8px 0px;
-  font-size: 22px;
-  font-family: 'Mulish' !important;
-}
-.textonImgbutton {
-  padding: 9px 22px;
-  border: none;
-  margin: 14px 0px 8px 0px;
-  background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
-  color: #ffffff;
-  font-weight: 600;
-  font-family: 'Poppins', sans-serif;
-  border-radius: 4px;
-  cursor: pointer;
-  box-sizing: border-box;
-  font-family: 'mulish';
-  position: relative;
-  font-size: 16px;
-}
-.textonImgbutton:hover {
-  position: absolute;
-  border: 1px solid #7d668b;
-  background: none;
-  padding: 8px 21px;
-}
-.bodyImage {
-  width: 93%;
-}
-.blurImg {
-  width: 93%;
-  position: absolute;
-  left: 48px;
-}
-.topcourseText_p {
-  text-align: right !important;
-  margin-top: 24px;
-}
-.profileBackgroun-Image {
-  width: 100%;
-  height: 404px;
-  border-radius: 44px;
-}
-.profileEdit-Icon {
-  position: absolute;
-  bottom: 30px;
-  right: 24px;
-}
-.setting_C_Profile {
-  color: #fff;
-  margin: 3% auto 0 auto;
-  width: 90%;
-}
-.setting_C_Container {
-  display: flex;
-  margin-left: -5%;
-  margin-bottom: 3%;
-  margin-top: -3%;
-}
-.setting_C_Colmn {
-  /* border: 1px solid blue; */
-  width: 30%;
-  margin: 0 auto;
-}
-.setting_C_Colmn2 {
-  /* border: 1px solid blue; */
-  width: 30%;
-  margin: 0 auto;
-  margin-left: 10%;
-}
-.setting_C_Heading {
-  border-bottom: 1px solid #6e7190;
-  padding-bottom: 12px;
-  font-size: 20px;
-}
-.setting_C_Heading2 {
-  border-bottom: 1px solid #6e7190;
-  padding-bottom: 12px;
-  font-size: 20px;
-  padding-top: 35px;
-}
-.setting_C_Inputs {
-  /* border: 1px solid red; */
-  padding: 25px 0 0 0;
-}
-.setting_C_label {
-  display: block;
-  font-size: 16px;
-  padding: 0px 0px 10px 0;
-  font-weight: 600;
-}
-.setting_C_inpt {
-  width: 100%;
-  padding: 13px 10px;
-  background: #16172d;
-  border-radius: 4px;
-  color: #fff;
-  border: none;
-  font-size: 15px;
-}
-.setting_C_inpt2 {
-  width: 100%;
-  /* padding: 5px 10px; */
-  background: #16172d;
-  border-radius: 4px;
-  border: none;
-  color: #fff !important;
-}
-.setting_C_inpt2::placeholder {
-  color: red !important;
-}
-.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
-  height: 0 !important;
-}
-.setting_show_hide_icon {
-  color: #20bf55 !important;
+    font-size: 56px;
+    font-weight: 800;
+    /* line-height: 66px; */
+    font-family: 'mulish';
 }
 
+.textonImgP {
+    padding: 5px 0px 5px 0px;
+    margin: 8px 0px 8px 0px;
+    font-size: 22px;
+    font-family: 'Mulish' !important;
+}
+
+.textonImgbutton {
+    padding: 9px 22px;
+    border: none;
+    margin: 14px 0px 8px 0px;
+    background: linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
+    color: #ffffff;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-family: 'mulish';
+    position: relative;
+    font-size: 16px;
+}
+
+.textonImgbutton:hover {
+    position: absolute;
+    border: 1px solid #7d668b;
+    background: none;
+    padding: 8px 21px;
+}
+
+.bodyImage {
+    width: 93%;
+}
+
+.blurImg {
+    width: 93%;
+    position: absolute;
+    left: 48px;
+}
+
+.topcourseText_p {
+    text-align: right !important;
+    margin-top: 24px;
+}
+
+.profileBackgroun-Image {
+    width: 100%;
+    height: 404px;
+    border-radius: 44px;
+}
+
+.profileEdit-Icon {
+    position: absolute;
+    bottom: 30px;
+    right: 24px;
+}
+
+.setting_C_Profile {
+    color: #fff;
+    margin: 3% auto 0 auto;
+    width: 90%;
+}
+
+.setting_C_Container {
+    display: flex;
+    margin-left: -5%;
+    margin-bottom: 3%;
+    margin-top: -3%;
+}
+
+.setting_C_Colmn {
+    /* border: 1px solid blue; */
+    width: 30%;
+    margin: 0 auto;
+}
+
+.setting_C_Colmn2 {
+    /* border: 1px solid blue; */
+    width: 30%;
+    margin: 0 auto;
+    margin-left: 10%;
+}
+
+.setting_C_Heading {
+    border-bottom: 1px solid #6e7190;
+    padding-bottom: 12px;
+    font-size: 20px;
+}
+
+.setting_C_Heading2 {
+    border-bottom: 1px solid #6e7190;
+    padding-bottom: 12px;
+    font-size: 20px;
+    padding-top: 35px;
+}
+
+.setting_C_Inputs {
+    /* border: 1px solid red; */
+    padding: 25px 0 0 0;
+}
+
+.setting_C_label {
+    display: block;
+    font-size: 16px;
+    padding: 0px 0px 10px 0;
+    font-weight: 600;
+}
+
+.setting_C_inpt {
+    width: 100%;
+    padding: 13px 10px;
+    background: #16172d;
+    border-radius: 4px;
+    color: #fff;
+    border: none;
+    font-size: 15px;
+}
+
+.setting_C_inpt2 {
+    width: 100%;
+    /* padding: 5px 10px; */
+    background: #16172d;
+    border-radius: 4px;
+    border: none;
+    color: #fff !important;
+}
+
+.setting_C_inpt2::placeholder {
+    color: red !important;
+}
+
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+    height: 0 !important;
+}
+
+.setting_show_hide_icon {
+    color: #20bf55 !important;
+}
+
+/* 
+=================================
+Custom arrows
+=================================
+*/
+/* Right */
+.latest-course-custom-arrow-right {
+    --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+    --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+    --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+    --primary: "green";
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    position: absolute;
+    outline: 0;
+    transition: all .5s;
+    border-radius: 35px;
+    z-index: 1000;
+    border: 0;
+    background: rgba(0, 0, 0, 0.5);
+    min-width: 43px;
+    min-height: 43px;
+    opacity: 1;
+    cursor: pointer;
+    right: 2px;
+    background-color: transparent;
+}
+
+.latest-course-custom-arrow-right::before {
+    font-size: 35px;
+    color: #353535;
+    content: "\e825";
+    display: block;
+    font-family: revicons;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.latest-course-custom-arrow-right:hover::before,
+.latest-course-custom-arrow-right:focus::before {
+    color: white
+}
+
+/* Right */
+.latest-course-custom-arrow-left {
+    --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+    --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+    --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+    --primary: "green";
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    position: absolute;
+    outline: 0;
+    transition: all .5s;
+    border-radius: 35px;
+    z-index: 1000;
+    border: 0;
+    background: rgba(0, 0, 0, 0.5);
+    min-width: 43px;
+    min-height: 43px;
+    opacity: 1;
+    cursor: pointer;
+    left: 2px;
+    background-color: transparent;
+}
+
+.latest-course-custom-arrow-left::before {
+    font-size: 35px;
+    color: #353535;
+    content: "\e824";
+    display: block;
+    font-family: revicons;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.latest-course-custom-arrow-left:hover::before,
+.latest-course-custom-arrow-left:focus::before {
+    color: white
+}
+
+@media only screen and (max-width: 800px) {
+    .carousalOuterDiv {
+        position: relative;
+        padding-bottom: 20px;
+    }
+
+    .TopRatedcarousalOuterDiv {
+        position: relative;
+        padding-bottom: 50px;
+    }
+
+    .latest-course-custom-arrow-right {
+        bottom: 0;
+        right: 40%;
+    }
+
+    .latest-course-custom-arrow-left {
+        bottom: 0;
+        left: 40%;
+    }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 800px) {
+    .carousalOuterDiv {
+        padding-bottom: 50px !important;
+    }
+}
+
+/* 
+=================================
+Custom arrows end here
+=================================
+*/
 
 @media only screen and (min-width: 1900px) {
-  .latestCourseMain-Div {
-    width: 84% !important;
-  }
+    .latestCourseMain-Div {
+        width: 84% !important;
+    }
 }
+
 @media only screen and (min-width: 601px) and (max-width: 899px) {
-  .blurImg {
-    left: 13px;
-  }
-  .textonImg {
-    position: absolute;
-    top: 50px;
-    left: 8%;
-    text-align: left;
-    z-index: 0;
-  }
-  .textimgH1 {
-    font-size: 30px;
-  }
-  .textonImgbutton {
-    padding: 7px 8px;
-    /* font-weight: 400;  */
-  }
-  .textonImgP {
-    padding: 0px 0px 0px 0px;
-    font-size: 14px;
-  }
-  .MuiGrid-spacing-xs-2 {
-    flex-direction: column !important;
-  }
-  .MuiGrid-grid-sm-5 {
-    max-width: 100% !important;
-  }
-  .MuiGrid-grid-sm-7 {
-    max-width: 100% !important;
-  }
-  .topCoursescontainer {
-    width: 60% !important;
-  }
-  .MuiGrid-grid-xs-12 {
-    margin: 0px 0 0px 0 !important;
-  }
-  .topcourseTextGrid {
-    padding: 0px 20px 0px 20px !important;
-  }
-  .MuiGrid-spacing-xs-2 > .MuiGrid-item {
-    max-width: 100% !important;
-  }
-  .topcourseText_p {
-    text-align: right !important;
-  }
-  .MuiGrid-spacing-xs-2 > .MuiGrid-item {
-    margin: 0 !important;
-  }
+    .blurImg {
+        left: 13px;
+    }
 
-  .topRatedheading {
-    padding: 28px 0px 19px 0px;
-    font-weight: 600;
-    font-size: 17px !important;
-  }
-  .profileEdit-Icon {
-    right: 59%;
-  }
+    .textonImg {
+        position: absolute;
+        top: 50px;
+        left: 8%;
+        text-align: left;
+        z-index: 0;
+    }
+
+    .textimgH1 {
+        font-size: 30px;
+    }
+
+    .textonImgbutton {
+        padding: 7px 8px;
+        /* font-weight: 400;  */
+    }
+
+    .textonImgP {
+        padding: 0px 0px 0px 0px;
+        font-size: 14px;
+    }
+
+    .MuiGrid-spacing-xs-2 {
+        flex-direction: column !important;
+    }
+
+    .MuiGrid-grid-sm-5 {
+        max-width: 100% !important;
+    }
+
+    .MuiGrid-grid-sm-7 {
+        max-width: 100% !important;
+    }
+
+    .topCoursescontainer {
+        width: 60% !important;
+    }
+
+    .MuiGrid-grid-xs-12 {
+        margin: 0px 0 0px 0 !important;
+    }
+
+    .topcourseTextGrid {
+        padding: 0px 20px 0px 20px !important;
+    }
+
+    .MuiGrid-spacing-xs-2>.MuiGrid-item {
+        max-width: 100% !important;
+    }
+
+    .topcourseText_p {
+        text-align: right !important;
+    }
+
+    .MuiGrid-spacing-xs-2>.MuiGrid-item {
+        margin: 0 !important;
+    }
+
+    .topRatedheading {
+        padding: 28px 0px 19px 0px;
+        font-weight: 600;
+        font-size: 17px !important;
+    }
+
+    .profileEdit-Icon {
+        right: 59%;
+    }
 }
+
 @media only screen and (min-width: 300px) and (max-width: 600px) {
-  .blurImg {
-    left: 13px;
-  }
-  .textonImg {
-    position: absolute;
-    top: 25px;
-    left: 9%;
-    text-align: left;
-    z-index: 0;
-  }
+    .bodyImage {
+        height: 35vh !important;
+        object-fit: cover;
+        border-radius: 15px;
+    }
 
-  .textimgH1 {
-    font-size: 1.2rem;
-  }
-  .textonImgbutton {
-    padding: 1px 4px;
-    font-size: 8px;
-    /* font-weight: 400; */
-    margin: 0;
-  }
-  .textonImgP {
-    padding: 0px 0px 0px 0px;
-    font-size: 9px;
-  }
-  .MuiGrid-spacing-xs-2 > .MuiGrid-item {
-    max-width: 100% !important;
-  }
-  .topcourseTextGrid {
-    padding: 0px 20px 0px 20px !important;
-  }
-  .MuiGrid-grid-xs-12 {
-    /* margin: auto !important; */
-    margin: 0px 0 0px 0 !important;
-  }
-  .topRatedheading {
-    margin-right: 3px;
-    padding-top: 41px !important;
-    font-weight: 600;
-    font-size: 20px !important;
-  }
-  .topRatedheadings {
-    font-weight: 400;
-    font-size: 15px !important;
-    padding-top: 45px !important;
-  }
-  .setting_C_Container {
-    flex-direction: column;
-  }
-  .setting_C_Colmn {
-    width: 100%;
-  }
-  .profileEdit-Icon {
-    bottom: 17px;
-    left: 48px;
-    width: 18px;
-  }
- 
-  .profileBackgroun-Image {
-   
-    border-radius: 0px;
-  }
-  .editProfiel-btn{
-    border:none;
-    position: absolute;
-    z-index: 1;
-    right: 44%;
-    margin-top: -107%;
-    font-size: 13px;
-  }
-  .DP-img {
-    width: 100px;
-    height: 100px;
-}
-/* .Profile-DP {
+    .blurImg {
+        left: 13px;
+    }
+
+    .textonImg {
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+        left: 9%;
+        text-align: left;
+        z-index: 0;
+    }
+
+    .textimgH1 {
+        font-size: 24px;
+        font-weight: 800;
+        line-height: 35px;
+    }
+
+    .textonImgbutton {
+        padding: 1px 4px;
+        font-size: 8px;
+        /* font-weight: 400; */
+        margin: 0;
+    }
+
+    .textonImgP {
+        padding: 0px 0px 0px 0px;
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .MuiGrid-spacing-xs-2>.MuiGrid-item {
+        max-width: 100% !important;
+    }
+
+    .topcourseTextGrid {
+        padding: 0px 20px 0px 20px !important;
+    }
+
+    .MuiGrid-grid-xs-12 {
+        /* margin: auto !important; */
+        margin: 0px 0 0px 0 !important;
+    }
+
+    .topRatedheading {
+        margin-right: 3px;
+        padding-top: 41px !important;
+        font-weight: 600;
+        font-size: 20px !important;
+    }
+
+    .topRatedheadings {
+        font-weight: 400;
+        font-size: 15px !important;
+        padding-top: 45px !important;
+    }
+
+    .setting_C_Container {
+        flex-direction: column;
+    }
+
+    .setting_C_Colmn {
+        width: 100%;
+    }
+
+    .profileEdit-Icon {
+        bottom: 17px;
+        left: 48px;
+        width: 18px;
+    }
+
+    .profileBackgroun-Image {
+
+        border-radius: 0px;
+    }
+
+    .editProfiel-btn {
+        border: none;
+        position: absolute;
+        z-index: 1;
+        right: 44%;
+        margin-top: -107%;
+        font-size: 13px;
+    }
+
+    .DP-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* .Profile-DP {
   position: absolute;
   bottom: -76%;
   left: 30%;
 } */
 
-/* .profile-container{
+    /* .profile-container{
   top:0;
   bottom:0;
   margin-top: 82%;
 } */
-.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked{
-  /**/
-  color:#662F88 ;
-}
-.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track{
-  background-color: #662F88  
-}
-.active_profile{
-font-weight: 600;
-}
+    .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
+        /**/
+        color: #662F88;
+    }
 
-.myProfile{
-  margin-top: 9%;
-}
-.setting_C_Heading {
-  font-size: 20px;
-  font-weight: 600;
-}
-.formbtn2{
-  width: 95% !important;
-  
-}
-.editprofileIcon {
-  bottom: 19px;
-  right: 25%;
-  width: 13%;
-}
-.textonImgbutton{
-  border-radius: 2px;
-  padding: 6px;
-}
-.curriculum-h1{
-  font-weight: 100 !important;
-}
-.curriculumLiDiv{
-  font-size: 11px;
-}
-#regText{
-  font-size: 19px;
-}
-.regBtns{
- display: flex;
- flex-direction: column;
-}
-#loginFormbtn,#signupBtn{
-  width: 100%;
-  margin-bottom: 7%;
-}
-.profileSetting-centerDiv{
-  flex-direction: column-reverse;
-}
-.profileSetting-Col{
-  width: 100% !important;
-}
-.carousalOuterDiv2{
-  font-size: 10px;
-  text-align: center;
-}
-.css-1t1j96h-MuiPaper-root-MuiDialog-paper{
-  border-radius: 4px !important;
-}
-.jss17{
-  margin: 0vh !important;
-}
+    .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track {
+        background-color: #662F88
+    }
 
-.jss67.jss42,.jss42:hover {
-  margin-right: 2%;
-  width: 13px !important;
-  height: 12px;
-}
+    .active_profile {
+        font-weight: 600;
+    }
+
+    .myProfile {
+        margin-top: 9%;
+    }
+
+    .setting_C_Heading {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .formbtn2 {
+        width: 95% !important;
+
+    }
+
+    .editprofileIcon {
+        bottom: 19px;
+        right: 25%;
+        width: 13%;
+    }
+
+    .textonImgbutton {
+        border-radius: 2px;
+        padding: 6px;
+        width: 138px;
+        height: 43px;
+        border-radius: 5px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .curriculum-h1 {
+        font-weight: 100 !important;
+    }
+
+    .curriculumLiDiv {
+        font-size: 11px;
+    }
+
+    #regText {
+        font-size: 19px;
+    }
+
+    .regBtns {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #loginFormbtn,
+    #signupBtn {
+        width: 100%;
+        margin-bottom: 7%;
+    }
+
+    .profileSetting-centerDiv {
+        flex-direction: column-reverse;
+    }
+
+    .profileSetting-Col {
+        width: 100% !important;
+    }
+
+    .carousalOuterDiv2 {
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+        border-radius: 4px !important;
+    }
+
+    .jss17 {
+        margin: 0vh !important;
+    }
+
+    .jss67.jss42,
+    .jss42:hover {
+        margin-right: 2%;
+        width: 13px !important;
+        height: 12px;
+    }
 
 }

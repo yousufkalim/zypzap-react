@@ -35,25 +35,33 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
         setProgress(0);
         setOpen(false);
       } else {
-        const url = await uploadVideo(
-          files[i],
-          creator._id,
-          setVideoName,
-          setOpens,
-          setmbPerSecond,
-          setTimeUploadRemaining,
-          setProgress
-        );
-        setImgUrl(...imgUrl, url);
-        const fileData = { name: files[i].name, path: url, file: files[i] };
+        try {
+          const url = await uploadVideo(
+            files[i],
+            creator._id,
+            setVideoName,
+            setOpens,
+            setmbPerSecond,
+            setTimeUploadRemaining,
+            setProgress
+          );
+          setImgUrl(...imgUrl, url);
+          const fileData = { name: files[i].name, path: url, file: files[i] };
 
-        newArray = [...newArray, fileData];
-        setformDataTwo(newArray);
+          newArray = [...newArray, fileData];
+          setformDataTwo(newArray);
+
+          setUploading(true);
+        } catch (err) {
+          console.log(err);
+        }
+
         if (i !== files.length - 1) setProgress(0);
-        setUploading(true);
         setTimeUploadRemaining(`0 sec left`);
       }
     }
+
+    file.target.value = '';
   };
 
   // const handleClick = () => {};
@@ -147,11 +155,7 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
 
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button
-            className="drafBtn"
-            style={{ background: 'none', border: '1px solid #662F88' }}
-            onClick={() => setStep(1)}
-          >
+          <button className="drafBtn" style={{ background: 'none', border: '1px solid #662F88' }} onClick={() => setStep(1)}>
             Previous
           </button>
           <button onClick={handleVideo} className="continueBtn">

@@ -89,6 +89,12 @@ const DashboardRightSideBar2 = ({}) => {
             ''
           )}
           <hr className="line" />
+          <p style={{ fontSize: '17px', fontWeight: '700', marginTop: '22px' }}>
+            {' '}
+            &nbsp;&nbsp;&nbsp;{' '}
+            {contentDashboardButton === 'Started Courses' ? 'Started Courses' : 'Enrolled Courses'}
+          </p>
+          <hr className="line" />
         </div>
       ) : (
         ''
