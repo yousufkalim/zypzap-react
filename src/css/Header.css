@@ -514,6 +514,7 @@
     width: 19ch !important;
   }
 }
+
 @media only screen and (min-width: 601px) and (max-width: 899px) {
   .searchBar {
     width: 53% !important;
@@ -578,6 +579,8 @@
     left: 15px;
   }
 }
+
+
 @media only screen and (min-width: 270px) and (max-width: 600px) {
   .mobSearchBar {
     width: 91% !important;
@@ -616,10 +619,7 @@
     margin-bottom: 5rem;
     margin-top: 1rem;
   }
-  .downarrow {
-    left: 0px;
-    /* display: none; */
-  }
+  
   .css-6hp17o-MuiList-root-MuiMenu-list {
     background-color: #0e0f1e !important;
     color: #fff !important;
@@ -647,11 +647,13 @@
     margin-left: auto;
   }
 
-  .dropdown-content {
+  /* .dropdown-content {
     min-width: 91vw;
     margin-top: 3vh ;
-    margin-left:-177%;
-  }
+    position: absolute;
+    right: -13vw;
+  } */
+  
   #dropDownItem1{
    border-top-left-radius: 5px;
    border-top-right-radius: 5px;
@@ -748,11 +750,7 @@
     margin-top: 12px !important;
   }
 
-  .downarrow{
-    width:11px;
-    position: inherit;
-    left: 38vh;
-  }
+
   .requestContainer{
     width: 90% !important;
   }
@@ -776,3 +774,36 @@
   z-index: 500 !important;
  }
 }
+
+@media only screen and (min-width: 450px) and (max-width: 600px){
+
+.dropdown{
+  width:11px;
+  position: relative;
+  float: right;
+ left: -14%;
+ padding-top: 1vh;
+}
+.dropdown-content {
+  margin-top: 3vh;
+  min-width: 91vw;
+  position: absolute;
+  right: -13vw;
+}
+}
+@media only screen and (max-width: 449px) {
+
+  .dropdown{
+    width:11px;
+    position: relative;
+    float: right;
+    left: -19%;
+    padding-top: 1vh;
+  }
+  .dropdown-content {
+    margin-top: 3vh;
+    min-width: 91vw;
+    position: absolute;
+    right: -18vw;
+  }
+  }

@@ -461,7 +461,7 @@ Custom arrows end here
     }
 
     .topRatedheadings {
-        font-weight: 400;
+        font-weight: 400  !important;
         font-size: 15px !important;
         padding-top: 45px !important;
     }
