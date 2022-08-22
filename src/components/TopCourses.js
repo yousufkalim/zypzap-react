@@ -151,96 +151,73 @@ function TopCoursesComponent({ item }) {
     <Grid container spacing={2} className="topCourseGrid">
       <Grid item xs={12} sm={5} className="topCoursesDiv">
         {/*  make it dynamic  */}
-        <img
-          src={item?.thumbnail ? item.thumbnail : TopCourseImg}
-          className="topcourseimg"
-          alt="img"
-        />
-        <div className="userprofiledivCopy">
-          <Grid
-            container
-            spacing={2}
-            className="topcourseuserGrid"
-            style={{ paddingBottom: '10px' }}
-          >
-            <Grid item xs={6} md={6}>
-              <div className="userprofilediv" id="userInfo">
-                <div>
-                  <img
-                    src={
-                      item?.creator?.user_id?.profile_photo
-                        ? item.creator.user_id.profile_photo
-                        : avatar
-                    }
-                    className="avatar"
-                    alt="img"
-                  />
-                </div>
-                <div>
-                  <p className="p1">{item?.creator?.user_id?.username}</p>
-                  <p className="p2">{item?.course_name + ' player'}</p>
+        <img src={item?.thumbnail ? item.thumbnail : TopCourseImg} className="topcourseimg" alt="img" />
+        {window.innerWidth < 601 && (
+          <div className="userprofiledivCopy">
+            <Grid container spacing={2} className="topcourseuserGrid" style={{ paddingBottom: '10px' }}>
+              <Grid item xs={6} md={6}>
+                <div className="userprofilediv" id="userInfo">
+                  <div>
+                    <img
+                      src={item?.creator?.user_id?.profile_photo ? item.creator.user_id.profile_photo : avatar}
+                      className="avatar"
+                      alt="img"
+                    />
+                  </div>
+                  <div>
+                    <p className="p1">{item?.creator?.user_id?.username}</p>
+                    <p className="p2">{item?.course_name + ' player'}</p>
 
-                  <p className="p2">
-                    {item?.rating ? item.rating + ' ' : <></>}
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <Star1
-                        className="starID"
-                        style={{
-                          width: '12px',
-                          height: '12px',
-                        }}
-                      />
-                    ))}
-                    {' (' + countViews(item) + ')'}
-                    {/* &nbsp; (382,420) */}
-                  </p>
+                    <p className="p2">
+                      {item?.rating ? item.rating + ' ' : <></>}
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <Star1
+                          className="starID"
+                          style={{
+                            width: '12px',
+                            height: '12px',
+                          }}
+                        />
+                      ))}
+                      {' (' + countViews(item) + ')'}
+                      {/* &nbsp; (382,420) */}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Grid>
             </Grid>
-          </Grid>
-          <Grid
-            container
-            spacing={2}
-            className="topcourseuserGrid"
-            style={{ paddingBottom: '10px' }}
-          >
-            <Grid item xs={6} md={6} className="topcourseuserRightGrid" id="userInfo">
-              <div className="itemDetails">
-                <span className="marginRight">{item?.level ? item.level : 'inital level'}</span>
+            <Grid container spacing={2} className="topcourseuserGrid" style={{ paddingBottom: '10px' }}>
+              <Grid item xs={6} md={6} className="topcourseuserRightGrid" id="userInfo">
+                <div className="itemDetails">
+                  <span className="marginRight">{item?.level ? item.level : 'inital level'}</span>
 
-                <>
+                  <>
+                    <span className="marginRight">|</span>
+                    <span className="marginRight">{item?.videos && secondToTime(item?.videos[0]?.duration)}</span>
+                  </>
+
+                  <span className="marginRight">|</span>
+                  <span className="marginRight">{item?.student ? item.student.length + ' Student' : 0 + '   Student'}</span>
                   <span className="marginRight">|</span>
                   <span className="marginRight">
-                    {item?.videos && secondToTime(item?.videos[0]?.duration)}
+                    {/* {`${postedTime(item)} days ago`} */}
+
+                    {getDateIs(item?.createdAt || '0 Weeks')}
                   </span>
-                </>
-
-                <span className="marginRight">|</span>
-                <span className="marginRight">
-                  {item?.student ? item.student.length + ' Student' : 0 + '   Student'}
-                </span>
-                <span className="marginRight">|</span>
-                <span className="marginRight">
-                  {/* {`${postedTime(item)} days ago`} */}
-
-                  {getDateIs(item?.createdAt || '0 Weeks')}
-                </span>
-              </div>
+                </div>
+              </Grid>
             </Grid>
-          </Grid>
-        </div>
+          </div>
+        )}
       </Grid>
       <Grid item xs={12} sm={8} className="topcourseTextGrid" justifyContent="space-between">
         <Grid container spacing={2}>
           <Grid item xs={8} md={10}>
-            <h3 className="h3heading">
-              {item?.name ? item.name + 'gameplay full course' : 'PUBG gameplay full course'}
-            </h3>
+            <h3 className="h3heading">{item?.name ? item.name + 'gameplay full course' : 'PUBG gameplay full course'}</h3>
             <p className="topcourseText">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa semper mi feugiat quis
-              tellus arcu. Rutrum non vitae id urna nunc, egestas. Tempus aliquam, at fusce facilisi
-              gravida lacus faucibus felis, aliquet. Condimentum aenean nulla morbi euismod non vel
-              arcu sapien magna.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa semper mi feugiat quis tellus arcu. Rutrum non vitae
+              id urna nunc, egestas. Tempus aliquam, at fusce facilisi gravida lacus faucibus felis, aliquet. Condimentum aenean
+              nulla morbi euismod non vel arcu sapien magna.
             </p>
           </Grid>
           {/* <Grid item xs={4} md={4}>
@@ -253,11 +230,7 @@ function TopCoursesComponent({ item }) {
           <Grid item xs={6} md={6}>
             <div className="userprofilediv" id="un_hide">
               <img
-                src={
-                  item?.creator?.user_id?.profile_photo
-                    ? item.creator.user_id.profile_photo
-                    : avatar
-                }
+                src={item?.creator?.user_id?.profile_photo ? item.creator.user_id.profile_photo : avatar}
                 className="avatar"
                 alt="img"
               />
@@ -288,9 +261,7 @@ function TopCoursesComponent({ item }) {
 
               <>
                 <span className="marginRight">|</span>
-                <span className="marginRight">
-                  {item?.videos && secondToTime(item?.videos[0]?.duration)}
-                </span>
+                <span className="marginRight">{item?.videos && secondToTime(item?.videos[0]?.duration)}</span>
               </>
 
               <span className="marginRight">|</span>
