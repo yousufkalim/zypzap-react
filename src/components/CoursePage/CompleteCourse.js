@@ -11,23 +11,23 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
   const ref = useRef();
   const { user } = Store();
 
-  const [videos, setVideos] = useState(singlCourse?.videos ? singlCourse.videos : 0);
+  const [videos, setVideos] = useState(
+    singlCourse?.videos ? singlCourse.videos : 0
+  );
   // const [id, setId] = useSate();
   const [playVideo, setPlayVideo] = useState(singlCourse?.videos[0]);
   const [index, setIndex] = useState(0);
-  const [videoCount, setVideoCount] = useState(singlCourse?.videos ? singlCourse.videos.length : 0);
+  const [videoCount, setVideoCount] = useState(
+    singlCourse?.videos ? singlCourse.videos.length : 0
+  );
   const videoSrc = {
     type: 'video',
     sources: [
       {
-        src: playVideo?.src_url,
-      },
-    ],
+        src: playVideo?.src_url
+      }
+    ]
   };
-
-  useEffect(() => {
-    handlePlayedVideo();
-  }, [playVideo]);
 
   useEffect(() => {
     ref.current.plyr.on('ended', (e) => {
@@ -40,10 +40,6 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
       }
     });
   }, [index]);
-
-  const handlePlayedVideo = async () => {
-    await api('get', `/users/video-played/${user._id}/${singlCourse._id}/${playVideo._id}`);
-  };
 
   const handleNext = () => {
     setPlayVideo(videos[index + 1]);
@@ -61,7 +57,8 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
         <div className="completeCourse-center-div">
           <div className="completeCourse-colm1">
             <h2 className="completeCourseH2">
-              {playVideo?.title ? playVideo.title : 'CS Go'} Ep {index + 1} Complete Course
+              {playVideo?.title ? playVideo.title : 'CS Go'} Ep {index + 1}{' '}
+              Complete Course
             </h2>
             {/* <ReactPlayer src={playVideo?.src_url} /> */}
             {/* <ReactPlayer
