@@ -164,7 +164,7 @@ function TopCoursesComponent({ item }) {
             style={{ paddingBottom: '10px' }}
           >
             <Grid item xs={6} md={6}>
-              <div className="userprofilediv">
+              <div className="userprofilediv" id="userInfo">
                 <div>
                   <img
                     src={
@@ -247,6 +247,8 @@ function TopCoursesComponent({ item }) {
             <h3 style={{ textAlign: "right" }}>{item?.price + " $"}</h3>
           </Grid> */}
         </Grid>
+
+        {/* ===========================================Mob=========================================================== */}
         <Grid container spacing={2} className="topcourseuserGrid" style={{ paddingBottom: '10px' }}>
           <Grid item xs={6} md={6}>
             <div className="userprofilediv" id="un_hide">

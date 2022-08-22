@@ -752,7 +752,7 @@
 
 
   .requestContainer{
-    width: 90% !important;
+    width: 88% !important;
   }
   /* .css-r8u8y9{
     display: flex;
@@ -772,6 +772,11 @@
  .profileHeader{
   color: transparent !important;
   z-index: 500 !important;
+ }
+
+ #editPHeader{
+  z-index: 1300 !important;
+
  }
 }
 

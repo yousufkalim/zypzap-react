@@ -476,4 +476,13 @@
         font-size: 16px !important;
         font-weight: 700 !important;
     }
+
+    .card-header-text-h3 {
+        font-size: 14px !important;
+        font-weight: 500 !important;
+}
+#failbox{
+    justify-content: center !important;
+    padding: 60px 26px !important;
+}
 }
