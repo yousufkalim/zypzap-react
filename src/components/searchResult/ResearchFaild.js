@@ -12,7 +12,7 @@ const ResearchFaild = ({ searchInput, setOpen }) => {
   return (
     <>
       <Box className="cards-container2">
-        <div className="cards-box">
+        <div className="cards-box" id="failbox">
           <div className="cards-header-text">
             <h3 className="card-header-text-h3">
               {' '}

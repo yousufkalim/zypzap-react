@@ -2,6 +2,10 @@
   color: #fff !important;
 }
 
+
+/* #userInfo{
+  display: none;
+} */
 .topCoursescontainer {
   margin-top: 5px;
   position: relative;
@@ -187,6 +191,7 @@
     font-weight: 600;
   }
   #userInfo {
+    display: block;
     text-align: center !important;
     margin: auto;
   }

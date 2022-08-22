@@ -779,7 +779,7 @@ const SearchResultBody = () => {
                   ) : (
                     ''
                   )}
-                  <div className="cards-header-text">
+                  <div className="cards-header-text" id="mobHideText">
                     <p className="card-header-text-h3">{`${searchInput}`}</p>
 
                     {/* <h2>{`${searchInput} GAMES`}</h2> */}

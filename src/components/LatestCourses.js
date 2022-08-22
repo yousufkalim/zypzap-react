@@ -67,12 +67,18 @@ export default function LatestCourses(props) {
     // Output like "1:01" or "4:03:59" or "123:03:59"
     var ret = '';
     if (hrs > 0) {
-      ret += '' + hrs + '.' + (mins < 10 ? '0' : '');
+      ret += '' + hrs + ':' + (mins < 10 ? '0' : '');
+      ret += '' + mins + ':' + (secs < 10 ? '0' : '');
+      ret += '' + secs + ' hr';
+    } else if (mins > 0) {
+      ret += '' + mins + ':' + (secs < 10 ? '0' : '');
+      ret += '' + secs + ' min';
+    } else {
+      ret += ' 0:' + secs + ' sec';
     }
-    ret += '' + mins + '.' + (secs < 10 ? '0' : '');
-    ret += '' + secs;
     return ret;
   };
+
   const calTotalSecInVideos = (videos) => {
     let timeInSecond = 0;
     videos?.map((videos) => (timeInSecond += parseInt(videos.duration)));
@@ -159,17 +165,25 @@ export default function LatestCourses(props) {
             >
               <div className="cardGrid" style={{ minHeight: '86%' }}>
                 {window.innerWidth < 601 ? (
-                  <h4 className="latestCourse-h4">{item?.course_name ? item.course_name : 'Fight Course'}</h4>
+                  <h4 className="latestCourse-h4">
+                    {item?.course_name ? item.course_name : 'Fight Course'}
+                  </h4>
                 ) : (
                   ''
                 )}
                 <div className="topRatedcardGrid-image">
-                  <img src={item?.thumbnail ? item.thumbnail : dummyCourse} className="topRatedcourseimg" alt="img" />
+                  <img
+                    src={item?.thumbnail ? item.thumbnail : dummyCourse}
+                    className="topRatedcourseimg"
+                    alt="img"
+                  />
                 </div>
                 {window.innerWidth < 601 ? (
                   ''
                 ) : (
-                  <h4 className="latestCourse-h4">{item?.course_name ? item.course_name : 'Fight Course'}</h4>
+                  <h4 className="latestCourse-h4">
+                    {item?.course_name ? item.course_name : 'Fight Course'}
+                  </h4>
                 )}
 
                 <div className="latestCourseMain-Div">
@@ -177,12 +191,17 @@ export default function LatestCourses(props) {
                     <div className="latestCourse-colmn-centerDiv">
                       <img src={LatestCourseGameIcon} alt="" className="LatestCourse-IMG" />
                       <p className="latestCourse-pHeading">
-                        <strong id="latestCourse-pHeading"> {item?.creator?.user_id?.username}</strong>
+                        <strong id="latestCourse-pHeading">
+                          {' '}
+                          {item?.creator?.user_id?.username}
+                        </strong>
                       </p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
                       <img src={LatestCourseStarIcon} alt="" className="LatestCourse-IMG" />
-                      <p className="latestCourse-p">{item?.rating ? `${item.rating} Rating` : 'No Rating'}</p>
+                      <p className="latestCourse-p">
+                        {item?.rating ? `${item.rating} Rating` : 'No Rating'}
+                      </p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}

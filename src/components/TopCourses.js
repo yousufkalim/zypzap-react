@@ -111,10 +111,15 @@ function TopCoursesComponent({ item }) {
     // Output like "1:01" or "4:03:59" or "123:03:59"
     var ret = '';
     if (hrs > 0) {
-      ret += '' + hrs + '.' + (mins < 10 ? '0' : '');
+      ret += '' + hrs + ':' + (mins < 10 ? '0' : '');
+      ret += '' + mins + ':' + (secs < 10 ? '0' : '');
+      ret += '' + secs + ' hr';
+    } else if (mins > 0) {
+      ret += '' + mins + ':' + (secs < 10 ? '0' : '');
+      ret += '' + secs + ' min';
+    } else {
+      ret += ' 0:' + secs + ' sec';
     }
-    ret += '' + mins + '.' + (secs < 10 ? '0' : '');
-    ret += '' + secs;
     return ret;
   };
 
@@ -159,7 +164,7 @@ function TopCoursesComponent({ item }) {
             style={{ paddingBottom: '10px' }}
           >
             <Grid item xs={6} md={6}>
-              <div className="userprofilediv">
+              <div className="userprofilediv" id="userInfo">
                 <div>
                   <img
                     src={
@@ -242,6 +247,8 @@ function TopCoursesComponent({ item }) {
             <h3 style={{ textAlign: "right" }}>{item?.price + " $"}</h3>
           </Grid> */}
         </Grid>
+
+        {/* ===========================================Mob=========================================================== */}
         <Grid container spacing={2} className="topcourseuserGrid" style={{ paddingBottom: '10px' }}>
           <Grid item xs={6} md={6}>
             <div className="userprofilediv" id="un_hide">
@@ -288,7 +295,11 @@ function TopCoursesComponent({ item }) {
 
               <span className="marginRight">|</span>
               <span className="marginRight">
-                {item?.student ? item.student.length + ' Student' : 0 + '   Student'}
+                {item?.student
+                  ? item.student.length > 1
+                    ? item.student.length + ' Students'
+                    : item.student.length + ' Student'
+                  : 0 + '   Student'}
               </span>
               <span className="marginRight">|</span>
               <span className="marginRight">

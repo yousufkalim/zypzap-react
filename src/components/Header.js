@@ -541,7 +541,10 @@ export default function PrimarySearchAppBar({
             window.location.pathname === '/userprofile' ? 'profileHeader' : 'headerBackgroundColor'
           }
         >
-          <Toolbar className="imgLogo" style={{ zIndex: '1300' }}>
+          <Toolbar
+            className="imgLogo"
+            id={window.location.pathname === '/userprofile' ? 'editPHeader' : ''}
+          >
             <img
               // src={Logo}
               src={HomePageLogo}
