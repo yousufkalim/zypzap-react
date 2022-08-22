@@ -3,6 +3,10 @@
 .css-hip9hq-MuiPaper-root-MuiAppBar-root {
   background-color: black !important;
 }
+
+.css-1x7skt0{
+  background: transparent  !important ;
+}
 .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {
   -webkit-text-fill-color: white !important;
 }
@@ -194,6 +198,7 @@
 
 .dropbtn {
   color: white;
+  font-weight: 500;
   /* padding: 16px; */
   font-size: 16px;
   border: none;

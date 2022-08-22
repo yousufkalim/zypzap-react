@@ -740,5 +740,36 @@ body {
 .userProfile-centerDiv{
   width: fit-content !important;
 }
+.userTagsAllButton{
+  font-size: 14px !important;
+}
+.css-lgb52k-MuiFormControl-root-MuiTextField-root{
+  width: 96% !important;
+}
+.MuiAutocomplete-hasPopupIcon.css-16awh2u-MuiAutocomplete-root .MuiOutlinedInput-root{
+  height: 100%!important;
+}
 
+.css-j204z7-MuiFormControlLabel-root{
+  font-size: 14px !important;
+  margin-right: 0!important;
+
+}
+.css-ahj2mt-MuiTypography-root{
+  margin-right: 0!important;
+  margin: 0!important;
+}
+.dashboardSetting{
+  width: 92% !important;
+}
+
+.css-vqmohf-MuiButtonBase-root-MuiRadio-root{
+  margin-left: 34px;
+}
+.setting-label{
+  font-size: 16px;
+}
+.selectInput-userProfile{
+  background-color: transparent !important;
+}
 }

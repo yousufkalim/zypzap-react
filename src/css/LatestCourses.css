@@ -19,9 +19,7 @@
         Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#mobEnrollRating {
-    display: none;
-}
+
 
 .latestcourseHeadingDiv {
     display: flex;
@@ -367,6 +365,7 @@
 
     .wishListh4 {
         text-align: left;
+        font-size: 22px;
     }
 
     .wishCard-progrss-prsntage {
@@ -401,7 +400,8 @@
     }
 
     .wishCarImgDiv {
-        width: 93%;
+        height: 243px;
+        width: 330px;
     }
 
     .css-1l6di18 .MuiAutocomplete-tag {
@@ -409,16 +409,6 @@
         font-size: 11px;
     }
 
-    #mobEnrollUser {
-        margin-top: -4%;
-        text-align: left;
-    }
-
-    #mobEnrollRating {
-        display: block;
-        font-size: 14px;
-        text-align: left;
-    }
 
 }
 
@@ -441,13 +431,14 @@
         font-weight: 400 !important;
     }
 
-    .startcourseimg {
-        height: 27vh;
-
-    }
-
+   
     .wishList-container {
         margin-right: auto;
+        padding-left: 13px;
+    }
+    .css-1q7wbhd-MuiLinearProgress-root{
+        width: 100% !important;
+        height: 10px !important;
     }
 
     #latestCourse-pHeading,

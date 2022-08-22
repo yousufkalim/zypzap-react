@@ -210,6 +210,7 @@ const UserProfile = (props) => {
                     opacity: '0.7',
                     position: 'fixed',
                     top: '0',
+                    objectFit: 'cover',
                     position: 'relative',
                     top: '-23vh',
                     height: '34vh',
