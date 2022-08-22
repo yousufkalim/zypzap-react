@@ -356,7 +356,7 @@
     }
 
     .topRatedcardGrid {
-        width: 93% !important;
+        width: 92% !important;
     }
 
     .TopRatedcarousalOuterDiv {
@@ -455,6 +455,7 @@
     .cardGrid {
         margin: auto !important;
         margin-bottom: 2vh !important;
+        width:92%;
     }
 
     .failedImg {

@@ -111,10 +111,15 @@ function TopCoursesComponent({ item }) {
     // Output like "1:01" or "4:03:59" or "123:03:59"
     var ret = '';
     if (hrs > 0) {
-      ret += '' + hrs + '.' + (mins < 10 ? '0' : '');
+      ret += '' + hrs + ':' + (mins < 10 ? '0' : '');
+      ret += '' + mins + ':' + (secs < 10 ? '0' : '');
+      ret += '' + secs + ' hr';
+    } else if (mins > 0) {
+      ret += '' + mins + ':' + (secs < 10 ? '0' : '');
+      ret += '' + secs + ' min';
+    } else {
+      ret += ' 0:' + secs + ' sec';
     }
-    ret += '' + mins + '.' + (secs < 10 ? '0' : '');
-    ret += '' + secs;
     return ret;
   };
 
@@ -288,7 +293,11 @@ function TopCoursesComponent({ item }) {
 
               <span className="marginRight">|</span>
               <span className="marginRight">
-                {item?.student ? item.student.length + ' Student' : 0 + '   Student'}
+                {item?.student
+                  ? item.student.length > 1
+                    ? item.student.length + ' Students'
+                    : item.student.length + ' Student'
+                  : 0 + '   Student'}
               </span>
               <span className="marginRight">|</span>
               <span className="marginRight">
