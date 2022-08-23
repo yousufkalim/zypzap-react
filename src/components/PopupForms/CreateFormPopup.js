@@ -166,11 +166,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                   required
                 />
                 <br />
-                <label
-                  htmlFor="password"
-                  style={{ marginTop: '30px' }}
-                  className="createLbl"
-                >
+                <label htmlFor="password" className="createLbl signuppassword">
                   Password
                 </label>
                 <Input
@@ -198,8 +194,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                 />
                 <label
                   htmlFor="password"
-                  style={{ marginTop: '30px' }}
-                  className="createLbl"
+                  className="createLbl signupconfimrpassword"
                 >
                   Confirm Password
                 </label>
@@ -229,6 +224,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                 <button
                   className="formbtn2"
                   type="submit"
+                  id="formbtnsignup"
                   disabled={loading}
                   onClick={submitForm}
                 >
@@ -280,11 +276,8 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                 <br />
               </div>
               <p className="terms">
-                By Registering for this website, you accept our &nbsp;
-                <span className="condition" style={{ fontWeight: 'bolder' }}>
-                  Terms <br /> Of Use &nbsp;
-                </span>
-                and our{' '}
+                By Registering for this website, you accept our Terms Of Use and
+                our{' '}
                 <span className="condition" style={{ fontWeight: 'bolder' }}>
                   Privacy Policy.
                 </span>

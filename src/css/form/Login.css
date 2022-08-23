@@ -177,12 +177,15 @@
     margin-bottom: 8px !important;
   }
   .social span {
-    padding: 13px 13px 13px 13px !important;
-    margin: 30px 5px !important;
+    padding: 14px 18px 5px 18px !important;
+    margin: 14px 0px !important;
   }
   .signPera{
     justify-content: center !important;
     margin-top: 10px !important;
+  }
+  .line1{
+    width: 40% !important;
   }
   /* #signupPopUp, #loginPopup{
     width: 89% !important;
