@@ -26,42 +26,40 @@ const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup, setOpenLogin }) => {
 
   return (
     <>
-      <div>
-        <Dialog
-          open={open}
-          className="regPopUp"
-          style={{ backdropFilter: 'blur(20px)' }}
-        >
-          <div className="create_container" style={{ padding: '6%' }}>
-            <ClearIcon className="clearIcon3" onClick={handleClose} />
+      <Dialog
+        open={open}
+        className="regPopUp"
+        style={{ backdropFilter: 'blur(20px)' }}
+      >
+        <div className="create_container" style={{ padding: '6%' }}>
+          <ClearIcon className="clearIcon3" onClick={handleClose} />
 
-            <p className="text-center" id="regText">
-              You must be a registered user <br /> to continue
-            </p>
-            <div className="regBtns">
-              <button
-                id="signupBtn"
-                onClick={() => {
-                  setOpenSignup(true);
-                  handleClose();
-                }}
-              >
-                Sign Up Now
-              </button>
-              <button
-                id="loginFormbtn"
-                type="submit"
-                onClick={() => {
-                  setOpenLogin(true);
-                  handleClose();
-                }}
-              >
-                Log in Now
-              </button>
-            </div>
+          <p className="text-center" id="regText">
+            You must be a registered user <br /> to continue
+          </p>
+          <div className="regBtns">
+            <button
+              id="signupBtn"
+              onClick={() => {
+                setOpenSignup(true);
+                handleClose();
+              }}
+            >
+              Sign Up Now
+            </button>
+            <button
+              id="loginFormbtn"
+              type="submit"
+              onClick={() => {
+                setOpenLogin(true);
+                handleClose();
+              }}
+            >
+              Log in Now
+            </button>
           </div>
-        </Dialog>
-      </div>
+        </div>
+      </Dialog>
     </>
   );
 };
