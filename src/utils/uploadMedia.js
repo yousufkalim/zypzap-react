@@ -30,7 +30,7 @@ export const uploadVideoAsThumbnail = (formData, dir) => {
   });
 };
 
-export let controller;
+export let controller = new AbortController();
 
 export const uploadVideo = async (file, creator, setVideoName, setOpens, setmbPerSecond, setTimeUploadRemaining, setProgress) => {
   if (!file) return;
@@ -50,8 +50,6 @@ export const uploadVideo = async (file, creator, setVideoName, setOpens, setmbPe
     let speed = 0;
 
     try {
-      controller = new AbortController();
-
       controller.signal.addEventListener('abort', () => {
         reject();
       });
