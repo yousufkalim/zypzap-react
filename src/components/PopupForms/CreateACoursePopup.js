@@ -1,8 +1,8 @@
-import React from "react";
-import Popover from "@mui/material/Popover";
-import ClearIcon from "@mui/icons-material/Clear";
-import "../../css/form/CreateACourse.css";
-import CreatePlushIcon from "../../assets/icons/CreatePlushIcon.svg";
+import React from 'react';
+import Popover from '@mui/material/Popover';
+import ClearIcon from '@mui/icons-material/Clear';
+import '../../css/form/CreateACourse.css';
+import CreatePlushIcon from '../../assets/icons/CreatePlushIcon.svg';
 
 const CreateACoursePopup = ({ anchorEl, setAnchorEl }) => {
   const handleClick = (event) => {
@@ -14,7 +14,7 @@ const CreateACoursePopup = ({ anchorEl, setAnchorEl }) => {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
+  const id = open ? 'simple-popover' : undefined;
   return (
     <div>
       <Popover
@@ -24,9 +24,10 @@ const CreateACoursePopup = ({ anchorEl, setAnchorEl }) => {
         anchorEl={anchorEl}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: "top",
-          horizontal: "center",
+          vertical: 'top',
+          horizontal: 'center'
         }}
+        style={{ backdropFilter: 'blur(20px)' }}
       >
         <div className="createACourse-div">
           <div className="createACourse-container">
