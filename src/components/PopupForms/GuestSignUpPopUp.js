@@ -12,7 +12,7 @@ const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup, setOpenLogin }) => {
   const handleClick = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id,
+      userId: u?._id
     };
     let res = await api('post', '/users/enrolledCourseAndStarted', data);
     if (res) {
@@ -27,7 +27,11 @@ const GuestSignUpPopUp = ({ open, setOpen, setOpenSignup, setOpenLogin }) => {
   return (
     <>
       <div>
-        <Dialog open={open} className="regPopUp">
+        <Dialog
+          open={open}
+          className="regPopUp"
+          style={{ backdropFilter: 'blur(20px)' }}
+        >
           <div className="create_container" style={{ padding: '6%' }}>
             <ClearIcon className="clearIcon3" onClick={handleClose} />
 

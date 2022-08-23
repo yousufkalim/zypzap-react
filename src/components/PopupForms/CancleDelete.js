@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Dialog from "@mui/material/Dialog";
-import "../../css/form/UploadSuccessfulPopup.css";
-import UploadSuccessLog from "../../assets/icons/crosIcon.svg";
+import React, { useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import '../../css/form/UploadSuccessfulPopup.css';
+import UploadSuccessLog from '../../assets/icons/crosIcon.svg';
 
 const CancleDelete = ({ open, setOpen, text }) => {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
@@ -10,7 +10,13 @@ const CancleDelete = ({ open, setOpen, text }) => {
   };
   return (
     <div>
-      <Dialog open={open} setOpe={setOpen} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+      <Dialog
+        open={open}
+        setOpe={setOpen}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+        style={{ backdropFilter: 'blur(20px)' }}
+      >
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv">
             <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />

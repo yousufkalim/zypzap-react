@@ -28,9 +28,9 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 
       '& + .MuiSwitch-track': {
         opacity: 1,
-        backgroundColor: theme.palette.mode === 'dark' ? 'green' : 'black',
-      },
-    },
+        backgroundColor: theme.palette.mode === 'dark' ? 'green' : 'black'
+      }
+    }
   },
   '& .MuiSwitch-thumb': {
     background:
@@ -47,24 +47,27 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       left: 0,
       top: 0,
       backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-    },
+      backgroundPosition: 'center'
+    }
   },
   '& .MuiSwitch-track': {
     opacity: 1,
     backgroundColor: theme.palette.mode === 'dark' ? 'pink' : 'gray',
     borderRadius: 20 / 2,
     position: 'relative',
-    left: '-21px',
-  },
+    left: '-21px'
+  }
 }));
 
 export default function ForgetPassword() {
-  let [passwords, setPasswords] = useState({ password: '', confirmPassword: '' });
+  let [passwords, setPasswords] = useState({
+    password: '',
+    confirmPassword: ''
+  });
   let [open, setOpen] = useState(false);
   const [values, setValues] = React.useState({
     showPassword: false,
-    showPassword2: false,
+    showPassword2: false
   });
   let history = useHistory();
   let { token } = useParams();
@@ -89,20 +92,20 @@ export default function ForgetPassword() {
   const handleClickShowPassword = () => {
     setValues({
       ...values,
-      showPassword: !values.showPassword,
+      showPassword: !values.showPassword
     });
   };
 
   const handleClickShowPassword2 = () => {
     setValues({
       ...values,
-      showPassword2: !values.showPassword2,
+      showPassword2: !values.showPassword2
     });
   };
   const handleClose = () => {
     setPasswords({
       password: '',
-      confirmPassword: '',
+      confirmPassword: ''
     });
     setOpen(false);
   };
@@ -128,7 +131,7 @@ export default function ForgetPassword() {
     }
     setPasswords({
       password: '',
-      confirmPassword: '',
+      confirmPassword: ''
     });
     history.push('/home');
   };
@@ -137,7 +140,7 @@ export default function ForgetPassword() {
     <>
       <Home />
 
-      <Dialog open={open}>
+      <Dialog open={open} style={{ backdropFilter: 'blur(20px)' }}>
         <div className="login_form" style={{ paddingBottom: '25px' }}>
           <div className="form_container">
             <h1 className="loginH1">Create a new password</h1>

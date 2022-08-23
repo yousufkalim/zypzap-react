@@ -1,9 +1,9 @@
-import React from "react";
-import "../../css/form/PaymentOptionPopup.css";
-import Dialog from "@mui/material/Dialog";
-import PaymentImg from "../../assets/icons/PaymentImg.svg";
-import GooglePay from "../../assets/icons/GooglePay.svg";
-import PayPal from "../../assets/icons/PayPal.svg";
+import React from 'react';
+import '../../css/form/PaymentOptionPopup.css';
+import Dialog from '@mui/material/Dialog';
+import PaymentImg from '../../assets/icons/PaymentImg.svg';
+import GooglePay from '../../assets/icons/GooglePay.svg';
+import PayPal from '../../assets/icons/PayPal.svg';
 
 const PaymentOptionPopup = ({ open, setOpen }) => {
   const handleClose = () => {
@@ -11,10 +11,15 @@ const PaymentOptionPopup = ({ open, setOpen }) => {
   };
   return (
     <div>
-      <Dialog open={open} onClose={handleClose} maxWidth="xs">
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        maxWidth="xs"
+        style={{ backdropFilter: 'blur(20px)' }}
+      >
         <div
           className="paymentOption-mainDiv"
-          style={{ backgroundColor: "#1D1F38" }}
+          style={{ backgroundColor: '#1D1F38' }}
         >
           <p className="paymentOption-heading">Payment Option</p>
           <div className="payment-bank-div">

@@ -18,35 +18,35 @@ export default function PropfileInformation({
   openProfile,
   setOpenProfile,
   user,
-  setCongratulation,
+  setCongratulation
 }) {
   const useStyles = makeStyles({
     customTextField: {
       '& input': {
         color: 'white',
-        border: 'none',
+        border: 'none'
       },
       '&:hover': {
-        border: 'red !important',
+        border: 'red !important'
       },
       '& input::placeholder': {
         color: 'white',
         '@media (max-width: 780px)': {
-          paddingLeft: '-2px',
-        },
-      },
+          paddingLeft: '-2px'
+        }
+      }
     },
     option: {
       background: '#242635 ',
       color: 'white',
       '&:hover': {
-        backgroundColor: '#9198a5 !important',
-      },
+        backgroundColor: '#9198a5 !important'
+      }
     },
     noOptions: {
       display: `${'inherit'}`,
-      color: 'white',
-    },
+      color: 'white'
+    }
   });
   const classes = useStyles();
   const updateStore = UpdateStore();
@@ -56,24 +56,36 @@ export default function PropfileInformation({
   );
   const [values, setValues] = useState([]);
   const [favouritGame, setFavouritGame] = useState(
-    user?.prefrence_games?.favourite_games ? user.prefrence_games.favourite_games : []
+    user?.prefrence_games?.favourite_games
+      ? user.prefrence_games.favourite_games
+      : []
   );
-  const [expertiseGame, setExpertiseGame] = useState(user?.expertiseGame ? user.expertiseGame : []);
+  const [expertiseGame, setExpertiseGame] = useState(
+    user?.expertiseGame ? user.expertiseGame : []
+  );
 
   const [gameType, setGameType] = useState(user?.gameType ? user.gameType : []);
-  const [plateForm, setPlateForm] = useState(user?.plateForm ? user.plateForm : []);
-  const [gameMood, setGameMood] = useState(user?.gameMood ? user.gameMood : 'Single');
+  const [plateForm, setPlateForm] = useState(
+    user?.plateForm ? user.plateForm : []
+  );
+  const [gameMood, setGameMood] = useState(
+    user?.gameMood ? user.gameMood : 'Single'
+  );
   const [learningRethem, setLearningRethem] = useState(
     user?.prefrence_games?.learningRethem
       ? user.prefrence_games.learningRethem
       : '10h To 20h Per Week'
   );
   const [currentLevel, setCurrentLevel] = useState(
-    user?.prefrence_games?.current_level ? user.prefrence_games.current_level : 'initial'
+    user?.prefrence_games?.current_level
+      ? user.prefrence_games.current_level
+      : 'initial'
   );
 
   const [target_level, setTargetLevel] = useState(
-    user?.prefrence_games?.target_level ? user.prefrence_games.target_level : 'initial'
+    user?.prefrence_games?.target_level
+      ? user.prefrence_games.target_level
+      : 'initial'
   );
   useEffect(() => {
     setCurrentSate();
@@ -81,19 +93,27 @@ export default function PropfileInformation({
   const setCurrentSate = () => {
     setImageURL(user?.profile_photo ? user.profile_photo : ProfileDp);
     setFavouritGame(
-      user?.prefrence_games?.favourite_games ? user.prefrence_games.favourite_games : []
+      user?.prefrence_games?.favourite_games
+        ? user.prefrence_games.favourite_games
+        : []
     );
     setGameType(user?.gameType ? user.gameType : []);
     setPlateForm(user?.plateForm ? user.plateForm : []);
     setGameMood(user?.gameMood ? user.gameMood : 'Single');
     setLearningRethem(
-      user?.prefrence_games?.learningRethem ? user.prefrence_games.learningRethem : 'Per Week'
+      user?.prefrence_games?.learningRethem
+        ? user.prefrence_games.learningRethem
+        : 'Per Week'
     );
     setCurrentLevel(
-      user?.prefrence_games?.current_level ? user.prefrence_games.current_level : 'initial'
+      user?.prefrence_games?.current_level
+        ? user.prefrence_games.current_level
+        : 'initial'
     );
     setTargetLevel(
-      user?.prefrence_games?.target_level ? user.prefrence_games.target_level : 'initial'
+      user?.prefrence_games?.target_level
+        ? user.prefrence_games.target_level
+        : 'initial'
     );
   };
 
@@ -111,7 +131,9 @@ export default function PropfileInformation({
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
   const removeTags = (index) => {
-    setFavouritGame([...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index)]);
+    setFavouritGame([
+      ...favouritGame.filter((tag) => favouritGame.indexOf(tag) !== index)
+    ]);
   };
 
   const changeCurrentLevelHandler = (e) => {
@@ -162,7 +184,7 @@ export default function PropfileInformation({
       favourite_games: favouritGame,
       learningRethem: learningRethem,
       current_level: currentLevel,
-      target_level: target_level,
+      target_level: target_level
     };
     const formdata = {
       profile_photo,
@@ -171,7 +193,7 @@ export default function PropfileInformation({
       gameType,
       plateForm,
       gameMood,
-      learningRethem,
+      learningRethem
     };
     if (
       prefrence_games === '' ||
@@ -185,7 +207,11 @@ export default function PropfileInformation({
     ) {
     } else {
       if (user) {
-        let res = await api('put', `/users/addProfileInfo/${user?._id}`, formdata);
+        let res = await api(
+          'put',
+          `/users/addProfileInfo/${user?._id}`,
+          formdata
+        );
         if (res) {
           updateStore({ user: res.data });
           setOpenProfile(false);
@@ -211,7 +237,7 @@ export default function PropfileInformation({
     { name: 'Sports' },
     { name: 'Trading Card' },
     { name: 'Puzzle' },
-    { name: 'Versus Fighting' },
+    { name: 'Versus Fighting' }
   ];
   let gametypebtn2 = [
     { name: 'Retro Consoles' },
@@ -219,7 +245,7 @@ export default function PropfileInformation({
     { name: 'Xbox/360/One/X' },
     { name: 'Mobile Games' },
     { name: 'Portable Consoles' },
-    { name: 'PC' },
+    { name: 'PC' }
   ];
   // const handleClose = () => {
   //   setOpen(false);
@@ -235,7 +261,7 @@ export default function PropfileInformation({
         e.target.value +
         '&page=1&page_size=10',
       {
-        withCredentials: false,
+        withCredentials: false
       }
     );
 
@@ -261,6 +287,7 @@ export default function PropfileInformation({
         open={openProfile}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        style={{ backdropFilter: 'blur(20px)' }}
       >
         <div className="userProfile_conteiner">
           <div className="userProfile_heading">
@@ -308,9 +335,13 @@ export default function PropfileInformation({
                 multiple
                 options={values}
                 classes={{
-                  option: classes.option,
+                  option: classes.option
                 }}
-                defaultValue={user?.role === 'User' || learner ? favouritGame : expertiseGame}
+                defaultValue={
+                  user?.role === 'User' || learner
+                    ? favouritGame
+                    : expertiseGame
+                }
                 // defaultValue={favouritGame}
                 filterSelectedOptions
                 popupIcon={null}
@@ -320,7 +351,7 @@ export default function PropfileInformation({
                   <div
                     style={{
                       color: 'white',
-                      fontSize: '12px',
+                      fontSize: '12px'
                     }}
                   >
                     {' '}
@@ -333,7 +364,7 @@ export default function PropfileInformation({
                 onChange={setGamefiled}
                 hiddenLabel="true"
                 style={{
-                  margin: 'auto',
+                  margin: 'auto'
                 }}
                 renderInput={(params) => (
                   <TextField
@@ -348,7 +379,7 @@ export default function PropfileInformation({
                     sx={{
                       outline: 'none',
                       width: '80%',
-                      borderRadius: '6px',
+                      borderRadius: '6px'
                     }}
                     // value={gameName}
                     // name="gameName"
@@ -448,7 +479,7 @@ export default function PropfileInformation({
                   style={{
                     fontSize: '16px',
                     fontWeight: '400',
-                    fontFamily: 'Mulish',
+                    fontFamily: 'Mulish'
                   }}
                 >
                   Learning Rhythm
@@ -465,17 +496,30 @@ export default function PropfileInformation({
                   style={{
                     fontSize: '15px',
                     fontWeight: '400',
-                    fontFamily: 'Mulish',
+                    fontFamily: 'Mulish'
                   }}
                 >
-                  <option value="10h To 20h Per Week" className="selectInput-option">
+                  <option
+                    value="10h To 20h Per Week"
+                    className="selectInput-option"
+                  >
                     10h To 20h Per Week
                   </option>
-                  <option value="20h To 30h Per Week">20h To 30h Per Week</option>
-                  <option value="30h To 40h Per Week">30h To 40h Per Week</option>
-                  <option value="40h To 50h Per Week">40h To 50h Per Week</option>
-                  <option value="50h To 60h Per Week">50h To 60h Per Week</option>
-                  <option value="60h To 70h Per Week">60h To 70h Per Week</option>
+                  <option value="20h To 30h Per Week">
+                    20h To 30h Per Week
+                  </option>
+                  <option value="30h To 40h Per Week">
+                    30h To 40h Per Week
+                  </option>
+                  <option value="40h To 50h Per Week">
+                    40h To 50h Per Week
+                  </option>
+                  <option value="50h To 60h Per Week">
+                    50h To 60h Per Week
+                  </option>
+                  <option value="60h To 70h Per Week">
+                    60h To 70h Per Week
+                  </option>
                 </select>
               </div>
               <div className="userProfileSelectInput">
@@ -484,7 +528,7 @@ export default function PropfileInformation({
                   style={{
                     fontSize: '16px',
                     fontWeight: '400',
-                    fontFamily: 'Mulish',
+                    fontFamily: 'Mulish'
                   }}
                 >
                   Current Gameplay Level
@@ -499,7 +543,7 @@ export default function PropfileInformation({
                   style={{
                     fontSize: '15px',
                     fontWeight: '400',
-                    fontFamily: 'Mulish',
+                    fontFamily: 'Mulish'
                   }}
                 >
                   <option value="Casual" className="selectInput-option">
@@ -507,9 +551,15 @@ export default function PropfileInformation({
                   </option>
 
                   {/* <option value="saab">Pro</option> */}
-                  <option value="Confirmed">Confirmed (8 Hours - 15 Hours Of Play Per Week)</option>
-                  <option value="Hardcore">Hardcore (16 Hours - 28 Hours Of Play Per Week)</option>
-                  <option value="Esporter">Esporter (More than 30 Hours Of Play Per Week)</option>
+                  <option value="Confirmed">
+                    Confirmed (8 Hours - 15 Hours Of Play Per Week)
+                  </option>
+                  <option value="Hardcore">
+                    Hardcore (16 Hours - 28 Hours Of Play Per Week)
+                  </option>
+                  <option value="Esporter">
+                    Esporter (More than 30 Hours Of Play Per Week)
+                  </option>
                 </select>
               </div>
               <div className="userProfileSelectInput">
@@ -518,7 +568,7 @@ export default function PropfileInformation({
                   style={{
                     fontSize: '16px',
                     fontWeight: '400',
-                    fontFamily: 'Mulish',
+                    fontFamily: 'Mulish'
                   }}
                 >
                   Target Gameplay Level
@@ -534,15 +584,21 @@ export default function PropfileInformation({
                   style={{
                     fontSize: '15px',
                     fontWeight: '400',
-                    fontFamily: 'Mulish',
+                    fontFamily: 'Mulish'
                   }}
                 >
                   <option value="Casual" className="selectInput-option">
                     Casual (5h - 7h Of Play Per Week)
                   </option>
-                  <option value="Confirmed">Confirmed (8 Hours - 15 Hours Of Play Per Week)</option>
-                  <option value="Hardcore">Hardcore (16 Hours - 28 Hours Of Play Per Week)</option>
-                  <option value="Esporter">Esporter (More than 30 Hours Of Play Per Week)</option>
+                  <option value="Confirmed">
+                    Confirmed (8 Hours - 15 Hours Of Play Per Week)
+                  </option>
+                  <option value="Hardcore">
+                    Hardcore (16 Hours - 28 Hours Of Play Per Week)
+                  </option>
+                  <option value="Esporter">
+                    Esporter (More than 30 Hours Of Play Per Week)
+                  </option>
                 </select>
               </div>
             </>
