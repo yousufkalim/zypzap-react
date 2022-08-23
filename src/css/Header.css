@@ -595,11 +595,6 @@
     margin-top: 34%;
   }
 
-  .MuiButtonBase-root{
-    display:"flex";
-    flex-direction: column;
-  }
-
 
 
   /* .css-6hp17o-MuiList-root-MuiMenu-list {
@@ -689,7 +684,7 @@
     /* width: 1em !important; */
     margin: 0px 0 0 -8px !important;
     /* color: white !important; */
-    height: 100% !important;
+    /* height: 100% !important; */
   }
   .css-1t29gy6-MuiToolbar-root {
     justify-content: space-around;

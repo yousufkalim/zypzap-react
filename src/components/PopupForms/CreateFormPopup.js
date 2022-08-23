@@ -29,7 +29,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
     password: '',
     CnfrmPassword: '',
     showPassword: false,
-    showConfirPassword: false,
+    showConfirPassword: false
   });
   const updateStore = UpdateStore();
   useEffect(() => {
@@ -40,7 +40,14 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
   }, []);
   // init
 
-  const { username, email, password, showPassword, CnfrmPassword, showConfirPassword } = values;
+  const {
+    username,
+    email,
+    password,
+    showPassword,
+    CnfrmPassword,
+    showConfirPassword
+  } = values;
   const showLoginFormPopup = () => {
     setLogin(true);
     setOpen(false);
@@ -64,7 +71,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
   const onChangeEvent = (e) => {
     setValues({
       ...values,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
@@ -102,7 +109,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
       email,
       password,
       CnfrmPassword,
-      role: 'User',
+      role: 'User'
     };
     try {
       let res = await api('post', '/users', formdata);
@@ -126,7 +133,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
       <div>
         {/* <EmailVarificaiton open={opens} setOpen={setOpens} /> */}
 
-        <Dialog open={open}>
+        <Dialog open={open} style={{ backdropFilter: 'blur(20px)' }}>
           <div className="create_form">
             <div className="create_container">
               <h1 className="createH1">Create an Account</h1>
@@ -159,7 +166,11 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                   required
                 />
                 <br />
-                <label htmlFor="password" style={{ marginTop: '30px' }} className="createLbl">
+                <label
+                  htmlFor="password"
+                  style={{ marginTop: '30px' }}
+                  className="createLbl"
+                >
                   Password
                 </label>
                 <Input
@@ -176,12 +187,20 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                         onClick={handleClickShowPassword}
                         onMouseDown={handleMouseDownPassword}
                       >
-                        {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                        {values.showPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
                       </IconButton>
                     </InputAdornment>
                   }
                 />
-                <label htmlFor="password" style={{ marginTop: '30px' }} className="createLbl">
+                <label
+                  htmlFor="password"
+                  style={{ marginTop: '30px' }}
+                  className="createLbl"
+                >
                   Confirm Password
                 </label>
                 <Input
@@ -198,12 +217,21 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                         onClick={handleClickShowCofirmPassword}
                         onMouseDown={handleMouseDownPassword}
                       >
-                        {values.showConfirPassword ? <Visibility /> : <VisibilityOff />}
+                        {values.showConfirPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
                       </IconButton>
                     </InputAdornment>
                   }
                 />
-                <button className="formbtn2" type="submit" disabled={loading} onClick={submitForm}>
+                <button
+                  className="formbtn2"
+                  type="submit"
+                  disabled={loading}
+                  onClick={submitForm}
+                >
                   {loading ? 'loading' : 'Sign Up'}
                 </button>
                 <div className="lines-container">
@@ -211,7 +239,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                   <div className="or2">Or</div>
                   <hr className="lines2" />
                 </div>
-                <Box sx={{ flexGrow: 1 }}>
+                <div>
                   <Grid container spacing={0}>
                     <Grid item xs={12}>
                       <div className="social_accoount">
@@ -241,7 +269,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                       </div>
                     </Grid>
                   </Grid>
-                </Box>{' '}
+                </div>
               </form>
               <div className="logPera">
                 <p>Already Have An Account?</p>

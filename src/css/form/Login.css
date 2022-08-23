@@ -167,6 +167,23 @@
   color: #5dcfa09c;
 }
 @media only screen and (min-width: 300px) and (max-width: 768px) {
+  .loginH1{
+    font-size: 18px !important;
+    font-weight: 100 !important;
+    margin-top: 10px !important;
+  }
+  .login_pera{
+    font-size: 13px !important;
+    margin-bottom: 8px !important;
+  }
+  .social span {
+    padding: 13px 13px 13px 13px !important;
+    margin: 30px 5px !important;
+  }
+  .signPera{
+    justify-content: center !important;
+    margin-top: 10px !important;
+  }
   /* #signupPopUp, #loginPopup{
     width: 89% !important;
     height: 122vh !important;
