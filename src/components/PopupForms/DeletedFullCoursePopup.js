@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import Dialog from "@mui/material/Dialog";
-import "../../css/form/UploadSuccessfulPopup.css";
-import UploadSuccessLog from "../../assets/icons/UploadSuccessLog.svg";
+import React, { useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import '../../css/form/UploadSuccessfulPopup.css';
+import UploadSuccessLog from '../../assets/icons/UploadSuccessLog.svg';
 // import UploadedEpisodePopup from "./UploadedEpisodePopup";
-import ClearIcon from "@mui/icons-material/Clear";
-import { useHistory } from "react-router-dom";
+import ClearIcon from '@mui/icons-material/Clear';
+import { useHistory } from 'react-router-dom';
 const DeletedFullCoursePopup = ({ open, setOpen, course }) => {
   const history = useHistory();
   const [showDeletePopup, setShowDeletePopup] = useState(false);
@@ -15,10 +15,10 @@ const DeletedFullCoursePopup = ({ open, setOpen, course }) => {
   };
   const handleClose = () => {
     setOpen(false);
-    history.push("/dashboard");
+    history.push('/dashboard');
   };
   const hanldleClick = (e) => {
-    history.push("/dashboard");
+    history.push('/dashboard');
   };
   return (
     <div>
@@ -27,6 +27,7 @@ const DeletedFullCoursePopup = ({ open, setOpen, course }) => {
         setOpe={setOpen}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        style={{ backdropFilter: 'blur(20px)' }}
       >
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv">

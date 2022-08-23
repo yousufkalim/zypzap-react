@@ -47,7 +47,7 @@ body {
  
 
 .css-uhb5lp{
-  width:331px !important;
+  width: 331px !important;
   border-radius: 3px !important;
 }
 .continueBtn{
@@ -67,9 +67,6 @@ body {
 .coursDetailBtns{
   display: flex;
   flex-wrap: wrap;
-}
-.css-uhb5lp{
-  width: 89% !important;
 }
 .uploadSuccessBTN{
   padding: 10px 30px;

@@ -8,7 +8,7 @@ const Contactez = ({ openContentRequest, setOpenContentRequest }) => {
   const [inputData, setInputData] = useState({
     name: '',
     email: '',
-    text: '',
+    text: ''
   });
   const { name, email, text } = inputData;
 
@@ -16,7 +16,7 @@ const Contactez = ({ openContentRequest, setOpenContentRequest }) => {
     const { name, value } = e.target;
     setInputData({
       ...inputData,
-      [name]: value,
+      [name]: value
     });
   };
 
@@ -42,7 +42,10 @@ const Contactez = ({ openContentRequest, setOpenContentRequest }) => {
   };
   return (
     <div>
-      <Dialog open={openContentRequest}>
+      <Dialog
+        open={openContentRequest}
+        style={{ backdropFilter: 'blur(20px)' }}
+      >
         <div className="requestMainDiv">
           <div className="contactezDiv">
             {/* /* --------------------------------- oneDiv --------------------------------- */}

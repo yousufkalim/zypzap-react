@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Dialog from "@mui/material/Dialog";
-import "../../css/form/UploadSuccessfulPopup.css";
-import UploadSuccessLog from "../../assets/icons/UploadSuccessLog.svg";
-import ClearIcon from "@mui/icons-material/Clear";
-import { Store, UpdateStore } from "../../StoreContext";
+import React, { useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import '../../css/form/UploadSuccessfulPopup.css';
+import UploadSuccessLog from '../../assets/icons/UploadSuccessLog.svg';
+import ClearIcon from '@mui/icons-material/Clear';
+import { Store, UpdateStore } from '../../StoreContext';
 
 const CourseAproved = ({ open, setOpen, setStep, text }) => {
   const { creator, contentDashboardButton } = Store();
@@ -18,12 +18,13 @@ const CourseAproved = ({ open, setOpen, setStep, text }) => {
         setOpen={setOpen}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        style={{ backdropFilter: 'blur(20px)' }}
       >
         <div className="uploadSuccessDiv">
           <ClearIcon className="subsclearIcon" onClick={handleClose} />
           <div className="uploadSuccess-centerDiv">
             <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />
-            {text !== "" ? (
+            {text !== '' ? (
               <p className="uploadSuccessP">{text}</p>
             ) : (
               <>
@@ -47,8 +48,8 @@ const CourseAproved = ({ open, setOpen, setStep, text }) => {
               <button
                 className="uploadSuccessBTN"
                 onClick={() => {
-                  updateStore({ contentDashboardButton: "Course" });
-                  setStep("");
+                  updateStore({ contentDashboardButton: 'Course' });
+                  setStep('');
                 }}
               >
                 Done

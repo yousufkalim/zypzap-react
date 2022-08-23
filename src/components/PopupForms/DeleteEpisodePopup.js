@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Dialog from "@mui/material/Dialog";
-import "../../css/form/UploadSuccessfulPopup.css";
-import ClearIcon from "@mui/icons-material/Clear";
-import DeleteFullCoursePopup from "./DeleteFullCoursePopup";
+import React, { useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import '../../css/form/UploadSuccessfulPopup.css';
+import ClearIcon from '@mui/icons-material/Clear';
+import DeleteFullCoursePopup from './DeleteFullCoursePopup';
 const DeleteEpisodePopup = ({ open, setOpen, course, setOpenEpisode }) => {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
 
@@ -26,7 +26,13 @@ const DeleteEpisodePopup = ({ open, setOpen, course, setOpenEpisode }) => {
         course={course}
         setOpenEpisode={setOpenEpisode}
       />
-      <Dialog open={open} setOpe={setOpen} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+      <Dialog
+        open={open}
+        setOpe={setOpen}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+        style={{ backdropFilter: 'blur(20px)' }}
+      >
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv"></div>
           <ClearIcon className="subsclearIcon" onClick={handleClose} />

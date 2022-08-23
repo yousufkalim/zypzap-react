@@ -17,6 +17,7 @@ const CongratulationPopup1 = ({ open, setOpen, text }) => {
         setOpen={setOpen}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        style={{ backdropFilter: 'blur(20px)' }}
       >
         <div className="uploadSuccessDiv">
           {window.innerWidth < 601 ? (

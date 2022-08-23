@@ -17,13 +17,15 @@ const DeleteEpisodePUBG = ({ open, setOpen, text }) => {
         setOpe={setOpen}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        style={{ backdropFilter: 'blur(20px)' }}
       >
         <div className="uploadSuccessDiv">
           <ClearIcon className="subsclearIcon" onClick={handleClose} />
           <div className="uploadSuccess-centerDiv">
             <img src={UploadSuccessLog} alt="" className="uloadSuccessIMG" />
             <p className="uploadSuccessP">
-              Episode {text.title} GamePlay Course {text.index + 1}/{text.length} deleted
+              Episode {text.title} GamePlay Course {text.index + 1}/
+              {text.length} deleted
             </p>
           </div>
         </div>
