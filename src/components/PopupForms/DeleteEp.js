@@ -21,14 +21,20 @@ const DeleteEp = ({ open, setOpen, handleDelete, fileToDelete }) => {
         setOpen={setOpen}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        style={{ backdropFilter: 'blur(20px)' }}
       >
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv">
             <img src={DeleteCourseIcon} alt="" className="uloadSuccessIMG" />
             <div className="deletePupop-content">
-              <p className="deletePupopP">Are you sure you want to delete {fileToDelete.name} ?</p>
+              <p className="deletePupopP">
+                Are you sure you want to delete {fileToDelete.name} ?
+              </p>
               <div className="deletePupop-buttons">
-                <button className="deletePupopBtn" onClick={() => handleDeleteEp()}>
+                <button
+                  className="deletePupopBtn"
+                  onClick={() => handleDeleteEp()}
+                >
                   Yes
                 </button>
                 <button className="deletePupopBtn" onClick={handleClose}>

@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import Dialog from "@mui/material/Dialog";
-import ClearIcon from "@mui/icons-material/Clear";
-import { toast } from "react-toastify";
-import "../../css/form/contactez.css";
-import api from "../../api";
+import React, { useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import ClearIcon from '@mui/icons-material/Clear';
+import { toast } from 'react-toastify';
+import '../../css/form/contactez.css';
+import api from '../../api';
 
 const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
   const [inputData, setInputData] = useState({
-    gameName: "",
-    Level: "",
-    message: "",
+    gameName: '',
+    Level: '',
+    message: ''
   });
 
   const { gameName, Level, message } = inputData;
@@ -17,7 +17,7 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
     const { name, value } = e.target;
     setInputData({
       ...inputData,
-      [name]: value,
+      [name]: value
     });
   };
   const changeTargetLevelHandler = (e) => {
@@ -26,26 +26,29 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
 
   const handleClick = async (event) => {
     event.preventDefault();
-    if (gameName == "") {
-      return toast.error("Please enter your Game name");
+    if (gameName == '') {
+      return toast.error('Please enter your Game name');
     }
-    if (Level == "") {
-      return toast.error("Please enter your Game Level");
+    if (Level == '') {
+      return toast.error('Please enter your Game Level');
     }
-    if (message == "") {
-      return toast.error("Please enter your text");
+    if (message == '') {
+      return toast.error('Please enter your text');
     }
-    let res = await api("post", "/contentRequests", inputData);
+    let res = await api('post', '/contentRequests', inputData);
     //    localhost:5000/api/contentRequests
-    setInputData({ gameName: "", Level: "", text: "" });
-    toast.success("Message Send");
+    setInputData({ gameName: '', Level: '', text: '' });
+    toast.success('Message Send');
   };
   const handleClose = () => {
     setOpenContentRequest(false);
   };
   return (
     <>
-      <Dialog open={openContentRequest}>
+      <Dialog
+        open={openContentRequest}
+        style={{ backdropFilter: 'blur(20px)' }}
+      >
         <div className="requestMainDiv">
           <div className="contactezDiv">
             {/* /* --------------------------------- oneDiv --------------------------------- */}
@@ -56,11 +59,11 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
             {/* /* --------------------------------- oneDiv --------------------------------- */}
             <div className="contactezDiv-box2">
               <label htmlFor="" className="contactezDov-label">
-                {" "}
+                {' '}
                 Game name
               </label>
               <input
-                style={{ border: "none", backgroundColor: "#131321" }}
+                style={{ border: 'none', backgroundColor: '#131321' }}
                 className="contactezDiv-input"
                 type="text"
                 name="gameName"
@@ -81,9 +84,9 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
                 id="Level"
                 className="contactezDiv-input"
                 style={{
-                  border: "none",
-                  backgroundColor: "#131321",
-                  color: "#6D6D6D",
+                  border: 'none',
+                  backgroundColor: '#131321',
+                  color: '#6D6D6D'
                 }}
               >
                 <option value="Intial" className="selectInput-option">
@@ -99,7 +102,7 @@ const ContentRequest = ({ openContentRequest, setOpenContentRequest }) => {
                 Course description
               </label>
               <textarea
-                style={{ border: "none", backgroundColor: "#131321" }}
+                style={{ border: 'none', backgroundColor: '#131321' }}
                 className="contactezDiv-input"
                 name="message"
                 value={message}

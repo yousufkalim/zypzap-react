@@ -20,34 +20,41 @@ import { Store, UpdateStore } from '../../StoreContext';
 
 // import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
 
-const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }) => {
+const BecomeCreatorpopup = ({
+  open,
+  setOpen,
+  user,
+  creator,
+  setOpen3,
+  setOpen2
+}) => {
   const useStyles = makeStyles({
     customTextField: {
       '& input': {
         color: 'white',
-        border: 'none',
+        border: 'none'
       },
       '&:hover': {
-        border: 'red !important',
+        border: 'red !important'
       },
       '& input::placeholder': {
         color: 'white',
         '@media (max-width: 780px)': {
-          paddingLeft: '-2px',
-        },
-      },
+          paddingLeft: '-2px'
+        }
+      }
     },
     option: {
       background: '#242635 ',
       color: 'white',
       '&:hover': {
-        backgroundColor: '#9198a5 !important',
-      },
+        backgroundColor: '#9198a5 !important'
+      }
     },
     noOptions: {
       display: `${'inherit'}`,
-      color: 'white',
-    },
+      color: 'white'
+    }
   });
   const classes = useStyles();
   const history = useHistory();
@@ -58,8 +65,12 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }
   );
   const [favouritGame, setFavouritGame] = useState(user?.expertiseGame || []);
   const [gameType, setGameType] = useState(user?.gameType ? user.gameType : []);
-  const [plateForm, setPlateForm] = useState(user?.plateForm ? user.plateForm : []);
-  const [gameMood, setGameMood] = useState(user?.gameMood ? user.gameMood : 'Single');
+  const [plateForm, setPlateForm] = useState(
+    user?.plateForm ? user.plateForm : []
+  );
+  const [gameMood, setGameMood] = useState(
+    user?.gameMood ? user.gameMood : 'Single'
+  );
 
   useEffect(() => {
     setCurrentSate();
@@ -84,7 +95,9 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
   const removeTagsPlateForm = (index) => {
-    setPlateForm([...plateForm.filter((tag) => plateForm.indexOf(tag) !== index)]);
+    setPlateForm([
+      ...plateForm.filter((tag) => plateForm.indexOf(tag) !== index)
+    ]);
   };
   const selectplateForm = (e) => {
     if (e.target.className === 'activetypebtn') {
@@ -116,7 +129,12 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }
   };
 
   const submitProfile = async (e) => {
-    if (favouritGame === '' && gameType === '' && plateForm === '' && gameMood === '') {
+    if (
+      favouritGame === '' &&
+      gameType === '' &&
+      plateForm === '' &&
+      gameMood === ''
+    ) {
       return toast.error('Veuillez saisir le nom de votre cours');
     } else {
       const formdata = {
@@ -124,7 +142,7 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }
         profile_photo,
         gameType: gameType,
         plateForm: plateForm,
-        gameMood: gameMood,
+        gameMood: gameMood
       };
 
       if (user) {
@@ -133,7 +151,7 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }
         if (res) {
           updateStore({
             user: res?.data?.newUsers,
-            creator: res?.data?.creator,
+            creator: res?.data?.creator
           });
           setOpen(false);
           history.push('/contentHome');
@@ -160,7 +178,7 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }
     'Sports',
     'Trading card',
     'Puzzle',
-    'Versus Fighting',
+    'Versus Fighting'
   ];
   const gamePlateform = [
     'PC',
@@ -168,7 +186,7 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }
     'PS1/2/3/4/5',
     'Xbox/360/One/X',
     'Retro Consoles',
-    'Portable Consoles',
+    'Portable Consoles'
   ];
 
   const handleImageSelect = async (e) => {
@@ -183,7 +201,7 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }
         e.target.value +
         '&page=1&page_size=10',
       {
-        withCredentials: false,
+        withCredentials: false
       }
     );
 
@@ -202,7 +220,11 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }
 
   return (
     <>
-      <Dialog open={open} className="login_data">
+      <Dialog
+        open={open}
+        className="login_data"
+        style={{ backdropFilter: 'blur(20px)' }}
+      >
         <div className="userProfile_conteiner">
           <ClearIcon className="subsclearIcon" onClick={handleClose} />
           <div className="userProfile_heading">
@@ -244,7 +266,7 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }
                 multiple
                 options={values}
                 classes={{
-                  option: classes.option,
+                  option: classes.option
                 }}
                 defaultValue={favouritGame}
                 filterSelectedOptions
@@ -255,7 +277,7 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }
                   <div
                     style={{
                       color: 'white',
-                      fontSize: '12px',
+                      fontSize: '12px'
                     }}
                   >
                     {' '}
@@ -268,7 +290,7 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }
                 onChange={setGamefiled}
                 hiddenLabel="true"
                 style={{
-                  margin: 'auto',
+                  margin: 'auto'
                 }}
                 renderInput={(params) => (
                   <TextField
@@ -283,7 +305,7 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }
                     sx={{
                       outline: 'none',
                       width: '80%',
-                      borderRadius: '6px',
+                      borderRadius: '6px'
                     }}
                     // value={gameName}
                     // name="gameName"
@@ -299,7 +321,11 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }
                 {gametypebtn.map((tag) => {
                   return (
                     <button
-                      className={gameType?.includes(tag) ? 'activetypebtn' : 'userTagsAllButton'}
+                      className={
+                        gameType?.includes(tag)
+                          ? 'activetypebtn'
+                          : 'userTagsAllButton'
+                      }
                       value={tag}
                       onClick={selectGameType}
                     >
@@ -317,7 +343,11 @@ const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }
                 return (
                   <button
                     key={i}
-                    className={plateForm?.includes(tag) ? 'activetypebtn' : 'userTagsAllButton'}
+                    className={
+                      plateForm?.includes(tag)
+                        ? 'activetypebtn'
+                        : 'userTagsAllButton'
+                    }
                     value={tag}
                     onClick={selectplateForm}
                   >

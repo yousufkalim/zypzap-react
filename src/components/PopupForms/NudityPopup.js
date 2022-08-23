@@ -1,7 +1,7 @@
-import React from "react";
-import "../../css/form/NudityPopup.css";
-import Dialog from "@mui/material/Dialog";
-import ClearIcon from "@mui/icons-material/Clear";
+import React from 'react';
+import '../../css/form/NudityPopup.css';
+import Dialog from '@mui/material/Dialog';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const NudityPopup = ({ nudityPop, setNudityPop }) => {
   const handleClose = () => {
@@ -10,7 +10,11 @@ const NudityPopup = ({ nudityPop, setNudityPop }) => {
 
   return (
     <>
-      <Dialog open={nudityPop} onClose={handleClose}>
+      <Dialog
+        open={nudityPop}
+        onClose={handleClose}
+        style={{ backdropFilter: 'blur(20px)' }}
+      >
         <div className="nudity_mainDiv">
           <div className="nudity_centerDiv">
             <ClearIcon className="clearIcon3" onClick={handleClose} />

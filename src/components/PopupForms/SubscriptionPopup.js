@@ -18,7 +18,7 @@ const SubscriptionPopup = ({
   title2,
   content,
   pera,
-  type,
+  type
 }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [showPopup2, setShowPopup2] = useState(false);
@@ -29,12 +29,12 @@ const SubscriptionPopup = ({
   const [values, setValues] = useState({
     checkBoxOne: false,
     checkBoxTwo: false,
-    checkBoxThree: true,
+    checkBoxThree: true
   });
   const getCheckboxValues = (e) => {
     setValues({
       ...values,
-      [e.target.name]: e.target.checked,
+      [e.target.name]: e.target.checked
     });
   };
   const onChange = (e) => {
@@ -65,7 +65,7 @@ const SubscriptionPopup = ({
     let res = await api('post', '/newsletters', {
       email,
       type,
-      tester,
+      tester
     });
     if (res) {
       if (isThreeLine) {
@@ -93,12 +93,16 @@ const SubscriptionPopup = ({
         setOpen={() => setShowPopup2(!showPopup2)}
         closeModal={handleClose}
       />
-      <Dialog open={open}>
+      <Dialog open={open} style={{ backdropFilter: 'blur(20px)' }}>
         <div className="login_form">
           <div className="subs_container">
             <div className="form-header-block">
               <p className="subH1">{title}</p>
-              <ClearIcon className="subsclearIcon" onClick={handleClose} id="subsclearIcon" />
+              <ClearIcon
+                className="subsclearIcon"
+                onClick={handleClose}
+                id="subsclearIcon"
+              />
               <p className="subH1">{title2}</p>
 
               <p className="subP">{isThreeLine ? content : ''}</p>
@@ -121,7 +125,7 @@ const SubscriptionPopup = ({
                 display: '-webkit-inline-box',
                 margin: '10px 80px 5px 0',
                 paddingTop: '5px',
-                fontSize: '16px',
+                fontSize: '16px'
               }}
             >
               <input
@@ -154,7 +158,7 @@ const SubscriptionPopup = ({
               style={{
                 display: '-webkit-inline-box',
                 margin: '10px 0px 10px 0',
-                fontSize: '16px',
+                fontSize: '16px'
               }}
             >
               {isThreeLine && (
@@ -180,7 +184,7 @@ const SubscriptionPopup = ({
                 display: '-webkit-inline-box',
                 margin: '0px 80px 30px 0',
                 paddingTop: '5px',
-                fontSize: '16px',
+                fontSize: '16px'
               }}
             >
               {title !== 'Recevez notre newsletter pour être ' && (
