@@ -8,6 +8,8 @@ import overViewIcon4 from '../../assets/icons/overViewIcon4.svg';
 import RegisterSuccessfully from '../PopupForms/RegisterSuccessfully';
 import moment from 'moment';
 
+import { ReactComponent as Star1 } from '../../assets/icons/star2.svg';
+
 import OverCardHurtLogo from '../../assets/icons/OverCardHurtLogo.svg';
 import RatingStarIcon from '../../assets/icons/RatingStarIcon.svg';
 import Star6 from '../../assets/icons/Star6.svg';
@@ -74,6 +76,18 @@ const OverViewHome = (props) => {
           <div className="overViewImage">
             <img className="overIMG" src={OverViewImg} alt="" />
           </div>
+          {window.innerWidth < 601 ? (
+            <div className="overViewCarImage" style={{ width: '100%', height: '291.38px' }}>
+              <img
+                style={{ width: '100%', height: '100%' }}
+                src={singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg}
+                alt=""
+                className="overViewCardIMG"
+              />
+            </div>
+          ) : (
+            ''
+          )}
           <div className="overView_heading">
             <div className="overViewContent">
               <h1 className="overViewH1">
@@ -94,50 +108,112 @@ const OverViewHome = (props) => {
               </p>
             </div>
 
-            <div className="overViewTags">
-              <li className="overViewLi">
-                <img src={overViewIcon1} alt="" className="overViewIcon-1" />
-                <p className="overViewIconP">
-                  {/* {singlCourse?.videos
+            {window.innerWidth < 601 ? (
+              // ===================================tags for mob view===========================================
+
+              <div className="overViewTags">
+                <li className="overViewLi">
+                  <img src={RatingStarIcon} alt="" className="overViewIcon" />
+                  <p className="overViewIconP">
+                    {singlCourse?.rating ? `${singlCourse.rating}` : ' 0 Rating'}{' '}
+                  </p>
+                  &nbsp;
+                  {singlCourse?.rating
+                    ? [1, 2, 3, 4, 5].map((i) => (
+                        <Star1
+                          className="starID"
+                          style={{
+                            width: '15px',
+                            height: '15px',
+                          }}
+                        />
+                      ))
+                    : ''}
+                </li>
+                <li className="overViewLi">
+                  <img src={overViewIcon4} alt="" className="overViewIcon" />
+                  <p className="overViewIconP">
+                    {singlCourse?.student
+                      ? singlCourse.student.length > 1
+                        ? singlCourse.student.length + ' Students'
+                        : singlCourse.student.length + ' Student'
+                      : '0 Student'}
+                  </p>
+                </li>
+                <li className="overViewLi"></li>
+                <li className="overViewLi">
+                  <img src={overViewIcon2} alt="" className="overViewIcon" />
+                  <p className="overViewIconP">
+                    {singlCourse?.level ? singlCourse.level : 'All Levels'}
+                  </p>
+                </li>
+                <li className="overViewLi">
+                  <img src={overViewIcon3} alt="" className="overViewIcon" />
+                  <p className="overViewIconP">
+                    {singlCourse?.videos
+                      ? singlCourse.videos.length > 1
+                        ? singlCourse.videos.length + ' Lessons'
+                        : singlCourse.videos.length + ' Lesson'
+                      : '0 Lesson'}
+                  </p>
+                </li>
+                <li className="overViewLi">
+                  <img src={overViewIcon1} alt="" className="overViewIcon-1" />
+                  <p className="overViewIconP">
+                    {/* {singlCourse?.videos
                     ? calculateCourseDuration(singlCourse.videos) + " Weeks"
                     : "0 Weeks"} */}
-                  {getDateIs(singlCourse?.createdAt || '0 Weeks')}
-                </p>
-              </li>
-              <li className="overViewLi">
-                <img src={overViewIcon2} alt="" className="overViewIcon" />
-                <p className="overViewIconP">
-                  {singlCourse?.level ? singlCourse.level : 'All Levels'}
-                </p>
-              </li>
-              <li className="overViewLi">
-                <img src={overViewIcon3} alt="" className="overViewIcon" />
-                <p className="overViewIconP">
-                  {singlCourse?.videos
-                    ? singlCourse.videos.length > 1
-                      ? singlCourse.videos.length + ' Lessons'
-                      : singlCourse.videos.length + ' Lesson'
-                    : '0 Lesson'}
-                </p>
-              </li>
-              <li className="overViewLi">
-                <img src={overViewIcon4} alt="" className="overViewIcon" />
-                <p className="overViewIconP">
-                  {singlCourse?.student
-                    ? singlCourse.student.length > 1
-                      ? singlCourse.student.length + ' Students'
-                      : singlCourse.student.length + ' Student'
-                    : '0 Student'}
-                </p>
-              </li>
-              <li className="overViewLi">
-                <img src={RatingStarIcon} alt="" className="overViewIcon" />
-                <p className="overViewIconP">
-                  {singlCourse?.rating ? `${singlCourse.rating} Rating` : ' 0 Rating'}{' '}
-                  {/* <img src={Star6} alt="" /> */}
-                </p>
-              </li>
-            </div>
+                    {getDateIs(singlCourse?.createdAt || '0 Weeks')}
+                  </p>
+                </li>
+              </div>
+            ) : (
+              // ===================================tags for web view===========================================
+              <div className="overViewTags">
+                <li className="overViewLi">
+                  <img src={overViewIcon1} alt="" className="overViewIcon-1" />
+                  <p className="overViewIconP">
+                    {/* {singlCourse?.videos
+                    ? calculateCourseDuration(singlCourse.videos) + " Weeks"
+                    : "0 Weeks"} */}
+                    {getDateIs(singlCourse?.createdAt || '0 Weeks')}
+                  </p>
+                </li>
+                <li className="overViewLi">
+                  <img src={overViewIcon2} alt="" className="overViewIcon" />
+                  <p className="overViewIconP">
+                    {singlCourse?.level ? singlCourse.level : 'All Levels'}
+                  </p>
+                </li>
+                <li className="overViewLi">
+                  <img src={overViewIcon3} alt="" className="overViewIcon" />
+                  <p className="overViewIconP">
+                    {singlCourse?.videos
+                      ? singlCourse.videos.length > 1
+                        ? singlCourse.videos.length + ' Lessons'
+                        : singlCourse.videos.length + ' Lesson'
+                      : '0 Lesson'}
+                  </p>
+                </li>
+                <li className="overViewLi">
+                  <img src={overViewIcon4} alt="" className="overViewIcon" />
+                  <p className="overViewIconP">
+                    {singlCourse?.student
+                      ? singlCourse.student.length > 1
+                        ? singlCourse.student.length + ' Students'
+                        : singlCourse.student.length + ' Student'
+                      : '0 Student'}
+                  </p>
+                </li>
+                <li className="overViewLi">
+                  <img src={RatingStarIcon} alt="" className="overViewIcon" />
+                  <p className="overViewIconP">
+                    {singlCourse?.rating ? `${singlCourse.rating} Rating` : ' 0 Rating'}{' '}
+                    {/* <img src={Star6} alt="" /> */}
+                  </p>
+                </li>
+              </div>
+            )}
             <div className="overVeiwSlectBTN">
               <button className="overVeiwCS-btn">
                 <p>
@@ -150,23 +226,90 @@ const OverViewHome = (props) => {
               <button className="overVeiwCS-btn">
                 Created By <b>{singlCourse?.creator?.user_id?.username}</b>
               </button>
+              {window.innerWidth < 601 ? (
+                <>
+                  <div>
+                    {singlCourse?.videos.length >= 1 && (
+                      <div className="overViewBuy">
+                        {(user?.role === 'Creator' && !learner) ||
+                        user?.creator === singlCourse?.creator?._id ? (
+                          <NavLink
+                            to="#"
+                            className="CardBuyBtn"
+                            onClick={() => {
+                              if (user) {
+                                props.setShowVideo(true);
+                              } else {
+                                props.setOpenSignup(true);
+                              }
+                            }}
+                          >
+                            View
+                          </NavLink>
+                        ) : (
+                          <>
+                            {' '}
+                            <NavLink
+                              to="#"
+                              className="CardBuyBtn"
+                              onClick={() => {
+                                if (user) {
+                                  handleStartCourse(user, singlCourse);
+                                  props.setShowVideo(true);
+                                } else {
+                                  setOpenGuestPopUp(true);
+                                  // props.setOpenSignup(true);
+                                }
+                              }}
+                            >
+                              Start
+                            </NavLink>
+                            {!singlCourse?.student?.includes(user?._id) && (
+                              <NavLink
+                                to="#"
+                                className="CardBuyBtn"
+                                onClick={() => {
+                                  if (user) {
+                                    handleEnrolled(user, singlCourse);
+                                  } else {
+                                    setOpenGuestPopUp(true);
+
+                                    // props.setOpenSignup(true);
+                                  }
+                                }}
+                              >
+                                Enroll Now
+                              </NavLink>
+                            )}
+                          </>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </>
+              ) : (
+                ''
+              )}
             </div>
           </div>
 
-          <div className="overViewCard" style={{ width: '24%' }}>
-            <div className="overViewCenterdiv">
-              <div className="overViewCarImage">
-                <img
-                  style={{ maxWidth: '100%' }}
-                  src={singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg}
-                  alt=""
-                  className="overViewCardIMG"
-                />
-              </div>
-              {singlCourse?.videos.length >= 1 && (
-                <div className="overViewBuy">
-                  {/* start heart icon for wish list */}
-                  {/* <div className="overViewRateContent">
+          {window.innerWidth < 601 ? (
+            ''
+          ) : (
+            <div className="overViewCard" style={{ width: '24%' }}>
+              <div className="overViewCenterdiv">
+                <div className="overViewCarImage">
+                  <img
+                    style={{ maxWidth: '100%' }}
+                    src={singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg}
+                    alt=""
+                    className="overViewCardIMG"
+                  />
+                </div>
+                {singlCourse?.videos.length >= 1 && (
+                  <div className="overViewBuy">
+                    {/* start heart icon for wish list */}
+                    {/* <div className="overViewRateContent">
                   {user?.role === "User" && (
                     <img
                       src={OverCardHurtLogo}
@@ -175,67 +318,67 @@ const OverViewHome = (props) => {
                     />
                   )}
                 </div> */}
-                  {/* end heart icon for wish list */}
+                    {/* end heart icon for wish list */}
 
-                  {(user?.role === 'Creator' && !learner) ||
-                  user?.creator === singlCourse?.creator?._id ? (
-                    <NavLink
-                      to="#"
-                      className="CardBuyBtn"
-                      onClick={() => {
-                        if (user) {
-                          props.setShowVideo(true);
-                        } else {
-                          props.setOpenSignup(true);
-                        }
-                      }}
-                    >
-                      View
-                    </NavLink>
-                  ) : (
-                    <>
-                      {' '}
+                    {(user?.role === 'Creator' && !learner) ||
+                    user?.creator === singlCourse?.creator?._id ? (
                       <NavLink
                         to="#"
                         className="CardBuyBtn"
                         onClick={() => {
                           if (user) {
-                            handleStartCourse(user, singlCourse);
                             props.setShowVideo(true);
                           } else {
-                            setOpenGuestPopUp(true);
-                            // props.setOpenSignup(true);
+                            props.setOpenSignup(true);
                           }
                         }}
                       >
-                        Start
+                        View
                       </NavLink>
-                      {!singlCourse?.student?.includes(user?._id) && (
+                    ) : (
+                      <>
+                        {' '}
                         <NavLink
                           to="#"
                           className="CardBuyBtn"
                           onClick={() => {
                             if (user) {
-                              handleEnrolled(user, singlCourse);
+                              handleStartCourse(user, singlCourse);
+                              props.setShowVideo(true);
                             } else {
                               setOpenGuestPopUp(true);
-
                               // props.setOpenSignup(true);
                             }
                           }}
                         >
-                          Enroll Now
+                          Start
                         </NavLink>
-                      )}
-                    </>
-                  )}
-                  {/* <NavLink to="#" className="CardBuyBtn2">
+                        {!singlCourse?.student?.includes(user?._id) && (
+                          <NavLink
+                            to="#"
+                            className="CardBuyBtn"
+                            onClick={() => {
+                              if (user) {
+                                handleEnrolled(user, singlCourse);
+                              } else {
+                                setOpenGuestPopUp(true);
+
+                                // props.setOpenSignup(true);
+                              }
+                            }}
+                          >
+                            Enroll Now
+                          </NavLink>
+                        )}
+                      </>
+                    )}
+                    {/* <NavLink to="#" className="CardBuyBtn2">
                   Stock It In The Caddy
                   <button className="overComming-soonBTN">Comming Soon</button>
                 </NavLink> */}
-                </div>
-              )}
-              {/* <div1 className="overViewCard-content">
+                  </div>
+                )}
+                {/* <div1 className="overViewCard-content">
                 <p className="overViewCard-contentP">The course includes</p>
                 <li className="overContentLi">
                   <img
@@ -266,7 +409,7 @@ const OverViewHome = (props) => {
                 </li>
                 <p className="overViewCard-contentP">Share this course</p>
               </div1> */}
-              {/* <div className="overViewSocialIcon">
+                {/* <div className="overViewSocialIcon">
                 <img
                   src={OverCardSocialIcon1}
                   alt=""
@@ -283,8 +426,9 @@ const OverViewHome = (props) => {
                   className="overSocialIcon"
                 />
               </div> */}
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <GuestSignUpPopUp
           open={openGuestPopUp}

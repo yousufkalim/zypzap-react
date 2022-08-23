@@ -290,7 +290,7 @@ Custom arrows
 @media only screen and (max-width: 800px) {
     .carousalOuterDiv {
         position: relative;
-        padding-bottom: 20px;
+        padding-bottom: 0;
     }
 
     .TopRatedcarousalOuterDiv {
@@ -309,9 +309,9 @@ Custom arrows
     }
 }
 
-@media only screen and (min-width: 400px) and (max-width: 800px) {
+@media only screen and (min-width: 420px) and (max-width: 800px) {
     .carousalOuterDiv {
-        padding-bottom: 50px !important;
+        padding-bottom: 30px !important;
     }
 }
 
@@ -555,7 +555,7 @@ Custom arrows end here
     }
 
     .curriculum-h1 {
-        font-weight: 100 !important;
+        font-weight: 600 !important;
     }
 
     .curriculumLiDiv {

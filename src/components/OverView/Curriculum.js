@@ -8,7 +8,7 @@ const Curriculum = (props) => {
   return (
     <div>
       <div className="overView_description">
-        <div className="overView-descripiton-centerDiv">
+        <div className="overView-descripiton-centerDiv" id="chapters">
           <h1 className="curriculum-h1">Chapters</h1>
           <div className="curriculum-div">
             <div>
