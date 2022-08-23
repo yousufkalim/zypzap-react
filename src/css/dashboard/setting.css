@@ -4,6 +4,7 @@
   color: white !important;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%) !important;
+
 }
 .MuiInputBase-formControl {
   padding-bottom: 20px !important;
@@ -145,6 +146,13 @@
 .patment_pera {
   margin-top: 18px;
   font-size: 14px;
+}
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+  .MuiChip-filled {
+    
+  width: 100% !important;
+  }
+
 }
 /* @media only screen and (min-width: 320px) and (max-width: 812px) {
   .dashboard_container {

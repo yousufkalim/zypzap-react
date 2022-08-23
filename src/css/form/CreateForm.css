@@ -522,7 +522,7 @@
     -webkit-tap-highlight-color: transparent;
     color: rgba(0, 0, 0, 0.26);
     font-size: 22px;
-    margin-top: -8vw !important;
+    /* margin-top: -8vw !important; */
     margin-left: auto !important;
     cursor: pointer;
    
