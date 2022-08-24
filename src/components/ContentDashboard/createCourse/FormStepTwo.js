@@ -7,6 +7,7 @@ import UploadingTheCourse from '../../PopupForms/UploadingTheCourse';
 import { toast } from 'react-toastify';
 import { Store } from '../../../StoreContext';
 import { uploadVideo } from '../../../utils/uploadMedia';
+import { controller } from '../../../utils/uploadMedia';
 
 const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   const [open, setOpen] = React.useState(false);
@@ -27,7 +28,17 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
 
     let newArray = ([] = formDataTwo);
 
+    let aborted = false;
+
+    controller.signal.addEventListener('abort', () => {
+      aborted = true;
+    });
+
     for (let i = 0; i < files.length; i++) {
+      if (aborted) {
+        break;
+      }
+
       var filename = files[i].name;
       if (!filename.match(/\.(mp4|mpeg|mov)$/)) {
         toast.error('Please select video files. Only video files will be uploaded');

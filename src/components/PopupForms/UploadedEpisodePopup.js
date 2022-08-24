@@ -20,7 +20,10 @@ const UploadedEpisodePopup = ({ open, setOpen }) => {
   };
   return (
     <div>
-      <UplaodEpisodeSuccessfull open={showDeletePopup} setOpen={setShowDeletePopup} />
+      <UplaodEpisodeSuccessfull
+        open={showDeletePopup}
+        setOpen={setShowDeletePopup}
+      />
       <Dialog
         open={open}
         setOpe={setOpen}
@@ -28,6 +31,7 @@ const UploadedEpisodePopup = ({ open, setOpen }) => {
         aria-describedby="alert-dialog-description"
         fullWidth="true"
         maxWidth="lg"
+        style={{ backdropFilter: 'blur(20px)' }}
       >
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv">
@@ -47,7 +51,11 @@ const UploadedEpisodePopup = ({ open, setOpen }) => {
                   <img src={Fireicon} alt="" />
                 </div>
                 <div className="step3Input">
-                  <input type="text" placeholder="Title" className="step3_inputs" />
+                  <input
+                    type="text"
+                    placeholder="Title"
+                    className="step3_inputs"
+                  />
                   <img className="editIcon" src={EditIcon} alt="" />
                   <img className="deleteIcon" src={DeleteIcon} alt="" />
                 </div>
@@ -59,7 +67,11 @@ const UploadedEpisodePopup = ({ open, setOpen }) => {
                   <img src={Fireicon} alt="" />
                 </div>
                 <div className="step3Input">
-                  <input type="text" placeholder="Title" className="step3_inputs" />
+                  <input
+                    type="text"
+                    placeholder="Title"
+                    className="step3_inputs"
+                  />
                   <img className="editIcon" src={EditIcon} alt="" />
                   <img className="deleteIcon" src={DeleteIcon} alt="" />
                 </div>
@@ -71,7 +83,11 @@ const UploadedEpisodePopup = ({ open, setOpen }) => {
                   <img src={Fireicon} alt="" />
                 </div>
                 <div className="step3Input">
-                  <input type="text" placeholder="Title" className="step3_inputs" />
+                  <input
+                    type="text"
+                    placeholder="Title"
+                    className="step3_inputs"
+                  />
                   <img className="editIcon" src={EditIcon} alt="" />
                   <img className="deleteIcon" src={DeleteIcon} alt="" />
                 </div>
@@ -83,7 +99,11 @@ const UploadedEpisodePopup = ({ open, setOpen }) => {
                   <img src={Fireicon} alt="" />
                 </div>
                 <div className="step3Input">
-                  <input type="text" placeholder="Title" className="step3_inputs" />
+                  <input
+                    type="text"
+                    placeholder="Title"
+                    className="step3_inputs"
+                  />
                   <img className="editIcon" src={EditIcon} alt="" />
                   <img className="deleteIcon" src={DeleteIcon} alt="" />
                 </div>
@@ -95,7 +115,11 @@ const UploadedEpisodePopup = ({ open, setOpen }) => {
                   <img src={Fireicon} alt="" />
                 </div>
                 <div className="step3Input">
-                  <input type="text" placeholder="Title" className="step3_inputs" />
+                  <input
+                    type="text"
+                    placeholder="Title"
+                    className="step3_inputs"
+                  />
                   <img className="editIcon" src={EditIcon} alt="" />
                   <img className="deleteIcon" src={DeleteIcon} alt="" />
                 </div>
@@ -107,7 +131,11 @@ const UploadedEpisodePopup = ({ open, setOpen }) => {
                   <img src={Fireicon} alt="" />
                 </div>
                 <div className="step3Input">
-                  <input type="text" placeholder="Title" className="step3_inputs" />
+                  <input
+                    type="text"
+                    placeholder="Title"
+                    className="step3_inputs"
+                  />
                   <img className="editIcon" src={EditIcon} alt="" />
                   <img className="deleteIcon" src={DeleteIcon} alt="" />
                 </div>
@@ -119,7 +147,11 @@ const UploadedEpisodePopup = ({ open, setOpen }) => {
                   <img src={Fireicon} alt="" />
                 </div>
                 <div className="step3Input">
-                  <input type="text" placeholder="Title" className="step3_inputs" />
+                  <input
+                    type="text"
+                    placeholder="Title"
+                    className="step3_inputs"
+                  />
                   <img className="editIcon" src={EditIcon} alt="" />
                   <img className="deleteIcon" src={DeleteIcon} alt="" />
                 </div>
@@ -131,7 +163,11 @@ const UploadedEpisodePopup = ({ open, setOpen }) => {
                   <img src={Fireicon} alt="" />
                 </div>
                 <div className="step3Input">
-                  <input type="text" placeholder="Title" className="step3_inputs" />
+                  <input
+                    type="text"
+                    placeholder="Title"
+                    className="step3_inputs"
+                  />
                   <img className="editIcon" src={EditIcon} alt="" />
                   <img className="deleteIcon" src={DeleteIcon} alt="" />
                 </div>

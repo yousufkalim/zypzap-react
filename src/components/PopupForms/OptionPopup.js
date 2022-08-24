@@ -1,14 +1,18 @@
-import React, { useState } from "react";
-import Dialog from "@mui/material/Dialog";
-import Optionuser from "../../assets/icons/Optionuser.png";
-import Optioncontect from "../../assets/icons/Optioncontect.png";
+import React, { useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import Optionuser from '../../assets/icons/Optionuser.png';
+import Optioncontect from '../../assets/icons/Optioncontect.png';
 const OptionPopup = ({ open, setOpen }) => {
   const handleClose = () => {
     setOpen(false);
   };
   return (
     <>
-      <Dialog open={open} className="option_data">
+      <Dialog
+        open={open}
+        className="option_data"
+        style={{ backdropFilter: 'blur(20px)' }}
+      >
         <div className="option_Details">
           <div className="option_container">
             <h1 className="optionH1">Contnue</h1>

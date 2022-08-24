@@ -126,5 +126,10 @@ body {
   opacity: 0.6;
   font-weight: inherit;
 }
-@media only screen and (min-width: 320px) and (max-width: 768px) {
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+  .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+    
+    width: 85% !important;
+    
+  }
 }

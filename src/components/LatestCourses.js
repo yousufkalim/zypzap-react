@@ -108,29 +108,29 @@ export default function LatestCourses(props) {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 4,
+      items: 4
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
-      slidesToSlide: 3,
+      slidesToSlide: 3
     },
     tablet: {
       breakpoint: { max: 1024, min: 800 },
-      items: 2,
+      items: 2
     },
     mobile: {
       breakpoint: { max: 800, min: 0 },
-      items: 1,
-    },
+      items: 1
+    }
   };
   const handleLatestCourses = () => {
     history.push({
       pathname: '/searchResult',
       param: {
         name: 'Latest Courses',
-        value: '2',
-      },
+        value: '2'
+      }
     });
   };
 
@@ -153,11 +153,12 @@ export default function LatestCourses(props) {
           customRightArrow={<CustomRightArrow />}
           customLeftArrow={<CustomLeftArrow />}
         >
+          {console.log('items', items)}
           {items?.map((item, i) => (
             <Link
               to={{
                 pathname: `OverView/${item?._id}`,
-                state: { course: `${item}` },
+                state: { course: `${item}` }
               }}
               className="requestBt"
               style={{ textDecoration: 'none', color: 'white' }}

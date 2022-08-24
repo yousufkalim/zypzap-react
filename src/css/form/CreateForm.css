@@ -12,6 +12,12 @@
 .favGameDiv {
   padding-bottom: 50px !important;
 }
+.signuppassword{
+  margin-top: 30px;
+}
+.signupconfimrpassword{
+  margin-top: 30px;
+}
 .ant-select:not(.ant-select-customize-input) .ant-select-selector {
   background-color: transparent !important;
   border: none !important;
@@ -108,7 +114,7 @@
   font-size: 18px;
   margin-bottom: 25px;
   opacity: 0.8;
-  font-weight: 600 !important;
+  font-weight: 600 ;
 }
 .createLbl {
   font-size: 16px;
@@ -490,19 +496,53 @@
   padding-top: 20px;
 }
 @media only screen and (min-width: 300px) and (max-width: 601px) {
+  .createH1{
+    font-size: 18px !important;
+    font-weight: 100 !important;
+  }
+  .social_accoount span{
+    padding: 14px 18px 5px 18px !important;
+    margin: 14px 0px !important;
+  }
   .css-6od3lo-MuiChip-label{
     width:17vw;
     padding-left: 12px;
        margin-top: 3vw;
   }
+  .logPera{
+    margin-top: 15px !important;
+    font-size: 13px !important;
+    justify-content: center !important;
+  }
+  .terms{
+    text-align: center !important;
+    font-size: 12px !important;
+  }
   .MuiChip-root .MuiChip-deleteIcon {
     -webkit-tap-highlight-color: transparent;
     color: rgba(0, 0, 0, 0.26);
     font-size: 22px;
-    margin-top: -8vw !important;
+    /* margin-top: -8vw !important; */
     margin-left: auto !important;
     cursor: pointer;
    
+}
+.create_pera {
+  font-size: 14px;
+  
+  font-weight: 100 !important;
+}
+.signuppassword{
+  margin-top: 20px;
+}
+.signupconfimrpassword{
+  margin-top: 10px;
+}
+#formbtnsignup{
+width: 100% !important;
+}
+.lines1{
+  width: 40% !important;
 }
   
 }

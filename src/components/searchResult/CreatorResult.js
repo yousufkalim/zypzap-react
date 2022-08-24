@@ -23,13 +23,16 @@ const CreatorResult = ({ input, creator }) => {
 
   useMemo(() => {
     let myCreator = [];
+    console.log('searchCreator', searchCreator);
     searchCreator.map((item) => {
       let _num = 0;
 
       item?.creator?.courses?.map((_course) => {
         _num += parseInt(_course.rating);
       });
+      console.log('_num', _num);
       _num = _num > 0 ? _num / item?.creator?.courses?.length : 0;
+      _num = _num.toFixed(1);
       myCreator.push({ ...item, _avgRating: _num ?? 0 });
     });
     set_MyRatingCreators(myCreator);
@@ -63,7 +66,7 @@ const CreatorResult = ({ input, creator }) => {
                     position: 'absolute',
                     top: '50%',
                     left: '50%',
-                    color: 'white',
+                    color: 'white'
                   }}
                 />
               ) : (
@@ -94,7 +97,7 @@ const CreatorResult = ({ input, creator }) => {
                               <Star1
                                 className="wishCardStar"
                                 style={{
-                                  key: { item },
+                                  key: { item }
                                 }}
                               />
                             ))}

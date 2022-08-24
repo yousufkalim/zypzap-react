@@ -18,12 +18,16 @@ const UploadCancalled = ({ open, setOpen, setUploading, setProgress }) => {
   };
   return (
     <div>
-      <UploadedEpisodePopup open={showDeletePopup} setOpen={setShowDeletePopup} />
+      <UploadedEpisodePopup
+        open={showDeletePopup}
+        setOpen={setShowDeletePopup}
+      />
       <Dialog
         open={open}
         setOpe={setOpen}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        style={{ backdropFilter: 'blur(20px)' }}
       >
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv">

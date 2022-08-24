@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import Dialog from "@mui/material/Dialog";
-import "../../css/form/UploadSuccessfulPopup.css";
-import DeletedFullCoursePopup from "./DeletedFullCoursePopup";
-import DeleteCourseIcon from "../../assets/icons/DeleteCourseIcon.svg";
-import api from "../../api";
-import { useHistory, useLocation } from "react-router-dom";
-import { Store, UpdateStore } from "../../StoreContext";
+import React, { useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import '../../css/form/UploadSuccessfulPopup.css';
+import DeletedFullCoursePopup from './DeletedFullCoursePopup';
+import DeleteCourseIcon from '../../assets/icons/DeleteCourseIcon.svg';
+import api from '../../api';
+import { useHistory, useLocation } from 'react-router-dom';
+import { Store, UpdateStore } from '../../StoreContext';
 const DeleteFullCoursePopup = ({ open, setOpen, course }) => {
   const updateStore = UpdateStore();
   const history = useHistory();
   const [showDeletePopup, setShowDeletePopup] = useState(false);
 
   const handleDeleteCourse = async () => {
-    let res = await api("delete", `/courses/${course._id}`);
+    let res = await api('delete', `/courses/${course._id}`);
     if (res) {
       // updateStore({ creator: res?.data?.creator });
       setShowDeletePopup(true);
@@ -36,6 +36,7 @@ const DeleteFullCoursePopup = ({ open, setOpen, course }) => {
         setOpe={setOpen}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        style={{ backdropFilter: 'blur(20px)' }}
       >
         <div className="uploadSuccessDiv">
           <div className="uploadSuccess-centerDiv">

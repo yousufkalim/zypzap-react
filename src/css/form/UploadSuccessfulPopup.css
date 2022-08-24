@@ -37,7 +37,7 @@ body {
 @media only screen and (min-width: 270px) and (max-width: 600px) {
 .css-1t1j96h-MuiPaper-root-MuiDialog-paper{
   width: 81% !important;
-  height: 54% !important;
+  /* height: 54% !important; */
 }
 
 #congoPopUp,#didItPopUp{
@@ -47,7 +47,7 @@ body {
  
 
 .css-uhb5lp{
-  width:331px !important;
+  width: 331px !important;
   border-radius: 3px !important;
 }
 .continueBtn{
@@ -68,15 +68,12 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
-.css-uhb5lp{
-  width: 89% !important;
-}
 .uploadSuccessBTN{
   padding: 10px 30px;
   width: 87%;
 }
 .regPopUp{
-  width: 86%;
+  width: 100%;
   margin: auto;
   border-radius: 3px;
   font-size: 19px;
