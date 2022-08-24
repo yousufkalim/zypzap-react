@@ -37,38 +37,38 @@ import CreatorResult from './CreatorResult';
 const categories = [
   {
     name: 'Top 10 Games',
-    value: '1',
+    value: '1'
   },
 
   {
     name: 'Top P2E Games',
-    value: '1',
+    value: '1'
   },
 
   {
     name: 'Top Metaverses',
-    value: '4',
+    value: '4'
   },
   {
     name: 'Top XR Games',
-    value: '7',
+    value: '7'
   },
   {
     name: 'Latest Courses',
-    value: '2',
+    value: '2'
   },
   {
     name: 'Top Courses',
-    value: '1',
+    value: '1'
   },
   {
     name: 'Trendy Courses',
-    value: '1',
+    value: '1'
   },
   {
     name: 'Top New Games',
-    value: '6',
-  },
+    value: '6'
+  }
 
   //   Top 10 Games
   // Top P2E Games
@@ -83,106 +83,106 @@ const categories = [
 const GameTypes = [
   {
     name: 'Action',
-    value: 'name',
+    value: 'name'
   },
   {
     name: 'Adventure',
-    value: 'class',
+    value: 'class'
   },
   {
     name: 'Metaverse',
-    value: 'age',
+    value: 'age'
   },
   {
     name: 'MMOG',
-    value: 'subjects',
+    value: 'subjects'
   },
   {
     name: 'Car Racing',
-    value: 'school',
+    value: 'school'
   },
   {
     name: 'Versus Fighting',
-    value: 'schooltwo',
+    value: 'schooltwo'
   },
   {
     name: 'FPS',
-    value: 'schooltwo',
+    value: 'schooltwo'
   },
   {
     name: 'RTS',
-    value: 'schooltwo',
+    value: 'schooltwo'
   },
   {
     name: 'RPG',
-    value: 'schooltwo',
+    value: 'schooltwo'
   },
   {
     name: 'Turn by Turn Strategy',
-    value: 'schooltwo',
+    value: 'schooltwo'
   },
   {
     name: 'Simulation',
-    value: 'schooltwo',
+    value: 'schooltwo'
   },
   {
     name: 'Sport',
-    value: 'schooltwo',
+    value: 'schooltwo'
   },
   {
     name: 'Trading card',
-    value: 'schooltwo',
+    value: 'schooltwo'
   },
   {
     name: 'Puzzle',
-    value: 'schooltwo',
-  },
+    value: 'schooltwo'
+  }
 ];
 const PlateformsAry = [
   {
     name: 'Retro Consoles',
-    value: 'name',
+    value: 'name'
   },
   {
     name: 'PS1/2/3/4/5',
-    value: 'class',
+    value: 'class'
   },
   {
     name: 'Xbox/360/One/X',
-    value: 'age',
+    value: 'age'
   },
   {
     name: 'PC',
-    value: 'subjects',
+    value: 'subjects'
   },
   {
     name: 'Portable Consoles',
-    value: 'school',
-  },
+    value: 'school'
+  }
 ];
 const levelAry = [
   {
     name: 'Casual',
-    value: 'Casual',
+    value: 'Casual'
   },
   {
     name: 'Confirmed',
-    value: 'Confirmed',
+    value: 'Confirmed'
   },
   {
     name: 'Hardcore',
-    value: 'Hardcore',
+    value: 'Hardcore'
   },
   {
     name: 'Esporter',
-    value: 'Esporter',
-  },
+    value: 'Esporter'
+  }
 ];
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(2),
   textAlign: 'center',
-  color: theme.palette.text.secondary,
+  color: theme.palette.text.secondary
 }));
 
 const SearchResultBody = () => {
@@ -216,12 +216,18 @@ const SearchResultBody = () => {
     gameType: [],
     plateform: [],
     level: [],
-    mode: [],
+    mode: []
   });
 
   // recieving context __data
 
-  const { searchCreator, searchCourse, searchState, searchInput, searchLoader } = Store();
+  const {
+    searchCreator,
+    searchCourse,
+    searchState,
+    searchInput,
+    searchLoader
+  } = Store();
   useEffect(() => {
     setPaginatedCourses(searchCourse.slice(0, 6));
   }, [searchCourse]);
@@ -243,7 +249,9 @@ const SearchResultBody = () => {
       }
     } else {
       if (filters[e.target.name].includes(e.target.value)) {
-        filters[e.target.name] = filters[e.target.name].filter((a) => a !== e.target.value);
+        filters[e.target.name] = filters[e.target.name].filter(
+          (a) => a !== e.target.value
+        );
       } else {
         filterData[e.target.name].push(e.target.value);
       }
@@ -302,7 +310,7 @@ const SearchResultBody = () => {
           searchState: 'creator',
           searchCourse: [],
           searchCreator: res?.data,
-          searchInput: name,
+          searchInput: name
         });
         setSelectedActiveButton('');
       }
@@ -311,7 +319,7 @@ const SearchResultBody = () => {
           searchState: 'course',
           searchCourse: res.data,
           searchCreator: [],
-          searchInput: name,
+          searchInput: name
         });
         setSelectedActiveButton('');
       }
@@ -386,7 +394,10 @@ const SearchResultBody = () => {
   };
   // To get slider value
   return (
-    <Box className="search-result-container" sx={{ flexGrow: 1, display: 'flex' }}>
+    <Box
+      className="search-result-container"
+      sx={{ flexGrow: 1, display: 'flex' }}
+    >
       {(window.innerWidth < 601 ? openMobView : normalView) && (
         <Box className="side-bar-filter" ref={click}>
           <Grid>
@@ -403,7 +414,7 @@ const SearchResultBody = () => {
                         cursor: 'pointer',
                         zIndex: '500',
                         width: '11px',
-                        height: '11px',
+                        height: '11px'
                       }}
                       alt="filtersimg"
                     />
@@ -413,10 +424,18 @@ const SearchResultBody = () => {
                 </p>
               </div>
               <div className="searchInputItem">
-                <input type="text" placeholder="CS⎸Go Game" className="searchInputItem-input" />
+                <input
+                  type="text"
+                  placeholder="CS⎸Go Game"
+                  className="searchInputItem-input"
+                />
               </div>
               <hr className="filterby-divider" />
-              <div id="1" onClick={onClickSideBarHeaders} className="dropdown-headers">
+              <div
+                id="1"
+                onClick={onClickSideBarHeaders}
+                className="dropdown-headers"
+              >
                 Top Games
                 {selectedCategories ? (
                   <KeyboardArrowUpIcon
@@ -424,7 +443,7 @@ const SearchResultBody = () => {
                       color: '#fff',
                       marginTop: '5px',
                       width: '30px',
-                      height: '1.2em !important',
+                      height: '1.2em !important'
                     }}
                     id="1"
                     onClick={onClickSideBarHeaders}
@@ -435,7 +454,7 @@ const SearchResultBody = () => {
                       color: '#fff',
                       marginTop: '5px',
                       width: '30px',
-                      height: '1.2em !important',
+                      height: '1.2em !important'
                     }}
                     id="1"
                     onClick={onClickSideBarHeaders}
@@ -452,7 +471,11 @@ const SearchResultBody = () => {
                   values={filterData.category}
                 />
               ) : null}
-              <div id="2" onClick={onClickSideBarHeaders} className="dropdown-headers">
+              <div
+                id="2"
+                onClick={onClickSideBarHeaders}
+                className="dropdown-headers"
+              >
                 Categories
                 {selectedGame ? (
                   <KeyboardArrowUpIcon
@@ -461,7 +484,7 @@ const SearchResultBody = () => {
                       marginTop: '5px',
 
                       width: '30px',
-                      height: '1.2em !important',
+                      height: '1.2em !important'
                     }}
                     id="2"
                     onClick={onClickSideBarHeaders}
@@ -473,7 +496,7 @@ const SearchResultBody = () => {
                       marginTop: '5px',
 
                       width: '30px',
-                      height: '1.2em !important',
+                      height: '1.2em !important'
                     }}
                     id="2"
                     onClick={onClickSideBarHeaders}
@@ -490,7 +513,11 @@ const SearchResultBody = () => {
                   values={filterData.gameType}
                 />
               ) : null}
-              <div id="3" onClick={onClickSideBarHeaders} className="dropdown-headers">
+              <div
+                id="3"
+                onClick={onClickSideBarHeaders}
+                className="dropdown-headers"
+              >
                 Plateforms
                 {selectedPlateforms ? (
                   <KeyboardArrowUpIcon
@@ -499,7 +526,7 @@ const SearchResultBody = () => {
                       marginTop: '5px',
 
                       width: '30px',
-                      height: '1.2em !important',
+                      height: '1.2em !important'
                     }}
                     id="3"
                     onClick={onClickSideBarHeaders}
@@ -511,7 +538,7 @@ const SearchResultBody = () => {
                       marginTop: '5px',
 
                       width: '30px',
-                      height: '1.2em !important',
+                      height: '1.2em !important'
                     }}
                     id="3"
                     onClick={onClickSideBarHeaders}
@@ -531,7 +558,11 @@ const SearchResultBody = () => {
               ) : null}
               {/* ////////////////////
                */}
-              <div id="6" onClick={onClickSideBarHeaders} className="dropdown-headers">
+              <div
+                id="6"
+                onClick={onClickSideBarHeaders}
+                className="dropdown-headers"
+              >
                 Gameplay Level
                 {!selectedLevel ? (
                   <KeyboardArrowDownIcon
@@ -540,7 +571,7 @@ const SearchResultBody = () => {
                       marginTop: '5px',
 
                       width: '30px',
-                      height: '1.2em !important',
+                      height: '1.2em !important'
                     }}
                     id="6"
                     onClick={onClickSideBarHeaders}
@@ -551,7 +582,7 @@ const SearchResultBody = () => {
                       color: '#fff',
                       marginTop: '5px',
                       width: '30px',
-                      height: '1.2em !important',
+                      height: '1.2em !important'
                     }}
                     id="6"
                     onClick={onClickSideBarHeaders}
@@ -570,7 +601,11 @@ const SearchResultBody = () => {
               ) : null}
 
               {/*  */}
-              <div id="4" onClick={onClickSideBarHeaders} className="dropdown-headers">
+              <div
+                id="4"
+                onClick={onClickSideBarHeaders}
+                className="dropdown-headers"
+              >
                 Gameplay mode
                 {selectedGameplay ? (
                   <KeyboardArrowUpIcon
@@ -578,7 +613,7 @@ const SearchResultBody = () => {
                       color: '#fff',
                       marginTop: '5px',
                       width: '30px',
-                      height: '1.2em !important',
+                      height: '1.2em !important'
                     }}
                     id="4"
                     onClick={onClickSideBarHeaders}
@@ -589,7 +624,7 @@ const SearchResultBody = () => {
                       color: '#fff',
                       marginTop: '5px',
                       width: '30px',
-                      height: '1.2em !important',
+                      height: '1.2em !important'
                     }}
                     id="4"
                     onClick={onClickSideBarHeaders}
@@ -745,18 +780,28 @@ const SearchResultBody = () => {
               Didn't found the <br /> course
             </h4> */}
               {window.innerWidth < 601 ? (
-                <label className="dropdown-headers" style={{ fontSize: '15px' }}>
+                <label
+                  className="dropdown-headers"
+                  style={{ fontSize: '15px' }}
+                >
                   Didn’t found the course
                 </label>
               ) : (
-                <label className="dropdown-headers" style={{ fontSize: '16px' }}>
+                <label
+                  className="dropdown-headers"
+                  style={{ fontSize: '16px' }}
+                >
                   Didn’t found the <br /> course
                 </label>
               )}
 
               <Box style={{ position: 'relative' }}>
                 {/* <p className="req-coming-soon">Coming soon</p> */}
-                <Button className="reqstStateBTN" onClick={RequestClikEvent} variant="contained">
+                <Button
+                  className="reqstStateBTN"
+                  onClick={RequestClikEvent}
+                  variant="contained"
+                >
                   Request Now
                 </Button>
               </Box>
@@ -787,7 +832,7 @@ const SearchResultBody = () => {
                       style={{
                         fontFamily: 'Mulish',
                         fontSize: '13px',
-                        fontWeight: '400',
+                        fontWeight: '400'
                       }}
                     >
                       {searchCourse.length + ' course result'}
@@ -819,7 +864,7 @@ const SearchResultBody = () => {
                         position: 'absolute',
                         top: '50%',
                         left: '50%',
-                        color: 'white',
+                        color: 'white'
                       }}
                     />
                   ) : (
@@ -831,19 +876,40 @@ const SearchResultBody = () => {
                         >
                           <div className="cardGrid searchcard">
                             {window.innerWidth < 601 ? (
-                              <h5 className="latestcourseh5" style={{ paddingTop: '2vh' }}>
+                              <h5
+                                className="latestcourseh5"
+                                style={{ paddingTop: '2vh' }}
+                              >
                                 {' '}
-                                {item?.course_name ? item.course_name : 'Fight Course'}
+                                {item?.course_name
+                                  ? item.course_name
+                                  : 'Fight Course'}
                               </h5>
                             ) : (
                               ''
                             )}
                             <div className="favourite-icon-position">
-                              <img
-                                src={item?.thumbnail ? item.thumbnail : Course1}
-                                className="courseimg"
-                                alt="img"
-                              />
+                              {item?.thumbnail.slice(-3) == 'mp4' ||
+                              item?.thumbnail.slice(-3) == 'mov' ? (
+                                <video
+                                  src={item?.thumbnail}
+                                  autoplay
+                                  // controls="controls"
+                                  onMouseOver={(event) => event.target.pause()}
+                                  onMouseOut={(event) => event.target.play()}
+                                  loop
+                                  className="courseimg"
+                                />
+                              ) : (
+                                <img
+                                  src={
+                                    item?.thumbnail ? item.thumbnail : Course1
+                                  }
+                                  className="courseimg"
+                                  alt="img"
+                                />
+                              )}
+
                               {/* <HeartIcon
                                 id={item.id}
                                 FvrtIconCount={FvrtIconCount}
@@ -854,7 +920,9 @@ const SearchResultBody = () => {
                             ) : (
                               <h5 className="latestcourseh5">
                                 {' '}
-                                {item?.course_name ? item.course_name : 'Fight Course'}
+                                {item?.course_name
+                                  ? item.course_name
+                                  : 'Fight Course'}
                               </h5>
                             )}
                             <div className="latestCourseMain-Div">
@@ -867,7 +935,10 @@ const SearchResultBody = () => {
                                   />
                                   <p className="latestCourse-p">
                                     {item?.creator?.user_id?.username.length > 6
-                                      ? `${item?.creator?.user_id?.username.substring(0, 6)}...`
+                                      ? `${item?.creator?.user_id?.username.substring(
+                                          0,
+                                          6
+                                        )}...`
                                       : item?.creator?.user_id?.username}
                                   </p>
                                 </div>
@@ -879,7 +950,9 @@ const SearchResultBody = () => {
                                   />
                                   <p className="latestCourse-p">
                                     {' '}
-                                    {item?.rating ? `${item.rating} Rating` : '0.0 Rating'}
+                                    {item?.rating
+                                      ? `${item.rating} Rating`
+                                      : '0.0 Rating'}
                                   </p>
                                 </div>
                               </div>
@@ -893,7 +966,9 @@ const SearchResultBody = () => {
                                   />
                                   <p className="latestCourse-p">
                                     {' '}
-                                    {item?.videos ? `(${countViews(item)})` : ''}
+                                    {item?.videos
+                                      ? `(${countViews(item)})`
+                                      : ''}
                                   </p>
                                 </div>
                                 <div className="latestCourse-colmn-centerDiv">
@@ -915,7 +990,9 @@ const SearchResultBody = () => {
                                     alt=""
                                     className="LatestCourse-IMG"
                                   />
-                                  <p className="latestCourse-p">{item?.level}</p>
+                                  <p className="latestCourse-p">
+                                    {item?.level}
+                                  </p>
                                 </div>
                                 <div className="latestCourse-colmn-centerDiv">
                                   <img
@@ -944,7 +1021,9 @@ const SearchResultBody = () => {
                     <button
                       className="btn-search-result"
                       onClick={() =>
-                        setPaginatedCourses(searchCourse.slice(0, paginatedCourses.length + 6))
+                        setPaginatedCourses(
+                          searchCourse.slice(0, paginatedCourses.length + 6)
+                        )
                       }
                     >
                       View more

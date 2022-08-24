@@ -19,7 +19,6 @@ body {
   padding: 12px 30px;
   color: #fff;
   font-weight: 600;
-
   text-transform: capitalize;
   font-size: 18px;
   font-family: "mulish";
@@ -41,11 +40,9 @@ body {
 }
 
 #congoPopUp,#didItPopUp{
-  width: 89%;
-  margin-left: 5% !important;
+  width: 100%;
+  margin-left: 0% !important;
 }
- 
-
 .css-uhb5lp{
   width: 331px !important;
   border-radius: 3px !important;

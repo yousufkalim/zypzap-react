@@ -42,7 +42,7 @@ const OverViewHome = (props) => {
   const handleStartCourse = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id,
+      userId: u?._id
     };
     let res = await api('post', '/users/enrolledCourseAndStarted', data);
   };
@@ -53,7 +53,7 @@ const OverViewHome = (props) => {
   const handleEnrolled = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id,
+      userId: u?._id
     };
     let res = await api('post', '/users/enrolledCourse', data);
     if (res) {
@@ -77,10 +77,15 @@ const OverViewHome = (props) => {
             <img className="overIMG" src={OverViewImg} alt="" />
           </div>
           {window.innerWidth < 601 ? (
-            <div className="overViewCarImage" style={{ width: '100%', height: '291.38px' }}>
+            <div
+              className="overViewCarImage"
+              style={{ width: '100%', height: '291.38px' }}
+            >
               <img
                 style={{ width: '100%', height: '100%' }}
-                src={singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg}
+                src={
+                  singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg
+                }
                 alt=""
                 className="overViewCardIMG"
               />
@@ -94,7 +99,9 @@ const OverViewHome = (props) => {
                 Beat the Opponent&nbsp;
                 <span style={{ textTransform: 'capitalize' }}>
                   {' '}
-                  {singlCourse?.course_name ? singlCourse.course_name : ' CS GO '}
+                  {singlCourse?.course_name
+                    ? singlCourse.course_name
+                    : ' CS GO '}
                   &nbsp;Gameplay
                 </span>
               </h1>
@@ -115,7 +122,9 @@ const OverViewHome = (props) => {
                 <li className="overViewLi">
                   <img src={RatingStarIcon} alt="" className="overViewIcon" />
                   <p className="overViewIconP">
-                    {singlCourse?.rating ? `${singlCourse.rating.toFixed(1)}` : ' 0.0 Rating'}{' '}
+                    {singlCourse?.rating
+                      ? `${singlCourse.rating.toFixed(1)}`
+                      : ' 0.0 Rating'}{' '}
                   </p>
                   &nbsp;
                   {singlCourse?.rating
@@ -124,7 +133,7 @@ const OverViewHome = (props) => {
                           className="starID"
                           style={{
                             width: '15px',
-                            height: '15px',
+                            height: '15px'
                           }}
                         />
                       ))
@@ -208,7 +217,9 @@ const OverViewHome = (props) => {
                 <li className="overViewLi">
                   <img src={RatingStarIcon} alt="" className="overViewIcon" />
                   <p className="overViewIconP">
-                    {singlCourse?.rating ? `${singlCourse.rating.toFixed(1)} Rating` : ' 0 Rating'}{' '}
+                    {singlCourse?.rating
+                      ? `${singlCourse.rating.toFixed(1)} Rating`
+                      : ' 0 Rating'}{' '}
                     {/* <img src={Star6} alt="" /> */}
                   </p>
                 </li>
@@ -292,24 +303,44 @@ const OverViewHome = (props) => {
               )}
             </div>
           </div>
-
-          {window.innerWidth < 601 ? (
-            ''
-          ) : (
-            <div className="overViewCard" style={{ width: '24%' }}>
-              <div className="overViewCenterdiv">
-                <div className="overViewCarImage">
-                  <img
+          <div className="overViewCard" style={{ width: '24%' }}>
+            <div className="overViewCenterdiv">
+              <div className="overViewCarImage">
+                {singlCourse?.thumbnail.slice(-3) == 'mp4' ||
+                singlCourse?.thumbnail.slice(-3) == 'mov' ? (
+                  <video
                     style={{ maxWidth: '100%' }}
-                    src={singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg}
-                    alt=""
+                    src={singlCourse?.thumbnail}
+                    autoplay
+                    // controls="controls"
+                    onMouseOver={(event) => event.target.pause()}
+                    onMouseOut={(event) => event.target.play()}
+                    loop
                     className="overViewCardIMG"
                   />
-                </div>
-                {singlCourse?.videos.length >= 1 && (
-                  <div className="overViewBuy">
-                    {/* start heart icon for wish list */}
-                    {/* <div className="overViewRateContent">
+                ) : (
+                  <img
+                    style={{ maxWidth: '100%' }}
+                    src={
+                      singlCourse?.thumbnail
+                        ? singlCourse.thumbnail
+                        : OverViewImg
+                    }
+                    className="overViewCardIMG"
+                    alt="img"
+                  />
+                )}
+                {/* <img
+                  style={{ maxWidth: '100%' }}
+                  src={singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg}
+                  alt=""
+                  className="overViewCardIMG"
+                /> */}
+              </div>
+              {singlCourse?.videos.length >= 1 && (
+                <div className="overViewBuy">
+                  {/* start heart icon for wish list */}
+                  {/* <div className="overViewRateContent">
                   {user?.role === "User" && (
                     <img
                       src={OverCardHurtLogo}
@@ -318,67 +349,67 @@ const OverViewHome = (props) => {
                     />
                   )}
                 </div> */}
-                    {/* end heart icon for wish list */}
+                  {/* end heart icon for wish list */}
 
-                    {(user?.role === 'Creator' && !learner) ||
-                    user?.creator === singlCourse?.creator?._id ? (
+                  {(user?.role === 'Creator' && !learner) ||
+                  user?.creator === singlCourse?.creator?._id ? (
+                    <NavLink
+                      to="#"
+                      className="CardBuyBtn"
+                      onClick={() => {
+                        if (user) {
+                          props.setShowVideo(true);
+                        } else {
+                          props.setOpenSignup(true);
+                        }
+                      }}
+                    >
+                      View
+                    </NavLink>
+                  ) : (
+                    <>
+                      {' '}
                       <NavLink
                         to="#"
                         className="CardBuyBtn"
                         onClick={() => {
                           if (user) {
+                            handleStartCourse(user, singlCourse);
                             props.setShowVideo(true);
                           } else {
-                            props.setOpenSignup(true);
+                            setOpenGuestPopUp(true);
+                            // props.setOpenSignup(true);
                           }
                         }}
                       >
-                        View
+                        Start
                       </NavLink>
-                    ) : (
-                      <>
-                        {' '}
+                      {!singlCourse?.student?.includes(user?._id) && (
                         <NavLink
                           to="#"
                           className="CardBuyBtn"
                           onClick={() => {
                             if (user) {
-                              handleStartCourse(user, singlCourse);
-                              props.setShowVideo(true);
+                              handleEnrolled(user, singlCourse);
                             } else {
                               setOpenGuestPopUp(true);
+
                               // props.setOpenSignup(true);
                             }
                           }}
                         >
-                          Start
+                          Enroll Now
                         </NavLink>
-                        {!singlCourse?.student?.includes(user?._id) && (
-                          <NavLink
-                            to="#"
-                            className="CardBuyBtn"
-                            onClick={() => {
-                              if (user) {
-                                handleEnrolled(user, singlCourse);
-                              } else {
-                                setOpenGuestPopUp(true);
-
-                                // props.setOpenSignup(true);
-                              }
-                            }}
-                          >
-                            Enroll Now
-                          </NavLink>
-                        )}
-                      </>
-                    )}
-                    {/* <NavLink to="#" className="CardBuyBtn2">
+                      )}
+                    </>
+                  )}
+                  {/* <NavLink to="#" className="CardBuyBtn2">
                   Stock It In The Caddy
                   <button className="overComming-soonBTN">Comming Soon</button>
                 </NavLink> */}
-                  </div>
-                )}
-                {/* <div1 className="overViewCard-content">
+                </div>
+              )}
+              {/* <div1 className="overViewCard-content">
                 <p className="overViewCard-contentP">The course includes</p>
                 <li className="overContentLi">
                   <img
@@ -409,7 +440,7 @@ const OverViewHome = (props) => {
                 </li>
                 <p className="overViewCard-contentP">Share this course</p>
               </div1> */}
-                {/* <div className="overViewSocialIcon">
+              {/* <div className="overViewSocialIcon">
                 <img
                   src={OverCardSocialIcon1}
                   alt=""
@@ -426,8 +457,8 @@ const OverViewHome = (props) => {
                   className="overSocialIcon"
                 />
               </div> */}
-              </div>
             </div>
+          </div>
           )}
         </div>
         <GuestSignUpPopUp

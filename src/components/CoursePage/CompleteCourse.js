@@ -188,6 +188,8 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value, index, setIndex }) => {
       <video
         // poster={VideoPlayIcon}
         className="completeCourse-playVideo"
+        onMouseOver={(event) => event.target.play()}
+        onMouseOut={(event) => event.target.pause()}
         src={
           clip?.src_url
             ? clip.src_url
