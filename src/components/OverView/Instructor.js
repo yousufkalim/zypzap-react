@@ -94,8 +94,12 @@ const Instructor = (props) => {
                         />
                       </div>
                       <div
-                        className="overViewTags"
-                        style={{ display: 'flex', flexDirection: 'column' }}
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          marginTop: '25px',
+                        }}
                       >
                         <li className="overViewLi">
                           <img

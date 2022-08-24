@@ -89,7 +89,7 @@ const OverViewHome = (props) => {
             ''
           )}
           <div className="overView_heading">
-            <div className="overViewContent">
+            <div className="overViewContent" id="overViewContent">
               <h1 className="overViewH1">
                 Beat the Opponent&nbsp;
                 <span style={{ textTransform: 'capitalize' }}>

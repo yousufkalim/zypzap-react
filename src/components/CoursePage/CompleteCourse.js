@@ -60,9 +60,13 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
       <div className="completeCourse">
         <div className="completeCourse-center-div">
           <div className="completeCourse-colm1">
-            <h2 className="completeCourseH2">
-              {playVideo?.title ? playVideo.title : 'CS Go'} Ep {index + 1} Complete Course
-            </h2>
+            {window.innerWidth < 601 ? (
+              ''
+            ) : (
+              <h2 className="completeCourseH2">
+                {playVideo?.title ? playVideo.title : 'CS Go'} Ep {index + 1} Complete Course
+              </h2>
+            )}
             {/* <ReactPlayer src={playVideo?.src_url} /> */}
             {/* <ReactPlayer
               url={playVideo?.src_url}
@@ -83,11 +87,18 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
           </div>
           <div className="completeCourse-colm2">
             <h3 className="completeCourseH3">Course Content </h3>
-
             {window.innerWidth < 601 ? (
-              <div>
-                {' '}
-                <img src={prev} style={{ color: 'white' }} /> <img src={next} />
+              <div
+                style={{
+                  width: '16%',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  marginBottom: '5%',
+                  marginTop: '-5%',
+                }}
+              >
+                <img src={next} style={{ transform: 'rotateY(180deg)' }} onClick={handlePrev} />
+                <img src={next} onClick={handleNext} />
               </div>
             ) : (
               ''
@@ -110,19 +121,23 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
             </div>
           </div>
         </div>
-        <div className="Pre-next-btn">
-          {index > 0 && (
-            <button className="preBTN" onClick={handlePrev}>
-              Previous
-            </button>
-          )}
-          {index !== videos.length - 1 && (
-            <button className="nextBTN" onClick={handleNext}>
-              Next
-            </button>
-          )}
-          {/* <hr className="pre_next_line" /> */}
-        </div>
+        {window.innerWidth < 601 ? (
+          ''
+        ) : (
+          <div className="Pre-next-btn">
+            {index > 0 && (
+              <button className="preBTN" onClick={handlePrev}>
+                Previous
+              </button>
+            )}
+            {index !== videos.length - 1 && (
+              <button className="nextBTN" onClick={handleNext}>
+                Next
+              </button>
+            )}
+            {/* <hr className="pre_next_line" /> */}
+          </div>
+        )}
       </div>
     </>
   );

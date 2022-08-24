@@ -406,6 +406,7 @@ Custom arrows end here
         height: 35vh !important;
         object-fit: cover;
         border-radius: 15px;
+        width: 91%;
     }
 
     .blurImg {

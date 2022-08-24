@@ -67,21 +67,40 @@ const OverView = (props) => {
         setOpenBecomeCreatorPopup={setOpenBecomeCreatorPopup}
       />
       {showVideo ? (
-        <CompleteCourse singlCourse={course} setShowRatingPopup={setShowRatingPopup} />
+        <>
+          <CompleteCourse singlCourse={course} setShowRatingPopup={setShowRatingPopup} />
+          <OverViewMenu
+            btns={btns}
+            setActivebtn={setActivebtn}
+            activebtn={activebtn}
+            course={course}
+            setShowVideo={setShowVideo}
+            id={window.innerWidth < 601 ? 'MOBK' : ''}
+          />
+        </>
       ) : (
-        <OverViewHome
-          singlCourse={course}
-          setShowVideo={setShowVideo}
-          setOpenSignup={setOpenSignup}
-          setOpenLogin={setOpenLogin}
-          setCourse={setCourse}
-        />
+        <>
+          {' '}
+          <OverViewHome
+            singlCourse={course}
+            setShowVideo={setShowVideo}
+            setOpenSignup={setOpenSignup}
+            setOpenLogin={setOpenLogin}
+            setCourse={setCourse}
+          />
+          <OverViewMenu
+            btns={btns}
+            setActivebtn={setActivebtn}
+            activebtn={activebtn}
+            course={course}
+            setShowVideo={setShowVideo}
+          />
+        </>
       )}
 
-      <OverViewMenu btns={btns} setActivebtn={setActivebtn} activebtn={activebtn} course={course} />
       {activebtn == 'Overview' && <OverviewButton singlCourse={course} />}
 
-      {activebtn == 'Cursus' && <Curriculum singlCourse={course} setShowVideo={setShowVideo} />}
+      {activebtn == 'Cursus' && <Curriculum singlCourse={course} />}
 
       {activebtn == 'Instructor' && <Instructor singlCourse={course} />}
 
