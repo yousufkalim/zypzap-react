@@ -126,7 +126,7 @@ body {
     linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   border-radius: 4px;
   color: #fff;
-  font-weight: 900 !important;
+  font-weight: 700 !important;
   padding: 8px 0;
   margin: 15px 2px;
   font-family: 'Poppins', sans-serif !important;
@@ -505,8 +505,12 @@ body {
   .reviewsStarIcon {
     margin: -6px;
   }
+  .center_overViewDiv{
+    margin: 0;
+    width: 100%;
+  }
   .student-feedback-h3{
-    margin: 20px 0 0 -18px;
+    margin: 20px 0 0 -30px;
   }
   .overViewLi{
     padding-right:2% ;
@@ -523,7 +527,6 @@ body {
     display: none;
   }
   .overViewMene_centerDiv{
-   margin-top: 83vh;
    margin-bottom: 4vh;
   }
   .overViewH1{
@@ -537,8 +540,13 @@ body {
     font-size: 14px;
   }
   .overView_heading{
-    margin-top: 37vh;
-    width: 100%  !important ;
+    position: unset;
+    margin-top: 4vh !important;
+    width: 93% !important;
+    margin: auto;
+  }
+  #mobMargin{
+    margin-top: 87vh;
   }
   .overVeiwCS-btn{
     margin: 5px 10px;
@@ -566,6 +574,7 @@ body {
   .overViewTags{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
   .overViewIcon {
     display: inline;
@@ -705,27 +714,28 @@ body {
 }
 .completeCourse-colm1,.completeCourse-colm2{
   width: 100vw !important;
-}
+  margin-bottom: 0 !important;}
 .completeCourseScroll{
-  height: 27vh !important;
+  height: 36vh !important;
   width: 95vw;
 }
 .completeCourse-colm2{
   padding: 0!important;
-  margin-top:16vh;
 }
 .plyr__progress {
   position: relative;
-  top: 6vh;
+  top: 7vh;
   width: 87vw;
   margin-left: -13vh;
-  z-index: 1 !important;
+  z-index: 500 !important;
 }
 .plyr--video .plyr__controls{
   top:38vh
 }
+
+
 .CardBuyBtn{
-  width: 96% !important;
+  width: 100% !important;
 }
 .instructorProfile-Name,.instructorProfile-P{
   font-size: 14px;
@@ -734,5 +744,11 @@ body {
 .instructor-co{
   padding: 0 !important;
   width: 0 !important;
+}
+#overViewContent{
+  padding: 3%;
+}
+#MOBK{
+  margin-top: 70vh;
 }
 }

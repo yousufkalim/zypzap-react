@@ -225,7 +225,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
               className="requestBt"
               style={{ textDecoration: 'none', color: 'white' }}
             >
-              <div className="topRatedcardGrid" style={{ width: '500px' }}>
+              <div className="topRatedcardGrid">
                 {window.innerWidth < 601 ? (
                   <h4 className="latestCourse-h4">
                     <img src={LatestCourseGameIcon} alt="" className="LatestCourse-IMG" />
@@ -236,7 +236,11 @@ export default function TopRatedContent({ topRatedContentCreator }) {
                   ''
                 )}
                 <div className="topRatedcardGrid-image">
-                  <img src={item.profile_photo ? item.profile_photo : Game2} className="topRatedcourseimg" alt="img" />
+                  <img
+                    src={item.profile_photo ? item.profile_photo : Game2}
+                    className="topRatedcourseimg"
+                    alt="img"
+                  />
                 </div>
                 {window.innerWidth < 601 ? (
                   ''

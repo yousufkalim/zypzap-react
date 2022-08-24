@@ -879,7 +879,7 @@ const SearchResultBody = () => {
                                   />
                                   <p className="latestCourse-p">
                                     {' '}
-                                    {item?.rating ? `${item.rating} Rating` : '0 Rating'}
+                                    {item?.rating ? `${item.rating} Rating` : '0.0 Rating'}
                                   </p>
                                 </div>
                               </div>
