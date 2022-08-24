@@ -510,7 +510,7 @@ body {
     width: 100%;
   }
   .student-feedback-h3{
-    margin: 20px 0 0 -18px;
+    margin: 20px 0 0 -30px;
   }
   .overViewLi{
     padding-right:2% ;
@@ -735,7 +735,7 @@ body {
 
 
 .CardBuyBtn{
-  width: 96% !important;
+  width: 100% !important;
 }
 .instructorProfile-Name,.instructorProfile-P{
   font-size: 14px;

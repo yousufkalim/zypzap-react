@@ -199,7 +199,7 @@ export default function LatestCourses(props) {
                     <div className="latestCourse-colmn-centerDiv">
                       <img src={LatestCourseStarIcon} alt="" className="LatestCourse-IMG" />
                       <p className="latestCourse-p">
-                        {item?.rating ? `${item.rating} Rating` : 'No Rating'}
+                        {item?.rating ? `${item.rating.toFixed(1)} Rating` : 'No Rating'}
                       </p>
                     </div>
                   </div>

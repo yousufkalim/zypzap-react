@@ -107,7 +107,7 @@ const Reviews = (props) => {
                   style={{ display: 'flex', justifyContent: 'space-between' }}
                 >
                   <p className="courseRatingH1" style={{ fontSize: '55px' }}>
-                    {singlCourse?.rating ? singlCourse.rating : '0.0'}
+                    {singlCourse?.rating ? singlCourse.rating.toFixed(1) : '0.0'}
                   </p>{' '}
                   <p className="courseRatingP">Course Rating</p>
                 </div>
@@ -117,7 +117,7 @@ const Reviews = (props) => {
                 <p className="student-feedback-h3">Student feedback</p>
                 <div className="courseRating">
                   <h1 className="courseRatingH1">
-                    {singlCourse?.rating ? singlCourse.rating : '0.0'}
+                    {singlCourse?.rating ? singlCourse.rating.toFixed(1) : '0.0'}
                   </h1>
                   <div className="courseRating-images" id="stars">
                     {[1, 2, 3, 4, 5].map((i) => (

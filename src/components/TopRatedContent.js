@@ -236,7 +236,11 @@ export default function TopRatedContent({ topRatedContentCreator }) {
                   ''
                 )}
                 <div className="topRatedcardGrid-image">
-                  <img src={item.profile_photo ? item.profile_photo : Game2} className="topRatedcourseimg" alt="img" />
+                  <img
+                    src={item.profile_photo ? item.profile_photo : Game2}
+                    className="topRatedcourseimg"
+                    alt="img"
+                  />
                 </div>
                 {window.innerWidth < 601 ? (
                   ''

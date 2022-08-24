@@ -181,7 +181,7 @@ function TopCoursesComponent({ item }) {
                   <p className="p2">{item?.course_name + ' player'}</p>
 
                   <p className="p2">
-                    {item?.rating ? item.rating + ' ' : <></>}
+                    {item?.rating ? item.rating.toFixed(1) : '0.0'} &nbsp;
                     {[1, 2, 3, 4, 5].map((i) => (
                       <Star1
                         className="starID"
@@ -217,7 +217,11 @@ function TopCoursesComponent({ item }) {
 
                 <span className="marginRight">|</span>
                 <span className="marginRight">
-                  {item?.student ? item.student.length + ' Student' : 0 + '   Student'}
+                  {item?.student
+                    ? item.student.length > 1
+                      ? item.student.length + ' Students'
+                      : item.student.length + ' Student'
+                    : 0 + '   Student'}
                 </span>
                 <span className="marginRight">|</span>
                 <span className="marginRight">
@@ -265,7 +269,7 @@ function TopCoursesComponent({ item }) {
                 <p className="p1">{item?.creator?.user_id?.username}</p>
                 <p className="p2">{item?.course_name + ' player'}</p>
                 <p className="p2">
-                  {item?.rating ? item.rating : <></>}
+                  {item?.rating ? item.rating.toFixed(1) : '0.0'}
                   {[1, 2, 3, 4, 5].map((i) => (
                     <Star1
                       className="starID"
