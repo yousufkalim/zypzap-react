@@ -13,6 +13,8 @@ import Checkbox from '@mui/material/Checkbox';
 import Filters from '../../assets/filters.svg';
 import { useRef } from 'react';
 import Course1 from '../../assets/img/course1.png';
+import dummycourseimg from '../../assets/img/dummycourseimg.png';
+
 import StarIcon from '@material-ui/icons/Star';
 import Union from '../../assets/icons/Union.svg';
 
@@ -840,9 +842,13 @@ const SearchResultBody = () => {
                             )}
                             <div className="favourite-icon-position">
                               <img
-                                src={item?.thumbnail ? item.thumbnail : Course1}
+                                src={item?.thumbnail ? item.thumbnail : dummycourseimg}
                                 className="courseimg"
+                                id="courseimg"
                                 alt="img"
+                                onError={() =>
+                                  (document.getElementById('courseimg').src = dummycourseimg)
+                                }
                               />
                               {/* <HeartIcon
                                 id={item.id}

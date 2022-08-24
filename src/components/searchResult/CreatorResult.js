@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import ArslanAshIMG from '../../assets/img/ArslanAshIMG.svg';
-import Course2 from '../../assets/img/course2.png';
+import dummycc from '../../assets/img/dummycc.svg';
 import { ReactComponent as Star1 } from '../../assets/icons/star2.svg';
 import { Link } from 'react-router-dom';
 import CustomizedMenus from './CustomizedMenus';
@@ -77,6 +77,12 @@ const CreatorResult = ({ input, creator }) => {
                             className="followingIMG"
                             // className="instructorLogo"
                             alt="img"
+                            onError={() =>
+                              set_MyRatingCreators((prev) => {
+                                prev[i].profile_photo = dummycc;
+                                return [...prev];
+                              })
+                            }
                           />
                         </div>
                         <div className="following-container">

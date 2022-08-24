@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../../components/UserProfile/UserProfile.css';
 import UserHomeProfleImg2 from '../../assets/img/UserHomeProfleImg2.svg';
 import CreatorPrifileImg from '../../assets/img/CreatorPrifileImg.svg';
+// import dummycreator from '../../assets/img/dummycreator.png';
 import PropfileInformation from '../PopupForms/PropfileInformation';
 import ProGamer from '../../assets/icons/ProGamer.svg';
 import ViewCourse from '../../assets/icons/ViewCourse.svg';
@@ -73,11 +74,7 @@ const CreatorProfileHome = (props) => {
       <div className="userProfileDiv">
         <div className="userProfile-centerDiv">
           <div className="profile-image">
-            <img
-              src={UserHomeProfleImg2}
-              alt=""
-              className="profileBackgroun-Image"
-            />
+            <img src={UserHomeProfleImg2} alt="" className="profileBackgroun-Image" />
           </div>
 
           <div className="Profile-DP2">
@@ -90,13 +87,9 @@ const CreatorProfileHome = (props) => {
           {/* profile Div */}
           <div className="profile-container2">
             <div className="prfile-name-heading">
-              <h1 className="profile-name">
-                {user ? user.username : 'Atif Khan'}
-              </h1>
+              <h1 className="profile-name">{user ? user.username : 'Atif Khan'}</h1>
               <p className="pofileP">
-                {user?.gameType?.length > 0
-                  ? `${user.gameType} Player`
-                  : 'Taken Player'}
+                {user?.gameType?.length > 0 ? `${user.gameType} Player` : 'Taken Player'}
               </p>
               <p className="prfile-lavelP">
                 Hi, I am {user?.username ? user.username : 'User1'}
@@ -129,11 +122,7 @@ const CreatorProfileHome = (props) => {
                     </p>
                   </div>
                   <div className="creatorLogos">
-                    <img
-                      className="CreatorProfileImg"
-                      src={ViewStudent}
-                      alt=""
-                    />
+                    <img className="CreatorProfileImg" src={ViewStudent} alt="" />
                   </div>
                   <div className="creatorProfileContent">
                     <p className="creatorProfileP">
@@ -184,14 +173,18 @@ const CreatorProfileHome = (props) => {
                 >
                   <div className="topRatedcardGrid-image">
                     <img
-                      src={item?.thumbnail}
+                      src={item?.thumbnail ? item.thumbnail : CreatorPrifileImg}
                       className="courseimg"
                       alt="img"
+                      onError={() =>
+                        setCourses((prev) => {
+                          prev[i].thumbnail = CreatorPrifileImg;
+                          return [...prev];
+                        })
+                      }
                     />
                   </div>
-                  <h5 className="latestcourseh5">
-                    {item?.course_name} GamePlay Course
-                  </h5>
+                  <h5 className="latestcourseh5">{item?.course_name} GamePlay Course</h5>
                   <p className="latestcoursep1">{user && user.username}</p>
                   <p className="latestcoursep1">
                     {' '}

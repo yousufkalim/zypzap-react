@@ -4,6 +4,9 @@ import Grid from '@material-ui/core/Grid';
 import Carousel from 'react-material-ui-carousel';
 import { ReactComponent as Star1 } from '../assets/icons/star2.svg';
 import TopCourseImg from '../assets/img/topcourseimg.png';
+import dummycc from '../assets/img/dummycc.svg';
+import dummycourseimg from '../assets/img/dummycourseimg.png';
+
 import avatar from '../assets/img/avatar.png';
 import StarIcon from '@material-ui/icons/Star';
 import Rating from '@mui/material/Rating';
@@ -152,9 +155,13 @@ function TopCoursesComponent({ item }) {
       <Grid item xs={12} sm={5} className="topCoursesDiv">
         {/*  make it dynamic  */}
         <img
-          src={item?.thumbnail ? item.thumbnail : TopCourseImg}
+          src={item?.thumbnail ? item.thumbnail : dummycourseimg}
           className="topcourseimg"
+          id="topcourseimg"
           alt="img"
+          onError={() => {
+            document.getElementById('topcourseimg').src = dummycourseimg;
+          }}
         />
         <div className="userprofiledivCopy">
           <Grid
@@ -170,10 +177,11 @@ function TopCoursesComponent({ item }) {
                     src={
                       item?.creator?.user_id?.profile_photo
                         ? item.creator.user_id.profile_photo
-                        : avatar
+                        : dummycc
                     }
                     className="avatar"
                     alt="img"
+                    onError={() => (document.getElementsByClassName('avatar').src = dummycc)}
                   />
                 </div>
                 <div>
@@ -260,10 +268,11 @@ function TopCoursesComponent({ item }) {
                 src={
                   item?.creator?.user_id?.profile_photo
                     ? item.creator.user_id.profile_photo
-                    : avatar
+                    : dummycc
                 }
                 className="avatar"
                 alt="img"
+                onError={() => (document.getElementsByClassName('avatar').src = dummycc)}
               />
               <div className="div2">
                 <p className="p1">{item?.creator?.user_id?.username}</p>

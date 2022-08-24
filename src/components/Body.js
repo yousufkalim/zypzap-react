@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import Bodyimg from '../assets/img/Bodyimg.svg';
 import BodyBlurimg from '../assets/img/bodyblur.png';
+import dummycourseimg from '../assets/img/dummycourseimg.png';
+
 import TopCourses from './TopCourses';
 import LatestCourses from './LatestCourses';
 import TopRatedContent from './TopRatedContent';
@@ -50,13 +52,22 @@ export default function Body({ setOpenSignup }) {
   };
   return (
     <>
-      <ContentRequest openContentRequest={openContentRequest} setOpenContentRequest={setOpenContentRequest} />
+      <ContentRequest
+        openContentRequest={openContentRequest}
+        setOpenContentRequest={setOpenContentRequest}
+      />
       {loading ? (
         <h1>Loading...</h1>
       ) : (
         <div className="Bodycontainer">
           <div className="img-and-text-container">
-            <img src={Bodyimg} alt="img" className="bodyImage" style={{ position: 'relative' }} />
+            <img
+              src={Bodyimg}
+              alt="img"
+              className="bodyImage"
+              style={{ position: 'relative' }}
+              onError={() => (document.getElementsByClassName('bodyImage').src = dummycourseimg)}
+            />
             <div className="textonImg">
               <h1 className="textimgH1">
                 We help you becoming
@@ -81,7 +92,11 @@ export default function Body({ setOpenSignup }) {
           <TopCourses courses={courses} user={user} />
           <LatestCourses courses={courses} user={user} />
           <TopRatedContent topRatedContentCreator={topRatedContentCreator} />
-          <Request openContentRequest={openContentRequest} setOpenContentRequest={setOpenContentRequest} user={user} />
+          <Request
+            openContentRequest={openContentRequest}
+            setOpenContentRequest={setOpenContentRequest}
+            user={user}
+          />
           {/* x */}
           {/* <RankingList /> */}
           {/* <Blog /> */}

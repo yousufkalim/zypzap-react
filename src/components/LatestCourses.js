@@ -1,7 +1,7 @@
 // Init
 import React from 'react';
 import Course1 from '../assets/img/course1.png';
-import dummyCourse from '../assets/img/dummycourseimg.png';
+import dummycourseimg from '../assets/img/dummycourseimg.png';
 import moment from 'moment';
 import axios from 'axios';
 import Carousel from 'react-multi-carousel';
@@ -172,9 +172,13 @@ export default function LatestCourses(props) {
                 )}
                 <div className="topRatedcardGrid-image">
                   <img
-                    src={item?.thumbnail ? item.thumbnail : dummyCourse}
+                    src={item?.thumbnail ? item.thumbnail : dummycourseimg}
                     className="topRatedcourseimg"
+                    id="topRatedcourseimg"
                     alt="img"
+                    onError={() =>
+                      (document.getElementById('topRatedcourseimg').src = dummycourseimg)
+                    }
                   />
                 </div>
                 {window.innerWidth < 601 ? (

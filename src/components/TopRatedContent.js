@@ -3,6 +3,7 @@ import React from 'react';
 import Game1 from '../assets/img/game1.png';
 import Game2 from '../assets/img/game2.png';
 import Game3 from '../assets/img/game3.png';
+import dummycreator from '../assets/img/dummycreator.svg';
 import Game4 from '../assets/img/game4.png';
 import Game5 from '../assets/img/game5.png';
 import Carousel from 'react-multi-carousel';
@@ -237,16 +238,25 @@ export default function TopRatedContent({ topRatedContentCreator }) {
                 )}
                 <div className="topRatedcardGrid-image">
                   <img
-                    src={item.profile_photo ? item.profile_photo : Game2}
+                    src={item.profile_photo ? item.profile_photo : dummycreator}
                     className="topRatedcourseimg"
+                    id="topRatedcourseimg"
                     alt="img"
+                    onError={() =>
+                      (document.getElementById('topRatedcourseimg').src = dummycreator)
+                    }
                   />
                 </div>
                 {window.innerWidth < 601 ? (
                   ''
                 ) : (
                   <h4 className="latestCourse-h4">
-                    <img src={LatestCourseGameIcon} alt="" className="LatestCourse-IMG" />
+                    <img
+                      src={LatestCourseGameIcon}
+                      alt=""
+                      className="LatestCourse-IMG"
+                      id="topRatedcourseimg"
+                    />
                     &nbsp;
                     {item.username}
                   </h4>
