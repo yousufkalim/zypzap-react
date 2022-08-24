@@ -4,7 +4,7 @@ import Plyr from 'plyr-react';
 import 'plyr-react/dist/plyr.css';
 import api from '../../api/index';
 import { Store } from '../../StoreContext';
-import prev from '../../assets/icons/prev.svg';
+import prevD from '../../assets/icons/prevD.svg';
 import next from '../../assets/icons/next.svg';
 
 const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
@@ -97,8 +97,21 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
                   marginTop: '-5%',
                 }}
               >
-                <img src={next} style={{ transform: 'rotateY(180deg)' }} onClick={handlePrev} />
-                <img src={next} onClick={handleNext} />
+                {index < 1 ? (
+                  <img src={prevD} alt="prev" />
+                ) : (
+                  <img
+                    src={next}
+                    style={{ transform: 'rotateY(180deg)' }}
+                    onClick={handlePrev}
+                    alt="prev"
+                  />
+                )}
+                {index !== videos.length - 1 ? (
+                  <img src={next} onClick={handleNext} alt="next" />
+                ) : (
+                  <img src={prevD} style={{ transform: 'rotateY(180deg)' }} alt="next" />
+                )}
               </div>
             ) : (
               ''
