@@ -115,7 +115,7 @@ const OverViewHome = (props) => {
                 <li className="overViewLi">
                   <img src={RatingStarIcon} alt="" className="overViewIcon" />
                   <p className="overViewIconP">
-                    {singlCourse?.rating ? `${singlCourse.rating}` : ' 0 Rating'}{' '}
+                    {singlCourse?.rating ? `${singlCourse.rating.toFixed(1)}` : ' 0.0 Rating'}{' '}
                   </p>
                   &nbsp;
                   {singlCourse?.rating
@@ -208,7 +208,7 @@ const OverViewHome = (props) => {
                 <li className="overViewLi">
                   <img src={RatingStarIcon} alt="" className="overViewIcon" />
                   <p className="overViewIconP">
-                    {singlCourse?.rating ? `${singlCourse.rating} Rating` : ' 0 Rating'}{' '}
+                    {singlCourse?.rating ? `${singlCourse.rating.toFixed(1)} Rating` : ' 0 Rating'}{' '}
                     {/* <img src={Star6} alt="" /> */}
                   </p>
                 </li>
