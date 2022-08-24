@@ -196,7 +196,15 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value, index, setIndex }) => {
       ></video>
       <div className="playVideoHeading">
         <h3 className="playVideoH3">
-          {clip?.title ? clip.title : 'CS Go'} Ep {index + 1} Complete Course
+          {window.innerWidth < 601
+            ? clip?.title
+              ? clip.title.length > 26
+                ? clip.title.substring(0, 14) + ' Ep ' + (index + 1) + ' Complete Course'
+                : clip.title + ' Ep ' + (index + 1) + ' Complete Course'
+              : ' CS Go ' + ' Ep ' + (index + 1) + ' Complete Course'
+            : clip?.title
+            ? clip.title + ' Ep ' + (index + 1) + ' Complete Course'
+            : 'CS Go ' + ' Ep ' + (index + 1) + ' Complete Course'}
         </h3>
         <span className="playVideonumber">{value + '/' + videoCount} </span>
         <span>{'|'}</span>
