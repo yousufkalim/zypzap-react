@@ -483,6 +483,7 @@
 }
 #failbox{
     justify-content: center !important;
-    padding: 60px 26px !important;
+    padding: 24px 26px !important;
+    padding-bottom: 54px !important;
 }
 }
