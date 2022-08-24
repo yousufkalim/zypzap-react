@@ -40,7 +40,7 @@ const OverViewHome = (props) => {
   const handleStartCourse = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id,
+      userId: u?._id
     };
     let res = await api('post', '/users/enrolledCourseAndStarted', data);
   };
@@ -51,7 +51,7 @@ const OverViewHome = (props) => {
   const handleEnrolled = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id,
+      userId: u?._id
     };
     let res = await api('post', '/users/enrolledCourse', data);
     if (res) {
@@ -80,7 +80,9 @@ const OverViewHome = (props) => {
                 Beat the Opponent&nbsp;
                 <span style={{ textTransform: 'capitalize' }}>
                   {' '}
-                  {singlCourse?.course_name ? singlCourse.course_name : ' CS GO '}
+                  {singlCourse?.course_name
+                    ? singlCourse.course_name
+                    : ' CS GO '}
                   &nbsp;Gameplay
                 </span>
               </h1>
@@ -133,7 +135,9 @@ const OverViewHome = (props) => {
               <li className="overViewLi">
                 <img src={RatingStarIcon} alt="" className="overViewIcon" />
                 <p className="overViewIconP">
-                  {singlCourse?.rating ? `${singlCourse.rating} Rating` : ' 0 Rating'}{' '}
+                  {singlCourse?.rating
+                    ? `${singlCourse.rating} Rating`
+                    : ' 0 Rating'}{' '}
                   {/* <img src={Star6} alt="" /> */}
                 </p>
               </li>
@@ -156,12 +160,36 @@ const OverViewHome = (props) => {
           <div className="overViewCard" style={{ width: '24%' }}>
             <div className="overViewCenterdiv">
               <div className="overViewCarImage">
-                <img
+                {singlCourse?.thumbnail.slice(-3) == 'mp4' ||
+                singlCourse?.thumbnail.slice(-3) == 'mov' ? (
+                  <video
+                    style={{ maxWidth: '100%' }}
+                    src={singlCourse?.thumbnail}
+                    autoplay
+                    // controls="controls"
+                    onMouseOver={(event) => event.target.pause()}
+                    onMouseOut={(event) => event.target.play()}
+                    loop
+                    className="overViewCardIMG"
+                  />
+                ) : (
+                  <img
+                    style={{ maxWidth: '100%' }}
+                    src={
+                      singlCourse?.thumbnail
+                        ? singlCourse.thumbnail
+                        : OverViewImg
+                    }
+                    className="overViewCardIMG"
+                    alt="img"
+                  />
+                )}
+                {/* <img
                   style={{ maxWidth: '100%' }}
                   src={singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg}
                   alt=""
                   className="overViewCardIMG"
-                />
+                /> */}
               </div>
               {singlCourse?.videos.length >= 1 && (
                 <div className="overViewBuy">

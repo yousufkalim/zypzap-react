@@ -25,16 +25,16 @@ export default function TopCourses(props) {
   var items = [
     {
       name: 'PUBG gameplay full course',
-      description: 'Probably the most random thing you have ever seen!',
+      description: 'Probably the most random thing you have ever seen!'
     },
     {
       name: 'Taken gameplay full course2',
-      description: 'Hello World!',
+      description: 'Hello World!'
     },
     {
       name: 'Speed3',
-      description: 'Hello World!',
-    },
+      description: 'Hello World!'
+    }
   ];
 
   const handleviewTopCourses = () => {
@@ -42,8 +42,8 @@ export default function TopCourses(props) {
       pathname: '/searchResult',
       param: {
         name: 'Top 10 Games',
-        value: '1',
-      },
+        value: '1'
+      }
     });
   };
 
@@ -57,7 +57,7 @@ export default function TopCourses(props) {
         style={{
           display: 'inline-block',
           cursor: 'Pointer',
-          float: 'right',
+          float: 'right'
         }}
         onClick={handleviewTopCourses}
       >
@@ -77,7 +77,7 @@ export default function TopCourses(props) {
             <Link
               to={{
                 pathname: `OverView/${item?._id}`,
-                state: { course: `${item}` },
+                state: { course: `${item}` }
               }}
               className="requestBt"
               style={{ textDecoration: 'none', color: 'white' }}
@@ -151,15 +151,46 @@ function TopCoursesComponent({ item }) {
     <Grid container spacing={2} className="topCourseGrid">
       <Grid item xs={12} sm={5} className="topCoursesDiv">
         {/*  make it dynamic  */}
-        <img src={item?.thumbnail ? item.thumbnail : TopCourseImg} className="topcourseimg" alt="img" />
+        {item?.thumbnail.slice(-3) == 'mp4' ||
+        item?.thumbnail.slice(-3) == 'mov' ? (
+          <video
+            src={item?.thumbnail}
+            autoplay
+            // controls="controls"
+            onMouseOver={(event) => event.target.pause()}
+            onMouseOut={(event) => event.target.play()}
+            loop
+            className="topcourseimg"
+          />
+        ) : (
+          <img
+            src={item?.thumbnail ? item.thumbnail : TopCourseImg}
+            className="topcourseimg"
+            alt="img"
+          />
+        )}
+        {/* <img
+          src={item?.thumbnail ? item.thumbnail : TopCourseImg}
+          className="topcourseimg"
+          alt="img"
+        /> */}
         {window.innerWidth < 601 && (
           <div className="userprofiledivCopy">
-            <Grid container spacing={2} className="topcourseuserGrid" style={{ paddingBottom: '10px' }}>
+            <Grid
+              container
+              spacing={2}
+              className="topcourseuserGrid"
+              style={{ paddingBottom: '10px' }}
+            >
               <Grid item xs={6} md={6}>
                 <div className="userprofilediv" id="userInfo">
                   <div>
                     <img
-                      src={item?.creator?.user_id?.profile_photo ? item.creator.user_id.profile_photo : avatar}
+                      src={
+                        item?.creator?.user_id?.profile_photo
+                          ? item.creator.user_id.profile_photo
+                          : avatar
+                      }
                       className="avatar"
                       alt="img"
                     />
@@ -175,7 +206,7 @@ function TopCoursesComponent({ item }) {
                           className="starID"
                           style={{
                             width: '12px',
-                            height: '12px',
+                            height: '12px'
                           }}
                         />
                       ))}
@@ -186,18 +217,37 @@ function TopCoursesComponent({ item }) {
                 </div>
               </Grid>
             </Grid>
-            <Grid container spacing={2} className="topcourseuserGrid" style={{ paddingBottom: '10px' }}>
-              <Grid item xs={6} md={6} className="topcourseuserRightGrid" id="userInfo">
+            <Grid
+              container
+              spacing={2}
+              className="topcourseuserGrid"
+              style={{ paddingBottom: '10px' }}
+            >
+              <Grid
+                item
+                xs={6}
+                md={6}
+                className="topcourseuserRightGrid"
+                id="userInfo"
+              >
                 <div className="itemDetails">
-                  <span className="marginRight">{item?.level ? item.level : 'inital level'}</span>
+                  <span className="marginRight">
+                    {item?.level ? item.level : 'inital level'}
+                  </span>
 
                   <>
                     <span className="marginRight">|</span>
-                    <span className="marginRight">{item?.videos && secondToTime(item?.videos[0]?.duration)}</span>
+                    <span className="marginRight">
+                      {item?.videos && secondToTime(item?.videos[0]?.duration)}
+                    </span>
                   </>
 
                   <span className="marginRight">|</span>
-                  <span className="marginRight">{item?.student ? item.student.length + ' Student' : 0 + '   Student'}</span>
+                  <span className="marginRight">
+                    {item?.student
+                      ? item.student.length + ' Student'
+                      : 0 + '   Student'}
+                  </span>
                   <span className="marginRight">|</span>
                   <span className="marginRight">
                     {/* {`${postedTime(item)} days ago`} */}
@@ -210,14 +260,26 @@ function TopCoursesComponent({ item }) {
           </div>
         )}
       </Grid>
-      <Grid item xs={12} sm={8} className="topcourseTextGrid" justifyContent="space-between">
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        className="topcourseTextGrid"
+        justifyContent="space-between"
+      >
         <Grid container spacing={2}>
           <Grid item xs={8} md={10}>
-            <h3 className="h3heading">{item?.name ? item.name + 'gameplay full course' : 'PUBG gameplay full course'}</h3>
+            <h3 className="h3heading">
+              {item?.name
+                ? item.name + 'gameplay full course'
+                : 'PUBG gameplay full course'}
+            </h3>
             <p className="topcourseText">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa semper mi feugiat quis tellus arcu. Rutrum non vitae
-              id urna nunc, egestas. Tempus aliquam, at fusce facilisi gravida lacus faucibus felis, aliquet. Condimentum aenean
-              nulla morbi euismod non vel arcu sapien magna.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa
+              semper mi feugiat quis tellus arcu. Rutrum non vitae id urna nunc,
+              egestas. Tempus aliquam, at fusce facilisi gravida lacus faucibus
+              felis, aliquet. Condimentum aenean nulla morbi euismod non vel
+              arcu sapien magna.
             </p>
           </Grid>
           {/* <Grid item xs={4} md={4}>
@@ -226,11 +288,20 @@ function TopCoursesComponent({ item }) {
         </Grid>
 
         {/* ===========================================Mob=========================================================== */}
-        <Grid container spacing={2} className="topcourseuserGrid" style={{ paddingBottom: '10px' }}>
+        <Grid
+          container
+          spacing={2}
+          className="topcourseuserGrid"
+          style={{ paddingBottom: '10px' }}
+        >
           <Grid item xs={6} md={6}>
             <div className="userprofilediv" id="un_hide">
               <img
-                src={item?.creator?.user_id?.profile_photo ? item.creator.user_id.profile_photo : avatar}
+                src={
+                  item?.creator?.user_id?.profile_photo
+                    ? item.creator.user_id.profile_photo
+                    : avatar
+                }
                 className="avatar"
                 alt="img"
               />
@@ -244,7 +315,7 @@ function TopCoursesComponent({ item }) {
                       className="starID"
                       style={{
                         width: '15px',
-                        height: '15px',
+                        height: '15px'
                       }}
                     />
                   ))}
@@ -255,13 +326,23 @@ function TopCoursesComponent({ item }) {
             </div>
           </Grid>
 
-          <Grid item xs={6} md={6} className="topcourseuserRightGrid" id="un_hide">
+          <Grid
+            item
+            xs={6}
+            md={6}
+            className="topcourseuserRightGrid"
+            id="un_hide"
+          >
             <div style={{ textAlign: 'right' }}>
-              <span className="marginRight">{item?.level ? item.level : 'inital level'}</span>
+              <span className="marginRight">
+                {item?.level ? item.level : 'inital level'}
+              </span>
 
               <>
                 <span className="marginRight">|</span>
-                <span className="marginRight">{item?.videos && secondToTime(item?.videos[0]?.duration)}</span>
+                <span className="marginRight">
+                  {item?.videos && secondToTime(item?.videos[0]?.duration)}
+                </span>
               </>
 
               <span className="marginRight">|</span>

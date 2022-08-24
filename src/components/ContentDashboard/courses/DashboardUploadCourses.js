@@ -31,7 +31,9 @@ const calTotalSecInVideos = (videos) => {
 };
 const formated = (date) => {
   const newDate = new Date(date);
-  let format = `D: ${newDate.getMonth() + 1}/${newDate.getDay() + 3}/${newDate.getFullYear()}`;
+  let format = `D: ${newDate.getMonth() + 1}/${
+    newDate.getDay() + 3
+  }/${newDate.getFullYear()}`;
   return format;
 };
 const DashboardUploadCourses = ({ pageName }) => {
@@ -46,7 +48,7 @@ const DashboardUploadCourses = ({ pageName }) => {
     gameType: '',
     gameMood: '',
     gamePlateForm: '',
-    description: '',
+    description: ''
   });
   const [nudityPop, setNudityPop] = React.useState(false);
   const { creator } = Store();
@@ -102,7 +104,11 @@ const DashboardUploadCourses = ({ pageName }) => {
         setOpen={setOpenDeletePopup}
         course={courseforDelete}
       />
-      <EditCoursePopup open={openEditPopup} setOpen={setOpenEditePopup} course={courseforEdit} />
+      <EditCoursePopup
+        open={openEditPopup}
+        setOpen={setOpenEditePopup}
+        course={courseforEdit}
+      />
       <Grid
         className="cardGrid-container"
         container
@@ -119,17 +125,30 @@ const DashboardUploadCourses = ({ pageName }) => {
                     <Link
                       to={{
                         pathname: `OverView/${item?._id}`,
-                        state: { course: `${item}` },
+                        state: { course: `${item}` }
                       }}
                       className="requestBt"
                       style={{ textDecoration: 'none', color: 'white' }}
                     >
                       <div className="favourite-icon-position2">
-                        <img
-                          src={item?.thumbnail ? item.thumbnail : Course1}
-                          className="courseimg"
-                          alt="img"
-                        />
+                        {item?.thumbnail.slice(-3) == 'mp4' ||
+                        item?.thumbnail.slice(-3) == 'mov' ? (
+                          <video
+                            src={item?.thumbnail}
+                            autoplay
+                            // controls="controls"
+                            onMouseOver={(event) => event.target.pause()}
+                            onMouseOut={(event) => event.target.play()}
+                            loop
+                            className="courseimg"
+                          />
+                        ) : (
+                          <img
+                            src={item?.thumbnail ? item.thumbnail : Course1}
+                            className="courseimg"
+                            alt="img"
+                          />
+                        )}
                       </div>
                     </Link>
                     <div className="dashbordHeading-div">
@@ -163,13 +182,24 @@ const DashboardUploadCourses = ({ pageName }) => {
                     </p> */}
                     <p className="latestcoursep1">
                       {' '}
-                      {item?.rating === 0 ? item?.rating + '.0' : item?.rating} &nbsp;
+                      {item?.rating === 0
+                        ? item?.rating + '.0'
+                        : item?.rating}{' '}
+                      &nbsp;
                       {[1, 2, 3, 4, 5].map((item) => (
                         <Star1 className="star-icon" />
                       ))}
-                      &nbsp; {`(${item?.student?.length > 0 ? item?.student?.length : ` 0 `})`}
+                      &nbsp;{' '}
+                      {`(${
+                        item?.student?.length > 0
+                          ? item?.student?.length
+                          : ` 0 `
+                      })`}
                     </p>
-                    <h6 className="dashboardlatestcourseh6" style={{ display: 'inline-block' }}>
+                    <h6
+                      className="dashboardlatestcourseh6"
+                      style={{ display: 'inline-block' }}
+                    >
                       {item?.videos && secondToTime(item?.videos[0]?.duration)}
                       {' min'}
                       &nbsp; | &nbsp; {getDateIs(item?.createdAt)}

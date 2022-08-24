@@ -1,5 +1,5 @@
 // Init
-import React from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Game1 from '../assets/img/game1.png';
 import Game2 from '../assets/img/game2.png';
 import Game3 from '../assets/img/game3.png';
@@ -20,22 +20,49 @@ import { Store } from '../StoreContext';
 const CustomRightArrow = ({ onClick, ...rest }) => {
   const {
     onMove,
-    carouselState: { currentSlide, deviceType },
+    carouselState: { currentSlide, deviceType }
   } = rest;
   // onMove means if dragging or swiping in progress.
-  return <button className="latest-course-custom-arrow-right" onClick={() => onClick()} />;
+  return (
+    <button
+      className="latest-course-custom-arrow-right"
+      onClick={() => onClick()}
+    />
+  );
 };
 
 const CustomLeftArrow = ({ onClick, ...rest }) => {
   const {
     onMove,
-    carouselState: { currentSlide, deviceType },
+    carouselState: { currentSlide, deviceType }
   } = rest;
   // onMove means if dragging or swiping in progress.
-  return <button className="latest-course-custom-arrow-left" onClick={() => onClick()} />;
+  return (
+    <button
+      className="latest-course-custom-arrow-left"
+      onClick={() => onClick()}
+    />
+  );
 };
 
 export default function TopRatedContent({ topRatedContentCreator }) {
+  const [_myCreators, set_MyRatingCreators] = useState([]);
+  useMemo(() => {
+    let myCreator = [];
+    topRatedContentCreator.map((item) => {
+      let _num = 0;
+
+      item?.creator?.courses?.map((_course) => {
+        _num += parseInt(_course.rating);
+      });
+      _num = _num > 0 ? _num / item?.creator?.courses?.length : 0;
+      _num = _num.toFixed(1);
+      myCreator.push({ ...item, _avgRating: _num ?? 0 });
+    });
+    set_MyRatingCreators(myCreator);
+    // topRatedContentCreator?.filter((courses) => (count += courses?.student?.length));
+    // return ;
+  }, [topRatedContentCreator]);
   const history = useHistory();
   const { user, creator } = Store();
 
@@ -56,7 +83,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: '500000+ Students',
       rating: 'rating',
       price: '19.99',
-      test: '1',
+      test: '1'
     },
     {
       title: 'Undefeated PUBG player',
@@ -66,7 +93,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: '500000+ Students',
       rating: 'rating',
       price: '19.99',
-      test: '2',
+      test: '2'
     },
     {
       title: 'Mincraft Expert',
@@ -76,7 +103,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: '500000+ Students',
       rating: 'rating',
       price: '19.99',
-      test: '3',
+      test: '3'
     },
     {
       title: 'Pro player of CS:GO',
@@ -86,7 +113,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: '500000+ Students',
       rating: 'rating',
       price: '19.99',
-      test: '4',
+      test: '4'
     },
     {
       title: 'GTA 5 Expert',
@@ -96,7 +123,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: '500000+ Students',
       rating: 'rating',
       price: '19.99',
-      test: '5',
+      test: '5'
     },
     {
       title: '6Minicraft Full Course',
@@ -106,7 +133,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: '500000+ Students',
       rating: 'rating',
       price: '19.99',
-      test: '6',
+      test: '6'
     },
     {
       title: '7Minicraft Full Course',
@@ -116,7 +143,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: '500000+ Students',
       rating: 'rating',
       price: '19.99',
-      test: '7',
+      test: '7'
     },
     {
       title: '8Minicraft Full Course',
@@ -126,7 +153,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: '500000+ Students',
       rating: 'rating',
       price: '19.99',
-      test: '8',
+      test: '8'
     },
     {
       title: '9Minicraft Full Course',
@@ -136,7 +163,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: '500000+ Students',
       rating: 'rating',
       price: '19.99',
-      test: '3',
+      test: '3'
     },
     {
       title: '10Minicraft Full Course',
@@ -146,7 +173,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: '500000+ Students',
       rating: 'rating',
       price: '19.99',
-      test: '3',
+      test: '3'
     },
     {
       title: '11Minicraft Full Course',
@@ -156,7 +183,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: '500000+ Students',
       rating: 'rating',
       price: '19.99',
-      test: '3',
+      test: '3'
     },
     {
       title: '12Minicraft Full Course',
@@ -166,36 +193,36 @@ export default function TopRatedContent({ topRatedContentCreator }) {
       students: '500000+ Students',
       rating: 'rating',
       price: '19.99',
-      test: '3',
-    },
+      test: '3'
+    }
   ];
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 4,
+      items: 4
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
-      slidesToSlide: 3,
+      slidesToSlide: 3
     },
     tablet: {
       breakpoint: { max: 1024, min: 800 },
-      items: 2,
+      items: 2
     },
     mobile: {
       breakpoint: { max: 800, min: 0 },
-      items: 1,
-    },
+      items: 1
+    }
   };
   const handleTopRatedCourses = () => {
     history.push({
       pathname: '/searchResult',
       param: {
         name: 'Top 10 NFT Games',
-        value: '2',
-      },
+        value: '2'
+      }
     });
   };
   return (
@@ -217,10 +244,10 @@ export default function TopRatedContent({ topRatedContentCreator }) {
           customLeftArrow={<CustomLeftArrow />}
           customRightArrow={<CustomRightArrow />}
         >
-          {topRatedContentCreator?.map((item, i) => (
+          {_myCreators?.map((item, i) => (
             <Link
               to={{
-                pathname: `/CreatorProfile/${item._id}`,
+                pathname: `/CreatorProfile/${item._id}`
               }}
               className="requestBt"
               style={{ textDecoration: 'none', color: 'white' }}
@@ -228,7 +255,11 @@ export default function TopRatedContent({ topRatedContentCreator }) {
               <div className="topRatedcardGrid" style={{ width: '500px' }}>
                 {window.innerWidth < 601 ? (
                   <h4 className="latestCourse-h4">
-                    <img src={LatestCourseGameIcon} alt="" className="LatestCourse-IMG" />
+                    <img
+                      src={LatestCourseGameIcon}
+                      alt=""
+                      className="LatestCourse-IMG"
+                    />
                     &nbsp;
                     {item.username}
                   </h4>
@@ -236,13 +267,21 @@ export default function TopRatedContent({ topRatedContentCreator }) {
                   ''
                 )}
                 <div className="topRatedcardGrid-image">
-                  <img src={item.profile_photo ? item.profile_photo : Game2} className="topRatedcourseimg" alt="img" />
+                  <img
+                    src={item.profile_photo ? item.profile_photo : Game2}
+                    className="topRatedcourseimg"
+                    alt="img"
+                  />
                 </div>
                 {window.innerWidth < 601 ? (
                   ''
                 ) : (
                   <h4 className="latestCourse-h4">
-                    <img src={LatestCourseGameIcon} alt="" className="LatestCourse-IMG" />
+                    <img
+                      src={LatestCourseGameIcon}
+                      alt=""
+                      className="LatestCourse-IMG"
+                    />
                     &nbsp;
                     {item.username}
                   </h4>
@@ -254,17 +293,31 @@ export default function TopRatedContent({ topRatedContentCreator }) {
               </p>
               <p className="topRatedContentcourseh6">{item.students}</p> */}
                 {/* /* -------------------------------- new card --------------------------------  */}
-                <div className="latestCourseMain-Div" style={{ justifyContent: 'space-between' }}>
+                <div
+                  className="latestCourseMain-Div"
+                  style={{ justifyContent: 'space-between' }}
+                >
                   {/* /* ------------------------------- copy colmn -------------------------------  */}
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
-                      <img src={LatestCourseProPlayerIcon} alt="" className="LatestCourse-IMG" />
-                      <h1 className="latestCourse-pHeading" id="latestCourse-pHeading">
+                      <img
+                        src={LatestCourseProPlayerIcon}
+                        alt=""
+                        className="LatestCourse-IMG"
+                      />
+                      <h1
+                        className="latestCourse-pHeading"
+                        id="latestCourse-pHeading"
+                      >
                         Pro Player Of...
                       </h1>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
-                      <img src={LatestCourseStudentsIcon} alt="" className="LatestCourse-IMG" />
+                      <img
+                        src={LatestCourseStudentsIcon}
+                        alt=""
+                        className="LatestCourse-IMG"
+                      />
 
                       <p className="latestCourse-p">
                         {' '}
@@ -280,12 +333,22 @@ export default function TopRatedContent({ topRatedContentCreator }) {
                   {/* ------------------------------- copy colmn -------------------------------  */}
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
-                      <img src={LatestCourseLavelIcon} alt="" className="LatestCourse-IMG" />
+                      <img
+                        src={LatestCourseLavelIcon}
+                        alt=""
+                        className="LatestCourse-IMG"
+                      />
                       <p className="latestCourse-p">{item?.gameMood}</p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
-                      <img src={LatestCourseRatingIcon} alt="" className="LatestCourse-IMG" />
-                      <p className="latestCourse-p">0 Rating</p>
+                      <img
+                        src={LatestCourseRatingIcon}
+                        alt=""
+                        className="LatestCourse-IMG"
+                      />
+                      <p className="latestCourse-p">
+                        {item._avgRating ?? 0} Rating
+                      </p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}
