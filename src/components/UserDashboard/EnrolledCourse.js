@@ -74,7 +74,8 @@ const EnrolledCourse = () => {
                           </p>
 
                           <p className="wishlistP3">
-                            {item?.course_id?.rating ? item.course_id.rating : '0'} &nbsp;
+                            {item?.course_id?.rating ? item.course_id.rating.toFixed(1) : '0.0'}{' '}
+                            &nbsp;
                             {[1, 2, 3, 4, 5].map((item) => (
                               <Star1
                                 className="wishCardStar"

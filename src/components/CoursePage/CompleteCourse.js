@@ -4,7 +4,7 @@ import Plyr from 'plyr-react';
 import 'plyr-react/dist/plyr.css';
 import api from '../../api/index';
 import { Store } from '../../StoreContext';
-import prev from '../../assets/icons/prev.svg';
+import prevD from '../../assets/icons/prevD.svg';
 import next from '../../assets/icons/next.svg';
 
 const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
@@ -56,6 +56,13 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
       <div className="completeCourse">
         <div className="completeCourse-center-div">
           <div className="completeCourse-colm1">
+            {window.innerWidth < 601 ? (
+              ''
+            ) : (
+              <h2 className="completeCourseH2">
+                {playVideo?.title ? playVideo.title : 'CS Go'} Ep {index + 1} Complete Course
+              </h2>
+            )}
             <h2 className="completeCourseH2">
               {playVideo?.title ? playVideo.title : 'CS Go'} Ep {index + 1}{' '}
               Complete Course
@@ -80,11 +87,31 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
           </div>
           <div className="completeCourse-colm2">
             <h3 className="completeCourseH3">Course Content </h3>
-
             {window.innerWidth < 601 ? (
-              <div>
-                {' '}
-                <img src={prev} style={{ color: 'white' }} /> <img src={next} />
+              <div
+                style={{
+                  width: '16%',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  marginBottom: '5%',
+                  marginTop: '-5%',
+                }}
+              >
+                {index < 1 ? (
+                  <img src={prevD} alt="prev" />
+                ) : (
+                  <img
+                    src={next}
+                    style={{ transform: 'rotateY(180deg)' }}
+                    onClick={handlePrev}
+                    alt="prev"
+                  />
+                )}
+                {index !== videos.length - 1 ? (
+                  <img src={next} onClick={handleNext} alt="next" />
+                ) : (
+                  <img src={prevD} style={{ transform: 'rotateY(180deg)' }} alt="next" />
+                )}
               </div>
             ) : (
               ''
@@ -107,19 +134,23 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
             </div>
           </div>
         </div>
-        <div className="Pre-next-btn">
-          {index > 0 && (
-            <button className="preBTN" onClick={handlePrev}>
-              Previous
-            </button>
-          )}
-          {index !== videos.length - 1 && (
-            <button className="nextBTN" onClick={handleNext}>
-              Next
-            </button>
-          )}
-          {/* <hr className="pre_next_line" /> */}
-        </div>
+        {window.innerWidth < 601 ? (
+          ''
+        ) : (
+          <div className="Pre-next-btn">
+            {index > 0 && (
+              <button className="preBTN" onClick={handlePrev}>
+                Previous
+              </button>
+            )}
+            {index !== videos.length - 1 && (
+              <button className="nextBTN" onClick={handleNext}>
+                Next
+              </button>
+            )}
+            {/* <hr className="pre_next_line" /> */}
+          </div>
+        )}
       </div>
     </>
   );
@@ -167,7 +198,15 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value, index, setIndex }) => {
       ></video>
       <div className="playVideoHeading">
         <h3 className="playVideoH3">
-          {clip?.title ? clip.title : 'CS Go'} Ep {index + 1} Complete Course
+          {window.innerWidth < 601
+            ? clip?.title
+              ? clip.title.length > 26
+                ? clip.title.substring(0, 14) + ' Ep ' + (index + 1) + ' Complete Course'
+                : clip.title + ' Ep ' + (index + 1) + ' Complete Course'
+              : ' CS Go ' + ' Ep ' + (index + 1) + ' Complete Course'
+            : clip?.title
+            ? clip.title + ' Ep ' + (index + 1) + ' Complete Course'
+            : 'CS Go ' + ' Ep ' + (index + 1) + ' Complete Course'}
         </h3>
         <span className="playVideonumber">{value + '/' + videoCount} </span>
         <span>{'|'}</span>

@@ -231,7 +231,7 @@ export default function LatestCourses(props) {
                         className="LatestCourse-IMG"
                       />
                       <p className="latestCourse-p">
-                        {item?.rating ? `${item.rating} Rating` : 'No Rating'}
+                        {item?.rating ? `${item.rating.toFixed(1)} Rating` : 'No Rating'}
                       </p>
                     </div>
                   </div>

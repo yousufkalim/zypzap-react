@@ -68,17 +68,77 @@ const Instructor = (props) => {
                 style={{ textDecoration: 'none', color: 'white' }}
               >
                 {window.innerWidth < 601 ? (
-                  <p style={{ width: '88vw', textAlign: 'left' }}>
-                    {singlCourse?.creator?.user_id?.prefrence_games?.favourite_games.length > 0
-                      ? `Expertise Games: ${singlCourse?.creator?.user_id?.prefrence_games?.favourite_games.join(
-                          ',  '
-                        )} `
-                      : 'Expertise Games: None'}
-                  </p>
+                  <>
+                    <p
+                      style={{
+                        width: '88vw',
+                        textAlign: 'left',
+                        fontSize: '12px',
+                        fontWeight: '700',
+                      }}
+                    >
+                      {singlCourse?.creator?.user_id?.prefrence_games?.favourite_games.length > 0
+                        ? `Expertise Games: ${singlCourse?.creator?.user_id?.prefrence_games?.favourite_games.join(
+                            ',  '
+                          )} `
+                        : 'Expertise Games: None'}
+                    </p>
+
+                    <div style={{ display: 'flex', paddingTop: '6%' }}>
+                      {' '}
+                      <div style={{ width: '101px', height: '101px' }}>
+                        <img
+                          src={singlCourse?.creator?.user_id?.profile_photo || InstructorIcon}
+                          alt=""
+                          className="instructorLogo"
+                        />
+                      </div>
+                      <div
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          marginTop: '25px',
+                        }}
+                      >
+                        <li className="overViewLi">
+                          <img
+                            src={overViewIcon3}
+                            alt=""
+                            style={{ marginLeft: '0', width: '16px' }}
+                          />
+                          <p className="overViewIconP" style={{ fontSize: '12px' }}>
+                            {singlCourse?.creator?.courses
+                              ? singlCourse.creator.courses.length > 1
+                                ? singlCourse.creator.courses.length + ' Courses'
+                                : singlCourse.creator.courses.length + ' Course'
+                              : 'No Courses'}
+                          </p>
+                        </li>
+                        <li className="overViewLi" id="std_tag">
+                          <img
+                            src={overViewIcon4}
+                            alt=""
+                            style={{ marginLeft: '55px', width: '16px' }}
+                          />
+                          <p className="overViewIconP" style={{ fontSize: '12px' }}>
+                            {/* {singlCourse?.creator?.courses
+                      ? totalStudent(singlCourse.creator.courses) + " Students"
+                      : "0 Students"} */}
+                            {singlCourse?.creator?.courses
+                              ? totalStudent(singlCourse.creator.courses) > 1
+                                ? totalStudent(singlCourse.creator.courses) + ' Students'
+                                : totalStudent(singlCourse.creator.courses) + ' Student'
+                              : 'No Students'}
+                          </p>
+                        </li>
+                      </div>
+                    </div>
+                  </>
                 ) : (
                   ''
                 )}
-                <div className="instructor-image">
+                <div className="instructor-image" id="tags">
                   <img
                     src={singlCourse?.creator?.user_id?.profile_photo || InstructorIcon}
                     alt=""

@@ -252,7 +252,7 @@ export default function TopRatedContent({ topRatedContentCreator }) {
               className="requestBt"
               style={{ textDecoration: 'none', color: 'white' }}
             >
-              <div className="topRatedcardGrid" style={{ width: '500px' }}>
+              <div className="topRatedcardGrid">
                 {window.innerWidth < 601 ? (
                   <h4 className="latestCourse-h4">
                     <img

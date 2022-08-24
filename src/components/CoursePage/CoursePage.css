@@ -57,7 +57,7 @@ body {
   padding: 10px 0px;
 }
 .completeCourseH3 {
-  padding: 12px 0px;
+  padding: 36px 0px;
 }
 .completeCourse-Video {
   width: 100% !important;
@@ -127,3 +127,5 @@ body {
   background-clip: text;
   font-size: 18px;
 }
+
+

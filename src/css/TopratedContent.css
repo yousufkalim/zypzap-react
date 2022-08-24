@@ -88,7 +88,7 @@ tr {
     border-radius: 15px !important;
   }
   .topRatedContentHeadingDiv{
-    margin-top: 7vh;
+    margin-top: -1vh;
   }
   .react-multiple-carousel__arrow--right{
     margin-top: 65vh;

@@ -9,6 +9,12 @@ body {
 .overViewContent,.overDescriptionP{
   word-wrap: break-word;
 }
+#starID {
+  width: 18px;
+  height: 18px;
+  top: '1px',
+
+}
 .OverView {
   width: 100%;
   color: #fff;
@@ -120,7 +126,7 @@ body {
     linear-gradient(65.06deg, #662f88 9.05%, #20bf55 131.69%);
   border-radius: 4px;
   color: #fff;
-  font-weight: 900 !important;
+  font-weight: 700 !important;
   padding: 8px 0;
   margin: 15px 2px;
   font-family: 'Poppins', sans-serif !important;
@@ -496,15 +502,31 @@ body {
 
 
 @media only screen and (min-width: 200px) and (max-width: 600px) {
+  .reviewsStarIcon {
+    margin: -6px;
+  }
+  .center_overViewDiv{
+    margin: 0;
+    width: 100%;
+  }
+  .student-feedback-h3{
+    margin: 20px 0 0 -30px;
+  }
+  .overViewLi{
+    padding-right:2% ;
+  }
+  .courseRatingP {
+    padding: 37px 0 17px 11px;
+   
+  }
   .ReviewsPersntage{
-    font-size: 13px;
+    font-size: 12px;
     padding: 0 !important;
   }
   .overIMG{
     display: none;
   }
   .overViewMene_centerDiv{
-   margin-top: 72vh;
    margin-bottom: 4vh;
   }
   .overViewH1{
@@ -518,13 +540,18 @@ body {
     font-size: 14px;
   }
   .overView_heading{
-    margin-top: 50vh;
-    width: 100%  !important ;
+    position: unset;
+    margin-top: 4vh !important;
+    width: 93% !important;
+    margin: auto;
+  }
+  #mobMargin{
+    margin-top: 87vh;
   }
   .overVeiwCS-btn{
     margin: 5px 10px;
     margin-right: auto;
-    margin-left: 24vh;
+    font-size: 14px;
   }
   .curriculum-h3{
     font-size: 16px;
@@ -547,6 +574,7 @@ body {
   .overViewTags{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
   .overViewIcon {
     display: inline;
@@ -556,20 +584,25 @@ body {
 .overVeiwSlectBTN{
   display:flex;
   flex-direction: column;
-  margin-left: -45%;
+  
 }
 .overViewMenuButton{
-  padding: 12px;
-  font-size: 13px;
-  margin-right: 10px;
+  padding: 11px;
+  font-size: 13.5px;
+  margin-right: 6px;
   border-radius: 2px;
+  font-weight: 600 !important;
+}
+.overDescriptionH3{
+  font-weight: 600 !important;
+
 }
 .overDescriptionP{
   font-size: 14px;
-  text-align: justify;
+  /* text-align: justify; */
 
 }
-.overView-descripiton-centerDiv{
+#chapters{
   padding: 6%;
 }
 .overView-description-content{
@@ -603,7 +636,8 @@ body {
   margin-left: -6%;
 }
 .Instructor{
-  padding: 2%;
+  padding-top: 7%;
+  padding-left: 7%;
 }
 .instructor-heading{
   display: none;
@@ -630,11 +664,14 @@ body {
   flex-direction: column;
 }
 #std_tag{
-  margin-left: -36%;
+  margin-left: -32%;
 }
 
 .courseRating {
   background: #1d1f38;
+  margin:0;
+  margin-top: 10px !important;
+  margin-bottom: 20px !important;
 } 
 
 .overView-descripiton-centerDiv,.reviews{
@@ -645,7 +682,9 @@ body {
 }
 
 .reviews{
-  height: 78vh;
+  height: 320px;
+  width: 334px !important;
+  margin: auto;
 }
 .reviews-lines{
   margin-top: 19vh;
@@ -655,10 +694,13 @@ body {
 }
 .reviews-all-star-image{
   margin-top: 19vh;
-  width: 43%;
+  width: 32%;
 }
 .studentFeedBack{
-  margin-top: -31vh;
+  margin-top: -12vh;
+}
+.courseRatingH1{
+  padding:0 !important
 }
 .completeCourse-center-div {
   width: 100%;
@@ -672,23 +714,41 @@ body {
 }
 .completeCourse-colm1,.completeCourse-colm2{
   width: 100vw !important;
-}
+  margin-bottom: 0 !important;}
 .completeCourseScroll{
-  height: 27vh !important;
+  height: 36vh !important;
   width: 95vw;
 }
 .completeCourse-colm2{
   padding: 0!important;
-  margin-top:16vh;
 }
 .plyr__progress {
   position: relative;
-  top: 6vh;
+  top: 7vh;
   width: 87vw;
   margin-left: -13vh;
-  z-index: 1 !important;
+  z-index: 500 !important;
 }
 .plyr--video .plyr__controls{
   top:38vh
+}
+
+
+.CardBuyBtn{
+  width: 100% !important;
+}
+.instructorProfile-Name,.instructorProfile-P{
+  font-size: 14px;
+  font-weight: 700 !important;
+}
+.instructor-co{
+  padding: 0 !important;
+  width: 0 !important;
+}
+#overViewContent{
+  padding: 3%;
+}
+#MOBK{
+  margin-top: 70vh;
 }
 }

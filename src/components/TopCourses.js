@@ -198,22 +198,20 @@ function TopCoursesComponent({ item }) {
                   <div>
                     <p className="p1">{item?.creator?.user_id?.username}</p>
                     <p className="p2">{item?.course_name + ' player'}</p>
-
-                    <p className="p2">
-                      {item?.rating ? item.rating + ' ' : <></>}
-                      {[1, 2, 3, 4, 5].map((i) => (
-                        <Star1
-                          className="starID"
-                          style={{
-                            width: '12px',
-                            height: '12px'
-                          }}
-                        />
-                      ))}
-                      {' (' + countViews(item) + ')'}
-                      {/* &nbsp; (382,420) */}
-                    </p>
-                  </div>
+                  <p className="p2">
+                    {item?.rating ? item.rating.toFixed(1) : '0.0'} &nbsp;
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star1
+                        className="starID"
+                        style={{
+                          width: '12px',
+                          height: '12px',
+                        }}
+                      />
+                    ))}
+                    {' (' + countViews(item) + ')'}
+                    {/* &nbsp; (382,420) */}
+                  </p>
                 </div>
               </Grid>
             </Grid>
@@ -252,10 +250,21 @@ function TopCoursesComponent({ item }) {
                   <span className="marginRight">
                     {/* {`${postedTime(item)} days ago`} */}
 
-                    {getDateIs(item?.createdAt || '0 Weeks')}
-                  </span>
-                </div>
-              </Grid>
+                <span className="marginRight">|</span>
+                <span className="marginRight">
+                  {item?.student
+                    ? item.student.length > 1
+                      ? item.student.length + ' Students'
+                      : item.student.length + ' Student'
+                    : 0 + '   Student'}
+                </span>
+                <span className="marginRight">|</span>
+                <span className="marginRight">
+                  {/* {`${postedTime(item)} days ago`} */}
+
+                  {getDateIs(item?.createdAt || '0 Weeks')}
+                </span>
+              </div>
             </Grid>
           </div>
         )}
@@ -309,7 +318,7 @@ function TopCoursesComponent({ item }) {
                 <p className="p1">{item?.creator?.user_id?.username}</p>
                 <p className="p2">{item?.course_name + ' player'}</p>
                 <p className="p2">
-                  {item?.rating ? item.rating : <></>}
+                  {item?.rating ? item.rating.toFixed(1) : '0.0'}
                   {[1, 2, 3, 4, 5].map((i) => (
                     <Star1
                       className="starID"

@@ -97,27 +97,44 @@ const Reviews = (props) => {
         <div className="overView-descripiton-centerDiv">
           <div className="reviews">
             {/* 1Div */}
-            <div className="studentFeedBack">
-              <p className="student-feedback-h3">Student feedback</p>
-              <div className="courseRating">
-                <h1 className="courseRatingH1">
-                  {singlCourse?.rating ? singlCourse.rating : '0.0'}
-                </h1>
-                <div className="courseRating-images" id="stars">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Star1
-                      className="starID"
-                      style={{
-                        width: '21px',
-                        height: '21px',
-                        top: '3px',
-                      }}
-                    />
-                  ))}
+            {window.innerWidth < 601 ? (
+              <div className="studentFeedBack">
+                <p className="student-feedback-h3" style={{ fontWeight: '400' }}>
+                  Student feedback
+                </p>
+                <div
+                  className="courseRating"
+                  style={{ display: 'flex', justifyContent: 'space-between' }}
+                >
+                  <p className="courseRatingH1" style={{ fontSize: '55px' }}>
+                    {singlCourse?.rating ? singlCourse.rating.toFixed(1) : '0.0'}
+                  </p>{' '}
+                  <p className="courseRatingP">Course Rating</p>
                 </div>
-                <p className="courseRatingP">Course Rating</p>
               </div>
-            </div>
+            ) : (
+              <div className="studentFeedBack">
+                <p className="student-feedback-h3">Student feedback</p>
+                <div className="courseRating">
+                  <h1 className="courseRatingH1">
+                    {singlCourse?.rating ? singlCourse.rating.toFixed(1) : '0.0'}
+                  </h1>
+                  <div className="courseRating-images" id="stars">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star1
+                        className="starID"
+                        style={{
+                          width: '21px',
+                          height: '21px',
+                          top: '3px',
+                        }}
+                      />
+                    ))}
+                  </div>
+                  <p className="courseRatingP">Course Rating</p>
+                </div>
+              </div>
+            )}
             <div className="reviews-lines">
               <Box sx={{ flexGrow: 1 }}>
                 <br />

@@ -378,7 +378,7 @@
         font-size: 22px;
     }
 
-    .latestcourseheadings {
+   .latestcourseheadings {
         padding: 39px 0px 3px 0px;
         font-size: 15px;
         font-weight: 400;
@@ -454,7 +454,7 @@
 
     .cardGrid {
         margin: auto !important;
-        margin-bottom: 2vh !important;
+        margin-bottom: 3vh !important;
         width:92%;
     }
 
