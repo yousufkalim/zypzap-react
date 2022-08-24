@@ -505,6 +505,10 @@ body {
   .reviewsStarIcon {
     margin: -6px;
   }
+  .center_overViewDiv{
+    margin: 0;
+    width: 100%;
+  }
   .student-feedback-h3{
     margin: 20px 0 0 -18px;
   }
@@ -537,8 +541,9 @@ body {
   }
   .overView_heading{
     position: unset;
-    margin-top: 4vh;
-    width: 100%  !important ;
+    margin-top: 4vh !important;
+    width: 93% !important;
+    margin: auto;
   }
   #mobMargin{
     margin-top: 87vh;
