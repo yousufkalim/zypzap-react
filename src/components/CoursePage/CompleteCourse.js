@@ -11,22 +11,18 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
   const ref = useRef();
   const { user } = Store();
 
-  const [videos, setVideos] = useState(
-    singlCourse?.videos ? singlCourse.videos : 0
-  );
+  const [videos, setVideos] = useState(singlCourse?.videos ? singlCourse.videos : 0);
   // const [id, setId] = useSate();
   const [playVideo, setPlayVideo] = useState(singlCourse?.videos[0]);
   const [index, setIndex] = useState(0);
-  const [videoCount, setVideoCount] = useState(
-    singlCourse?.videos ? singlCourse.videos.length : 0
-  );
+  const [videoCount, setVideoCount] = useState(singlCourse?.videos ? singlCourse.videos.length : 0);
   const videoSrc = {
     type: 'video',
     sources: [
       {
-        src: playVideo?.src_url
-      }
-    ]
+        src: playVideo?.src_url,
+      },
+    ],
   };
 
   useEffect(() => {
@@ -64,8 +60,7 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
               </h2>
             )}
             <h2 className="completeCourseH2">
-              {playVideo?.title ? playVideo.title : 'CS Go'} Ep {index + 1}{' '}
-              Complete Course
+              {playVideo?.title ? playVideo.title : 'CS Go'} Ep {index + 1} Complete Course
             </h2>
             {/* <ReactPlayer src={playVideo?.src_url} /> */}
             {/* <ReactPlayer

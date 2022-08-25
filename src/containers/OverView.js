@@ -14,7 +14,7 @@ import CompleteCourse from '../components/CoursePage/CompleteCourse';
 import api from '../api';
 import { Store, UpdateStore } from '../StoreContext';
 import LatestCourses from '../components/LatestCourses';
-let btns = [{ text: 'Overview' }, { text: 'Cursus' }, { text: 'Instructor' }, { text: 'Feedback' }];
+let btns = [{ text: 'Overview' }, { text: 'Cursus' }, { text: 'Instructor' }, { text: 'Reviews' }];
 const OverView = (props) => {
   const { id } = useParams();
   const [overView, setOverView] = useState(false);
@@ -104,7 +104,7 @@ const OverView = (props) => {
 
       {activebtn == 'Instructor' && <Instructor singlCourse={course} />}
 
-      {(activebtn == 'Feedback' || showRatingPopup) && (
+      {(activebtn == 'Reviews' || showRatingPopup) && (
         <Reviews
           singlCourse={course}
           rating={rating}

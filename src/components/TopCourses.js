@@ -199,7 +199,8 @@ function TopCoursesComponent({ item }) {
                     <p className="p2">{item?.course_name + ' player'}</p>
 
                     <p className="p2">
-                      {item?.rating ? item.rating + ' ' : <></>}
+                      {item?.rating ? item.rating.toFixed(1) : '0.0'}
+                      &nbsp;{' '}
                       {[1, 2, 3, 4, 5].map((i) => (
                         <Star1
                           className="starID"

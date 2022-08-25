@@ -566,10 +566,7 @@ body {
 
   }
   .overViewCard{
-    width: 100% !important;
-    position: revert;
-    top:0 !important;
-  right: 0 !important 
+  display: none;
  }
   .overViewTags{
     display: flex;
@@ -588,8 +585,8 @@ body {
 }
 .overViewMenuButton{
   padding: 11px;
-  font-size: 13.5px;
-  margin-right: 6px;
+  font-size: 14px;
+  margin-right: 7px;
   border-radius: 2px;
   font-weight: 600 !important;
 }
@@ -751,4 +748,5 @@ body {
 #MOBK{
   margin-top: 70vh;
 }
+
 }
