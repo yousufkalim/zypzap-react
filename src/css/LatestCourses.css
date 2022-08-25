@@ -401,7 +401,8 @@
 
     .wishCarImgDiv {
         height: 243px;
-        width: 330px;
+        width: 100%;
+        padding: 0 15px;
     }
 
     .css-1l6di18 .MuiAutocomplete-tag {
