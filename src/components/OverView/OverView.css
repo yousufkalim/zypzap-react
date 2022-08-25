@@ -397,6 +397,7 @@ body {
 .instructorProfile-P {
   font-size: 18px;
   font-weight: 400;
+  text-align: justify;
 }
 /* reviews */
 .reviews {
@@ -747,6 +748,9 @@ body {
 }
 #MOBK{
   margin-top: 70vh;
+}
+#headingContent{
+  text-align: justify;
 }
 
 }
