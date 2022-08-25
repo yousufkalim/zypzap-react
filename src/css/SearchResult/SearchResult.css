@@ -391,6 +391,9 @@
 
   @media only screen and (min-width: 270px) and (max-width: 600px) {
 
+    .css-1y37d59 .MuiPaper-root{
+   background-color: #1F2342 !important;
+  min-width:143px !important}
     #mobHideText {
       display: none;
      }
