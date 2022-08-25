@@ -20,29 +20,19 @@ import { height } from '@mui/system';
 const CustomRightArrow = ({ onClick, ...rest }) => {
   const {
     onMove,
-    carouselState: { currentSlide, deviceType }
+    carouselState: { currentSlide, deviceType },
   } = rest;
   // onMove means if dragging or swiping in progress.
-  return (
-    <button
-      className="latest-course-custom-arrow-right"
-      onClick={() => onClick()}
-    />
-  );
+  return <button className="latest-course-custom-arrow-right" onClick={() => onClick()} />;
 };
 
 const CustomLeftArrow = ({ onClick, ...rest }) => {
   const {
     onMove,
-    carouselState: { currentSlide, deviceType }
+    carouselState: { currentSlide, deviceType },
   } = rest;
   // onMove means if dragging or swiping in progress.
-  return (
-    <button
-      className="latest-course-custom-arrow-left"
-      onClick={() => onClick()}
-    />
-  );
+  return <button className="latest-course-custom-arrow-left" onClick={() => onClick()} />;
 };
 
 export default function LatestCourses(props) {
@@ -118,29 +108,29 @@ export default function LatestCourses(props) {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 4
+      items: 4,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
-      slidesToSlide: 3
+      slidesToSlide: 3,
     },
     tablet: {
       breakpoint: { max: 1024, min: 800 },
-      items: 2
+      items: 2,
     },
     mobile: {
       breakpoint: { max: 800, min: 0 },
-      items: 1
-    }
+      items: 1,
+    },
   };
   const handleLatestCourses = () => {
     history.push({
       pathname: '/searchResult',
       param: {
         name: 'Latest Courses',
-        value: '2'
-      }
+        value: '2',
+      },
     });
   };
 
@@ -168,7 +158,7 @@ export default function LatestCourses(props) {
             <Link
               to={{
                 pathname: `OverView/${item?._id}`,
-                state: { course: `${item}` }
+                state: { course: `${item}` },
               }}
               className="requestBt"
               style={{ textDecoration: 'none', color: 'white' }}
@@ -182,8 +172,7 @@ export default function LatestCourses(props) {
                   ''
                 )}
                 <div className="topRatedcardGrid-image">
-                  {item?.thumbnail.slice(-3) == 'mp4' ||
-                  item?.thumbnail.slice(-3) == 'mov' ? (
+                  {item?.thumbnail.slice(-3) == 'mp4' || item?.thumbnail.slice(-3) == 'mov' ? (
                     <video
                       src={item?.thumbnail}
                       autoplay
@@ -212,11 +201,7 @@ export default function LatestCourses(props) {
                 <div className="latestCourseMain-Div">
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
-                      <img
-                        src={LatestCourseGameIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
+                      <img src={LatestCourseGameIcon} alt="" className="LatestCourse-IMG" />
                       <p className="latestCourse-pHeading">
                         <strong id="latestCourse-pHeading">
                           {' '}
@@ -225,61 +210,35 @@ export default function LatestCourses(props) {
                       </p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
-                      <img
-                        src={LatestCourseStarIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
+                      <img src={LatestCourseStarIcon} alt="" className="LatestCourse-IMG" />
                       <p className="latestCourse-p">
-                        {item?.rating ? `${item.rating.toFixed(1)} Rating` : 'No Rating'}
+                        {item?.rating ? `${item.rating.toFixed(1)} Rating` : '0.0 Rating'}
                       </p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
-                      <img
-                        src={LatestCourseStarBadgeIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
-                      <p className="latestCourse-p">
-                        {' '}
-                        {`(${countViews(item)})`}
-                      </p>
+                      <img src={LatestCourseStarBadgeIcon} alt="" className="LatestCourse-IMG" />
+                      <p className="latestCourse-p"> {`(${countViews(item)})`}</p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
-                      <img
-                        src={LatestCourseVideoIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
+                      <img src={LatestCourseVideoIcon} alt="" className="LatestCourse-IMG" />
                       <p className="latestCourse-p">
                         {/* {calTotalSecInVideos(item?.videos)} */}
-                        {item?.videos &&
-                          secondToTime(item?.videos[0]?.duration)}
+                        {item?.videos && secondToTime(item?.videos[0]?.duration)}
                       </p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}
                   <div className="latestCouse-colmn">
                     <div className="latestCourse-colmn-centerDiv">
-                      <img
-                        src={LatestCourseLavelIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
+                      <img src={LatestCourseLavelIcon} alt="" className="LatestCourse-IMG" />
                       <p className="latestCourse-p">{item?.level}</p>
                     </div>
                     <div className="latestCourse-colmn-centerDiv">
-                      <img
-                        src={LatestCourseTimingIcon}
-                        alt=""
-                        className="LatestCourse-IMG"
-                      />
-                      <p className="latestCourse-p">
-                        {getDateIs(item?.createdAt)}
-                      </p>
+                      <img src={LatestCourseTimingIcon} alt="" className="LatestCourse-IMG" />
+                      <p className="latestCourse-p">{getDateIs(item?.createdAt)}</p>
                     </div>
                   </div>
                   {/* ------------------------------- copy colmn -------------------------------  */}

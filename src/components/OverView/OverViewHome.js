@@ -42,7 +42,7 @@ const OverViewHome = (props) => {
   const handleStartCourse = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id
+      userId: u?._id,
     };
     let res = await api('post', '/users/enrolledCourseAndStarted', data);
   };
@@ -53,7 +53,7 @@ const OverViewHome = (props) => {
   const handleEnrolled = async (u, course) => {
     const data = {
       courseId: course?._id,
-      userId: u?._id
+      userId: u?._id,
     };
     let res = await api('post', '/users/enrolledCourse', data);
     if (res) {
@@ -77,18 +77,27 @@ const OverViewHome = (props) => {
             <img className="overIMG" src={OverViewImg} alt="" />
           </div>
           {window.innerWidth < 601 ? (
-            <div
-              className="overViewCarImage"
-              style={{ width: '100%', height: '291.38px' }}
-            >
-              <img
-                style={{ width: '100%', height: '100%' }}
-                src={
-                  singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg
-                }
-                alt=""
-                className="overViewCardIMG"
-              />
+            <div className="overViewCarImage" style={{ width: '100%', height: '291.38px' }}>
+              {singlCourse?.thumbnail.slice(-3) == 'mp4' ||
+              singlCourse?.thumbnail.slice(-3) == 'mov' ? (
+                <video
+                  style={{ maxWidth: '100%' }}
+                  src={singlCourse?.thumbnail}
+                  autoplay
+                  // controls="controls"
+                  onMouseOver={(event) => event.target.pause()}
+                  onMouseOut={(event) => event.target.play()}
+                  loop
+                  className="overViewCardIMG"
+                />
+              ) : (
+                <img
+                  style={{ maxWidth: '100%' }}
+                  src={singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg}
+                  className="overViewCardIMG"
+                  alt="img"
+                />
+              )}{' '}
             </div>
           ) : (
             ''
@@ -99,9 +108,7 @@ const OverViewHome = (props) => {
                 Beat the Opponent&nbsp;
                 <span style={{ textTransform: 'capitalize' }}>
                   {' '}
-                  {singlCourse?.course_name
-                    ? singlCourse.course_name
-                    : ' CS GO '}
+                  {singlCourse?.course_name ? singlCourse.course_name : ' CS GO '}
                   &nbsp;Gameplay
                 </span>
               </h1>
@@ -122,22 +129,18 @@ const OverViewHome = (props) => {
                 <li className="overViewLi">
                   <img src={RatingStarIcon} alt="" className="overViewIcon" />
                   <p className="overViewIconP">
-                    {singlCourse?.rating
-                      ? `${singlCourse.rating.toFixed(1)}`
-                      : ' 0.0 Rating'}{' '}
+                    {singlCourse?.rating ? `${singlCourse.rating.toFixed(1)}` : ' 0.0'}{' '}
                   </p>
                   &nbsp;
-                  {singlCourse?.rating
-                    ? [1, 2, 3, 4, 5].map((i) => (
-                        <Star1
-                          className="starID"
-                          style={{
-                            width: '15px',
-                            height: '15px'
-                          }}
-                        />
-                      ))
-                    : ''}
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star1
+                      className="starID"
+                      style={{
+                        width: '16px',
+                        height: '16px',
+                      }}
+                    />
+                  ))}
                 </li>
                 <li className="overViewLi">
                   <img src={overViewIcon4} alt="" className="overViewIcon" />
@@ -219,7 +222,7 @@ const OverViewHome = (props) => {
                   <p className="overViewIconP">
                     {singlCourse?.rating
                       ? `${singlCourse.rating.toFixed(1)} Rating`
-                      : ' 0 Rating'}{' '}
+                      : ' 0.0 Rating'}{' '}
                     {/* <img src={Star6} alt="" /> */}
                   </p>
                 </li>
@@ -321,11 +324,7 @@ const OverViewHome = (props) => {
                 ) : (
                   <img
                     style={{ maxWidth: '100%' }}
-                    src={
-                      singlCourse?.thumbnail
-                        ? singlCourse.thumbnail
-                        : OverViewImg
-                    }
+                    src={singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg}
                     className="overViewCardIMG"
                     alt="img"
                   />
@@ -459,7 +458,6 @@ const OverViewHome = (props) => {
               </div> */}
             </div>
           </div>
-          )}
         </div>
         <GuestSignUpPopUp
           open={openGuestPopUp}

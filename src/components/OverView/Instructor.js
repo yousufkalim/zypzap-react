@@ -99,6 +99,7 @@ const Instructor = (props) => {
                           flexDirection: 'column',
                           alignItems: 'center',
                           marginTop: '25px',
+                          marginLeft: '25px',
                         }}
                       >
                         <li className="overViewLi">
@@ -119,7 +120,7 @@ const Instructor = (props) => {
                           <img
                             src={overViewIcon4}
                             alt=""
-                            style={{ marginLeft: '55px', width: '16px' }}
+                            style={{ marginLeft: '36px', width: '16px' }}
                           />
                           <p className="overViewIconP" style={{ fontSize: '12px' }}>
                             {/* {singlCourse?.creator?.courses

@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import NotFound from '../../assets/img/NotFound.svg';
-import Filters from '../../assets/filters.svg';
+import Filters from '../../assets/icons/filtergrp.svg';
 import { useState } from 'react';
 
 const ResearchFaild = ({ searchInput, setOpen }) => {
@@ -12,22 +12,22 @@ const ResearchFaild = ({ searchInput, setOpen }) => {
   return (
     <>
       <Box className="cards-container2">
+        {window.innerWidth < 601 ? (
+          <img
+            src={Filters}
+            onClick={openSidebar}
+            style={{ width: '9vw', marginTop: '6%', marginLeft: '3vh' }}
+            alt=""
+          />
+        ) : (
+          ''
+        )}{' '}
         <div className="cards-box" id="failbox">
           <div className="cards-header-text">
             <h3 className="card-header-text-h3">
               {' '}
               {searchInput} <span>0 Result Found</span>
             </h3>
-            {/* {window.innerWidth < 601 ? (
-              <img
-                src={Filters}
-                onClick={openSidebar}
-                style={{ width: '9vw', marginBottom: '6%' }}
-                alt=""
-              />
-            ) : (
-              ''
-            )}{' '} */}
           </div>
         </div>
         <Grid
@@ -42,7 +42,6 @@ const ResearchFaild = ({ searchInput, setOpen }) => {
             <p className="researchP">Don’t Worry if you didn’t got what you searched for</p>
           </div>
         </Grid>
-
         <Box textAlign="center">
           <button className="btn-Research"> Coming Soon</button>
         </Box>
