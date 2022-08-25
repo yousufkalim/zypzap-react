@@ -228,7 +228,7 @@ body {
   display: flex;
 }
 .creatorCard {
-  width: 25%;
+  width: 30%;
   margin-top: 20px;
 }
 .creatorProfileH3 {
@@ -712,6 +712,10 @@ body {
   font-weight: 700;
   text-align: center;
 }
+
+.creatorCard{
+  width: 100%;
+}
 .profile-container {
   width: 100%;
   position: absolute;
@@ -771,5 +775,25 @@ body {
 }
 .selectInput-userProfile{
   background-color: transparent !important;
+}
+.creatorProfileCart-centerDiv {
+  flex-direction: column;
+  width: 100%;
+  padding-top: 33px;
+}
+#mobprofileimage{
+  height: 0;
+}
+.vl{
+  border-left: 2px solid grey;
+  opacity: 31%;
+height: 44px;}
+
+.creatorProfileH3{
+  padding-top: 16px;
+  border-bottom: 1px solid #323232;
+}
+.creatorCard{
+  margin-top: 0;
 }
 }

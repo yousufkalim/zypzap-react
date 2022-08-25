@@ -153,7 +153,6 @@ export default function LatestCourses(props) {
           customRightArrow={<CustomRightArrow />}
           customLeftArrow={<CustomLeftArrow />}
         >
-          {console.log('items', items)}
           {items?.map((item, i) => (
             <Link
               to={{

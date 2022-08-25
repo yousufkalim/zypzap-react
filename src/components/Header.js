@@ -538,12 +538,20 @@ export default function PrimarySearchAppBar({
           position="static"
           sx={{ background: 'transparent' }}
           className={
-            window.location.pathname === '/userprofile' ? 'profileHeader' : 'headerBackgroundColor'
+            window.location.pathname === '/userprofile' ||
+            window.location.pathname.split('/')[1] === 'CreatorProfile'
+              ? 'profileHeader'
+              : 'headerBackgroundColor'
           }
         >
           <Toolbar
             className="imgLogo"
-            id={window.location.pathname === '/userprofile' ? 'editPHeader' : ''}
+            id={
+              window.location.pathname === '/userprofile' ||
+              window.location.pathname.split('/')[1] === 'CreatorProfile'
+                ? 'editPHeader'
+                : ''
+            }
           >
             <img
               // src={Logo}
@@ -583,7 +591,9 @@ export default function PrimarySearchAppBar({
                 ></a>
               </div>
             </Typography>
-            {window.innerWidth < 601 && window.location.pathname === '/userprofile' ? null : (
+            {window.innerWidth < 601 &&
+            (window.location.pathname === '/userprofile' ||
+              window.location.pathname.split('/')[1] === 'CreatorProfile') ? null : (
               <Search className={window.innerWidth < 601 ? 'mobSearchBar' : 'searchBar'}>
                 <div onClick={handleSearchButtonClick} style={{ cursor: 'pointer' }}>
                   {' '}
@@ -915,7 +925,8 @@ export default function PrimarySearchAppBar({
                 onClick={handleMobileMenuOpen}
                 color="inherit"
               >
-                {window.location.pathname === '/userprofile' ? (
+                {window.location.pathname === '/userprofile' ||
+                window.location.pathname.split('/')[1] === 'CreatorProfile' ? (
                   <img src={Hamburger1} alt="" />
                 ) : (
                   <img src={Hamburger} alt="" />

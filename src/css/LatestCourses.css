@@ -343,7 +343,7 @@
             rgba(38, 38, 72, 0) 129.88%);
     margin: 12px;
     border-radius: 35px;
-    min-height: 97%;
+    min-height: 93% !important;
 }
 
 /* -------------------------------- wishlist --------------------------------   */
