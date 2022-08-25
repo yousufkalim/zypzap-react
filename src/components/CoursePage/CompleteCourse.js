@@ -59,9 +59,7 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
                 {playVideo?.title ? playVideo.title : 'CS Go'} Ep {index + 1} Complete Course
               </h2>
             )}
-            <h2 className="completeCourseH2">
-              {playVideo?.title ? playVideo.title : 'CS Go'} Ep {index + 1} Complete Course
-            </h2>
+
             {/* <ReactPlayer src={playVideo?.src_url} /> */}
             {/* <ReactPlayer
               url={playVideo?.src_url}
