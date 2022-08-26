@@ -701,7 +701,7 @@ body {
   padding:0 !important
 }
 .completeCourse-center-div {
-  width: 100%;
+  width: 100% !important;
   /* margin: auto; */
   display: flex;
   flex-wrap: wrap;
@@ -719,18 +719,25 @@ body {
 }
 .completeCourse-colm2{
   padding: 0!important;
+  padding-left: 14px!important;
+
 }
 .plyr__progress {
   position: relative;
-  top: 7vh;
+  top: 4vh;
   width: 87vw;
-  margin-left: -13vh;
+  margin-left: -11vh;
   z-index: 500 !important;
 }
 .plyr--video .plyr__controls{
-  top:38vh
+  top:33vh;
+  padding: 3%;
 }
 
+.plyr__controls{
+  justify-content: center !important;
+
+}
 
 .CardBuyBtn{
   width: 100% !important;
@@ -752,5 +759,16 @@ body {
 #headingContent{
   text-align: justify;
 }
-
+.completeCourse-colm1{
+height: 368px;
+}
+.completeCourseH3{
+  padding: 0!important;
+  padding-bottom: 31px !important;
+}
+}
+@media only screen and (width: 375px) {
+  .plyr__progress {   
+    margin-left: -14vh !important;
+  }
 }
