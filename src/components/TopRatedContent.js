@@ -220,8 +220,8 @@ export default function TopRatedContent({ topRatedContentCreator }) {
     history.push({
       pathname: '/searchResult',
       param: {
-        name: 'Top 10 NFT Games',
-        value: '2'
+        name: 'a',
+        value: '5'
       }
     });
   };
