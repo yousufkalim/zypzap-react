@@ -108,20 +108,39 @@ const CreatorProfileHome = (props) => {
       <div className="userProfileDiv">
         <div className="userProfile-centerDiv">
           <div className="profile-image" id="mobprofileimage">
+            {console.log('user', user)}
             {window.innerWidth < 601 ? (
-              <img
-                src={creatorcover}
-                alt=""
-                style={{
-                  opacity: '0.7',
-                  position: 'relative',
-                  top: '-23vh',
-                  objectFit: 'cover',
-                  height: '34vh',
-                  width: '100vw',
-                  overflow: 'hidden',
-                }}
-              />
+              user?.cover_photo ? (
+                <img
+                  src={user?.cover_photo}
+                  alt=""
+                  style={{
+                    opacity: '0.7',
+                    position: 'relative',
+                    top: '-23vh',
+                    objectFit: 'cover',
+                    height: '34vh',
+                    width: '100vw',
+                    overflow: 'hidden',
+                  }}
+                />
+              ) : (
+                <img
+                  src={creatorcover}
+                  alt=""
+                  style={{
+                    opacity: '0.7',
+                    position: 'relative',
+                    top: '-23vh',
+                    objectFit: 'cover',
+                    height: '34vh',
+                    width: '100vw',
+                    overflow: 'hidden',
+                  }}
+                />
+              )
+            ) : user?.cover_photo ? (
+              <img src={user?.cover_photo} alt="" className="profileBackgroun-Image" />
             ) : (
               <img src={UserHomeProfleImg2} alt="" className="profileBackgroun-Image" />
             )}
