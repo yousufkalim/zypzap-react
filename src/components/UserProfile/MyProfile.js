@@ -64,7 +64,7 @@ const MyProfile = (props) => {
   return (
     <>
       <div className="myProfile">
-        <div className="myProfile-CenterDiv">
+        <div className="myProfile-CenterDiv" id="myProfileCenterDiv">
           <div className={user?.role == 'User' ? 'myPofileContents myProfileName' : 'myProfileC'}>
             <NavLink
               exact
@@ -81,6 +81,7 @@ const MyProfile = (props) => {
           <button
             className="formbtn2"
             type="submit"
+            id="logoutbtn"
             onClick={handleLogout}
             style={{
               background: 'linear-gradient(326deg, #662F88 8%, #20BF55 132%)',
@@ -93,7 +94,6 @@ const MyProfile = (props) => {
               height: '44px',
               fontSize: '16px',
               display: 'bl8ck',
-              marginLeft: '4px',
             }}
           >
             Log Out

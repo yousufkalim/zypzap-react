@@ -469,6 +469,7 @@ Custom arrows end here
 
     .setting_C_Container {
         flex-direction: column;
+        margin: 0;
     }
 
     .setting_C_Colmn {
@@ -513,11 +514,11 @@ Custom arrows end here
 } */
     .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
         /**/
-        color: #662F88;
+        color: #662F88 !important;
     }
 
     .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track {
-        background-color: #662F88
+        background-color: #662F88 !important;
     }
 
     .active_profile {
@@ -526,15 +527,24 @@ Custom arrows end here
 
     .myProfile {
         margin-top: 9%;
+        width:100%
     }
 
     .setting_C_Heading {
         font-size: 20px;
         font-weight: 600;
+        padding-bottom: 0;
+        padding-bottom: 10px;
+    }
+    .setting_C_Profile{
+        margin: 0 !important;
+        width: 100%;
     }
 
     .formbtn2 {
-        width: 95% !important;
+        margin: 0  !important;
+        margin-top: 25px  !important;
+        width: 100% !important;
 
     }
 

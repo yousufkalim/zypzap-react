@@ -3,7 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+#logoutbtn{
+  margin-left: 4px;
+}
 .css-uhb5lp {
   background-color: #131526 !important;
   margin: 0 !important;
@@ -230,6 +232,9 @@ body {
 .creatorCard {
   width: 30%;
   margin-top: 20px;
+}
+#myProfileCenterDiv{
+  padding: 16px;
 }
 .creatorProfileH3 {
   padding-top: 70px;

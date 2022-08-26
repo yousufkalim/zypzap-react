@@ -353,6 +353,7 @@
     .cardGrid {
         text-align: left;
         margin-top: 4px;
+        min-height: 86% !important;
     }
 
     .topRatedcardGrid {
