@@ -507,13 +507,16 @@
   .css-6od3lo-MuiChip-label{
     width:17vw;
     padding-left: 12px;
-       margin-top: 3vw;
+    margin-top: 3vw;
+  font-weight: 600 !important;
+
   }
-  .logPera{
-    margin-top: 15px !important;
-    font-size: 13px !important;
-    justify-content: center !important;
-  }
+  .logBtn {
+    margin-bottom: 15px;
+    font-size: 14px;
+    
+}
+
   .terms{
     text-align: center !important;
     font-size: 12px !important;
@@ -527,10 +530,11 @@
     cursor: pointer;
    
 }
-.create_pera {
-  font-size: 14px;
-  
-  font-weight: 100 !important;
+.create_pera{
+  font-size: 14px !important;
+  font-weight: 600 !important;
+
+
 }
 .signuppassword{
   margin-top: 20px;
