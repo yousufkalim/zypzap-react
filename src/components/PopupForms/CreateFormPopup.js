@@ -29,7 +29,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
     password: '',
     CnfrmPassword: '',
     showPassword: false,
-    showConfirPassword: false
+    showConfirPassword: false,
   });
   const updateStore = UpdateStore();
   useEffect(() => {
@@ -40,14 +40,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
   }, []);
   // init
 
-  const {
-    username,
-    email,
-    password,
-    showPassword,
-    CnfrmPassword,
-    showConfirPassword
-  } = values;
+  const { username, email, password, showPassword, CnfrmPassword, showConfirPassword } = values;
   const showLoginFormPopup = () => {
     setLogin(true);
     setOpen(false);
@@ -71,7 +64,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
   const onChangeEvent = (e) => {
     setValues({
       ...values,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -109,7 +102,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
       email,
       password,
       CnfrmPassword,
-      role: 'User'
+      role: 'User',
     };
     try {
       let res = await api('post', '/users', formdata);
@@ -183,19 +176,12 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                         onClick={handleClickShowPassword}
                         onMouseDown={handleMouseDownPassword}
                       >
-                        {values.showPassword ? (
-                          <Visibility />
-                        ) : (
-                          <VisibilityOff />
-                        )}
+                        {values.showPassword ? <Visibility /> : <VisibilityOff />}
                       </IconButton>
                     </InputAdornment>
                   }
                 />
-                <label
-                  htmlFor="password"
-                  className="createLbl signupconfimrpassword"
-                >
+                <label htmlFor="password" className="createLbl signupconfimrpassword">
                   Confirm Password
                 </label>
                 <Input
@@ -212,11 +198,7 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                         onClick={handleClickShowCofirmPassword}
                         onMouseDown={handleMouseDownPassword}
                       >
-                        {values.showConfirPassword ? (
-                          <Visibility />
-                        ) : (
-                          <VisibilityOff />
-                        )}
+                        {values.showConfirPassword ? <Visibility /> : <VisibilityOff />}
                       </IconButton>
                     </InputAdornment>
                   }
@@ -268,16 +250,15 @@ const CreateFormPopup = ({ open, setOpen, setLogin, setOpenProfile }) => {
                 </div>
               </form>
               <div className="logPera">
-                <p>Already Have An Account?</p>
+                <p style={{ color: 'white' }}>Already Have An Account?</p>
                 <button className="logBtn" onClick={showLoginFormPopup}>
                   LOGIN
                 </button>
                 <br />
                 <br />
               </div>
-              <p className="terms">
-                By Registering for this website, you accept our Terms Of Use and
-                our{' '}
+              <p className="terms" style={{ color: 'white' }}>
+                By Registering for this website, you accept our Terms Of Use and our{' '}
                 <span className="condition" style={{ fontWeight: 'bolder' }}>
                   Privacy Policy.
                 </span>

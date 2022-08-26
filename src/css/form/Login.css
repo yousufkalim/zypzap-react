@@ -167,22 +167,51 @@
   color: #5dcfa09c;
 }
 @media only screen and (min-width: 300px) and (max-width: 768px) {
-  .loginH1{
-    font-size: 18px !important;
-    font-weight: 100 !important;
-    margin-top: 10px !important;
+  .createH1,.loginH1{
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    margin-top: 25px !important;
+
+  }
+  .create_container .or2, .form_container .or{
+    font-size: 13px !important;
+
+  }
+  .createLbl, .loginFH1{
+    font-size: 14px !important;
+
+  }
+
+  .forget{
+    font-weight: 600;
+  }
+  .create_container .formbtn2, .form_container .formbtns{
+    font-size: 16px;
+    font-weight: 700;
+
   }
   .login_pera{
-    font-size: 13px !important;
+    font-size: 14px !important;
     margin-bottom: 8px !important;
   }
   .social span {
     padding: 14px 18px 5px 18px !important;
     margin: 14px 0px !important;
   }
-  .signPera{
+  .logPera, .signPera{
     justify-content: center !important;
     margin-top: 10px !important;
+    font-weight: 800;
+    font-family: "Mulish";
+    font-size: 14px;
+    color:  #EEEEEE;
+
+    ;
+  }
+  .sgnUpBtn{
+    font-weight: 800;
+    font-family: "Mulish";
+    font-size: 14px;
   }
   .line1{
     width: 40% !important;

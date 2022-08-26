@@ -353,6 +353,7 @@
     .cardGrid {
         text-align: left;
         margin-top: 4px;
+        min-height: 86% !important;
     }
 
     .topRatedcardGrid {
@@ -371,7 +372,7 @@
     .wishCard-progrss-prsntage {
         text-align: center;
         margin: auto;
-        margin-right: 43% !important;
+        /* margin-right: 43% !important; */
     }
 
     .latestcourseheading {
@@ -436,6 +437,8 @@
     .wishList-container {
         margin-right: auto;
         padding-left: 13px;
+        padding-right: 13px;
+
     }
     .css-1q7wbhd-MuiLinearProgress-root{
         width: 100% !important;
