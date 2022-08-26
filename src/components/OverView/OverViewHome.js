@@ -5,6 +5,8 @@ import overViewIcon1 from '../../assets/icons/overViewIcon1.svg';
 import overViewIcon2 from '../../assets/icons/overViewIcon2.svg';
 import overViewIcon3 from '../../assets/icons/overViewIcon3.svg';
 import overViewIcon4 from '../../assets/icons/overViewIcon4.svg';
+import dummycorse from '../../assets/img/dummycorse.svg';
+
 import RegisterSuccessfully from '../PopupForms/RegisterSuccessfully';
 import moment from 'moment';
 
@@ -89,6 +91,8 @@ const OverViewHome = (props) => {
                   onMouseOut={(event) => event.target.play()}
                   loop
                   className="overViewCardIMG"
+                  id="courseimg2"
+                  onError={() => (document.getElementById('courseimg2').src = dummycorse)}
                 />
               ) : (
                 <img
@@ -96,6 +100,8 @@ const OverViewHome = (props) => {
                   src={singlCourse?.thumbnail ? singlCourse.thumbnail : OverViewImg}
                   className="overViewCardIMG"
                   alt="img"
+                  id="courseimg3"
+                  onError={() => (document.getElementById('courseimg3').src = dummycorse)}
                 />
               )}{' '}
             </div>

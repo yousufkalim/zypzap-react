@@ -20,15 +20,12 @@ const DoYouWant = ({ open, setOpen, setOpenBecomeCreatorPopup }) => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         style={{
-          maxWidth: '500px',
+          // maxWidth: '500px',
           margin: 'auto',
-          backdropFilter: 'blur(20px)'
+          backdropFilter: 'blur(20px)',
         }}
       >
-        <div
-          className="uploadSuccess-centerDiv"
-          style={{ color: '#fff', textAlign: 'center' }}
-        >
+        <div className="uploadSuccess-centerDiv" style={{ color: '#fff', textAlign: 'center' }}>
           <p className="uploadSuccessP">
             {window.innerWidth < 601 ? (
               ''

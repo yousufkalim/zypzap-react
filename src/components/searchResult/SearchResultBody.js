@@ -15,6 +15,7 @@ import { useRef } from 'react';
 import Course1 from '../../assets/img/course1.png';
 import StarIcon from '@material-ui/icons/Star';
 import Union from '../../assets/icons/Union.svg';
+import dummycorse from '../../assets/img/dummycorse.svg';
 
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -823,7 +824,7 @@ const SearchResultBody = () => {
                       }}
                     />
                   ) : (
-                    paginatedCourses?.map((item) => (
+                    paginatedCourses?.map((item, i) => (
                       <Grid item xs={12} sm={6} md={6} lg={4}>
                         <Link
                           to={`/OverView/${item._id}`}
@@ -849,12 +850,18 @@ const SearchResultBody = () => {
                                   onMouseOut={(event) => event.target.play()}
                                   loop
                                   className="courseimg"
+                                  id="courseimg"
+                                  onError={() =>
+                                    (document.getElementById('courseimg').src = dummycorse)
+                                  }
                                 />
                               ) : (
                                 <img
                                   src={item?.thumbnail ? item.thumbnail : Course1}
                                   className="courseimg"
                                   alt="img"
+                                  id={i}
+                                  onError={() => (document.getElementById(i).src = dummycorse)}
                                 />
                               )}
 
