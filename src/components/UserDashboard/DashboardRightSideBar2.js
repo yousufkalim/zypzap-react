@@ -100,7 +100,8 @@ const DashboardRightSideBar2 = ({}) => {
                   marginLeft: '17px',
                 }}
               >
-                {contentDashboardButton === 'Started Courses'
+                {contentDashboardButton === 'Courses' ||
+                contentDashboardButton === 'Started Courses'
                   ? 'Started Courses'
                   : 'Enrolled Courses'}
               </p>
