@@ -384,7 +384,13 @@ export default function PrimarySearchAppBar({
                   </MenuItem>
                   <MenuItem>
                     <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
-                      <p onClick={handleSettings} className="sgnBtn">
+                      <p
+                        onClick={() => {
+                          handleSettings();
+                          handleMenuClose();
+                        }}
+                        className="sgnBtn"
+                      >
                         <img src={EditPrfile} alt="" /> &nbsp; Edit Profile <hr className="b1" />
                       </p>
                     </Link>
@@ -397,7 +403,13 @@ export default function PrimarySearchAppBar({
             <MenuItem>
               {' '}
               <Link style={{ color: 'white', textDecoration: 'none', marginRight: 'auto' }}>
-                <p onClick={openProfilePg} className="sgnBtn">
+                <p
+                  onClick={() => {
+                    openProfilePg();
+                    handleMenuClose();
+                  }}
+                  className="sgnBtn"
+                >
                   <img src={S_Vector} alt="" />
                   &nbsp; My Profile <hr className="b1" />
                 </p>
@@ -410,7 +422,10 @@ export default function PrimarySearchAppBar({
                 <p
                   className="sgnBtn"
                   style={{ marginRight: 'auto', marginTop: '12vh' }}
-                  onClick={() => setOpenLogin(true)}
+                  onClick={() => {
+                    setOpenLogin(true);
+                    handleMenuClose();
+                  }}
                 >
                   Login
                   <hr className="b1" />
@@ -420,7 +435,10 @@ export default function PrimarySearchAppBar({
                 <p
                   className="sgnBtn"
                   style={{ marginRight: 'auto' }}
-                  onClick={() => setOpenSignup(true)}
+                  onClick={() => {
+                    setOpenSignup(true);
+                    handleMenuClose();
+                  }}
                 >
                   <img src={S_Vector} /> Sign Up <hr className="b1" />
                 </p>
