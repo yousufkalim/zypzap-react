@@ -786,7 +786,7 @@
 }
 .dropdown-content {
   margin-top: 3vh;
-  min-width: 91vw;
+  min-width: 90vw;
   position: absolute;
   right: -13vw;
 }
