@@ -582,11 +582,8 @@
 
 
 @media only screen and (min-width: 270px) and (max-width: 600px) {
-  .css-96uuyl{
-    margin-left: 3px !important;
-  }
   .mobSearchBar {
-    width: 89% !important;
+    width: 91% !important;
     margin: auto;
   }
 
@@ -789,7 +786,7 @@
 }
 .dropdown-content {
   margin-top: 3vh;
-  min-width: 90vw;
+  min-width: 91vw;
   position: absolute;
   right: -13vw;
 }
@@ -805,7 +802,7 @@
   }
   .dropdown-content {
     margin-top: 3vh;
-    min-width: 89vw;
+    min-width: 91vw;
     position: absolute;
     right: -17.5vw;
   }
