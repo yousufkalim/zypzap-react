@@ -202,6 +202,8 @@ const SearchResultBody = () => {
   const [selectedGameplay, setSelectedGameplay] = useState(false);
   const [selectedPrice, setSelectedPrice] = useState(false);
   const [sliderValue, setSliderValue] = useState('');
+  const [search, setSearch] = useState('');
+
   const [selectedActiveButton, setSelectedActiveButton] = useState('');
   const [selectedGameBtn, setSelectedGameBtn] = useState('');
   const [selectedPlateformsBtn, setselectedPlateformsBtn] = useState('');
@@ -370,6 +372,24 @@ const SearchResultBody = () => {
   const onChangeSliderValue = (e) => {
     setSliderValue(e.target.value);
   };
+
+  const handleSearchGame = async (e) => {
+    e.preventDefault();
+
+    if (search) {
+      updateStore({ searchLoader: true });
+      let res = await api('get', `/courses/search?name=${search}`);
+      if (res) {
+        updateStore({ searchCourse: res?.data, searchCreator: [] });
+        history.push(`/searchResult`);
+      }
+
+      updateStore({ searchLoader: false });
+    }
+  };
+  const handleChangeInput = (e) => {
+    setSearch(e.target.value);
+  };
   const RequestClikEvent = async (e) => {
     let res = await api(
       'get',
@@ -413,8 +433,16 @@ const SearchResultBody = () => {
                   )}{' '}
                 </p>
               </div>
-              <div className="searchInputItem">
-                <input type="text" placeholder="CS⎸Go Game" className="searchInputItem-input" />
+              <div className="searchInputItem" onClick={handleSearchGame}>
+                <input
+                  type="text"
+                  placeholder="CS⎸Go Game"
+                  className="searchInputItem-input"
+                  onChange={handleChangeInput}
+                  // onSubmit={handleSearchButtonClick}
+                  value={search}
+                  onKeyPress={(e) => e.key === 'Enter' && handleSearchGame(e)}
+                />
               </div>
               <hr className="filterby-divider" />
               <div id="1" onClick={onClickSideBarHeaders} className="dropdown-headers">
