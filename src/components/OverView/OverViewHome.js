@@ -83,6 +83,7 @@ const OverViewHome = (props) => {
               {singlCourse?.thumbnail.slice(-3) == 'mp4' ||
               singlCourse?.thumbnail.slice(-3) == 'mov' ? (
                 <video
+                  muted
                   style={{ maxWidth: '100%' }}
                   src={singlCourse?.thumbnail}
                   autoplay
@@ -318,6 +319,7 @@ const OverViewHome = (props) => {
                 {singlCourse?.thumbnail.slice(-3) == 'mp4' ||
                 singlCourse?.thumbnail.slice(-3) == 'mov' ? (
                   <video
+                    muted
                     style={{ maxWidth: '100%' }}
                     src={singlCourse?.thumbnail}
                     autoplay

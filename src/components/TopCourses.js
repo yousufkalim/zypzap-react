@@ -153,6 +153,7 @@ function TopCoursesComponent({ item }) {
         {/*  make it dynamic  */}
         {item?.thumbnail.slice(-3) == 'mp4' || item?.thumbnail.slice(-3) == 'mov' ? (
           <video
+            muted
             src={item?.thumbnail}
             autoplay
             // controls="controls"

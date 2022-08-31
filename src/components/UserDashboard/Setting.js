@@ -316,7 +316,7 @@ function Setting({ openProfile, setOpenProfile }) {
                     onChange={getAllGames}
                     sx={{
                       outline: 'none',
-                      width: '80%',
+                      width: '95%',
                       borderRadius: '6px',
                     }}
                     // value={gameName}
