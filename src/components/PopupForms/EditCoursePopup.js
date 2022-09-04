@@ -16,6 +16,7 @@ import Paper from '@mui/material/Paper';
 import Autocomplete from '@mui/material/Autocomplete';
 
 import api from '../../api';
+import { gameApi } from '../../config';
 const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   const { Games, creator } = Store();
   const [values, setValues] = useState([]);
@@ -38,44 +39,35 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
     gameType: course?.gameType,
     gameMood: course?.gameMood,
     gamePlateForm: course?.gamePlateForm,
-    description: course?.description
+    description: course?.description,
   });
   const useStyles = makeStyles({
     customTextField: {
       '& input': { color: 'white' },
       '&:hover': {
-        border: 'red !important'
+        border: 'red !important',
       },
       '& input::placeholder': {
         color: 'white',
         '@media (max-width: 780px)': {
-          paddingLeft: '-2px'
-        }
-      }
+          paddingLeft: '-2px',
+        },
+      },
     },
     option: {
       background: '#242635 ',
       color: 'white',
       '&:hover': {
-        backgroundColor: '#9198a5 !important'
-      }
+        backgroundColor: '#9198a5 !important',
+      },
     },
     noOptions: {
       display: `${'inherit'}`,
-      color: 'white'
-    }
+      color: 'white',
+    },
   });
   const classes = useStyles();
-  const {
-    course_name,
-    gameName,
-    selectedGamename,
-    gameLevel,
-    gameType,
-    gameMood,
-    gamePlateForm,
-    description
-  } = formDataOne;
+  const { course_name, gameName, selectedGamename, gameLevel, gameType, gameMood, gamePlateForm, description } = formDataOne;
 
   useEffect(() => {
     setformDataOne({
@@ -85,7 +77,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
       gameType: course?.gameType,
       gameMood: course?.mode,
       gamePlateForm: course?.plateform,
-      description: course?.description
+      description: course?.description,
     });
   }, [course]);
   useEffect(() => {
@@ -94,7 +86,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   const chnageEvent = (e) => {
     setformDataOne({
       ...formDataOne,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
   const handleSave = async () => {
@@ -147,17 +139,12 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
   const getAllGames = async (e) => {
     setformDataOne({
       ...formDataOne,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
 
-    const res = await axios.get(
-      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
-        e.target.value +
-        '&page=1&page_size=10',
-      {
-        withCredentials: false
-      }
-    );
+    const res = await axios.get(`https://api.rawg.io/api/games?key=${gameApi}=` + e.target.value + '&page=1&page_size=10', {
+      withCredentials: false,
+    });
 
     var gamesToSet = res?.data?.results?.map((game) => {
       return game.name;
@@ -169,7 +156,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
     setformDataOne({
       ...formDataOne,
       ['selectedGamename']: value,
-      ['gameName']: value
+      ['gameName']: value,
     });
   };
   const handleSingleVideo = async (file) => {
@@ -199,13 +186,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
       />
       {/* <RequestSuccessfullyPopup open={open} setOpen={setOpen} /> */}
       <div>
-        <Dialog
-          fullWidth="true"
-          maxWidth="md"
-          open={open}
-          className="editCoursePopup"
-          style={{ backdropFilter: 'blur(20px)' }}
-        >
+        <Dialog fullWidth="true" maxWidth="md" open={open} className="editCoursePopup" style={{ backdropFilter: 'blur(20px)' }}>
           {/* /* -------------------------------- main div --------------------------------  */}
           <div className="formStepOneDiv" style={{ margin: '0px' }}>
             <p className="coursedetail2">Edit the course</p>
@@ -236,26 +217,17 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                       options={values}
                       value={formDataOne.selectedGamename}
                       classes={{
-                        option: classes.option
+                        option: classes.option,
                       }}
                       id="controllable-states-demo"
                       className="coursInputAutofiled"
-                      noOptionsText={
-                        <div style={{ color: 'white', fontSize: '12px' }}>
-                          {' '}
-                          no option{' '}
-                        </div>
-                      }
-                      PaperComponent={({ children }) => (
-                        <Paper style={{ background: '#242635' }}>
-                          {children}
-                        </Paper>
-                      )}
+                      noOptionsText={<div style={{ color: 'white', fontSize: '12px' }}> no option </div>}
+                      PaperComponent={({ children }) => <Paper style={{ background: '#242635' }}>{children}</Paper>}
                       getOptionLabel={(option) => option || ''}
                       onChange={setGamefiled}
                       hiddenLabel="true"
                       style={{
-                        margin: 'auto'
+                        margin: 'auto',
                       }}
                       renderInput={(params) => (
                         <TextField
@@ -276,13 +248,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                   <Grid xs={12} sm={6}>
                     <div>
                       <p className="stepLabel">Gameplay level</p>
-                      <select
-                        id="gameLevel"
-                        name="gameLevel"
-                        className="stepSelect"
-                        value={gameLevel}
-                        onChange={chnageEvent}
-                      >
+                      <select id="gameLevel" name="gameLevel" className="stepSelect" value={gameLevel} onChange={chnageEvent}>
                         <option value="Casual" className="setepOption">
                           Casual
                         </option>
@@ -310,13 +276,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                       <div>
                         <p className="stepLabel">Game Type</p>
 
-                        <select
-                          id="gameType"
-                          name="gameType"
-                          className="stepSelect"
-                          value={gameType}
-                          onChange={chnageEvent}
-                        >
+                        <select id="gameType" name="gameType" className="stepSelect" value={gameType} onChange={chnageEvent}>
                           <option value="Action" className="setepOption">
                             Action
                           </option>
@@ -332,10 +292,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                           <option value="Car Racing" className="setepOption">
                             Car Racing
                           </option>
-                          <option
-                            value="Versus Fighting"
-                            className="setepOption"
-                          >
+                          <option value="Versus Fighting" className="setepOption">
                             Versus Fighting
                           </option>
                           <option value="FPS" className="setepOption">
@@ -347,10 +304,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                           <option value="RPG" className="setepOption">
                             RPG
                           </option>
-                          <option
-                            value="Turn by Turn Strategy"
-                            className="setepOption"
-                          >
+                          <option value="Turn by Turn Strategy" className="setepOption">
                             Turn by Turn Strategy
                           </option>
                           <option value="Simulation" className="setepOption">
@@ -371,13 +325,7 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                     <Grid xs={12} sm={6}>
                       <div>
                         <p className="stepLabel">Gaming Mode</p>
-                        <select
-                          id="gameMood"
-                          name="gameMood"
-                          className="stepSelect"
-                          value={gameMood}
-                          onChange={chnageEvent}
-                        >
+                        <select id="gameMood" name="gameMood" className="stepSelect" value={gameMood} onChange={chnageEvent}>
                           <option value="Single" className="setepOption">
                             Single
                           </option>
@@ -400,28 +348,19 @@ const EditCoursePopup = ({ open, setOpen, course, setOpenS }) => {
                           value={gamePlateForm}
                           onChange={chnageEvent}
                         >
-                          <option
-                            value="Retro Consoles"
-                            className="setepOption"
-                          >
+                          <option value="Retro Consoles" className="setepOption">
                             Retro Consoles
                           </option>
                           <option value="PS1/2/3/4/5" className="setepOption">
                             PS1/2/3/4/5
                           </option>
-                          <option
-                            value="Xbox/360/One/X"
-                            className="setepOption"
-                          >
+                          <option value="Xbox/360/One/X" className="setepOption">
                             Xbox/360/One/X
                           </option>
                           <option value="Mobile Games" className="setepOption">
                             Mobile Games
                           </option>
-                          <option
-                            value="Portable Consoles"
-                            className="setepOption"
-                          >
+                          <option value="Portable Consoles" className="setepOption">
                             Portable Consoles
                           </option>
                           <option value="PC" className="setepOption">

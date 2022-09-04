@@ -14,12 +14,8 @@ import ProfileDp from '../../assets/img/profileavatar.png';
 import { toast } from 'react-toastify';
 import ClearIcon from '@mui/icons-material/Clear';
 import { Store, UpdateStore } from '../../StoreContext';
-export default function PropfileInformation({
-  openProfile,
-  setOpenProfile,
-  user,
-  setCongratulation,
-}) {
+import { gameApi } from '../../config';
+export default function PropfileInformation({ openProfile, setOpenProfile, user, setCongratulation }) {
   const useStyles = makeStyles({
     customTextField: {
       '& input': {
@@ -51,9 +47,7 @@ export default function PropfileInformation({
   const classes = useStyles();
   const updateStore = UpdateStore();
   const { learner, creator } = Store();
-  const [profile_photo, setImageURL] = useState(
-    user?.profile_photo ? user.profile_photo : ProfileDp
-  );
+  const [profile_photo, setImageURL] = useState(user?.profile_photo ? user.profile_photo : ProfileDp);
   const [values, setValues] = useState([]);
   const [favouritGame, setFavouritGame] = useState(
     user?.prefrence_games?.favourite_games ? user.prefrence_games.favourite_games : []
@@ -64,9 +58,7 @@ export default function PropfileInformation({
   const [plateForm, setPlateForm] = useState(user?.plateForm ? user.plateForm : []);
   const [gameMood, setGameMood] = useState(user?.gameMood ? user.gameMood : 'Single');
   const [learningRethem, setLearningRethem] = useState(
-    user?.prefrence_games?.learningRethem
-      ? user.prefrence_games.learningRethem
-      : '10h To 20h Per Week'
+    user?.prefrence_games?.learningRethem ? user.prefrence_games.learningRethem : '10h To 20h Per Week'
   );
   const [currentLevel, setCurrentLevel] = useState(
     user?.prefrence_games?.current_level ? user.prefrence_games.current_level : 'initial'
@@ -80,21 +72,13 @@ export default function PropfileInformation({
   }, [user]);
   const setCurrentSate = () => {
     setImageURL(user?.profile_photo ? user.profile_photo : ProfileDp);
-    setFavouritGame(
-      user?.prefrence_games?.favourite_games ? user.prefrence_games.favourite_games : []
-    );
+    setFavouritGame(user?.prefrence_games?.favourite_games ? user.prefrence_games.favourite_games : []);
     setGameType(user?.gameType ? user.gameType : []);
     setPlateForm(user?.plateForm ? user.plateForm : []);
     setGameMood(user?.gameMood ? user.gameMood : 'Single');
-    setLearningRethem(
-      user?.prefrence_games?.learningRethem ? user.prefrence_games.learningRethem : 'Per Week'
-    );
-    setCurrentLevel(
-      user?.prefrence_games?.current_level ? user.prefrence_games.current_level : 'initial'
-    );
-    setTargetLevel(
-      user?.prefrence_games?.target_level ? user.prefrence_games.target_level : 'initial'
-    );
+    setLearningRethem(user?.prefrence_games?.learningRethem ? user.prefrence_games.learningRethem : 'Per Week');
+    setCurrentLevel(user?.prefrence_games?.current_level ? user.prefrence_games.current_level : 'initial');
+    setTargetLevel(user?.prefrence_games?.target_level ? user.prefrence_games.target_level : 'initial');
   };
 
   const addTags = (event) => {
@@ -230,14 +214,9 @@ export default function PropfileInformation({
     //   [e.target.name]: e.target.value
     // });
 
-    let res = await axios.get(
-      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
-        e.target.value +
-        '&page=1&page_size=10',
-      {
-        withCredentials: false,
-      }
-    );
+    let res = await axios.get(`https://api.rawg.io/api/games?key=${gameApi}=` + e.target.value + '&page=1&page_size=10', {
+      withCredentials: false,
+    });
 
     var gamesToSet = []; // //debugger;
     for (var i = 0; i < res?.data?.results?.length; i++) {
@@ -265,11 +244,7 @@ export default function PropfileInformation({
       >
         <div className="userProfile_conteiner">
           <div className="userProfile_heading">
-            <ClearIcon
-              className="clearIcon"
-              onClick={() => setOpenProfile(false)}
-              style={{ margin: '10px 0' }}
-            />
+            <ClearIcon className="clearIcon" onClick={() => setOpenProfile(false)} style={{ margin: '10px 0' }} />
             <h2 className="userProfileH1">Profile Information</h2>
             <p className="userProfileP">Input your details</p>
           </div>
@@ -328,9 +303,7 @@ export default function PropfileInformation({
                     no option{' '}
                   </div>
                 }
-                PaperComponent={({ children }) => (
-                  <Paper style={{ background: '#242635' }}>{children}</Paper>
-                )}
+                PaperComponent={({ children }) => <Paper style={{ background: '#242635' }}>{children}</Paper>}
                 onChange={setGamefiled}
                 hiddenLabel="true"
                 style={{
@@ -424,18 +397,8 @@ export default function PropfileInformation({
                   name="radio-buttons-group"
                   style={{ display: 'inline' }}
                 >
-                  <FormControlLabel
-                    value="Single"
-                    control={<Radio />}
-                    label="Single Player Mode"
-                    onClick={onChangeRadioBtn}
-                  />
-                  <FormControlLabel
-                    value="MultiPlayer"
-                    control={<Radio />}
-                    label="MultiPlayer Mode"
-                    onClick={onChangeRadioBtn}
-                  />
+                  <FormControlLabel value="Single" control={<Radio />} label="Single Player Mode" onClick={onChangeRadioBtn} />
+                  <FormControlLabel value="MultiPlayer" control={<Radio />} label="MultiPlayer Mode" onClick={onChangeRadioBtn} />
                 </RadioGroup>
               </div>
             </FormControl>

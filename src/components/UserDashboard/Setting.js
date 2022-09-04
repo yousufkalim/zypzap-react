@@ -14,6 +14,7 @@ import Course1 from '../../assets/img/course1.png';
 import { toast } from 'react-toastify';
 import { Store, UpdateStore } from '../../StoreContext';
 import RegisterSuccessfully from '../PopupForms/RegisterSuccessfully';
+import { gameApi } from '../../config';
 
 let gamelist = [
   { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
@@ -74,9 +75,7 @@ function Setting({ openProfile, setOpenProfile }) {
   // );
 
   const [learningRethem, setLearningRethem] = useState(
-    user?.prefrence_games?.learningRethem
-      ? user.prefrence_games.learningRethem
-      : '10h To 20h Per Week'
+    user?.prefrence_games?.learningRethem ? user.prefrence_games.learningRethem : '10h To 20h Per Week'
   );
 
   const [currentLevel, setCurrentLevel] = useState(
@@ -89,22 +88,14 @@ function Setting({ openProfile, setOpenProfile }) {
     setCurrentSate();
   }, [user]);
   const setCurrentSate = () => {
-    setFavouritGame(
-      user?.prefrence_games?.favourite_games ? user.prefrence_games.favourite_games : []
-    );
+    setFavouritGame(user?.prefrence_games?.favourite_games ? user.prefrence_games.favourite_games : []);
     setGameType(user?.gameType ? user.gameType : []);
     setPlateForm(user?.plateForm ? user.plateForm : []);
     setGameMood(user?.gameMood ? user.gameMood : 'Single');
     // setLearningRethem(user?.setLearningRethem ? user.setLearningRethem : "");
-    setLearningRethem(
-      user?.prefrence_games?.learningRethem ? user.prefrence_games.learningRethem : 'Per Week'
-    );
-    setCurrentLevel(
-      user?.prefrence_games?.current_level ? user.prefrence_games.current_level : 'initial'
-    );
-    setTargetLevel(
-      user?.prefrence_games?.target_level ? user.prefrence_games.target_level : 'initial'
-    );
+    setLearningRethem(user?.prefrence_games?.learningRethem ? user.prefrence_games.learningRethem : 'Per Week');
+    setCurrentLevel(user?.prefrence_games?.current_level ? user.prefrence_games.current_level : 'initial');
+    setTargetLevel(user?.prefrence_games?.target_level ? user.prefrence_games.target_level : 'initial');
   };
 
   // const addTags = (event) => {
@@ -214,14 +205,7 @@ function Setting({ openProfile, setOpenProfile }) {
     'Puzzle',
     'Versus Fighting',
   ];
-  const gamePlateform = [
-    'PC',
-    'Mobile Games',
-    'PS1/2/3/4/5',
-    'Xbox/360/One/X',
-    'Retro Consoles',
-    'Portable Consoles',
-  ];
+  const gamePlateform = ['PC', 'Mobile Games', 'PS1/2/3/4/5', 'Xbox/360/One/X', 'Retro Consoles', 'Portable Consoles'];
 
   const getAllGames = async (e) => {
     // setformDataOne({
@@ -229,14 +213,9 @@ function Setting({ openProfile, setOpenProfile }) {
     //   [e.target.name]: e.target.value
     // });
 
-    let res = await axios.get(
-      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
-        e.target.value +
-        '&page=1&page_size=10',
-      {
-        withCredentials: false,
-      }
-    );
+    let res = await axios.get(`https://api.rawg.io/api/games?key=${gameApi}=` + e.target.value + '&page=1&page_size=10', {
+      withCredentials: false,
+    });
 
     var gamesToSet = []; // //debugger;
     for (var i = 0; i < res?.data?.results?.length; i++) {
@@ -260,11 +239,7 @@ function Setting({ openProfile, setOpenProfile }) {
 
   return (
     <>
-      <RegisterSuccessfully
-        open={openCongratulation}
-        setOpen={setCongratulation}
-        text="Your Profile Edit Successfully !"
-      />
+      <RegisterSuccessfully open={openCongratulation} setOpen={setCongratulation} text="Your Profile Edit Successfully !" />
       <div className="dashboardSetting">
         <div className="userProfile_conteiner2">
           <div className="tags-input">
@@ -296,9 +271,7 @@ function Setting({ openProfile, setOpenProfile }) {
                     no option{' '}
                   </div>
                 }
-                PaperComponent={({ children }) => (
-                  <Paper style={{ background: '#242635' }}>{children}</Paper>
-                )}
+                PaperComponent={({ children }) => <Paper style={{ background: '#242635' }}>{children}</Paper>}
                 onChange={setGamefiled}
                 hiddenLabel="true"
                 style={{
@@ -395,25 +368,10 @@ function Setting({ openProfile, setOpenProfile }) {
                   style={{ display: 'inline' }}
                 >
                   &nbsp; &nbsp;
-                  <FormControlLabel
-                    value="Single"
-                    control={<Radio />}
-                    label="Single Player Mode"
-                    onClick={onChangeRadioBtn}
-                  />
-                  <FormControlLabel
-                    value="MultiPlayer"
-                    control={<Radio />}
-                    label="MultiPlayer Mode"
-                    onClick={onChangeRadioBtn}
-                  />
+                  <FormControlLabel value="Single" control={<Radio />} label="Single Player Mode" onClick={onChangeRadioBtn} />
+                  <FormControlLabel value="MultiPlayer" control={<Radio />} label="MultiPlayer Mode" onClick={onChangeRadioBtn} />
                   {!(user?.role === 'User' || learner) ? (
-                    <FormControlLabel
-                      value="Both"
-                      control={<Radio />}
-                      label="Both"
-                      onClick={onChangeRadioBtn}
-                    />
+                    <FormControlLabel value="Both" control={<Radio />} label="Both" onClick={onChangeRadioBtn} />
                   ) : (
                     ''
                   )}

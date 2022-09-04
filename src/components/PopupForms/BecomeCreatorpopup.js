@@ -17,60 +17,48 @@ import ProfileDp from '../../assets/img/profileavatar.png';
 import { toast } from 'react-toastify';
 import ClearIcon from '@mui/icons-material/Clear';
 import { Store, UpdateStore } from '../../StoreContext';
+import { gameApi } from '../../config';
 
 // import BecomeCreatorpopup from "./PopupForms/BecomeCreatorpopup";
 
-const BecomeCreatorpopup = ({
-  open,
-  setOpen,
-  user,
-  creator,
-  setOpen3,
-  setOpen2
-}) => {
+const BecomeCreatorpopup = ({ open, setOpen, user, creator, setOpen3, setOpen2 }) => {
   const useStyles = makeStyles({
     customTextField: {
       '& input': {
         color: 'white',
-        border: 'none'
+        border: 'none',
       },
       '&:hover': {
-        border: 'red !important'
+        border: 'red !important',
       },
       '& input::placeholder': {
         color: 'white',
         '@media (max-width: 780px)': {
-          paddingLeft: '-2px'
-        }
-      }
+          paddingLeft: '-2px',
+        },
+      },
     },
     option: {
       background: '#242635 ',
       color: 'white',
       '&:hover': {
-        backgroundColor: '#9198a5 !important'
-      }
+        backgroundColor: '#9198a5 !important',
+      },
     },
     noOptions: {
       display: `${'inherit'}`,
-      color: 'white'
-    }
+      color: 'white',
+    },
   });
   const classes = useStyles();
   const history = useHistory();
   const updateStore = UpdateStore();
   const [values, setValues] = useState([]);
-  const [profile_photo, setImageURL] = useState(
-    user?.profile_photo ? user.profile_photo : ProfileDp
-  );
+  const [profile_photo, setImageURL] = useState(user?.profile_photo ? user.profile_photo : ProfileDp);
   const [favouritGame, setFavouritGame] = useState(user?.expertiseGame || []);
   const [gameType, setGameType] = useState(user?.gameType ? user.gameType : []);
-  const [plateForm, setPlateForm] = useState(
-    user?.plateForm ? user.plateForm : []
-  );
-  const [gameMood, setGameMood] = useState(
-    user?.gameMood ? user.gameMood : 'Single'
-  );
+  const [plateForm, setPlateForm] = useState(user?.plateForm ? user.plateForm : []);
+  const [gameMood, setGameMood] = useState(user?.gameMood ? user.gameMood : 'Single');
 
   useEffect(() => {
     setCurrentSate();
@@ -95,9 +83,7 @@ const BecomeCreatorpopup = ({
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
   const removeTagsPlateForm = (index) => {
-    setPlateForm([
-      ...plateForm.filter((tag) => plateForm.indexOf(tag) !== index)
-    ]);
+    setPlateForm([...plateForm.filter((tag) => plateForm.indexOf(tag) !== index)]);
   };
   const selectplateForm = (e) => {
     if (e.target.className === 'activetypebtn') {
@@ -129,12 +115,7 @@ const BecomeCreatorpopup = ({
   };
 
   const submitProfile = async (e) => {
-    if (
-      favouritGame === '' &&
-      gameType === '' &&
-      plateForm === '' &&
-      gameMood === ''
-    ) {
+    if (favouritGame === '' && gameType === '' && plateForm === '' && gameMood === '') {
       return toast.error('Veuillez saisir le nom de votre cours');
     } else {
       const formdata = {
@@ -142,7 +123,7 @@ const BecomeCreatorpopup = ({
         profile_photo,
         gameType: gameType,
         plateForm: plateForm,
-        gameMood: gameMood
+        gameMood: gameMood,
       };
 
       if (user) {
@@ -151,7 +132,7 @@ const BecomeCreatorpopup = ({
         if (res) {
           updateStore({
             user: res?.data?.newUsers,
-            creator: res?.data?.creator
+            creator: res?.data?.creator,
           });
           setOpen(false);
           history.push('/contentHome');
@@ -178,16 +159,9 @@ const BecomeCreatorpopup = ({
     'Sports',
     'Trading card',
     'Puzzle',
-    'Versus Fighting'
+    'Versus Fighting',
   ];
-  const gamePlateform = [
-    'PC',
-    'Mobile Games',
-    'PS1/2/3/4/5',
-    'Xbox/360/One/X',
-    'Retro Consoles',
-    'Portable Consoles'
-  ];
+  const gamePlateform = ['PC', 'Mobile Games', 'PS1/2/3/4/5', 'Xbox/360/One/X', 'Retro Consoles', 'Portable Consoles'];
 
   const handleImageSelect = async (e) => {
     const formdata = new FormData();
@@ -196,14 +170,9 @@ const BecomeCreatorpopup = ({
     if (res) setImageURL(res.data.file[0].location);
   };
   const getAllGames = async (e) => {
-    let res = await axios.get(
-      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_API}=` +
-        e.target.value +
-        '&page=1&page_size=10',
-      {
-        withCredentials: false
-      }
-    );
+    let res = await axios.get(`https://api.rawg.io/api/games?key=${gameApi}=` + e.target.value + '&page=1&page_size=10', {
+      withCredentials: false,
+    });
 
     var gamesToSet = []; // //debugger;
     for (var i = 0; i < res?.data?.results?.length; i++) {
@@ -220,11 +189,7 @@ const BecomeCreatorpopup = ({
 
   return (
     <>
-      <Dialog
-        open={open}
-        className="login_data"
-        style={{ backdropFilter: 'blur(20px)' }}
-      >
+      <Dialog open={open} className="login_data" style={{ backdropFilter: 'blur(20px)' }}>
         <div className="userProfile_conteiner">
           <ClearIcon className="subsclearIcon" onClick={handleClose} />
           <div className="userProfile_heading">
@@ -266,7 +231,7 @@ const BecomeCreatorpopup = ({
                 multiple
                 options={values}
                 classes={{
-                  option: classes.option
+                  option: classes.option,
                 }}
                 defaultValue={favouritGame}
                 filterSelectedOptions
@@ -277,20 +242,18 @@ const BecomeCreatorpopup = ({
                   <div
                     style={{
                       color: 'white',
-                      fontSize: '12px'
+                      fontSize: '12px',
                     }}
                   >
                     {' '}
                     no option{' '}
                   </div>
                 }
-                PaperComponent={({ children }) => (
-                  <Paper style={{ background: '#242635' }}>{children}</Paper>
-                )}
+                PaperComponent={({ children }) => <Paper style={{ background: '#242635' }}>{children}</Paper>}
                 onChange={setGamefiled}
                 hiddenLabel="true"
                 style={{
-                  margin: 'auto'
+                  margin: 'auto',
                 }}
                 renderInput={(params) => (
                   <TextField
@@ -305,7 +268,7 @@ const BecomeCreatorpopup = ({
                     sx={{
                       outline: 'none',
                       width: '80%',
-                      borderRadius: '6px'
+                      borderRadius: '6px',
                     }}
                     // value={gameName}
                     // name="gameName"
@@ -321,11 +284,7 @@ const BecomeCreatorpopup = ({
                 {gametypebtn.map((tag) => {
                   return (
                     <button
-                      className={
-                        gameType?.includes(tag)
-                          ? 'activetypebtn'
-                          : 'userTagsAllButton'
-                      }
+                      className={gameType?.includes(tag) ? 'activetypebtn' : 'userTagsAllButton'}
                       value={tag}
                       onClick={selectGameType}
                     >
@@ -343,11 +302,7 @@ const BecomeCreatorpopup = ({
                 return (
                   <button
                     key={i}
-                    className={
-                      plateForm?.includes(tag)
-                        ? 'activetypebtn'
-                        : 'userTagsAllButton'
-                    }
+                    className={plateForm?.includes(tag) ? 'activetypebtn' : 'userTagsAllButton'}
                     value={tag}
                     onClick={selectplateForm}
                   >
@@ -367,24 +322,9 @@ const BecomeCreatorpopup = ({
                   name="radio-buttons-group"
                   style={{ display: 'inline' }}
                 >
-                  <FormControlLabel
-                    value="Single"
-                    control={<Radio />}
-                    label="Single Mode"
-                    onClick={onChangeRadioBtn}
-                  />
-                  <FormControlLabel
-                    value="MultiPlayer"
-                    control={<Radio />}
-                    label="MultiPlayer Mode"
-                    onClick={onChangeRadioBtn}
-                  />
-                  <FormControlLabel
-                    value="Both"
-                    control={<Radio />}
-                    label="Both"
-                    onClick={onChangeRadioBtn}
-                  />
+                  <FormControlLabel value="Single" control={<Radio />} label="Single Mode" onClick={onChangeRadioBtn} />
+                  <FormControlLabel value="MultiPlayer" control={<Radio />} label="MultiPlayer Mode" onClick={onChangeRadioBtn} />
+                  <FormControlLabel value="Both" control={<Radio />} label="Both" onClick={onChangeRadioBtn} />
                 </RadioGroup>
               </div>
             </FormControl>
