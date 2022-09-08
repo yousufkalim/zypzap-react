@@ -196,6 +196,7 @@
 
 .wishList-container {
     padding-left: 30px;
+    width: 18%;
 }
 
 .wishCardStar {
@@ -441,7 +442,7 @@
         margin-right: auto;
         padding-left: 13px;
         padding-right: 13px;
-
+        width: 100%;
     }
     /* .css-1q7wbhd-MuiLinearProgress-root{ */
         .css-1pt3gl1{ 
