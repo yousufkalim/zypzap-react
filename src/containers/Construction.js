@@ -1,13 +1,13 @@
 // Init
-import React from "react";
-import teamImg from "../assets/team.gif";
-import styled from "styled-components";
+import React from 'react';
+import teamImg from '../assets/team.gif';
+import styled from 'styled-components';
 
 const Text = styled.p`
   border-right: solid 3px rgba(0, 255, 0, 0.75);
   white-space: nowrap;
   overflow: hidden;
-  font-family: "Source Code Pro", monospace;
+  font-family: 'Source Code Pro', monospace;
   font-size: 28px;
   color: black;
   margin: 0 auto;
@@ -41,10 +41,10 @@ export default function Construction() {
   return (
     <div
       style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <img src={teamImg} alt="Website is launching soon." />

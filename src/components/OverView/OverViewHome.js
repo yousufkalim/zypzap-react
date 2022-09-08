@@ -115,7 +115,11 @@ const OverViewHome = (props) => {
                 Beat the Opponent&nbsp;
                 <span style={{ textTransform: 'capitalize' }}>
                   {' '}
-                  {singlCourse?.course_name ? singlCourse.course_name : ' CS GO '}
+                  {singlCourse?.course_name
+                    ? singlCourse.course_name.length > 18
+                      ? `${singlCourse.course_name.substring(0, 17)}...`
+                      : singlCourse.course_name
+                    : ' CS GO '}
                   &nbsp;Gameplay
                 </span>
               </h1>
@@ -245,7 +249,12 @@ const OverViewHome = (props) => {
                 </p>
               </button>
               <button className="overVeiwCS-btn">
-                Created By <b>{singlCourse?.creator?.user_id?.username}</b>
+                Created By{' '}
+                <b>
+                  {singlCourse?.creator?.user_id?.username.length > 20
+                    ? `${singlCourse?.creator?.user_id?.username.substring(0, 18)}...`
+                    : singlCourse?.creator?.user_id?.username}
+                </b>
               </button>
               {window.innerWidth < 601 ? (
                 <>
