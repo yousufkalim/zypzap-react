@@ -8,8 +8,11 @@ body {
 }
 .overViewContent,.overDescriptionP{
   word-wrap: break-word;
+  
 }
-
+.overViewContent,.overVeiwSlectBTN{
+  width: 98%;
+}
 .OverView {
   width: 100%;
   color: #fff;
@@ -33,7 +36,7 @@ body {
   position: absolute;
   top: 23%;
   left: 3%;
-  width: 63%;
+  width: 67%;
 }
 .overViewH1 {
   font-size: 36px;
@@ -689,7 +692,7 @@ body {
 }
 .reviews-all-star-image{
   margin-top: 19vh;
-  width: 32%;
+  width: 27%;
 }
 .studentFeedBack{
   margin-top: -12vh;
