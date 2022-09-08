@@ -124,7 +124,7 @@ const OverViewHome = (props) => {
                 </span>
               </h1>
 
-              <p className="overViewContent" id="headingContent" style={{ width: '60%' }}>
+              <p className="overViewContent" id="headingContent">
                 {singlCourse?.description
                   ? singlCourse?.description.length > 290
                     ? `${singlCourse?.description.substring(0, 276)}.....`
