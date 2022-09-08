@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import DashboardUploadCourses from "./courses/DashboardUploadCourses";
-import CreateYourCourse from "./courses/CreateYourCourse";
-import Earning from "./earning/Earning";
-import Performance from "./performance/Performance";
-import CreateCourseForm from "./createCourse/CreateCourseForm";
+import React, { useState, useEffect } from 'react';
+import DashboardUploadCourses from './courses/DashboardUploadCourses';
+import CreateYourCourse from './courses/CreateYourCourse';
+import Earning from './earning/Earning';
+import Performance from './performance/Performance';
+import CreateCourseForm from './createCourse/CreateCourseForm';
 // import Setting from "./setting/Setting";
 // import Setting from "./Setting";
 
-import Box from "@mui/material/Box";
-import { Store, UpdateStore } from "../../StoreContext";
-import MyProfileData from "../UserProfile/MyProfileData";
-import Setting from "../UserDashboard/Setting";
+import Box from '@mui/material/Box';
+import { Store, UpdateStore } from '../../StoreContext';
+import MyProfileData from '../UserProfile/MyProfileData';
+import Setting from '../UserDashboard/Setting';
 const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
   const { contentDashboardButton } = Store();
   const [activeUploadButton, setActiveUploadButton] = useState(1);
@@ -21,14 +21,14 @@ const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
 
   return (
     <>
-      {contentDashboardButton === "Courses" ? (
+      {contentDashboardButton === 'Courses' ? (
         <Box className="upload-courses-container">
           <CreateYourCourse setcreateCourse={setcreateCourse} />
           <Box>
             <div className="uploadBtnDiv">
               <h2
                 className={`
-             ${activeUploadButton == 1 && "ActiveLine"} 
+             ${activeUploadButton == 1 && 'ActiveLine'} 
              upload-courses-headings`}
                 onClick={() => handleActiveUploadButton(1)}
               >
@@ -37,13 +37,14 @@ const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
               &nbsp; &nbsp;
               <h2
                 className={`
-             ${activeUploadButton == 2 && "ActiveLine"} 
+             ${activeUploadButton == 2 && 'ActiveLine'} 
              upload-courses-headings`}
                 onClick={() => handleActiveUploadButton(2)}
               >
                 Draft Courses
               </h2>
-              &nbsp; &nbsp;
+              {/* following section was hidden as per client req */}
+              {/* &nbsp; &nbsp;
               <h2
                 className={`
              ${activeUploadButton == 3 && "ActiveLine"} 
@@ -70,26 +71,20 @@ const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
               >
                 Requested courses
               </h2>
-              &nbsp; &nbsp;
+              &nbsp; &nbsp; */}
             </div>
             {/* <h1 className="upload-courses-heading"> My Uploaded Courses</h1> */}
-            {activeUploadButton == 1 ? (
-              <DashboardUploadCourses pageName={"publish"} />
-            ) : null}
-            {activeUploadButton == 2 ? (
-              <DashboardUploadCourses pageName={"draft"} />
-            ) : null}
-            {activeUploadButton == 3 ? (
-              <DashboardUploadCourses pageName={"Not Approve"} />
-            ) : null}
-            {activeUploadButton == 4 ? (
-              <DashboardUploadCourses pageName={"Under Evalution"} />
-            ) : null}
-            {activeUploadButton == 5 ? (
+            {activeUploadButton == 1 ? <DashboardUploadCourses pageName={'publish'} /> : null}
+            {activeUploadButton == 2 ? <DashboardUploadCourses pageName={'draft'} /> : null}
+            {/* {activeUploadButton == 3 ? <DashboardUploadCourses pageName={'Not Approve'} /> : null} */}
+            {/* {activeUploadButton == 4 ? (
+              <DashboardUploadCourses pageName={'Under Evalution'} />
+            ) : null} */}
+            {/* {activeUploadButton == 5 ? (
               <div className="request-data">
                 <p className="request-data-p">No data to display</p>
               </div>
-            ) : null}
+            ) : null} */}
             {/* {activeUploadButton == 6 ? (
               <>
                 <button style={{ color: "#fff" }}>Commitng Soon</button>
@@ -98,10 +93,10 @@ const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
           </Box>
         </Box>
       ) : null}
-      {contentDashboardButton == "" && createCourse && <CreateCourseForm />}
+      {contentDashboardButton == '' && createCourse && <CreateCourseForm />}
       {/* {defaultCompState === "Performance" ? <Performance /> : null}
       {defaultCompState === "Earning" ? <Earning /> : null} */}
-      {contentDashboardButton === "Setting" ? <Setting /> : null}
+      {contentDashboardButton === 'Setting' ? <Setting /> : null}
     </>
   );
 };
