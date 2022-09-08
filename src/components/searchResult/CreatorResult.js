@@ -71,7 +71,13 @@ const CreatorResult = ({ input, creator }) => {
                 />
               ) : (
                 _myCreators?.map((item, i) => (
-                  <Link to="#" className="following-link" course={item}>
+                  <Link
+                    to={{
+                      pathname: `/CreatorProfile/${item._id}`,
+                    }}
+                    className="following-link"
+                    course={item}
+                  >
                     <a className="followingAnker" key={i}>
                       <div className="following-card">
                         <div className="followingImgDiv">
