@@ -862,7 +862,11 @@ const SearchResultBody = () => {
                             {window.innerWidth < 601 ? (
                               <h5 className="latestcourseh5" style={{ paddingTop: '2vh' }}>
                                 {' '}
-                                {item?.course_name ? item.course_name : 'Fight Course'}
+                                {item?.course_name
+                                  ? item.course_name.length > 20
+                                    ? `${item.course_name.substring(0, 18)}...`
+                                    : item.course_name
+                                  : 'Fight Course'}
                               </h5>
                             ) : (
                               ''
@@ -904,7 +908,11 @@ const SearchResultBody = () => {
                             ) : (
                               <h5 className="latestcourseh5">
                                 {' '}
-                                {item?.course_name ? item.course_name : 'Fight Course'}
+                                {item?.course_name
+                                  ? item.course_name.length > 20
+                                    ? `${item.course_name.substring(0, 18)}...`
+                                    : item.course_name
+                                  : 'Fight Course'}
                               </h5>
                             )}
                             <div className="latestCourseMain-Div">
@@ -917,7 +925,7 @@ const SearchResultBody = () => {
                                   />
                                   <p className="latestCourse-p">
                                     {item?.creator?.user_id?.username.length > 6
-                                      ? `${item?.creator?.user_id?.username.substring(0, 6)}...`
+                                      ? `${item?.creator?.user_id?.username.substring(0, 5)}...`
                                       : item?.creator?.user_id?.username}
                                   </p>
                                 </div>

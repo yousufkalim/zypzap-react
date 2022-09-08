@@ -344,7 +344,11 @@ const CreatorProfileHome = (props) => {
                 <div className="cardGrid" style={{ minHeight: '86%' }}>
                   {window.innerWidth < 601 ? (
                     <h4 className="latestCourse-h4">
-                      {item?.course_name ? item.course_name : 'Fight Course'}
+                      {item?.course_name
+                        ? item.course_name.length > 20
+                          ? `${item.course_name.substring(0, 18)}...`
+                          : item.course_name
+                        : 'Fight Course'}
                     </h4>
                   ) : (
                     ''
@@ -373,7 +377,11 @@ const CreatorProfileHome = (props) => {
                     ''
                   ) : (
                     <h4 className="latestCourse-h4">
-                      {item?.course_name ? item.course_name : 'Fight Course'}
+                      {item?.course_name
+                        ? item.course_name.length > 20
+                          ? `${item.course_name.substring(0, 18)}...`
+                          : item.course_name
+                        : 'Fight Course'}
                     </h4>
                   )}
 
@@ -382,7 +390,12 @@ const CreatorProfileHome = (props) => {
                       <div className="latestCourse-colmn-centerDiv">
                         <img src={LatestCourseGameIcon} alt="" className="LatestCourse-IMG" />
                         <p className="latestCourse-pHeading">
-                          <strong id="latestCourse-pHeading"> {user?.username}</strong>
+                          <strong id="latestCourse-pHeading">
+                            {' '}
+                            {user?.username.length > 7
+                              ? `${user?.username.substring(0, 7)}...`
+                              : user?.username}
+                          </strong>
                         </p>
                       </div>
                       <div className="latestCourse-colmn-centerDiv">
