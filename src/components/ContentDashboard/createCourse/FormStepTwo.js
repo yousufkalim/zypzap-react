@@ -128,7 +128,6 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
           >
             Record Course
           </h2>
-          <button className="coming-SoonBYN">Coming soon</button>
         </div>
         <div className={` hrLine1`} />
 
@@ -166,7 +165,11 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
 
         <div className="coursDetailBtn">
           <button className="drafBtn">Draft</button>
-          <button className="drafBtn" style={{ background: 'none', border: '1px solid #662F88' }} onClick={() => setStep(1)}>
+          <button
+            className="drafBtn"
+            style={{ background: 'none', border: '1px solid #662F88' }}
+            onClick={() => setStep(1)}
+          >
             Previous
           </button>
           <button onClick={handleVideo} className="continueBtn">

@@ -9,12 +9,7 @@ body {
 .overViewContent,.overDescriptionP{
   word-wrap: break-word;
 }
-#starID {
-  width: 18px;
-  height: 18px;
-  top: '1px',
 
-}
 .OverView {
   width: 100%;
   color: #fff;
@@ -36,7 +31,7 @@ body {
 }
 .overView_heading {
   position: absolute;
-  top: 30%;
+  top: 23%;
   left: 3%;
   width: 100%;
 }
@@ -445,13 +440,14 @@ body {
 .ReviewsPersntage {
   display: inline;
   padding: 0 0 0 15px;
-  font-size: 14px;
+  font-size: 13px;
   margin-top: 4%;
 }
 .reviewStarLi {
   list-style: none;
   padding: 0 0 8px 0;
   display: flex;
+  justify-content: space-between;
 }
 .reviewsStarIcon {
   padding: 53px 0 0 0;
