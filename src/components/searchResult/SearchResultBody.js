@@ -915,7 +915,7 @@ const SearchResultBody = () => {
                                   : 'Fight Course'}
                               </h5>
                             )}
-                            <div className="latestCourseMain-Div">
+                            <div className="latestCourseMain-Div" id="latestCourseMain-Div">
                               <div className="latestCouse-colmn">
                                 <div className="latestCourse-colmn-centerDiv">
                                   <img

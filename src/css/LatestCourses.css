@@ -19,7 +19,9 @@
         Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-
+#latestCourse-pHeading{
+    font-weight: 800 !important;
+}
 
 .latestcourseHeadingDiv {
     display: flex;
@@ -135,8 +137,8 @@
 }
 
 .latestCourse-pHeading {
-    font-size: 18px;
-    font-weight: bolder;
+    font-size: 16px;
+   
     padding-left: 5px;
     font-family: 'mulish';
 }
@@ -153,11 +155,9 @@
 
 .latestCourse-p {
     padding: 0 0 0 6px;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'mulish';
     text-transform: capitalize;
-    font-weight: 800 !important;
-
     text-transform: capitalize;
     color: #e0e0e0;
 }
@@ -343,7 +343,7 @@
             rgba(38, 38, 72, 0) 129.88%);
     margin: 12px;
     border-radius: 35px;
-    min-height: 93% !important;
+    min-height: 97% !important;
 }
 
 /* -------------------------------- wishlist --------------------------------   */
@@ -412,6 +412,9 @@
     }
 
 
+}
+#latestCourseMain-Div {
+   width: 96%;
 }
 
 @media only screen and (min-width: 1900px) {
