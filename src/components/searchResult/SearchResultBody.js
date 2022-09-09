@@ -203,11 +203,11 @@ const SearchResultBody = () => {
 
   const useStyles = makeStyles({
     customTextField: {
-      // '& input': { color: 'white' },
+      '& input': { color: 'white' },
       background: '#292d59 ',
       border: 'none',
       '& input::placeholder': {
-        // color: 'white',
+        color: 'white',
         '@media (max-width: 780px)': {
           paddingLeft: '-2px',
         },
@@ -472,6 +472,7 @@ const SearchResultBody = () => {
                   classes={{
                     option: classes.option,
                   }}
+                  disableClearable
                   name="gameName"
                   id="controllable-states-demo"
                   className="coursInputAutofiledSide"
