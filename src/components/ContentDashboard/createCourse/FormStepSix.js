@@ -8,7 +8,11 @@ import { toast } from 'react-toastify';
 import successPopup from '../../PopupForms/RequestSuccessfullyPopup';
 import { useHistory } from 'react-router-dom';
 import CourseAproved from '../../PopupForms/CourseAproved';
-import { uploadPhoto, uploadVideoAsThumbnail, uploadVideo } from '../../../utils/uploadMedia';
+import {
+  uploadPhoto,
+  uploadVideoAsThumbnail,
+  uploadVideo
+} from '../../../utils/uploadMedia';
 import { CircularProgress } from '@material-ui/core';
 
 const FormStepsix = ({
@@ -21,11 +25,11 @@ const FormStepsix = ({
   setformDataSix,
   formDataFive,
   setStep,
-  setformDataFive,
+  setformDataFive
 }) => {
   const history = useHistory();
   const updateStore = UpdateStore();
-  const { creator } = Store();
+  const { creator, singleDraft } = Store();
   const [uploading, setUploading] = useState(false);
   const [btnState, setBtnState] = useState(0);
   const [opens, setOpens] = useState(false);
@@ -43,7 +47,8 @@ const FormStepsix = ({
     if (!file) return;
     var fileName = file.name;
 
-    if (!fileName.match(/\.(jpeg|png|jpg|gif|webp)$/)) toast.error('Only image file should be selected!');
+    if (!fileName.match(/\.(jpeg|png|jpg|gif|webp)$/))
+      toast.error('Only image file should be selected!');
     else {
       const formData = new FormData();
       formData.append('photos', file);
@@ -63,7 +68,8 @@ const FormStepsix = ({
     if (!file) return;
     var fileName = file.name;
 
-    if (!fileName.match(/\.(mp4|mpeg|mov)$/)) toast.error('Only video files should be selected');
+    if (!fileName.match(/\.(mp4|mpeg|mov)$/))
+      toast.error('Only video files should be selected');
     else {
       const formData = new FormData();
       formData.append('videos', file);
@@ -94,7 +100,7 @@ const FormStepsix = ({
         gameType: '',
         gameMood: '',
         gamePlateForm: '',
-        description: '',
+        description: ''
       });
       setformDataFive([]);
       setformDataSix('');
@@ -109,9 +115,46 @@ const FormStepsix = ({
   const handleClose = () => {
     setOpens(false);
   };
+
+  const handleDraft = async () => {
+    let data = {
+      formDataOne,
+      formDataTwo,
+      formDataFive,
+      formDataSix,
+      step,
+      id: creator._id
+    };
+    if (singleDraft) {
+      let res = await api('put', '/draft', {
+        ...data,
+        draftId: singleDraft?._id,
+        formDataSix
+      });
+      if (res) {
+        // updateStore({ draft: res?.data });
+        updateStore({ contentDashboardButton: 'Courses' });
+        history.push('/dashboard');
+      }
+    } else {
+      let res = await api('post', '/draft', data);
+      if (res) {
+        updateStore({ draft: res?.data });
+        updateStore({ contentDashboardButton: 'Courses' });
+        history.push('/dashboard');
+        // setBtnState(2);
+      }
+    }
+  };
   return (
     <>
-      <CourseAproved open={opens} setOpen={setOpens} closeModal={handleClose} setStep={setStep} text="" />
+      <CourseAproved
+        open={opens}
+        setOpen={setOpens}
+        closeModal={handleClose}
+        setStep={setStep}
+        text=""
+      />
       {/* <successPopup
         open={showPopup}
         setOpen={() => setShowPopup(!showPopup)}
@@ -130,7 +173,10 @@ const FormStepsix = ({
               <div className="step_container">
                 <div className="step1">
                   <p className="step1-p">Upload Course Thumbnail</p>
-                  <ImageInput text="Select Image" onChange={handleSubmitImage} />
+                  <ImageInput
+                    text="Select Image"
+                    onChange={handleSubmitImage}
+                  />
                 </div>
               </div>
             </Grid>
@@ -138,17 +184,26 @@ const FormStepsix = ({
               <div className="step_container">
                 <div className="step1">
                   <p className="step1-p">Upload Course Introduction</p>
-                  <VideoInput text="Select Video" onChange={handleSubmitVideo} />
+                  <VideoInput
+                    text="Select Video"
+                    onChange={handleSubmitVideo}
+                  />
                 </div>
               </div>
             </Grid>
           </div>
         ) : (
-          <p className="success">Thumbnail Uploaded Successfully, Now Submit Course</p>
+          <p className="success">
+            Thumbnail Uploaded Successfully, Now Submit Course
+          </p>
         )}
 
         <div className="coursDetailBtn">
-          <button disabled={btnState == 1 || btnState == 3 ? true : false} className="drafBtn">
+          <button
+            disabled={btnState == 1 || btnState == 3 ? true : false}
+            className="drafBtn"
+            onClick={handleDraft}
+          >
             Draft
           </button>
           <button
@@ -159,7 +214,11 @@ const FormStepsix = ({
           >
             Previous
           </button>
-          <button className="continueBtn" onClick={handleSubmitCourse} disabled={btnState == 1 || btnState == 3 ? true : false}>
+          <button
+            className="continueBtn"
+            onClick={handleSubmitCourse}
+            disabled={btnState == 1 || btnState == 3 ? true : false}
+          >
             {btnState === 0
               ? 'Submit For Approval'
               : btnState === 1
@@ -177,7 +236,7 @@ const FormStepsix = ({
                 position: 'absolute',
                 top: '60%',
                 left: '55%',
-                color: 'white',
+                color: 'white'
               }}
             />
           ) : (

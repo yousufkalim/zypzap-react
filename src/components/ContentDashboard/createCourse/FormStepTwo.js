@@ -5,11 +5,18 @@ import api from '../../../api';
 import RequestSuccessfullyPopup from '../../PopupForms/RequestSuccessfullyPopup';
 import UploadingTheCourse from '../../PopupForms/UploadingTheCourse';
 import { toast } from 'react-toastify';
-import { Store } from '../../../StoreContext';
+import { Store, UpdateStore } from '../../../StoreContext';
 import { uploadVideo } from '../../../utils/uploadMedia';
 import { controller } from '../../../utils/uploadMedia';
+import { useHistory } from 'react-router-dom';
 
-const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
+const FormStepTwo = ({
+  step,
+  setStep,
+  formDataOne,
+  formDataTwo,
+  setformDataTwo
+}) => {
   const [open, setOpen] = React.useState(false);
   const [progress, setProgress] = useState(0);
   const [opens, setOpens] = React.useState(false);
@@ -19,7 +26,9 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
   const [videoName, setVideoName] = useState('');
   const [mbPerSecond, setmbPerSecond] = useState(0);
   const [timeUploadRemaining, setTimeUploadRemaining] = useState(0);
-  const { creator } = Store();
+  const { creator, singleDraft } = Store();
+  const updateStore = UpdateStore();
+  const history = useHistory();
 
   const handleSubmit = async (file) => {
     // e.preventDefault();
@@ -41,7 +50,9 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
 
       var filename = files[i].name;
       if (!filename.match(/\.(mp4|mpeg|mov)$/)) {
-        toast.error('Please select video files. Only video files will be uploaded');
+        toast.error(
+          'Please select video files. Only video files will be uploaded'
+        );
         setUploading(false);
         setProgress(0);
         setOpen(false);
@@ -93,6 +104,28 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
     }
     setStep(5);
   };
+  const handleDraft = async () => {
+    let data = { formDataOne, formDataTwo, step, id: creator._id };
+    if (singleDraft) {
+      let res = await api('put', '/draft', {
+        ...data,
+        draftId: singleDraft?._id
+      });
+      if (res) {
+        // updateStore({ draft: res?.data });
+        updateStore({ contentDashboardButton: 'Courses' });
+        history.push('/dashboard');
+      }
+    } else {
+      let res = await api('post', '/draft', data);
+      if (res) {
+        updateStore({ draft: res?.data });
+        updateStore({ contentDashboardButton: 'Courses' });
+        history.push('/dashboard');
+        // setBtnState(2);
+      }
+    }
+  };
   return (
     <>
       <UploadingTheCourse
@@ -139,7 +172,11 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
                 <div className="step_container2">
                   <div className="step1">
                     <p className="stapPr">Upload Full Course</p>
-                    <VideoInput id="1" text="Select Video" onChange={handleSubmit} />
+                    <VideoInput
+                      id="1"
+                      text="Select Video"
+                      onChange={handleSubmit}
+                    />
                   </div>
                   <p className="step_or" onClick={() => setOpens(true)}>
                     or
@@ -155,7 +192,9 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
                 </div>
               </Grid>
             ) : (
-              <p className="success">Video Uploaded Successfully, Please Continue!</p>
+              <p className="success">
+                Video Uploaded Successfully, Please Continue!
+              </p>
             )}
           </>
         ) : (
@@ -165,8 +204,14 @@ const FormStepTwo = ({ step, setStep, formDataTwo, setformDataTwo }) => {
         )}
 
         <div className="coursDetailBtn">
-          <button className="drafBtn">Draft</button>
-          <button className="drafBtn" style={{ background: 'none', border: '1px solid #662F88' }} onClick={() => setStep(1)}>
+          <button className="drafBtn" onClick={handleDraft}>
+            Draft
+          </button>
+          <button
+            className="drafBtn"
+            style={{ background: 'none', border: '1px solid #662F88' }}
+            onClick={() => setStep(1)}
+          >
             Previous
           </button>
           <button onClick={handleVideo} className="continueBtn">

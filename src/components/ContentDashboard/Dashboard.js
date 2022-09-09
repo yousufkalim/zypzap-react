@@ -11,7 +11,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 const Dashboard = ({ id }) => {
   const history = useHistory();
 
-  const { creator, contentDashboardButton } = Store();
+  const { creator, contentDashboardButton, singleDraft } = Store();
   const updateStore = UpdateStore();
   const [activeButton, setActiveButton] = useState('Courses');
   const [createCourse, setcreateCourse] = useState(false);
@@ -40,7 +40,7 @@ const Dashboard = ({ id }) => {
     { name: 'Courses', img: Youtube },
     // { name: "Performance", img: performance },
     // { name: "Earning", img: dollar },
-    { name: 'Setting', img: settings },
+    { name: 'Setting', img: settings }
   ];
   const onSideBtnClick = (e) => {
     const course = e.target.textContent;
@@ -48,10 +48,14 @@ const Dashboard = ({ id }) => {
     setcreateCourse(false);
     setActiveButton(course);
     updateStore({ contentDashboardButton: course });
+    updateStore({ singleDraft: null });
   };
   return (
     <>
-      <Box className="dashboard-container" sx={{ flexGrow: 1, display: 'flex' }}>
+      <Box
+        className="dashboard-container"
+        sx={{ flexGrow: 1, display: 'flex' }}
+      >
         {/* dashboard SideBar */}
         <Box className="dashboard-sidebar">
           <Grid>
@@ -63,7 +67,10 @@ const Dashboard = ({ id }) => {
           </Grid>
         </Box>
         {/* dashboardBody */}
-        <DashboardRightSideBar setcreateCourse={setcreateCourse} createCourse={createCourse} />
+        <DashboardRightSideBar
+          setcreateCourse={setcreateCourse}
+          createCourse={createCourse}
+        />
       </Box>
     </>
   );
