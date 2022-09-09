@@ -35,6 +35,11 @@
   color: #fff;
   height: 40px;
 }
+.coursInputAutofiledSide {
+  opacity: 0.6;
+  color: #fff;
+  height: 40px;
+}
 .coursInputAutofiledgameExperties {
   margin: 10px 10px !important;
   width: 100% !important;
