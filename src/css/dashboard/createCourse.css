@@ -50,6 +50,7 @@
 }
 .uploadBtnDiv {
   display: flex;
+  margin: auto;
   margin-top: 20px;
   cursor: pointer;
   width: 92%;

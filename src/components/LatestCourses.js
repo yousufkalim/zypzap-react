@@ -165,7 +165,11 @@ export default function LatestCourses(props) {
               <div className="cardGrid" style={{ minHeight: '86%' }}>
                 {window.innerWidth < 601 ? (
                   <h4 className="latestCourse-h4">
-                    {item?.course_name ? item.course_name : 'Fight Course'}
+                    {item?.course_name
+                      ? item.course_name.length > 20
+                        ? `${item.course_name.substring(0, 18)}...`
+                        : item.course_name
+                      : 'Fight Course'}
                   </h4>
                 ) : (
                   ''
@@ -194,7 +198,11 @@ export default function LatestCourses(props) {
                   ''
                 ) : (
                   <h4 className="latestCourse-h4">
-                    {item?.course_name ? item.course_name : 'Fight Course'}
+                    {item?.course_name
+                      ? item.course_name.length > 20
+                        ? `${item.course_name.substring(0, 18)}...`
+                        : item.course_name
+                      : 'Fight Course'}
                   </h4>
                 )}
 
@@ -205,7 +213,9 @@ export default function LatestCourses(props) {
                       <p className="latestCourse-pHeading">
                         <strong id="latestCourse-pHeading">
                           {' '}
-                          {item?.creator?.user_id?.username}
+                          {item?.creator?.user_id?.username.length > 15
+                            ? `${item?.creator?.user_id?.username.substring(0, 14)}...`
+                            : item?.creator?.user_id?.username}
                         </strong>
                       </p>
                     </div>

@@ -3,8 +3,12 @@ import Categories from './Categories';
 import GameType from './GameType';
 import Plateforms from './Plateforms';
 import Level from './gameLevel';
+import axios from 'axios';
 import moment from 'moment';
+import Autocomplete from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField';
 import { experimentalStyled as styled } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
@@ -16,7 +20,7 @@ import Course1 from '../../assets/img/course1.png';
 import StarIcon from '@material-ui/icons/Star';
 import Union from '../../assets/icons/Union.svg';
 import dummycorse from '../../assets/img/dummycorse.svg';
-
+import { gameApi } from '../../config';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import CustomizedMenus from './CustomizedMenus';
@@ -179,6 +183,7 @@ const levelAry = [
     value: 'Esporter',
   },
 ];
+
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(2),
@@ -195,6 +200,33 @@ const SearchResultBody = () => {
   }, []);
   // initalize variables
   const click = useRef(null);
+
+  const useStyles = makeStyles({
+    customTextField: {
+      '& input': { color: 'white' },
+      background: '#292d59 ',
+      border: 'none',
+      '& input::placeholder': {
+        color: 'white',
+        '@media (max-width: 780px)': {
+          paddingLeft: '-2px',
+        },
+      },
+    },
+    option: {
+      background: '#242635 ',
+      color: 'white',
+      '&:hover': {
+        backgroundColor: '#9198a5 !important',
+      },
+    },
+    noOptions: {
+      display: `${'inherit'}`,
+      color: 'white',
+    },
+  });
+  const classes = useStyles();
+
   const [selectedCategories, setselectedCategories] = useState(false);
   const [selectedGame, setSelectedGame] = useState(false);
   const [selectedPlateforms, setSelectedPlateforms] = useState(false);
@@ -203,6 +235,7 @@ const SearchResultBody = () => {
   const [selectedPrice, setSelectedPrice] = useState(false);
   const [sliderValue, setSliderValue] = useState('');
   const [search, setSearch] = useState('');
+  const [multivalues, setMultivalues] = useState([]);
 
   const [selectedActiveButton, setSelectedActiveButton] = useState('');
   const [selectedGameBtn, setSelectedGameBtn] = useState('');
@@ -214,8 +247,10 @@ const SearchResultBody = () => {
 
   const [FvrtIconCount, setFvrtIconCount] = useState([]);
   const [paginatedCourses, setPaginatedCourses] = useState([]);
+  const [gameName, setGameName] = useState('');
   const [filterData, setFilterData] = useState({
     category: [],
+    gameName: '',
     gameType: [],
     plateform: [],
     level: [],
@@ -252,6 +287,14 @@ const SearchResultBody = () => {
       }
     }
 
+    setFilterData(filters);
+
+    const res = await api('post', '/courses/filter', filters);
+    updateStore({ searchCourse: res.data });
+  };
+
+  const handleGameSearch = async (e, val) => {
+    let filters = { ...filterData, gameName: val || '' };
     setFilterData(filters);
 
     const res = await api('post', '/courses/filter', filters);
@@ -365,31 +408,7 @@ const SearchResultBody = () => {
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays;
   };
-  const onChangeRadioBtn = (e) => {
-    const value = e.target.value;
-    setRadioBtnValue(e.target.value);
-  };
-  const onChangeSliderValue = (e) => {
-    setSliderValue(e.target.value);
-  };
 
-  const handleSearchGame = async (e) => {
-    e.preventDefault();
-
-    if (search) {
-      updateStore({ searchLoader: true });
-      let res = await api('get', `/courses/search?name=${search}`);
-      if (res) {
-        updateStore({ searchCourse: res?.data, searchCreator: [] });
-        history.push(`/searchResult`);
-      }
-
-      updateStore({ searchLoader: false });
-    }
-  };
-  const handleChangeInput = (e) => {
-    setSearch(e.target.value);
-  };
   const RequestClikEvent = async (e) => {
     let res = await api(
       'get',
@@ -400,7 +419,20 @@ const SearchResultBody = () => {
       updateStore({ searchCourse: res?.data });
     }
   };
+  const getAllGames = async (e) => {
+    const res = await axios.get(
+      `https://api.rawg.io/api/games?key=${gameApi}=` + e.target.value + '&page=1&page_size=10',
+      {
+        withCredentials: false,
+      }
+    );
 
+    var gamesToSet = res?.data?.results?.map((game) => {
+      return game.name;
+    });
+
+    setMultivalues(gamesToSet);
+  };
   const getDateIs = (d) => {
     var date = new Date(d);
     return moment(date).fromNow();
@@ -433,15 +465,44 @@ const SearchResultBody = () => {
                   )}{' '}
                 </p>
               </div>
-              <div className="searchInputItem" onClick={handleSearchGame}>
-                <input
-                  type="text"
-                  placeholder="CS⎸Go Game"
-                  className="searchInputItem-input"
-                  onChange={handleChangeInput}
-                  // onSubmit={handleSearchButtonClick}
-                  value={search}
-                  onKeyPress={(e) => e.key === 'Enter' && handleSearchGame(e)}
+              <div className="searchInputItem">
+                <Autocomplete
+                  options={multivalues}
+                  value={filterData.gameName}
+                  classes={{
+                    option: classes.option,
+                  }}
+                  disableClearable
+                  name="gameName"
+                  id="controllable-states-demo"
+                  className="coursInputAutofiledSide"
+                  noOptionsText={
+                    <div style={{ color: 'white', fontSize: '12px' }}> no option </div>
+                  }
+                  PaperComponent={({ children }) => (
+                    <Paper style={{ background: '#242635' }}>{children}</Paper>
+                  )}
+                  getOptionLabel={(option) => option || ''}
+                  onChange={(e, val) => {
+                    setGameName(val);
+                    handleGameSearch(e, val);
+                  }}
+                  hiddenLabel="true"
+                  style={{
+                    margin: 'auto',
+                  }}
+                  renderInput={(params) => (
+                    <TextField
+                      classes={{ root: classes.customTextField }}
+                      {...params}
+                      placeholder="CS|Go Game "
+                      style={{ color: 'white' }}
+                      variant="outlined"
+                      onChange={getAllGames}
+                      value={gameName}
+                      name="gameName"
+                    />
+                  )}
                 />
               </div>
               <hr className="filterby-divider" />
@@ -862,7 +923,11 @@ const SearchResultBody = () => {
                             {window.innerWidth < 601 ? (
                               <h5 className="latestcourseh5" style={{ paddingTop: '2vh' }}>
                                 {' '}
-                                {item?.course_name ? item.course_name : 'Fight Course'}
+                                {item?.course_name
+                                  ? item.course_name.length > 20
+                                    ? `${item.course_name.substring(0, 18)}...`
+                                    : item.course_name
+                                  : 'Fight Course'}
                               </h5>
                             ) : (
                               ''
@@ -904,10 +969,14 @@ const SearchResultBody = () => {
                             ) : (
                               <h5 className="latestcourseh5">
                                 {' '}
-                                {item?.course_name ? item.course_name : 'Fight Course'}
+                                {item?.course_name
+                                  ? item.course_name.length > 20
+                                    ? `${item.course_name.substring(0, 18)}...`
+                                    : item.course_name
+                                  : 'Fight Course'}
                               </h5>
                             )}
-                            <div className="latestCourseMain-Div">
+                            <div className="latestCourseMain-Div" id="latestCourseMain-Div">
                               <div className="latestCouse-colmn">
                                 <div className="latestCourse-colmn-centerDiv">
                                   <img
@@ -917,7 +986,7 @@ const SearchResultBody = () => {
                                   />
                                   <p className="latestCourse-p">
                                     {item?.creator?.user_id?.username.length > 6
-                                      ? `${item?.creator?.user_id?.username.substring(0, 6)}...`
+                                      ? `${item?.creator?.user_id?.username.substring(0, 5)}...`
                                       : item?.creator?.user_id?.username}
                                   </p>
                                 </div>

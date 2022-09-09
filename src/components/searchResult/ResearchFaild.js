@@ -42,9 +42,9 @@ const ResearchFaild = ({ searchInput, setOpen }) => {
             <p className="researchP">Don’t Worry if you didn’t got what you searched for</p>
           </div>
         </Grid>
-        <Box textAlign="center">
+        {/* <Box textAlign="center">
           <button className="btn-Research"> Coming Soon</button>
-        </Box>
+        </Box> */}
       </Box>
     </>
   );

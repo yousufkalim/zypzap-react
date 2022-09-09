@@ -8,12 +8,10 @@ body {
 }
 .overViewContent,.overDescriptionP{
   word-wrap: break-word;
+  
 }
-#starID {
-  width: 18px;
-  height: 18px;
-  top: '1px',
-
+.overViewContent,.overVeiwSlectBTN{
+  width: 98%;
 }
 .OverView {
   width: 100%;
@@ -36,9 +34,9 @@ body {
 }
 .overView_heading {
   position: absolute;
-  top: 30%;
+  top: 23%;
   left: 3%;
-  width: 100%;
+  width: 67%;
 }
 .overViewH1 {
   font-size: 36px;
@@ -341,6 +339,7 @@ body {
   font-size: 18px;
   font-weight: 700;
   text-transform: capitalize;
+  word-break: break-word;
 }
 .instructorP {
   font-size: 13px;
@@ -445,13 +444,14 @@ body {
 .ReviewsPersntage {
   display: inline;
   padding: 0 0 0 15px;
-  font-size: 14px;
+  font-size: 13px;
   margin-top: 4%;
 }
 .reviewStarLi {
   list-style: none;
   padding: 0 0 8px 0;
   display: flex;
+  justify-content: space-between;
 }
 .reviewsStarIcon {
   padding: 53px 0 0 0;
@@ -692,7 +692,7 @@ body {
 }
 .reviews-all-star-image{
   margin-top: 19vh;
-  width: 32%;
+  width: 27%;
 }
 .studentFeedBack{
   margin-top: -12vh;

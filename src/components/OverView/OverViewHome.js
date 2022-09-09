@@ -115,12 +115,16 @@ const OverViewHome = (props) => {
                 Beat the Opponent&nbsp;
                 <span style={{ textTransform: 'capitalize' }}>
                   {' '}
-                  {singlCourse?.course_name ? singlCourse.course_name : ' CS GO '}
+                  {singlCourse?.course_name
+                    ? singlCourse.course_name.length > 15
+                      ? `${singlCourse.course_name.substring(0, 15)}...`
+                      : singlCourse.course_name
+                    : ' CS GO '}
                   &nbsp;Gameplay
                 </span>
               </h1>
 
-              <p className="overViewContent" id="headingContent" style={{ width: '60%' }}>
+              <p className="overViewContent" id="headingContent">
                 {singlCourse?.description
                   ? singlCourse?.description.length > 290
                     ? `${singlCourse?.description.substring(0, 276)}.....`

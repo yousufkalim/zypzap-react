@@ -45,7 +45,8 @@ const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
               >
                 Draft Courses
               </h2>
-              &nbsp; &nbsp;
+              {/* following section was hidden as per client req */}
+              {/* &nbsp; &nbsp;
               <h2
                 className={`
              ${activeUploadButton == 3 && 'ActiveLine'} 
@@ -72,7 +73,7 @@ const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
               >
                 Requested courses
               </h2>
-              &nbsp; &nbsp;
+              &nbsp; &nbsp; */}
             </div>
             {/* <h1 className="upload-courses-heading"> My Uploaded Courses</h1> */}
             {activeUploadButton == 1 ? (
@@ -95,7 +96,8 @@ const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
               <div className="request-data">
                 <p className="request-data-p">No data to display</p>
               </div>
-            ) : null}
+            ) : null}{' '}
+            */}
             {/* {activeUploadButton == 6 ? (
               <>
                 <button style={{ color: "#fff" }}>Commitng Soon</button>

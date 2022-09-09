@@ -6,10 +6,14 @@ const ReviewStarList = (props) => {
     <div>
       <li className="reviewStarLi">
         {' '}
-        {props.star.map((i) => (
-          <Star1 className="starID" />
-        ))}
-        <p className="ReviewsPersntage">{props.text}</p>
+        <div>
+          {props.star.map((i) => (
+            <Star1 className="starID" />
+          ))}
+        </div>
+        <div>
+          <p className="ReviewsPersntage">{props.text}</p>
+        </div>
       </li>
     </div>
   );

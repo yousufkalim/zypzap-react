@@ -161,7 +161,6 @@ const FormStepTwo = ({
           >
             Record Course
           </h2>
-          <button className="coming-SoonBYN">Coming soon</button>
         </div>
         <div className={` hrLine1`} />
 

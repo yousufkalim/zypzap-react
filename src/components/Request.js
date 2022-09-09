@@ -13,16 +13,16 @@ export default function Construction({
         Very soon, you will be able to express your needs to the community
       </p>
 
-      <button
+      {/* <button
         className="requestButton"
         disabled
         onClick={() => {
           setOpenContentRequest(true);
         }}
       >
-        {/* Request Now */}
+        
         Coming Soon
-      </button>
+      </button> */}
       {/* {/* {user ? ( */}
       {/* ) : (
       <button
