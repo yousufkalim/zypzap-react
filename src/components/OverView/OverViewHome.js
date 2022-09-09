@@ -116,8 +116,8 @@ const OverViewHome = (props) => {
                 <span style={{ textTransform: 'capitalize' }}>
                   {' '}
                   {singlCourse?.course_name
-                    ? singlCourse.course_name.length > 40
-                      ? `${singlCourse.course_name.substring(0, 40)}...`
+                    ? singlCourse.course_name.length > 35
+                      ? `${singlCourse.course_name.substring(0, 35)}...`
                       : singlCourse.course_name
                     : ' CS GO '}
                   &nbsp;Gameplay
