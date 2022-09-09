@@ -249,13 +249,7 @@ const OverViewHome = (props) => {
                 </p>
               </button>
               <button className="overVeiwCS-btn">
-                Created By{' '}
-                <b>
-                  {singlCourse?.course_name.length > 30 &&
-                  singlCourse?.creator?.user_id?.username.length > 20
-                    ? `${singlCourse?.creator?.user_id?.username.substring(0, 18)}...`
-                    : singlCourse?.creator?.user_id?.username}
-                </b>
+                Created By <b>{singlCourse?.creator?.user_id?.username}</b>
               </button>
               {window.innerWidth < 601 ? (
                 <>
