@@ -273,18 +273,10 @@ const SearchResultBody = () => {
   const handleChange = async (e) => {
     let filters = { ...filterData };
 
-    if (e.target.name === 'mode') {
-      if (filters[e.target.name].includes(e.target.value)) {
-        filters[e.target.name] = [];
-      } else {
-        filters[e.target.name] = [e.target.value];
-      }
+    if (filters[e.target.name].includes(e.target.value)) {
+      filters[e.target.name] = filters[e.target.name].filter((a) => a !== e.target.value);
     } else {
-      if (filters[e.target.name].includes(e.target.value)) {
-        filters[e.target.name] = filters[e.target.name].filter((a) => a !== e.target.value);
-      } else {
-        filterData[e.target.name].push(e.target.value);
-      }
+      filterData[e.target.name].push(e.target.value);
     }
 
     setFilterData(filters);
