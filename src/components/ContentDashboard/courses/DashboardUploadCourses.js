@@ -9,6 +9,7 @@ import api from '../../../api';
 import { Link } from 'react-router-dom';
 import { Store, UpdateStore } from '../../../StoreContext';
 import DeleteFullCoursePopup from '../../PopupForms/DeleteFullCoursePopup';
+import DeleteDraft from '../../PopupForms/DeleteDraft';
 import EditCoursePopup from '../../PopupForms/EditCoursePopup';
 import NudityPopup from '../../PopupForms/NudityPopup';
 const calTotalSecInVideos = (videos) => {
@@ -31,14 +32,19 @@ const calTotalSecInVideos = (videos) => {
 };
 const formated = (date) => {
   const newDate = new Date(date);
-  let format = `D: ${newDate.getMonth() + 1}/${newDate.getDay() + 3}/${newDate.getFullYear()}`;
+  let format = `D: ${newDate.getMonth() + 1}/${
+    newDate.getDay() + 3
+  }/${newDate.getFullYear()}`;
   return format;
 };
-const DashboardUploadCourses = ({ pageName }) => {
+const DashboardUploadCourses = ({ pageName, setStep, setcreateCourse }) => {
   const updateStore = UpdateStore();
   const [openDeletePopup, setOpenDeletePopup] = useState(false);
+
   const [openEditPopup, setOpenEditePopup] = useState(false);
   const [courseforDelete, setCourseForDelete] = useState('');
+  const [openDeleteDraftPopup, setOpenDeleteDraftPopup] = useState(false);
+  const [draftforDelete, setDraftForDelete] = useState('');
   const [courseforEdit, setCourseForEdit] = useState({
     course_name: '',
     selectedGamename: '',
@@ -46,19 +52,27 @@ const DashboardUploadCourses = ({ pageName }) => {
     gameType: '',
     gameMood: '',
     gamePlateForm: '',
-    description: '',
+    description: ''
   });
   const [nudityPop, setNudityPop] = React.useState(false);
-  const { creator } = Store();
+  const { creator, draft, contentDashboardButton, singleDraft } = Store();
   useEffect(() => {
     getCreator();
-  }, [openDeletePopup, openEditPopup]);
+    getDraft();
+  }, [openDeletePopup, openEditPopup, openDeleteDraftPopup]);
 
   const getCreator = async () => {
     let res = await api('get', `/creators/${creator?._id}`);
 
     if (res) {
       updateStore({ creator: res?.data?.creator });
+    }
+  };
+  const getDraft = async () => {
+    let res = await api('get', `/draft/${creator?._id}`);
+
+    if (res) {
+      updateStore({ draft: res?.data?.drafts });
     }
   };
 
@@ -94,6 +108,12 @@ const DashboardUploadCourses = ({ pageName }) => {
     var date = new Date(d);
     return moment(date).fromNow();
   };
+  const hanldleDeleteDraft = (e, item) => {
+    e.stopPropagation();
+    // e.nativeEvent.stopImmediatePropagation();
+    setDraftForDelete(item);
+    setOpenDeleteDraftPopup(true);
+  };
   return (
     <>
       <NudityPopup nudityPop={nudityPop} setNudityPop={setNudityPop} />
@@ -102,14 +122,23 @@ const DashboardUploadCourses = ({ pageName }) => {
         setOpen={setOpenDeletePopup}
         course={courseforDelete}
       />
-      <EditCoursePopup open={openEditPopup} setOpen={setOpenEditePopup} course={courseforEdit} />
+      <DeleteDraft
+        open={openDeleteDraftPopup}
+        setOpen={setOpenDeleteDraftPopup}
+        draft={draftforDelete}
+      />
+      <EditCoursePopup
+        open={openEditPopup}
+        setOpen={setOpenEditePopup}
+        course={courseforEdit}
+      />
       <Grid
         className="cardGrid-container"
         container
         spacing={{ xs: 1, md: 1, lg: 0 }}
         columns={{ xs: 12, sm: 12, md: 12, lg: 12 }}
       >
-        {pageName === 'publish' ? (
+        {pageName === 'publish' && (
           <>
             {creator?.courses
               ?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
@@ -119,7 +148,7 @@ const DashboardUploadCourses = ({ pageName }) => {
                     <Link
                       to={{
                         pathname: `OverView/${item?._id}`,
-                        state: { course: `${item}` },
+                        state: { course: `${item}` }
                       }}
                       className="requestBt"
                       style={{ textDecoration: 'none', color: 'white' }}
@@ -183,13 +212,24 @@ const DashboardUploadCourses = ({ pageName }) => {
                     </p> */}
                     <p className="latestcoursep1">
                       {' '}
-                      {item?.rating === 0 ? item?.rating + '.0' : item?.rating} &nbsp;
+                      {item?.rating === 0
+                        ? item?.rating + '.0'
+                        : item?.rating}{' '}
+                      &nbsp;
                       {[1, 2, 3, 4, 5].map((item) => (
                         <Star1 className="star-icon" />
                       ))}
-                      &nbsp; {`(${item?.student?.length > 0 ? item?.student?.length : ` 0 `})`}
+                      &nbsp;{' '}
+                      {`(${
+                        item?.student?.length > 0
+                          ? item?.student?.length
+                          : ` 0 `
+                      })`}
                     </p>
-                    <h6 className="dashboardlatestcourseh6" style={{ display: 'inline-block' }}>
+                    <h6
+                      className="dashboardlatestcourseh6"
+                      style={{ display: 'inline-block' }}
+                    >
                       {item?.videos && secondToTime(item?.videos[0]?.duration)}
                       {' min'}
                       &nbsp; | &nbsp; {getDateIs(item?.createdAt)}
@@ -213,17 +253,145 @@ const DashboardUploadCourses = ({ pageName }) => {
                 </Grid>
               ))}{' '}
           </>
-        ) : (
-          <div className="request-data">
-            {/* <button
-              onClick={() => {
-                setNudityPop(true);
-              }}
-            >
-              click me
-            </button> */}
-            <p className="request-data-p">{pageName} course not available </p>
-          </div>
+        )}
+
+        {pageName === 'draft' && (
+          <>
+            {draft.length >= 1 ? (
+              <>
+                {draft
+                  ?.sort(
+                    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+                  )
+                  .map((item) => (
+                    <Grid
+                      item
+                      xs={12}
+                      sm={12}
+                      md={4}
+                      lg={3}
+                      className="card_grids"
+                    >
+                      <div className="cardGrid-dashboard">
+                        <div
+                          // to={
+                          //   {
+                          //     // pathname: `OverView/${item?._id}`,
+                          //     // state: { course: `${item}` }
+                          //   }
+                          // }
+                          className="requestBt"
+                          style={{ textDecoration: 'none', color: 'white' }}
+                        >
+                          <div
+                            className="favourite-icon-position2"
+                            // onClick={() => {
+                            //   console.log('aaaa');
+                            //   setcreateCourse(true);
+                            //   updateStore({ contentDashboardButton: '' });
+                            // }}
+                          >
+                            <img
+                              src={item?.thumbnail ? item.thumbnail : Course1}
+                              className="courseimg"
+                              alt="img"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="dashbordHeading-div">
+                          <h5 className="latestcourseh5">
+                            {item?.course_name
+                              ? item.course_name.length > 20
+                                ? `${item.course_name.substring(0, 18)}...`
+                                : item.course_name
+                              : 'Fight Course'}
+                            {/* {item?.course_name ? item?.course_name : ''} */}
+                          </h5>
+                          <div className="dashbordIconsDiv">
+                            {pageName === 'publish' || pageName === 'draft' ? (
+                              <>
+                                <img
+                                  className="editIcon1"
+                                  style={{ cursor: 'Pointer' }}
+                                  src={EditIcon}
+                                  alt=""
+                                  // onClick={(e) => hanldleEditCourse(e, item)}
+                                  onClick={() => {
+                                    setcreateCourse(true);
+                                    updateStore({ contentDashboardButton: '' });
+                                    setStep(item?.step);
+                                    updateStore({ singleDraft: item });
+                                  }}
+                                />
+                                &nbsp;&nbsp;&nbsp;
+                                <img
+                                  className="deleteIcon1"
+                                  style={{ cursor: 'Pointer' }}
+                                  src={DeleteIcon}
+                                  alt=""
+                                  onClick={(e) => hanldleDeleteDraft(e, item)}
+                                />
+                              </>
+                            ) : (
+                              <></>
+                            )}
+                          </div>
+                        </div>
+
+                        <p className="latestcoursep1">
+                          {' '}
+                          {item?.rating === 0
+                            ? item?.rating + '.0'
+                            : item?.rating}{' '}
+                          &nbsp;
+                          {[1, 2, 3, 4, 5].map((item) => (
+                            <Star1 className="star-icon" />
+                          ))}
+                          &nbsp;{' '}
+                          {`(${
+                            item?.student?.length > 0
+                              ? item?.student?.length
+                              : ` 0 `
+                          })`}
+                        </p>
+                        <h6
+                          className="dashboardlatestcourseh6"
+                          style={{ display: 'inline-block' }}
+                        >
+                          {item?.videos &&
+                            secondToTime(item?.videos[0]?.duration)}
+                          {' min'}
+                          &nbsp; | &nbsp; {getDateIs(item?.createdAt)}
+                        </h6>
+                        {/* <p
+                    className="dashboardlatestcourseh6"
+                    style={{
+                      display: "inline-block",
+                      marginLeft: "auto",
+                      float: "right",
+                      opacity: "0.5",
+                    }}
+                  >
+                    {pageName === "publish" || pageName === "draft" ? (
+                      <> {formated(item?.createdAt)}</>
+                    ) : (
+                      <img src={IIcon} alt="" />
+                    )}
+                  </p> */}
+                      </div>
+                    </Grid>
+                  ))}
+              </>
+            ) : (
+              <h1>No Drafts available </h1>
+            )}
+          </>
+        )}
+        {pageName != 'publish' && pageName != 'draft' && (
+          <>
+            <h1>not available</h1>
+          </>
         )}
       </Grid>
     </>

@@ -12,6 +12,8 @@ import { Store, UpdateStore } from '../../StoreContext';
 import MyProfileData from '../UserProfile/MyProfileData';
 import Setting from '../UserDashboard/Setting';
 const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
+  const [step, setStep] = useState(1);
+  const [singleDraft, setSingleDraft] = useState('');
   const { contentDashboardButton } = Store();
   const [activeUploadButton, setActiveUploadButton] = useState(1);
 
@@ -23,7 +25,10 @@ const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
     <>
       {contentDashboardButton === 'Courses' ? (
         <Box className="upload-courses-container">
-          <CreateYourCourse setcreateCourse={setcreateCourse} />
+          <CreateYourCourse
+            setcreateCourse={setcreateCourse}
+            setStep={setStep}
+          />
           <Box>
             <div className="uploadBtnDiv">
               <h2
@@ -47,7 +52,7 @@ const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
               {/* &nbsp; &nbsp;
               <h2
                 className={`
-             ${activeUploadButton == 3 && "ActiveLine"} 
+             ${activeUploadButton == 3 && 'ActiveLine'} 
              upload-courses-headings`}
                 onClick={() => handleActiveUploadButton(3)}
               >
@@ -56,7 +61,7 @@ const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
               &nbsp; &nbsp;
               <h2
                 className={`
-             ${activeUploadButton == 4 && "ActiveLine"} 
+             ${activeUploadButton == 4 && 'ActiveLine'} 
              upload-courses-headings`}
                 onClick={() => handleActiveUploadButton(4)}
               >
@@ -65,7 +70,7 @@ const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
               &nbsp; &nbsp;
               <h2
                 className={`
-             ${activeUploadButton == 5 && "ActiveLine"} 
+             ${activeUploadButton == 5 && 'ActiveLine'} 
              upload-courses-headings`}
                 onClick={() => handleActiveUploadButton(5)}
               >
@@ -74,17 +79,27 @@ const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
               &nbsp; &nbsp; */}
             </div>
             {/* <h1 className="upload-courses-heading"> My Uploaded Courses</h1> */}
-            {activeUploadButton == 1 ? <DashboardUploadCourses pageName={'publish'} /> : null}
-            {activeUploadButton == 2 ? <DashboardUploadCourses pageName={'draft'} /> : null}
-            {/* {activeUploadButton == 3 ? <DashboardUploadCourses pageName={'Not Approve'} /> : null} */}
-            {/* {activeUploadButton == 4 ? (
+            {activeUploadButton == 1 ? (
+              <DashboardUploadCourses pageName={'publish'} />
+            ) : null}
+            {activeUploadButton == 2 ? (
+              <DashboardUploadCourses
+                pageName={'draft'}
+                setStep={setStep}
+                setcreateCourse={setcreateCourse}
+              />
+            ) : null}
+            {activeUploadButton == 3 ? (
+              <DashboardUploadCourses pageName={'Not Approve'} />
+            ) : null}
+            {activeUploadButton == 4 ? (
               <DashboardUploadCourses pageName={'Under Evalution'} />
-            ) : null} */}
-            {/* {activeUploadButton == 5 ? (
+            ) : null}
+            {activeUploadButton == 5 ? (
               <div className="request-data">
                 <p className="request-data-p">No data to display</p>
               </div>
-            ) : null} */}
+            ) : null}{' '}
             {/* {activeUploadButton == 6 ? (
               <>
                 <button style={{ color: "#fff" }}>Commitng Soon</button>
@@ -93,7 +108,9 @@ const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
           </Box>
         </Box>
       ) : null}
-      {contentDashboardButton == '' && createCourse && <CreateCourseForm />}
+      {contentDashboardButton == '' && createCourse && (
+        <CreateCourseForm step={step} setStep={setStep} />
+      )}
       {/* {defaultCompState === "Performance" ? <Performance /> : null}
       {defaultCompState === "Earning" ? <Earning /> : null} */}
       {contentDashboardButton === 'Setting' ? <Setting /> : null}

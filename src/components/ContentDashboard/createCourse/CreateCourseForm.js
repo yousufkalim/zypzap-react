@@ -6,8 +6,7 @@ import FormStepFour from './FormStepFour';
 import FormStepFive from './FormStepFive';
 import FormStepSix from './FormStepSix';
 import { Store, UpdateStore } from '../../../StoreContext';
-const CreateCourseForm = () => {
-  const [step, setStep] = useState(1);
+const CreateCourseForm = ({ step, setStep }) => {
   const [formDataOne, setformDataOne] = useState({
     course_name: '',
     gameName: '',
@@ -16,12 +15,36 @@ const CreateCourseForm = () => {
     gameType: '',
     gameMood: '',
     gamePlateForm: '',
-    description: '',
+    description: ''
   });
   const [formDataTwo, setformDataTwo] = useState([]);
   const [formDataFive, setformDataFive] = useState([]);
-  const [formDataSix, setformDataSix] = useState();
-  const { creator } = Store();
+  const [formDataSix, setformDataSix] = useState('');
+  const [uploading, setUploading] = useState(false);
+  const { creator, singleDraft } = Store();
+  // console.log('formDataOne', formDataOne);
+  // console.log('formDataTwo', formDataTwo);
+  // console.log('formDataFive', formDataFive);
+  // console.log('formDataSix', formDataSix);
+
+  useEffect(() => {
+    console.log('useefect singleDraft', singleDraft, step);
+    setformDataOne({
+      course_name: singleDraft?.course_name ? singleDraft?.course_name : '',
+      selectedGamename: singleDraft?.selectedGamename
+        ? singleDraft?.selectedGamename
+        : '',
+      gameLevel: singleDraft?.level ? singleDraft?.level : '',
+      gameType: singleDraft?.gameType ? singleDraft?.gameType : '',
+      gameMood: singleDraft?.mode ? singleDraft?.mode : '',
+      gamePlateForm: singleDraft?.plateform ? singleDraft?.plateform : '',
+      description: singleDraft?.description ? singleDraft?.description : ''
+    });
+    setformDataFive(singleDraft?.videos ? singleDraft?.videos : []);
+    setformDataSix(singleDraft?.thumbnail ? singleDraft?.thumbnail : '');
+    setUploading(singleDraft?.thumbnail ? true : false);
+    setformDataTwo(singleDraft?.formDataTwo ? singleDraft?.formDataTwo : []);
+  }, []);
 
   return (
     <>
@@ -40,17 +63,19 @@ const CreateCourseForm = () => {
             step={step}
             setStep={setStep}
             formDataTwo={formDataTwo}
+            formDataOne={formDataOne}
             setformDataTwo={setformDataTwo}
           />
         )}
-        {step == 3 && <FormStepThree step={step} setStep={setStep} />}
-        {step == 4 && <FormStepFour step={step} setStep={setStep} />}
+        {/* {step == 3 && <FormStepThree step={step} setStep={setStep} />}
+        {step == 4 && <FormStepFour step={step} setStep={setStep} />} */}
         {step == 5 && (
           <FormStepFive
             step={step}
             setStep={setStep}
             formDataTwo={formDataTwo}
             setformDataTwo={setformDataTwo}
+            formDataOne={formDataOne}
             formDataFive={formDataFive}
             setformDataFive={setformDataFive}
           />
@@ -67,6 +92,9 @@ const CreateCourseForm = () => {
             setformDataFive={setformDataFive}
             setformDataSix={setformDataSix}
             creator={creator}
+            uploading={uploading}
+            setUploading={setUploading}
+            singleDraft={singleDraft}
           />
         )}
       </div>

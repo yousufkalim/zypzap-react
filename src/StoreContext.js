@@ -25,6 +25,8 @@ export function StoreProvider({ children }) {
     loggedIn: false,
     user: null,
     courses: [],
+    draft: [],
+    singleDraft: null,
     topRatedContentCreator: [],
     blogs: [],
     singleBlog: {},
@@ -36,7 +38,7 @@ export function StoreProvider({ children }) {
     Games: [],
     searchLoader: false,
     learner: true,
-    contentDashboardButton: 'Courses',
+    contentDashboardButton: 'Courses'
   });
 
   useEffect(() => {
@@ -67,7 +69,9 @@ export function StoreProvider({ children }) {
   return (
     <storeContext.Provider value={store}>
       <storeUpdateContext.Provider value={updateStore}>
-        <onlineStatusContext.Provider value={isConnected}>{children}</onlineStatusContext.Provider>
+        <onlineStatusContext.Provider value={isConnected}>
+          {children}
+        </onlineStatusContext.Provider>
       </storeUpdateContext.Provider>
     </storeContext.Provider>
   );

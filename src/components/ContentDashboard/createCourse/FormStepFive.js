@@ -5,9 +5,10 @@ import EditIcon from '../../../assets/icons/EditIcon.svg';
 import DeleteIcon from '../../../assets/icons/DeleteIcon.svg';
 import api from '../../../api';
 import { toast } from 'react-toastify';
-import { Store } from '../../../StoreContext';
+import { Store, UpdateStore } from '../../../StoreContext';
 import { CircularProgress } from '@material-ui/core';
 import DeleteEp from '../../PopupForms/DeleteEp';
+import { useHistory } from 'react-router-dom';
 
 const FormStepFive = ({
   step,
@@ -15,9 +16,12 @@ const FormStepFive = ({
   setformDataTwo,
   formDataTwo,
   formDataFive,
-  setformDataFive,
+  formDataOne,
+  setformDataFive
 }) => {
-  const { creator } = Store();
+  const { creator, singleDraft } = Store();
+  const history = useHistory();
+  const updateStore = UpdateStore();
   const [creatorId, setCreatorId] = useState(creator ? creator?._id : null);
   const [lodding, setlodding] = useState(false);
   const [fileToDelete, setFileToDelete] = useState({});
@@ -75,6 +79,35 @@ const FormStepFive = ({
     });
   };
 
+  const handleDraft = async () => {
+    let data = {
+      formDataOne,
+      formDataTwo,
+      formDataFive,
+      step,
+      id: creator._id
+    };
+    if (singleDraft) {
+      let res = await api('put', '/draft', {
+        ...data,
+        draftId: singleDraft?._id
+      });
+      if (res) {
+        // updateStore({ draft: res?.data });
+        updateStore({ contentDashboardButton: 'Courses' });
+        history.push('/dashboard');
+      }
+    } else {
+      let res = await api('post', '/draft', data);
+      if (res) {
+        updateStore({ draft: res?.data });
+        updateStore({ contentDashboardButton: 'Courses' });
+        history.push('/dashboard');
+        // setBtnState(2);
+      }
+    }
+  };
+
   return (
     <>
       <DeleteEp
@@ -105,7 +138,12 @@ const FormStepFive = ({
                   value={file?.name ? file.name : ''}
                   onChange={(e) => handleChange(e, index)}
                 />
-                <img className="editIcon" src={EditIcon} alt="" onClick={() => handleEdit(file)} />
+                <img
+                  className="editIcon"
+                  src={EditIcon}
+                  alt=""
+                  onClick={() => handleEdit(file)}
+                />
                 <img
                   className="deleteIcon"
                   src={DeleteIcon}
@@ -120,7 +158,7 @@ const FormStepFive = ({
           );
         })}
         <div className="coursDetailBtn">
-          <button disabled={lodding} className="drafBtn">
+          <button disabled={lodding} className="drafBtn" onClick={handleDraft}>
             Draft
           </button>
           <button
@@ -131,7 +169,11 @@ const FormStepFive = ({
           >
             Previous
           </button>
-          <button onClick={handleSubmit} disabled={lodding} className="continueBtn">
+          <button
+            onClick={handleSubmit}
+            disabled={lodding}
+            className="continueBtn"
+          >
             {lodding ? 'Loading' : 'Continue'}
           </button>
         </div>
@@ -143,7 +185,7 @@ const FormStepFive = ({
               position: 'absolute',
               top: '50%',
               left: '55%',
-              color: 'white',
+              color: 'white'
             }}
           />
         ) : (

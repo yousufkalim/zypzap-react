@@ -7,41 +7,57 @@ import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Autocomplete from '@mui/material/Autocomplete';
 import { gameApi } from '../../../config';
+import api from '../../../api';
+import { Store, UpdateStore } from '../../../StoreContext';
+import { useHistory } from 'react-router-dom';
 
+// let res = await api('post', '/courses', data);
 const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
+  const { creator, singleDraft } = Store();
+  const updateStore = UpdateStore();
+  const history = useHistory();
   const [values, setValues] = useState([]);
-  const { course_name, gameName, selectedGamename, gameLevel, gameType, gameMood, gamePlateForm, description } = formDataOne;
+  const {
+    course_name,
+    gameName,
+    selectedGamename,
+    gameLevel,
+    gameType,
+    gameMood,
+    gamePlateForm,
+    description
+  } = formDataOne;
 
   const chnageEvent = (e) => {
     setformDataOne({
       ...formDataOne,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
   const useStyles = makeStyles({
     customTextField: {
       '& input': { color: 'white' },
       '&:hover': {
-        border: 'red !important',
+        border: 'red !important'
       },
       '& input::placeholder': {
         color: 'white',
         '@media (max-width: 780px)': {
-          paddingLeft: '-2px',
-        },
-      },
+          paddingLeft: '-2px'
+        }
+      }
     },
     option: {
       background: '#242635 ',
       color: 'white',
       '&:hover': {
-        backgroundColor: '#9198a5 !important',
-      },
+        backgroundColor: '#9198a5 !important'
+      }
     },
     noOptions: {
       display: `${'inherit'}`,
-      color: 'white',
-    },
+      color: 'white'
+    }
   });
   const classes = useStyles();
 
@@ -62,7 +78,9 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
       return toast.error('Veuillez saisir votre mode de jeu');
     }
     if (gamePlateForm === '') {
-      return toast.error('Veuillez saisir le nom de votre forme de plateau de jeu');
+      return toast.error(
+        'Veuillez saisir le nom de votre forme de plateau de jeu'
+      );
     }
     if (description === '') {
       return toast.error('Veuillez entrer votre description');
@@ -75,12 +93,17 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
   const getAllGames = async (e) => {
     setformDataOne({
       ...formDataOne,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
 
-    const res = await axios.get(`https://api.rawg.io/api/games?key=${gameApi}=` + e.target.value + '&page=1&page_size=10', {
-      withCredentials: false,
-    });
+    const res = await axios.get(
+      `https://api.rawg.io/api/games?key=${gameApi}=` +
+        e.target.value +
+        '&page=1&page_size=10',
+      {
+        withCredentials: false
+      }
+    );
 
     var gamesToSet = res?.data?.results?.map((game) => {
       return game.name;
@@ -94,8 +117,30 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
     setformDataOne({
       ...formDataOne,
       ['selectedGamename']: value,
-      ['gameName']: value,
+      ['gameName']: value
     });
+  };
+  const handleDraft = async () => {
+    let data = { formDataOne, step, id: creator._id };
+    if (singleDraft) {
+      let res = await api('put', '/draft', {
+        ...data,
+        draftId: singleDraft?._id
+      });
+      if (res) {
+        // updateStore({ draft: res?.data });
+        updateStore({ contentDashboardButton: 'Courses' });
+        history.push('/dashboard');
+      }
+    } else {
+      let res = await api('post', '/draft', data);
+      if (res) {
+        updateStore({ draft: res?.data });
+        updateStore({ contentDashboardButton: 'Courses' });
+        history.push('/dashboard');
+        // setBtnState(2);
+      }
+    }
   };
   return (
     <>
@@ -127,7 +172,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
               <Grid xs={6} sm={6}>
                 <div style={{ marginTop: '4%' }}>
                   <p className="stepLabel">Game Category</p>
-                  <select id="gameType" name="gameType" className="stepSelect" value={gameType} onChange={chnageEvent}>
+                  <select
+                    id="gameType"
+                    name="gameType"
+                    className="stepSelect"
+                    value={gameType}
+                    onChange={chnageEvent}
+                  >
                     <option value="" className="setepOption">
                       Select Category
                     </option>
@@ -158,7 +209,10 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                     <option value="RPG" className="setepOption">
                       RPG
                     </option>
-                    <option value="Turn by Turn Strategy" className="setepOption">
+                    <option
+                      value="Turn by Turn Strategy"
+                      className="setepOption"
+                    >
                       Turn by Turn Strategy
                     </option>
                     <option value="Simulation" className="setepOption">
@@ -199,17 +253,26 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
                     options={values}
                     value={formDataOne.selectedGamename}
                     classes={{
-                      option: classes.option,
+                      option: classes.option
                     }}
                     id="controllable-states-demo"
                     className="coursInputAutofiled"
-                    noOptionsText={<div style={{ color: 'white', fontSize: '12px' }}> no option </div>}
-                    PaperComponent={({ children }) => <Paper style={{ background: '#242635' }}>{children}</Paper>}
+                    noOptionsText={
+                      <div style={{ color: 'white', fontSize: '12px' }}>
+                        {' '}
+                        no option{' '}
+                      </div>
+                    }
+                    PaperComponent={({ children }) => (
+                      <Paper style={{ background: '#242635' }}>
+                        {children}
+                      </Paper>
+                    )}
                     getOptionLabel={(option) => option || ''}
                     onChange={setGamefiled}
                     hiddenLabel="true"
                     style={{
-                      margin: 'auto',
+                      margin: 'auto'
                     }}
                     renderInput={(params) => (
                       <TextField
@@ -230,7 +293,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
               <Grid xs={6}>
                 <div>
                   <p className="stepLabel">Gaming Mode</p>
-                  <select id="gameMood" name="gameMood" className="stepSelect" value={gameMood} onChange={chnageEvent}>
+                  <select
+                    id="gameMood"
+                    name="gameMood"
+                    className="stepSelect"
+                    value={gameMood}
+                    onChange={chnageEvent}
+                  >
                     <option value="" className="setepOption">
                       Select Mode
                     </option>
@@ -250,7 +319,13 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
               <Grid xs={6}>
                 <div>
                   <p className="stepLabel">Gameplay Level</p>
-                  <select id="gameLevel" name="gameLevel" className="stepSelect" value={gameLevel} onChange={chnageEvent}>
+                  <select
+                    id="gameLevel"
+                    name="gameLevel"
+                    className="stepSelect"
+                    value={gameLevel}
+                    onChange={chnageEvent}
+                  >
                     <option value="" className="setepOption">
                       Select Level
                     </option>
@@ -323,7 +398,9 @@ const FormStepone = ({ step, setStep, formDataOne, setformDataOne }) => {
           onChange={chnageEvent}
         ></textarea>
         <div className="coursDetailBtn">
-          <button className="drafBtn">Draft</button>
+          <button className="drafBtn" onClick={handleDraft}>
+            Draft
+          </button>
           {/* <button
             className="drafBtn"
             style={{ background: "none", border: "1px solid #662F88" }}
