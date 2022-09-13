@@ -25,7 +25,10 @@ const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
     <>
       {contentDashboardButton === 'Courses' ? (
         <Box className="upload-courses-container">
-          <CreateYourCourse setcreateCourse={setcreateCourse} />
+          <CreateYourCourse
+            setcreateCourse={setcreateCourse}
+            setStep={setStep}
+          />
           <Box>
             <div className="uploadBtnDiv">
               <h2
@@ -97,7 +100,6 @@ const DashboardRightSideBar = ({ createCourse, setcreateCourse, creator }) => {
                 <p className="request-data-p">No data to display</p>
               </div>
             ) : null}{' '}
-            */}
             {/* {activeUploadButton == 6 ? (
               <>
                 <button style={{ color: "#fff" }}>Commitng Soon</button>

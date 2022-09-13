@@ -105,6 +105,7 @@ const FormStepTwo = ({
     setStep(5);
   };
   const handleDraft = async () => {
+    console.log('step on 2/4', step);
     let data = { formDataOne, formDataTwo, step, id: creator._id };
     if (singleDraft) {
       let res = await api('put', '/draft', {

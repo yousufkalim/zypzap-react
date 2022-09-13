@@ -75,7 +75,6 @@ const DashboardUploadCourses = ({ pageName, setStep, setcreateCourse }) => {
       updateStore({ draft: res?.data?.drafts });
     }
   };
-  console.log('draft', draft);
 
   const hanldleDeleteCourse = (e, item) => {
     e.stopPropagation();
@@ -274,7 +273,7 @@ const DashboardUploadCourses = ({ pageName, setStep, setcreateCourse }) => {
                       className="card_grids"
                     >
                       <div className="cardGrid-dashboard">
-                        <Link
+                        <div
                           // to={
                           //   {
                           //     // pathname: `OverView/${item?._id}`,
@@ -298,7 +297,7 @@ const DashboardUploadCourses = ({ pageName, setStep, setcreateCourse }) => {
                               alt="img"
                             />
                           </div>
-                        </Link>
+                        </div>
 
                         <div className="dashbordHeading-div">
                           <h5 className="latestcourseh5">

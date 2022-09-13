@@ -1,12 +1,12 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import createcourse from "../../../assets/img/createcourse.svg";
-import CreateACoursePopup from "../../PopupForms/CreateACoursePopup";
-import "../../../css/form/CreateACourse.css";
-import { Store, UpdateStore } from "../../../StoreContext";
+import React from 'react';
+import Box from '@mui/material/Box';
+import createcourse from '../../../assets/img/createcourse.svg';
+import CreateACoursePopup from '../../PopupForms/CreateACoursePopup';
+import '../../../css/form/CreateACourse.css';
+import { Store, UpdateStore } from '../../../StoreContext';
 // import Popover from "@mui/material/Popover";
 
-const CreateYourCourse = ({ setcreateCourse }) => {
+const CreateYourCourse = ({ setcreateCourse, setStep }) => {
   const { contentDashboardButton } = Store();
   const updateStore = UpdateStore();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -51,7 +51,8 @@ const CreateYourCourse = ({ setcreateCourse }) => {
               className="create-course-btn"
               onClick={() => {
                 setcreateCourse(true);
-                updateStore({ contentDashboardButton: "" });
+                updateStore({ contentDashboardButton: '' });
+                setStep(1);
               }}
             >
               Create Your Course

@@ -25,12 +25,15 @@ const FormStepsix = ({
   setformDataSix,
   formDataFive,
   setStep,
-  setformDataFive
+  setformDataFive,
+  setUploading,
+  uploading,
+  singleDraft
 }) => {
   const history = useHistory();
   const updateStore = UpdateStore();
-  const { creator, singleDraft } = Store();
-  const [uploading, setUploading] = useState(false);
+  const { creator } = Store();
+
   const [btnState, setBtnState] = useState(0);
   const [opens, setOpens] = useState(false);
   const [imgUrl, setImgUrl] = useState('');
@@ -40,6 +43,7 @@ const FormStepsix = ({
   //   setformDataSix(file);
   //   setUploading(true);
   // };
+
   const handleSubmitImage = async (e) => {
     e.preventDefault();
     setBtnState(3);
@@ -83,10 +87,12 @@ const FormStepsix = ({
   };
 
   const handleSubmitCourse = async () => {
-    if (imgUrl == '') {
+    if (formDataSix == '') {
       return toast.error('Veuillez entrer la vignette du cours');
     }
-
+    if (singleDraft) {
+      let res = await api('delete', `/draft/${singleDraft._id}`);
+    }
     setBtnState(1);
 
     let data = { formDataOne, formDataFive, formDataSix, id: creator._id };
@@ -115,7 +121,6 @@ const FormStepsix = ({
   const handleClose = () => {
     setOpens(false);
   };
-
   const handleDraft = async () => {
     let data = {
       formDataOne,
@@ -193,9 +198,15 @@ const FormStepsix = ({
             </Grid>
           </div>
         ) : (
-          <p className="success">
-            Thumbnail Uploaded Successfully, Now Submit Course
-          </p>
+          <>
+            <button className="continueBtn" onClick={() => setUploading(false)}>
+              Update Thumbnail
+            </button>
+
+            <p className="success">
+              Thumbnail Uploaded Successfully, Now Submit Course
+            </p>
+          </>
         )}
 
         <div className="coursDetailBtn">

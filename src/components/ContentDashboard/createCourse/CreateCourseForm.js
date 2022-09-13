@@ -19,15 +19,16 @@ const CreateCourseForm = ({ step, setStep }) => {
   });
   const [formDataTwo, setformDataTwo] = useState([]);
   const [formDataFive, setformDataFive] = useState([]);
-  const [formDataSix, setformDataSix] = useState();
+  const [formDataSix, setformDataSix] = useState('');
+  const [uploading, setUploading] = useState(false);
   const { creator, singleDraft } = Store();
-  console.log('formDataOne', formDataOne);
-  console.log('formDataTwo', formDataTwo);
-  console.log('formDataFive', formDataFive);
-  console.log('formDataSix', formDataSix);
+  // console.log('formDataOne', formDataOne);
+  // console.log('formDataTwo', formDataTwo);
+  // console.log('formDataFive', formDataFive);
+  // console.log('formDataSix', formDataSix);
 
   useEffect(() => {
-    console.log('useefect singleDraft', singleDraft);
+    console.log('useefect singleDraft', singleDraft, step);
     setformDataOne({
       course_name: singleDraft?.course_name ? singleDraft?.course_name : '',
       selectedGamename: singleDraft?.selectedGamename
@@ -40,6 +41,9 @@ const CreateCourseForm = ({ step, setStep }) => {
       description: singleDraft?.description ? singleDraft?.description : ''
     });
     setformDataFive(singleDraft?.videos ? singleDraft?.videos : []);
+    setformDataSix(singleDraft?.thumbnail ? singleDraft?.thumbnail : '');
+    setUploading(singleDraft?.thumbnail ? true : false);
+    setformDataTwo(singleDraft?.formDataTwo ? singleDraft?.formDataTwo : []);
   }, []);
 
   return (
@@ -71,6 +75,7 @@ const CreateCourseForm = ({ step, setStep }) => {
             setStep={setStep}
             formDataTwo={formDataTwo}
             setformDataTwo={setformDataTwo}
+            formDataOne={formDataOne}
             formDataFive={formDataFive}
             setformDataFive={setformDataFive}
           />
@@ -87,6 +92,9 @@ const CreateCourseForm = ({ step, setStep }) => {
             setformDataFive={setformDataFive}
             setformDataSix={setformDataSix}
             creator={creator}
+            uploading={uploading}
+            setUploading={setUploading}
+            singleDraft={singleDraft}
           />
         )}
       </div>
