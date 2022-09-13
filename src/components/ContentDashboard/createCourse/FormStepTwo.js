@@ -30,6 +30,17 @@ const FormStepTwo = ({
   const updateStore = UpdateStore();
   const history = useHistory();
 
+  const getVideoDuration = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const media = new Audio(reader.result);
+        media.onloadedmetadata = () => resolve(media.duration);
+      };
+      reader.readAsDataURL(file);
+      reader.onerror = (error) => reject(error);
+    });
+
   const handleSubmit = async (file) => {
     // e.preventDefault();
     const files = file.target.files;
@@ -47,7 +58,7 @@ const FormStepTwo = ({
       if (aborted) {
         break;
       }
-
+      const duration = await getVideoDuration(files[i]);
       var filename = files[i].name;
       if (!filename.match(/\.(mp4|mpeg|mov)$/)) {
         toast.error(
@@ -68,7 +79,12 @@ const FormStepTwo = ({
             setProgress
           );
           setImgUrl(...imgUrl, url);
-          const fileData = { name: files[i].name, path: url, file: files[i] };
+          const fileData = {
+            name: files[i].name,
+            path: url,
+            file: files[i],
+            duration: duration?.toFixed(2)
+          };
 
           newArray = [...newArray, fileData];
           setformDataTwo(newArray);
@@ -85,6 +101,7 @@ const FormStepTwo = ({
 
     file.target.value = '';
   };
+  console.log('formDatatwo with dur', formDataTwo);
 
   // const handleClick = () => {};
   const handleActiveUploadButton = (i) => {

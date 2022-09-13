@@ -301,7 +301,12 @@ const DashboardUploadCourses = ({ pageName, setStep, setcreateCourse }) => {
 
                         <div className="dashbordHeading-div">
                           <h5 className="latestcourseh5">
-                            {item?.course_name ? item?.course_name : ''}
+                            {item?.course_name
+                              ? item.course_name.length > 20
+                                ? `${item.course_name.substring(0, 18)}...`
+                                : item.course_name
+                              : 'Fight Course'}
+                            {/* {item?.course_name ? item?.course_name : ''} */}
                           </h5>
                           <div className="dashbordIconsDiv">
                             {pageName === 'publish' || pageName === 'draft' ? (
