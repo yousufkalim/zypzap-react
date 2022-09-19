@@ -25,7 +25,7 @@ const ProtectedRoutes = () => {
 
   return (
     <>
-      {localStorage.token && user ? (
+      {localStorage.token && user && (
         <>
           {creator ? (
             <Switch>
@@ -42,8 +42,6 @@ const ProtectedRoutes = () => {
             </Switch>
           )}
         </>
-      ) : (
-        <>{<Redirect to="/home" />}</>
       )}
     </>
   );
