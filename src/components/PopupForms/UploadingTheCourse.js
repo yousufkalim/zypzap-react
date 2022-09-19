@@ -35,7 +35,8 @@ const UploadingTheCourse = ({
   uploading,
   setUploading,
   mbPerSecond,
-  timeUploadRemaining
+  timeUploadRemaining,
+  setvideouploaded
 }) => {
   const [showPopup, setShowPopup] = useState(false);
   const isConnected = OnlineStatus();
@@ -67,6 +68,7 @@ const UploadingTheCourse = ({
       <UploadCancalled
         open={showPopup}
         setOpen={setShowPopup}
+        setvideouploaded={setvideouploaded}
         // setProgress={setProgress}
         // setUploading={setUploading}
       />

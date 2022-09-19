@@ -4,7 +4,13 @@ import '../../css/form/UploadSuccessfulPopup.css';
 import UploadSuccessLog from '../../assets/icons/UploadSuccessLog.svg';
 import UploadedEpisodePopup from './UploadedEpisodePopup';
 
-const UploadCancalled = ({ open, setOpen, setUploading, setProgress }) => {
+const UploadCancalled = ({
+  open,
+  setOpen,
+  setUploading,
+  setProgress,
+  setvideouploaded
+}) => {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
 
   const handleClick = () => {
@@ -13,6 +19,7 @@ const UploadCancalled = ({ open, setOpen, setUploading, setProgress }) => {
   };
   const handleClose = () => {
     setOpen(false);
+    setvideouploaded(true);
     // setUploading(false);
     // setProgress(0);
   };
