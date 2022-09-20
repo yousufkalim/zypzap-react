@@ -10,13 +10,7 @@ import { uploadVideo } from '../../../utils/uploadMedia';
 import { controller } from '../../../utils/uploadMedia';
 import { useHistory } from 'react-router-dom';
 
-const FormStepTwo = ({
-  step,
-  setStep,
-  formDataOne,
-  formDataTwo,
-  setformDataTwo
-}) => {
+const FormStepTwo = ({ step, setStep, formDataOne, formDataTwo, setformDataTwo }) => {
   const [open, setOpen] = React.useState(false);
   const [progress, setProgress] = useState(0);
   const [opens, setOpens] = React.useState(false);
@@ -61,9 +55,7 @@ const FormStepTwo = ({
       const duration = await getVideoDuration(files[i]);
       var filename = files[i].name;
       if (!filename.match(/\.(mp4|mpeg|mov)$/)) {
-        toast.error(
-          'Please select video files. Only video files will be uploaded'
-        );
+        toast.error('Please select video files. Only video files will be uploaded');
         setUploading(false);
         setProgress(0);
         setOpen(false);
@@ -83,7 +75,7 @@ const FormStepTwo = ({
             name: files[i].name,
             path: url,
             file: files[i],
-            duration: duration?.toFixed(2)
+            duration: duration?.toFixed(2),
           };
 
           newArray = [...newArray, fileData];
@@ -127,7 +119,7 @@ const FormStepTwo = ({
     if (singleDraft) {
       let res = await api('put', '/draft', {
         ...data,
-        draftId: singleDraft?._id
+        draftId: singleDraft?._id,
       });
       if (res) {
         // updateStore({ draft: res?.data });
@@ -189,11 +181,7 @@ const FormStepTwo = ({
                 <div className="step_container2">
                   <div className="step1">
                     <p className="stapPr">Upload Full Course</p>
-                    <VideoInput
-                      id="1"
-                      text="Select Video"
-                      onChange={handleSubmit}
-                    />
+                    <VideoInput id="1" text="Select Video" onChange={handleSubmit} />
                   </div>
                   <p className="step_or" onClick={() => setOpens(true)}>
                     or
@@ -209,9 +197,7 @@ const FormStepTwo = ({
                 </div>
               </Grid>
             ) : (
-              <p className="success">
-                Video Uploaded Successfully, Please Continue!
-              </p>
+              <p className="success">Video Uploaded Successfully, Please Continue!</p>
             )}
           </>
         ) : (
@@ -225,8 +211,8 @@ const FormStepTwo = ({
             Draft
           </button>
           <button
-            className="drafBtn"
-            style={{ background: 'none', border: '1px solid #662F88' }}
+            className="draftBtn1"
+            style={{ border: '1px solid #662F88' }}
             onClick={() => setStep(1)}
           >
             Previous

@@ -114,18 +114,26 @@
   padding: 20px 150px;
 }
 
-.drafBtn {
+.drafBtn,.draftBtn1 {
   font-family: 'mulish' !important;
   padding: 8px 25px;
   border: none;
   margin: 10px 13px 30px 0px;
-  background-color: #28293b;
+  background-color: #28293b  !important;
   color: white;
   font-weight: 600;
   font-family: 'Poppins';
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+}
+
+.draftBtn1{
+  background-color: #1E1E38  !important;
+}
+.draftBtn1:hover{
+  background-color: #222240  !important;
+
 }
 .continueBtn {
   font-family: 'mulish' !important;
