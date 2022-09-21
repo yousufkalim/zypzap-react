@@ -37,6 +37,10 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
     });
   }, [index]);
 
+  useEffect(() => {
+    handlePlayedVideo();
+  }, [playVideo]);
+
   const handleNext = () => {
     setPlayVideo(videos[index + 1]);
     setIndex(index + 1);
@@ -45,6 +49,10 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
   const handlePrev = () => {
     setPlayVideo(videos[index - 1]);
     setIndex(index - 1);
+  };
+
+  const handlePlayedVideo = async () => {
+    await api('get', `/users/video-played/${user._id}/${singlCourse._id}/${playVideo._id}`);
   };
 
   return (
@@ -93,12 +101,7 @@ const CompleteCourse = ({ singlCourse, setShowRatingPopup }) => {
                 {index < 1 ? (
                   <img src={prevD} alt="prev" />
                 ) : (
-                  <img
-                    src={next}
-                    style={{ transform: 'rotateY(180deg)' }}
-                    onClick={handlePrev}
-                    alt="prev"
-                  />
+                  <img src={next} style={{ transform: 'rotateY(180deg)' }} onClick={handlePrev} alt="prev" />
                 )}
                 {index !== videos.length - 1 ? (
                   <img src={next} onClick={handleNext} alt="next" />
@@ -183,11 +186,7 @@ const LiDAta = ({ clip, videoCount, setPlayVideo, value, index, setIndex }) => {
         className="completeCourse-playVideo"
         onMouseOver={(event) => event.target.play()}
         onMouseOut={(event) => event.target.pause()}
-        src={
-          clip?.src_url
-            ? clip.src_url
-            : 'https://pass-to-trip.s3.eu-west-3.amazonaws.com/1647410128211'
-        }
+        src={clip?.src_url ? clip.src_url : 'https://pass-to-trip.s3.eu-west-3.amazonaws.com/1647410128211'}
       ></video>
       <div className="playVideoHeading">
         <h3 className="playVideoH3">
