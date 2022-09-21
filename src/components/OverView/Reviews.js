@@ -75,7 +75,8 @@ const Reviews = (props) => {
     if (totalCount === 0) {
       percentage = 0;
     } else {
-      percentage = ((Star / totalCount) * 100).toFixed(0);
+      percentage = (Star / totalCount) * 100;
+      percentage = parseInt(percentage);
     }
 
     return percentage;

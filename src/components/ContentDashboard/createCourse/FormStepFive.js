@@ -17,7 +17,7 @@ const FormStepFive = ({
   formDataTwo,
   formDataFive,
   formDataOne,
-  setformDataFive
+  setformDataFive,
 }) => {
   const { creator, singleDraft } = Store();
   const history = useHistory();
@@ -85,12 +85,12 @@ const FormStepFive = ({
       formDataTwo,
       formDataFive,
       step,
-      id: creator._id
+      id: creator._id,
     };
     if (singleDraft) {
       let res = await api('put', '/draft', {
         ...data,
-        draftId: singleDraft?._id
+        draftId: singleDraft?._id,
       });
       if (res) {
         // updateStore({ draft: res?.data });
@@ -138,12 +138,7 @@ const FormStepFive = ({
                   value={file?.name ? file.name : ''}
                   onChange={(e) => handleChange(e, index)}
                 />
-                <img
-                  className="editIcon"
-                  src={EditIcon}
-                  alt=""
-                  onClick={() => handleEdit(file)}
-                />
+                <img className="editIcon" src={EditIcon} alt="" onClick={() => handleEdit(file)} />
                 <img
                   className="deleteIcon"
                   src={DeleteIcon}
@@ -162,18 +157,14 @@ const FormStepFive = ({
             Draft
           </button>
           <button
-            className="drafBtn"
+            className="draftBtn1"
             disabled={lodding}
             style={{ background: 'none', border: '1px solid #662F88' }}
             onClick={() => setStep(2)}
           >
             Previous
           </button>
-          <button
-            onClick={handleSubmit}
-            disabled={lodding}
-            className="continueBtn"
-          >
+          <button onClick={handleSubmit} disabled={lodding} className="continueBtn">
             {lodding ? 'Loading' : 'Continue'}
           </button>
         </div>
@@ -185,7 +176,7 @@ const FormStepFive = ({
               position: 'absolute',
               top: '50%',
               left: '55%',
-              color: 'white'
+              color: 'white',
             }}
           />
         ) : (

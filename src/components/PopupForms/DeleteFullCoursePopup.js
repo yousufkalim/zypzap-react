@@ -25,11 +25,7 @@ const DeleteFullCoursePopup = ({ open, setOpen, course }) => {
   };
   return (
     <div>
-      <DeletedFullCoursePopup
-        open={showDeletePopup}
-        setOpen={setShowDeletePopup}
-        course={course}
-      />
+      <DeletedFullCoursePopup open={showDeletePopup} setOpen={setShowDeletePopup} course={course} />
 
       <Dialog
         open={open}
