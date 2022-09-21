@@ -7,7 +7,6 @@ import UploadingTheCourse from '../../PopupForms/UploadingTheCourse';
 import { toast } from 'react-toastify';
 import { Store, UpdateStore } from '../../../StoreContext';
 import { uploadVideo } from '../../../utils/uploadMedia';
-import { controller } from '../../../utils/uploadMedia';
 import { useHistory } from 'react-router-dom';
 
 const FormStepTwo = ({ step, setStep, formDataOne, formDataTwo, setformDataTwo }) => {
@@ -43,8 +42,8 @@ const FormStepTwo = ({ step, setStep, formDataOne, formDataTwo, setformDataTwo }
     let newArray = ([] = formDataTwo);
 
     let aborted = false;
-
-    controller.signal.addEventListener('abort', () => {
+    window.controller = new AbortController();
+    window.controller.signal.addEventListener('abort', () => {
       aborted = true;
     });
 
@@ -93,7 +92,6 @@ const FormStepTwo = ({ step, setStep, formDataOne, formDataTwo, setformDataTwo }
 
     file.target.value = '';
   };
-  console.log('formDatatwo with dur', formDataTwo);
 
   // const handleClick = () => {};
   const handleActiveUploadButton = (i) => {
@@ -210,11 +208,7 @@ const FormStepTwo = ({ step, setStep, formDataOne, formDataTwo, setformDataTwo }
           <button className="drafBtn" onClick={handleDraft}>
             Draft
           </button>
-          <button
-            className="draftBtn1"
-            style={{ border: '1px solid #662F88' }}
-            onClick={() => setStep(1)}
-          >
+          <button className="draftBtn1" style={{ border: '1px solid #662F88' }} onClick={() => setStep(1)}>
             Previous
           </button>
           <button onClick={handleVideo} className="continueBtn">

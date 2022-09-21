@@ -30,10 +30,9 @@ export const uploadVideoAsThumbnail = (formData, dir) => {
   });
 };
 
-export let controller = new AbortController();
-
 export const uploadVideo = async (file, creator, setVideoName, setOpens, setmbPerSecond, setTimeUploadRemaining, setProgress) => {
   if (!file) return;
+  //   controller = new AbortController();
 
   return new Promise(async (resolve, reject) => {
     setVideoName(file.name);
@@ -50,8 +49,8 @@ export const uploadVideo = async (file, creator, setVideoName, setOpens, setmbPe
     let speed = 0;
 
     try {
-      controller.signal.addEventListener('abort', () => {
-        reject();
+      window.controller.signal.addEventListener('abort', () => {
+        return reject();
       });
 
       const response = await axios.post(`${mediaServerUrl}/uploads/videos/${creator}`, formData, {
